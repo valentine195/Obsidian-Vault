@@ -1,0 +1,4 @@
+#Item 
+#Minor 
+#Uncommon 
+#Given
