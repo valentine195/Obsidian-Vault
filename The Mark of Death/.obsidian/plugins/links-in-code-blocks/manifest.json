@@ -1,7 +1,7 @@
 {
 	"id": "links-in-code-blocks",
 	"name": "Links in Code Blocks",
-	"version": "0.0.3",
+	"version": "0.1.1",
 	"minAppVersion": "0.11.0",
 	"description": "Adds support for internal link previews in Obsidian.md",
 	"author": "Jeremy Valentine",

@@ -6,7 +6,7 @@ int main(int argc, char** argv)
 /* add your codes here */
 	printf("hello world ! \n");
 	return 0;
-	[[Links Testing]]
+	[[3 - Travel to Newthrone#^44d7a3]]
 }
 ```
 

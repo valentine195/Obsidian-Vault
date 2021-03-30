@@ -7,6 +7,8 @@ date updated: '2021-03-25T20:22:11-04:00'
 
 ## 3 STEP PLAN
 
+^44d7a3
+
 | Step        | Plan                                                                              |
 | ----------- | --------------------------------------------------------------------------------- |
 | **Start:**  | A Rakshasa, [[Rabar]] is in Q'Barra trying to free Masrivik and needs a sacrifice |
