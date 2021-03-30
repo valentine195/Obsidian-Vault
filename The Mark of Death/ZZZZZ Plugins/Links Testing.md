@@ -1,32 +1,3 @@
-```links
-[[ZZZZZ Plugins/Untitled]] 
-
-
-
-
-
-
-
-
-
-[[Map Testing]]
-```
-
-```links|css
-
-.abcdefg {
-
-}
-
-test 123
-[[text 123]]
-
-hello
-```
-
-[[Links Testing]]
-
-
 ```links|java
 #include
 
@@ -37,4 +8,9 @@ int main(int argc, char** argv)
 	return 0;
 	[[Links Testing]]
 }
+```
+
+```links|java
+public static final int ACTIVITY_START = 233;
+public static final int ACTIVITY_FINISHED = 234;
 ```
