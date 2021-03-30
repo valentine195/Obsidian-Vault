@@ -22,5 +22,5 @@
 `dice: 1d3^1d4`
 
 
-`dice: 2d4`
+`dice: 2d4 + 8`
 
