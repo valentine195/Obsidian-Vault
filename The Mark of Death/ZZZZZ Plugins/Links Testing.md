@@ -27,7 +27,7 @@ hello
 [[Links Testing]]
 
 
-```links|clike
+```links|java
 #include
 
 int main(int argc, char** argv)
