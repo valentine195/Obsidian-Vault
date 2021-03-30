@@ -1,26 +1,31 @@
 :root {
-	--h1: 2.5em;
-	--h2: 2em;
-	--h3: 1.75em;
-	--h4: 1.5;
-	--h5: 1.25;
-	--h6: 1.125em;
+    --h1: 2.5em;
+    --h2: 2em;
+    --h3: 1.75em;
+    --h4: 1.5;
+    --h5: 1.25;
+    --h6: 1.125em;
 }
 ul {
-	list-style-type: none !important;
+    list-style-type: none !important;
 }
-h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
-	content: "" !important;
+h1::before,
+h2::before,
+h3::before,
+h4::before,
+h5::before,
+h6::before {
+    content: "" !important;
 }
 
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer,
 .markdown-source-view.is-readable-line-width .CodeMirror {
-	max-width: unset !important;
-	width: unset;
-	/* margin-left: unset !important;
+    max-width: unset !important;
+    width: unset;
+    /* margin-left: unset !important;
 	margin-right: 0; */
-	margin: 0 0 0 0;
-	padding-top: 1rem;
+    margin: 0 0 0 0;
+    padding-top: 1rem;
 }
 
 /* .markdown-preview-view .heading-collapse-indicator.collapse-indicator {
@@ -31,7 +36,7 @@ h1::before, h2::before, h3::before, h4::before, h5::before, h6::before {
 } */
 
 .markdown-preview-view blockquote {
-	margin-left: 18px;
+    margin-left: 18px;
 }
 
 h1,
@@ -40,62 +45,65 @@ h3,
 h4,
 h5,
 h6 {
-	position: relative;
-	color: #CBDBE5
+    position: relative;
+    color: #cbdbe5;
 }
 
 .theme-dark {
-	--background-primary: #2f3238;
-	--background-primary-alt: #24272c;
-	--background-secondary: #272a2e;
-	--background-secondary-alt: #212325;
-	--background-accent: #000;
-	--background-modifier-border: #51545a;
-	--background-modifier-form-field: rgba(0, 0, 0, 0.3);
-	--text-muted: #aaa;
-	--text-accent: rgb(173, 169, 169);
-	--text-accent-hover: rgb(255, 255, 255);
-
+    --background-primary: #2f3238;
+    --background-primary-alt: #24272c;
+    --background-secondary: #272a2e;
+    --background-secondary-alt: #212325;
+    --background-accent: #000;
+    --background-modifier-border: #51545a;
+    --background-modifier-form-field: rgba(0, 0, 0, 0.3);
+    --text-muted: #aaa;
+    --text-accent: rgb(173, 169, 169);
+    --text-accent-hover: rgb(255, 255, 255);
 }
 
 /* 4.2.1. Nifty arrow before internal links (also applies to embeds) */
 .internal-link::before,
 .markdown-embed-link::before {
-	content: " ";
-	background-color: var(--text-normal);
-	-webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpolygon points='5.4 26 24 7.4 24 20 26 20 26 4 10 4 10 6 22.6 6 4 24.6'%3E%3C/polygon%3E%3C/svg%3E");
-	mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpolygon points='5.4 26 24 7.4 24 20 26 20 26 4 10 4 10 6 22.6 6 4 24.6'%3E%3C/polygon%3E%3C/svg%3E");
-	display: inline-block;
-	width: 14px;
-	height: 14px;
-	margin-right: 2px;
-	margin-bottom: -1px;
+    content: " ";
+    background-color: var(--text-normal);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpolygon points='5.4 26 24 7.4 24 20 26 20 26 4 10 4 10 6 22.6 6 4 24.6'%3E%3C/polygon%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpolygon points='5.4 26 24 7.4 24 20 26 20 26 4 10 4 10 6 22.6 6 4 24.6'%3E%3C/polygon%3E%3C/svg%3E");
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 2px;
+    margin-bottom: -1px;
 }
 
 table .markdown-embed {
-	border-top: unset !important;
-	border-bottom: unset !important;
-	padding: 0 !important;
-	margin: 0;
+    border-top: unset !important;
+    border-bottom: unset !important;
+    padding: 0 !important;
+    margin: 0;
 }
 
-table .markdown-embed>.markdown-embed-link {
-	display: none;
+table .markdown-embed > .markdown-embed-link {
+    display: none;
 }
 
-table .markdown-embed>.markdown-embed-content>.markdown-preview-view {
-	padding: 0 !important;
+table .markdown-embed > .markdown-embed-content > .markdown-preview-view {
+    padding: 0 !important;
 }
-table .markdown-embed>.markdown-embed-content>.markdown-preview-view>.markdown-preview-section {
-	padding-top: 0 !important;
+table
+    .markdown-embed
+    > .markdown-embed-content
+    > .markdown-preview-view
+    > .markdown-preview-section {
+    padding-top: 0 !important;
 }
 
 .markdown-preview-view table {
-	width: 99%;
+    width: 99%;
 }
 
 .markdown-preview-view th {
-	border-top: 1px solid var(--background-modifier-border);
+    border-top: 1px solid var(--background-modifier-border);
 }
 
 .markdown-preview-view th:first-child,
@@ -103,37 +111,49 @@ table .markdown-embed>.markdown-embed-content>.markdown-preview-view>.markdown-p
 .markdown-preview-view th:last-child,
 .markdown-preview-view td:last-child,
 .markdown-preview-view tr:last-child td {
-	padding: 4px 10px;
-	border: 1px solid var(--background-modifier-border);
+    padding: 4px 10px;
+    border: 1px solid var(--background-modifier-border);
 }
 
 body:not(.is-grabbing) .nav-file-title:not(.is-active):hover,
 body:not(.is-grabbing) .nav-folder-title:hover,
 .search-result-file-match:hover,
 .search-result-file-title:hover,
-body:not(.is-grabbing) .nav-file-title:not(.is-active):hover .nav-folder-collapse-indicator,
+body:not(.is-grabbing)
+    .nav-file-title:not(.is-active):hover
+    .nav-folder-collapse-indicator,
 body:not(.is-grabbing) .nav-folder-title:hover .nav-folder-collapse-indicator {
-	background-color: unset;
-	color: var(--text-normal);
+    background-color: unset;
+    color: var(--text-normal);
 }
 
 .nav-file-title {
-	margin-bottom: 3px;
+    margin-bottom: 3px;
 }
 blockquote {
-	background-color: var(--background-secondary);
+    background-color: var(--background-secondary);
 }
 
 blockquote > p {
-	display: flex;
-	justify-content: flex-start;
+    display: flex;
+    justify-content: flex-start;
 }
 blockquote > p > img:last-child {
-	margin: 1rem;
+    margin: 1rem;
 }
 blockquote > p > img:first-child {
-	margin-right: 1rem;
+    margin-right: 1rem;
 }
 blockquote > p > img:first-child + br {
-	display: none;
+    display: none;
+}
+
+/** Ursa Override */
+.cm-s-obsidian span.cm-hashtag-begin {
+  
+    color: white;
+}
+.cm-s-obsidian span.cm-hashtag-end {
+    padding: 2px 7px 2px 2px;
+    color: white;
 }

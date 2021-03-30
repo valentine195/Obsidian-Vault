@@ -2,5 +2,5 @@
 
 
 ```leaflet
-image: Locations/test.jpg
+image: Locations/images/Khorvaire.jpg
 ```
