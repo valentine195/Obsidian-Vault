@@ -13,7 +13,7 @@
 
 > Help 123 `dice: 1d2 - 3` [[3 - Travel to Newthrone]]
 
-`dice: 4d8 + 18` `dice: 1d3`
+`dice: 4d8 + 18|>6` `dice: 1d3`
 
 `dice: 3d4+3d4-3d4 * 5d4-2`
 
