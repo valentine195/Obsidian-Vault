@@ -150,10 +150,23 @@ blockquote > p > img:first-child + br {
 
 /** Ursa Override */
 .cm-s-obsidian span.cm-hashtag-begin {
-  
     color: white;
 }
 .cm-s-obsidian span.cm-hashtag-end {
-    padding: 2px 7px 2px 2px;
+    padding-right: 7px;
     color: white;
+}
+.cm-s-obsidian, span.cm-hashtag-begin + span.cm-hashtag-end {
+    padding-left: 2px;
+}
+
+span.cm-hashtag:not(.cm-hashtag-begin) {
+    background-color: var(--tag-background);
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+    color: white !important;
+}
+
+span.cm-hashtag:not(.cm-hashtag-end):not(.cm-hashtag-begin) {
+    padding-left: 2px;
 }
