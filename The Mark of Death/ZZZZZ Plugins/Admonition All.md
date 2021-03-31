@@ -1,6 +1,4 @@
 ```note
-title:
-
 
 content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 a
