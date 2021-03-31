@@ -1,1 +1,1 @@
-`dice: 2d20kh + 2`
+`dice: 2d20kh2 + 2`
