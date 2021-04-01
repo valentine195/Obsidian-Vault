@@ -1,8 +1,7 @@
 ```leaflet
 id: 123
-image: Locations/test.jpg
-image: Locations/Leo.svg
-image: Locations/Whitecliff.png
+image: Locations/images/Khorvaire.jpg
+image: Locations/images/Whitecliff.png
 unit: miles
 scale: 396
 ```
