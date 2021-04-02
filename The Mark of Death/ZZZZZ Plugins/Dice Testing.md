@@ -1,1 +1,1 @@
-`dice: 3d2k + 1`
+`dice: 3d3k!r + 1`
