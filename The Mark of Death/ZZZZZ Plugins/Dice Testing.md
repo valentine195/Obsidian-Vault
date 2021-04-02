@@ -1,1 +1,1 @@
-`dice: 2d2!!3`
+`dice: 2d2kh!3r`
