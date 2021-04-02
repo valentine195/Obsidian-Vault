@@ -1,1 +1,1 @@
-`dice: 1d2ri!i + 5`
+`dice: 1d2!iri + 5`
