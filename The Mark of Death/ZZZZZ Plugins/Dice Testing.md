@@ -4,4 +4,4 @@
 
 `dice: 1d%!!`
 
-`dice: 5d2r`
+`dice: 1d3r!`
