@@ -189,22 +189,23 @@ async function getNotePath(directory, filename) {
     await ensureFolderExists(path);
     return path;
 }
-async function getTemplateContents(template) {
-    const app = window.app;
-    const { metadataCache, vault } = app;
+async function getTemplateInfo(template) {
+    const { metadataCache, vault } = window.app;
     const templatePath = obsidian__default['default'].normalizePath(template);
     if (templatePath === "/") {
-        return Promise.resolve("");
+        return Promise.resolve(["", null]);
     }
     try {
         const templateFile = metadataCache.getFirstLinkpathDest(templatePath, "");
         const contents = await vault.cachedRead(templateFile);
-        return contents;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const IFoldInfo = window.app.foldManager.load(templateFile);
+        return [contents, IFoldInfo];
     }
     catch (err) {
         console.error(`Failed to read the daily note template '${templatePath}'`, err);
         new obsidian__default['default'].Notice("Failed to read the daily note template");
-        return "";
+        return ["", null];
     }
 }
 
@@ -222,24 +223,33 @@ async function createDailyNote(date) {
     const { vault } = app;
     const moment = window.moment;
     const { template, format, folder } = getDailyNoteSettings();
-    const templateContents = await getTemplateContents(template);
+    const [templateContents, IFoldInfo] = await getTemplateInfo(template);
     const filename = date.format(format);
     const normalizedPath = await getNotePath(folder, filename);
     try {
         const createdFile = await vault.create(normalizedPath, templateContents
-            .replace(/{{\s*(date|time)\s*:(.*?)}}/gi, (_, _timeOrDate, momentFormat) => {
+            .replace(/{{\s*date\s*}}/gi, filename)
+            .replace(/{{\s*time\s*}}/gi, moment().format("HH:mm"))
+            .replace(/{{\s*title\s*}}/gi, filename)
+            .replace(/{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi, (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
             const now = moment();
-            return date
-                .set({
+            const currentDate = date.clone().set({
                 hour: now.get("hour"),
                 minute: now.get("minute"),
                 second: now.get("second"),
-            })
-                .format(momentFormat.trim());
+            });
+            if (calc) {
+                currentDate.add(parseInt(timeDelta, 10), unit);
+            }
+            if (momentFormat) {
+                return currentDate.format(momentFormat.substring(1).trim());
+            }
+            return currentDate.format(format);
         })
-            .replace(/{{\s*date\s*}}/gi, filename)
-            .replace(/{{\s*time\s*}}/gi, moment().format("HH:mm"))
-            .replace(/{{\s*title\s*}}/gi, filename));
+            .replace(/{{\s*yesterday\s*}}/gi, date.clone().subtract(1, "day").format(format))
+            .replace(/{{\s*tomorrow\s*}}/gi, date.clone().add(1, "d").format(format)));
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        app.foldManager.save(createdFile, IFoldInfo);
         return createdFile;
     }
     catch (err) {
@@ -300,20 +310,25 @@ function getDayOfWeekNumericalValue(dayOfWeekName) {
 async function createWeeklyNote(date) {
     const { vault } = window.app;
     const { template, format, folder } = getWeeklyNoteSettings();
-    const templateContents = await getTemplateContents(template);
+    const [templateContents, IFoldInfo] = await getTemplateInfo(template);
     const filename = date.format(format);
     const normalizedPath = await getNotePath(folder, filename);
     try {
         const createdFile = await vault.create(normalizedPath, templateContents
-            .replace(/{{\s*(date|time)\s*:(.*?)}}/gi, (_, _timeOrDate, momentFormat) => {
+            .replace(/{{\s*(date|time)\s*(([+-]\d+)([yqmwdhs]))?\s*(:.+?)?}}/gi, (_, _timeOrDate, calc, timeDelta, unit, momentFormat) => {
             const now = window.moment();
-            return date
-                .set({
+            const currentDate = date.clone().set({
                 hour: now.get("hour"),
                 minute: now.get("minute"),
                 second: now.get("second"),
-            })
-                .format(momentFormat.trim());
+            });
+            if (calc) {
+                currentDate.add(parseInt(timeDelta, 10), unit);
+            }
+            if (momentFormat) {
+                return currentDate.format(momentFormat.substring(1).trim());
+            }
+            return currentDate.format(format);
         })
             .replace(/{{\s*title\s*}}/gi, filename)
             .replace(/{{\s*time\s*}}/gi, window.moment().format("HH:mm"))
@@ -321,6 +336,8 @@ async function createWeeklyNote(date) {
             const day = getDayOfWeekNumericalValue(dayOfWeek);
             return date.weekday(day).format(momentFormat.trim());
         }));
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        window.app.foldManager.save(createdFile, IFoldInfo);
         return createdFile;
     }
     catch (err) {
