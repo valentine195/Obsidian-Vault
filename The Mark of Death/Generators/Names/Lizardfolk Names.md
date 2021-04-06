@@ -1,0 +1,10 @@
+- [ ]  Yoss  
+- [ ]  Thuz  
+- [x]  Jix
+- [ ]  Jakaxl  
+- [ ]  Rhuthre  
+- [ ]  Urtaoss  
+- [ ]  Iacera  
+- [ ]  Oquttass  
+- [ ]  Chittaxiax  
+- [ ]  Egrucexl
