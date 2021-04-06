@@ -88,6 +88,10 @@ Jix, get word to the other clans. Move quickly. Away!
 
 #### Setback - River Rapids
 
+Ref
+https://www.enworld.org/threads/river-rapids.465700/
+https://www.reddit.com/r/DMAcademy/comments/a518v5/raging_river_obstacle/
+
 ##### Skill Challenge - 3 success, 5 failures?
 
 #### Conflict
