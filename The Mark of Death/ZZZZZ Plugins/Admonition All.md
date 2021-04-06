@@ -1,52 +1,51 @@
-```note
-
-content: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-a
-b
-c
+```ad-note
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
+- a
+- b
+- c
 ```
 
-```abstract
+```ad-abstract
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
-```info
+```ad-info
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
-```tip
+```ad-tip
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
-```success
+```ad-success
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
-```question
+```ad-question
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
-```warning
+```ad-warning
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
-```failure
+```ad-failure
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
-```danger
+```ad-danger
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
-```bug
+```ad-bug
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
-```example
+```ad-example
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
-```quote
+```ad-quote
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
