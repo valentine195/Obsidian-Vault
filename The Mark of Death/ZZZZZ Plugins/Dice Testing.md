@@ -1,2 +1,2 @@
-`dice: 6d2!i`
+`dice: 1d1!i`
 
