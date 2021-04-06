@@ -1,2 +1,2 @@
-`dice: 3d5kh + 6d2! + 5r`
+`dice: 3d5dh2 + 6d2! + 5r`
 

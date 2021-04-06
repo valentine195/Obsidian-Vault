@@ -64,11 +64,11 @@ date updated: '2021-03-25T20:22:11-04:00'
 ##### Drums in the Jungle
 
 > The lizardmen stand suddenly, and they all look off to the east -- eventually, the sound of a steady drumbeat rises from deep into the jungle, and they start looking at each other, concern on their faces. The chieftain walks to your side and says:
- ```quote
- The blackscales. They attempt to summon one of the ancient twelve.
+ ```ad-quote
+ Hmm. The blackscales. They again attempt to summon one of the ancient demon lords.
  ```
 
-> Then a rhythmic chanting rises above the drums, getting louder and louder and louder and louder and louder until its the only thing you can hear, becoming unbearable but it just doesn't stop and it just keeps getting louder, drowning out all other sounds until you can't concentrate on anything but the chanting, and then suddenly it cuts off. The jungle is dead silent for a few seconds until a monstrous roar sounds out from the same direction.
+> Then a rhythmic chanting rises above the drums, getting louder and louder and louder and louder and louder until its the only thing you can hear, becoming unbearable but it just doesn't stop and it just keeps getting louder, drowning out all other sounds until you can't concentrate on anything but the chanting, and then suddenly it cuts off. The jungle is dead silent for a few seconds until a monstrous roar sounds out from the same direction. The lizardfolk look at each other
 
 #### Setback - River Rapids
 
