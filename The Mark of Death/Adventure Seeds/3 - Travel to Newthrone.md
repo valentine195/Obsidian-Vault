@@ -59,10 +59,10 @@ date updated: '2021-03-25T20:22:11-04:00'
 
 - The blockage is debris piling up on a group of dead brontosauruses
 - The brontosauruses has a huge chunk ripped out of its throat, and is peppered with green-shafted arrows with black fletching
-- The lizardfolk hold Templars of the Silver Flame in high esteem - **all will bow to Jeremiah when he meets them**
-
+- The lizardfolk hold Templars of the [[Factions/Church of the Silver Flame|Silver Flame]] in high esteem - **all will bow to Jeremiah when he meets them**
+	- It has been hundreds of years since a templar has visited the lizardmen, and the church has forgotten
 ```ad-quote
-Greetings, travelers. I am the one known as Drox, chieftan of the Crazy Fist Cold Sun. 
+Greetings, travelers. I am the one known as Drox, chieftan of the Crazy Fist Cold Sun. It is truly an honor to be visited by an Ember of the Silver Flame.
 ```
 
 #### Setback - Drums in the Jungle
@@ -71,7 +71,12 @@ Greetings, travelers. I am the one known as Drox, chieftan of the Crazy Fist Col
 
 > The lizardmen stand suddenly, and they all look off to the east -- eventually, the sound of a steady drumbeat rises from deep into the jungle, and they start looking at each other, concern on their faces. The chieftain walks to your side and says:
  ```ad-quote
- Hmm. The blackscales. They again attempt to summon one of the ancient demon lords.
+ Hmm. The blackscales. They again attempt to free one of the ancient demon lords.
+ 
+ ***He looks at Jeremiah and says:***
+ 
+ It appears 
+ 
  ```
 
 > Then a rhythmic chanting rises above the drums, getting louder and louder and louder and louder and louder until its the only thing you can hear, becoming unbearable but it just doesn't stop and it just keeps getting louder, drowning out all other sounds until you can't concentrate on anything but the chanting, and then suddenly it cuts off. The jungle is dead silent for a few seconds until a monstrous roar sounds out from the same direction. The lizardfolk look at each other, distressed, then to their chieftain, who addresses them :
