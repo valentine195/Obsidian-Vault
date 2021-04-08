@@ -156,7 +156,8 @@ blockquote > p > img:first-child + br {
     padding-right: 7px;
     color: white;
 }
-.cm-s-obsidian, span.cm-hashtag-begin + span.cm-hashtag-end {
+.cm-s-obsidian,
+span.cm-hashtag-begin + span.cm-hashtag-end {
     padding-left: 2px;
 }
 
@@ -169,4 +170,9 @@ span.cm-hashtag:not(.cm-hashtag-begin) {
 
 span.cm-hashtag:not(.cm-hashtag-end):not(.cm-hashtag-begin) {
     padding-left: 2px;
+}
+
+.admonition {
+    margin-inline-start: 18px !important;
+    margin-inline-end: 30px !important;
 }
