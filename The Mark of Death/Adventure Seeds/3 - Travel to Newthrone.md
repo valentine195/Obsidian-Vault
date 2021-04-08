@@ -57,15 +57,15 @@ date updated: '2021-03-25T20:22:11-04:00'
 > ![Cold Sun Lizardfolk|200](https://static.wikia.nocookie.net/eberron/images/3/31/MM35_PG169.jpg/revision/latest/scale-to-width-down/400?cb=20120116182459)
 > The next morning is uneventful, but in the early afternoon you see a large pile of debris caught on something spanning the entire river. Several lizardfolk moving about on the debris, but they seem to be clearing it out. One of them raises a large spear and calls out, "Passage is blocked! Stop your boat!"
 
-- The blockage is debris piling up on a dead brontosaurus
-- The brontosaurus has a huge chunk ripped out of its throat, and is peppered with green arrows
+- The blockage is debris piling up on a group of dead brontosauruses
+- The brontosauruses has a huge chunk ripped out of its throat, and is peppered with green-shafted arrows with black fletching
 - The lizardfolk hold Templars of the Silver Flame in high esteem - **all will bow to Jeremiah when he meets them**
 
 ```ad-quote
 Greetings, travelers. I am the one known as Drox, chieftan of the Crazy Fist Cold Sun. 
 ```
 
-##### Drums in the Jungle
+#### Setback - Drums in the Jungle
 
 [[Generators/Names/Lizardfolk Names]]
 
@@ -77,7 +77,7 @@ Greetings, travelers. I am the one known as Drox, chieftan of the Crazy Fist Col
 > Then a rhythmic chanting rises above the drums, getting louder and louder and louder and louder and louder until its the only thing you can hear, becoming unbearable but it just doesn't stop and it just keeps getting louder, drowning out all other sounds until you can't concentrate on anything but the chanting, and then suddenly it cuts off. The jungle is dead silent for a few seconds until a monstrous roar sounds out from the same direction. The lizardfolk look at each other, distressed, then to their chieftain, who addresses them :
 
 ```ad-quote
-They are getting closer each time. We must prevent this. A tribal council must be called. 
+They are getting closer. We must prevent this. A tribal council must be called. 
 
 ***He points to the Lizardfolk that warned you of the blockage, earlier.***
 
@@ -85,14 +85,6 @@ Jix, get word to the other clans. Move quickly. Away!
 
 ***The lizardfolk, Jix, unfurls a clawhook tied to his belt and swings it at the trees on the bank; it wraps around the branches, then Jix releases a switch on a handle and he swings off into the jungle.***
 ```
-
-#### Setback - River Rapids
-
-Ref
-https://www.enworld.org/threads/river-rapids.465700/
-https://www.reddit.com/r/DMAcademy/comments/a518v5/raging_river_obstacle/
-
-##### Skill Challenge - 3 success, 5 failures?
 
 #### Conflict
 
