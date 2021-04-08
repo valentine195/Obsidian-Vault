@@ -1,4 +1,4 @@
-```info
+```ad-info
 title: Test
 collapse: open
 Opportunity
