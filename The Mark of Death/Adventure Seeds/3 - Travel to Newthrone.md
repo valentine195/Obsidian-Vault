@@ -37,14 +37,16 @@ date updated: '2021-03-25T20:22:11-04:00'
 
 > The current quickly pulls the ship away from town. Eventually, the river curves around to the east, heading deeper into the jungle - all you can see of the town is the orange of the burning airship glowing in the night sky.
 >
-> An everbright lantern on the mast illuminates the deck and allows you to take stock of the boat.  A platform at the stern has the ship's wheel rising out of it, and stairs lead under the platform to a small sleeping area. Two oars are lying on the deck against the side of the boat, and a bench sits at the bow with two oar holes, close enough that one person could row. On the mast, a sail is furled, and a small crows nest sits on top.
+> An everbright lantern on the mast illuminates the deck and allows you to take stock of the boat.  A platform at the stern has the ship's wheel rising out of it, and stairs lead under the platform to a small sleeping area. Two oars are lying on the deck against the side of the boat, and benches sits in the middle with two oar holes on either side, allowing two people to row. On the mast, a sail is furled, and a small crows nest sits on top. Even at night, as you venture into the jungle, you can feel the heat. 
+> 
+> _**It will not be possible to long rest on the boat.**_
 
 - **What are you doing on the ship?**
 - **Mim, you have the Newthrone Gazette**
 
 ##### Assassin Vines
 
-> As the dawn rises, the river begins to widen and the current slows the boat to a crawl. The jungle is thick and impenetrable on both banks of the river. It is extremely humid on the river, and the sun is hot. Some of the trees have grown far out over the river, and long vines hang down from them, trailing in the water. You begin to hear the sounds of jungle life - the calls of hundreds of birds, the buzzing of insects flying around you, even something _very_ large moving through the growth on the bank. As you continue down the river, you see a herd of clawfoot raptors drinking, but the boat disturbs them and they dash off into the jungle.
+> As the dawn rises, the river begins to widen and the current slows the boat to a crawl. The jungle is thick and impenetrable on both banks of the river. It is extremely humid on the river, and the sun is hot. Some of the trees have grown far out over the river, and long vines hang down from them, trailing in the water. You begin to hear the sounds of jungle life - the calls of hundreds of birds, the buzzing of insects flying around you, even something _very_ large crashing through the growth on the bank. As you continue down the river, you see a herd of clawfoot raptors drinking, but the boat disturbs them and they dash off into the jungle.
 
 **Perception Check** DC 15 to notice some vines ahead are moving the wrong way - 2 Assassin vines **(HP: 50)**
 
@@ -55,14 +57,16 @@ date updated: '2021-03-25T20:22:11-04:00'
 ##### Cold Sun
 
 > ![Cold Sun Lizardfolk|200](https://static.wikia.nocookie.net/eberron/images/3/31/MM35_PG169.jpg/revision/latest/scale-to-width-down/400?cb=20120116182459)
-> The next morning is uneventful, but in the early afternoon you see a large pile of debris caught on something spanning the entire river. Several lizardfolk moving about on the debris, but they seem to be clearing it out. One of them raises a large spear and calls out, "Passage is blocked! Stop your boat!"
+> The next morning is uneventful as you meander down the river. The day passes slowly and, Mim and Merigold, the heat and humidity is oppressive. 
+> ***Give me survival checks*** 
+> In the late afternoon, the river begins to narrow and the current picks up speed. After you see a large pile of debris caught on something spanning the entire river. Several lizardfolk moving about on the debris. One of them raises a large spear and calls out, "Passage is blocked! Stop your boat!"
 
 - The blockage is debris piling up on a group of dead brontosauruses
 - The brontosauruses has a huge chunk ripped out of its throat, and is peppered with green-shafted arrows with black fletching
 - The lizardfolk hold Templars of the [[Factions/Church of the Silver Flame|Silver Flame]] in high esteem - **all will bow to Jeremiah when he meets them**
 	- It has been hundreds of years since a templar has visited the lizardmen, and the church has forgotten
 ```ad-quote
-Greetings, travelers. I am the one known as Drox, chieftan of the Crazy Fist Cold Sun. It is truly an honor to be visited by an Ember of the Silver Flame.
+Greetings, travelers. I am the one known as [[Drox]], chieftan of the Crazy Fist Cold Sun. It is truly an honor to be visited by an Ember of the Silver Flame. Unfortunately, the river is impassable.
 ```
 
 #### Setback - Drums in the Jungle
@@ -75,7 +79,7 @@ Greetings, travelers. I am the one known as Drox, chieftan of the Crazy Fist Col
  
  ***He looks at Jeremiah and says:***
  
- It appears 
+ It appears your arrival was quite fortuitous.
  
  ```
 
@@ -89,6 +93,9 @@ They are getting closer. We must prevent this. A tribal council must be called.
 Jix, get word to the other clans. Move quickly. Away!
 
 ***The lizardfolk, Jix, unfurls a clawhook tied to his belt and swings it at the trees on the bank; it wraps around the branches, then Jix releases a switch on a handle and he swings off into the jungle.***
+
+We must return to the village. The river must wait. Adventurers, will you accompany me?
+
 ```
 
 #### Conflict
