@@ -94,11 +94,11 @@ Jix, get word to the other clans. Move quickly. Away!
 
 ***The lizardfolk, Jix, unfurls a clawhook tied to his belt and swings it at the trees on the bank; it wraps around the branches, then Jix releases a switch on a handle and he swings off into the jungle.***
 
-We must return to the village. The river must wait. Adventurers, will you accompany me?
+I must return to the clanhold. Adventurers, the river will be impassable for some days, yet. We would offer respite to those who follow the flame, if you so desire.
 
 ```
 
-#### Conflict
+#### Conflict - The Blackscales Attack
 
 #### Reward
 
