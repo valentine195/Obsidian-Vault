@@ -46,7 +46,7 @@ date updated: '2021-03-25T20:22:11-04:00'
 
 ##### Assassin Vines
 
-> As the dawn rises, the river begins to widen and the current slows the boat to a crawl. The jungle is thick and impenetrable on both banks of the river. It is extremely humid on the river, and the sun is hot. Some of the trees have grown far out over the river, and long vines hang down from them, trailing in the water. You begin to hear the sounds of jungle life - the calls of hundreds of birds, the buzzing of insects flying around you, even something _very_ large crashing through the growth on the bank. As you continue down the river, you see a herd of clawfoot raptors drinking, but the boat disturbs them and they dash off into the jungle.
+> As the dawn rises, the river begins to widen and the current slows the boat to a crawl. The jungle is thick and impenetrable on both banks of the river. It is extremely humid on the river, and the sun is hot. Some of the trees have grown far out over the river, and long vines hang down from them, trailing in the water. You begin to hear the sounds of jungle life - the calls of hundreds of birds, the buzzing of insects flying around you, even something very large crashing through the growth on the bank. As you continue down the river, you see a herd of clawfoot raptors drinking, but the boat disturbs them and they dash off into the jungle.
 
 **Perception Check** DC 15 to notice some vines ahead are moving the wrong way - 2 Assassin vines **(HP: 50)**
 
