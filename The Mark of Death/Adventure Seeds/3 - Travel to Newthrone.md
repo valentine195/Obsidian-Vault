@@ -52,13 +52,17 @@ date updated: '2021-03-25T20:22:11-04:00'
 
 #### Parley - Meeting the Lizardfolk
 
-> The river slows further, and seems to barely even be moving in this part of the jungle. A group of apes peers down at the boat from up in the trees, and follow along with you for a couple hours, but they eventually drop down into the underbrush and you lose sight of them. Eventually, night falls over the jungle. You can barely see anything past the light of the lantern. The animal calls sound eerie in the darkness, and they sound much closer than they did during the day. **What are you doing during nightfall?**
+> The river slows further, and seems to barely even be moving in this part of the jungle. A group of apes peers down at the boat from up in the trees, and follow along with you for a couple hours, but they eventually drop down into the underbrush and you lose sight of them. Eventually, night falls over the jungle. You can barely see anything past the light of the lantern. The animal calls sound eerie in the darkness, and they sound much closer than they did during the day. 
+> 
+> **What are you doing during nightfall?**
 
 ##### Cold Sun
 
 > ![Cold Sun Lizardfolk|200](https://static.wikia.nocookie.net/eberron/images/3/31/MM35_PG169.jpg/revision/latest/scale-to-width-down/400?cb=20120116182459)
 > The next morning is uneventful as you meander down the river. The day passes slowly and, Mim and Merigold, the heat and humidity is oppressive. 
+> 
 > ***Give me survival checks*** 
+> 
 > In the late afternoon, the river begins to narrow and the current picks up speed. After you see a large pile of debris caught on something spanning the entire river. Several lizardfolk moving about on the debris. One of them raises a large spear and calls out, "Passage is blocked! Stop your boat!"
 
 - The blockage is debris piling up on a group of dead brontosauruses
