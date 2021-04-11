@@ -42,7 +42,7 @@ date updated: '2021-03-25T20:22:11-04:00'
 > _**It will not be possible to long rest on the boat.**_
 
 - **What are you doing on the ship?**
-- **Mim, you have the Newthrone Gazette**
+- **Merigold, you have the Newthrone Gazette**
 
 ##### Assassin Vines
 
@@ -99,6 +99,8 @@ I must return to the clanhold. Adventurers, the river will be impassable for som
 ```
 
 #### Conflict - The Blackscales Attack
+
+- 1 Lizardfolk Render (blackscale), 2 Lizardfolk Scaleshield (blackscale), 2 Yuan-ti Pureblood (poisondusk)
 
 #### Reward
 
