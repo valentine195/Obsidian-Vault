@@ -110,6 +110,8 @@ I must return to the clanhold. Adventurers, the river will be impassable for som
 
 ---
 
+# Session 3
+
 ### _MILESTONE 2:_ _Escape from the Flamebrow Clanhold_
 
 |              | MAP | MONSTER | REWARD |
