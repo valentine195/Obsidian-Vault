@@ -30,7 +30,7 @@ date updated: '2021-03-25T20:22:11-04:00'
 | **Reward**   |                    |                                 |                                    |
 
 #### Notes
-
+### Complete
 #### Entrance
 
 ![boat](https://boatingforbeginners.com/wp-content/uploads/2019/03/directions-on-a-boat-1.jpg)
@@ -102,7 +102,14 @@ I must return to the clanhold. Adventurers, the river will be impassable for som
 
 ```
 
+### 5/8/21
 #### Conflict - The Blackscales Attack
+
+> The lizardman chieftain, [[Drox]], leads you east away from the riverbank and onto a small, hard-to-follow game trail through the undergrowth. As you move away from the river the undergrowth grows sparse, and very little light reaches down to the jungle floor here.  
+
+```ad-quote
+
+```
 
 - 1 Lizardfolk Render (blackscale), 2 Lizardfolk Scaleshield (blackscale), 2 Yuan-ti Pureblood (poisondusk)
 

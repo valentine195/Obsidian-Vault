@@ -134,7 +134,7 @@ blockquote {
     background-color: var(--background-secondary);
 }
 
-blockquote > p {
+blockquote > p:has(img) {
     display: flex;
     justify-content: flex-start;
 }
