@@ -105,10 +105,13 @@ I must return to the clanhold. Adventurers, the river will be impassable for som
 ### 5/8/21
 #### Conflict - The Blackscales Attack
 
-> The lizardman chieftain, [[Drox]], leads you east away from the riverbank and onto a small, hard-to-follow game trail through the undergrowth. As you move away from the river the undergrowth grows sparse, and very little light reaches down to the jungle floor here.  
+[REFERENCE THIS](https://www.reddit.com/r/DnDBehindTheScreen/comments/6acd7t/guide_to_the_jungle/)
+
+> The lizardman chieftain, [[Drox]], leads you east away from the riverbank and onto a small, hard-to-follow game trail that winds through the undergrowth. As you move away from the river the undergrowth grows sparse, and very little light reaches down to the jungle floor here.  
+> **WHAT IS YOUR MARCHING ORDER?**
 
 ```ad-quote
-
+The Crazy Fist are truly honored to have an esteemed Templar in our presence. The Chieftain Concord will wish to speak with you before the Tribal Council to learn of the intentions of the Flame. 
 ```
 
 - 1 Lizardfolk Render (blackscale), 2 Lizardfolk Scaleshield (blackscale), 2 Yuan-ti Pureblood (poisondusk)

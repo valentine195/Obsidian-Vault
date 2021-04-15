@@ -134,14 +134,16 @@ blockquote {
     background-color: var(--background-secondary);
 }
 
-blockquote > p:has(img) {
+/* blockquote > p  {
     display: flex;
     justify-content: flex-start;
-}
+} */
 blockquote > p > img:last-child {
     margin: 1rem;
+    float: right;
 }
 blockquote > p > img:first-child {
+    float: left;
     margin-right: 1rem;
 }
 blockquote > p > img:first-child + br {
