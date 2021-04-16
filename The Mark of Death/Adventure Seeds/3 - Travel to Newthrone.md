@@ -111,8 +111,10 @@ I must return to the clanhold. Adventurers, the river will be impassable for som
 > **WHAT IS YOUR MARCHING ORDER?**
 
 ```ad-quote
-The Crazy Fist are truly honored to have an esteemed Templar in our presence. The Chieftain Concord will wish to speak with you before the Tribal Council to learn of the intentions of the Flame. 
+The Crazy Fist are truly honored to have an esteemed Templar in our midst. We would have you speak at the Council, so that we may learn of the Flame's intentions.
 ```
+
+
 
 - 1 Lizardfolk Render (blackscale), 2 Lizardfolk Scaleshield (blackscale), 2 Yuan-ti Pureblood (poisondusk)
 
