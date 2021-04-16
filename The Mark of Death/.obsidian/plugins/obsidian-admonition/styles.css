@@ -81,52 +81,29 @@ details.admonition[open] > summary:after {
     transform: rotate(90deg);
 }
 
-/** Type Specific */
+/** Invalid Setting */
 
-.admonition-note {
-    --admonition-color: 68, 138, 255;
+.unset-align-items {
+    align-items: unset;
 }
 
-.admonition-abstract {
-    --admonition-color: 0, 176, 255;
+.has-invalid-message {
+    flex-grow: unset;
+    flex-flow: column nowrap;
 }
 
-.admonition-info {
-    --admonition-color: 0, 184, 212;
+input.is-invalid {
+    border-color: #dc3545 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right calc(0.375em + 0.1875rem) center;
+    background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
 }
 
-.admonition-tip {
-    --admonition-color: 0, 191, 165;
-}
-
-.admonition-success {
-    --admonition-color: 0, 200, 83;
-}
-
-.admonition-question {
-    --admonition-color: 100, 221, 23;
-}
-
-.admonition-warning {
-    --admonition-color: 255, 145, 0;
-}
-
-.admonition-failure {
-    --admonition-color: 255, 82, 82;
-}
-
-.admonition-danger {
-    --admonition-color: 255, 23, 68;
-}
-
-.admonition-bug {
-    --admonition-color: 245, 0, 87;
-}
-
-.admonition-example {
-    --admonition-color: 124, 77, 255;
-}
-
-.admonition-quote {
-    --admonition-color: 158, 158, 158;
+.invalid-feedback {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 0.875em;
+    color: #dc3545;
 }
