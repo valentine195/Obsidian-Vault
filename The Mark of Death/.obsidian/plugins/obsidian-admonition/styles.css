@@ -23,11 +23,11 @@
     color: var(--text-normal);
     page-break-inside: avoid;
     background-color: var(--background-secondary);
-    border-left: 0.2rem solid;
+    border-left: 0.2rem solid rgb(var(--admonition-color));
     border-radius: 0.1rem;
     box-shadow: 0 0.2rem 0.5rem var(--background-modifier-box-shadow);
 }
-.admonition-title::before {
+/* .admonition-title::before {
     position: absolute;
     left: 0.6rem;
     width: 1.25rem;
@@ -37,14 +37,27 @@
     mask-repeat: no-repeat;
     -webkit-mask-size: contain;
     mask-size: contain;
-}
+} */
 .admonition-title {
     position: relative;
     margin: 0 -0.6rem 0 -0.8rem;
     padding: 0.4rem 0.6rem 0.4rem 2rem;
     font-weight: 700;
     border-left: 0.2rem solid;
+    background-color: rgba(var(--admonition-color), 0.1);
 }
+
+.admonition-title-icon {
+    position: absolute;
+    left: 0.6rem;
+    width: 1.25rem;
+    height: 1.25rem;
+    color: rgb(var(--admonition-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .admonition-title.no-title {
     display: none;
 }
@@ -95,11 +108,11 @@ details.admonition[open] > summary:after {
 /** Type Specific */
 
 .admonition-note {
-    border-color: #448aff;
+    --admonition-color: 68, 138, 255;
 }
-.admonition-note > .admonition-title {
+/* .admonition-note > .admonition-title {
     background-color: rgba(68, 138, 255, 0.1);
-}
+} */
 /* .admonition-note > .admonition-title::before {
     background-color: #448aff;
     -webkit-mask-image: var(--admonition-icon--note);
@@ -107,11 +120,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-abstract {
-    border-color: #00b0ff;
+    --admonition-color: 0, 176, 255;
 }
-.admonition-abstract > .admonition-title {
+/* .admonition-abstract > .admonition-title {
     background-color: rgba(0, 176, 255, 0.1);
-}
+} */
 /* .admonition-abstract > .admonition-title::before {
     background-color: #00b0ff;
     -webkit-mask-image: var(--admonition-icon--abstract);
@@ -119,11 +132,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-info {
-    border-color: #00b8d4;
+    --admonition-color: 0, 184, 212;
 }
-.admonition-info > .admonition-title {
+/* .admonition-info > .admonition-title {
     background-color: rgba(0, 184, 212, 0.1);
-}
+} */
 /* .admonition-info > .admonition-title::before {
     background-color: #00b8d4;
     -webkit-mask-image: var(--admonition-icon--info);
@@ -131,11 +144,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-tip {
-    border-color: #00bfa5;
+    --admonition-color: 0, 191, 165;
 }
-.admonition-tip > .admonition-title {
+/* .admonition-tip > .admonition-title {
     background-color: rgba(0, 191, 165, 0.1);
-}
+} */
 /* .admonition-tip > .admonition-title::before {
     background-color: #00bfa5;
     -webkit-mask-image: var(--admonition-icon--tip);
@@ -143,11 +156,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-success {
-    border-color: #00c853;
+    --admonition-color: 0, 200, 83;
 }
-.admonition-success > .admonition-title {
+/* .admonition-success > .admonition-title {
     background-color: rgba(0, 200, 83, 0.1);
-}
+} */
 /* .admonition-success > .admonition-title::before {
     background-color: #00c853;
     -webkit-mask-image: var(--admonition-icon--success);
@@ -155,11 +168,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-question {
-    border-color: #64dd17;
+    --admonition-color: 100, 221, 23;
 }
-.admonition-question > .admonition-title {
+/* .admonition-question > .admonition-title {
     background-color: rgba(100, 221, 23, 0.1);
-}
+} */
 /* .admonition-question > .admonition-title::before {
     background-color: #64dd17;
     -webkit-mask-image: var(--admonition-icon--question);
@@ -167,11 +180,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-warning {
-    border-color: #ff9100;
+    --admonition-color: 255, 145, 0;
 }
-.admonition-warning > .admonition-title {
+/* .admonition-warning > .admonition-title {
     background-color: rgba(255, 145, 0, 0.1);
-}
+} */
 /* .admonition-warning > .admonition-title::before {
     background-color: #ff9100;
     -webkit-mask-image: var(--admonition-icon--warning);
@@ -179,11 +192,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-failure {
-    border-color: #ff5252;
+    --admonition-color: 255, 82, 82;
 }
-.admonition-failure > .admonition-title {
+/* .admonition-failure > .admonition-title {
     background-color: rgba(255, 82, 82, 0.1);
-}
+} */
 /* .admonition-failure > .admonition-title::before {
     background-color: #ff5252;
     -webkit-mask-image: var(--admonition-icon--failure);
@@ -191,11 +204,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-danger {
-    border-color: #ff1744;
+    --admonition-color: 255, 23, 68;
 }
-.admonition-danger > .admonition-title {
+/* .admonition-danger > .admonition-title {
     background-color: rgba(255, 23, 68, 0.1);
-}
+} */
 /* .admonition-danger > .admonition-title::before {
     background-color: #ff1744;
     -webkit-mask-image: var(--admonition-icon--danger);
@@ -203,11 +216,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-bug {
-    border-color: #f50057;
+    --admonition-color: 245, 0, 87;
 }
-.admonition-bug > .admonition-title {
+/* .admonition-bug > .admonition-title {
     background-color: rgba(245, 0, 87, 0.1);
-}
+} */
 /* .admonition-bug > .admonition-title::before {
     background-color: #f50057;
     -webkit-mask-image: var(--admonition-icon--bug);
@@ -215,11 +228,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-example {
-    border-color: #7c4dff;
+    --admonition-color: 124, 77, 255;
 }
-.admonition-example > .admonition-title {
+/* .admonition-example > .admonition-title {
     background-color: rgba(124, 77, 255, 0.1);
-}
+} */
 /* .admonition-example > .admonition-title::before {
     background-color: #7c4dff;
     -webkit-mask-image: var(--admonition-icon--example);
@@ -227,11 +240,11 @@ details.admonition[open] > summary:after {
 } */
 
 .admonition-quote {
-    border-color: #9e9e9e;
+    --admonition-color: 158, 158, 158;
 }
-.admonition-quote > .admonition-title {
+/* .admonition-quote > .admonition-title {
     background-color: hsla(0, 0%, 62%, 0.1);
-}
+} */
 /* .admonition-quote > .admonition-title::before {
     background-color: #9e9e9e;
     -webkit-mask-image: var(--admonition-icon--quote);
