@@ -120,8 +120,8 @@ A bite of the [[Sun Cedar Fruit|fruit of the Sun Cedar]] will heal your wounds. 
 ```
 
 > The fruit is slightly sweet and juicy, and as you eat it you feel your body healing itself. After just a few moments, you also feel completely refreshed -- as if you've just had a peaceful long rest.
-> .
-> He continues to lead you deeper into the forest.
+> 
+> He continues to lead you deeper into the forest. It's hard to see much around you between the gloom and the dense trees, but [[Drox]] seems to be able to see a winding trail in the leaves on the ground. You hear animals moving about in the trees above you, but can't see anything but the distant canopy when you look.   
 
 > **WHAT IS YOUR MARCHING ORDER?**
 > ***IF BRIAN NOT AT FRONT***: [[Drox]] gestures at you, Jeremiah, and says:

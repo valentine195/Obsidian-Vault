@@ -177,4 +177,8 @@ span.cm-hashtag:not(.cm-hashtag-end):not(.cm-hashtag-begin) {
 .admonition {
     margin-inline-start: 18px !important;
     margin-inline-end: 30px !important;
+    padding: 0 18px !important
+}
+.admonition > .admonition-title {
+    margin: -0 -18px 0 -24px !important;   
 }
