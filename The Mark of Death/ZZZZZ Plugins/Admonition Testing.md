@@ -1,4 +1,4 @@
-```ad-abc
+```ad-note
 title: Test
 collapse: open
 Opportunity
