@@ -113,9 +113,13 @@ I must return to the clanhold. Adventurers, the river will be impassable for som
 The clanhold lies about half a day east. Please, before we begin, have some refreshment. 
 ```
 
-> He holds out a waterskin and pulls out some fruit that you've never seen before and offers it.
+> He holds out a waterskin and pulls out a large golden fruit that you've never seen before and offers it.
 
+```ad-quote
+A bite of the [[Sun Cedar Fruit|fruit of the Sun Cedar]] will heal your wounds. It is not often we offer this to outsiders.  
+```
 
+> The fruit is slightly sweet and juicy, and as you eat it you feel your body healing itself. After just a few moments, you also feel completely refreshed -- as if you've just had a peaceful long rest.
 
 > **WHAT IS YOUR MARCHING ORDER?**
 > ***IF BRIAN NOT AT FRONT***: [[Drox]] gestures at you, Jeremiah, and says:
