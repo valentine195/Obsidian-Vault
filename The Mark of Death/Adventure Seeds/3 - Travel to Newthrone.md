@@ -107,8 +107,18 @@ I must return to the clanhold. Adventurers, the river will be impassable for som
 
 [REFERENCE THIS](https://www.reddit.com/r/DnDBehindTheScreen/comments/6acd7t/guide_to_the_jungle/)
 
-> The lizardman chieftain, [[Drox]], leads you east away from the riverbank and onto a small, hard-to-follow game trail that winds through the undergrowth. As you move away from the river the undergrowth grows sparse, and very little light reaches down to the jungle floor here.  
+> The lizardman chieftain, [[Drox]], leads you east away from the riverbank and through the thick undergrowth. As you move away from the river the undergrowth begins grows sparse, and very little light reaches down to the jungle floor here. It's hard to see much around you between the gloom and the dense trees, but [[Drox]] seems to be able to see a winding trail in the leaves on the ground. You hear animals moving about in the trees above you, but can't see anything but the distant canopy when you look.   
+
+```ad-quote
+The clanhold lies about half a day east. Please, before we begin, have some refreshment. 
+```
+
+> He holds out a waterskin and pulls out some fruit that you've never seen before and offers it.
+
+
+
 > **WHAT IS YOUR MARCHING ORDER?**
+> ***IF BRIAN NOT AT FRONT***: [[Drox]] gestures at you, Jeremiah, and says:
 
 ```ad-quote
 The Crazy Fist are truly honored to have an esteemed Templar in our midst. We would have you speak at the Council, so that we may learn of the Flame's intentions.
