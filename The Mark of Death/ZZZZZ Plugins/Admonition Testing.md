@@ -19,5 +19,5 @@ Account: [[Admonition All]]
 3
 a b c - [ ] Test
 
-- [ ] Test
+- [x] Test
 - [ ] 2
