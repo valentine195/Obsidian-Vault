@@ -4,14 +4,14 @@ collapse: open
 Opportunity
 - Auftragswert
 - Preis
+- [x] 1
+a
 - Pages
 - Ergebnisseiten
 
 Account: [[Admonition All]]
 - hh
-- [ ] 1
-a
-- [ ] 2
+- [x] 2
 
 ```
 
@@ -21,4 +21,4 @@ a
 a b c - [ ] Test
 
 - [x] Test
-- [ ] 2
+- [x] 2
