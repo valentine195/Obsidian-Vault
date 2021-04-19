@@ -10,7 +10,6 @@ Opportunity
 Account: [[Admonition All]]
 - hh
 
-- [x]  Test
 
 ```
 
