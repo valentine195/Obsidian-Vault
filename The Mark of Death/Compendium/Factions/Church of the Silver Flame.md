@@ -17,8 +17,8 @@ Based In: [[Locations/Thrane/Flamekeep|Flamekeep (Thrane)]]
 
 #### Notable Members
 
-- _**Keeper of the Flame**_: [[NPCs/Jaela Daran|Jaela Daran]]
-- _**High Cardinal**_: [[NPCs/Krozen]]
+- _**Keeper of the Flame**_: [[Jaela Daran|Jaela Daran]]
+- _**High Cardinal**_: [[Krozen]]
 
 #### PC Connections
 

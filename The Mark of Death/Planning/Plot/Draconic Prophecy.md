@@ -4,7 +4,7 @@ date updated: '2021-03-31T08:14:25-04:00'
 ---
 #Plot, #Draconic_Prophecy
 
-A portion of the fabled draconic prophecy, being used by [[Erandis Vol]] to find the seven [[Shards Of Khyber]]
+A portion of the fabled draconic prophecy, being used by [[Erandis Vol]] to find the seven [[Shards of Khyber]]
 
 The prophecy is incomplete, missing the second half. The first half is in the House Tharashk dungeon with the Shaper.
 

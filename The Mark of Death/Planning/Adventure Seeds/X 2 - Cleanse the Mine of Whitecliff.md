@@ -123,7 +123,7 @@ date updated: '2021-02-18T14:49:29-05:00'
 
 |              | **MAP**                        | **MONSTER**                                   | **TREASURE**                                             |
 | ------------ | ------------------------------ | --------------------------------------------- | -------------------------------------------------------- |
-| **5RD**      | [[Mine of Whitecliff]]             | [[The Emerald Claw]], [[Quinn Aybara]]        | Access Dhakaan Ruins, Magic Item, Dragonshard item slots |
+| **5RD**      | [[Mine Of Whitecliff]]             | [[The Emerald Claw]], [[Quinn Aybara]]        | Access Dhakaan Ruins, Magic Item, Dragonshard item slots |
 | **Entrance** | Mine Lobby at base of Elevator |                                               |                                                          |
 | **Parley**   | Sprawling Mine Shafts          | Wandering mine creatures, [[The Land Sharks]] | Random Loot Table, Dragonshard item slots                |
 | **Setback**  | Spider Lair                    | Spider Queen, giant wolf spiders              | Magic item, Passage through spider lair                  |

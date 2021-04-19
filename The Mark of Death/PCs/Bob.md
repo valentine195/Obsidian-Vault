@@ -3,7 +3,7 @@
 ### Current
 
 ### Possible Future
-Father was [[Norran D'Cannith]], heir to the Patriarch of House Cannith. He wanted to end the war and experimented with a [[Shards Of Khyber]], but unknowingly caused the Mourning in the process. He transported the workshop to the outskirts of [[Whitecliff]] to protect Bob from the Mourning.
+Father was [[Norran D'Cannith]], heir to the Patriarch of House Cannith. He wanted to end the war and experimented with a [[Shards of Khyber]], but unknowingly caused the Mourning in the process. He transported the workshop to the outskirts of [[Whitecliff]] to protect Bob from the Mourning.
 
 Bob will find / interact with some House Cannith hardware that identifies him as "Master" before realizing it is not him.
 
