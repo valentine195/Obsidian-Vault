@@ -19,14 +19,15 @@ date updated: '2021-03-30T20:37:16-04:00'
 
 ## Current Adventure
 
-- [[3 - Travel to Newthrone#Complete]]
+- [[3 - Travel to Newthrone]]
 
 ## Recaps
 
 ### Last Session
-![[21-3-13]]
+![[21-4-10]]
 
 ### Previous Sessions
+- [[21-3-13]]
 - [[21-2-20]]
 - [[21-2-6]]
 - [[21-1-16]]

@@ -1,3 +1,8 @@
+---
+date updated: '2021-04-19T14:41:42-04:00'
+
+---
+
 ## 3 STEP PLAN
 
 | Step        | Plan |
@@ -8,10 +13,9 @@
 | **Step 3:** |      |
 | **End:**    |      |
 
-
 ## ADVENTURE PLOTLINE
 
-### *MILESTONE 1:*
+### MILESTONE 1:
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -24,25 +28,19 @@
 
 #### Notes
 
-
 #### Entrance
-
 
 #### Parley
 
-
 #### Setback
-
 
 #### Conflict
 
-
 #### Reward
 
+---
 
-___
-
-### *MILESTONE 2:*
+### MILESTONE 2:
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -55,25 +53,19 @@ ___
 
 #### Notes
 
-
 #### Entrance
-
 
 #### Parley
 
-
 #### Setback
-
 
 #### Conflict
 
-
 #### Reward
 
+---
 
-___
-
-### *MILESTONE 3:*
+### MILESTONE 3:
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -86,24 +78,19 @@ ___
 
 #### Notes
 
-
 #### Entrance
-
 
 #### Parley
 
-
 #### Setback
-
 
 #### Conflict
 
-
 #### Reward
 
-___
+---
 
-### *FINALE:*
+### FINALE:
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -116,21 +103,12 @@ ___
 
 #### Notes
 
-
 #### Entrance
-
 
 #### Parley
 
-
 #### Setback
-
 
 #### Conflict
 
-
 #### Reward
-
-
-
-
