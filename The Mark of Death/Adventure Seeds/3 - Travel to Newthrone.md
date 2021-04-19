@@ -1,5 +1,5 @@
 ---
-date updated: '2021-03-25T20:22:11-04:00'
+date updated: '2021-04-19T14:17:34-04:00'
 
 ---
 
@@ -17,7 +17,6 @@ date updated: '2021-03-25T20:22:11-04:00'
 | **Step 3:** | A sacrificial ritual is conducted, led by [[Rabar]]                               |
 | **End:**    | [[Rhashaak]] awakens [[Haka'Torvhak]] and releases its destruction                |
 
-
 ### _MILESTONE 1:_ _Travel down the Adder River towards Newthrone_
 
 |              | MAP                | MONSTER                         | REWARD                             |
@@ -30,15 +29,17 @@ date updated: '2021-03-25T20:22:11-04:00'
 | **Reward**   |                    |                                 |                                    |
 
 #### Notes
+
 ### Complete
+
 #### Entrance
 
 ![boat](https://boatingforbeginners.com/wp-content/uploads/2019/03/directions-on-a-boat-1.jpg)
 
 > The current quickly pulls the ship away from town. Eventually, the river curves around to the east, heading deeper into the jungle - all you can see of the town is the orange of the burning airship glowing in the night sky.
 >
-> An everbright lantern on the mast illuminates the deck and allows you to take stock of the boat.  A platform at the stern has the ship's wheel rising out of it, and stairs lead under the platform to a small sleeping area. Two oars are lying on the deck against the side of the boat, and benches sits in the middle with two oar holes on either side, allowing two people to row. On the mast, a sail is furled, and a small crows nest sits on top. Even at night, as you venture into the jungle, you can feel the heat. 
-> 
+> An everbright lantern on the mast illuminates the deck and allows you to take stock of the boat.  A platform at the stern has the ship's wheel rising out of it, and stairs lead under the platform to a small sleeping area. Two oars are lying on the deck against the side of the boat, and benches sits in the middle with two oar holes on either side, allowing two people to row. On the mast, a sail is furled, and a small crows nest sits on top. Even at night, as you venture into the jungle, you can feel the heat.
+>
 > _**It will not be possible to long rest on the boat.**_
 
 - **What are you doing on the ship?**
@@ -52,23 +53,24 @@ date updated: '2021-03-25T20:22:11-04:00'
 
 #### Parley - Meeting the Lizardfolk
 
-> The river slows further, and seems to barely even be moving in this part of the jungle. A group of apes peers down at the boat from up in the trees, and follow along with you for a couple hours, but they eventually drop down into the underbrush and you lose sight of them. Eventually, night falls over the jungle. You can barely see anything past the light of the lantern. The animal calls sound eerie in the darkness, and they sound much closer than they did during the day. 
-> 
+> The river slows further, and seems to barely even be moving in this part of the jungle. A group of apes peers down at the boat from up in the trees, and follow along with you for a couple hours, but they eventually drop down into the underbrush and you lose sight of them. Eventually, night falls over the jungle. You can barely see anything past the light of the lantern. The animal calls sound eerie in the darkness, and they sound much closer than they did during the day.
+>
 > **What are you doing during nightfall?**
 
 ##### Cold Sun
 
 > ![Cold Sun Lizardfolk|200](https://static.wikia.nocookie.net/eberron/images/3/31/MM35_PG169.jpg/revision/latest/scale-to-width-down/400?cb=20120116182459)
-> The next morning is uneventful as you meander down the river. The day passes slowly and, Mim and Merigold, the heat and humidity is oppressive. 
-> 
-> ***Give me survival checks*** 
-> 
+> The next morning is uneventful as you meander down the river. The day passes slowly and, Mim and Merigold, the heat and humidity is oppressive.
+>
+> _**Give me survival checks**_
+>
 > In the late afternoon, the river begins to narrow and the current picks up speed. After you see a large pile of debris caught on something spanning the entire river. Several lizardfolk moving about on the debris. One of them raises a large spear and calls out, "Passage is blocked! Stop your boat!"
 
 - The blockage is debris piling up on a group of dead brontosauruses
 - The brontosauruses has a huge chunk ripped out of its throat, and is peppered with green-shafted arrows with black fletching
 - The lizardfolk hold Templars of the [[Factions/Church of the Silver Flame|Silver Flame]] in high esteem - **all will bow to Jeremiah when he meets them**
-	- It has been hundreds of years since a templar has visited the lizardmen, and the church has forgotten
+  - It has been hundreds of years since a templar has visited the lizardmen, and the church has forgotten
+
 ```ad-quote
 Greetings, travelers. I am the one known as [[Drox]], chieftan of the Crazy Fist Cold Sun. It is truly an honor to be visited by an Ember of the Silver Flame. Unfortunately, the river is impassable.
 ```
@@ -78,14 +80,15 @@ Greetings, travelers. I am the one known as [[Drox]], chieftan of the Crazy Fist
 [[Generators/Names/Lizardfolk Names]]
 
 > The lizardmen stand suddenly, and they all look off to the east -- eventually, the sound of a steady drumbeat rises from deep into the jungle, and they start looking at each other, concern on their faces. The chieftain walks to your side and says:
- ```ad-quote
- Hmm. The blackscales. They again attempt to free one of the ancient demon lords.
- 
- ***He looks at Jeremiah and says:***
- 
- It appears your arrival was quite fortuitous.
- 
- ```
+
+```ad-quote
+Hmm. The blackscales. They again attempt to free one of the ancient demon lords.
+
+***He looks at Jeremiah and says:***
+
+It appears your arrival was quite fortuitous.
+
+```
 
 > Then a rhythmic chanting rises above the drums, getting louder and louder and louder and louder and louder until its the only thing you can hear, becoming unbearable but it just doesn't stop and it just keeps getting louder, drowning out all other sounds until you can't concentrate on anything but the chanting, and then suddenly it cuts off. The jungle is dead silent for a few seconds until a monstrous roar sounds out from the same direction. The lizardfolk look at each other, distressed, then to their chieftain, who addresses them :
 
@@ -103,6 +106,7 @@ I must return to the clanhold. Adventurers, the river will be impassable for som
 ```
 
 ### 5/8/21
+
 #### Conflict - The Blackscales Attack
 
 [REFERENCE THIS](https://www.reddit.com/r/DnDBehindTheScreen/comments/6acd7t/guide_to_the_jungle/)
@@ -113,24 +117,22 @@ I must return to the clanhold. Adventurers, the river will be impassable for som
 The clanhold lies about half a day east. Please, before we begin, have some refreshment. 
 ```
 
-> He holds out a waterskin and pulls out a large golden fruit that you've never seen before and offers it.
+> He holds out a waterskin and pulls out a large golden fruit that you've never seen before and offers it, saying:
 
 ```ad-quote
-A bite of the [[Sun Cedar Fruit|fruit of the Sun Cedar]] will heal your wounds. It is not often we offer this to outsiders.  
+A single bite of the [[Sun Cedar Fruit|fruit of the Sun Cedar]] will heal your wounds. It is not often we offer this to outsiders.  
 ```
 
 > The fruit is slightly sweet and juicy, and as you eat it you feel your body healing itself. After just a few moments, you also feel completely refreshed -- as if you've just had a peaceful long rest.
-> 
-> He continues to lead you deeper into the forest. It's hard to see much around you between the gloom and the dense trees, but [[Drox]] seems to be able to see a winding trail in the leaves on the ground. You hear animals moving about in the trees above you, but can't see anything but the distant canopy when you look.   
+>
+> He continues to lead you deeper into the forest. It's hard to see much around you between the gloom and the dense trees, but [[Drox]] seems to be able to see a winding trail in the leaves on the ground. You hear animals moving about in the trees above you, but can't see anything but the distant canopy when you look.
 
 > **WHAT IS YOUR MARCHING ORDER?**
-> ***IF BRIAN NOT AT FRONT***: [[Drox]] gestures at you, Jeremiah, and says:
+> _**IF BRIAN NOT AT FRONT**_: [[Drox]] gestures at you, Jeremiah, and says:
 
 ```ad-quote
 The Crazy Fist are truly honored to have an esteemed Templar in our midst. We would have you speak at the Council, so that we may learn of the Flame's intentions.
 ```
-
-
 
 - 1 Lizardfolk Render (blackscale), 2 Lizardfolk Scaleshield (blackscale), 2 Yuan-ti Pureblood (poisondusk)
 
@@ -213,10 +215,10 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 
 #### Reward
 
-
-___
+---
 
 # Complete
+
 ## Session Start
 
 - Bob: Why is Mim the way she is?
