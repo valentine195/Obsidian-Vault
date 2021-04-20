@@ -136,14 +136,27 @@ input.is-invalid {
     display: flex !important;
 }
 
+.use-csv-marker > svg {
+    color: yellow;
+    margin-right: 8px;
+}
+
 .leaflet-file-upload > input[type="file"] {
     display: none;
 }
 .leaflet-file-upload {
-    border: 1px solid #ccc;
-    display: inline-block;
-    padding: 6px 12px;
+    appearance: button;
+    font-family: Ubuntu, Arial, sans-serif;
+    color: var(--text-normal);
+    background-color: var(--background-secondary-alt);
+    font-size: 15px;
+    padding: 6px 20px;
+    border-radius: 4px;
+    border: none;
     cursor: pointer;
+    margin-right: 12px;
+    outline: none;
+    user-select: none;
 }
 /* required styles */
 
