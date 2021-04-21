@@ -145,7 +145,6 @@ input.is-invalid {
     display: none;
 }
 .leaflet-file-upload {
-    appearance: button;
     font-family: Ubuntu, Arial, sans-serif;
     color: var(--text-normal);
     background-color: var(--background-secondary-alt);
@@ -157,6 +156,10 @@ input.is-invalid {
     margin-right: 12px;
     outline: none;
     user-select: none;
+    max-height: 36px;
+    text-align: center;
+    display: block;
+    white-space: nowrap;
 }
 /* required styles */
 
