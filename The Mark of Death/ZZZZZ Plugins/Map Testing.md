@@ -3,4 +3,4 @@ id: test
 ```
 ^test
 
-[[Conk]]
+[[The Mark of Death#Last Session]]
