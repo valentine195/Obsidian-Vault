@@ -156,10 +156,11 @@ input.is-invalid {
     margin-right: 12px;
     outline: none;
     user-select: none;
-    max-height: 36px;
+    max-height: 29px;
     text-align: center;
-    display: block;
+    display: flex;
     white-space: nowrap;
+    align-items: center;
 }
 /* required styles */
 
