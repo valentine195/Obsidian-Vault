@@ -3,4 +3,4 @@ id: test
 ```
 ^test
 
-[[The Mark of Death#A]]
+[[Jeremiah Pumpernickle^]]
