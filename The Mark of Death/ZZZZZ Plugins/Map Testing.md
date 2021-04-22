@@ -3,4 +3,3 @@ id: test
 ```
 ^test
 
-[[Jeremiah Pumpernickle^]]
