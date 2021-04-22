@@ -3,4 +3,4 @@ id: test
 ```
 ^test
 
-[[Map Test]]
+[[Map Test ]]
