@@ -2,7 +2,7 @@
 date updated: '2021-02-26T14:12:28-05:00'
 type: location
 tags:
-  - type/landmark
+  - type/landmark/burial-ground
   - factions/talenta-halflings/yirr-tribe
   - place/landmark/boneyard
   - region/talenta-plains
