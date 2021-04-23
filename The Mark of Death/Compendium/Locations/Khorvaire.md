@@ -6,3 +6,5 @@ image: Compendium/Locations/images/Khorvaire.jpg
 
 ^leafletmap
 
+```leaflet
+```
