@@ -3,7 +3,6 @@ type: location
 tags:
   - type/headquarters
   - factions/blood-of-vol
-  - place/landmark/crimson-monastery
   - region/karrnath/atur
   - pcs/jeremiah
 date updated: '2021-04-23T15:11:32-04:00'

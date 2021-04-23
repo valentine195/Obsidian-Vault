@@ -3,7 +3,6 @@ type: location
 tags:
   - type/landmark/volcano
   - factions/lords-of-dust
-  - place/landmark/lake-of-fire
   - region/demon-wastes
 date updated: '2021-04-23T15:20:25-04:00'
 ---

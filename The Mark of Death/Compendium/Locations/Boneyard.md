@@ -4,7 +4,6 @@ type: location
 tags:
   - type/landmark/burial-ground
   - factions/talenta-halflings/yirr-tribe
-  - place/landmark/boneyard
   - region/talenta-plains
   - pcs/merigold
 ---

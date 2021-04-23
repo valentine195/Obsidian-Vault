@@ -4,7 +4,6 @@ tags:
   - type/landmark/mine
   - factions/the-emerald-claw
   - factions/the-land-sharks
-  - place/landmark/mine-of-whitecliff
   - region/q'barra/whitecliff
 date updated: '2021-04-23T15:26:29-04:00'
 

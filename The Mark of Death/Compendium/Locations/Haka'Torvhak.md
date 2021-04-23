@@ -3,7 +3,6 @@ type: location
 tags:
   - type/landmark/volcano
   - factions/lords-of-dust
-  - place/landmark/haka'torvhak
   - region/q'barra
 date updated: '2021-04-23T15:11:32-04:00'
 
