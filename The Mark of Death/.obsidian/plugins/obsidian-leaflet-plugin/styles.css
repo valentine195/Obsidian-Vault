@@ -22,6 +22,21 @@
     margin-right: auto !important;
 }
 
+.additional-markers-container > .additional-markers {
+    margin: 6px 12px;
+}
+.additional-markers-container > .additional-markers > .setting-item {
+    border-top: 0;
+    padding-top: 9px;
+}
+.additional-markers-container
+    > .additional-markers
+    > .setting-item
+    > .setting-item-control
+    > *:first-child {
+    margin: 0 6px;
+}
+
 .setting-item-control.marker-icon-display,
 .setting-item-control > .marker-icon-display {
     margin-left: 0.5rem;
