@@ -9,7 +9,7 @@ date updated: '2021-02-18T14:49:29-05:00'
 
 ## Start of session
 
-> The three of you are standing in the destroyed master bedroom of the Mayor's Manor, having just killed the minotaur, Munvak. Jasper and Conk are both unconscious, tied to chairs against the far wall, and Ven Leser's lifeless body is slumped in the corner, half lying under a writing desk. What are you doing?
+> The three of you are standing in the destroyed master bedroom of the Mayor's Manor, having just killed the minotaur, Munvak. Jasper and [[Conk]] are both unconscious, tied to chairs against the far wall, and Ven Leser's lifeless body is slumped in the corner, half lying under a writing desk. What are you doing?
 
 > Jasper gives your group a bloody smile, and you see he is now missing several teeth. "That's twice now you've saved my hide. This is becoming a bit of a habit. I hope y'all fared better in town than I did."
 

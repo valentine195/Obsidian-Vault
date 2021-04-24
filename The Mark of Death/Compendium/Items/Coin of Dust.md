@@ -1,10 +1,18 @@
 ---
 date updated: '2021-02-26T14:17:46-05:00'
-
+type: item
+tags:
+  - tier/major
+  - rarity/rare
+  - cursed
 ---
 
+# Coin of Dust
+
+### Descritpion
 _A large, golden coin, stamped with a design you've never seen before. One face of it is dominated by a swirling cloud of dust, while the reverse shows a crumbling stone tower rising into the sky._
 
+### Abilities
 - Damaging the coin in any way releases a Zakya Rakshasa
 
 - Once per long rest, the coin can be flipped
@@ -13,4 +21,5 @@ _A large, golden coin, stamped with a design you've never seen before. One face 
 
 - Currently held by [[Bob]]
 
+### Curse
 **Allows agents of the Lords Of Dust to spy on the bearer**
