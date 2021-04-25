@@ -40,6 +40,22 @@ h6::before {
 
 blockquote {
     background-color: var(--background-secondary);
+    margin-inline-start: 18px;
+}
+
+/** 
+  * Image floating in block
+  */
+blockquote > p > img:last-child {
+    margin: 1rem;
+    float: right;
+}
+blockquote > p > img:first-child {
+    float: left;
+    margin-right: 1rem;
+}
+blockquote > p > img:first-child + br {
+    display: none;
 }
 
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer,
@@ -50,39 +66,14 @@ blockquote {
     padding-top: 1rem;
 }
 
-/* .markdown-preview-view .heading-collapse-indicator.collapse-indicator {
-	position: absolute;
-	top: 50%;
-	transform: translateY(-50%);
-	color: var(--text-normal) !important;
-} */
-
-/* .markdown-preview-view blockquote {
-    margin-left: 18px;
-} */
-
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    position: relative;
-    color: #cbdbe5;
-} */
-
-/* .theme-dark {
-    --background-primary: #2f3238;
-    --background-primary-alt: #24272c;
-    --background-secondary: #272a2e;
-    --background-secondary-alt: #212325;
-    --background-accent: #000;
-    --background-modifier-border: #51545a;
-    --background-modifier-form-field: rgba(0, 0, 0, 0.3);
-    --text-muted: #aaa;
-    --text-accent: rgb(173, 169, 169);
-    --text-accent-hover: rgb(255, 255, 255);
-} */
+.admonition {
+    margin-inline-start: 18px !important;
+    margin-inline-end: 30px !important;
+    padding: 0 18px !important
+}
+.admonition > .admonition-title {
+    margin: -0 -18px 0 -24px !important;   
+}
 
 /* 4.2.1. Nifty arrow before internal links (also applies to embeds) */
 .internal-link::before,
@@ -98,107 +89,181 @@ h6 {
     margin-bottom: -1px;
 }
 
-/* table .markdown-embed {
-    border-top: unset !important;
-    border-bottom: unset !important;
-    padding: 0 !important;
-    margin: 0;
+
+/* Coloured Folders
+a CSS snippet by Lithou
+
+This will allow the colouring of the top level folders into sections that "drop down" when opened. 
+This is currently set to be the same colour regardless of theme, but you can change that by copy/pasting the colors from the root section into light/dark theme then changing them according to preference.
+The colours are rainbow coloured and 16 in number by default. They are shades such that white/lightgrey text shows up the best. Some have a bit let contrast (the lighter blue and the yellow) but should still be visible. Again, change them however you would like. 
+*/
+:root{
+    /* folder colours */
+    --Fold0: #d32f2fCC;
+    --Fold1: #c2185bCC;
+    --Fold2: #7b1fa2CC;
+    --Fold3: #512da8CC;
+    --Fold4: #303f9fCC;
+    --Fold5: #1976d2CC;
+    --Fold6: #0288d1CC;
+    --Fold7: #0097a7CC;
+    --Fold8: #00796bCC;
+    --Fold9: #388e3cCC;
+    --FoldA: #689f38CC;
+    --FoldB: #afb42bCC;
+    --FoldC: #f9ab25CC;
+    --FoldD: #ff8f00CC;
+    --FoldE: #ef6c00CC;
+    --FoldF: #d84315CC;
+    --FoldText: white;
+    /* line styles for nesting indicators */
+    --nestlinesize1: double;
+    --nestlinestyle1: 7px;
+    --nestlinecolor1: #000;
+
+    --nestlinesize2: solid;
+    --nestlinestyle2: 3px;
+    --nestlinecolor2: #000;
+
+    --nestlinesize3: dotted;
+    --nestlinestyle3: 2px;
+    --nestlinecolor3: #000;
+
+    --FolderRadius: 2px;
 }
 
-table .markdown-embed > .markdown-embed-link {
-    display: none;
-}
-
-table .markdown-embed > .markdown-embed-content > .markdown-preview-view {
-    padding: 0 !important;
-}
-table
-    .markdown-embed
-    > .markdown-embed-content
-    > .markdown-preview-view
-    > .markdown-preview-section {
-    padding-top: 0 !important;
-}
-
-.markdown-preview-view table {
-    width: 99%;
-}
-
-.markdown-preview-view th {
-    border-top: 1px solid var(--background-modifier-border);
-}
-
-.markdown-preview-view th:first-child,
-.markdown-preview-view td:first-child,
-.markdown-preview-view th:last-child,
-.markdown-preview-view td:last-child,
-.markdown-preview-view tr:last-child td {
-    padding: 4px 10px;
-    border: 1px solid var(--background-modifier-border);
-}
-
-body:not(.is-grabbing) .nav-file-title:not(.is-active):hover,
-body:not(.is-grabbing) .nav-folder-title:hover,
-.search-result-file-match:hover,
-.search-result-file-title:hover,
-body:not(.is-grabbing)
-    .nav-file-title:not(.is-active):hover
-    .nav-folder-collapse-indicator,
-body:not(.is-grabbing) .nav-folder-title:hover .nav-folder-collapse-indicator {
-    background-color: unset;
-    color: var(--text-normal);
-}
-
-.nav-file-title {
-    margin-bottom: 3px;
-}
- */
-
-/* blockquote > p  {
-    display: flex;
-    justify-content: flex-start;
-} */
-/* blockquote > p > img:last-child {
-    margin: 1rem;
-    float: right;
-}
-blockquote > p > img:first-child {
-    float: left;
-    margin-right: 1rem;
-}
-blockquote > p > img:first-child + br {
-    display: none;
-} */
-
-/** Ursa Override */
-/* .cm-s-obsidian span.cm-hashtag-begin {
-    color: white;
-}
-.cm-s-obsidian span.cm-hashtag-end {
-    padding-right: 7px;
-    color: white;
-}
-.cm-s-obsidian,
-span.cm-hashtag-begin + span.cm-hashtag-end {
-    padding-left: 2px;
-}
-
-span.cm-hashtag:not(.cm-hashtag-begin) {
-    background-color: var(--tag-background);
-    padding-top: 2px !important;
-    padding-bottom: 2px !important;
+/* Set up explorer container margins */
+.nav-files-container{margin: 0px 5px; }
+.nav-files-container * {
     color: white !important;
 }
 
-span.cm-hashtag:not(.cm-hashtag-end):not(.cm-hashtag-begin) {
-    padding-left: 2px;
+.nav-file-title, .nav-folder-title {
+    border-radius: 0px;
 }
 
-.admonition {
-    margin-inline-start: 18px !important;
-    margin-inline-end: 30px !important;
-    padding: 0 18px !important
+/* Remove collapse arrow from top level folders */
+.nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title>.nav-folder-collapse-indicator{display: none;}
+
+
+/* Top Level Folder Titles */
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title{
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 18px;
+        color: var(--FoldText);
+        padding-left: 3px;
+        margin-top: 7px; /* space between top level sections */
+        border-radius: var(--FolderRadius) var(--FolderRadius) 0px 0px;
+        }
+/* Rounded borders */
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder.is-collapsed>.nav-folder-title{
+        border-radius: var(--FolderRadius);
+        }
+
+/* General Nav Folder Children (this is the part that expands from each top level folder) */
+.nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-children{
+    padding-left: 0px;
+    border-top: var(--FoldText) 1px solid;
+    border-radius: 0px 0px var(--FolderRadius) var(--FolderRadius);
+    /* padding-bottom: 12px; */
 }
-.admonition > .admonition-title {
-    margin: -0 -18px 0 -24px !important;   
-} */
+
+.nav-file-title{
+    padding-left: 5px;
+}
+
+/* active file increase font size and removes normal highlight marker */
+    .nav-file-title.is-active{ 
+        background-color: #00000000;
+        font-size: 105%;}
+/* Adds hemisphere marker to active file instead */
+    .nav-file-title.is-active::before{
+        content: "";
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: var(--FoldText);
+        position: absolute;
+        left: -9px;
+        margin-top: 4px;}
+
+
+/* 16 Top level Folders By Starting Digit (0-F)
+These are set for me by leading number/letter which also ensures they are in the correct order when sorted alphabetically
+You can change these to match your use case.
+*/
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Compendium"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Misc"] + .nav-folder-children{
+    background-color: var(--Fold0);}
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Misc"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Misc"] + .nav-folder-children{
+    background-color: var(--Fold1);}
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="PCs"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="PCs"] + .nav-folder-children{
+    background-color: var(--Fold2);}   
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Planning"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Planning"] + .nav-folder-children{
+    background-color: var(--Fold3);}   
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Post Session Logs"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Post Session Logs"] + .nav-folder-children{
+    background-color: var(--Fold4);}   
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="ZZZZ Archive"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="ZZZZ Archive"] + .nav-folder-children{
+    background-color: var(--Fold5);}   
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="ZZZZZ Plugins"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="ZZZZZ Plugins"] + .nav-folder-children{
+    background-color: var(--Fold6);}   
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="7"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="7"] + .nav-folder-children{
+    background-color: var(--Fold7);}   
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="8"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="8"] + .nav-folder-children{
+    background-color: var(--Fold8);}   
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="9"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="9"] + .nav-folder-children{
+    background-color: var(--Fold9);}   
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="A"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="A"] + .nav-folder-children{
+    background-color: var(--FoldA);} 
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="B"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="B"] + .nav-folder-children{
+    background-color: var(--FoldB);} 
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="C"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="C"] + .nav-folder-children{
+    background-color: var(--FoldC);} 
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="D"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="D"] + .nav-folder-children{
+    background-color: var(--FoldD);} 
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="E"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="E"] + .nav-folder-children{
+    background-color: var(--FoldE);} 
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="F"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="F"] + .nav-folder-children{
+    background-color: var(--FoldF);} 
+
+/* Scrollbars eliminated */
+::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+}
+
+/* Relationship lines for 2nd, 3rd, and 4th level folders */
+.nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-file{
+    border-left: var(--nestlinestyle1) var(--nestlinesize1) var(--nestlinecolor1);
+}
+.nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder{
+    border-left: var(--nestlinestyle1) var(--nestlinesize1) var(--nestlinecolor1);
+}
+
+.nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-file{
+    border-left: var(--nestlinestyle2) var(--nestlinesize2) var(--nestlinecolor2);}
+.nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder{
+    border-left: var(--nestlinestyle2) var(--nestlinesize2) var(--nestlinecolor2);
+}
+
+.nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-file{
+    border-left: var(--nestlinestyle3) var(--nestlinesize3) var(--nestlinecolor3);
+}
+.nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder>.nav-folder-children>.nav-folder{
+    border-left: var(--nestlinestyle3) var(--nestlinesize3) var(--nestlinecolor3);
+}
