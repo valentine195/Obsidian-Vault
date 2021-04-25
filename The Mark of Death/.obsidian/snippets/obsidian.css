@@ -2,6 +2,16 @@
     --default-font: 'iA Writer Quattro' !important;
 }
 
+/**
+  * Consistent header heights
+  */
+.workspace-tab-header-container {
+    height: 36px;
+}
+.workspace-tab-header-inner-icon {
+    display: flex;
+    align-items: center;
+}
 
 /** 
   * Ursa Overrides 
