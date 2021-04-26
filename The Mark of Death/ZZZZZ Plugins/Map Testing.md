@@ -1,7 +1,7 @@
 ```leaflet
-id: test
+id: test5
 [[Map Testing]]
-marker: Location,1,2,3,4
+marker: Location,1,2,[[Lake of Fire]]
 ```
 ^test
 
