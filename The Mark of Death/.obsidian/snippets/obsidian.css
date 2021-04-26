@@ -557,8 +557,8 @@ You can change these to match your use case.
 }
 .nav-file-title::before,
 .nav-folder-title-content::before {
-    width: 16px !important;
-    height: 16px !important;
+    width: 16px;
+    height: 16px;
     display: flex;
     align-self: center;
     justify-self: center;
@@ -577,6 +577,8 @@ You can change these to match your use case.
 }
 .nav-folder .nav-folder-title .nav-folder-title-content::before {
     background-image: unset !important;
+    width: 17px;
+    height: 17px;
     background-size: 24px 24px !important;
     background-color: var(--text-normal);
     content: "";
