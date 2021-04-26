@@ -125,12 +125,17 @@ blockquote > p > img:first-child + br {
     display: none;
 }
 .nav-file-title[data-path$=".jpg"]::before {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    color: var(--FoldText);
+    stroke: var(--FoldText);
     content: "";
-    background-image: url("./icons/image.svg");
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 24 24"%3E%3Cpath d="m12.976 9.0724h5.3677l-5.3677-5.3677v5.3677m-6.8316-6.8316h7.8075l5.8557 5.8557v11.711a1.9519 1.9519 0 0 1 -1.9519 1.9519h-11.711c-1.0833 0-1.9519-.87835-1.9519-1.9519v-15.615c0-1.0833.86859-1.9519 1.9519-1.9519m0 17.567h11.711v-7.8075l-3.9038 3.9038-1.9519-1.9519-5.8557 5.8557m1.9519-10.735a1.9519 1.9519 0 0 0 -1.9519 1.9519 1.9519 1.9519 0 0 0 1.9519 1.9519 1.9519 1.9519 0 0 0 1.9519 -1.9519 1.9519 1.9519 0 0 0 -1.9519 -1.9519z" fill="currentColor" stroke-width=".97594"/%3E%3C/svg%3E');
     background-repeat: no-repeat;
-    display: inline-block;
+    background-size: 24px 24px;
+    height: 24px;
     width: 24px;
-    height: 13px;
 }
 
 /* Emoji */
