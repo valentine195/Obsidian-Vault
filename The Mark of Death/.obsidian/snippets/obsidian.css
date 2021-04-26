@@ -121,6 +121,89 @@ blockquote > p > img:first-child + br {
     margin-bottom: -1px;
 }
 
+.nav-file-title[data-path$=".jpg"] > .nav-file-tag {
+    display: none;
+}
+.nav-file-title[data-path$=".jpg"]::before {
+    content: "";
+    background-image: url("./icons/image.svg");
+    background-repeat: no-repeat;
+    display: inline-block;
+    width: 24px;
+    height: 13px;
+}
+
+/* Emoji */
+/*.nav-file-title-content::before { content: '🗒 '; }
+.nav-folder-title-content::before { content: '📂 '; }*/
+/* Flat font /
+/ Requires: https://icomoon.io/#icons-icomoon/liga-font */
+/* .nav-folder-children .nav-file-title-content:first-child::before {
+    content: "\e924  ";
+    font-family: "IcoMoon-Free";
+}
+.nav-folder-children .nav-folder-title-content::before {
+    content: "\e930  ";
+    font-family: "IcoMoon-Free";
+} */
+
+/* Auto fading UI */
+.view-header:not(:hover) .view-actions,
+.status-bar:not(:hover) .status-bar-item {
+    opacity: 0.1;
+    transition-delay: 5s;
+    transition-duration: 2s;
+    transition-timing-function: ease-in-out;
+    transition-property: opacity;
+}
+.CodeMirror-foldgutter-folded:after,
+.CodeMirror-foldgutter-open:after {
+    opacity: 0.5;
+    font-size: 60%;
+}
+.CodeMirror-foldgutter-folded:hover:after,
+.CodeMirror-foldgutter-open:hover:after {
+    opacity: 1;
+}
+.CodeMirror-foldgutter-folded:after {
+    content: "\25BA";
+}
+.CodeMirror-foldgutter-open:after {
+    content: "\25BC";
+}
+
+/*============ bigger link popup preview ================*/
+.popover.hover-popover {
+    transform: scale(0.8); /* makes the content smaller */
+    max-height: 800px; /* was 300 */
+    min-height: 500px;
+    width: 600px; /* was 400 */
+}
+.popover.hover-popover .markdown-embed {
+    height: 100%;
+}
+.popover.hover-popover.is-loaded
+    .markdown-embed
+    .markdown-embed-content
+    .markdown-preview-view {
+    padding: 10px 10px 10px 16px; /*16px  two pop magin */
+}
+
+.CodeMirror-foldgutter-folded:after,
+.CodeMirror-foldgutter-open:after {
+    opacity: 0.5;
+    font-size: 60%;
+}
+.CodeMirror-foldgutter-folded:hover:after,
+.CodeMirror-foldgutter-open:hover:after {
+    opacity: 1;
+}
+.CodeMirror-foldgutter-folded:after {
+    content: "\25BA";
+}
+.CodeMirror-foldgutter-open:after {
+    content: "\25BC";
+}
 /* Coloured Folders
 a CSS snippet by Lithou
 
