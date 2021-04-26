@@ -1,11 +1,9 @@
 ---
-date updated: '2021-02-18T14:49:29-05:00'
-
+date updated: '2021-04-25T20:59:25-04:00'
+type: adventure-seed
+tags:
+  - complete
 ---
-
-#Adventure #Plot #Complete
-
-*"Adventure Table" #"Whitecliff"
 
 ## Start of session
 
@@ -32,6 +30,7 @@ date updated: '2021-02-18T14:49:29-05:00'
 >   - The map is probably in his desk somewhere, why?"
 >   - Secretly an Emerald Claw - Tarkanen Assassin (Friends, Charm Person)
 >   - Will attempt to charm the warforged
+
 
 - This room is a utilitarian office. The mayor's dead body has not been moved and is still slumped over his desk, his face purple and splotchy from the poison. Simple bookshelves line the walls, filled with books about effective leadership and governance. A simple writing desk sits in the middle of the room, and a coat rack in the corner has a plain-looking cloak hanging from it, softly rustling.
 
@@ -123,32 +122,32 @@ date updated: '2021-02-18T14:49:29-05:00'
 
 |              | **MAP**                        | **MONSTER**                                   | **TREASURE**                                             |
 | ------------ | ------------------------------ | --------------------------------------------- | -------------------------------------------------------- |
-| **5RD**      | [[Mine Of Whitecliff]]             | [[The Emerald Claw]], [[Quinn Aybara]]        | Access Dhakaan Ruins, Magic Item, Dragonshard item slots |
+| **5RD**      | [[Mine Of Whitecliff]]         | [[The Emerald Claw]], [[Quinn Aybara]]        | Access Dhakaan Ruins, Magic Item, Dragonshard item slots |
 | **Entrance** | Mine Lobby at base of Elevator |                                               |                                                          |
 | **Parley**   | Sprawling Mine Shafts          | Wandering mine creatures, [[The Land Sharks]] | Random Loot Table, Dragonshard item slots                |
 | **Setback**  | Spider Lair                    | Spider Queen, giant wolf spiders              | Magic item, Passage through spider lair                  |
 | **Conflict** | Dhakaan Entryway               | [[The Emerald Claw]] agents                   | See [[Quinn Aybara]] enter Dhakaani Ruins                |
 | **Reward**   |                                |                                               | Finding the Dhakaan Ruins                                |
 
-#### Notes         
+#### Notes
 
 ##### Entrance - Mine Lobby / Pond
 
 > The elevator slows, then lurches to a stop. The doors retract and open onto a long room with reinforced walls. A door opens to the west at the far end of the room, and you see crates of raw mined Eberron dragon shards stacked along the wall. As you step off the elevator, you hear a loud BOOM echo from deep in the mine, and a few seconds later the room rumbles. One of the crates of dragonshards tips over with a crash and the room is filled with dust and the sound of falling pebbles from the ceiling.
 
-> As you get closer to the door, you hear the sound of raucous laughter come from nearby, along with a muffled thud. The laughter subsides, then you hear a voice say: 
-> 
->  _"Did you see that creepy elf girl that came down with Quinn earlier?"_
+> As you get closer to the door, you hear the sound of raucous laughter come from nearby, along with a muffled thud. The laughter subsides, then you hear a voice say:
+>
+> _"Did you see that creepy elf girl that came down with Quinn earlier?"_
 >
 > _"Yeah, she was terrifying. Plus, Scar said he saw the old bone piles movin around on the ground near her."_
 >
 > _"Hah, I weren't scared of her or the Emerald Claw. Just wanted to see if you were."_
 
 > The door leads to a hall heading north, where you see minecart tracks. Directly across the hall is a large barracks chamber, and you can make out several people laying on the ground near a campfire, tied up and gagged. You hear more laughter from inside the room, and then you see another person, hands tied, stumble onto the fire, but they're able to thrash off of it before it seriously harms them.
->  
->  _"I'm bored. Go grab another miner so I can practice my knife throwing." _
->  
->  _"You do it. I ent your servant"_
+>
+> _"I'm bored. Go grab another miner so I can practice my knife throwing." _
+>
+> _"You do it. I ent your servant"_
 
 ---
 
@@ -192,9 +191,8 @@ _Pond_
 
 > As you move towards the room, you begin to hear a rattling noise coming from the bones.
 
-> _*Encounter*_
+> __Encounter__
 > 4 Dolgrim burst from the piles of bones and attack the party
-
 
 ##### Setback - Spider Queen / Collapsed Bridge / River Crossing
 
@@ -207,11 +205,11 @@ _**Spider Queen**_
 > The passage ahead of you is nearly entirely blocked with large spiderwebs, though some have been hacked away to allow passage, and the stench wafting out of the cave is almost unbearable. You can hear something large moving about inside, and periodically, a loud, keening wail.
 
 > The cave is hard to move through, as the webbing keeps grabbing at you, forcing you to break through. As you disturb the webs, the sobbing stops, and then you hear someone say:
-> 
+>
 > "Have you come to end me as well, then?"
 
 > A large, half woman/half spider creature lowers to the ground on a line of webbing. Jasper looks at you in shock and whispers, "A drider? How long has that thing been down here? We can't fight this creature."
-> 
+>
 > She looks you over for a few seconds. "You are not of the Emerald Claw. I do not smell the taint of the lady of death on you. Explain yourselves."
 
 - Five bandits have been captured by the spider queen
@@ -221,8 +219,8 @@ _**Collapsed Bridge**_
 
 > You hear the sound of rushing water from ahead of you and then the mineshaft opens into a large cavern. The tracks head out onto a sturdy looking bridge over a wide river below you, but it looks like the bridge has collapsed about halfway across. Someone is sitting on the other side of the bridge, and you can faintly hear them humming to themselves.
 
-> As you get closer to the gap, you recognize that the man is the one you helped free from the Whitecliff jail. 
-> 
+> As you get closer to the gap, you recognize that the man is the one you helped free from the Whitecliff jail.
+>
 > '"Oh ho, [[Pust]] knew if he waited long enough, he would see you again! Once again, [[Pust]] has been proven right!"
 
 > "They have not used the coin yet. It is a pity. But they shall lead Pust to the shard, regardless!"
@@ -236,7 +234,7 @@ _**River Crossing**_
 
 > You hear the sounds of fast flowing water from the cavern ahead of you, and the sounds of boats knocking against each other. The sound of laughter rises over the sound of the water, briefly, and then you hear a loud splash.
 
-> You see three bandits, one a huge half-orc, pushing around several miners with their arms bound and burlap sacks tied around their heads. The half-orc is wearing black-dyed leather armor, and you can see three bright green slashes painted on the front of it that look like something huge scratched deep into him. 
+> You see three bandits, one a huge half-orc, pushing around several miners with their arms bound and burlap sacks tied around their heads. The half-orc is wearing black-dyed leather armor, and you can see three bright green slashes painted on the front of it that look like something huge scratched deep into him.
 > _**If they dally**_: Suddenly the orc picks one up and chucks him into the water, where he is quickly dragged away by the swift current.
 
 > _**Encounter**_
@@ -248,15 +246,14 @@ _**River Crossing**_
 
 ### **Milestone 3:** Traverse the Dhakaan Ruins to find Quinn
 
-|                   | **MAP**                       | **MONSTER**                                                                        | **TREASURE**                                                            |
-| ----------------- | ----------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| **5RD**           | Dhakaani Ruins                | ^"The Emerald Claw", @"Quinn Aybara"                                               | Confrontation with Erandis Vol, Magic Item                              |
-| **Entrance**      | Dhakaani Temple Ruin Entrance | Puzzle - [Perhaps number puzzle?](https://dd.joshtrate.com/#/wheel-of-frustration) | Access to Entrance                                                      |
-| **Parley**        | Dhakaani Statues              |                                                                                    | Item                                                                    |
-| **Setback**       | Trapped Corridor              | Several Traps - Need to find                                                       |                                                                         |
-| **Conflict**      | Dhakaani Temple Main Chamber  | Corrupted @"Quinn Aybara"                                                          |                                                                         |
-| **Reward**        |                               |                                                                                    | Knowledge of @"Erandis Vol", Knowledge of !"Seal Of Khyber", Magic Item |
-                                                                           
+|              | **MAP**                       | **MONSTER**                                                                        | **TREASURE**                                                            |
+| ------------ | ----------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
+| **5RD**      | Dhakaani Ruins                | ^"The Emerald Claw", @"Quinn Aybara"                                               | Confrontation with Erandis Vol, Magic Item                              |
+| **Entrance** | Dhakaani Temple Ruin Entrance | Puzzle - [Perhaps number puzzle?](https://dd.joshtrate.com/#/wheel-of-frustration) | Access to Entrance                                                      |
+| **Parley**   | Dhakaani Statues              |                                                                                    | Item                                                                    |
+| **Setback**  | Trapped Corridor              | Several Traps - Need to find                                                       |                                                                         |
+| **Conflict** | Dhakaani Temple Main Chamber  | Corrupted @"Quinn Aybara"                                                          |                                                                         |
+| **Reward**   |                               |                                                                                    | Knowledge of @"Erandis Vol", Knowledge of !"Seal Of Khyber", Magic Item |
 
 #### Entrance
 
@@ -281,12 +278,13 @@ _**River Crossing**_
 > The light reveals a large cavern. The room you just came out of is a small . A huge statue of the same goblin on the door dominates the center of the cavern, and at the base of it are several life-sized statues of goblins standing behind slabs of a purplish metal. In front of the slabs are several skeletal bodies. A large paved path leads away from the statue in the direction they're facing, but the cavern has collapsed in that direction. In the rubble, you can see something metal glinting.
 
 - Inspecting skeletons: DC 15 Perception to see they seem goblinoid but there are FAR too many arms
+
 > The goblin statues are all holding weapons and have grim looks of determination on their faces. A hobgoblin has its arm raised, its mouth open in a scream, and in its hand is a some sort of long metal tube with a complex metal mechanism at the end, made out of the same purplish metal of the slabs. Scattered around the hobgoblin are several small spheres of the metal that look like ball-bearings.
 > Item - [[Musket]]
 
 > You clear away the rubble and find the body of a grotesque, deformed warforged. It doesn't have a head, but there appears to be one large eye, in the chest. Above the eye is a brilliant yellow gem ([[Delver's Light]]). Clearing more rubble away reveals a large snake-like tail instead of legs. It has two arms, but neither ends in a fist; one arm ends in a stump with a [[Wand Sheath]] above it, while the other has a long sword directly embedded into it. [[Armblade]]
 
-> The paved road leads away from the statue towards a small building, beyond which you can see a set of steps rising to a temple above. 
+> The paved road leads away from the statue towards a small building, beyond which you can see a set of steps rising to a temple above.
 
 #### Setback - Trapped Corridor
 
@@ -317,7 +315,7 @@ Potential Traps:
 > Jasper: "Ah, and you are the one the prophecy speaks of. Your life will be given in service of forces far greater than you, mortal." _**Suddenly she slams her hand against the force field and you see her straining, pushing against it harder and harder, until her hand bursts through, grabbing Jasper. She quickly pulls him towards the force field and he smashes into it, letting out a gutteral scream as he begins to slide through.**_
 
 > She throws Jaspers unmoving form over her shoulder and walks back to the dragon shard.
-> 
+>
 > "Quinn, get rid of these Chamber spies and return to me in Sharn. We must find the rest of the Shards of Khyber."
 
 > **Encounter**
@@ -333,4 +331,3 @@ _**After the Battle**_
 [[Old Cleanse Encounter]]
 
 ---
-
