@@ -1,5 +1,6 @@
 ```leaflet
 id: test
+[[Map Testing]]
 ```
 ^test
 
