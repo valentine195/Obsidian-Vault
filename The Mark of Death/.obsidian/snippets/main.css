@@ -1,0 +1,18 @@
+.nav-file-title > .nav-file-tag {
+    display: none;
+}
+.nav-folder .nav-folder-title .nav-folder-title-content {
+    display: flex;
+}
+.nav-file-title::before,
+.nav-folder-title-content::before {
+    background-image: unset !important;
+    background-color: var(--text-normal);
+    width: 16px !important;
+    height: 16px !important;
+    background-size: 24px 24px !important;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
