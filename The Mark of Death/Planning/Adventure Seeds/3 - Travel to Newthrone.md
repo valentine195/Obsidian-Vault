@@ -1,6 +1,7 @@
 ---
-date updated: '2021-04-19T14:17:34-04:00'
-
+date updated: '2021-04-25T20:58:00-04:00'
+tags:
+  - 
 ---
 
 #Plot #Current
@@ -137,4 +138,3 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 #### Reward
 
 ---
-

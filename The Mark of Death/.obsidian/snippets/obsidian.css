@@ -48,6 +48,15 @@ h6::before {
     content: "" !important;
 }
 
+.theme-dark {
+    --text-title-h1: var(--Fold0);
+    --text-title-h2: var(--Fold1);
+    --text-title-h3: var(--Fold2);
+    --text-title-h4: var(--Fold3);
+    --text-title-h5: var(--Fold4);
+    --text-title-h6: var(--Fold5);
+}
+
 blockquote {
     background-color: var(--background-secondary);
     margin-inline-start: 18px;
@@ -127,19 +136,19 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     --FoldF: #d84315CC;
     --FoldText: white;
     /* line styles for nesting indicators */
-    --nestlinesize1: double;
-    --nestlinestyle1: 7px;
-    --nestlinecolor1: #000;
+    --nestlinesize1: solid;
+    --nestlinestyle1: 2px;
+    --nestlinecolor1: white;
 
-    --nestlinesize2: solid;
-    --nestlinestyle2: 3px;
-    --nestlinecolor2: #000;
+    --nestlinesize2: groove;
+    --nestlinestyle2: 2px;
+    --nestlinecolor2: white;
 
-    --nestlinesize3: dotted;
+    --nestlinesize3: dashed;
     --nestlinestyle3: 2px;
-    --nestlinecolor3: #000;
+    --nestlinecolor3: white;
 
-    --FolderRadius: 2px;
+    --FolderRadius: 5px;
 }
 
 /* Set up explorer container margins */
@@ -203,7 +212,7 @@ These are set for me by leading number/letter which also ensures they are in the
 You can change these to match your use case.
 */
     .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Compendium"],
-    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Misc"] + .nav-folder-children{
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Compendium"] + .nav-folder-children{
     background-color: var(--Fold0);}
     .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Misc"],
     .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="Misc"] + .nav-folder-children{
@@ -238,8 +247,8 @@ You can change these to match your use case.
     .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="B"],
     .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="B"] + .nav-folder-children{
     background-color: var(--FoldB);} 
-    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="C"],
-    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="C"] + .nav-folder-children{
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path="C"],
+    .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path="C"] + .nav-folder-children{
     background-color: var(--FoldC);} 
     .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="D"],
     .nav-folder.mod-root>.nav-folder-children>.nav-folder>.nav-folder-title[data-path^="D"] + .nav-folder-children{
