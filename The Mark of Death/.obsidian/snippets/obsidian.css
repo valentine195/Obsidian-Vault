@@ -59,11 +59,15 @@ h6::before {
 
     /* ............ Spectrum Override */
     --accent-1: var(--Fold0);
-    --accent-2: #f5a14c;
-    --accent-3: #ede482;
-    --accent-4: #de62bf;
-    --accent-5: #62deac;
-    --accent-6: #62b7de;
+    --accent-2: var(--Fold1);
+    --accent-3: var(--Fold2);
+    --accent-4: var(--Fold3);
+    --accent-5: var(--Fold4);
+    --accent-6: var(--Fold5);
+    --main-node: var(--Fold12);
+    --main-node-hover: #fe6a26;
+    --tags: #f19eee;
+    --external-link: #82d2e8;
 }
 
 blockquote {
@@ -126,22 +130,22 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
 */
 :root {
     /* folder colours */
-    --Fold0: #d32f2fcc;
-    --Fold1: #c2185bcc;
-    --Fold2: #7b1fa2cc;
-    --Fold3: #512da8cc;
-    --Fold4: #303f9fcc;
-    --Fold5: #1976d2cc;
-    --Fold6: #0288d1cc;
-    --Fold7: #0097a7cc;
-    --Fold8: #00796bcc;
-    --Fold9: #388e3ccc;
-    --FoldA: #689f38cc;
-    --FoldB: #afb42bcc;
-    --FoldC: #f9ab25cc;
-    --FoldD: #ff8f00cc;
-    --FoldE: #ef6c00cc;
-    --FoldF: #d84315cc;
+    --Fold0: #d32f2f;
+    --Fold1: #c2185c;
+    --Fold2: #8c2ab6;
+    --Fold3: #6c48c0;
+    --Fold4: #3447c0;
+    --Fold5: #1976d2;
+    --Fold6: #0288d1;
+    --Fold7: #0097a7;
+    --Fold8: #00796b;
+    --Fold9: #388e3c;
+    --FoldA: #689f38;
+    --FoldB: #afb42b;
+    --FoldC: #f9ab25;
+    --FoldD: #ff8f00;
+    --FoldE: #ef6c00;
+    --FoldF: #d84315;
     --FoldText: white;
     /* line styles for nesting indicators */
     --nestlinesize1: solid;
