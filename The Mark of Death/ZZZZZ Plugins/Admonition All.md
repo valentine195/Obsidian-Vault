@@ -12,7 +12,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
 ```ad-tip
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
+
 ```
 
 ```ad-success
