@@ -2,7 +2,7 @@
 id: test5
 [[Map Testing]]
 
-marker: Location,37,-87,[[Jeremiah Pumpernickle#Current]]
+marker: Location,37,-87,[Mittelpunkt Deutschlands](https://de.wikipedia.org/wiki/Mittelpunkte_Deutschlands)
 
 ```
 ^test
