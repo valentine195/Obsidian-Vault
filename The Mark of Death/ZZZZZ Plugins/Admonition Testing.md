@@ -1,5 +1,5 @@
 ```ad-note
-title: Test
+title: $\sum\frac{\pi}{\sigma}$
 collapse: open
 Opportunity
 - Auftragswert
@@ -15,10 +15,4 @@ Account: [[Admonition All]]
 
 ```
 
-1
-2
-3
-a b c - [ ] Test
-
-- [x] Test
-- [x] 2
+$\sum\frac{\pi}{\sigma}$

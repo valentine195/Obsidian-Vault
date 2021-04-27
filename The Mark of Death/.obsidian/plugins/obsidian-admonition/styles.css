@@ -24,6 +24,10 @@
     background-color: rgba(var(--admonition-color), 0.1);
 }
 
+.admonition-title p {
+    margin: 0 !important;
+}
+
 .admonition-title-icon {
     position: absolute;
     left: 0.6rem;
