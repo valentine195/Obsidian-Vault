@@ -48,12 +48,13 @@ A single bite of the [[Sun Cedar Fruit|fruit of the Sun Cedar]] will heal your w
 >
 > He continues to lead you deeper into the forest. It's hard to see much around you between the gloom and the dense trees, but [[Drox]] seems to be able to see a winding trail in the leaves on the ground. You hear animals moving about in the trees above you, but can't see anything but the distant canopy when you look.
 
-> **WHAT IS YOUR MARCHING ORDER?**
-> _**IF BRIAN NOT AT FRONT**_: [[Drox]] gestures at you, Jeremiah, and says:
+> After another mile or so, [[Drox]] calls for a halt in a small clearing defined by several fallen trees. He gestures at you, Jeremiah, and says:
 
 ```ad-quote
 The Crazy Fist are truly honored to have an esteemed Templar in our midst. We would have you speak at the Council, so that we may learn of the Flame's intentions.
 ```
+
+> As the two of you are speaking, suddenly from the jungle you hear a *TWANG* and a bright green arrow buries itself into the tree next to Drox. Drox swears, then hurriedly jumps behind one of the fallen trees and calls for you to hide. **ROLL INITIATIVE**
 
 - 1 Lizardfolk Render (blackscale), 2 Lizardfolk Scaleshield (blackscale), 2 Yuan-ti Pureblood (poisondusk)
 
