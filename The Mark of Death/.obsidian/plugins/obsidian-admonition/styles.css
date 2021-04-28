@@ -37,12 +37,12 @@
 .admonition-title-icon {
     position: absolute;
     left: 0.6rem;
-    width: 1.25rem;
-    height: 1.25rem;
-    color: rgb(var(--admonition-color));
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
     justify-content: center;
-    align-items: center;
+    width: 1.25rem;
+    color: rgb(var(--admonition-color));
 }
 
 .admonition-title.no-title {
