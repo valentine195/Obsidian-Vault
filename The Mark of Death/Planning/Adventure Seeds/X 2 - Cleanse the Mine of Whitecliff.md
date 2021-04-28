@@ -1,8 +1,7 @@
 ---
 date updated: '2021-04-25T20:59:25-04:00'
 type: adventure-seed
-tags:
-  - complete
+status: complete
 ---
 
 ## Start of session

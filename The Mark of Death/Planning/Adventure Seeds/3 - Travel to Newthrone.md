@@ -1,10 +1,9 @@
 ---
-date updated: '2021-04-25T20:58:00-04:00'
-tags:
-  - current
----
+date updated: '2021-04-27T21:03:19-04:00'
+type: adventure-seed
+status: current
 
-#Plot #Current
+---
 
 ## 3 STEP PLAN
 
