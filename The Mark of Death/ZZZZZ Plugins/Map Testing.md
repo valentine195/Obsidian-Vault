@@ -2,8 +2,7 @@
 id: test5
 [[Map Testing]]
 
-marker: Location,37,-87,[[Khorvaire.jpg]]
-
+marker: Location,37,-87,https://www.youtube.com
 ```
 ^test
 
