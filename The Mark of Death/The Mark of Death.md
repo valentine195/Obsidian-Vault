@@ -19,7 +19,10 @@ date updated: '2021-03-30T20:37:16-04:00'
 
 ## Current Adventure
 
-- [[3 - Travel to Newthrone]]
+```dataview
+list from "Planning/Adventure Seeds"
+where status = "current"
+```
 
 ## Recaps
 
@@ -27,8 +30,7 @@ date updated: '2021-03-30T20:37:16-04:00'
 ![[21-4-10]]
 
 ### Previous Sessions
-- [[21-3-13]]
-- [[21-2-20]]
-- [[21-2-6]]
-- [[21-1-16]]
-- [[21-1-2]]
+```dataview
+list from "Post Session Logs"
+sort file.name desc
+```
