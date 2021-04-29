@@ -16,7 +16,7 @@ The Boneyard is a valley in the Talenta Plains filled with many skeletons of dra
 In recent years dragonborn from Q'barra have begun making pilgrimages to the site.
 
 ```leaflet
-image: Compendium/Locations/images/Whitecliff.png
+image: obsidian://open?vault=The%20Mark%20of%20Death&file=Compendium%2FLocations%2Fimages%2FWhitecliff.png
 defaultZoom: 6.3
 zoomDelta: 0.05
 id: boneyard
