@@ -19,6 +19,7 @@ In recent years dragonborn from Q'barra have begun making pilgrimages to the sit
 image: Compendium/Locations/images/Whitecliff.png
 defaultZoom: 6.3
 zoomDelta: 0.05
+id: boneyard
 ```
 
 ### Adventures
