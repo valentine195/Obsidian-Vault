@@ -7,7 +7,6 @@ marker: Location,35,-82,[[Location]]
 marker: Location,25,-82,[[Location]]
 marker: Location,15,-82,[[Location]]
 marker: Location,10,-82,[[Location]]
-markerFile: [[Marker File Test]]
-markerFolder: [[Locations]]
+markerFolder: ZZZZZ Plugins/Marker Folder Test
 ```
 ^test
