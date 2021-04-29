@@ -49,10 +49,6 @@ blockquote > p > img:first-child + br {
 .admonition {
     margin-inline-start: 18px !important;
     margin-inline-end: 30px !important;
-    padding: 0 18px !important;
-}
-.admonition > .admonition-title {
-    margin: -0 -18px 0 -24px !important;
 }
 
 /* 4.2.1. Nifty arrow before internal links (also applies to embeds) */
