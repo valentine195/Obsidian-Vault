@@ -15,6 +15,12 @@ The Boneyard is a valley in the Talenta Plains filled with many skeletons of dra
 
 In recent years dragonborn from Q'barra have begun making pilgrimages to the site.
 
+```leaflet
+image: Compendium/Locations/images/Whitecliff.png
+defaultZoom: 6.3
+zoomDelta: 0.05
+```
+
 ### Adventures
 ```dataview
 list FROM [[Boneyard]] AND "Planning/Adventure Seeds"

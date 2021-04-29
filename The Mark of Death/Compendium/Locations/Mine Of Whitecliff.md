@@ -29,6 +29,7 @@ list FROM [[Mine Of Whitecliff]] AND "Planning/Adventure Seeds"
 [Map](https://i.imgur.com/RkqVoff.jpg)
 
 ```leaflet
+id: mine-of-whitecliff
 image: https://i.imgur.com/RkqVoff.jpg
 height: 750px
 ```
