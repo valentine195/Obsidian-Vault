@@ -1,11 +1,12 @@
-```leaflet
-id: test5
-[[Map Testing]]
 
-marker: Location,37,-87,https://www.youtube.com
+```leaflet
+id: real
+scale: 0.000621371
+unit: mi
+marker: Location,35,-82,[[Location]]
+marker: Location,25,-82,[[Location]]
+marker: Location,15,-82,[[Location]]
+marker: Location,10,-82,[[Location]]
+markerFolder: ZZZZZ Plugins/Marker Folder Test
 ```
 ^test
-
-[[Jeremiah Pumpernickle#^b8cbee]]
-
-[Mittelpunkt Deutschlands](https://www.youtube.com)
