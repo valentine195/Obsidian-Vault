@@ -8,6 +8,21 @@
 }
 
 /**
+  * Minimal overrides
+  */
+.view-header { padding-top: 0.25rem; }
+.view-header-title-container, .view-actions, .view-header-icon {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+}
+
+:root {
+    --cursor: pointer;
+    --normal-weight: 350;
+}
+
+/**
   * Consistent header heights
   */
 .workspace-tab-header-container {
@@ -64,14 +79,16 @@ blockquote > p > img:first-child + br {
     margin-right: 2px;
     margin-bottom: -1px;
 }
+
 /* Auto fading UI */
+.view-header:not(:hover) .view-header-icon,
 .view-header:not(:hover) .view-actions,
 .status-bar:not(:hover) .status-bar-item {
-    opacity: 0.1;
-    transition-delay: 5s;
-    transition-duration: 2s;
-    transition-timing-function: ease-in-out;
-    transition-property: opacity;
+    opacity: 0.1 !important;
+    transition-delay: 5s !important;
+    transition-duration: 2.5s !important;
+    transition-timing-function: ease-in-out !important;
+    transition-property: opacity !important;
 }
 .CodeMirror-foldgutter-folded:after,
 .CodeMirror-foldgutter-open:after {
@@ -87,4 +104,8 @@ blockquote > p > img:first-child + br {
 }
 .CodeMirror-foldgutter-open:after {
     content: "\25BC";
+}
+
+.nav-folder-collapse-indicator {
+    color: unset !important;
 }

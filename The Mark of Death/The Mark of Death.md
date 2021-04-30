@@ -29,7 +29,7 @@ where status = "current"
 ### Last Session
 ![[21-4-10]]
 
-### Previous Sessions
+### All Sessions
 ```dataview
 list from "Post Session Logs"
 sort file.name desc

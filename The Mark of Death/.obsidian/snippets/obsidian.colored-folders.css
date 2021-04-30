@@ -40,6 +40,25 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     --FoldText: white;
 }
 
+h1 {
+    color: var(--Fold0)
+}
+h2 {
+    color: var(--Fold1)
+}
+h3 {
+    color: var(--Fold2)
+}
+h4 {
+    color: var(--Fold3)
+}
+h5 {
+    color: var(--Fold4)
+}
+h6 {
+    color: var(--Fold5)
+}
+
 .theme-dark {
     --root-file-color: white;
 }
@@ -49,6 +68,12 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
 .nav-file-title,
 .nav-folder-title {
     color: unset;
+}
+
+/* Minimal Theme overrides */
+.nav-file {
+    margin-left: 0;
+    padding-left: 0.5em;
 }
 
 /* Set up explorer container margins */
@@ -91,10 +116,6 @@ body:not(.is-grabbing) .nav-folder-title:hover .nav-folder-title-content::before
 .nav-file-title,
 .nav-folder-title {
     border-radius: 0px;
-}
-
-.nav-folder-collapse-indicator {
-    color: unset !important;
 }
 
 /* Remove collapse arrow from top level folders */
