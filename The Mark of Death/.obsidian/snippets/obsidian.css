@@ -40,6 +40,12 @@
     margin: 0;
 }
 
+.markdown-preview-view blockquote {
+    background-color: var(--background-secondary-alt);
+    color: var(--text-normal);
+    padding: calc(var(--nested-padding) / 2);
+}
+
 /**
   * Consistent header heights
   */
