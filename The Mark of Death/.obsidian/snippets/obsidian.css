@@ -107,13 +107,18 @@ blockquote > p > img:first-child + br {
 /* Auto fading UI */
 .view-header:not(:hover) .view-header-icon,
 .view-header:not(:hover) .view-actions,
-.status-bar:not(:hover) .status-bar-item {
+.status-bar:not(:hover) .status-bar-item,
+.frontmatter-container.is-collapsed:not(:hover) {
     opacity: 0.1 !important;
     transition-delay: 5s !important;
     transition-duration: 2.5s !important;
     transition-timing-function: ease-in-out !important;
     transition-property: opacity !important;
 }
+/* .frontmatter-container.is-collapsed:hover {
+    opacity: 1;
+} */
+
 .CodeMirror-foldgutter-folded:after,
 .CodeMirror-foldgutter-open:after {
     opacity: 0.5;
