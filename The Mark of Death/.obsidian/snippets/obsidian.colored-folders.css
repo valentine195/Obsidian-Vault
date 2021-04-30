@@ -46,6 +46,10 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
 .theme-light {
     --root-file-color: var(--text-normal);
 }
+.nav-file-title,
+.nav-folder-title {
+    color: unset;
+}
 
 /* Set up explorer container margins */
 .nav-files-container {
@@ -77,10 +81,20 @@ body:not(.is-grabbing) .nav-file-title:hover,
 body:not(.is-grabbing) .nav-folder-title:hover {
     color: var(--root-file-color) !important;
 }
+.nav-file-title.is-active::before,
+.nav-folder-title.is-active .nav-folder-title-content::before,
+body:not(.is-grabbing) .nav-file-title:hover::before,
+body:not(.is-grabbing) .nav-folder-title:hover .nav-folder-title-content::before {
+    background-color: var(--root-file-color) !important;
+}
 
 .nav-file-title,
 .nav-folder-title {
     border-radius: 0px;
+}
+
+.nav-folder-collapse-indicator {
+    color: unset !important;
 }
 
 /* Remove collapse arrow from top level folders */
@@ -117,6 +131,7 @@ body:not(.is-grabbing) .nav-folder-title:hover {
     padding-left: 0px;
     border-top: var(--FoldText) 1px solid;
     border-radius: 0px 0px var(--FolderRadius) var(--FolderRadius);
+    color: var(--FoldText);
     /* padding-bottom: 12px; */
 }
 
