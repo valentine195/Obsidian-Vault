@@ -1,5 +1,5 @@
 ```ad-note
-title: ### Test
+collapse:
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
