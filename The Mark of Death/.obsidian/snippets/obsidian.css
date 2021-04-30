@@ -10,16 +10,37 @@
 /**
   * Minimal overrides
   */
-.view-header { padding-top: 0.25rem; }
-.view-header-title-container, .view-actions, .view-header-icon {
+/* .view-header {
+    padding-top: -0.1rem;
+} */
+.view-header-title-container {
+
+}
+.view-header-title-container,
+.view-actions,
+.view-header-icon {
+    top: 0;
     position: relative;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
 }
-
 :root {
     --cursor: pointer;
     --normal-weight: 350;
+    --line-width: unset;
+    --max-width: 100%;
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
+    max-width: var(--max-width);
+    margin: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+.markdown-source-view.mod-cm5 {
+    padding-left: 40px;
+    padding-right: 40px;
+    margin: 0;
 }
 
 /**
