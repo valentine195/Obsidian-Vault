@@ -23,7 +23,6 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     --FoldD: #ff8f00;
     --FoldE: #ef6c00;
     --FoldF: #d84315;
-    --FoldText: white;
     /* line styles for nesting indicators */
     --nestlinesize1: solid;
     --nestlinestyle1: 2px;
@@ -38,16 +37,37 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     --nestlinecolor3: white;
 
     --FolderRadius: 5px;
+    --FoldText:  white;
+}
+
+.theme-dark {
+    --root-file-color: white;
+}
+.theme-light {
+    --root-file-color: var(--text-normal);
 }
 
 /* Set up explorer container margins */
 .nav-files-container {
     margin: 0px 5px;
 }
-.nav-files-container * {
-    --text-normal: white !important;
-    color: var(--text-normal);
+.nav-folder-children * {
+    color: white;
 }
+.nav-file-title::before {
+    background-color: var(--FoldText) !important;
+}
+
+.nav-folder.mod-root > .nav-folder-title, .nav-folder.mod-root > .nav-folder-children > .nav-file .nav-file-title-content {
+    color: var(--root-file-color);
+}
+.nav-folder .nav-folder-title .nav-folder-title-content::before {
+    background-color: var(--FoldText) !important;
+}
+
+.nav-folder.mod-root  >.nav-folder-title > .nav-folder-title-content::before,  .nav-folder.mod-root > .nav-folder-children > .nav-file .nav-file-title::before {
+    background-color: var(--root-file-color) !important;
+} 
 
 .nav-file-title,
 .nav-folder-title {
@@ -67,7 +87,7 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
 .nav-folder.mod-root > .nav-folder-children > .nav-folder > .nav-folder-title {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
-    color: var(--FoldText);
+    color: white;
     padding-left: 3px;
     margin-top: 7px; /* space between top level sections */
     border-radius: var(--FolderRadius) var(--FolderRadius) 0px 0px;
