@@ -1,5 +1,5 @@
 ---
-date updated: '2021-04-27T21:03:19-04:00'
+date updated: '2021-04-29T22:04:06-04:00'
 type: adventure-seed
 status: current
 
@@ -54,7 +54,7 @@ A single bite of the [[Sun Cedar Fruit|fruit of the Sun Cedar]] will heal your w
 The Crazy Fist are truly honored to have an esteemed Templar in our midst. We would have you speak at the Council, so that we may learn of the Flame's intentions.
 ```
 
-> As the two of you are speaking, suddenly from the jungle you hear a *TWANG* and a bright green arrow buries itself into the tree next to Drox. Drox swears, then hurriedly jumps behind one of the fallen trees and calls for you to hide. **ROLL INITIATIVE**
+> As the two of you are speaking, suddenly from the jungle you hear a _TWANG_ and a bright green arrow buries itself into the tree next to Drox. Drox swears, then hurriedly jumps behind one of the fallen trees and calls for you to hide. **ROLL INITIATIVE**
 
 - 1 Lizardfolk Render (blackscale), 2 Lizardfolk Scaleshield (blackscale), 2 Yuan-ti Pureblood (poisondusk)
 
