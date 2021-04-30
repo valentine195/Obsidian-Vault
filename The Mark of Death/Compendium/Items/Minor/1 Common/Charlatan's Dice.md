@@ -1,10 +1,19 @@
 ---
-date updated: '2021-04-30T15:03:27-04:00'
 type: item/wondrous
+rarity: minor/common
 tags:
+  - given
   - item/minor/common
+  - wondrous
 ---
+ # Charlatan's Dice
+Held by: [[Mim]]
+ 
+ ### Description
 
-Whenever you roll this six—sided die, you can control which number it rolls.
-
-[Link](https://5e.tools/items.html#charlatan's%20die_xge)
+ ### Use
+  Whenever you roll this six—sided die, you can control which number it rolls.
+  
+ [External Link](https://5e.tools/items.html#charlatan's%20die_xge)
+ 
+ 
