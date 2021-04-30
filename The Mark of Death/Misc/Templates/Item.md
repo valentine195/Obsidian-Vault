@@ -1,9 +1,13 @@
 ---
-type: item
+type: item/
+rarity: minor/
+rarity: major/
 tags:
-  - tier/
-  - rarity/
-  - type/plot
+  - given
+  - item/
+  - weapon/
+  - wondrous/
+  - armor/
 ---
  # <% tp.file.title %>
 Held by:
