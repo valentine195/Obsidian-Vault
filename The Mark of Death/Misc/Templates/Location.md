@@ -1,9 +1,6 @@
 ---
 type: location
 tags:
-  - type/
-  - factions/
-  - region/
 
 ---
 

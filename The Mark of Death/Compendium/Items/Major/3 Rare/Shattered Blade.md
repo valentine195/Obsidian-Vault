@@ -12,7 +12,7 @@ tags:
 Held by:
  
  ### Description
- > A well-made basic longsword whose blade was shattered into pieces. Three of the largest pieces were collected and stitched together through magic, creating a   
+ > A well-made basic longsword whose blade was shattered into pieces. Three of the largest pieces were collected and stitched together through magic, creating a blade of floating fragments encased in a swirling mist. 
  
  ### Use
  
