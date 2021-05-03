@@ -4,9 +4,9 @@ rarity: common
 tier: minor
 
 tags:
-  - given
+  - item/given
   - item/minor/common
-  - wondrous
+  - item/wondrous
 ---
  # Wand Sheath
 Held by: [[Bob]]

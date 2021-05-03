@@ -4,9 +4,9 @@ type: item
 rarity: common
 tier: minor
 tags:
-  - given
+  - item/given
   - item/minor/common
-  - weapon/melee
+  - item/weapon/melee
 ---
 
 Martial weapon, melee weapon, common (requires attunement by a warforged)

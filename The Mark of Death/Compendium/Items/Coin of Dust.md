@@ -5,8 +5,8 @@ rarity: rare
 tier: major
 tags:
   - item/major/rare
-  - cursed
-  - given
+  - item/cursed
+  - item/given
 ---
 
 # Coin of Dust

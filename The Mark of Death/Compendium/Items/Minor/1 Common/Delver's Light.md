@@ -3,8 +3,9 @@ type: item
 rarity: common
 tier: minor
 tags:
-  - given
-  - wondrous
+  - item/minor/common
+  - item/given
+  - item/wondrous
 date updated: '2021-05-03T09:16:57-04:00'
 
 ---

@@ -4,7 +4,7 @@ rarity: rare
 tier: minor
 tags:
   - item/minor/rare
-  - wondrous
+  - item/wondrous
 date updated: '2021-05-03T09:14:26-04:00'
 
 ---

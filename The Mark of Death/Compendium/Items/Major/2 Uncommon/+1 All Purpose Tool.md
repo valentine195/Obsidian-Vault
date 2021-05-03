@@ -5,7 +5,7 @@ rarity: uncommon
 type: item
 tags:
   - item/major/uncommon
-  - wondrous
+  - item/wondrous
   
 ---
 

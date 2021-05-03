@@ -1,12 +1,23 @@
-#Major
-#Artifact
-#Item 
+---
+type: item
+rarity: artifact
+tier: major
+tags:
+  - item/major/artifact
+  - item/wondrous
+date updated: '2021-05-03T09:42:38-04:00'
 
-This three-foot warhorn, a revered artifact of Dhakaan, is carved from the tip of a red dragon’s horn, banded with adamantine, and covered with runes of power. An inscription in Goblin reads “A mighty dirge for the fallen foe.” _Ghaal’duur_ was crafted by Jhazaal Dhakaan, a legendary dirge singer who united the ancient warring clans. Any kech warlord who obtained it would gain great influence among the Heirs of Dhakaan—and any non- Dhakaani that possesses it bears a dangerous burden.
+---
 
-      
+# Ghaal'duur
 
-  
+Held by:
+
+### Description
+
+> This three-foot warhorn, a revered artifact of Dhakaan, is carved from the tip of a red dragon’s horn, banded with adamantine, and covered with runes of power. An inscription in Goblin reads “A mighty dirge for the fallen foe.” _Ghaal’duur_ was crafted by Jhazaal Dhakaan, a legendary dirge singer who united the ancient warring clans. Any kech warlord who obtained it would gain great influence among the Heirs of Dhakaan—and any non- Dhakaani that possesses it bears a dangerous burden.
+
+### Use
 
 **_Random Properties._** The warhorn has the following randomly determined properties:
 

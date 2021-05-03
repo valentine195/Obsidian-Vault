@@ -1,16 +1,23 @@
 ---
-date updated: '2021-02-26T14:44:35-05:00'
+type: item
+rarity: uncommon
+tier: minor
 
+tags:
+  - item/given
+  - item/minor/uncommon
+  - item/wondrous/ring
 ---
-
-#Item
-#Minor
-#Uncommon
-#Given
-
-> A small golden band inset with a ruby.
+ # Ring of Igga Strongrage
+Held by:
+ 
+ ### Description
+ > A small golden band inset with a ruby.
 >
 > An inscription inside the band reads, "To Igga, For Health and Happiness - Your Love, Marsha"
+ ### Use
+
+
 
 This ring has 3 charges and regains all spent charges at dawn. While wearing the ring, you may use the charges to: 
 
@@ -18,4 +25,5 @@ This ring has 3 charges and regains all spent charges at dawn. While wearing the
 - **+1 Charge**: You may target a creature within 60 feet.
 - **+1 Charge**: You may use a bonus action instead of a full action.
 
+___
 [Link](https://www.reddit.com/r/UnearthedArcana/comments/9piubj/ring_of_healing_surge/)

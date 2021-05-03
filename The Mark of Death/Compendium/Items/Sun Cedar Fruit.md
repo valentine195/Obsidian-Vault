@@ -5,7 +5,7 @@ tier: rare
 
 tags:
   - item/minor/rare
-  - wondrous/consumable
+  - item/wondrous/consumable
 ---
  # Sun Cedar Fruit
 Held by:

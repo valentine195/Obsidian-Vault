@@ -1,14 +1,18 @@
 ---
-date updated: '2021-02-26T14:27:41-05:00'
+type: item
+rarity: major
+tier: uncommon
 
+tags:
+ - item/major/uncommon
+ - item/weapon/melee/rapier
 ---
-
-#Item 
-#Major 
-#Uncommon 
-#Given 
-
-_A Jet-black blade etched with the sigil of House Tharashk. The basket hilt is also made from the same jet-black material as the blade and accentuated with gold plating._
+ # Rapier of Ven Leser
+Held by: [[Mim]]
+ 
+ ### Description
+>  _A Jet-black blade etched with the sigil of House Tharashk. The basket hilt is also made from the same jet-black material as the blade and accentuated with gold plating._
+ ### Use
 
 +1 to Attack/Damage rolls
 

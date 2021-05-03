@@ -3,9 +3,9 @@ type: item/wondrous
 rarity: common
 tier: minor
 tags:
-  - given
+  - item/given
   - item/minor/common
-  - wondrous
+  - item/wondrous
 ---
  # Charlatan's Dice
 Held by: [[Mim]]
