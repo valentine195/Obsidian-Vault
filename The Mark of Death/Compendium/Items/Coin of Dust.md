@@ -1,15 +1,17 @@
 ---
 date updated: '2021-02-26T14:17:46-05:00'
 type: item
+rarity: rare
+tier: major
 tags:
-  - tier/major
-  - rarity/rare
+  - item/major/rare
   - cursed
+  - given
 ---
 
 # Coin of Dust
 
-### Descritpion
+### Description
 _A large, golden coin, stamped with a design you've never seen before. One face of it is dominated by a swirling cloud of dust, while the reverse shows a crumbling stone tower rising into the sky._
 
 ### Abilities

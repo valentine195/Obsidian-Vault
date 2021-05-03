@@ -1,6 +1,7 @@
 ---
 type: item/wondrous
-rarity: minor/common
+rarity: common
+tier: minor
 tags:
   - given
   - item/minor/common

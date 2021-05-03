@@ -1,12 +1,13 @@
 ---
-type: item/
-rarity: minor/
-rarity: major/
+type: item
+rarity: 
+tier: 
+
 tags:
   - given
   - item/
   - weapon/
-  - wondrous/
+  - wondrous
   - armor/
 ---
  # <% tp.file.title %>

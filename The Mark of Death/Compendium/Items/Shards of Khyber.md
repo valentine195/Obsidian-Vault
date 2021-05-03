@@ -1,10 +1,11 @@
 ---
 date updated: '2021-04-23T20:41:11-04:00'
-type: item
+type: plot-item
+tier: major
+rarity: legendary
 tags:
-  - tier/major
-  - tier/legendary
-  - type/plot
+  - item/major/legendary
+  - plot/item
 ---
  # Shard of Khyber
  
