@@ -1,7 +1,8 @@
 ---
 date updated: '2021-04-30T15:01:37-04:00'
 type: item/weapon/melee
-rarity: minor/common
+rarity: common
+tier: minor
 tags:
   - given
   - item/minor/common
