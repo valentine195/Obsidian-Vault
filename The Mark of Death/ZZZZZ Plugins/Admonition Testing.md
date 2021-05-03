@@ -1,10 +1,5 @@
 ```ad-note
-title: ## Womit beschaftigt sich die [[Admonition Testing]] $a_i$ Test Test?
-
-How many ways can we arrange a dog, a cat, and a pig?
-$$n=3$$
-$$3!=3×2×1=6$$
-
+title: $a_i$ Test Test?
 !!! ad-note
 	test
 	abc
@@ -14,6 +9,7 @@ $$3!=3×2×1=6$$
 
 ads;flkj
 
+![[Khorvaire.jpg]]
 
 ```
 
