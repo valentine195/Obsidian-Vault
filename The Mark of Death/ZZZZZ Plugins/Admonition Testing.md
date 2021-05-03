@@ -1,7 +1,10 @@
 ```ad-note
 title: $a_i$ Test Test?
+collapse: open
 !!! ad-note
 	test
+	collapse:
+	title: test
 	abc
 	!!! ad-abstract
 		123
