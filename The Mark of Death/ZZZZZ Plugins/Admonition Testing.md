@@ -16,10 +16,7 @@ collapse: open
 !!! ad-bug
 	a
 	b
-ads;flkj
-
-![[Khorvaire.jpg]]
-
+t
 ```
 
 
