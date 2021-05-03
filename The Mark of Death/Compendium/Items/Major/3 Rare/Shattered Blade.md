@@ -1,11 +1,21 @@
 ---
-date updated: '2021-02-26T14:33:25-05:00'
+type: item
+rarity: rare
+tier: major
 
+tags:
+ - item/major/rare
+ - item/weapon/melee/longsword
+ - item/attunement
 ---
-#Item 
-#Rare 
-#Major 
-
+ # Shattered Blade
+Held by:
+ 
+ ### Description
+ > A well-made basic longsword whose blade was shattered into pieces. Three of the largest pieces were collected and stitched together through magic, creating a   
+ 
+ ### Use
+ 
 _**Weapon (longsword), rare (requires attunement)**_
 +1 longsword
 
