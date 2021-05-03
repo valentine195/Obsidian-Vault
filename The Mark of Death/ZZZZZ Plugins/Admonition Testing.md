@@ -7,6 +7,9 @@ title: $a_i$ Test Test?
 		123
 	cdf
 
+!!! ad-bug
+	a
+	b
 ads;flkj
 
 ![[Khorvaire.jpg]]
