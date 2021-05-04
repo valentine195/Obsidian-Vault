@@ -4,10 +4,11 @@ type: faction
 tags:
 ---
 
-# <% tp.file.name %>
+# <% tp.file.title %>
 
 ### Description
 
+<% tp.file.content %>
 
 ### Notable Members
 

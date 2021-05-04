@@ -5,7 +5,7 @@ location: [-3.75, 6.8]
 marker: location
 tags:
   - type/landmark/burial-ground
-  - factions/talenta-halflings/yirr-tribe
+  - factions/yirr-tribe
   - region/talenta-plains
   - pcs/merigold
 ---

@@ -3,7 +3,7 @@ date updated: '2021-02-26T14:48:56-05:00'
 type: faction
 sub-type: newspaper
 tags:
- - faction/neutral
+ - factions/neutral
 ---
 
 # Newthrone Gazette

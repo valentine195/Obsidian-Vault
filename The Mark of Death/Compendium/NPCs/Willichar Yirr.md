@@ -1,29 +1,24 @@
-#NPC 
+---
+type: npc
+tags:
+  - npc/halfling
+  - factions/yirr-tribe/member
 
+---
+
+## Willichar Yirr
+
+### Description
+Master Trapper of the [[Yirr Tribe]]
+
+#### Details
+
+#### Relations
 Father of [[Merigold]]
 
 Husband of [[Rosamund Yirr]]
 
-Master Trapper of the [[Yirr Tribe]]
-
----
-type: npc
-tags:
-  - race/
-  - location/
-
----
-
-## undefined
-#NPC
-
-#### Description
-
-
-#### Details
-
-
 ### Adventures
 ```dataview
-list FROM [[undefined]] AND "Planning/Adventure Seeds"
+list FROM [[Willichar Yirr]] AND "Planning/Adventure Seeds"
 ```

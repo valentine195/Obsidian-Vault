@@ -7,6 +7,8 @@ tags:
 ## <% tp.file.title %>
 ### Description
 
+<% tp.file.content %>
+
 ### Adventures
 ```dataview
 list FROM [[<% tp.file.title %>]] AND "Planning/Adventure Seeds"
