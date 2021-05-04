@@ -61,6 +61,8 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 ```ad-battle
 - 1 Lizardfolk Render (blackscale) [[Kaz]], 
 - 2 Lizardfolk Scaleshield (blackscale), 
+	- test
+		- abc
 - 2 Yuan-ti Pureblood (poisondusk)
 ```
 

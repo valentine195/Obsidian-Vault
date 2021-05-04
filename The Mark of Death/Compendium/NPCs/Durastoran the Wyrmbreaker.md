@@ -2,7 +2,7 @@
 type: npc
 tags:
   - npc/rakshasa
-  - factions/lords-of-dust
+  - factions/lords-of-dust/member/leader
 
 ---
 
