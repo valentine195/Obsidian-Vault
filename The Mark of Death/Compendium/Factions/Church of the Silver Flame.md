@@ -1,18 +1,21 @@
 ---
 date updated: '2021-04-08T10:53:17-04:00'
 aliases: Silver Flame, Church of the Silver Flame
+type: faction
+tags: 
+ - faction/good
 ---
-
-#Group
+# Church of the Silver Flame
 
 Based In: [[Locations/Thrane/Flamekeep|Flamekeep (Thrane)]]
 
-#### Brief Description
-- Created 800 years ago when Tira Miron sacrificed herself on the steps of Flamekeep to end the threat of a demon, creating an ever-burning silver fire
-- Core Beliefs
-	 - The Silver Flame is force of light that holds fiends at bay. Those who seek to defend the innocent from evil can draw on the power of the Flame.
-	 - Every mortal soul can find the light. Inspire and guide others to virtuous behavior; force is a last resort.
-	 - Listen to the Voice of the Flame; beware the deceiving whispers of the Shadow in the Flame.
+###  Description
+Created 800 years ago when Tira Miron sacrificed herself on the steps of Flamekeep to end the threat of a demon, creating an ever-burning silver flame at 
+
+#### Beliefs
+ - The Silver Flame is force of light that holds fiends at bay. Those who seek to defend the innocent from evil can draw on the power of the Flame.
+ - Every mortal soul can find the light. Inspire and guide others to virtuous behavior; force is a last resort.
+ - Listen to the Voice of the Flame; beware the deceiving whispers of the Shadow in the Flame.
 - The Silver Flame is an active religion that calls upon the faithful to fight evil. For the warriors of the church, this means combating the many supernatural threats present in Eberron like undead and fiends. For the ministers and friars of the church, this means leading others to be more compassionate. And for the laity, this means simply living a virtuous life.
 
 #### Notable Members
