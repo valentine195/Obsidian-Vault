@@ -1,8 +1,10 @@
 ---
 date updated: '2021-04-29T22:04:06-04:00'
-type: adventure-seed
+type: plot
+subtype: adventure-seed
 status: current
-
+tags:
+ - plot/adventures/seed
 ---
 
 ## 3 STEP PLAN
