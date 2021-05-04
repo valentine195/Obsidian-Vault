@@ -1,8 +1,11 @@
 ---
 date updated: '2021-03-31T08:14:25-04:00'
-
+aliases: Prophecy
+type: plot
+concerns: prophecy
+tags:
+ - plot/draconic-prophecy
 ---
-#Plot, #Draconic_Prophecy
 
 A portion of the fabled draconic prophecy, being used by [[Erandis Vol]] to find the seven [[Shards of Khyber]]
 

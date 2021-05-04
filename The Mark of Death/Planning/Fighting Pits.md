@@ -1,9 +1,10 @@
 ---
 date updated: '2021-02-26T14:51:14-05:00'
-
+type: plot
+sub-type: encounter
+tags:
+  - plot/encounter
 ---
-
-#Plot
 
 ## Intro
 
