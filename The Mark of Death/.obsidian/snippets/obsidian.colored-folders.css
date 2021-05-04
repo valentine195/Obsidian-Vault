@@ -40,25 +40,6 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     --FoldText: white;
 }
 
-h1 {
-    color: var(--Fold0)
-}
-h2 {
-    color: var(--Fold1)
-}
-h3 {
-    color: var(--Fold2)
-}
-h4 {
-    color: var(--Fold3)
-}
-h5 {
-    color: var(--Fold4)
-}
-h6 {
-    color: var(--Fold5)
-}
-
 .theme-dark {
     --root-file-color: white;
 }
