@@ -7,6 +7,7 @@ tags:
 ---
 
 ## <% tp.file.name %>
+<% tp.file.tags %>
 
 #### Description
 
