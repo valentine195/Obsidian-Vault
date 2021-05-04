@@ -10,23 +10,27 @@ tags:
 Based In: [[Locations/Thrane/Flamekeep|Flamekeep (Thrane)]]
 
 ###  Description
-Created 800 years ago when Tira Miron sacrificed herself on the steps of Flamekeep to end the threat of a demon, creating an ever-burning silver flame at 
+Created 800 years ago when Tira Miron sacrificed herself on the steps of Flamekeep to end the threat of a demon, creating an ever-burning silver flame still present at the center of the cathedral.
 
-#### Beliefs
- - The Silver Flame is force of light that holds fiends at bay. Those who seek to defend the innocent from evil can draw on the power of the Flame.
- - Every mortal soul can find the light. Inspire and guide others to virtuous behavior; force is a last resort.
- - Listen to the Voice of the Flame; beware the deceiving whispers of the Shadow in the Flame.
-- The Silver Flame is an active religion that calls upon the faithful to fight evil. For the warriors of the church, this means combating the many supernatural threats present in Eberron like undead and fiends. For the ministers and friars of the church, this means leading others to be more compassionate. And for the laity, this means simply living a virtuous life.
+```ad-abstract
+title: #### Beliefs
+ 1. The Silver Flame is force of light that holds fiends at bay. Those who seek to defend the innocent from evil can draw on the power of the Flame.
+ 2. Every mortal soul can find the light. Inspire and guide others to virtuous behavior; force is a last resort.
+ 3. Listen to the Voice of the Flame; beware the deceiving whispers of the Shadow in the Flame. 
+ 
+ The Silver Flame is an active religion that calls upon the faithful to fight evil. For the warriors of the church, this means combating the many supernatural threats present in Eberron like undead and fiends. For the ministers and friars of the church, this means leading others to be more compassionate. And for the laity, this means simply living a virtuous life.
+```
 
-#### Notable Members
+### Notable Members
 
-- _**Keeper of the Flame**_: [[Jaela Daran|Jaela Daran]]
+#### Leader
+-  _**Keeper of the Flame**_ [[Jaela Daran]]
+#### Others
 - _**High Cardinal**_: [[Krozen]]
 
-#### PC Connections
+### PC Connections
 
 - Jeremiah has the [[Shield Of The Silver Flame]], a an ancient shield of a long-dead Templar.
 
-#### Misc Notes
+### Misc Notes
 - The True Purpose of the Silver Flame has been corrupted by the influence of [[Bel Shalor]], and its original goal of ending the threat of the Overlords has been lost
-- 
