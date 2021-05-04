@@ -146,9 +146,9 @@ blockquote > p > img:first-child + br {
     transition-timing-function: ease-in-out !important;
     transition-property: opacity !important;
 }
-/* .workspace-ribbon-collapse-btn {
-    opacity: 1 !important;
-} */
+.workspace-ribbon-collapse-btn {
+    color: var(--text-muted);
+}
 /* .frontmatter-container.is-collapsed:hover {
     opacity: 1;
 } */
