@@ -19,11 +19,11 @@ The Cold Sun Tribe is one of three tribes of lizardfolk living in the [[Q'Barra|
 - Tratlik (Quiet Rock)
 - Jato (Molten Earth)
 - Duroa (Twin Moon)
-- Accuja  
-- Ogoje  
-- Thaz  
-- Odra
-- Hoz
+- Accuja (Gray Ash)
+- Ogoje (Twin Boulder)
+- Thaz (Strong Fist)
+- Odra (Steel Titan)
+- Hoz (Quiet Feet)
 
 ### Ranks
 
@@ -34,14 +34,30 @@ graph TD
 
 %% Top Node
 id1(Cold Sun Tribes)
-
 %% Media Sources
 id1.1(Crazy Fist)
-id1.2(YouTube)
-id1.3(Pocket Casts)
-id1.4(Google Play Books)
-id1.5(General Research)
+id1.2(Hell Fox)
+id1.3(Red Hunt)
+id1.4(Misty Forest)
+id1.5(Quiet Rock)
+id1.6(Molten Earth)
 
-id1 --> id1.1 & id1.2 & id1.3 & id1.4 & id1.5
+id1 --> id1.1 & id1.2 & id1.3 & id1.4 & id1.5 & id1.6;
 
+```
+
+```mermaid
+graph TD
+
+%% Top Node
+id1(Cold Sun Tribes)
+
+id1.1(Twin Moon)
+id1.2(Gray Ash)
+id1.3(Twin Boulder)
+id1.4(Strong Fist)
+id1.5(Steel Titan)
+id1.6(Quiet Feet)
+
+id1 --> id1.1 & id1.2 & id1.3 & id1.4 & id1.5 & id1.6;
 ```

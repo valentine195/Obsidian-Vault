@@ -9,7 +9,6 @@ tags:
 date updated: '2021-05-03T09:30:30-04:00'
 
 ---
-
 # Musket
 
 Held by: [[Bob]]
