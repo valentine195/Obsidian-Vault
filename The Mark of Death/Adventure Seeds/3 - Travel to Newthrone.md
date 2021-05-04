@@ -59,7 +59,7 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 > As the two of you are speaking, suddenly from the jungle you hear a _TWANG_ and a bright green arrow buries itself into the tree next to Drox. Drox swears, then hurriedly jumps behind one of the fallen trees and calls for you to hide. **ROLL INITIATIVE**
 
 ```ad-battle
-- 1 Lizardfolk Render (blackscale), 
+- 1 Lizardfolk Render (blackscale) [[Kaz]], 
 - 2 Lizardfolk Scaleshield (blackscale), 
 - 2 Yuan-ti Pureblood (poisondusk)
 ```
@@ -67,8 +67,6 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 #### Reward
 
 
-
----
 
 ### MILESTONE 2: Cold Sun Tribal Council
 

@@ -108,6 +108,11 @@ blockquote > p > img:first-child {
 blockquote > p > img:first-child + br {
     display: none;
 }
+blockquote > p::after {
+    content: "";
+    display: table;
+    clear: both;
+}
 
 .markdown-preview-view blockquote {
     margin-inline-start: 18px;
