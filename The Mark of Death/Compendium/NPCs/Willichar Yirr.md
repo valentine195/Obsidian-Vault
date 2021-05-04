@@ -3,6 +3,7 @@ type: npc
 tags:
   - npc/halfling
   - factions/yirr-tribe/member
+  - npc/related/merigold
 
 ---
 

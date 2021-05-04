@@ -1,8 +1,12 @@
 ---
-date updated: '2021-04-23T20:46:01-04:00'
+date updated: '2021-05-04T12:52:29-04:00'
 type: faction
-tags:
+
 ---
+
+<%*
+const splitNameAsTag = tp.file.title.split(" ").join("-").toLowerCase();
+%>
 
 # <% tp.file.title %>
 
@@ -14,10 +18,18 @@ tags:
 
 ##### Leader
 
+```dataview
+list FROM #factions/<% splitNameAsTag %>/member/leader
+```
+
 ##### Others
 
+```dataview
+list 
+FROM #factions/<% splitNameAsTag %>/member 
+WHERE none(contains(file.etags, "#factions/<% splitNameAsTag %>/member/leader"))
+```
 
 ### Ranks
-
 
 ### Organization Chart

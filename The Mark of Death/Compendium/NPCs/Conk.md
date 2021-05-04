@@ -2,8 +2,7 @@
 date updated: '2021-04-23T20:25:09-04:00'
 type: npc
 tags:
-  - race/goblin
-  - location/q'barra/whitecliff
+  - npc/goblin
 
 ---
 

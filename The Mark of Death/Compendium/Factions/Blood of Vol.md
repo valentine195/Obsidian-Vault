@@ -1,18 +1,33 @@
 ---
-date updated: '2021-04-23T20:46:01-04:00'
+date updated: '2021-05-04T12:52:29-04:00'
 type: faction
-tags:
+
 ---
+
+
 
 # Blood of Vol
 
 ### Description
 
 
-### Leader
 
+### Notable Members
+
+##### Leader
+
+```dataview
+list FROM #factions/blood-of-vol/member/leader
+```
+
+##### Others
+
+```dataview
+list 
+FROM #factions/blood-of-vol/member 
+WHERE none(contains(file.etags, "#factions/blood-of-vol/member/leader"))
+```
 
 ### Ranks
-
 
 ### Organization Chart

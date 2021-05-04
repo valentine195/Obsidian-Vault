@@ -1,5 +1,18 @@
 ---
 date updated: '2021-02-19T08:02:21-05:00'
+type: npc
+alignment: good
+tags:
+ - npc/human
+ - plot/npc
+---
+
+## Jasper Bartlett
+
+### Description
+
+---
+date updated: '2021-02-19T08:02:21-05:00'
 
 ---
 
@@ -13,3 +26,14 @@ The skin around the mark is burned.
 Wandslinger and renegade lawman of [[Whitecliff]]
 
 Hates Changelings - [[Prince Kel]] betrayed him during The Last War
+
+
+#### Details
+
+#### Relations
+
+
+### Adventures
+```dataview
+list FROM [[Jasper Bartlett]] AND "Adventure Seeds"
+```

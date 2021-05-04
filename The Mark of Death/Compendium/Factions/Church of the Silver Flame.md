@@ -3,7 +3,7 @@ date updated: '2021-04-08T10:53:17-04:00'
 aliases: Silver Flame, Church of the Silver Flame
 type: faction
 tags: 
- - factions/good
+ - factions/church-of-the-silver-flame
 ---
 # Church of the Silver Flame
 

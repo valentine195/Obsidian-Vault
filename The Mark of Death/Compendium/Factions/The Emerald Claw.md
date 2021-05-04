@@ -20,11 +20,9 @@ list FROM #factions/the-emerald-claw/member/leader
 
 ##### Others
 ```dataview
-list FROM #factions/the-emerald-claw/member WHERE contains(file.tags, "factions/the-emerald-claw/member/leader")
-```
-
-```dataview
-list FROM #factions/the-emerald-claw/member 
+list 
+FROM #factions/the-emerald-claw/member 
+WHERE none(contains(file.etags, "#factions/the-emerald-claw/member/leader"))
 ```
 
 ### Ranks

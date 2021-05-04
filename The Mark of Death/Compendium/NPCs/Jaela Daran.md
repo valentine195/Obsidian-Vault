@@ -1,9 +1,18 @@
 ---
 date updated: '2021-04-08T11:01:56-04:00'
 aliases: Keeper of the Flame, Jaela, Jaela Daran
+type: npc
+alignment: good
+tags:
+ - npc/human
+ - factions/church-of-the-silver-flame/member/leader
 ---
 
-#NPC
+
+## Jaela Daran
+
+### Description
+Jaela is a dark-skinned human with grey eyes. Her hair is black with light streaks through it, which she wears it cropped short. She usually dresses in simple apparel of dull shades of grey and black and is rarely seen wearing any footwear, preferring to walk the marble corridors bare-footed
 
 <https://eberron.fandom.com/wiki/Jaela_Daran>
 
@@ -11,6 +20,12 @@ aliases: Keeper of the Flame, Jaela, Jaela Daran
 - Current Keeper of the Flame in the [[Church of the Silver Flame]]
 - EXTREMELY POWERFUL CLERIC
 
-#### Description
+#### Details
 
-Jaela is a dark-skinned human with grey eyes. Her hair is black with light streaks through it, which she wears it cropped short. She usually dresses in simple apparel of dull shades of grey and black and is rarely seen wearing any footwear, preferring to walk the marble corridors bare-footed
+#### Relations
+
+
+### Adventures
+```dataview
+list FROM [[Jaela Daran]] AND "Adventure Seeds"
+```
