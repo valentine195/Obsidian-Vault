@@ -64,6 +64,12 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 	- test
 		- abc
 - 2 Yuan-ti Pureblood (poisondusk)
+
+
+---
+#### Notes
+[[Kaz]] will try to flee the battle if it doesn't look good for him
+
 ```
 
 #### Reward
