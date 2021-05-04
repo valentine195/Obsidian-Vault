@@ -1,9 +1,11 @@
 ---
 date updated: '2021-02-26T14:48:56-05:00'
-
+type: faction
+sub-type: newspaper
+tags:
+ - faction/neutral
 ---
 
-#Plot
 
 - The Newthrone Gazette flies an airship to town to interview players for a story about what happened
   - Reporter: @"Harvey Hooper"
