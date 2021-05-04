@@ -1,10 +1,8 @@
 ---
 type: location
+sub-type: mine
 tags:
-  - type/landmark/mine
-  - factions/the-emerald-claw
-  - factions/the-land-sharks
-  - region/q'barra/whitecliff
+  - location/q'barra/whitecliff
 date updated: '2021-04-23T15:26:29-04:00'
 
 ---
@@ -21,7 +19,7 @@ The Mine of Whitecliff is a dragonshard mine located near the town of [[Whitecli
 ### Adventures
 
 ```dataview
-list FROM [[Mine Of Whitecliff]] AND "Planning/Adventure Seeds"
+list FROM [[Mine Of Whitecliff]] AND "Adventure Seeds"
 ```
 
 ### Map

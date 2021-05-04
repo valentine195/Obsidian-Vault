@@ -23,5 +23,5 @@ tags:
 
 ### Adventures
 ```dataview
-list FROM [[Kaz]] AND "Planning/Adventure Seeds"
+list FROM [[Kaz]] AND "Adventure Seeds"
 ```

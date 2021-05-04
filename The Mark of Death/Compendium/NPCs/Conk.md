@@ -20,5 +20,5 @@ Currently acting Sherrif's deputy of [[Whitecliff]]
 
 ### Adventures
 ```dataview
-list FROM [[Conk]] AND "Planning/Adventure Seeds"
+list FROM [[Conk]] AND "Adventure Seeds"
 ```

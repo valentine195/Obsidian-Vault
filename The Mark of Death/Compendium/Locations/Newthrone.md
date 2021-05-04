@@ -1,8 +1,8 @@
 ---
 type: location
+sub-type: city
 tags:
-  - type/city
-  - region/q'barra
+  - location/q'barra/newthrone
 
 ---
 
@@ -10,5 +10,5 @@ tags:
 
 ### Adventures
 ```dataview
-list FROM [[Newthrone]] AND "Planning/Adventure Seeds"
+list FROM [[Newthrone]] AND "Adventure Seeds"
 ```

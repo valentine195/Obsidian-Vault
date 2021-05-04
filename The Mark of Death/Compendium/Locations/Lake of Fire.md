@@ -1,9 +1,9 @@
 ---
 type: location
+location-type: landmark
 tags:
-  - type/landmark/volcano
   - factions/lords-of-dust
-  - region/demon-wastes
+  - location/demon-wastes
 date updated: '2021-04-23T15:20:25-04:00'
 ---
 
@@ -14,5 +14,5 @@ The Lake of Fire is actually the mouth of a massive volcano in the Demon Wastes.
 ### Adventures
 
 ```dataview
-list FROM [[Lake of Fire]] AND "Planning/Adventure Seeds"
+list FROM [[Lake of Fire]] AND "Adventure Seeds"
 ```

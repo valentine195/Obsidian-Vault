@@ -1,9 +1,8 @@
 ---
 type: location
+sub-type: city
 tags:
-  - type/location/city
-  - factions/the-emerald-claw
-  - region/breland
+  - location/breland/sharn
 
 ---
 
@@ -11,5 +10,5 @@ tags:
 
 ### Adventures
 ```dataview
-list FROM [[Sharn]] AND "Planning/Adventure Seeds"
+list FROM [[Sharn]] AND "Adventure Seeds"
 ```

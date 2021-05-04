@@ -1,9 +1,8 @@
 ---
 type: location
+sub-type: volcano
 tags:
-  - type/landmark/volcano
-  - factions/lords-of-dust
-  - region/q'barra
+  - location/q'barra/q'barran-jungle
 date updated: '2021-04-23T15:11:32-04:00'
 
 ---
@@ -21,5 +20,5 @@ Haka'torvhak now serves as a center for the religion of the lizardfolk tribes of
 
 ### Adventures
 ```dataview
-list FROM [[Haka'Torvhak]] AND "Planning/Adventure Seeds"
+list FROM [[Haka'Torvhak]] AND "Adventure Seeds"
 ```

@@ -1,9 +1,8 @@
 ---
 type: location
+sub-type: town
 tags:
-  - type/town
-  - factions/the-land-sharks
-  - region/q'barra
+  - location/q'barra/whitecliff
 
 ---
 
@@ -13,7 +12,7 @@ Founded 4 years ago by Cyran refugees fleeing the Mourning, Whitecliff is a smal
 
 ### Adventures
 ```dataview
-list FROM [[Whitecliff]] AND "Planning/Adventure Seeds"
+list FROM [[Whitecliff]] AND "Adventure Seeds"
 ```
 
 

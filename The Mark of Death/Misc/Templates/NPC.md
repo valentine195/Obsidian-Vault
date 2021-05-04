@@ -1,8 +1,6 @@
 ---
 type: npc
 tags:
-  - race/
-  - location/
 
 ---
 
@@ -19,5 +17,5 @@ tags:
 
 ### Adventures
 ```dataview
-list FROM [[<% tp.file.title %>]] AND "Planning/Adventure Seeds"
+list FROM [[<% tp.file.title %>]] AND "Adventure Seeds"
 ```

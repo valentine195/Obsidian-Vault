@@ -1,13 +1,12 @@
 ---
 date updated: '2021-02-26T14:12:28-05:00'
 type: location
+sub-type: burial-ground
 location: [-3.75, 6.8]
 marker: location
 tags:
-  - type/landmark/burial-ground
   - factions/yirr-tribe
-  - region/talenta-plains
-  - pcs/merigold
+  - location/talenta-plains
 ---
 
 ## Boneyard
@@ -20,5 +19,5 @@ In recent years dragonborn from Q'barra have begun making pilgrimages to the sit
 
 ### Adventures
 ```dataview
-list FROM [[Boneyard]] AND "Planning/Adventure Seeds"
+list FROM [[Boneyard]] AND "Adventure Seeds"
 ```

@@ -3,7 +3,7 @@ type: npc
 tags:
   - npc/elf
   - factions/the-emerald-claw/member/leader
-  - factions/house-vol/leader
+  - factions/house-vol/member/leader
   
 ---
 
@@ -26,5 +26,5 @@ Half elf, half dragon, immensely powerful lich with a hidden phylactery.
 
 ### Adventures
 ```dataview
-list FROM [[Erandis Vol]] AND "Planning/Adventure Seeds"
+list FROM [[Erandis Vol]] AND "Adventure Seeds"
 ```

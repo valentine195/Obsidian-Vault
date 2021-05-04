@@ -20,5 +20,5 @@ Husband of [[Rosamund Yirr]]
 
 ### Adventures
 ```dataview
-list FROM [[Willichar Yirr]] AND "Planning/Adventure Seeds"
+list FROM [[Willichar Yirr]] AND "Adventure Seeds"
 ```

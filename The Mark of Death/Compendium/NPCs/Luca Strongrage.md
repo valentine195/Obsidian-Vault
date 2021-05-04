@@ -14,7 +14,7 @@ tags:
 
 ---
 
-## undefined
+## Luca Strongrage
 
 #### Description
 
@@ -24,5 +24,5 @@ tags:
 
 ### Adventures
 ```dataview
-list FROM [[undefined]] AND "Planning/Adventure Seeds"
+list FROM [[Luca Strongrage]] AND "Adventure Seeds"
 ```

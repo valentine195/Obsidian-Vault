@@ -1,10 +1,28 @@
 ---
-date updated: '2021-02-26T13:48:56-05:00'
+type: npc
+tags:
+  - npc/human
+  - factions/newthrone-gazette/member
 
 ---
 
-#NPC
+## Harvey Hooper
+
+### Description
+
+
 
 Journalist at the [[Newthrone Gazette]]
 
 Interviewed the [[Heroes of Whitecliff]]
+
+
+#### Details
+
+#### Relations
+
+
+### Adventures
+```dataview
+list FROM [[Harvey Hooper]] AND "Adventure Seeds"
+```

@@ -18,5 +18,5 @@ tags:
 
 ### Adventures
 ```dataview
-list FROM [[Durastoran the Wyrmbreaker]] AND "Planning/Adventure Seeds"
+list FROM [[Durastoran the Wyrmbreaker]] AND "Adventure Seeds"
 ```

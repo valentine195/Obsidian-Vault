@@ -20,7 +20,7 @@ Inquisitive of [[House Tharashk]]
 
 ### Adventures
 ```dataview
-list FROM [[Everest Lindsey]] AND "Planning/Adventure Seeds"
+list FROM [[Everest Lindsey]] AND "Adventure Seeds"
 ```
 
 
