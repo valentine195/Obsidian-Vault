@@ -6,6 +6,23 @@ tags:
  - faction/neutral
 ---
 
+# Newthrone Gazette
+
+### Description
+
+
+### Notable Members
+
+##### Leader
+
+##### Others
+
+
+### Ranks
+
+
+### Organization Chart
+
 
 - The Newthrone Gazette flies an airship to town to interview players for a story about what happened
   - Reporter: @"Harvey Hooper"
