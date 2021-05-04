@@ -1,7 +1,7 @@
 ---
 date updated: '2021-02-26T14:12:28-05:00'
 type: location
-location: [-3.6, 7]
+location: [-3.75, 6.8]
 marker: location
 tags:
   - type/landmark/burial-ground
