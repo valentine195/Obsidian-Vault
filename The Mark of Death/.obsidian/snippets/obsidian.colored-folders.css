@@ -177,13 +177,24 @@ You can change these to match your use case.
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
+    > .nav-folder-title[data-path^="Adventure Seeds"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="Adventure Seeds"]
+    + .nav-folder-children {
+    background-color: var(--Fold0);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
     > .nav-folder-title[data-path^="Compendium"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
     > .nav-folder-title[data-path^="Compendium"]
     + .nav-folder-children {
-    background-color: var(--Fold0);
+    background-color: var(--Fold1);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -194,7 +205,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="Misc"]
     + .nav-folder-children {
-    background-color: var(--Fold1);
+    background-color: var(--Fold2);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -205,7 +216,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="PCs"]
     + .nav-folder-children {
-    background-color: var(--Fold2);
+    background-color: var(--Fold3);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -216,7 +227,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="Planning"]
     + .nav-folder-children {
-    background-color: var(--Fold3);
+    background-color: var(--Fold4);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -227,7 +238,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="Post Session Logs"]
     + .nav-folder-children {
-    background-color: var(--Fold4);
+    background-color: var(--Fold5);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -238,7 +249,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="ZZZZ Archive"]
     + .nav-folder-children {
-    background-color: var(--Fold5);
+    background-color: var(--Fold6);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -249,7 +260,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="ZZZZZ Plugins"]
     + .nav-folder-children {
-    background-color: var(--Fold6);
+    background-color: var(--Fold7);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -287,11 +298,11 @@ You can change these to match your use case.
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="A"],
+    > .nav-folder-title[data-path="A"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="A"]
+    > .nav-folder-title[data-path="A"]
     + .nav-folder-children {
     background-color: var(--FoldA);
 }
