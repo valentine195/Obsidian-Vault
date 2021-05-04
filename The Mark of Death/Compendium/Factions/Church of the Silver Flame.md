@@ -10,7 +10,7 @@ tags:
 Based In: [[Locations/Thrane/Flamekeep|Flamekeep (Thrane)]]
 
 ###  Description
-Created 800 years ago when Tira Miron sacrificed herself on the steps of Flamekeep to end the threat of a demon, creating an ever-burning silver fire
+Created 800 years ago when Tira Miron sacrificed herself on the steps of Flamekeep to end the threat of a demon, creating an ever-burning silver flame at 
 
 #### Beliefs
  - The Silver Flame is force of light that holds fiends at bay. Those who seek to defend the innocent from evil can draw on the power of the Flame.
