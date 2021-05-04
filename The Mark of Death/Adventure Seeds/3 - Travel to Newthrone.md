@@ -70,8 +70,6 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 
 ---
 
-# Session 3
-
 ### MILESTONE 2: Cold Sun Tribal Council
 
 |              | MAP | MONSTER | REWARD |
