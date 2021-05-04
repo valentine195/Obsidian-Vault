@@ -2,7 +2,6 @@
 type: location
 location-type: landmark
 tags:
-  - factions/lords-of-dust
   - location/demon-wastes
 date updated: '2021-04-23T15:20:25-04:00'
 ---

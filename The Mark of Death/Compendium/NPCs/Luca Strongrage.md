@@ -1,26 +1,21 @@
-#NPC 
+---
+type: npc
+tags:
+ - npc/half-orc
+---
 
-Son of Mayor Igga Strongrage and [[Marsha Strongrage]] of [[Whitecliff]]
+## Luca Strongrage
+
+### Description
 
 Traveled to Sharn to become a master wind racer, won last Race of the Eight Winds
 
 Original owner of [[Bun-Bun]]
 
----
-type: npc
-tags:
-  - race/
-  - location/
-
----
-
-## Luca Strongrage
-
-#### Description
-
-
 #### Details
 
+#### Relations
+Son of Mayor Igga Strongrage and [[Marsha Strongrage]] of [[Whitecliff]]
 
 ### Adventures
 ```dataview

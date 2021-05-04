@@ -11,13 +11,6 @@ tags:
 
 ### Description
 
----
-date updated: '2021-02-19T08:02:21-05:00'
-
----
-
-#NPC
-
 **HALF-ELF WITH ABERRANT DRAGONMARK**
 **FOUGHT IN THE LAST WAR**
 

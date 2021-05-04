@@ -1,7 +1,14 @@
-#NPC 
-[[Q'Barra]]
-[[Haka'Torvhak]]
-[[Lords of Dust]]
+---
+type: npc
+tags:
+ - npc/rakshasa
+ - factions/lords-of-dust/member
+ - location/q'barra/q'barran-jungle/npc
+---
+
+## Rabar
+
+### Description
 
 Minor member of the [[Lords of Dust]], active near [[Haka'Torvhak]]
 
@@ -9,8 +16,7 @@ Use statblock of a [Zakya Rakshasa](https://5e.tools/bestiary.html#zakya%20raksh
 
 
 
-___
->  ![float-right|200](https://5e.tools/img/bestiary/ERLW/Zakya%20Rakshasa.png?v=1.122.8) 
+![|200](https://5e.tools/img/bestiary/ERLW/Zakya%20Rakshasa.png?v=1.122.8) 
 >  ## Zakya Rakshasa
 >*Medium fiend, lawful evil*
 >___
@@ -47,3 +53,13 @@ ___
 >***Longsword.*** *Melee Weapon Attack:* +7 to hit, reach 5 ft., one target. *Hit:* 8 (1d8 + 4) slashing damage, or 9 (1d10 + 4) slashing damage if used with two hands.  
 >
 >***Javelin.*** *Melee  or Ranged Weapon Attack:* +7 to hit, reach 5 ft. or range 30/120 ft., one target. *Hit:* 7 (1d6 + 4) piercing damage.
+
+#### Details
+
+#### Relations
+
+
+### Adventures
+```dataview
+list FROM [[Rabar]] AND "Adventure Seeds"
+```
