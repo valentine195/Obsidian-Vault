@@ -1,3 +1,0 @@
-```leaflet
-id: test
-```
