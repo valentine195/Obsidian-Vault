@@ -3,11 +3,9 @@
 id: real
 scale: 0.000621371
 unit: mi
-marker: Location,35,-82,[[Location]]
-marker: Location,25,-82,[[Location]]
-marker: Location,15,-82,[[Location]]
-marker: Location,10,-82,[[Location]]
-markerFile: [[Marker File Test]]
+markerTag: [#plot/adventures/table, #plot/adventures]
+markerTag: #item 
+markerTag: [ #plot/adventures/seed ]
 markerFolder: ZZZZZ Plugins/Marker Folder Test
 ```
 ^test
