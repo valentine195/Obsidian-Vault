@@ -3,12 +3,9 @@
 id: real
 scale: 0.000621371
 unit: mi
-markerTag: #location
+marker: location, 32, -87, Obsidian Git: Pull from remote repository
 ```
 
 
-```leaflet
-id: test
-markerFolder: ZZZZZ Plugins/Marker Folder Test
-```
+
 
