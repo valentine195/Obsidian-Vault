@@ -1,6 +1,8 @@
 ---
 type: location
 location-type: landmark
+location: [-2.62, 1.5]
+mapmarker: location
 tags:
   - location/demon-wastes
 date updated: '2021-04-23T15:20:25-04:00'
