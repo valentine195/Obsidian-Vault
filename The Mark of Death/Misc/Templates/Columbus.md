@@ -1,6 +1,7 @@
 ---
-location: [39.9612, -82.9988]
+location: [39, -82]
 ---
-![Wetter](https://wttr.in/39.9612,-82.9988_0tqp_lang=en.png)
 
-<img alt="Wetter" src="https://wttr.in/39.9612,-82.9988_0tqp_lang=en.png">
+![Wetter](https://wttr.in/39,-82_0tqp_lang=en.png)
+
+<img alt="Wetter" src="https://wttr.in/39,-82_0tqp_lang=en.png">
