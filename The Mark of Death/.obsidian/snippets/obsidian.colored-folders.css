@@ -91,21 +91,15 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
 }
 
 .nav-file-title.is-active,
-.nav-folder-title.is-active {
-    color: var(--FoldText) !important;
-}
-
-.nav-file-title.is-active::before,
-.nav-folder-title.is-active .nav-folder-title-content::before {
-    background-color: var(--FoldText) !important;
-    background-size: 
-}
+.nav-folder-title.is-active,
 .nav-file-title-content.is-being-renamed,
 .nav-folder-title-content.is-being-renamed,
 body:not(.is-grabbing) .nav-file-title:hover,
 body:not(.is-grabbing) .nav-folder-title:hover {
     color: var(--root-file-color) !important;
 }
+.nav-file-title.is-active::before,
+.nav-folder-title.is-active .nav-folder-title-content::before,
 body:not(.is-grabbing) .nav-file-title:hover::before,
 body:not(.is-grabbing)
     .nav-folder-title:hover
@@ -159,7 +153,7 @@ body:not(.is-grabbing)
 /* active file increase font size and removes normal highlight marker */
 .nav-file-title.is-active {
     background-color: #00000000;
-    font-size: 110%;
+    font-size: 105%;
 }
 /* Adds hemisphere marker to active file instead */
 /* .nav-file-title.is-active {
@@ -442,11 +436,6 @@ You can change these to match your use case.
 
 /* == File Explorer - animation for active file as per Obuntu === */
 
-/* .nav-file-title,
-.nav-folder-title {
-    padding: 0px 14px 0px 20px;
-} */
-
 .nav-folder-title {
     font-weight: bold;
 }
@@ -464,21 +453,30 @@ You can change these to match your use case.
     background-color: var(--background-primary);
     border-radius: 6px;
     font-weight: bold;
-    /* color: var(--text-accent); */
     border-left: 2px solid var(--text-accent);
     transition: all 0.5s ease;
 }
 
 .nav-file.is-active > .nav-file-title {
     padding-left: 5px;
-    /* margin-left: 5px; */
 }
 
+.nav-file-title.is-active,
 body:not(.is-grabbing) .nav-file-title:hover,
 body:not(.is-grabbing) .nav-folder-title:hover {
     background-color: var(--background-primary);
     border-radius: 2px;
     transition: all 0.2s ease;
+}
+
+body:not(.is-grabbing) .nav-folder-title:hover {
+    border-radius: 0px;
+}
+
+.nav-file-title.is-active::before {
+    margin-top: 2px;
+    width: 22px;
+    height: 20px;
 }
 
 .nav-file-tag {
