@@ -1,6 +1,8 @@
 ---
 type: location
 sub-type: volcano
+location: [-4.55, 7.06]
+mapmarker: location
 tags:
   - location/q'barra/q'barran-jungle
 date updated: '2021-04-23T15:11:32-04:00'

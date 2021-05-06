@@ -59,18 +59,19 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 > As the two of you are speaking, suddenly from the jungle you hear a _TWANG_ and a bright green arrow buries itself into the tree next to Drox. Drox swears, then hurriedly jumps behind one of the fallen trees and calls for you to hide. **ROLL INITIATIVE**
 
 ```ad-battle
+#### Monsters
 - 1 Lizardfolk Render (blackscale) [[Kaz]], 
 - 2 Lizardfolk Scaleshield (blackscale), 
 	- test
 		- abc
 - 2 Yuan-ti Pureblood (poisondusk)
 
-
----
 #### Notes
-[[Kaz]] will try to flee the battle if it doesn't look good for him
+- [[Kaz]] will try to flee the battle if it doesn't look good for him
+
 
 ```
+
 
 #### Reward
 
