@@ -6,6 +6,7 @@ status: current
 tags:
  - plot/adventures/seed
 ---
+# 3 - Travel to Newthrone
 
 ## 3 STEP PLAN
 
@@ -69,6 +70,10 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 #### Notes
 - [[Kaz]] will try to flee the battle if it doesn't look good for him
 
+
+!!! ad-important
+	Before his first turn, [[Kaz]] will ask [[Drox]] why he's with an agent of the [[Lords of Dust]]
+
 [Battle](https://5e.tools/bestiary.html#aarakocra_mm,encounterbuilder:true,encounter:%7b%22p%22%3a%5b%7b%22count%22%3a4%2c%22level%22%3a4%7d%5d%2c%22l%22%3a%7b%22items%22%3a%5b%7b%22h%22%3a%22lizardfolk%2520render_gos%22%2c%22c%22%3a1%2c%22customhashid%22%3anull%7d%2c%7b%22h%22%3a%22lizardfolk%2520scaleshield_gos%22%2c%22c%22%3a1%2c%22customhashid%22%3anull%7d%2c%7b%22h%22%3a%22yuan-ti%2520pureblood_mm%22%2c%22c%22%3a2%2c%22customhashid%22%3anull%7d%5d%2c%22sources%22%3a%5b%22gos%22%2c%22mm%22%5d%7d%2c%22a%22%3atrue%2c%22c%22%3a%5b%5d%2c%22d%22%3a%5b%7b%22n%22%3a%22bob%22%2c%22l%22%3a4%2c%22x%22%3a%5b%5d%7d%2c%7b%22n%22%3a%22jeremiah%22%2c%22l%22%3a4%2c%22x%22%3a%5b%5d%7d%2c%7b%22n%22%3a%22mim%22%2c%22l%22%3a4%2c%22x%22%3a%5b%5d%7d%2c%7b%22n%22%3a%22merigold%22%2c%22l%22%3a4%2c%22x%22%3a%5b%5d%7d%5d%7d)
 
 ```
@@ -90,6 +95,8 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 | **Reward**   |     |         |        |
 
 #### Notes
+
+> Finally, 
 
 #### Entrance
 

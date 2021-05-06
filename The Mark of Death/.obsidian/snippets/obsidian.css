@@ -42,6 +42,9 @@
     --line-width: unset;
     --max-width: 100%;
 }
+.theme-light {
+    --background-primary: hsl(var(--base-h), var(--base-s), 99%);
+}
 
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
     max-width: var(--max-width);
