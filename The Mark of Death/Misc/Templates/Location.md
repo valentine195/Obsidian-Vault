@@ -1,5 +1,7 @@
 ---
 type: location
+location: 
+mapmarker: location
 tags:
 
 ---

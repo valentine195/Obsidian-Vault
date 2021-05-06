@@ -110,7 +110,11 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 ```
 
 ```ad-abstract
-Finally, you begin to hear the sounds of a camp ahead of you. The game trail you've been following widens, and then ahead of you it opens up into a large clearing filled with small huts. 
+Finally, you begin to hear the sounds of civilization ahead of you. The game trail you've been following widens, and then in the distance you see several glowing orbs illuminating a town built up amongst the trees. The trail leads to the base of a large tree that has a wide set of stairs attached to it heading up into the clanhold.
+```
+
+```ad-abstract
+
 ```
 
 #### Parley
