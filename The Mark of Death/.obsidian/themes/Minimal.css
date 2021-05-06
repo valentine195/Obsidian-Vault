@@ -175,7 +175,7 @@ Disabled features */
   These values are mostly driven by the options above */
 
   .theme-light {
-    --background-primary:white;
+    --background-primary:rgb(247, 247, 247);
     --background-primary-alt:hsl(var(--base-h),var(--base-s),var(--base-l));
     --background-secondary:hsl(var(--base-h),var(--base-s),var(--base-l));
     --background-secondary-alt:hsl(var(--base-h),var(--base-s),var(--base-l));
