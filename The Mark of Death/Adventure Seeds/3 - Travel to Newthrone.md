@@ -96,9 +96,13 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 
 #### Notes
 
-> Finally, 
 
 #### Entrance
+
+```ad-quote
+[[Drox]] looks at the four of you and says, "Kaz seemed to believe one of you was in th"
+```
+> Finally, you begin to hear the sounds of a camp ahead of you.
 
 #### Parley
 
