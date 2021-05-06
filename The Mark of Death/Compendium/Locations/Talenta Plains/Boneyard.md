@@ -2,7 +2,7 @@
 date updated: '2021-02-26T14:12:28-05:00'
 type: location
 sub-type: burial-ground
-location: [-3.75, 6.8]
+location: [-3.76, 6.86]
 marker: location
 tags:
   - factions/yirr-tribe

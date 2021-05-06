@@ -1,6 +1,8 @@
 ---
 type: location
 sub-type: headquarters
+location: [-2.9, 5.18]
+mapmarker: location
 tags:
   - factions/blood-of-vol
   - location/karrnath/atur
