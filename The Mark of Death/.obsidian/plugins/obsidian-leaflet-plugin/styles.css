@@ -161,9 +161,13 @@ input.is-invalid {
 }
 .leaflet-marker-link-popup > .leaflet-popup-content-wrapper > * {
     margin: 0;
+    font-size: 14px;
+    text-align: center;
 }
 .leaflet-marker-link-popup .leaflet-popup-tip {
-    /* color: rgba(0, 0, 0, 0.9) !important; */
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    width: 12px;
+    height: 12px;
 }
 
 .leaflet-marker-link-tooltip::before {
