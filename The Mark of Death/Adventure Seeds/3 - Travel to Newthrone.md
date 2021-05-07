@@ -1,11 +1,13 @@
 ---
-date updated: '2021-04-29T22:04:06-04:00'
+date updated: '2021-05-06T20:44:02-04:00'
 type: plot
 sub-type: adventure-seed
 status: current
 tags:
- - plot/adventures/seed
+  - plot/adventures/seed
+
 ---
+
 # 3 - Travel to Newthrone
 
 ## 3 STEP PLAN
@@ -80,24 +82,20 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 
 ```
 
-
 #### Reward
-
-
 
 ### MILESTONE 2: Cold Sun Tribal Council
 
-|              | MAP | MONSTER | REWARD |
-| ------------ | --- | ------- | ------ |
-| **5RD**      |     |         |        |
-| **Entrance** |     |         |        |
-| **Parley**   |     |         |        |
-| **Setback**  |     |         |        |
-| **Conflict** |     |         |        |
-| **Reward**   |     |         |        |
+|              | MAP                 | MONSTER                                                | REWARD |
+| ------------ | ------------------- | ------------------------------------------------------ | ------ |
+| **5RD**      |                     |                                                        |        |
+| **Entrance** | Crazy Fist Clanhold |                                                        | Rest   |
+| **Parley**   | Crazy Fist Clanhold | Clan Chiefs                                            |        |
+| **Setback**  | Clanhold            |                                                        |        |
+| **Conflict** |                     | Clan Chief accuses group of being in the Lords of Dust |        |
+| **Reward**   |                     |                                                        |        |
 
 #### Notes
-
 
 #### Entrance
 
@@ -109,12 +107,12 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 
 ```
 
-```ad-abstract
+```ad-info
 Finally, you begin to hear the sounds of civilization ahead of you. The game trail you've been following widens, and then in the distance you see several glowing orbs illuminating a town built up amongst the trees. The trail leads to the base of a large tree that has a wide set of stairs attached to it heading up into the clanhold.
 ```
 
-```ad-abstract
-
+```ad-info
+The stairs go up into the understory to a large platform built around the tree. Several rope bridges branch out from the platform, heading off into the town. Hundreds of lizardfolk are moving through the air, some on the rope bridges, some swinging on claw hooks. [[Drox]] gestures out towards the town and says, "The Crazy Fist clanhold welcomes you, templar. "
 ```
 
 #### Parley
