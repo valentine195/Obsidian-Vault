@@ -99,7 +99,7 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 
 #### Entrance
 
-```ad-important
+```ad-danger
 [[Drox]] turns to the four of you and narrows his eyes.
 
 !!! ad-quote
@@ -112,7 +112,15 @@ Finally, you begin to hear the sounds of civilization ahead of you. The game tra
 ```
 
 ```ad-info
-The stairs go up into the understory to a large platform built around the tree. Several rope bridges branch out from the platform, heading off into the town. Hundreds of lizardfolk are moving through the air, some on the rope bridges, some swinging on claw hooks. [[Drox]] gestures out towards the town and says, "The Crazy Fist clanhold welcomes you, templar. "
+The stairs go up into the understory to a large platform built around the tree. Several rope bridges branch out from the platform, heading off into the town. Hundreds of lizardfolk are moving through the air, some on the rope bridges, some swinging on claw hooks. [[Drox]] gestures out towards the town and says, "The Crazy Fist clanhold welcomes you, templar."
+
+A young lizardfolk dressed in a white robe walks up to your group and bows to [[Drox]]. Drox says:
+
+!!! ad-quote
+	I have some clan business I must attend prior to the council. Please allow this servant to take you to a guesthouse. It will see to your needs.
+	
+And then he bows to each of you and takes his leave.
+
 ```
 
 #### Parley

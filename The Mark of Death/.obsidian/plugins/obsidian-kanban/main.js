@@ -19211,7 +19211,7 @@ var jsYaml = {
 };
 
 const frontMatterKey = "kanban-plugin";
-const frontmatterRegEx = /^---([\w\W]+)---/;
+const frontmatterRegEx = /^---([\w\W]+?)---/;
 const newLineRegex = /[\r\n]+/g;
 // Begins with one or more # followed by a space
 const laneRegex = /^#+\s+(.+)$/;
@@ -36941,8 +36941,9 @@ function getDefaultLocale() {
     return localeMap[momentLocale];
 }
 
-const tagRegex = /(^|\s)#([^\s]*)$/;
-const linkRegex = /(^|\s)\[\[([^\]]*)$/;
+const tagRegex = /\B#([^\s]*)?$/;
+const linkRegex = /\B\[\[([^\]]*)?$/;
+const embedRegex = /\B!\[\[([^\]]*)?$/;
 function forceChangeEvent(input, value) {
     Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, "value").set.call(input, value);
     input.dispatchEvent(new Event("input", { bubbles: true }));
@@ -36968,13 +36969,18 @@ function constructDatePicker$1({ div, inputRef, cb, view, }) {
         })));
     });
 }
-function getTagSearchConfig(tagSearch) {
+function getTagSearchConfig(tags, tagSearch) {
     return {
         id: "tag",
         match: tagRegex,
         index: 1,
         search: (term, callback) => {
-            callback(tagSearch.search(term));
+            if (!term) {
+                callback(tags.slice(0, 10).map((tag, i) => ({ item: tag, refIndex: i })));
+            }
+            else {
+                callback(tagSearch.search(term));
+            }
         },
         template: (result) => {
             return result.item;
@@ -36982,18 +36988,23 @@ function getTagSearchConfig(tagSearch) {
         replace: (result) => `${result.item} `,
     };
 }
-function getFileSearchConfig(fileSearch, filePath, view) {
+function getFileSearchConfig(files, fileSearch, filePath, view, isEmbed) {
     return {
         id: "link",
-        match: linkRegex,
+        match: isEmbed ? embedRegex : linkRegex,
         index: 1,
         template: (res) => {
             return view.app.metadataCache.fileToLinktext(res.item, filePath);
         },
         search: (term, callback) => {
-            callback(fileSearch.search(term));
+            if (!term) {
+                callback(files.slice(0, 10).map((file, i) => ({ item: file, refIndex: i })));
+            }
+            else {
+                callback(fileSearch.search(term));
+            }
         },
-        replace: (result) => `[[${view.app.metadataCache.fileToLinktext(result.item, filePath)}]] `,
+        replace: (result) => `${isEmbed ? "!" : ""}[[${view.app.metadataCache.fileToLinktext(result.item, filePath)}]] `,
     };
 }
 function toPreviousMonth(date) {
@@ -37034,14 +37045,17 @@ function constructAutocomplete({ inputRef, isAutocompleteVisibleRef, obsidianCon
     };
     const dateTriggerRegex = new RegExp(`(?:^|\\s)${escapeRegExpStr(dateTrigger)}$`);
     new RegExp(`(?:^|\\s)${escapeRegExpStr(timeTrigger)}$`);
-    const tagSearch = new Fuse(Object.keys(view.app.metadataCache.getTags()).sort());
-    const fileSearch = new Fuse(view.app.vault.getMarkdownFiles(), {
+    const tags = Object.keys(view.app.metadataCache.getTags()).sort();
+    const tagSearch = new Fuse(tags);
+    const files = view.app.vault.getFiles();
+    const fileSearch = new Fuse(files, {
         keys: ["name"],
     });
     const editor = new dist.TextareaEditor(inputRef.current);
     const autocomplete = new dist$3.Textcomplete(editor, [
-        getTagSearchConfig(tagSearch),
-        getFileSearchConfig(fileSearch, filePath, view),
+        getTagSearchConfig(tags, tagSearch),
+        getFileSearchConfig(files, fileSearch, filePath, view, false),
+        getFileSearchConfig(files, fileSearch, filePath, view, true),
     ], {
         dropdown: {
             className: c$2("autocomplete"),
@@ -37398,7 +37412,7 @@ function draggableItemFactory({ items, laneIndex, }) {
                         }, className: c$2("item-prefix-button"), "aria-label": "Archive item" },
                         react.createElement(Icon, { name: "sheets-in-box" })))),
                 react.createElement(ItemContent, { isSettingsVisible: isEditing, setIsSettingsVisible: setIsEditing, item: item, onChange: (e) => {
-                        const titleRaw = e.target.value;
+                        const titleRaw = e.target.value.replace(/[\r\n]+/g, " ");
                         const processed = processTitle(titleRaw, view);
                         boardModifiers.updateItem(laneIndex, itemIndex, update$2(item, {
                             title: { $set: processed.title },
@@ -37454,7 +37468,7 @@ function ItemForm({ addItem }) {
         return (react.createElement(react.Fragment, null,
             react.createElement("div", { className: c$2("item-input-wrapper") },
                 react.createElement("div", { "data-replicated-value": itemTitle, className: c$2("grow-wrap") },
-                    react.createElement("textarea", Object.assign({ rows: 1, value: itemTitle, className: c$2("item-input"), placeholder: "Item title...", onChange: (e) => setItemTitle(e.target.value) }, autocompleteProps)))),
+                    react.createElement("textarea", Object.assign({ rows: 1, value: itemTitle, className: c$2("item-input"), placeholder: "Item title...", onChange: (e) => setItemTitle(e.target.value.replace(/[\r\n]+/g, " ")) }, autocompleteProps)))),
             react.createElement("div", { className: c$2("item-input-actions") },
                 react.createElement("button", { className: c$2("item-action-add"), onClick: createItem }, "Add item"),
                 react.createElement("button", { className: c$2("item-action-cancel"), onClick: clear }, "Cancel"))));
