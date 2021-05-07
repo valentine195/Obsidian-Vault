@@ -90,7 +90,7 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
 | **5RD**      |     |         |        |
-| **Entrance** |     |         |        |
+| **Entrance** | [[Crazy Fist Clanhold]] |         |        |
 | **Parley**   |     |         |        |
 | **Setback**  |     |         |        |
 | **Conflict** |     |         |        |
