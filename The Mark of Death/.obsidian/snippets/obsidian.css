@@ -8,6 +8,21 @@
 }
 
 /**
+  * Outliner Overrides
+  */
+
+.outliner-plugin-bls .cm-s-obsidian span.cm-formatting-list-ul {
+    visibility: hidden !important;
+}
+.outliner-plugin-bls .cm-s-obsidian span.cm-formatting-list-ul:before {
+    visibility: visible;
+    content: "•";
+    margin: 0 -15px 0 -1px !important;
+    font-size: 16px !important;
+    position: relative !important;
+}
+
+/**
   * Minimal overrides
   */
 /* .view-header {
@@ -26,6 +41,9 @@
     --normal-weight: 350;
     --line-width: unset;
     --max-width: 100%;
+}
+.theme-light {
+    --background-primary: hsl(var(--base-h), var(--base-s), 99%);
 }
 
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
@@ -46,8 +64,12 @@
     padding: calc(var(--nested-padding) / 2);
 }
 
+.popover .markdown-embed .markdown-preview-view {
+    padding: 20px 15px 10px 15px;
+}
+
 /**
-  * Consistent header heights
+  * Consistent header heights & colors
   */
 .workspace-tab-header-container {
     height: 36px;
@@ -65,6 +87,31 @@
     --h6: 1.125em;
 }
 
+h1,
+.cm-header-1 {
+    color: var(--Fold0) !important;
+}
+h2,
+.cm-header-2 {
+    color: var(--Fold1) !important;
+}
+h3,
+.cm-header-3 {
+    color: var(--Fold2) !important;
+}
+h4,
+.cm-header-4 {
+    color: var(--Fold3) !important;
+}
+h5,
+.cm-header-5 {
+    color: var(--Fold4) !important;
+}
+h6,
+.cm-header-6 {
+    color: var(--Fold5) !important;
+}
+
 /** 
   * Image floating in block
   */
@@ -78,6 +125,11 @@ blockquote > p > img:first-child {
 }
 blockquote > p > img:first-child + br {
     display: none;
+}
+blockquote > p::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .markdown-preview-view blockquote {
@@ -108,12 +160,17 @@ blockquote > p > img:first-child + br {
 .view-header:not(:hover) .view-header-icon,
 .view-header:not(:hover) .view-actions,
 .status-bar:not(:hover) .status-bar-item,
-.frontmatter-container.is-collapsed:not(:hover) {
+.frontmatter-container.is-collapsed:not(:hover),
+.side-dock-ribbon.mod-left.is-collapsed:not(:hover)
+    > *:not(.workspace-ribbon-collapse-btn) {
     opacity: 0.1 !important;
     transition-delay: 5s !important;
     transition-duration: 2.5s !important;
     transition-timing-function: ease-in-out !important;
     transition-property: opacity !important;
+}
+.workspace-ribbon-collapse-btn {
+    color: var(--text-muted);
 }
 /* .frontmatter-container.is-collapsed:hover {
     opacity: 1;

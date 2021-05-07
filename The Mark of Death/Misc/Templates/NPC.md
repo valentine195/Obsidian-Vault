@@ -1,20 +1,21 @@
 ---
 type: npc
 tags:
-  - race/
-  - location/
 
 ---
 
-## <% tp.file.name %>
+## <% tp.file.title %>
 
-#### Description
+### Description
 
+<% tp.file.content %>
 
 #### Details
+
+#### Relations
 
 
 ### Adventures
 ```dataview
-list FROM [[<% tp.file.name %>]] AND "Planning/Adventure Seeds"
+list FROM [[<% tp.file.title %>]] AND "Adventure Seeds"
 ```

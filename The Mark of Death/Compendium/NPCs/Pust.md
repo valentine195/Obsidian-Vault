@@ -1,12 +1,24 @@
 ---
-date updated: '2021-02-26T13:48:00-05:00'
-
+type: npc
+alignment: evil
+tags:
+ - npc/human
+ - plot/npc
+ - factions/lords-of-dust/member
 ---
 
-#NPC
+## Pust
 
-Speaks thoughts aloud
+### Description
 
-Low level minion of the [[Lords of Dust]], in [[Whitecliff]] to find the [[Shards of Khyber]]
 
-- Gave Bob the [[Coin of Dust]]
+
+#### Details
+
+#### Relations
+
+
+### Adventures
+```dataview
+list FROM [[Pust]] AND "Adventure Seeds"
+```

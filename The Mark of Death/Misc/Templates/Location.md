@@ -1,5 +1,7 @@
 ---
 type: location
+location: 
+mapmarker: location
 tags:
 
 ---
@@ -7,9 +9,11 @@ tags:
 ## <% tp.file.title %>
 ### Description
 
+<% tp.file.content %>
+
 ### Adventures
 ```dataview
-list FROM [[<% tp.file.title %>]] AND "Planning/Adventure Seeds"
+list FROM [[<% tp.file.title %>]] AND "Adventure Seeds"
 ```
 
 ### Map

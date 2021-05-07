@@ -40,25 +40,6 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     --FoldText: white;
 }
 
-h1 {
-    color: var(--Fold0)
-}
-h2 {
-    color: var(--Fold1)
-}
-h3 {
-    color: var(--Fold2)
-}
-h4 {
-    color: var(--Fold3)
-}
-h5 {
-    color: var(--Fold4)
-}
-h6 {
-    color: var(--Fold5)
-}
-
 .theme-dark {
     --root-file-color: white;
 }
@@ -73,7 +54,19 @@ h6 {
 /* Minimal Theme overrides */
 .nav-file {
     margin-left: 0;
-    padding-left: 0.5em;
+    padding: 0;
+}
+
+.nav-folder-children {
+    padding-left: 18px;
+}
+
+.nav-folder:not(.mod-root) > .nav-folder-children .nav-file-title {
+    padding-left: 12px;
+}
+
+.nav-file-title {
+    margin: 0;
 }
 
 /* Set up explorer container margins */
@@ -93,15 +86,18 @@ h6 {
 }
 
 .nav-folder.mod-root > .nav-folder-title > .nav-folder-title-content::before,
-.nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-file
-    .nav-file-title::before {
+.nav-folder.mod-root > .nav-folder-children > .nav-file .nav-file-title::before,
+.nav-file-title-content.is-being-renamed::before,
+.nav-folder
+    .nav-folder-title
+    .nav-folder-title-content.is-being-renamed::before {
     background-color: var(--root-file-color) !important;
 }
 
 .nav-file-title.is-active,
 .nav-folder-title.is-active,
+.nav-file-title-content.is-being-renamed,
+.nav-folder-title-content.is-being-renamed,
 body:not(.is-grabbing) .nav-file-title:hover,
 body:not(.is-grabbing) .nav-folder-title:hover {
     color: var(--root-file-color) !important;
@@ -109,7 +105,9 @@ body:not(.is-grabbing) .nav-folder-title:hover {
 .nav-file-title.is-active::before,
 .nav-folder-title.is-active .nav-folder-title-content::before,
 body:not(.is-grabbing) .nav-file-title:hover::before,
-body:not(.is-grabbing) .nav-folder-title:hover .nav-folder-title-content::before {
+body:not(.is-grabbing)
+    .nav-folder-title:hover
+    .nav-folder-title-content::before {
     background-color: var(--root-file-color) !important;
 }
 
@@ -156,24 +154,31 @@ body:not(.is-grabbing) .nav-folder-title:hover .nav-folder-title-content::before
     /* padding-bottom: 12px; */
 }
 
-.nav-file-title {
-    padding-left: 5px;
-}
-
 /* active file increase font size and removes normal highlight marker */
 .nav-file-title.is-active {
     background-color: #00000000;
     font-size: 105%;
 }
 /* Adds hemisphere marker to active file instead */
-.nav-file-title.is-active {
+/* .nav-file-title.is-active {
     background-color: var(--background-secondary-alt);
-}
+} */
 
 /* 16 Top level Folders By Starting Digit (0-F)
 These are set for me by leading number/letter which also ensures they are in the correct order when sorted alphabetically
 You can change these to match your use case.
 */
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="Adventure Seeds"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="Adventure Seeds"]
+    + .nav-folder-children {
+    background-color: var(--Fold0);
+}
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
@@ -183,7 +188,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="Compendium"]
     + .nav-folder-children {
-    background-color: var(--Fold0);
+    background-color: var(--Fold1);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -194,7 +199,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="Misc"]
     + .nav-folder-children {
-    background-color: var(--Fold1);
+    background-color: var(--Fold2);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -205,7 +210,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="PCs"]
     + .nav-folder-children {
-    background-color: var(--Fold2);
+    background-color: var(--Fold3);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -216,7 +221,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="Planning"]
     + .nav-folder-children {
-    background-color: var(--Fold3);
+    background-color: var(--Fold4);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -227,7 +232,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="Post Session Logs"]
     + .nav-folder-children {
-    background-color: var(--Fold4);
+    background-color: var(--Fold5);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -238,7 +243,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="ZZZZ Archive"]
     + .nav-folder-children {
-    background-color: var(--Fold5);
+    background-color: var(--Fold6);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -249,7 +254,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="ZZZZZ Plugins"]
     + .nav-folder-children {
-    background-color: var(--Fold6);
+    background-color: var(--Fold7);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -287,11 +292,11 @@ You can change these to match your use case.
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="A"],
+    > .nav-folder-title[data-path="A"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="A"]
+    > .nav-folder-title[data-path="A"]
     + .nav-folder-children {
     background-color: var(--FoldA);
 }
@@ -431,4 +436,54 @@ You can change these to match your use case.
     > .nav-folder {
     border-left: var(--nestlinestyle3) var(--nestlinesize3)
         var(--nestlinecolor3);
+}
+
+/* == File Explorer - animation for active file as per Obuntu === */
+
+.nav-folder-title {
+    font-weight: bold;
+}
+
+.nav-folder.mod-root > .nav-folder-title {
+    padding-left: 6px;
+    font-size: 14px;
+    font-weight: bolder;
+    top: -6px;
+    cursor: default;
+}
+
+.nav-file.is-active > .nav-file-title,
+.nav-file.is-active > .nav-file-title:hover {
+    background-color: var(--background-primary);
+    border-radius: 6px;
+    font-weight: bold;
+    border-left: 2px solid var(--text-accent);
+    transition: all 0.5s ease;
+}
+
+.nav-file.is-active > .nav-file-title {
+    padding-left: 5px;
+}
+
+.nav-file-title.is-active,
+body:not(.is-grabbing) .nav-file-title:hover,
+body:not(.is-grabbing) .nav-folder-title:hover {
+    background-color: var(--background-primary);
+    /* border-radius: 2px; */
+    transition: all 0.2s ease;
+}
+
+body:not(.is-grabbing) .nav-folder-title:hover {
+    border-radius: 0px;
+}
+
+.nav-file-title.is-active::before {
+    margin-top: 2px;
+    width: 22px;
+    height: 20px;
+}
+
+.nav-file-tag {
+    background-color: var(--background-secondary-alt);
+    top: -1px;
 }
