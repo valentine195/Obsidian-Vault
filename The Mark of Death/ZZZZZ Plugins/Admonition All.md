@@ -1,10 +1,20 @@
 ```ad-note
-collapse: open
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-!!! ad-bug
-	a
-test
+
+#### Test
+- A
+- b
+	- c
+		- e
+			- f
 ```
+
+
+#### Test
+- A
+- b
+	- c
+		- e
+			- f
 
 ```ad-abstract
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
