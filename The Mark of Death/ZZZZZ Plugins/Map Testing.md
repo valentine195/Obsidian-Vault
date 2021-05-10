@@ -1,11 +1,26 @@
 
 ```leaflet
-id: real
-scale: 0.000621371
-unit: mi
-commandMarker: location, 32, -87, Obsidian Git: Pull from remote repository
+
+id:tester
+
+height: 500px
+minZoom: 1
+maxZoom: 20
+unit: in
+scale: 1
+
 ```
 
 
 
 
+```leaflet
+
+id:tester2
+image: [[Khorvaire.jpg]]
+
+height: 500px
+unit: mi
+scale: 400
+
+```

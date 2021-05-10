@@ -1,3 +1,7 @@
+---
+aliases: Jeremiah
+---
+
 Warforged Paladin, played by Brian Marshall
 
 ### Current
