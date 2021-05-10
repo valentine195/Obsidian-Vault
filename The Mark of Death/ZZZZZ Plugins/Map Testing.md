@@ -7,7 +7,6 @@ height: 500px
 minZoom: 1
 maxZoom: 20
 unit: km
-distanceMultiplier: 1.3
 
 ```
 
