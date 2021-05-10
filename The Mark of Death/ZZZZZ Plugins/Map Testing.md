@@ -6,8 +6,8 @@ id:tester
 height: 500px
 minZoom: 1
 maxZoom: 20
-unit: in
-scale: 1
+unit: km
+distanceMultiplier: 1.3
 
 ```
 
