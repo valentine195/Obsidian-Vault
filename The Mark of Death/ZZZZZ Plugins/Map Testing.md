@@ -17,6 +17,7 @@ unit: km
 
 id:tester2
 image: [[Khorvaire.jpg]]
+image: [[Whitecliff.png]]
 
 height: 500px
 unit: mi
