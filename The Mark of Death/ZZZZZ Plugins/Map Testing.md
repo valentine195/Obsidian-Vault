@@ -20,5 +20,5 @@ image: [[Khorvaire.jpg]]
 height: 500px
 unit: mi
 scale: 400
-maxZoom: 8
+maxZoom: 10
 ```
