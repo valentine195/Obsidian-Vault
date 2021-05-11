@@ -1,34 +1,43 @@
 ---
-date updated: '2021-04-23T20:46:01-04:00'
+date updated: '2021-05-11T13:17:42-04:00'
 type: faction
-tags:
+
 ---
 
 # Cold Sun Tribe
 
 ### Description
+
 The Cold Sun Tribe is one of three tribes of lizardfolk living in the [[Q'Barra|Q'Barran Jungle]]. The tribes are split into twelve different sects that oversee a section of the jungle to oppose the forces of evil that would attempt to free the Overlord trapped in [[Haka'Torvhak]].
 
 ### Notable Members
+
 ##### Leader
+
 - High Chieftan [[Drox]] of the Crazy Fist Cold Sun
+
 ##### Others
-- Bruk (Hell Fox)
-- Brazik (Red Hunt)
-- Gask (Misty Forest)
-- Tratlik (Quiet Rock)
-- Jato (Molten Earth)
-- Duroa (Twin Moon)
-- Accuja (Gray Ash)
-- Ogoje (Twin Boulder)
-- Thaz (Strong Fist)
-- Odra (Steel Titan)
-- Hoz (Quiet Feet)
+
+|                      |
+| -------------------- |
+| Bruk (Hell Fox)      |
+| Brazik (Red Hunt)    |
+| Gask (Misty Forest)  |
+| Tratlik (Quiet Rock) |
+| Jato (Molten Earth)  |
+| Duroa (Twin Moon)    |
+| Accuja (Gray Ash)    |
+| Ogoje (Twin Boulder) |
+| Thaz (Strong Fist)   |
+| Odra (Steel Titan)   |
+| Hoz (Quiet Feet)     |
+
+^b04781
 
 ### Ranks
 
-
 ### Organization Chart
+
 ```mermaid
 graph TD
 
