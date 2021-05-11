@@ -1,1 +1,3 @@
-`dice: 2d34 - 1`
+`dice: 2d34 - 1 + 4 * 13d3`
+
+`dice: 1d[[Dice Testing]]`
