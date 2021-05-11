@@ -1,5 +1,5 @@
 ```ad-note
-collapse: open
+collapse:
 #### Test
 - A
 - b
