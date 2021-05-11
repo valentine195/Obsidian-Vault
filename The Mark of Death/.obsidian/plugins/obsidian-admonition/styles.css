@@ -67,6 +67,19 @@
     color: var(--text-normal);
 }
 
+.admonition-content-copy {
+    margin: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: 0.2s all ease-in;
+}
+
+.admonition:hover .admonition-content-copy,
+.admonition-content-copy:hover {
+    opacity: 1;
+}
+
 details.admonition:not([open]) {
     padding-bottom: 0;
     box-shadow: none;
@@ -82,8 +95,8 @@ details.admonition > summary {
     cursor: pointer;
 }
 
-details.admonition > summary::-webkit-details-marker {
-    display: none;
+details.admonition > summary {
+    list-style-type: none;
 }
 
 details.admonition > summary > .collapser {
