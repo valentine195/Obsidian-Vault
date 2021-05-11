@@ -1,5 +1,5 @@
 ```ad-note
-collapse:
+collapse: open
 #### Test
 - A
 - b
@@ -8,13 +8,6 @@ collapse:
 			- f
 ```
 
-
-#### Test
-- A
-- b
-	- c
-		- e
-			- f
 
 ```ad-abstract
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
@@ -25,7 +18,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 ```
 
 ```ad-tip
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 
 ```
