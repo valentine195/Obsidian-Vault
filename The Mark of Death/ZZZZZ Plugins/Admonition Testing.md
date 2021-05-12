@@ -1,6 +1,6 @@
 
 
-!!! ad-note
+!!! ad-note "" inline
 test
 [[Marker File Test]]
 3
