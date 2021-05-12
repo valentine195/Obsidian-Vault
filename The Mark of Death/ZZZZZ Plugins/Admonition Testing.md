@@ -5,7 +5,7 @@ test
 [[Marker File Test]]
 3
 
-	!!! ad-note
+	!!! ad-abstract
 		
 		- test
 		- 1
