@@ -1,5 +1,5 @@
 ---
-date updated: '2021-05-11T13:17:42-04:00'
+date updated: '2021-05-12T12:34:42-04:00'
 type: faction
 
 ---
@@ -34,39 +34,25 @@ The Cold Sun Tribe is one of three tribes of lizardfolk living in the [[Q'Barra|
 
 ^b04781
 
+###
+
 ### Ranks
 
+|              |
+| ------------ |
+| Crazy Fist   |
+| Hell Fox     |
+| Red Hunt     |
+| Misty Forest |
+| Quiet Rock   |
+| Molten Earth |
+| Twin Moon    |
+| Gray Ash     |
+| Twin Boulder |
+| Strong Fist  |
+| Steel Titan  |
+| Quiet Feet   |
+
+^e45064
+
 ### Organization Chart
-
-```mermaid
-graph TD
-
-%% Top Node
-id1(Cold Sun Tribes)
-%% Media Sources
-id1.1(Crazy Fist)
-id1.2(Hell Fox)
-id1.3(Red Hunt)
-id1.4(Misty Forest)
-id1.5(Quiet Rock)
-id1.6(Molten Earth)
-
-id1 --> id1.1 & id1.2 & id1.3 & id1.4 & id1.5 & id1.6;
-
-```
-
-```mermaid
-graph TD
-
-%% Top Node
-id1(Cold Sun Tribes)
-
-id1.1(Twin Moon)
-id1.2(Gray Ash)
-id1.3(Twin Boulder)
-id1.4(Strong Fist)
-id1.5(Steel Titan)
-id1.6(Quiet Feet)
-
-id1 --> id1.1 & id1.2 & id1.3 & id1.4 & id1.5 & id1.6;
-```

@@ -1,30 +1,29 @@
 ---
-date updated: '2021-05-11T15:33:14-04:00'
+date updated: '2021-05-12T12:37:55-04:00'
 
 ---
 
--  [ ] Yoss
--  [ ] Thuz
--  [x] Jix
--  [ ] Jakaxl
--  [ ] Rhuthre
--  [ ] Urtaoss
--  [ ] Iacera
--  [ ] Oquttass
--  [ ] Chittaxiax
--  [ ] Egrucexl
+|             |
+| ----------- |
+| Yoss        |
+| thuz        |
+| jix         |
+| jakaxl      |
+| rhuthre     |
+| urtaoss     |
+| oquttass    |
+| chittaxiax  |
+| egrucexl    |
+| Kuxl        |
+| Krot        |
+| Vusk        |
+| Kroutiz     |
+| Zukzik      |
+| Ulla        |
+| Bhijalti    |
+| Brakontishk |
+| Iuzacixl    |
+| Jouthizaoe  |
 
-|            |
-| ---------- |
-| Yoss       |
-| thuz       |
-| jix        |
-| jakaxl     |
-| rhuthre    |
-| urtaoss    |
-| oquttass   |
-| chittaxiax |
-| egrucexl   |
 
 ^c6bf5c
-
