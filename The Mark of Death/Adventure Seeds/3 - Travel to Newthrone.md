@@ -134,6 +134,8 @@ And then he bows to each of you and takes his leave.
 
 - Clan - `dice: 1d[[Cold Sun Tribe#^e45064]]`
 - Name - `dice: 1d[[Lizardfolk Names#^c6bf5c]]`
+
+- Magic Shop Gen - https://donjon.bin.sh/5e/magic/shop.html
 - 
 
 #### Setback
