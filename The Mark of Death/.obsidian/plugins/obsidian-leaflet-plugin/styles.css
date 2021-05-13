@@ -190,6 +190,7 @@ input.is-invalid {
     width: auto;
     height: 30px;
     padding: 5px;
+    cursor: pointer;
 }
 
 .use-csv-marker > svg {
