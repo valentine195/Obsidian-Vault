@@ -223,6 +223,16 @@ input.is-invalid {
     white-space: nowrap;
     align-items: center;
 }
+
+/** Bulk Marker Edit Settings */
+.bulk-setting-hover {
+    box-shadow: 0 2px 8px var(--background-modifier-box-shadow) !important;
+}
+.bulk-setting-hover.marker {
+    /* box-shadow: 0 2px 8px var(--background-modifier-box-shadow) !important; */
+    border-radius: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.9);
+}
 /* required styles */
 
 .leaflet-pane,
