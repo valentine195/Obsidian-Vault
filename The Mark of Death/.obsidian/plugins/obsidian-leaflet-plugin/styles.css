@@ -183,6 +183,10 @@ input.is-invalid {
     display: flex !important;
 }
 
+.leaflet-control-edit-markers {
+    cursor: pointer !important;
+}
+
 .leaflet-distance-control {
     background-color: #fff;
     border-radius: 2px;
