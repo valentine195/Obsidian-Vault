@@ -50,10 +50,11 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
 .admonition-content {
-    margin: 10px 15px;
-    padding-right: 25px;
-    position: relative;
+  margin: 10px 15px;
+  padding-right: 25px;
+  position: relative;
 }
 
 .admonition-content-copy {
@@ -63,7 +64,7 @@
     position: absolute;
     right: 0px;
     top: 0;
-    transition: 0.3s all ease-in;
+    transition: 0.3s opacity ease-in;
 }
 
 .admonition-content-copy:hover {
