@@ -236,6 +236,11 @@ input.is-invalid {
 .bulk-edit-markers .setting-item {
     padding: 8px 0;
 }
+.bulk-edit-marker-instance .setting-item-control {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+    gap: 0.5rem;
+}
 
 .dark-mode {
     filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
