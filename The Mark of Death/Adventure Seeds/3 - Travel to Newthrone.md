@@ -121,22 +121,29 @@ A young lizardfolk dressed in a pure white robe walks up to your group and bows 
 !!! ad-quote
 	The council will be held tomorrow night to decide if the Cold Sun go to war. Jeremiah Silver Flame, I ask that you speak on what you know of the evil in this jungle.
 	
-	I have some clan business I must attend prior to the council. Please allow this servant to take you to a guesthouse. It will see to your needs.
+	I have some clan business I must attend as the other tribes arrive. Please allow this servant to see to your needs. It will take you to the guesthouse.
 	
 	
 And then he bows to each of you and takes his leave.
 
 ```
 
+> The servant bows to you and turns, walking to a nearby rope bridge. He stops and turns around to face you, waiting patiently for you to go with him.
+
 #### Parley
 ##### Notes
+
+> The servant heads out over the rope bridge, moving swiftly and sure-footed.
+
+> The bridge lets you off onto another large platform, this one with several buildings built into the tree trunk it surrounds. A circle of lizardfolk stands on this one, jeering at something 
 - Lizardfolk are routinely fighting in town - duels break out quite a bit
 
 - Clan - `dice: 1d[[Cold Sun Tribe#^e45064]]`
 - Name - `dice: 1d[[Lizardfolk Names#^c6bf5c]]`
 
 - Magic Shop Gen - https://donjon.bin.sh/5e/magic/shop.html
-- 
+
+> Lizardfolk are swinging into the town on their clawhooks, moving quickly through the treetops. 
 
 #### Setback
 
