@@ -50,21 +50,32 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
-
 .admonition-content {
-    margin: 0 0.6rem;
+    margin: 10px 15px;
+    padding-right: 25px;
     position: relative;
 }
+
 .admonition-content-copy {
-    position: absolute;
-    top: 0;
-    right: 0;
     color: var(--text-faint);
     cursor: pointer;
-    margin: -10px -2px;
+    opacity: 0;
+    position: absolute;
+    right: 0px;
+    top: 0;
+    transition: 0.3s all ease-in;
 }
+
 .admonition-content-copy:hover {
     color: var(--text-normal);
+}
+
+.admonition:hover .admonition-content-copy,
+.admonition-content-copy:hover {
+    opacity: 1;
+}
+.admonition-title:hover + .admonition-content .admonition-content-copy {
+    opacity: 0;
 }
 
 details.admonition:not([open]) {
