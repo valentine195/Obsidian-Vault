@@ -233,6 +233,9 @@ input.is-invalid {
     border-radius: 100%;
     border: 2px solid #00ff00;
 }
+.bulk-edit-markers .setting-item {
+    padding: 8px 0;
+}
 
 .dark-mode {
     filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
