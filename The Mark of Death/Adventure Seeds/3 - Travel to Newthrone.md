@@ -59,7 +59,7 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 
 > As the two of you are speaking, suddenly from the jungle you hear a _TWANG_ and a bright green arrow buries itself into the tree next to Drox. Drox swears, then hurriedly jumps behind one of the fallen trees and calls for you to hide. **ROLL INITIATIVE**
 
-> A tall lizardfolk drops out of the treetops, landing at the far edge of the clearing from you. His scales are pitch black, his eyes glowing a dark yellow in the gloom, 
+> A lizardfolk much taller than those you've seen so far drops out of the treetops, landing at the far edge of the clearing from you. His scales are pitch black, his eyes glowing a dark yellow in the gloom of the forest floor. Dozens of bones hang from his clothing, clattering wildly as he moves, and he pulls out a [[Xibalban Blade|jagged longsword that trails a faint red mist]].
 
 ```ad-battle
 #### Monsters
