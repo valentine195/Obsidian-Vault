@@ -225,13 +225,19 @@ input.is-invalid {
 }
 
 /** Bulk Marker Edit Settings */
-.bulk-setting-hover {
-    box-shadow: 0 2px 8px var(--background-modifier-box-shadow) !important;
+.bulk-setting-hover:not(.marker) {
+    box-shadow: 0 0px 8px var(--background-modifier-box-shadow) !important;
 }
-.bulk-setting-hover.marker {
-    /* box-shadow: 0 2px 8px var(--background-modifier-box-shadow) !important; */
+.bulk-setting-hover.marker::before {
+    content: "";
+    width: 120%;
+    height: 120%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     border-radius: 100%;
-    border: 2px solid #00ff00;
+    border: 3px solid #00ff00 !important;
 }
 .bulk-edit-markers .setting-item {
     padding: 8px 0;
