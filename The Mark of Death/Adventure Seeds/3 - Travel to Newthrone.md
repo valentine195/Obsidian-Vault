@@ -54,12 +54,12 @@ A single bite of the [[Sun Cedar Fruit|fruit of the Sun Cedar]] will heal your w
 > After another mile or so, [[Drox]] calls for a halt in a small clearing defined by several fallen trees. He gestures at you, [[Jeremiah Pumpernickle|Jeremiah]], and says:
 
 ```ad-quote
-The Crazy Fist are truly honored to have an esteemed Templar in our midst. We would have you speak at the Council, so that we may learn of the Flame's intentions.
+The Crazy Fist clan are truly honored to have an esteemed Templar in our midst. We would have you speak at the Council, so that we may learn of the Flame's intentions.
 ```
 
 > As the two of you are speaking, suddenly from the jungle you hear a _TWANG_ and a bright green arrow buries itself into the tree next to Drox. Drox swears, then hurriedly jumps behind one of the fallen trees and calls for you to hide. **ROLL INITIATIVE**
 
-> A lizardfolk much taller than those you've seen so far drops out of the treetops, landing at the far edge of the clearing from you. His scales are pitch black, his eyes glowing a dark yellow in the gloom of the forest floor. Dozens of bones hang from his clothing, clattering wildly as he moves, and he pulls out a [[Xibalban Blade|jagged longsword that trails a faint red mist]].
+> A lizardman much taller than those you've seen so far drops out of the treetops, landing at the far edge of the clearing from you. His scales are pitch black, his eyes glowing a dark yellow in the gloom of the forest floor. Dozens of bones hang from his clothing, clattering wildly as he moves, and he pulls out a [[Xibalban Blade|jagged black longsword that trails a faint red mist]].
 
 ```ad-battle
 #### Monsters
@@ -139,7 +139,12 @@ And then he bows to each of you and takes his leave.
 
 > The servant heads out over the rope bridge, moving swiftly and sure-footed.
 
-> The bridge lets you off onto another large platform, this one with several buildings built into the tree trunk it surrounds. A circle of lizardfolk stands on this one, jeering at something in the middle. The servant begins to lead you around the circle when suddenly a lizardfolk crashes out of it, colliding with [[Yoss]] and throwing both of them to the ground. The circle of lizardfolk is open now and you see a 
+> The bridge lets you off onto another large platform, this one with several buildings built into the tree trunk it surrounds. A circle of lizardfolk stands on this one, jeering at something in the middle. The servant begins to lead you around the circle when suddenly a lizardfolk crashes out of it, colliding with [[Yoss]] and throwing both of them to the ground. The circle of lizardfolk is open now, and in the center of it stands a lizardfolk with ashy grey scales, laughing, then he says: 
+``` ad-quote 
+The Crazy Fist have grown weak, brothers! And look, their pet templar! Why has the Silver Flame returned now? They abandoned us to our fate! TELL US, TEMPLAR! WHY ARE YOU HERE!
+```
+
+> The lizardman thrown out of the ring weakly stands, and you recognize him as the one [[Drox]] sent to gather the other clans - [[Jax]]. His arm hangs useless at his side and blood is streaming from cuts all over his body. "It seems the Gray Ash clan do not think much of your order, Jeremiah. Step lightly here."
 - Lizardfolk are routinely fighting in town - duels break out quite a bit
 
 - Clan - `dice: 1d[[Cold Sun Tribe#^e45064]]`
