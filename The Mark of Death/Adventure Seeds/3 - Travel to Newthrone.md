@@ -135,7 +135,7 @@ And then he bows to each of you and takes his leave.
 
 > The servant heads out over the rope bridge, moving swiftly and sure-footed.
 
-> The bridge lets you off onto another large platform, this one with several buildings built into the tree trunk it surrounds. A circle of lizardfolk stands on this one, jeering 
+> The bridge lets you off onto another large platform, this one with several buildings built into the tree trunk it surrounds. A circle of lizardfolk stands on this one, jeering at something 
 - Lizardfolk are routinely fighting in town - duels break out quite a bit
 
 - Clan - `dice: 1d[[Cold Sun Tribe#^e45064]]`
