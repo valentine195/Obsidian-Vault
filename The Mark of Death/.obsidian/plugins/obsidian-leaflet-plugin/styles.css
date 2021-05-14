@@ -239,9 +239,13 @@ input.is-invalid {
     border-radius: 100%;
     border: 3px solid #00ff00 !important;
 }
-.bulk-edit-markers .setting-item {
-    padding: 8px 0;
+.bulk-edit-markers .setting-item,
+.bulk-edit-markers > .setting-item-control {
+    padding: 8px 2px;
     margin: 0 8px;
+}
+.bulk-edit-markers > .setting-item:first-child button {
+    margin-right: 0;
 }
 .bulk-edit-markers-holder {
     height: 250px;
