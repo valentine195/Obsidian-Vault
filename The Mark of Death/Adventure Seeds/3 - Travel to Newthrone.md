@@ -59,6 +59,8 @@ The Crazy Fist are truly honored to have an esteemed Templar in our midst. We wo
 
 > As the two of you are speaking, suddenly from the jungle you hear a _TWANG_ and a bright green arrow buries itself into the tree next to Drox. Drox swears, then hurriedly jumps behind one of the fallen trees and calls for you to hide. **ROLL INITIATIVE**
 
+> A tall lizardfolk drops out of the treetops, landing at the far edge of the clearing from you. His scales are pitch black, his eyes glowing a dark yellow in the gloom, 
+
 ```ad-battle
 #### Monsters
 - 1 Lizardfolk Render (blackscale) [[Kaz]], 
@@ -128,18 +130,20 @@ And then he bows to each of you and takes his leave.
 
 ```
 
-> The servant bows to you and turns, walking to a nearby rope bridge. He stops and turns around to face you, waiting patiently for you to go with him.
+- SERVANT NAME: **YOSS**
+
+> The servant [[Yoss]] bows to you and turns, walking to a nearby rope bridge. He stops and turns around to face you, waiting patiently for you to go with him.
 
 #### Parley
 ##### Notes
 
 > The servant heads out over the rope bridge, moving swiftly and sure-footed.
 
-> The bridge lets you off onto another large platform, this one with several buildings built into the tree trunk it surrounds. A circle of lizardfolk stands on this one, jeering at something 
+> The bridge lets you off onto another large platform, this one with several buildings built into the tree trunk it surrounds. A circle of lizardfolk stands on this one, jeering at something in the middle. The servant begins to lead you around the circle when suddenly a lizardfolk crashes out of it, colliding with [[Yoss]] and throwing both of them to the ground. The circle of lizardfolk is open now and you see a 
 - Lizardfolk are routinely fighting in town - duels break out quite a bit
 
 - Clan - `dice: 1d[[Cold Sun Tribe#^e45064]]`
-- Name - `dice: 1d[[Lizardfolk Names#^c6bf5c]]`
+- Name - `dice: 1d[[Lizardfolk Names#^c6bf5c]]` 
 
 - Magic Shop Gen - https://donjon.bin.sh/5e/magic/shop.html
 
