@@ -1,17 +1,18 @@
----
-date updated: '2021-05-03T15:19:47-04:00'
 
----
 
-!!! note
-	test
-	[[Marker File Test]]
-	3
-	-Test
-	-a
-	-b
+!!! ad-note inline "test 123"
+test
+[[Marker File Test]]
+3
 
-abc
-def !!! note
+	!!! ad-abstract
+		
+		- test
+		- 1
+		 - 2
+		 
+- Test
+- b
+- a
 
-- A
+!!!

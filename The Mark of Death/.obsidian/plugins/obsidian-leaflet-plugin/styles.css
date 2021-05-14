@@ -1,12 +1,15 @@
 /* Settings */
+.icon > .suggestion-flair {
+    background-color: unset;
+    width: 12px;
+    height: 16px;
+    font-size: 12px;
+    text-align: center;
+}
 
 .additional-markers-container > .setting-item:not(.setting-item-heading) {
     border: 0px;
 }
-
-/* .additional-markers-container > .setting-item-heading:first-of-type {
-	border-bottom: 1px solid var(--background-modifier-border);
-} */
 
 .additional-markers-container {
     border-bottom: 1px solid var(--background-modifier-border);
@@ -180,6 +183,20 @@ input.is-invalid {
     display: flex !important;
 }
 
+.leaflet-control-edit-markers {
+    cursor: pointer !important;
+}
+
+.leaflet-distance-control {
+    background-color: #fff;
+    border-radius: 2px;
+    min-width: 30px;
+    width: auto;
+    height: 30px;
+    padding: 5px;
+    cursor: pointer !important;
+}
+
 .use-csv-marker > svg {
     color: yellow;
     margin-right: 8px;
@@ -205,6 +222,16 @@ input.is-invalid {
     display: flex;
     white-space: nowrap;
     align-items: center;
+}
+
+/** Bulk Marker Edit Settings */
+.bulk-setting-hover {
+    box-shadow: 0 2px 8px var(--background-modifier-box-shadow) !important;
+}
+.bulk-setting-hover.marker {
+    /* box-shadow: 0 2px 8px var(--background-modifier-box-shadow) !important; */
+    border-radius: 100%;
+    border: 2px solid rgba(0, 0, 0, 0.9);
 }
 /* required styles */
 

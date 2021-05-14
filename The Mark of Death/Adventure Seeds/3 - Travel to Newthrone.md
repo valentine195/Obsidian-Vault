@@ -51,7 +51,7 @@ A single bite of the [[Sun Cedar Fruit|fruit of the Sun Cedar]] will heal your w
 >
 > He continues to lead you deeper into the forest. It's hard to see much around you between the gloom and the dense trees, but [[Drox]] seems to be able to see a winding trail in the leaves on the ground. You hear animals moving about in the trees above you, but can't see anything but the distant canopy when you look.
 
-> After another mile or so, [[Drox]] calls for a halt in a small clearing defined by several fallen trees. He gestures at you, Jeremiah, and says:
+> After another mile or so, [[Drox]] calls for a halt in a small clearing defined by several fallen trees. He gestures at you, [[Jeremiah Pumpernickle|Jeremiah]], and says:
 
 ```ad-quote
 The Crazy Fist are truly honored to have an esteemed Templar in our midst. We would have you speak at the Council, so that we may learn of the Flame's intentions.
@@ -119,13 +119,23 @@ The stairs go up into the understory to a large platform built around the tree. 
 A young lizardfolk dressed in a pure white robe walks up to your group and bows to [[Drox]]. Drox says:
 
 !!! ad-quote
+	The council will be held tomorrow night to decide if the Cold Sun go to war. Jeremiah Silver Flame, I ask that you speak on what you know of the evil in this jungle.
+	
 	I have some clan business I must attend prior to the council. Please allow this servant to take you to a guesthouse. It will see to your needs.
+	
 	
 And then he bows to each of you and takes his leave.
 
 ```
 
 #### Parley
+##### Notes
+- Lizardfolk are routinely fighting in town - duels break out quite a bit
+
+- Clan - `dice: 1d[[Cold Sun Tribe#^e45064]]`
+- Name - `dice: 1d[[Lizardfolk Names#^c6bf5c]]`
+
+- Magic Shop Gen - https://donjon.bin.sh/5e/magic/shop.html
 - 
 
 #### Setback
