@@ -7,7 +7,7 @@ height: 500px
 minZoom: 1
 maxZoom: 20
 unit: km
-
+marker: location,32,-87,,
 ```
 
 
