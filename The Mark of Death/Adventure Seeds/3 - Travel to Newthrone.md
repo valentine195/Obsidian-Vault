@@ -141,7 +141,7 @@ And then he bows to each of you and takes his leave.
 
 > The bridge lets you off onto another large platform, this one with several buildings built into the tree trunk it surrounds. A circle of lizardfolk stands on this one, jeering at something in the middle. The servant begins to lead you around the circle when suddenly a lizardfolk crashes out of it, colliding with [[Yoss]] and throwing both of them to the ground. The circle of lizardfolk is open now, and in the center of it stands a lizardfolk with ashy grey scales, laughing, then he says: 
 ``` ad-quote 
-Brothers! Witness! The Crazy Fist have grown we And look, their pet templar! Why has the Silver Flame returned now? They abandoned us to our fate! TELL US, TEMPLAR! WHY ARE YOU HERE!
+Brothers! Witness! The Crazy Fist have grown weak! And look, their pet templar! Why has the Silver Flame returned now? They abandoned us to our fate! TELL US, TEMPLAR! WHY ARE YOU HERE!
 ```
 
 > The lizardman thrown out of the ring weakly stands, and you recognize him as the one [[Drox]] sent to gather the other clans - [[Jax]]. His arm hangs useless at his side and blood is streaming from cuts all over his body. "It seems the Gray Ash clan do not think much of your order, Jeremiah. Step lightly here."
