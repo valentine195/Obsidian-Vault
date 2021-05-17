@@ -36,7 +36,7 @@ tags:
 - Magic Shop Gen - https://donjon.bin.sh/5e/magic/shop.html
 #### Parley
 ##### Notes
-
+> The servant opens the door 
 
 
 
