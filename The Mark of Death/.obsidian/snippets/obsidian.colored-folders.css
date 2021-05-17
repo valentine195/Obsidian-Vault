@@ -171,90 +171,68 @@ You can change these to match your use case.
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Adventure Seeds"],
+    > .nav-folder-title[data-path^="1"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Adventure Seeds"]
+    > .nav-folder-title[data-path^="1"]
     + .nav-folder-children {
     background-color: var(--Fold0);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Compendium"],
+    > .nav-folder-title[data-path^="2"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Compendium"]
+    > .nav-folder-title[data-path^="Compe2ndium"]
     + .nav-folder-children {
     background-color: var(--Fold1);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Misc"],
+    > .nav-folder-title[data-path^="3"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Misc"]
+    > .nav-folder-title[data-path^="3"]
     + .nav-folder-children {
     background-color: var(--Fold2);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="PCs"],
+    > .nav-folder-title[data-path^="4"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="PCs"]
+    > .nav-folder-title[data-path^="4"]
     + .nav-folder-children {
     background-color: var(--Fold3);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Planning"],
+    > .nav-folder-title[data-path^="5"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Planning"]
+    > .nav-folder-title[data-path^="5"]
     + .nav-folder-children {
     background-color: var(--Fold4);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Post Session Logs"],
+    > .nav-folder-title[data-path^="6"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Post Session Logs"]
+    > .nav-folder-title[data-path^="6"]
     + .nav-folder-children {
     background-color: var(--Fold5);
-}
-.nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-title[data-path^="ZZZZ Archive"],
-.nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-title[data-path^="ZZZZ Archive"]
-    + .nav-folder-children {
-    background-color: var(--Fold6);
-}
-.nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-title[data-path^="ZZZZZ Plugins"],
-.nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-title[data-path^="ZZZZZ Plugins"]
-    + .nav-folder-children {
-    background-color: var(--Fold7);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -265,7 +243,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="7"]
     + .nav-folder-children {
-    background-color: var(--Fold7);
+    background-color: var(--Fold6);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -276,7 +254,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="8"]
     + .nav-folder-children {
-    background-color: var(--Fold8);
+    background-color: var(--Fold7);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -287,71 +265,93 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="9"]
     + .nav-folder-children {
+    background-color: var(--Fold7);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="10"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="10"]
+    + .nav-folder-children {
+    background-color: var(--Fold8);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="11"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="11"]
+    + .nav-folder-children {
     background-color: var(--Fold9);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path="A"],
+    > .nav-folder-title[data-path="12"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path="A"]
+    > .nav-folder-title[data-path="12"]
     + .nav-folder-children {
     background-color: var(--FoldA);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="B"],
+    > .nav-folder-title[data-path^="13"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="B"]
+    > .nav-folder-title[data-path^="13"]
     + .nav-folder-children {
     background-color: var(--FoldB);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path="C"],
+    > .nav-folder-title[data-path="14"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path="C"]
+    > .nav-folder-title[data-path="14"]
     + .nav-folder-children {
     background-color: var(--FoldC);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="D"],
+    > .nav-folder-title[data-path^="15"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="D"]
+    > .nav-folder-title[data-path^="15"]
     + .nav-folder-children {
     background-color: var(--FoldD);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="E"],
+    > .nav-folder-title[data-path^="16"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="E"]
+    > .nav-folder-title[data-path^="16"]
     + .nav-folder-children {
     background-color: var(--FoldE);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="F"],
+    > .nav-folder-title[data-path^="17"],
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="F"]
+    > .nav-folder-title[data-path^="17"]
     + .nav-folder-children {
     background-color: var(--FoldF);
 }
