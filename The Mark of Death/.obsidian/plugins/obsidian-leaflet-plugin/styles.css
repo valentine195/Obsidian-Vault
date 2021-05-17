@@ -123,6 +123,13 @@ input.is-invalid {
 .leaflet-bar a {
     font-style: unset;
 }
+.leaflet-bar.disabled {
+    cursor: not-allowed;
+}
+.leaflet-bar.disabled > a {
+    background-color: lightgrey;
+    pointer-events: none;
+}
 
 /* immutable leaflet markers */
 /* .leaflet-marker-icon:not(.leaflet-marker-draggable) {
