@@ -43,8 +43,7 @@ I have been instructed by my master, Drox, to see to your needs. The full clanho
 
 The chest is yours, templar. We were instructed to hold it until the return of Tira Miron.
 ```
-
-
+ #todo:: Update chest
 
 
 #### Setback
