@@ -7,8 +7,6 @@
     max-width: 900px;
 }
 
-
-
 /**
   * Consistent header heights & colors
   */
@@ -54,25 +52,8 @@ h6,
 }
 
 /** 
-  * Image floating in block
+  * Consistent Blockquote & Admonition Padding
   */
-blockquote > p > img:last-child {
-    margin: 1rem;
-    float: right;
-}
-blockquote > p > img:first-child {
-    float: left;
-    margin-right: 1rem;
-}
-blockquote > p > img:first-child + br {
-    display: none;
-}
-blockquote > p::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 .markdown-preview-view blockquote {
     margin-inline-start: 18px;
     box-shadow: 0 0.2rem 0.5rem var(--background-modifier-box-shadow);
@@ -95,44 +76,4 @@ blockquote > p::after {
     height: 14px;
     margin-right: 2px;
     margin-bottom: -1px;
-}
-
-/* Auto fading UI */
-.view-header:not(:hover) .view-header-icon,
-.view-header:not(:hover) .view-actions,
-.status-bar:not(:hover) .status-bar-item,
-.frontmatter-container.is-collapsed:not(:hover),
-.side-dock-ribbon.mod-left.is-collapsed:not(:hover)
-    > *:not(.workspace-ribbon-collapse-btn) {
-    opacity: 0.1 !important;
-    transition-delay: 5s !important;
-    transition-duration: 2.5s !important;
-    transition-timing-function: ease-in-out !important;
-    transition-property: opacity !important;
-}
-.workspace-ribbon-collapse-btn {
-    color: var(--text-muted);
-}
-/* .frontmatter-container.is-collapsed:hover {
-    opacity: 1;
-} */
-
-.CodeMirror-foldgutter-folded:after,
-.CodeMirror-foldgutter-open:after {
-    opacity: 0.5;
-    font-size: 60%;
-}
-.CodeMirror-foldgutter-folded:hover:after,
-.CodeMirror-foldgutter-open:hover:after {
-    opacity: 1;
-}
-.CodeMirror-foldgutter-folded:after {
-    content: "\25BA";
-}
-.CodeMirror-foldgutter-open:after {
-    content: "\25BC";
-}
-
-.nav-folder-collapse-indicator {
-    color: unset !important;
 }
