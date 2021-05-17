@@ -7,7 +7,7 @@ tags:
 ---
 # Church of the Silver Flame
 
-Based In: [[Locations/Thrane/Flamekeep|Flamekeep (Thrane)]]
+Based In: [[Flamekeep|Flamekeep (Thrane)]]
 
 ###  Description
 #### Origin
