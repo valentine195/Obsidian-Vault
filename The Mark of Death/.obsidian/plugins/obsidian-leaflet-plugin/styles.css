@@ -261,9 +261,6 @@ input.is-invalid {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    /* display: grid;
-    grid-template-columns: repeat(5, auto);
-    gap: 0.5rem; */
 }
 .bulk-edit-marker-instance .setting-item-control > *:not(:last-child) {
     margin-right: 0.5rem;
