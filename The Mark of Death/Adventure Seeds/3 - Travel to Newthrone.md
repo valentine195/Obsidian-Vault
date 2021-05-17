@@ -18,6 +18,89 @@ tags:
 | **Step 3:** | A sacrificial ritual is conducted, led by [[Rabar]]                               |
 | **End:**    | [[Rhashaak]] awakens [[Haka'Torvhak]] and releases its destruction                |
 
+### MILESTONE 2: Cold Sun Tribal Council
+
+|              | MAP | MONSTER | REWARD |
+| ------------ | --- | ------- | ------ |
+| **5RD**      |     |         |        |
+| **Entrance** | [[Crazy Fist Clanhold]] |         |        |
+| **Parley**   |     |         |        |
+| **Setback**  |     |         |        |
+| **Conflict** |     |         |        |
+| **Reward**   |     |         |        |
+
+#### Notes
+- Clan - `dice: 1d[[Cold Sun Tribe#^e45064]]`
+- Name - `dice: 1d[[Lizardfolk Names#^c6bf5c]]` 
+
+- Magic Shop Gen - https://donjon.bin.sh/5e/magic/shop.html
+#### Parley
+##### Notes
+
+
+
+
+
+#### Setback
+
+#### Conflict
+
+#### Reward
+
+---
+
+### MILESTONE 3: Help the Cold Sun drive back the Blackscales
+
+|              | MAP | MONSTER | REWARD |
+| ------------ | --- | ------- | ------ |
+| **5RD**      |     |         |        |
+| **Entrance** |     |         |        |
+| **Parley**   |     |         |        |
+| **Setback**  |     |         |        |
+| **Conflict** |     |         |        |
+| **Reward**   |     |         |        |
+
+#### Notes
+
+#### Entrance
+
+#### Parley
+
+#### Setback
+
+#### Conflict
+
+#### Reward
+
+---
+
+### FINALE: End the threat of Rabar the Rakshasa
+
+|              | MAP | MONSTER | REWARD |
+| ------------ | --- | ------- | ------ |
+| **5RD**      |     |         |        |
+| **Entrance** |     |         |        |
+| **Parley**   |     |         |        |
+| **Setback**  |     |         |        |
+| **Conflict** |     |         |        |
+| **Reward**   |     |         |        |
+
+#### Notes
+
+#### Entrance
+
+#### Parley
+
+#### Setback
+
+#### Conflict
+
+#### Reward
+
+---
+
+## Complete
+
 ### MILESTONE 1: Travel down the Adder River towards Newthrone
 
 |              | MAP                | MONSTER                         | REWARD                             |
@@ -145,69 +228,3 @@ Brothers! Witness! The Crazy Fist have grown weak! And look, their pet templar! 
 ```
 
 > The lizardman thrown out of the ring weakly stands, and you recognize him as the one [[Drox]] sent to gather the other clans - [[Jax]]. His arm hangs useless at his side and blood is streaming from cuts all over his body. "It seems the Gray Ash clan do not think much of your order, Jeremiah. Step lightly here."
-- Lizardfolk are routinely fighting in town - duels break out quite a bit
-
-- Clan - `dice: 1d[[Cold Sun Tribe#^e45064]]`
-- Name - `dice: 1d[[Lizardfolk Names#^c6bf5c]]` 
-
-- Magic Shop Gen - https://donjon.bin.sh/5e/magic/shop.html
-
-> Lizardfolk are swinging into the town on their clawhooks, moving quickly through the treetops. 
-
-#### Setback
-
-#### Conflict
-
-#### Reward
-
----
-
-### MILESTONE 3: Help the Cold Sun drive back the Blackscales
-
-|              | MAP | MONSTER | REWARD |
-| ------------ | --- | ------- | ------ |
-| **5RD**      |     |         |        |
-| **Entrance** |     |         |        |
-| **Parley**   |     |         |        |
-| **Setback**  |     |         |        |
-| **Conflict** |     |         |        |
-| **Reward**   |     |         |        |
-
-#### Notes
-
-#### Entrance
-
-#### Parley
-
-#### Setback
-
-#### Conflict
-
-#### Reward
-
----
-
-### FINALE: End the threat of Rabar the Rakshasa
-
-|              | MAP | MONSTER | REWARD |
-| ------------ | --- | ------- | ------ |
-| **5RD**      |     |         |        |
-| **Entrance** |     |         |        |
-| **Parley**   |     |         |        |
-| **Setback**  |     |         |        |
-| **Conflict** |     |         |        |
-| **Reward**   |     |         |        |
-
-#### Notes
-
-#### Entrance
-
-#### Parley
-
-#### Setback
-
-#### Conflict
-
-#### Reward
-
----
