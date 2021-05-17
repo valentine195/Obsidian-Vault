@@ -36,11 +36,21 @@
     display: flex;
     align-items: center;
 }
+.view-header-title-container {
+    margin-left: 0;
+}
+.markdown-source-view.is-readable-line-width .CodeMirror,
+.CodeMirror {
+    margin-left: 0;
+}
+.markdown-source-view.mod-cm5 {
+    padding-left: 0;
+}
 :root {
     --cursor: pointer;
     --normal-weight: 350;
     --line-width: unset;
-    --max-width: 100%;
+    --max-width: 70em;
 }
 .theme-light {
     --background-primary: hsl(var(--base-h), var(--base-s), 99%);
@@ -53,7 +63,7 @@
     padding-right: 40px;
 }
 .markdown-source-view.mod-cm5 {
-    padding-left: 40px;
+    padding-left: calc(40px - 11.1875px);
     padding-right: 40px;
     margin: 0;
 }
