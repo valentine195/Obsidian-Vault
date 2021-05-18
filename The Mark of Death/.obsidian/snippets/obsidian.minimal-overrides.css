@@ -1,6 +1,16 @@
 /**
   * Minimal overrides
   */
+.titlebar-button {
+    color: var(--text-muted);
+}
+.titlebar-button:hover {
+    color: var(--text-normal);
+}
+.titlebar-button.mod-close:hover {
+    color: white;
+}
+
 .view-header-title-container,
 .view-actions,
 .view-header-icon {
