@@ -86,18 +86,19 @@ details.admonition:not([open]) {
 
 details.admonition > summary {
     outline: none;
-    list-style: none;
-    display: block;
+    display: block !important;
+    list-style: none !important;
+    list-style-type: none !important;
     min-height: 1rem;
     border-top-left-radius: 0.1rem;
     border-top-right-radius: 0.1rem;
     cursor: pointer;
 }
 
-/* details.admonition > summary::-webkit-details-marker,
+details.admonition > summary::-webkit-details-marker,
 details.admonition > summary::marker {
     display: none !important;
-} */
+}
 
 details.admonition > summary > .collapser {
     position: absolute;
