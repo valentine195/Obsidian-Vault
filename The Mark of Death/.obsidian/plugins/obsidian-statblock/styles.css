@@ -1,21 +1,29 @@
 :root {
     --statblock-primary-color: #7a200d;
     --statblock-rule-color: #922610;
+    --statblock-background-color: #e69a28;
 }
 
 /** Tapered Rule */
-.statblock .tapered-rule svg {
-    fill: var(--statblock-rule-color);
-    /* Stroke is necessary for good antialiasing in Chrome. */
-    stroke: var(--statblock-rule-color);
-    margin-top: 0.6em;
-    margin-bottom: 0.35em;
+.statblock .tapered-rule {
+    width: auto;
+    margin: 0.5em 0;
+    height: 5px;
+    background: -webkit-linear-gradient(
+        0deg,
+        var(--statblock-rule-color) 0%,
+        var(--statblock-rule-color) 50%,
+        var(--statblock-background-color) 95%,
+        var(--statblock-background-color) 100%
+    );
+    clip-path: polygon(0 0, 0 100%, 95% 50%);
+    -webkit-clip-path: polygon(0 0, 0 100%, 95% 50%);
 }
 
 /** Top and Bottom Bars */
 .statblock > .bar {
     height: 5px;
-    background: #e69a28;
+    background: var(--statblock-background-color);
     border: 1px solid #000;
     position: relative;
     z-index: 1;
@@ -91,9 +99,14 @@
 .statblock .abilities {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
+
+    color: var(--statblock-primary-color);
+}
+.statblock .abilities .ability-score {
+    display: flex;
+    flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
-    color: var(--statblock-primary-color);
 }
 
 .statblock .section-header {
