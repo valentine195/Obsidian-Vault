@@ -186,7 +186,7 @@ You can change these to match your use case.
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path^="Compe2ndium"]
+    > .nav-folder-title[data-path^="2"]
     + .nav-folder-children {
     background-color: var(--Fold1);
 }
