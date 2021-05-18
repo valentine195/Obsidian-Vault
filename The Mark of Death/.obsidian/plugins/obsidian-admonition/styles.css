@@ -94,10 +94,10 @@ details.admonition > summary {
     cursor: pointer;
 }
 
-details.admonition > summary::-webkit-details-marker,
+/* details.admonition > summary::-webkit-details-marker,
 details.admonition > summary::marker {
-    display: none;
-}
+    display: none !important;
+} */
 
 details.admonition > summary > .collapser {
     position: absolute;
