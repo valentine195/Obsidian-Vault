@@ -5,26 +5,27 @@
 ## Locations
 
 ```dataviewjs
-dv.list(dv.pages('"Compendium/Locations"')
+
+dv.list(dv.pages('"2. Compendium"')
   .where(p => p.type == "location")
   .sort(p => p.file.name, 'asc')
-  .map(k => '['+(k.file.aliases[0] ? k.file.aliases[0] : k.file.name)+'](/'+k.file.path+')'))
+  .map(p => p.file.link))
 ```
 
 ## NPCs
 
 ```dataviewjs
-dv.list(dv.pages('"compendium"')
-  .where(p => p.type == "npc")
+dv.list(dv.pages('"2. Compendium"')
+  .where(p => p.type == "npc" && p.status != "dead")
   .sort(p => p.file.name, 'asc')
-  .map(k => '['+(k.file.aliases[0] ? k.file.aliases[0] : k.file.name)+'](/'+k.file.path+')'))
+  .map(p => p.file.link))
 ```
 
-## Groups
+## Factions
 
 ```dataviewjs
-dv.list(dv.pages('"compendium"')
-  .where(p => p.type == "group")
+dv.list(dv.pages('"2. Compendium"')
+  .where(p => p.type == "faction")
   .sort(p => p.file.name, 'asc')
-  .map(k => '['+(k.file.aliases[0] ? k.file.aliases[0] : k.file.name)+'](/'+k.file.path+')'))
+  .map(p => p.file.link))
 ```
