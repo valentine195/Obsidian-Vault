@@ -1,0 +1,120 @@
+:root {
+    --statblock-primary-color: #7a200d;
+    --statblock-rule-color: #922610;
+}
+
+/** Tapered Rule */
+.statblock .tapered-rule svg {
+    fill: var(--statblock-rule-color);
+    /* Stroke is necessary for good antialiasing in Chrome. */
+    stroke: var(--statblock-rule-color);
+    margin-top: 0.6em;
+    margin-bottom: 0.35em;
+}
+
+/** Top and Bottom Bars */
+.statblock > .bar {
+    height: 5px;
+    background: #e69a28;
+    border: 1px solid #000;
+    position: relative;
+    z-index: 1;
+}
+
+/** Wrapper Element */
+.statblock > .content-wrap {
+    font-family: "Noto Sans", "Myriad Pro", Calibri, Helvetica, Arial,
+        sans-serif;
+    font-size: 13.5px;
+    background: #fdf1dc;
+    padding: 0.6em;
+    padding-bottom: 0.5em;
+    border: 1px #ddd solid;
+    box-shadow: 0 0 1.5em #867453;
+    position: relative;
+    z-index: 0;
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 400px;
+    -webkit-columns: 400px;
+    -moz-columns: 400px;
+    columns: 400px;
+    -webkit-column-gap: 40px;
+    -moz-column-gap: 40px;
+    column-gap: 40px;
+    height: var(--data-content-height);
+    -webkit-column-fill: auto;
+    -moz-column-fill: auto;
+    column-fill: auto;
+    color: var(--statblock-primary-color);
+}
+
+/** Creature Name and Type */
+.statblock .creature-heading > h1 {
+    font-family: "Libre Baskerville", "Lora", "Calisto MT", "Bookman Old Style",
+        Bookman, "Goudy Old Style", Garamond, "Hoefler Text",
+        "Bitstream Charter", Georgia, serif;
+    color: var(--statblock-primary-color);
+    font-weight: 700;
+    margin: 0px;
+    font-size: 23px;
+    letter-spacing: 1px;
+    font-variant: small-caps;
+}
+.statblock .creature-heading > h2 {
+    font-weight: normal;
+    font-style: italic;
+    font-size: 12px;
+    margin: 0;
+}
+
+.statblock .property-line {
+    line-height: 1.4;
+    display: block;
+    text-indent: -1em;
+    padding-left: 1em;
+    color: var(--statblock-primary-color);
+}
+.statblock .property-line > h4 {
+    margin: 0;
+    display: inline;
+    font-weight: bold;
+}
+.statblock .property-line > p {
+    display: inline;
+    text-indent: 0;
+    margin: 0;
+}
+
+/** Ability Scores */
+.statblock .abilities {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: center;
+    justify-content: center;
+    color: var(--statblock-primary-color);
+}
+
+.statblock .section-header {
+    border-bottom: 1px solid var(--statblock-primary-color);
+    color: var(--statblock-primary-color);
+    font-size: 21px;
+    font-variant: small-caps;
+    font-weight: normal;
+    letter-spacing: 1px;
+    margin: 0;
+    margin-bottom: 0.3em;
+    break-inside: avoid-column;
+    break-after: avoid-column;
+}
+
+.statblock .property > h4 {
+    margin: 0;
+    display: inline;
+    font-weight: bold;
+    font-style: italic;
+}
+.statblock .property > p {
+    display: inline;
+    text-indent: 0;
+}
