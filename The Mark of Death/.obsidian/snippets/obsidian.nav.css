@@ -1,8 +1,13 @@
 span.nav {
-  border-top: 1px solid var(--gray-dark-3);
-  border-bottom: 1px solid var(--gray-dark-3);
-  clear: right;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+    clear: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+span.nav > * {
+    width: 100%;
+    text-align: center;
+}
+span.nav > *:not(:first-child) {
+    border-left: 1px solid var(--background-modifier-border);
 }

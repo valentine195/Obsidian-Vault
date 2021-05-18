@@ -6,6 +6,12 @@
 
 ```dataviewjs
 
+dv.table(dv.pages())
+
+```
+
+```dataviewjs
+
 dv.list(dv.pages('"2. Compendium"')
   .where(p => p.type == "location")
   .sort(p => p.file.name, 'asc')
