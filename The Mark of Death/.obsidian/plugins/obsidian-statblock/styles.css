@@ -53,6 +53,8 @@
     margin-left: 2px;
     margin-right: 2px;
     column-width: 400px;
+    column-gap: 1rem;
+    column-fill: auto;
 }
 
 .statblock > .content-wrap > * {
