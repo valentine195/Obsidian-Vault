@@ -53,7 +53,7 @@
     margin-left: 2px;
     margin-right: 2px;
     column-width: 400px;
-    column-gap: 1rem;
+    column-gap: 1em;
     column-fill: auto;
 }
 
