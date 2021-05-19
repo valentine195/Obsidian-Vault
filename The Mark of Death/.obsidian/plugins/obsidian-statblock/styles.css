@@ -52,20 +52,10 @@
     box-shadow: 0 0 1.5em #ddd;
     margin-left: 2px;
     margin-right: 2px;
-    display: grid;
-    grid-auto-columns: 400px;
-    /* max-height: 500px; */
-    /* width: 400px; */
-    /*-webkit-columns: 400px;
-    -moz-columns: 400px;
-    columns: 400px;
-    -webkit-column-gap: 40px;
-    -moz-column-gap: 40px;
-    column-gap: 40px;
-    height: var(--data-content-height);
-    -webkit-column-fill: auto;
-    -moz-column-fill: auto;
-    column-fill: auto; */
+    width: 400px;
+}
+.statblock > .content-wrap > * {
+    max-width: 400px;
 }
 
 /** Creature Name and Type */
