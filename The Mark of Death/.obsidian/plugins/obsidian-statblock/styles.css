@@ -1,7 +1,8 @@
 :root {
     --statblock-primary-color: #7a200d;
     --statblock-rule-color: #922610;
-    --statblock-background-color: #e69a28;
+    --statblock-bar-color: #e69a28;
+    --statblock-background-color: #fdf1dc;
 }
 
 /** Tapered Rule */
@@ -23,27 +24,35 @@
 /** Top and Bottom Bars */
 .statblock > .bar {
     height: 5px;
-    background: var(--statblock-background-color);
+    background: var(--statblock-bar-color);
     border: 1px solid #000;
     position: relative;
     z-index: 1;
-    width: 404px;
+    width: auto;
+}
+
+.statblock > .bar.top {
+    margin: -0.5em -2px 0 -2px;
+}
+.statblock > .bar.bottom {
+    margin: 0 -2px -0.5em -2px;
 }
 
 /** Wrapper Element */
-.statblock > .content-wrap {
+.statblock /* > .content-wrap */ {
     font-family: "Noto Sans", "Myriad Pro", Calibri, Helvetica, Arial,
         sans-serif;
-    font-size: 13.5px;
-    background: #fdf1dc;
-    padding: 0.6em;
-    padding-bottom: 0.5em;
+    font-size: 14px;
+    color: var(--statblock-primary-color);
+    background-color: var(--statblock-background-color);
+    padding: 0.5em;
     border: 1px #ddd solid;
-    box-shadow: 0 0 1.5em #867453;
-    position: relative;
-    z-index: 0;
+    box-shadow: 0 0 1.5em #ddd;
     margin-left: 2px;
     margin-right: 2px;
+    display: grid;
+    grid-auto-columns: 400px;
+    max-height: 500px; /* 
     width: 400px;
     -webkit-columns: 400px;
     -moz-columns: 400px;
@@ -54,12 +63,11 @@
     height: var(--data-content-height);
     -webkit-column-fill: auto;
     -moz-column-fill: auto;
-    column-fill: auto;
-    color: var(--statblock-primary-color);
+    column-fill: auto; */
 }
 
 /** Creature Name and Type */
-.statblock .creature-heading > h1 {
+.statblock .creature-heading > .name {
     font-family: "Libre Baskerville", "Lora", "Calisto MT", "Bookman Old Style",
         Bookman, "Goudy Old Style", Garamond, "Hoefler Text",
         "Bitstream Charter", Georgia, serif;
@@ -70,7 +78,7 @@
     letter-spacing: 1px;
     font-variant: small-caps;
 }
-.statblock .creature-heading > h2 {
+.statblock .creature-heading > .subheading {
     font-weight: normal;
     font-style: italic;
     font-size: 12px;
@@ -82,13 +90,13 @@
     display: block;
     color: var(--statblock-primary-color);
 }
-.statblock .property-line > h4 {
+.statblock .property-line > .property-name {
     margin: 0;
     margin-right: 0.25em;
     display: inline;
     font-weight: bold;
 }
-.statblock .property-line > p {
+.statblock .property-line > .property-text {
     display: inline;
     margin: 0;
 }
@@ -120,14 +128,14 @@
     break-after: avoid-column;
 }
 
-.statblock .property > h4 {
+.statblock .property > .property-name {
     margin: 0;
     margin-right: 0.25em;
     display: inline;
     font-weight: bold;
     font-style: italic;
 }
-.statblock .property > p {
+.statblock .property > .property-text {
     display: inline;
     text-indent: 0;
 }
