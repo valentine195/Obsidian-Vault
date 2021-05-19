@@ -26,20 +26,22 @@
     height: 5px;
     background: var(--statblock-bar-color);
     border: 1px solid #000;
-    position: relative;
+    position: absolute;
     z-index: 1;
-    width: auto;
+    width: 404px;
 }
-
 .statblock > .bar.top {
-    margin: -0.5em -2px 0 -2px;
+    top: 0;
 }
 .statblock > .bar.bottom {
-    margin: 0 -2px -0.5em -2px;
+    bottom: 0;
 }
-
+.statblock {
+    margin: 0 auto;
+    position: relative;
+}
 /** Wrapper Element */
-.statblock /* > .content-wrap */ {
+.statblock > .content-wrap {
     font-family: "Noto Sans", "Myriad Pro", Calibri, Helvetica, Arial,
         sans-serif;
     font-size: 14px;
@@ -52,9 +54,9 @@
     margin-right: 2px;
     display: grid;
     grid-auto-columns: 400px;
-    max-height: 500px; /* 
-    width: 400px;
-    -webkit-columns: 400px;
+    /* max-height: 500px; */
+    /* width: 400px; */
+    /*-webkit-columns: 400px;
     -moz-columns: 400px;
     columns: 400px;
     -webkit-column-gap: 40px;
