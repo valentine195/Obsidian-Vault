@@ -52,15 +52,9 @@
     box-shadow: 0 0 1.5em #ddd;
     margin-left: 2px;
     margin-right: 2px;
-    /* width: 400px; */
-    display: flex;
-    flex-flow: column wrap;
+    column-width: 400px;
 }
-@media screen and (min-width: 850px) {
-    .statblock > .content-wrap {
-        max-height: 600px;
-    }
-}
+
 .statblock > .content-wrap > * {
     max-width: 400px;
 }
