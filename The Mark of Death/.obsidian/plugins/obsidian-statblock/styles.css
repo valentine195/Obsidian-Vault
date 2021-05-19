@@ -120,6 +120,10 @@
     break-after: avoid-column;
 }
 
+.statblock .property:not(:last-child) {
+    margin-bottom: 0.25em;
+}
+
 .statblock .property > .property-name {
     margin: 0;
     margin-right: 0.25em;
