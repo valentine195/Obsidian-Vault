@@ -1,7 +1,7 @@
 test
 
 ```statblock
-monster: Animated Armor
+monster: Ancient Black Dragon
 
 ```
 test test test

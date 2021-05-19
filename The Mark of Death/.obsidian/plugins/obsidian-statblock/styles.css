@@ -26,9 +26,9 @@
     height: 5px;
     background: var(--statblock-bar-color);
     border: 1px solid #000;
-    position: absolute;
+    /* position: absolute; */
     z-index: 1;
-    width: 404px;
+    width: auto;
 }
 .statblock > .bar.top {
     top: 0;
@@ -52,7 +52,14 @@
     box-shadow: 0 0 1.5em #ddd;
     margin-left: 2px;
     margin-right: 2px;
-    width: 400px;
+    /* width: 400px; */
+    display: flex;
+    flex-flow: column wrap;
+}
+@media screen and (min-width: 850px) {
+    .statblock > .content-wrap {
+        max-height: 600px;
+    }
 }
 .statblock > .content-wrap > * {
     max-width: 400px;
