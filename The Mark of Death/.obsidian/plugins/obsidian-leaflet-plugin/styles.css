@@ -189,6 +189,14 @@ input.is-invalid {
     background-image: unset !important;
     display: flex !important;
 }
+.leaflet-control-layers:not(.leaflet-control-layers-expanded) {
+    width: unset;
+    height: unset;
+}
+.leaflet-control-layers-toggle {
+    width: 30px !important;
+    height: 30px !important;
+}
 
 .leaflet-control-edit-markers {
     cursor: pointer !important;
