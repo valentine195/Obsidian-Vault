@@ -297,6 +297,13 @@ input.is-invalid {
 .leaflet-control-filter.expanded > .leaflet-control-filter-icon {
     display: none;
 }
+.leaflet-control-filter .task-list-item > * {
+    cursor: pointer;
+}
+
+.leaflet-control-filter ul {
+    margin: 0;
+}
 /* required styles */
 
 .leaflet-pane,
