@@ -285,8 +285,16 @@ input.is-invalid {
     filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
         saturate(0.3) brightness(0.7);
 }
-
-.leaflet-control-filter:not(.expanded) > .leaflet-control-filter-section {
+.leaflet-control-filter {
+    background: #fff;
+}
+.leaflet-control-filter.expanded {
+    padding: 6px 10px 6px 6px;
+}
+.leaflet-control-filter:not(.expanded) > .leaflet-control-filter-list {
+    display: none;
+}
+.leaflet-control-filter.expanded > .leaflet-control-filter-icon {
     display: none;
 }
 /* required styles */

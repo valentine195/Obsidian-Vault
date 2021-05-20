@@ -4,11 +4,11 @@
 
 ## Locations
 
-```dataviewjs
+dataviewjs
 
 dv.table(dv.pages())
 
-```
+
 
 ```dataviewjs
 

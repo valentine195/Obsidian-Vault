@@ -16,6 +16,9 @@ date updated: '2021-03-30T20:37:16-04:00'
 - [[Merigold]]
 
 ## Todo
+- [ ] Test
+- [ ] a
+- [ ] b
 
 ```dataview
 table todo where todo
