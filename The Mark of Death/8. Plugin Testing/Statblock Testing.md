@@ -1,7 +1,6 @@
 test
 
 ```statblock
-
-name: Test
+monster: Rakshasa
 ```
 test test test
