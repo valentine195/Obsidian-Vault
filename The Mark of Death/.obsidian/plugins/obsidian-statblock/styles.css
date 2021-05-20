@@ -6,7 +6,7 @@
 }
 
 /** Tapered Rule */
-.statblock .tapered-rule {
+.obsidian-statblock-plugin .tapered-rule {
     width: auto;
     margin: 0.5em 0;
     height: 5px;
@@ -22,7 +22,7 @@
 }
 
 /** Top and Bottom Bars */
-.statblock > .bar {
+.obsidian-statblock-plugin > .bar {
     height: 5px;
     background: var(--statblock-bar-color);
     border: 1px solid #000;
@@ -30,18 +30,18 @@
     z-index: 1;
     width: auto;
 }
-.statblock > .bar.top {
+.obsidian-statblock-plugin > .bar.top {
     top: 0;
 }
-.statblock > .bar.bottom {
+.obsidian-statblock-plugin > .bar.bottom {
     bottom: 0;
 }
-.statblock {
+.obsidian-statblock-plugin {
     margin: 0 auto;
     position: relative;
 }
 /** Wrapper Element */
-.statblock > .content-wrap {
+.obsidian-statblock-plugin > .content-wrap {
     font-family: "Noto Sans", "Myriad Pro", Calibri, Helvetica, Arial,
         sans-serif;
     font-size: 14px;
@@ -57,12 +57,12 @@
     column-fill: auto;
 }
 
-.statblock > .content-wrap > * {
+.obsidian-statblock-plugin > .content-wrap > * {
     max-width: 400px;
 }
 
 /** Creature Name and Type */
-.statblock .creature-heading > .name {
+.obsidian-statblock-plugin .creature-heading > .name {
     font-family: "Libre Baskerville", "Lora", "Calisto MT", "Bookman Old Style",
         Bookman, "Goudy Old Style", Garamond, "Hoefler Text",
         "Bitstream Charter", Georgia, serif;
@@ -73,44 +73,44 @@
     letter-spacing: 1px;
     font-variant: small-caps;
 }
-.statblock .creature-heading > .subheading {
+.obsidian-statblock-plugin .creature-heading > .subheading {
     font-weight: normal;
     font-style: italic;
     font-size: 12px;
     margin: 0;
 }
 
-.statblock .property-line {
+.obsidian-statblock-plugin .property-line {
     line-height: 1.4;
     display: block;
     color: var(--statblock-primary-color);
 }
-.statblock .property-line > .property-name {
+.obsidian-statblock-plugin .property-line > .property-name {
     margin: 0;
     margin-right: 0.25em;
     display: inline;
     font-weight: bold;
 }
-.statblock .property-line > .property-text {
+.obsidian-statblock-plugin .property-line > .property-text {
     display: inline;
     margin: 0;
 }
 
 /** Ability Scores */
-.statblock .abilities {
+.obsidian-statblock-plugin .abilities {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
 
     color: var(--statblock-primary-color);
 }
-.statblock .abilities .ability-score {
+.obsidian-statblock-plugin .abilities .ability-score {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
 }
 
-.statblock .section-header {
+.obsidian-statblock-plugin .section-header {
     border-bottom: 1px solid var(--statblock-primary-color);
     color: var(--statblock-primary-color);
     font-size: 21px;
@@ -123,18 +123,18 @@
     break-after: avoid-column;
 }
 
-.statblock .property:not(:last-child) {
+.obsidian-statblock-plugin .property:not(:last-child) {
     margin-bottom: 0.25em;
 }
 
-.statblock .property > .property-name {
+.obsidian-statblock-plugin .property > .property-name {
     margin: 0;
     margin-right: 0.25em;
     display: inline;
     font-weight: bold;
     font-style: italic;
 }
-.statblock .property > .property-text {
+.obsidian-statblock-plugin .property > .property-text {
     display: inline;
     text-indent: 0;
 }
