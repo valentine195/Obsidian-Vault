@@ -36,14 +36,18 @@ tags:
 - Magic Shop Gen - https://donjon.bin.sh/5e/magic/shop.html
 #### Parley
 ##### Notes
-> The servant opens the door to the guesthouse, and you step into a utilitarian common room. A wooden table large enough to sit eight people sits to your left, along with a small pantry, and on the right are several sitting chairs arrayed around an unlit stone fireplace. In the middle of the room is a large, gilded chest made out of a gray wood. Three doors in the back are open and through each you see a simple bed against the wall. The servant enters the room, still limping slightly, and then stands to one side. He says: 
+> The servant opens the door to the guesthouse, and you step into a utilitarian common room. A wooden table large enough to sit eight people sits to your left, along with a small pantry, and on the right are several sitting chairs arrayed around an unlit stone fireplace. In the middle of the room is a large chest made out of a gray wood. Three doors in the back are open and through each you see a simple bed against the wall. The servant enters the room, still limping slightly, and then stands to one side. He says: 
 ```ad-quote
 title: Yoss
 I have been instructed by my master, Drox, to see to your needs. The full clanhold is at your disposal.
 
-The chest is yours, templar. We were instructed to hold it until the return of Tira Miron.
+The chest is yours, templar. We have held it for hundreds of years, awaiting the return of the voice of the Flame.
 ```
  #todo:: Update chest
+
+```ad-info
+The chest is rather large but plainly designed, made out of a dark grey wood that you, Mim, recognize as Xen'Drik'n floatwood used by the Lhazaar pirates. Two leather latches secure it. The chest looks brand new, despite its apparent age, and the lid is light even though it looks sturdidly built.
+```
 
 
 #### Setback
