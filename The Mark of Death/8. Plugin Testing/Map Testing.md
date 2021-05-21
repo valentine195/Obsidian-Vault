@@ -17,8 +17,10 @@ commandMarker: location,32,-87,Use dark mode,
 
 id:tester2
 image: [[Khorvaire.jpg]]
+image: [[Mine of Whitecliff.png]]
 height: 500px
 unit: mi
 scale: 400
 maxZoom: 10
+defaultZoom: 10
 ```

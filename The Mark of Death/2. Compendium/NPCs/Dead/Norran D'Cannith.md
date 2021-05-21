@@ -1,5 +1,6 @@
 ---
 type: npc
+status: dead
 tags:
  - npc/dead
  - npc/human

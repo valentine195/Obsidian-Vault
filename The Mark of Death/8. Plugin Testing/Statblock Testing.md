@@ -1,0 +1,6 @@
+a
+
+
+```statblock
+monster: Archmage
+```
