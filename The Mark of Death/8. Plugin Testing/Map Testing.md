@@ -1,13 +1,13 @@
 ```leaflet
 
 id: tester2
-image: [[Khorvaire.jpg]]
-image: [[Mine of Whitecliff.png]]
 height: 500px
 unit: mi
 scale: 400
 maxZoom: 10
 defaultZoom: 6
+marker: 
+	- location, 5,5,
 ```
 
 ```leaflet
