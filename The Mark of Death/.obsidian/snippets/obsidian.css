@@ -8,67 +8,6 @@
 }
 
 /**
-  * Outliner Overrides
-  */
-
-.outliner-plugin-bls .cm-s-obsidian span.cm-formatting-list-ul {
-    visibility: hidden !important;
-}
-.outliner-plugin-bls .cm-s-obsidian span.cm-formatting-list-ul:before {
-    visibility: visible;
-    content: "•";
-    margin: 0 -15px 0 -1px !important;
-    font-size: 16px !important;
-    position: relative !important;
-}
-
-/**
-  * Minimal overrides
-  */
-/* .view-header {
-    padding-top: -0.1rem;
-} */
-.view-header-title-container,
-.view-actions,
-.view-header-icon {
-    top: 0;
-    position: relative;
-    display: flex;
-    align-items: center;
-}
-:root {
-    --cursor: pointer;
-    --normal-weight: 350;
-    --line-width: unset;
-    --max-width: 100%;
-}
-.theme-light {
-    --background-primary: hsl(var(--base-h), var(--base-s), 99%);
-}
-
-.markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
-    max-width: var(--max-width);
-    margin: 0;
-    padding-left: 40px;
-    padding-right: 40px;
-}
-.markdown-source-view.mod-cm5 {
-    padding-left: 40px;
-    padding-right: 40px;
-    margin: 0;
-}
-
-.markdown-preview-view blockquote {
-    background-color: var(--background-secondary-alt);
-    color: var(--text-normal);
-    padding: calc(var(--nested-padding) / 2);
-}
-
-.popover .markdown-embed .markdown-preview-view {
-    padding: 20px 15px 10px 15px;
-}
-
-/**
   * Consistent header heights & colors
   */
 .workspace-tab-header-container {
@@ -113,25 +52,8 @@ h6,
 }
 
 /** 
-  * Image floating in block
+  * Consistent Blockquote & Admonition Padding
   */
-blockquote > p > img:last-child {
-    margin: 1rem;
-    float: right;
-}
-blockquote > p > img:first-child {
-    float: left;
-    margin-right: 1rem;
-}
-blockquote > p > img:first-child + br {
-    display: none;
-}
-blockquote > p::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 .markdown-preview-view blockquote {
     margin-inline-start: 18px;
     box-shadow: 0 0.2rem 0.5rem var(--background-modifier-box-shadow);
@@ -154,44 +76,4 @@ blockquote > p::after {
     height: 14px;
     margin-right: 2px;
     margin-bottom: -1px;
-}
-
-/* Auto fading UI */
-.view-header:not(:hover) .view-header-icon,
-.view-header:not(:hover) .view-actions,
-.status-bar:not(:hover) .status-bar-item,
-.frontmatter-container.is-collapsed:not(:hover),
-.side-dock-ribbon.mod-left.is-collapsed:not(:hover)
-    > *:not(.workspace-ribbon-collapse-btn) {
-    opacity: 0.1 !important;
-    transition-delay: 5s !important;
-    transition-duration: 2.5s !important;
-    transition-timing-function: ease-in-out !important;
-    transition-property: opacity !important;
-}
-.workspace-ribbon-collapse-btn {
-    color: var(--text-muted);
-}
-/* .frontmatter-container.is-collapsed:hover {
-    opacity: 1;
-} */
-
-.CodeMirror-foldgutter-folded:after,
-.CodeMirror-foldgutter-open:after {
-    opacity: 0.5;
-    font-size: 60%;
-}
-.CodeMirror-foldgutter-folded:hover:after,
-.CodeMirror-foldgutter-open:hover:after {
-    opacity: 1;
-}
-.CodeMirror-foldgutter-folded:after {
-    content: "\25BA";
-}
-.CodeMirror-foldgutter-open:after {
-    content: "\25BC";
-}
-
-.nav-folder-collapse-indicator {
-    color: unset !important;
 }

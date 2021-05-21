@@ -7,19 +7,31 @@ tags:
 ---
 # Church of the Silver Flame
 
-Based In: [[Locations/Thrane/Flamekeep|Flamekeep (Thrane)]]
+Based In: [[Flamekeep|Flamekeep (Thrane)]]
 
 ###  Description
+#### Origin
+
 Created 800 years ago when Tira Miron sacrificed herself on the steps of Flamekeep to end the threat of a demon, creating an ever-burning silver flame still present at the center of the cathedral.
 
+#### Beliefs
 ```ad-abstract
-title: #### Beliefs
+title:
  1. The Silver Flame is force of light that holds fiends at bay. Those who seek to defend the innocent from evil can draw on the power of the Flame.
  2. Every mortal soul can find the light. Inspire and guide others to virtuous behavior; force is a last resort.
  3. Listen to the Voice of the Flame; beware the deceiving whispers of the Shadow in the Flame. 
  
  The Silver Flame is an active religion that calls upon the faithful to fight evil. For the warriors of the church, this means combating the many supernatural threats present in Eberron like undead and fiends. For the ministers and friars of the church, this means leading others to be more compassionate. And for the laity, this means simply living a virtuous life.
 ```
+#### Organization
+##### Order of Templars
+- The Order of Templars is the militant arm of the church, historically charged with protecting the innocent from evil.
+- Stereotypically overly puritan
+
+##### Order of Ministers
+
+##### Order of Friars
+
 
 ### Notable Members
 
