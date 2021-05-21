@@ -1,8 +1,6 @@
 
 ```leaflet
-
-id:tester
-
+id: tester
 height: 500px
 minZoom: 1
 maxZoom: 20
@@ -15,7 +13,7 @@ commandMarker: location,32,-87,Use dark mode,
 
 ```leaflet
 
-id:tester2
+id: tester2
 image: [[Khorvaire.jpg]]
 image: [[Mine of Whitecliff.png]]
 height: 500px
