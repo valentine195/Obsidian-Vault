@@ -43,12 +43,13 @@ I have been instructed by my master, Drox, to see to your needs. The full clanho
 
 The chest is yours, templar. We have held it for hundreds of years, awaiting the return of the voice of the Flame.
 ```
- #todo:: Update chest
 
-```ad-info
-The chest is rather large but plainly designed, made out of a dark grey wood that you, Mim, recognize as Xen'Drik'n floatwood used by the Lhazaar pirates. Two leather latches secure it. The chest looks brand new, despite its apparent age, and the lid is light even though it looks sturdidly built.
+```ad-treasure
+The chest is rather large but plainly designed, made out of a dark grey wood that you, Mim, recognize as Xen'Drik'n floatwood used by some Lhazaar pirates for shipbuilding. Two leather latches secure it. The chest looks brand new, despite its apparent age, and the lid is feather light even though it looks sturdidly built.
+
+The chest is full of old, old Galifar gold coins, still depicting the first king of Khorvaire. Resting on top of the coins is a longsword made out of the same floatwood as the chest, lacquered and polished until its surface shines.
 ```
-
+[[Longsword of Verdict]]
 
 #### Setback
 
