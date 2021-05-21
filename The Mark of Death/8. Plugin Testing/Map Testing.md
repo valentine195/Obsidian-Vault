@@ -22,5 +22,5 @@ height: 500px
 unit: mi
 scale: 400
 maxZoom: 10
-defaultZoom: 10
+defaultZoom: 6
 ```
