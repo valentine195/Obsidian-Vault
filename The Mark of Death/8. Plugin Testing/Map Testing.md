@@ -8,6 +8,7 @@ maxZoom: 10
 defaultZoom: 6
 marker: 
 	- location, 5,5,
+	- location, 10,10,
 ```
 
 ```leaflet
