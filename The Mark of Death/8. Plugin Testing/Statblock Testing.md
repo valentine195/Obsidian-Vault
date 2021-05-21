@@ -2,5 +2,5 @@ a
 
 
 ```statblock
-monster: Archmage
+monster: Ancient Black Dragon
 ```
