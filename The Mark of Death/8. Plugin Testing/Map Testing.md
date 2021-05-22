@@ -1,23 +1,22 @@
-
 ```leaflet
 
-id:tester
-
+id: tester2
 height: 500px
-minZoom: 1
-maxZoom: 20
-unit: km
-commandMarker: location,32,-87,Use dark mode,
+unit: mi
+scale: 400
+maxZoom: 10
+defaultZoom: 6
+marker: 
+	- location, 5,5,
+	- location, 10,10,
 ```
 
-
-
-
 ```leaflet
 
-id:tester2
-image: [[Khorvaire.jpg]]
-image: [[Mine of Whitecliff.png]]
+id: tester3
+image: 
+	- [[Khorvaire.jpg]]
+	- [[Mine of Whitecliff.png]]
 height: 500px
 unit: mi
 scale: 400
