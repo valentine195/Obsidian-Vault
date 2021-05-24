@@ -5,10 +5,9 @@ height: 500px
 unit: mi
 scale: 400
 maxZoom: 10
-defaultZoom: 6
 marker: 
-	- location, 5,5,
-	- location, 10,10,
+	- location, 35,-85,
+	- location, 32,-88,
 ```
 
 ```leaflet
