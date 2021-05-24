@@ -22,6 +22,7 @@ maxZoom: 10
 defaultZoom: 6
 
 overlay:
-	- [red, [-2,5], 1, mi]
+	- [red, [-0.9915, 3.8359], 250, mi]
+	- [blue, [-0.9915, 3.8359], 25, mi]
 
 ```
