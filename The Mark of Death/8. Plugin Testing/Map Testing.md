@@ -20,4 +20,8 @@ unit: mi
 scale: 400
 maxZoom: 10
 defaultZoom: 6
+
+overlay:
+	- [red, [-2,5], 1, mi]
+
 ```
