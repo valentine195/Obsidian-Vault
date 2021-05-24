@@ -1,4 +1,3 @@
-```leaflet
 
 id: tester2
 height: 500px
@@ -8,11 +7,11 @@ maxZoom: 10
 marker: 
 	- location, 35,-85,
 	- location, 32,-88,
-```
+
 
 ```leaflet
 
-id: tester3
+id: tester4
 image: 
 	- [[Khorvaire.jpg]]
 	- [[Mine of Whitecliff.png]]
