@@ -2,6 +2,8 @@
 date updated: '2021-02-19T08:02:21-05:00'
 type: npc
 alignment: good
+location: [-5.6, 2.2]
+mapmarker: npc
 tags:
  - npc/human
  - plot/npc
