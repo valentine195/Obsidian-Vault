@@ -220,7 +220,7 @@ input.is-invalid {
 .leaflet-file-upload > input[type="file"] {
     display: none;
 }
-.leaflet-file-upload {
+/* .leaflet-file-upload {
     font-family: Ubuntu, Arial, sans-serif;
     color: var(--text-normal);
     background-color: var(--background-secondary-alt);
@@ -237,7 +237,7 @@ input.is-invalid {
     display: flex;
     white-space: nowrap;
     align-items: center;
-}
+} */
 
 /** Bulk Marker Edit Settings */
 .bulk-setting-hover:not(.marker) {
