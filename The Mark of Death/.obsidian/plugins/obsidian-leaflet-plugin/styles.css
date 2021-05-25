@@ -137,6 +137,10 @@ input.is-invalid {
 }
  */
 /* div icon override */
+.leaflet-div-icon img {
+    pointer-events: none;
+    cursor: pointer;
+}
 
 .leaflet-div-icon {
     background: transparent !important;
