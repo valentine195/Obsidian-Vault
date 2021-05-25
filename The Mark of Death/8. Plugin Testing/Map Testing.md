@@ -1,4 +1,4 @@
-```leaflet
+
 
 id: tester2
 height: 500px
@@ -6,10 +6,11 @@ unit: mi
 scale: 400
 maxZoom: 10
 defaultZoom: 6
+
 marker: 
 	- location, 5,5,
 	- location, 10,10,
-```
+
 
 ```leaflet
 
@@ -21,5 +22,7 @@ height: 500px
 unit: mi
 scale: 400
 maxZoom: 10
-defaultZoom: 6
+defaultZoom: 10
+lat: 50
+long: 85%
 ```
