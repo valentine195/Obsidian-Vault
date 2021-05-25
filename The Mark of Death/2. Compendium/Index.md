@@ -2,14 +2,23 @@
 
 <span class="nav">[Locations](#Locations) [NPCs](#NPCs)  [Factions](#Factions)</span>
 
+## Map
+```leaflet
+id: full-index
+markerTag:
+	- location
+	- event
+	- faction
+	- npc
+image: [[Khorvaire.jpg]]
+image: [[Mine of Whitecliff.png]]
+defaultZoom: 6.3
+zoomDelta: 0.05
+unit: mi
+scale: 400
+```
+
 ## Locations
-
-dataviewjs
-
-dv.table(dv.pages())
-
-
-
 ```dataviewjs
 
 dv.list(dv.pages('"2. Compendium"')

@@ -39,9 +39,9 @@ tags:
 > The servant opens the door to the guesthouse, and you step into a utilitarian common room. A wooden table large enough to sit eight people sits to your left, along with a small pantry, and on the right are several sitting chairs arrayed around an unlit stone fireplace. In the middle of the room is a large chest made out of a gray wood. Three doors in the back are open and through each you see a simple bed against the wall. The servant enters the room, still limping slightly, and then stands to one side. He says: 
 ```ad-quote
 title: Yoss
-I have been instructed by my master, Drox, to see to your needs. The full clanhold is at your disposal.
+I have been instructed by my master to see to your needs. The full clanhold is at your disposal.
 
-The chest is yours, templar. We have held it for hundreds of years, awaiting the return of the voice of the Flame.
+The chest is yours, templar. We have held it for hundreds of years, awaiting the return of the Flame to reclaim it.
 ```
 
 ```ad-treasure
@@ -51,7 +51,7 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 ```
 [[Longsword of Verdict]]
 
-#### Setback
+#### Setback - The 
 
 #### Conflict
 
