@@ -10,9 +10,7 @@ scale: 400
 overlayColor: green
 overlay:
 	- [green, [-2, 3], 50 mi]
-```
-
-
-```leaflet
-id: real
+overlayTag: nearby
+overlayColor: orange
+markerFile: [[Untitled]]
 ```
