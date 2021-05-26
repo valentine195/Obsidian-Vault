@@ -8,6 +8,8 @@ marker: location, -2, 3,
 unit: mi
 scale: 400
 overlayColor: green
+overlay:
+	- [green, [-2, 3], 50 mi]
 ```
 
 
