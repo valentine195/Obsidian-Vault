@@ -1,4 +1,4 @@
-```leaflet
+
 id: test
 image: [[Khorvaire.jpg]]
 height: 500px
@@ -12,7 +12,7 @@ overlay:
 	- [green, [-5, 3], 50 mi, "test 12345"]
 overlayTag: nearby
 overlayColor: orange
-```
+
 
 ```leaflet
 id: test2
@@ -24,9 +24,9 @@ unit: mi
 lat: -5
 long: 3
 overlayColor: green
-overlay:
-	- [green, [-5, 3], 50 mi, "test 12345"]
 overlayTag: nearby
 overlayColor: orange
 markerFile: [[Untitled]]
+overlay:
+	- [green, [-5, 3], 50 mi, "test 12345"]
 ```
