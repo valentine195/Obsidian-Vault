@@ -12,7 +12,6 @@ overlay:
 	- [green, [-5, 3], 50 mi, "test 12345"]
 overlayTag: nearby
 overlayColor: orange
-markerFile: [[Untitled]]
 ```
 
 ```leaflet
