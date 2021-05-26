@@ -8,7 +8,9 @@ marker: location, -2, 3,
 unit: mi
 scale: 400
 overlayColor: green
-overlay:
-    - [blue, [-2, 3], 500, mi]
-    - [orange, [-2, 3], 25, mi]
+```
+
+
+```leaflet
+id: real
 ```
