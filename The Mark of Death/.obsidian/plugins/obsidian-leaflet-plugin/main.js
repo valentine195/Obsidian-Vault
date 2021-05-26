@@ -29205,7 +29205,7 @@ class ObsidianLeaflet extends obsidian.Plugin {
                         .from(a[3])
                         .to("m");
                     const radiusB = convert(b[2])
-                        .from(a[3])
+                        .from(b[3])
                         .to("m");
                     return radiusB - radiusA;
                 });
