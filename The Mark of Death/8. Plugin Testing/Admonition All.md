@@ -1,14 +1,5 @@
 ```ad-note
-collapse: none
-
-[[Armblade]]
-
-#### Test
-- A
-- b
-	- c
-		- e
-			- f
+This worked yesterday
 ```
 
 ```ad-abstract
