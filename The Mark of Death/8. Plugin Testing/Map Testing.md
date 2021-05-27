@@ -9,7 +9,7 @@ unit: mi
 scale: 400
 overlayColor: green
 overlay:
-	- [green, [-3, 5], 50 mi, "test 12345"]
+	- [green, [-3, 5], 500 mi, "test 12345"]
 overlayTag: nearby
 overlayColor: orange
 markerFile: [[Untitled]]
