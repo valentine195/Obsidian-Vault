@@ -340,6 +340,7 @@ input.is-invalid {
     justify-content: flex-start;
     align-items: center;
 }
+
 .leaflet-control-filter-list ul li > input {
     top: 0px;
 }
@@ -355,7 +356,6 @@ input.is-invalid {
 }
 .leaflet-control-filter-list .leaflet-control-filter-button-group {
     margin-bottom: 6px;
-
 }
 .leaflet-control-filter-list
     .leaflet-control-filter-button-group
