@@ -18,7 +18,7 @@ tags:
 | **Step 3:** | A sacrificial ritual is conducted, led by [[Rabar]]                               |
 | **End:**    | [[Rhashaak]] awakens [[Haka'Torvhak]] and releases its destruction                |
 
-### MILESTONE 2: Cold Sun Tribal Council
+## MILESTONE 2: Cold Sun Tribal Council
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -29,13 +29,12 @@ tags:
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 - Clan - `dice: 1d[[Cold Sun Tribe#^e45064]]`
 - Name - `dice: 1d[[Lizardfolk Names#^c6bf5c]]` 
 
 - Magic Shop Gen - https://donjon.bin.sh/5e/magic/shop.html
-#### Parley
-##### Notes
+### Parley
 > The servant opens the door to the guesthouse, and you step into a utilitarian common room. A wooden table large enough to sit eight people sits to your left, along with a small pantry, and on the right are several sitting chairs arrayed around an unlit stone fireplace. In the middle of the room is a large chest made out of a gray wood. Three doors in the back are open and through each you see a simple bed against the wall. The servant enters the room, still limping slightly, and then stands to one side. He says: 
 ```ad-quote
 title: Yoss
@@ -52,20 +51,20 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 [[Longsword of Verdict]]
 [[Gauntlets of Deliverance]]
 
-#### Setback - Kidnapping of [[Bob]]
+### Setback - Kidnapping of [[Bob]]
 
 >While the three of you take in the house, Bob, as you travel through the village, lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red.
 
-> ou realize suddenly that you're standing on an empty platform. The buildings here look unused. 
+> The buildings here look unused. 
 
 
-#### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
+### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
 
-#### Reward
+### Reward
 
 ---
 
-### MILESTONE 3: Help the Cold Sun drive back the Blackscales
+## MILESTONE 3: Help the Cold Sun drive back the Blackscales
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -76,17 +75,17 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 
-#### Entrance
+### Entrance
 
-#### Parley
+### Parley
 
-#### Setback
+### Setback
 
-#### Conflict
+### Conflict
 
-#### Reward
+### Reward
 
 ---
 
