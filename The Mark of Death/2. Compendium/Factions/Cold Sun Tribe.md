@@ -25,8 +25,8 @@ The Cold Sun Tribe is one of three tribes of lizardfolk living in the [[Q'Barra|
 | Gask (Misty Forest)  |
 | Tratlik (Quiet Rock) |
 | Jato (Molten Earth)  |
-| Duroa (Twin Moon)    |
-| Accuja (Gray Ash)    |
+| Duroa (Golden Eagle)    |
+| [[Krot]] (Gray Ash)    |
 | Ogoje (Twin Boulder) |
 | Thaz (Strong Fist)   |
 | Odra (Steel Titan)   |

@@ -52,9 +52,11 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 [[Longsword of Verdict]]
 [[Gauntlets of Deliverance]]
 
-#### Setback - Krot the Destroyer
+#### Setback - Kidnapping of [[Bob]]
 
-#### Conflict
+>While the three Bob, as you travel through the village, lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. 
+
+#### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
 
 #### Reward
 
