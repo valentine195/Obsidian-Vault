@@ -18,12 +18,12 @@ alignment: X
 ac: 10
 hp: 10
 hit_dice: 1d12
-speed: 40
+speed: 40 ft
 stats: [10, 10, 10, 10, 10, 10]
 saves:
     - dexterity: 10
 	- strength: 5
-	- 
+	- constitution: 5
 skillsaves:
     - stealth: 10
 damage_vulnerabilities: none
@@ -32,7 +32,7 @@ damage_immunities: none
 condition_immunities: none
 senses: none
 languages: none
-cr: 1
+cr: 1/2
 traits:
     - [<trait-name>, <trait-description>]
 actions:
