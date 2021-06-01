@@ -1,4 +1,7 @@
 ```ad-note
+title: test
+collapse: closed
+
 This worked yesterday
 ```
 

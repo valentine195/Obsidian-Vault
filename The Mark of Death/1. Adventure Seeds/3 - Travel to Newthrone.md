@@ -89,7 +89,7 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 
 ---
 
-### FINALE: End the threat of Rabar the Rakshasa
+## FINALE: End the threat of Rabar the Rakshasa
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -100,23 +100,23 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 
-#### Entrance
+### Entrance
 
-#### Parley
+### Parley
 
-#### Setback
+### Setback
 
-#### Conflict
+### Conflict
 
-#### Reward
+### Reward
 
 ---
 
-## Complete
+# Complete
 
-### MILESTONE 1: Travel down the Adder River towards Newthrone
+## MILESTONE 1: Travel down the Adder River towards Newthrone
 
 |              | MAP                | MONSTER                         | REWARD                             |
 | ------------ | ------------------ | ------------------------------- | ---------------------------------- |
@@ -127,9 +127,9 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 | **Conflict** | Impassable River?  | Blackscale Clan Lizardfolk      |                                    |
 | **Reward**   |                    |                                 |                                    |
 
-#### Notes
+### Notes
 
-#### Conflict - The Blackscales Attack
+### Conflict - The Blackscales Attack
 
 [REFERENCE THIS](https://www.reddit.com/r/DnDBehindTheScreen/comments/6acd7t/guide_to_the_jungle/)
 
@@ -181,11 +181,11 @@ The Crazy Fist clan are truly honored to have an esteemed Templar in our midst. 
 ```
 
 
-#### Reward
+### Reward
 
 
 
-### MILESTONE 2: Cold Sun Tribal Council
+## MILESTONE 2: Cold Sun Tribal Council
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -196,10 +196,10 @@ The Crazy Fist clan are truly honored to have an esteemed Templar in our midst. 
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 
 
-#### Entrance
+### Entrance
 
 ```ad-important
 [[Drox]] turns to the four of you and narrows his eyes.
@@ -232,8 +232,8 @@ And then he bows to each of you and takes his leave.
 
 > The servant [[Yoss]] bows to you and turns, walking to a nearby rope bridge. He stops and turns around to face you, waiting patiently for you to go with him.
 
-#### Parley
-##### Notes
+### Parley
+#### Notes
 
 > The servant heads out over the rope bridge, moving swiftly and sure-footed.
 
