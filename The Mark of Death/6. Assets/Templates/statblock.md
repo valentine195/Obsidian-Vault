@@ -27,6 +27,7 @@ skillsaves:
     - stealth: 10
 	- perception: 5
 	- test: -4
+	
 damage_vulnerabilities: none
 damage_resistances: none
 damage_immunities: none
@@ -34,6 +35,11 @@ condition_immunities: none
 senses: none
 languages: none
 cr: 1/2
+spells: 
+	- Syr Carah is a 10th-level spellcaster. Her spellcasting ability modifier is Intelligence (spell save DC15, +7 to hit with spell attacks). She knows the following wizard spells
+	- Cantrips (at will): firebolt, lightning lure, shocking grasp
+	- 1st Level (4 slots): absorb elements, burning hands, color spray, shield
+	- 2nd Level (3 slots): dark vision, scorching ray, shatter
 traits:
     - [<trait-name>, <trait-description>]
 actions:
