@@ -40,6 +40,7 @@ spells:
 	- Cantrips (at will): firebolt, lightning lure, shocking grasp
 	- 1st Level (4 slots): absorb elements, burning hands, color spray, shield
 	- 2nd Level (3 slots): dark vision, scorching ray, shatter
+	
 traits:
     - [<trait-name>, <trait-description>]
 actions:

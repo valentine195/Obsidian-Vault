@@ -138,3 +138,7 @@
     display: inline;
     text-indent: 0;
 }
+
+.obsidian-statblock-plugin .spell-line .spell-list {
+    font-style: italic;
+}
