@@ -1,6 +1,5 @@
 ```ad-note
-title: test
-collapse: closed
+title: 
 
 This worked yesterday
 ```
