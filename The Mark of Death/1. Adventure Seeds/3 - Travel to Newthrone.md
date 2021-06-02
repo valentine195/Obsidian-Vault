@@ -77,7 +77,7 @@ The platform you step onto from the rope bridge seems oddly deserted, considerin
 
 ````
 
-> The buildings here look unused. 
+> The buildings on this platform look like they have not been used in quite some time. Another rope bridge heads 
 
 
 ### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
