@@ -16,7 +16,7 @@ alignment: unaligned
 ac: 20
 hp: 231
 speed: 20 ft
-stats: [25, 9, 20, 12, 18, 22]
+stats: [25, 9, 20, 1, 18, 1]
 saves:
     - constitution: 11
 	- intelligence: 7
@@ -39,13 +39,13 @@ traits:
     - [Magic Resistance, The royal incinerator has advantage on saving throws against spells and other magical effects.]
     - [Magic Weapons, The royal incinerator's weapon attacks are magical.]
     - [Unfaltering, The royal incinerator is immune to any spell or effect that would alter its form and it isn’t affected by spells of the enchantment or illusion schools of magic.]
-    - [Rejuvenation, As long as its brazier is lit, a destroyed royal incinerator gains a new body in 1d4 days, regaining all its hit points and becoming active again. The new body appears within 5 feet of the brazier.]
+    - [Rejuvenation, As long as its brazier is lit, a destroyed royal incinerator gains a new body in 1 week, regaining all its hit points and becoming active again. The new body appears within 5 feet of the brazier.]
 actions:
-    - [<trait-name>, <trait-description>]
-legendary_actions:
-    - [<legendary_actions-name>, <legendary_actions-description>]
-reactions:
-    - [<reaction-name>, <reaction-description>]
+    - [Multiattack, The royal incinerator makes two melee attacks.]
+    - [Impale, Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 25 (4d8 + 7) piercing damage plus 10 (3d6) fire damage. The target must succeed on a DC 21 Strength saving throw or be restrained by the blade and take 10 (3d6) fire damage at the start of each of their turns. The royal incinerator can then only use slam attacks, until it summons its sword back to it as a bonus action, freeing the target. The target, or an ally of them, can use their action to remove the blade, freeing themselves.]
+    - [Slam, Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 23 (3d10 + 7) bludgeoning damage and 10 (3d6) fire damage.]
+    - [Sword, Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 25 (4d8 + 7) slashing damage and 10 (3d6) fire damage.]
+    - [Cleansing Fire (Recharge 5-6), The royal incinerator exhales fire in a 120-foot line that is 10 feet wide. Each creature in that line must make a DC 19 Dexterity saving throw, taking 63 (14d8) fire damage on a failed save, or half as much damage on a successful one.]
 ```
 
 ## History
