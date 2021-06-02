@@ -18,30 +18,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 [[3 - Travel to Newthrone]]
 ```
 
-````` ad-info
-title: test
 
-````ad-dnd
-title: test 2
+
+````ad-info
 
 ```ad-bug
-title: test 3
-Buuuug!
+title: I'm Nested!
+~~~javascript
+throw new Error("Oops, I'm a bug.");
+~~~
 ```
 
-Between bug and code
-
-~~~xml
-<code></code>
-~~~
-
-After code
+```javascript
+console.log("Hello!");
+```
 
 ````
 
-After code block
 
-`````
 
 ```ad-success
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.

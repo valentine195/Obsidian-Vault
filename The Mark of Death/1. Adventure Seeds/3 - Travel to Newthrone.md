@@ -53,9 +53,25 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 
 ### Setback - Kidnapping of [[Bob]]
 
->While the three of you take in the house, Bob, as you travel through the village, lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. Bob, give me a perception check.
-> `dice: 1d20 + 10` -> Stealth Roll 1
-> `dice: 1d20 + 10` -> Stealth Roll 2
+````ad-info
+While the three of you take in the house, Bob, what would you like to do?
+````
+
+````ad-info
+
+Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. Bob, give me a perception check.
+`dice: 1d20 + 10` -> Stealth Roll 1
+`dice: 1d20 + 10` -> Stealth Roll 2
+
+```ad-success
+collapse: closed
+As you step off a rope bridge, you catch a glimpse of a lizardfolk with ashy-grey skin clawhook his w
+```
+
+```ad-fail
+```
+
+````
 
 > The buildings here look unused. 
 
