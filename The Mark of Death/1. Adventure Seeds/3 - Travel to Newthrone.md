@@ -54,21 +54,25 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 ### Setback - Kidnapping of [[Bob]]
 
 ````ad-info
-While the three of you take in the house, Bob, what would you like to do?
+While the three of you take in the house, Bob, where would you like to go?
 ````
 
 ````ad-info
 
-Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. Bob, give me a perception check.
+Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. 
+
+
+You head out onto a rope bridge towards ==BLANK==. Bob, give me a perception check.
 `dice: 1d20 + 10` -> Stealth Roll 1
-`dice: 1d20 + 10` -> Stealth Roll 2
 
 ```ad-success
 collapse: closed
-As you step off a rope bridge, you catch a glimpse of a lizardfolk with ashy-grey skin clawhook his w
+As you step move along the rope bridge, you catch a glimpse of a lizardfolk with ashy-grey skin clawhook his way into the treetop above you, but you don't see him afterwards. The platform you step onto from the bridge seems oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted. What are you doing?
 ```
 
 ```ad-fail
+collapse: closed
+The platform you step onto from the rope bridge seems oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted
 ```
 
 ````
