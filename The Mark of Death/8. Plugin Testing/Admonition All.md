@@ -18,11 +18,30 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 [[3 - Travel to Newthrone]]
 ```
 
-```ad-tip
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
+````` ad-info
+title: test
 
-[[3 - Travel to Newthrone]]
+````ad-dnd
+title: test 2
+
+```ad-bug
+title: test 3
+Buuuug!
 ```
+
+Between bug and code
+
+~~~xml
+<code></code>
+~~~
+
+After code
+
+````
+
+After code block
+
+`````
 
 ```ad-success
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
