@@ -2,5 +2,5 @@
 
 
 ```statblock
-
+monster: Royal Incinerator
 ```
