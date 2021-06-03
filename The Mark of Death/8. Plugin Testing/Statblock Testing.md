@@ -2,5 +2,5 @@
 
 
 ```statblock
-monster: Wereraven
+monster: Strahd von Zarovich
 ```
