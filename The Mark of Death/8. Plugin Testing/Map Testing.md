@@ -28,4 +28,5 @@ marker: location, -2, 3,
 unit: mi
 lat: -5
 long: 3
+darkMode: true
 ```
