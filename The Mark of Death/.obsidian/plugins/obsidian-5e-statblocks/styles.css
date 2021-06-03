@@ -6,9 +6,13 @@
 }
 
 /** Settings */
+.statblock-file-upload > input[type="file"] {
+    display: none;
+}
+
 .statblock-additional-container {
+    border-top: 1px solid var(--background-modifier-border);
     border-bottom: 0px solid var(--background-modifier-border);
-    border-top: 0px solid var(--background-modifier-border);
     padding: 18px 0 0 0;
 }
 
