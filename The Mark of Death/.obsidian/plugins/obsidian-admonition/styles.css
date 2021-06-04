@@ -127,7 +127,8 @@ details.admonition[open] > summary > .collapser > .handle {
 }
 
 /** Settings */
-.admonition-setting-additional-container > .setting-item:not(.setting-item-heading) {
+.admonition-setting-additional-container
+    > .setting-item:not(.setting-item-heading) {
     border: 0px;
 }
 
@@ -189,6 +190,10 @@ input.is-invalid {
     margin-top: 0.25rem;
     font-size: 0.875em;
     color: #dc3545;
+}
+
+.admonition-suggester-icon > svg {
+    width: 1em;
 }
 
 /** Internal */
