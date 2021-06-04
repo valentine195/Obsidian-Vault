@@ -72,7 +72,7 @@ As you step move along the rope bridge, you catch a glimpse of a lizardfolk with
 
 ```ad-fail
 collapse: closed
-The platform you step onto from the rope bridge seems oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted and distant, and 
+The platform you step onto from the rope bridge is oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted and distant. What are you doing?
 ```
 
 ````
