@@ -72,12 +72,12 @@ As you step move along the rope bridge, you catch a glimpse of a lizardfolk with
 
 ```ad-fail
 collapse: closed
-The platform you step onto from the rope bridge seems oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted
+The platform you step onto from the rope bridge seems oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted and distant, and 
 ```
 
 ````
 
-> The buildings on this platform look like they have not been used in quite some time. Another rope bridge heads 
+>  
 
 
 ### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
