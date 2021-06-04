@@ -16,6 +16,12 @@
     padding: 18px 0 0 0;
 }
 
+.statblock-monster-filter {
+    position: sticky;
+    top: 0px;
+    background: var(--background-primary);
+}
+
 .statblock-additional-container > .setting-item-heading:only-child {
     padding-bottom: 18px;
 }
