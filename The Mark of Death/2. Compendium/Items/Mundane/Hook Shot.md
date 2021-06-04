@@ -10,7 +10,7 @@ tags:
  # Hook Shot
 Held by:
  
-```ad-info
+```ad-item
 collapse: open
 Functionally, this is the same as casting Thorn Whip.
  

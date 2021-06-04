@@ -77,7 +77,7 @@ The platform you step onto from the rope bridge is oddly deserted, considering t
 
 ````
 
->  
+
 
 
 ### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
