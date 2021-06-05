@@ -1,26 +1,41 @@
 ```ad-note
-collapse: none
-#### Test
-- A
-- b
-	- c
-		- e
-			- f
+title:  
+
+This worked yesterday
 ```
 
-
 ```ad-abstract
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. 
+
+[[ABCDEF]]
+
+
 ```
 
 ```ad-info
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
+
+[[3 - Travel to Newthrone]]
 ```
 
-```ad-tip
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
 
+
+````ad-info
+
+```ad-bug
+title: I'm Nested!
+~~~javascript
+throw new Error("Oops, I'm a bug.");
+~~~
 ```
+
+```javascript
+console.log("Hello!");
+```
+
+````
+
+
 
 ```ad-success
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
@@ -31,6 +46,16 @@ d
 e
 f
 g
+
+[[3 - Travel to Newthrone]]
+
+[[3 - Travel to Newthrone]]
+
+[[3 - Travel to Newthrone]]
+
+[[3 - Travel to Newthrone]]
+
+[[3 - Travel to Newthrone]]
 ```
 
 ```ad-question

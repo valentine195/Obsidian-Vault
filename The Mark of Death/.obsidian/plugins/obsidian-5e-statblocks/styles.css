@@ -5,6 +5,49 @@
     --statblock-background-color: #fdf1dc;
 }
 
+/** Settings */
+.statblock-file-upload > input[type="file"] {
+    display: none;
+}
+
+.statblock-additional-container {
+    border-top: 1px solid var(--background-modifier-border);
+    border-bottom: 0px solid var(--background-modifier-border);
+    padding: 18px 0 0 0;
+    background-color: inherit;
+}
+
+.statblock-additional-container .task-list-inline {
+    display: grid;
+    gap: 6px;
+}
+
+.statblock-monster-filter {
+    position: sticky;
+    top: -5px;
+    padding-top: 5px;
+    background-color: inherit;
+}
+
+.statblock-additional-container > .setting-item-heading:only-child {
+    padding-bottom: 18px;
+}
+
+.statblock-additional-container > .additional {
+    margin: 6px 12px;
+}
+.statblock-additional-container > .additional > .setting-item {
+    border-top: 0;
+    padding-top: 9px;
+}
+.statblock-additional-container
+    > .additional
+    > .setting-item
+    > .setting-item-control
+    > *:first-child {
+    margin: 0 6px;
+}
+
 /** Tapered Rule */
 .obsidian-statblock-plugin .tapered-rule {
     width: auto;
@@ -72,6 +115,9 @@
     font-size: 23px;
     letter-spacing: 1px;
     font-variant: small-caps;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .obsidian-statblock-plugin .creature-heading > .subheading {
     font-weight: normal;
@@ -136,5 +182,10 @@
 }
 .obsidian-statblock-plugin .property > .property-text {
     display: inline;
+    white-space: pre-line;
     text-indent: 0;
+}
+
+.obsidian-statblock-plugin .spell-line .spells {
+    font-style: italic;
 }

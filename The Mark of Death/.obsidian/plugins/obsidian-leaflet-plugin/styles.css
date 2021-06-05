@@ -50,6 +50,7 @@
     width: 24px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .marker-creation-modal {
@@ -164,6 +165,30 @@ input.is-invalid {
     padding: 5px 14px !important;
     /* pointer-events: none !important; */
     opacity: unset !important;
+}
+
+.leaflet-marker-link-popup > * {
+    animation: leaflet-pop-down 200ms forwards ease-in-out;
+}
+
+@keyframes leaflet-pop-down {
+    0% {
+        opacity: 0;
+        transform: scale(1);
+    }
+
+    20% {
+        opacity: 0.7;
+        transform: scale(1.02);
+    }
+    40% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .leaflet-marker-link-popup > .leaflet-popup-content-wrapper {
@@ -285,10 +310,11 @@ input.is-invalid {
     margin-right: 0.5rem;
 }
 
-.dark-mode {
+.leaflet-container .dark-mode {
     filter: brightness(0.6) invert(1) contrast(3) hue-rotate(200deg)
         saturate(0.3) brightness(0.7);
 }
+/** Filter Control */
 .leaflet-control-filter {
     background: #fff;
 }
@@ -307,6 +333,34 @@ input.is-invalid {
 
 .leaflet-control-filter ul {
     margin: 0;
+}
+
+.leaflet-control-filter-list li {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.leaflet-control-filter-list ul li > input {
+    top: 0px;
+}
+.leaflet-control-filter-list ul li > label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.leaflet-control-filter-list ul li .leaflet-control-filter-icon {
+    width: 18px;
+    height: 18px;
+    margin-right: 4px;
+}
+.leaflet-control-filter-list .leaflet-control-filter-button-group {
+    margin-bottom: 6px;
+}
+.leaflet-control-filter-list
+    .leaflet-control-filter-button-group
+    button:last-child {
+    margin-right: 0px;
 }
 /* required styles */
 

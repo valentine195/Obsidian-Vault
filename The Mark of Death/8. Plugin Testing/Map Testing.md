@@ -1,20 +1,32 @@
 ```leaflet
-id: tester2
+id: test
+image: [[Khorvaire.jpg]]
 height: 500px
+maxZoom: 10
+defaultZoom: 3
+marker: location, -2, 3,
 unit: mi
 scale: 400
-maxZoom: 10
+overlayColor: green
+overlay:
+	- [green, [-3, 5], 500 mi, "test 12345"]
+overlayTag: nearby
+overlayColor: orange
+markerFile: [[Untitled]]
+bounds:
+	- [0, x]
+	- [200, 200]
 ```
 
----
 
 ```leaflet
-
-id: tester4
+id: test2
 height: 500px
-unit: mi
-scale: 400
-maxZoom: 10
+maxZoom: 50
 defaultZoom: 6
-
+marker: location, -2, 3,
+unit: mi
+lat: -5
+long: 3
+darkMode: true
 ```

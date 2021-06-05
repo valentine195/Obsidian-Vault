@@ -52,9 +52,9 @@
 }
 
 .admonition-content {
-  margin: 10px 15px;
-  padding-right: 25px;
-  position: relative;
+    margin: 10px 15px;
+    padding-right: 25px;
+    position: relative;
 }
 
 .admonition-content-copy {
@@ -127,9 +127,34 @@ details.admonition[open] > summary > .collapser > .handle {
 }
 
 /** Settings */
-.use-csv-marker > svg {
-    color: yellow;
-    margin-right: 8px;
+.admonition-setting-additional-container
+    > .setting-item:not(.setting-item-heading) {
+    border: 0px;
+}
+
+.admonition-setting-additional-container {
+    border-bottom: 1px solid var(--background-modifier-border);
+    border-top: 1px solid var(--background-modifier-border);
+    padding: 18px 0 0 0;
+}
+
+.admonition-setting-additional-container > .setting-item-heading:only-child {
+    padding-bottom: 18px;
+}
+
+.admonition-setting-additional-container > .additional {
+    margin: 6px 12px;
+}
+.admonition-setting-additional-container > .additional > .setting-item {
+    border-top: 0;
+    padding-top: 9px;
+}
+.admonition-setting-additional-container
+    > .additional
+    > .setting-item
+    > .setting-item-control
+    > *:first-child {
+    margin: 0 6px;
 }
 
 .setting-item > .admonition {
@@ -161,6 +186,12 @@ input.is-invalid {
     font-size: 0.875em;
     color: #dc3545;
 }
+
+.admonition-suggester-icon svg {
+    width: 1em;
+}
+
+/** Internal */
 
 .admonition li.task-list-item.is-checked p {
     text-decoration: line-through;

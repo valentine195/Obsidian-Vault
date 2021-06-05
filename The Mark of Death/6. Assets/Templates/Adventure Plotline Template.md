@@ -1,7 +1,9 @@
 ---
-date updated: '2021-04-19T14:41:42-04:00'
+date updated: '2021-05-28T13:43:03-04:00'
 
 ---
+
+# <% tp.file.title %>
 
 ## 3 STEP PLAN
 
@@ -13,9 +15,7 @@ date updated: '2021-04-19T14:41:42-04:00'
 | **Step 3:** |      |
 | **End:**    |      |
 
-## ADVENTURE PLOTLINE
-
-### MILESTONE 1:
+## MILESTONE 1:
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -26,21 +26,21 @@ date updated: '2021-04-19T14:41:42-04:00'
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 
-#### Entrance
+### Entrance
 
-#### Parley
+### Parley
 
-#### Setback
+### Setback
 
-#### Conflict
+### Conflict
 
-#### Reward
+### Reward
 
 ---
 
-### MILESTONE 2:
+## MILESTONE 2:
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -51,21 +51,21 @@ date updated: '2021-04-19T14:41:42-04:00'
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 
-#### Entrance
+### Entrance
 
-#### Parley
+### Parley
 
-#### Setback
+### Setback
 
-#### Conflict
+### Conflict
 
-#### Reward
+### Reward
 
 ---
 
-### MILESTONE 3:
+## MILESTONE 3:
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -76,21 +76,21 @@ date updated: '2021-04-19T14:41:42-04:00'
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 
-#### Entrance
+### Entrance
 
-#### Parley
+### Parley
 
-#### Setback
+### Setback
 
-#### Conflict
+### Conflict
 
-#### Reward
+### Reward
 
 ---
 
-### FINALE:
+## FINALE:
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -101,14 +101,14 @@ date updated: '2021-04-19T14:41:42-04:00'
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 
-#### Entrance
+### Entrance
 
-#### Parley
+### Parley
 
-#### Setback
+### Setback
 
-#### Conflict
+### Conflict
 
-#### Reward
+### Reward

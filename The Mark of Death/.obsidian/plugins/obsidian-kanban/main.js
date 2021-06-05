@@ -8884,6 +8884,38 @@ function checkDCE() {
 }
 });
 
+let subscribers = [];
+
+const subscribe = (filter, callback) => {
+  if (filter === undefined || filter === null) return undefined;
+  if (callback === undefined || callback === null) return undefined;
+  subscribers = [...subscribers, [filter, callback]];
+  return () => {
+    subscribers = subscribers.filter(subscriber => subscriber[1] !== callback);
+  };
+};
+
+const dispatch = event => {
+  let {
+    type
+  } = event;
+  if (typeof event === 'string') type = event;
+  const args = [];
+  if (typeof event === 'string') args.push({
+    type
+  });else args.push(event);
+  subscribers.forEach(([filter, callback]) => {
+    if (typeof filter === 'string' && filter !== type) return;
+    if (typeof filter === 'function' && !filter(...args)) return;
+    callback(...args);
+  });
+};
+
+const useBus = (type, callback, deps = []) => {
+  react.useEffect(() => subscribe(type, callback), deps);
+  return dispatch;
+};
+
 const baseClassName = "kanban-plugin";
 function c$2(className) {
     return `${baseClassName}__${className}`;
@@ -8980,9 +9012,10 @@ function applyTemplate(view, templatePath) {
             ? view.app.vault.getAbstractFileByPath(templatePath)
             : null;
         if (templateFile && templateFile instanceof obsidian.TFile) {
+            const activeView = view.app.workspace.activeLeaf.view;
             // Force the view to source mode, if needed
-            if (view instanceof obsidian.MarkdownView && view.getMode() !== "source") {
-                yield view.setState(Object.assign(Object.assign({}, view.getState()), { mode: "source" }), {});
+            if (activeView instanceof obsidian.MarkdownView && activeView.getMode() !== "source") {
+                yield activeView.setState(Object.assign(Object.assign({}, activeView.getState()), { mode: "source" }), {});
             }
             const { templatesEnabled, templaterPlugin, templatesPlugin } = view.plugin.getTemplatePlugins();
             const templateContent = yield view.app.vault.read(templateFile);
@@ -15383,6 +15416,7 @@ var en = {
     "Error: cannot create Kanban, the current note is not empty": "Error: cannot create Kanban, the current note is not empty",
     "New kanban board": "New kanban board",
     "Untitled Kanban": "Untitled Kanban",
+    "Toggle between Kanban and markdown mode": "Toggle between Kanban and markdown mode",
     // KanbanView.tsx
     "Open as markdown": "Open as markdown",
     "Open board settings": "Open board settings",
@@ -15437,6 +15471,19 @@ var en = {
     "This will be used to separate the archived date/time from the title": "This will be used to separate the archived date/time from the title",
     "Archive date/time format": "Archive date/time format",
     "Kanban Plugin": "Kanban Plugin",
+    "Hide tags in card titles": "Hide tags in card titles",
+    "When toggled, tags will be hidden card titles. This will prevent tags from being included in the title when creating new notes.": "When toggled, tags will be hidden card titles. This will prevent tags from being included in the title when creating new notes.",
+    "Hide card display tags": "Hide card display tags",
+    "When toggled, tags will not be displayed below the card title.": "When toggled, tags will not be displayed below the card title.",
+    "Linked Page Metadata": "Linked Page Metadata",
+    "Display metadata for the first note linked within a card. Specify which metadata keys to display below. An optional label can be provided, and labels can be hidden altogether.": "Display metadata for the first note linked within a card. Specify which metadata keys to display below. An optional label can be provided, and labels can be hidden altogether.",
+    // MetadataSettings.tsx
+    "Metadata key": "Metadata key",
+    "Display label": "Display label",
+    "Hide label": "Hide label",
+    "Drag to rearrange": "Drag to rearrange",
+    Delete: "Delete",
+    "Add key": "Add key",
     // components/Item/Item.tsx
     "Archive item": "Archive item",
     "More options": "More options",
@@ -15462,6 +15509,7 @@ var en = {
     "Edit time": "Edit time",
     "Add time": "Add time",
     "Remove time": "Remove time",
+    "Duplicate card": "Duplicate card",
     // components/Lane/LaneForm.tsx
     "Enter list title...": "Enter list title...",
     "Mark items in this list as complete": "Mark items in this list as complete",
@@ -15499,7 +15547,115 @@ var hi = {};
 var id = {};
 
 // Italiano
-var it = {};
+var it = {
+    // main.ts
+    "Open as kanban board": "Apri come bacheca Kanban",
+    "Create new board": "Crea nuova bacheca",
+    "Archive completed cards in active board": "Archivia schede completate nella bacheca attiva",
+    "Error: current file is not a Kanban board": "Errore: il file corrente non è una bacheca Kanban",
+    "Convert empty note to Kanban": "Converti nota vuota in Kanban",
+    "Error: cannot create Kanban, the current note is not empty": "Errore: Impossibile creare Kanban, la nota corrente non è vuota",
+    "New kanban board": "Nuova bacheca Kanban",
+    "Untitled Kanban": "Kanban senza titolo",
+    // KanbanView.tsx
+    "Open as markdown": "Apri come markdown",
+    "Open board settings": "Apri impostazioni bacheca",
+    "Archive completed cards": "Archivia schede completate",
+    // parser.ts
+    Complete: "Completato",
+    Archive: "Archivio",
+    // settingHelpers.ts
+    "Note: No template plugins are currently enabled.": "Nota: Nessun plugin dei modelli attualmente abilitato.",
+    default: "predefinito",
+    "Search...": "Ricerca...",
+    // Settings.ts
+    "These settings will take precedence over the default Kanban board settings.": "Queste impostazioni avranno la precedenza sulle impostazioni predefinite della bacheca Kanban.",
+    "Set the default Kanban board settings. Settings can be overridden on a board-by-board basis.": "Impostazioni predefinite della bacheca Kanban. Le impostazioni possono essere sovrascritte per ogni bacheca.",
+    "Note template": "Nota modello",
+    "This template will be used when creating new notes from Kanban cards.": "Questo modello verrà utilizzato durante la creazione di nuove note dalle schede Kanban.",
+    "No template": "Nessun modello",
+    "Note folder": "Cartella delle note",
+    "Notes created from Kanban cards will be placed in this folder. If blank, they will be placed in the default location for this vault.": "Le note create dalle schede Kanban verranno inserite in questa cartella. Se vuota, verranno inserite nella posizione predefinita del vault.",
+    "Default folder": "Cartella predefinita",
+    "Lane width": "Larghezza colonna",
+    "Enter a number to set the lane width in pixels.": "Inserire un numero per impostare la larghezza della colonna in pixel.",
+    "Maximum number of archived cards": "Numero massimo di schede archiviate",
+    "Archived cards can be viewed in markdown mode. This setting will begin removing old cards once the limit is reached. Setting this value to -1 will allow a board's archive to grow infinitely.": "Le schede archiviate possono essere visualizzate in modalità Markdown. Le vecchie schede verranno rimosse una volta raggiunto il limite. Impostando il valore -1 il numero di schede archiviate sarà illimitato.",
+    "Display card checkbox": "Mostra casella di controllo",
+    "When toggled, a checkbox will be displayed with each card": "Se attiva, verrà visualizzata una casella di controllo per ogni scheda",
+    "Reset to default": "Ripristina predefiniti",
+    "Date & Time": "Data e ora",
+    "Date trigger": "Selettore data",
+    "When this is typed, it will trigger the date selector": "Digitando questo, verrà attivato il selettore della data",
+    "Time trigger": "Selettore ora",
+    "When this is typed, it will trigger the time selector": "Digitando questo, verrà attivato il selettore dell'ora",
+    "Date format": "Formato data",
+    "This format will be used when saving dates in markdown.": "Formato utilizzato per il salvataggio delle date in Markdown.",
+    "For more syntax, refer to": "Per maggiori informazioni, vedere",
+    "format reference": "formato di riferimento",
+    "Your current syntax looks like this": "Formato corrente",
+    "Time format": "Formato ora",
+    "Date display format": "Formato visualizzazione data",
+    "This format will be used when displaying dates in Kanban cards.": "Formato utilizzato per visualizzare le date nelle schede Kanban.",
+    "Show relative date": "Mostra data relativa",
+    "When toggled, cards will display the distance between today and the card's date. eg. 'In 3 days', 'A month ago'": "Se attiva, le schede indicheranno la distanza tra la data odierna e la data della scheda. eg. 'Tra 3 giorni', 'Un mese fa'",
+    "Hide card display dates": "Hide card display dates",
+    "When toggled, formatted dates will not be displayed on the card. Relative dates will still be displayed if they are enabled.": "Se attiva, la data non verrà mostrata sulla scheda. Le date relative verranno comunque mostrate se sono state abilitate.",
+    "Hide dates in card titles": "Nascondi date nei titoli delle schede",
+    "When toggled, dates will be hidden card titles. This will prevent dates from being included in the title when creating new notes.": "Se attiva, la data non verrà mostrata nei titoli delle schede. Questo impedisce alle date di essere incluse quando vengono create nuove note.",
+    "Link dates to daily notes": "Collega date alle Note del giorno",
+    "When toggled, dates will link to daily notes. Eg. [[2021-04-26]]": "Se attiva, le date verranno collegate alle Note del giorno. Eg. [[2021-04-26]]",
+    "Add date and time to archived cards": "Aggiungi data e ora alle schede archiviate",
+    "When toggled, the current date and time will be added to the beginning of a card when it is archived. Eg. - [ ] 2021-05-14 10:00am My card title": "Se attiva, la data e l'ora corrente verranno aggiunte all'inizio della scheda quando viene archiviata. Eg. - [ ] 2021-05-14 10:00am Mia scheda",
+    "Archive date/time separator": "Separatore data/ora dell'archivio",
+    "This will be used to separate the archived date/time from the title": "Verrà usato per separare data e ora dell'archiviazione dal titolo",
+    "Archive date/time format": "Formato data/ora dell'archivio",
+    "Kanban Plugin": "Plugin Kanban",
+    // components/Item/Item.tsx
+    "Archive item": "Archivia elemento",
+    "More options": "Altre opzioni",
+    Cancel: "Annulla",
+    // components/Item/ItemContent.tsx
+    today: "oggi",
+    yesterday: "ieri",
+    tomorrow: "domani",
+    "Change date": "Modifica data",
+    "Change time": "Modifica ora",
+    // components/Item/ItemForm.tsx
+    "Item title...": "Titolo elemento...",
+    "Add item": "Aggiungi elemento",
+    "Add a card": "Aggiungi un'altra scheda",
+    // components/Item/ItemMenu.ts
+    "Edit card": "Modifica scheda",
+    "New note from card": "Nuova nota da scheda",
+    "Archive card": "Archivia scheda",
+    "Delete card": "Elimina scheda",
+    "Edit date": "Modifica data",
+    "Add date": "Aggiungi data",
+    "Remove date": "Rimuovi data",
+    "Edit time": "Modifica ora",
+    "Add time": "Aggiungi ora",
+    "Remove time": "Rimuovi ora",
+    // components/Lane/LaneForm.tsx
+    "Enter list title...": "Inserisci titolo lista...",
+    "Mark items in this list as complete": "Segna elementi della lista come completati",
+    "Add list": "Aggiungi lista",
+    "Add a list": "Aggiungi un'altra lista",
+    // components/Lane/LaneHeader.tsx
+    "Move list": "Sposta lista",
+    Close: "Chiudi",
+    // components/Lane/LaneMenu.tsx
+    "Are you sure you want to delete this list and all its cards?": "Cancellare questa lista e tutte le sue schede?",
+    "Yes, delete list": "Cancella lista",
+    "Are you sure you want to archive this list and all its cards?": "Archiviare questa lista e tutte le sue schede?",
+    "Yes, archive list": "Archivia lista",
+    "Are you sure you want to archive all cards in this list?": "Archiviare tutte le schede in questa lista?",
+    "Yes, archive cards": "Archivia schede",
+    "Edit list": "Modifica lista",
+    "Archive cards": "Archivia schede",
+    "Archive list": "Archivia lista",
+    "Delete list": "Cancella lista",
+};
 
 // 日本語
 var ja = {
@@ -15813,6 +15969,19 @@ var zhCN = {
     "This will be used to separate the archived date/time from the title": "用于从分隔归档卡片的日期或时间",
     "Archive date/time format": "归档日期或时间格式",
     "Kanban Plugin": "看板插件",
+    "Hide tags in card titles": "隐藏卡片标题中的标签",
+    "When toggled, tags will be hidden card titles. This will prevent tags from being included in the title when creating new notes.": "当打开这个，卡片标题中的标签将会被隐藏，来避免生成卡片笔记的时候附带上标签",
+    "Hide card display tags": "隐藏卡片上的标签",
+    "When toggled, tags will not be displayed below the card title.": "当打开这个，卡片标题下方的标签将不会展示",
+    "Linked Page Metadata": "连接的页面元数据",
+    "Display metadata for the first note linked within a card. Specify which metadata keys to display below. An optional label can be provided, and labels can be hidden altogether.": "展示卡片中第一个连接所对应的笔记元数据，请在下方指定哪些元数据可以展示。你可以选择展示标志，标志可以都被隐藏。",
+    // MetadataSettings.tsx
+    "Metadata key": "元数据参数名",
+    "Display label": "展示标志",
+    "Hide label": "隐藏标志",
+    "Drag to rearrange": "拖动来重排顺序",
+    Delete: "删除",
+    "Add key": "添加参数名",
     // components/Item/Item.tsx
     "Archive item": "归档卡片",
     "More options": "更多选项",
@@ -15838,6 +16007,7 @@ var zhCN = {
     "Edit time": "编辑时间",
     "Add time": "添加时间",
     "Remove time": "移除时间",
+    "Duplicate card": "复制卡片",
     // components/Lane/LaneForm.tsx
     "Enter list title...": "输入新的列标题",
     "Mark items in this list as complete": "将该列设置为完成列",
@@ -19899,6 +20069,8 @@ const completeString = `**${t$2("Complete")}**`;
 const completeRegex = new RegExp(`^${escapeRegExpStr(completeString)}$`, "i");
 const archiveString = "***";
 const archiveMarkerRegex = /^\*\*\*$/;
+const tagRegex$1 = /(^|\s)(#[^#\s]+)/g;
+const linkRegex$1 = /\[\[([^\|\]]+)(?:\||\]\])/;
 function itemToMd(item) {
     return `- [${item.data.isComplete ? "x" : " "}] ${item.titleRaw}`;
 }
@@ -19907,7 +20079,7 @@ function getSearchTitle(title, view) {
     obsidian.MarkdownRenderer.renderMarkdown(title, tempEl, view.file.path, view);
     return tempEl.innerText;
 }
-function processTitle(title, view, settings) {
+function extractDates(title, view, settings) {
     const dateFormat = view.getSetting("date-format", settings) || getDefaultDateFormat(view.app);
     const dateTrigger = view.getSetting("date-trigger", settings) || defaultDateTrigger;
     const timeFormat = view.getSetting("time-format", settings) || getDefaultTimeFormat(view.app);
@@ -19939,10 +20111,56 @@ function processTitle(title, view, settings) {
             .replace(timeRegEx, "");
     }
     return {
-        title: processedTitle,
-        titleSearch: getSearchTitle(processedTitle, view),
         date,
         time,
+        processedTitle,
+    };
+}
+function extractItemTags(title, view, settings) {
+    const shouldHideTags = view.getSetting("hide-tags-in-title", settings);
+    const tags = [];
+    let processedTitle = title;
+    let match = tagRegex$1.exec(title);
+    while (match != null) {
+        tags.push(match[2]);
+        match = tagRegex$1.exec(title);
+    }
+    if (shouldHideTags) {
+        processedTitle = processedTitle.replace(tagRegex$1, "$1");
+    }
+    return {
+        processedTitle,
+        tags,
+    };
+}
+function extractFirstLinkedFile(title, view, settings) {
+    const localKeys = view.getSetting("metadata-keys", settings) || [];
+    const globalKeys = view.getGlobalSetting("metadata-keys") || [];
+    if (localKeys.length === 0 && (globalKeys === null || globalKeys === void 0 ? void 0 : globalKeys.length) === 0) {
+        return null;
+    }
+    const match = title.match(linkRegex$1);
+    if (!match) {
+        return null;
+    }
+    const path = match[1];
+    const file = view.app.metadataCache.getFirstLinkpathDest(path, view.file.path);
+    if (!file) {
+        return null;
+    }
+    return file;
+}
+function processTitle(title, view, settings) {
+    const date = extractDates(title, view, settings);
+    const tags = extractItemTags(date.processedTitle, view, settings);
+    const file = extractFirstLinkedFile(tags.processedTitle, view, settings);
+    return {
+        title: tags.processedTitle.trim(),
+        titleSearch: getSearchTitle(tags.processedTitle, view).trim(),
+        date: date.date,
+        time: date.time,
+        tags: tags.tags,
+        file,
     };
 }
 function mdToItem(itemMd, view, settings, isListItem) {
@@ -19970,6 +20188,8 @@ function mdToItem(itemMd, view, settings, isListItem) {
         metadata: {
             date: processed.date,
             time: processed.time,
+            tags: processed.tags,
+            file: processed.file,
         },
     };
 }
@@ -20016,7 +20236,7 @@ function mdToSettings(boardMd) {
 }
 function mdToBoard(boardMd, view) {
     const settings = mdToSettings(boardMd);
-    const lines = boardMd.split(newLineRegex);
+    const lines = boardMd.replace(frontmatterRegEx, "").split(newLineRegex);
     const lanes = [];
     const archive = [];
     let haveSeenArchiveMarker = false;
@@ -38885,6 +39105,12 @@ function constructMenuDatePickerOnChange({ view, boardModifiers, item, hasDate, 
                 time: {
                     $set: processed.time,
                 },
+                tags: {
+                    $set: processed.tags,
+                },
+                file: {
+                    $set: processed.file,
+                }
             },
         }));
     };
@@ -38998,6 +39224,12 @@ function constructMenuTimePickerOnChange({ view, boardModifiers, item, hasTime, 
                 time: {
                     $set: processed.time,
                 },
+                tags: {
+                    $set: processed.tags,
+                },
+                file: {
+                    $set: processed.file,
+                }
             },
         }));
     };
@@ -39127,7 +39359,7 @@ function toNextMonth(date) {
     }
     return date;
 }
-function constructAutocomplete({ inputRef, isAutocompleteVisibleRef, obsidianContext, }) {
+function constructAutocomplete({ inputRef, isAutocompleteVisibleRef, obsidianContext, excludeDatePicker, }) {
     const { view, filePath } = obsidianContext;
     let datePickerEl = null;
     let datePickerInstance = null;
@@ -39139,13 +39371,16 @@ function constructAutocomplete({ inputRef, isAutocompleteVisibleRef, obsidianCon
     const fileSearch = new Fuse(files, {
         keys: ["name"],
     });
-    const editor = new dist.TextareaEditor(inputRef.current);
-    const autocomplete = new dist$3.Textcomplete(editor, [
+    const configs = [
         getTagSearchConfig(tags, tagSearch),
         getFileSearchConfig(files, fileSearch, filePath, view, false),
         getFileSearchConfig(files, fileSearch, filePath, view, true),
-        getTimePickerConfig(view),
-    ], {
+    ];
+    if (!excludeDatePicker) {
+        configs.push(getTimePickerConfig(view));
+    }
+    const editor = new dist.TextareaEditor(inputRef.current);
+    const autocomplete = new dist$3.Textcomplete(editor, configs, {
         dropdown: {
             className: `${c$2("autocomplete")} ${c$2("ignore-click-outside")}`,
             rotate: true,
@@ -39169,90 +39404,93 @@ function constructAutocomplete({ inputRef, isAutocompleteVisibleRef, obsidianCon
     autocomplete.on("hidden", () => {
         isAutocompleteVisibleRef.current = false;
     });
-    const keydownHandler = (e) => {
-        if (!datePickerEl) {
-            return;
-        }
-        if (e.key === "Enter") {
-            e.preventDefault();
-            const selectedDates = datePickerInstance.selectedDates;
-            if (selectedDates.length) {
-                applyDate(selectedDates[0], inputRef, view);
+    let keydownHandler;
+    if (!excludeDatePicker) {
+        keydownHandler = (e) => {
+            if (!datePickerEl) {
+                return;
             }
-            else {
-                applyDate(new Date(), inputRef, view);
+            if (e.key === "Enter") {
+                e.preventDefault();
+                const selectedDates = datePickerInstance.selectedDates;
+                if (selectedDates.length) {
+                    applyDate(selectedDates[0], inputRef, view);
+                }
+                else {
+                    applyDate(new Date(), inputRef, view);
+                }
+                return destroyDatePicker();
             }
-            return destroyDatePicker();
-        }
-        if (e.key === "Escape") {
-            e.preventDefault();
-            return destroyDatePicker();
-        }
-        const currentDate = obsidian.moment(datePickerInstance.selectedDates[0] || new Date());
-        if (e.key === "ArrowRight") {
-            e.preventDefault();
-            if (currentDate.weekday() === 6) {
-                datePickerInstance.setDate(toNextMonth(currentDate).toDate(), false);
+            if (e.key === "Escape") {
+                e.preventDefault();
+                return destroyDatePicker();
             }
-            else {
-                datePickerInstance.setDate(currentDate.add(1, "day").toDate(), false);
+            const currentDate = obsidian.moment(datePickerInstance.selectedDates[0] || new Date());
+            if (e.key === "ArrowRight") {
+                e.preventDefault();
+                if (currentDate.weekday() === 6) {
+                    datePickerInstance.setDate(toNextMonth(currentDate).toDate(), false);
+                }
+                else {
+                    datePickerInstance.setDate(currentDate.add(1, "day").toDate(), false);
+                }
+                return;
             }
-            return;
-        }
-        if (e.key === "ArrowLeft") {
-            e.preventDefault();
-            if (currentDate.weekday() === 0) {
-                datePickerInstance.setDate(toPreviousMonth(currentDate).toDate(), false);
+            if (e.key === "ArrowLeft") {
+                e.preventDefault();
+                if (currentDate.weekday() === 0) {
+                    datePickerInstance.setDate(toPreviousMonth(currentDate).toDate(), false);
+                }
+                else {
+                    datePickerInstance.setDate(currentDate.subtract(1, "day").toDate(), false);
+                }
+                return;
             }
-            else {
-                datePickerInstance.setDate(currentDate.subtract(1, "day").toDate(), false);
+            if (e.key === "ArrowUp") {
+                e.preventDefault();
+                datePickerInstance.setDate(currentDate.subtract(1, "week").toDate(), false);
+                return;
             }
-            return;
-        }
-        if (e.key === "ArrowUp") {
-            e.preventDefault();
-            datePickerInstance.setDate(currentDate.subtract(1, "week").toDate(), false);
-            return;
-        }
-        if (e.key === "ArrowDown") {
-            e.preventDefault();
-            datePickerInstance.setDate(currentDate.add(1, "week").toDate(), false);
-            return;
-        }
-    };
-    inputRef.current.addEventListener("keydown", keydownHandler);
-    editor.on("change", (e) => {
-        const beforeCursor = e.detail.beforeCursor;
-        if (beforeCursor && dateTriggerRegex.test(beforeCursor)) {
-            const position = editor.getCursorOffset();
-            if (datePickerEl) {
-                datePickerEl.style.left = `${position.left || 0}px`;
-                datePickerEl.style.top = `${position.top || 0}px`;
-                ensureDatePickerIsOnScreen(position, datePickerEl);
+            if (e.key === "ArrowDown") {
+                e.preventDefault();
+                datePickerInstance.setDate(currentDate.add(1, "week").toDate(), false);
+                return;
             }
-            else {
-                datePickerEl = document.body.createDiv({ cls: `${c$2("date-picker")} ${c$2("ignore-click-outside")}` }, (div) => {
-                    div.style.left = `${position.left || 0}px`;
-                    div.style.top = `${position.top || 0}px`;
-                    constructDatePicker({
-                        div,
-                        inputRef,
-                        view,
-                        cb: (picker) => {
-                            datePickerInstance = picker;
-                            isAutocompleteVisibleRef.current = true;
-                            ensureDatePickerIsOnScreen(position, datePickerEl);
-                        },
+        };
+        inputRef.current.addEventListener("keydown", keydownHandler);
+        editor.on("change", (e) => {
+            const beforeCursor = e.detail.beforeCursor;
+            if (beforeCursor && dateTriggerRegex.test(beforeCursor)) {
+                const position = editor.getCursorOffset();
+                if (datePickerEl) {
+                    datePickerEl.style.left = `${position.left || 0}px`;
+                    datePickerEl.style.top = `${position.top || 0}px`;
+                    ensureDatePickerIsOnScreen(position, datePickerEl);
+                }
+                else {
+                    datePickerEl = document.body.createDiv({ cls: `${c$2("date-picker")} ${c$2("ignore-click-outside")}` }, (div) => {
+                        div.style.left = `${position.left || 0}px`;
+                        div.style.top = `${position.top || 0}px`;
+                        constructDatePicker({
+                            div,
+                            inputRef,
+                            view,
+                            cb: (picker) => {
+                                datePickerInstance = picker;
+                                isAutocompleteVisibleRef.current = true;
+                                ensureDatePickerIsOnScreen(position, datePickerEl);
+                            },
+                        });
                     });
-                });
+                }
             }
-        }
-        else if (datePickerEl) {
-            destroyDatePicker();
-        }
-    });
+            else if (datePickerEl) {
+                destroyDatePicker();
+            }
+        });
+    }
     return () => {
-        if (inputRef.current) {
+        if (!excludeDatePicker && inputRef.current) {
             inputRef.current.removeEventListener("keydown", keydownHandler);
         }
         if (datePickerEl) {
@@ -39262,7 +39500,7 @@ function constructAutocomplete({ inputRef, isAutocompleteVisibleRef, obsidianCon
         editor.destroy();
     };
 }
-function useAutocompleteInputProps({ isInputVisible, onEnter, onEscape, }) {
+function useAutocompleteInputProps({ isInputVisible, onEnter, onEscape, excludeDatePicker, }) {
     const obsidianContext = react.useContext(ObsidianContext);
     const isAutocompleteVisibleRef = react.useRef(false);
     const inputRef = react.useRef();
@@ -39276,6 +39514,7 @@ function useAutocompleteInputProps({ isInputVisible, onEnter, onEscape, }) {
                 inputRef,
                 isAutocompleteVisibleRef,
                 obsidianContext,
+                excludeDatePicker,
             });
         }
     }, [isInputVisible]);
@@ -39354,11 +39593,99 @@ function DateAndTime({ item, view, filePath, onEditDate, onEditTime, }) {
         " ",
         hasTime && (react.createElement("span", { onClick: onEditTime, className: `${c$2("item-metadata-time")} is-button`, "aria-label": t$2("Change time") }, timeDisplayStr))));
 }
-function ItemContent({ item, isSettingsVisible, setIsSettingsVisible, searchQuery, onEditDate, onEditTime, onChange, }) {
-    const obsidianContext = react.useContext(ObsidianContext);
+function getDataViewCache(view, file) {
+    var _a, _b, _c;
+    if (view.app.plugins.enabledPlugins.has("dataview") &&
+        ((_c = (_b = (_a = view.app.plugins) === null || _a === void 0 ? void 0 : _a.plugins) === null || _b === void 0 ? void 0 : _b.dataview) === null || _c === void 0 ? void 0 : _c.api)) {
+        return view.app.plugins.plugins.dataview.api.page(file.path, view.file.path);
+    }
+}
+function getLinkedPageMetadata(file, view) {
+    const globalKeys = view.getGlobalSetting("metadata-keys") || [];
+    const localKeys = view.getSetting("metadata-keys") || [];
+    const keys = [...globalKeys, ...localKeys];
+    if (!keys.length) {
+        return null;
+    }
+    if (!file) {
+        return null;
+    }
+    const cache = view.app.metadataCache.getFileCache(file);
+    const dataviewCache = getDataViewCache(view, file);
+    if (!cache && !dataviewCache) {
+        return false;
+    }
+    const metadata = {};
+    const seenTags = {};
+    const seenKey = {};
+    let haveData = false;
+    keys.forEach((k) => {
+        var _a;
+        if (seenKey[k.metadataKey])
+            return;
+        seenKey[k.metadataKey] = true;
+        if (k.metadataKey === "tags") {
+            let tags = cache.tags || [];
+            if ((_a = cache.frontmatter) === null || _a === void 0 ? void 0 : _a.tags) {
+                tags = [].concat(tags, cache.frontmatter.tags.map((tag) => ({ tag: `#${tag}` })));
+            }
+            if ((tags === null || tags === void 0 ? void 0 : tags.length) === 0)
+                return;
+            metadata.tags = Object.assign(Object.assign({}, k), { value: tags
+                    .map((t) => t.tag)
+                    .filter((t) => {
+                    if (seenTags[t]) {
+                        return false;
+                    }
+                    seenTags[t] = true;
+                    return true;
+                }) });
+            haveData = true;
+            return;
+        }
+        if (cache.frontmatter && cache.frontmatter[k.metadataKey]) {
+            metadata[k.metadataKey] = Object.assign(Object.assign({}, k), { value: cache.frontmatter[k.metadataKey] });
+            haveData = true;
+        }
+        else if (dataviewCache && dataviewCache[k.metadataKey]) {
+            metadata[k.metadataKey] = Object.assign(Object.assign({}, k), { value: dataviewCache[k.metadataKey] });
+            haveData = true;
+        }
+    });
+    return haveData ? metadata : null;
+}
+function LinkedPageMetadata({ metadata, }) {
+    if (!metadata)
+        return null;
+    return (react.createElement("table", { className: c$2("meta-table") },
+        react.createElement("tbody", null, Object.keys(metadata).map((k) => {
+            const data = metadata[k];
+            return (react.createElement("tr", { key: k, className: c$2("meta-row") },
+                !data.shouldHideLabel && (react.createElement("td", { className: c$2("meta-key") }, data.label || k)),
+                react.createElement("td", { colSpan: data.shouldHideLabel ? 2 : 1, className: c$2("meta-value") }, k === "tags"
+                    ? data.value.map((tag, i) => {
+                        return (react.createElement("a", { href: tag, key: i, className: `tag ${c$2("item-tag")}` }, tag));
+                    })
+                    : data.value.toString())));
+        }))));
+}
+const ItemMetadata = react.memo(({ item, isSettingsVisible }) => {
+    var _a;
+    const [, forceUpdate] = react.useState(Date.now());
+    const { view } = react.useContext(ObsidianContext);
+    useBus(`metadata:update:${((_a = item.metadata.file) === null || _a === void 0 ? void 0 : _a.path) || "null"}`, () => forceUpdate(Date.now()), [item.metadata.file]);
+    const metadata = getLinkedPageMetadata(item.metadata.file, view);
+    if (isSettingsVisible || !metadata)
+        return null;
+    return (react.createElement("div", { className: c$2("item-metadata-wrapper") },
+        react.createElement(LinkedPageMetadata, { metadata: metadata })));
+});
+const ItemContent = react.memo(({ item, isSettingsVisible, setIsSettingsVisible, searchQuery, onChange, onEditDate, onEditTime, }) => {
+    var _a;
+    const { view, filePath } = react.useContext(ObsidianContext);
     const inputRef = react.useRef();
-    const { view, filePath } = obsidianContext;
     const onAction = () => setIsSettingsVisible && setIsSettingsVisible(false);
+    const hideTagsDisplay = view.getSetting("hide-tags-display");
     const autocompleteProps = useAutocompleteInputProps({
         isInputVisible: isSettingsVisible,
         onEnter: onAction,
@@ -39382,8 +39709,11 @@ function ItemContent({ item, isSettingsVisible, setIsSettingsVisible, searchQuer
         react.createElement("div", { className: `markdown-preview-view ${c$2("item-markdown")}`, dangerouslySetInnerHTML: markdownContent.innerHTML }),
         react.createElement("div", { className: c$2("item-metadata") },
             react.createElement(RelativeDate, { item: item, view: view }),
-            react.createElement(DateAndTime, { item: item, view: view, filePath: filePath, onEditDate: onEditDate, onEditTime: onEditTime }))));
-}
+            react.createElement(DateAndTime, { item: item, view: view, filePath: filePath, onEditDate: onEditDate, onEditTime: onEditTime }),
+            !hideTagsDisplay && !!((_a = item.metadata.tags) === null || _a === void 0 ? void 0 : _a.length) && (react.createElement("div", { className: c$2("item-tags") }, item.metadata.tags.map((tag, i) => {
+                return (react.createElement("a", { href: tag, key: i, className: `tag ${c$2("item-tag")}` }, tag));
+            }))))));
+});
 
 const illegalCharsRegEx = /[\\/:"*?<>|]+/g;
 function useItemMenu({ setIsEditing, item, laneIndex, itemIndex, boardModifiers, }) {
@@ -39425,6 +39755,11 @@ function useItemMenu({ setIsEditing, item, laneIndex, itemIndex, boardModifiers,
             }));
         })
             .addSeparator()
+            .addItem((i) => {
+            i.setIcon("documents")
+                .setTitle(t$2("Duplicate card"))
+                .onClick(() => boardModifiers.duplicateItem(laneIndex, itemIndex));
+        })
             .addItem((i) => {
             i.setIcon("sheets-in-box")
                 .setTitle(t$2("Archive card"))
@@ -39475,6 +39810,12 @@ function useItemMenu({ setIsEditing, item, laneIndex, itemIndex, boardModifiers,
                             time: {
                                 $set: processed.time,
                             },
+                            tags: {
+                                $set: processed.tags,
+                            },
+                            file: {
+                                $set: processed.file,
+                            }
                         },
                     }));
                 });
@@ -39513,6 +39854,12 @@ function useItemMenu({ setIsEditing, item, laneIndex, itemIndex, boardModifiers,
                                 time: {
                                     $set: processed.time,
                                 },
+                                tags: {
+                                    $set: processed.tags,
+                                },
+                                file: {
+                                    $set: processed.file,
+                                }
                             },
                         }));
                     });
@@ -39552,20 +39899,75 @@ function getClassModifiers(item) {
     }
     return classModifiers;
 }
-function GhostItem({ item, shouldShowArchiveButton }) {
-    const { view } = react.useContext(ObsidianContext);
+function GhostItem({ item, shouldMarkItemsComplete }) {
     const classModifiers = getClassModifiers(item);
-    const shouldShowCheckbox = view.getSetting("show-checkboxes");
     return (react.createElement("div", { className: `${c$2("item")} ${classModifiers.join(" ")}` },
         react.createElement("div", { className: c$2("item-content-wrapper") },
-            (shouldShowArchiveButton || shouldShowCheckbox) && (react.createElement("div", { className: c$2("item-prefix-button-wrapper") },
-                shouldShowCheckbox && (react.createElement("input", { readOnly: true, type: "checkbox", className: "task-list-item-checkbox", checked: !!item.data.isComplete })),
-                shouldShowArchiveButton && (react.createElement("button", { className: c$2("item-prefix-button"), "aria-label": t$2("Archive item") },
-                    react.createElement(Icon, { name: "sheets-in-box" }))))),
+            react.createElement(ItemCheckbox, { item: item, shouldMarkItemsComplete: shouldMarkItemsComplete }),
             react.createElement(ItemContent, { isSettingsVisible: false, item: item }),
             react.createElement("div", { className: c$2("item-postfix-button-wrapper") },
                 react.createElement("button", { className: c$2("item-postfix-button"), "aria-label": t$2("More options") },
                     react.createElement(Icon, { name: "vertical-three-dots" }))))));
+}
+function ItemCheckbox({ shouldMarkItemsComplete, laneIndex, itemIndex, item, }) {
+    const { view } = react.useContext(ObsidianContext);
+    const { boardModifiers } = react.useContext(KanbanContext);
+    const shouldShowCheckbox = view.getSetting("show-checkboxes");
+    const [isCtrlHoveringCheckbox, setIsCtrlHoveringCheckbox] = react.useState(false);
+    const [isHoveringCheckbox, setIsHoveringCheckbox] = react.useState(false);
+    react.useEffect(() => {
+        if (isHoveringCheckbox) {
+            const handler = (e) => {
+                if (e.metaKey || e.ctrlKey) {
+                    setIsCtrlHoveringCheckbox(true);
+                }
+                else {
+                    setIsCtrlHoveringCheckbox(false);
+                }
+            };
+            window.addEventListener("keydown", handler);
+            window.addEventListener("keyup", handler);
+            return () => {
+                window.removeEventListener("keydown", handler);
+                window.removeEventListener("keyup", handler);
+            };
+        }
+    }, [isHoveringCheckbox]);
+    if (!(shouldMarkItemsComplete || shouldShowCheckbox)) {
+        return null;
+    }
+    return (react.createElement("div", { onMouseEnter: (e) => {
+            setIsHoveringCheckbox(true);
+            if (e.ctrlKey || e.metaKey) {
+                setIsCtrlHoveringCheckbox(true);
+            }
+        }, onMouseLeave: () => {
+            setIsHoveringCheckbox(false);
+            if (isCtrlHoveringCheckbox) {
+                setIsCtrlHoveringCheckbox(false);
+            }
+        }, className: c$2("item-prefix-button-wrapper") },
+        shouldShowCheckbox && !isCtrlHoveringCheckbox && (react.createElement("input", { onChange: () => {
+                boardModifiers.updateItem(laneIndex, itemIndex, update$2(item, {
+                    data: {
+                        $toggle: ["isComplete"],
+                    },
+                }));
+            }, type: "checkbox", className: "task-list-item-checkbox", checked: !!item.data.isComplete })),
+        (isCtrlHoveringCheckbox ||
+            (!shouldShowCheckbox && shouldMarkItemsComplete)) && (react.createElement("button", { onClick: () => {
+                boardModifiers.archiveItem(laneIndex, itemIndex, item);
+            }, className: c$2("item-prefix-button"), "aria-label": isCtrlHoveringCheckbox ? undefined : "Archive item" },
+            react.createElement(Icon, { name: "sheets-in-box" })))));
+}
+function ItemMenuButton({ isEditing, setIsEditing, showMenu, }) {
+    return (react.createElement("div", { className: c$2("item-postfix-button-wrapper") }, isEditing ? (react.createElement("button", { onClick: () => {
+            setIsEditing(false);
+        }, className: `${c$2("item-postfix-button")} is-enabled`, "aria-label": t$2("Cancel") },
+        react.createElement(Icon, { name: "cross" }))) : (react.createElement("button", { onClick: (e) => {
+            showMenu(e.nativeEvent);
+        }, className: c$2("item-postfix-button"), "aria-label": t$2("More options") },
+        react.createElement(Icon, { name: "vertical-three-dots" })))));
 }
 function draggableItemFactory({ items, laneIndex, }) {
     return (provided, snapshot, rubric) => {
@@ -39573,31 +39975,9 @@ function draggableItemFactory({ items, laneIndex, }) {
         const { view } = react.useContext(ObsidianContext);
         const { query } = react.useContext(SearchContext);
         const [isEditing, setIsEditing] = react.useState(false);
-        const [isCtrlHoveringCheckbox, setIsCtrlHoveringCheckbox] = react.useState(false);
-        const [isHoveringCheckbox, setIsHoveringCheckbox] = react.useState(false);
-        react.useEffect(() => {
-            if (isHoveringCheckbox) {
-                const handler = (e) => {
-                    if (e.metaKey || e.ctrlKey) {
-                        setIsCtrlHoveringCheckbox(true);
-                    }
-                    else {
-                        setIsCtrlHoveringCheckbox(false);
-                    }
-                };
-                window.addEventListener("keydown", handler);
-                window.addEventListener("keyup", handler);
-                return () => {
-                    window.removeEventListener("keydown", handler);
-                    window.removeEventListener("keyup", handler);
-                };
-            }
-        }, [isHoveringCheckbox]);
         const itemIndex = rubric.source.index;
         const item = items[itemIndex];
         const lane = board.lanes[laneIndex];
-        const shouldShowCheckbox = view.getSetting("show-checkboxes");
-        const shouldMarkItemsComplete = lane.data.shouldMarkItemsComplete;
         const isMatch = query
             ? item.titleSearch.toLocaleLowerCase().contains(query)
             : false;
@@ -39631,72 +40011,52 @@ function draggableItemFactory({ items, laneIndex, }) {
                 setIsEditing(true);
             }, className: `${c$2("item")} ${classModifiers.join(" ")}`, ref: provided.innerRef }, provided.draggableProps, provided.dragHandleProps),
             react.createElement("div", { className: c$2("item-content-wrapper") },
-                (shouldMarkItemsComplete || shouldShowCheckbox) && (react.createElement("div", { onMouseEnter: (e) => {
-                        setIsHoveringCheckbox(true);
-                        if (e.ctrlKey || e.metaKey) {
-                            setIsCtrlHoveringCheckbox(true);
-                        }
-                    }, onMouseLeave: () => {
-                        setIsHoveringCheckbox(false);
-                        if (isCtrlHoveringCheckbox) {
-                            setIsCtrlHoveringCheckbox(false);
-                        }
-                    }, className: c$2("item-prefix-button-wrapper") },
-                    shouldShowCheckbox && !isCtrlHoveringCheckbox && (react.createElement("input", { onChange: () => {
+                react.createElement("div", { className: c$2("item-title-wrapper") },
+                    react.createElement(ItemCheckbox, { item: item, itemIndex: itemIndex, shouldMarkItemsComplete: lane.data.shouldMarkItemsComplete, laneIndex: laneIndex }),
+                    react.createElement(ItemContent, { isSettingsVisible: isEditing, setIsSettingsVisible: setIsEditing, item: item, searchQuery: isMatch ? query : undefined, onChange: (e) => {
+                            const titleRaw = e.target.value.replace(/[\r\n]+/g, " ");
+                            const processed = processTitle(titleRaw, view);
                             boardModifiers.updateItem(laneIndex, itemIndex, update$2(item, {
-                                data: {
-                                    $toggle: ["isComplete"],
+                                title: { $set: processed.title },
+                                titleRaw: { $set: titleRaw },
+                                titleSearch: { $set: processed.titleSearch },
+                                metadata: {
+                                    date: {
+                                        $set: processed.date,
+                                    },
+                                    time: {
+                                        $set: processed.time,
+                                    },
+                                    tags: {
+                                        $set: processed.tags,
+                                    },
+                                    file: {
+                                        $set: processed.file,
+                                    }
                                 },
                             }));
-                        }, type: "checkbox", className: "task-list-item-checkbox", checked: !!item.data.isComplete })),
-                    (isCtrlHoveringCheckbox ||
-                        (!shouldShowCheckbox && shouldMarkItemsComplete)) && (react.createElement("button", { onClick: () => {
-                            boardModifiers.archiveItem(laneIndex, itemIndex, item);
-                        }, className: c$2("item-prefix-button"), "aria-label": isCtrlHoveringCheckbox ? undefined : "Archive item" },
-                        react.createElement(Icon, { name: "sheets-in-box" }))))),
-                react.createElement(ItemContent, { isSettingsVisible: isEditing, setIsSettingsVisible: setIsEditing, item: item, searchQuery: isMatch ? query : undefined, onEditDate: (e) => {
-                        var _a;
-                        constructDatePicker$1({ x: e.clientX, y: e.clientY }, constructMenuDatePickerOnChange({
-                            view,
-                            boardModifiers,
-                            item,
-                            hasDate: true,
-                            laneIndex,
-                            itemIndex,
-                        }), (_a = item.metadata.date) === null || _a === void 0 ? void 0 : _a.toDate());
-                    }, onEditTime: (e) => {
-                        constructTimePicker(view, { x: e.clientX, y: e.clientY }, constructMenuTimePickerOnChange({
-                            view,
-                            boardModifiers,
-                            item,
-                            hasTime: true,
-                            laneIndex,
-                            itemIndex,
-                        }), item.metadata.time);
-                    }, onChange: (e) => {
-                        const titleRaw = e.target.value.replace(/[\r\n]+/g, " ");
-                        const processed = processTitle(titleRaw, view);
-                        boardModifiers.updateItem(laneIndex, itemIndex, update$2(item, {
-                            title: { $set: processed.title },
-                            titleRaw: { $set: titleRaw },
-                            titleSearch: { $set: processed.titleSearch },
-                            metadata: {
-                                date: {
-                                    $set: processed.date,
-                                },
-                                time: {
-                                    $set: processed.time,
-                                },
-                            },
-                        }));
-                    } }),
-                react.createElement("div", { className: c$2("item-postfix-button-wrapper") }, isEditing ? (react.createElement("button", { onClick: () => {
-                        setIsEditing(false);
-                    }, className: `${c$2("item-postfix-button")} is-enabled`, "aria-label": t$2("Cancel") },
-                    react.createElement(Icon, { name: "cross" }))) : (react.createElement("button", { onClick: (e) => {
-                        showMenu(e.nativeEvent);
-                    }, className: c$2("item-postfix-button"), "aria-label": t$2("More options") },
-                    react.createElement(Icon, { name: "vertical-three-dots" })))))));
+                        }, onEditDate: (e) => {
+                            var _a;
+                            constructDatePicker$1({ x: e.clientX, y: e.clientY }, constructMenuDatePickerOnChange({
+                                view,
+                                boardModifiers,
+                                item,
+                                hasDate: true,
+                                laneIndex,
+                                itemIndex,
+                            }), (_a = item.metadata.date) === null || _a === void 0 ? void 0 : _a.toDate());
+                        }, onEditTime: (e) => {
+                            constructTimePicker(view, { x: e.clientX, y: e.clientY }, constructMenuTimePickerOnChange({
+                                view,
+                                boardModifiers,
+                                item,
+                                hasTime: true,
+                                laneIndex,
+                                itemIndex,
+                            }), item.metadata.time);
+                        } }),
+                    react.createElement(ItemMenuButton, { isEditing: isEditing, setIsEditing: setIsEditing, showMenu: showMenu })),
+                react.createElement(ItemMetadata, { isSettingsVisible: isEditing, item: item }))));
     };
 }
 
@@ -39854,6 +40214,8 @@ function ItemForm({ addItem }) {
                 metadata: {
                     date: processed.date,
                     time: processed.time,
+                    tags: processed.tags,
+                    file: processed.file,
                 },
             };
             addItem(newItem);
@@ -39886,9 +40248,16 @@ function GripIcon(props) {
         react.createElement("path", { fill: "currentColor", d: "M5 3h2v2H5zm0 4h2v2H5zm0 4h2v2H5zm4-8h2v2H9zm0 4h2v2H9zm0 4h2v2H9z" })));
 }
 
-function LaneTitle({ itemCount, isEditing, title, onChange, onKeyDown, }) {
-    const _a = useIMEInputProps(), { getShouldIMEBlockAction } = _a, inputProps = __rest(_a, ["getShouldIMEBlockAction"]);
+function LaneTitle({ itemCount, isEditing, setIsEditing, title, onChange, }) {
+    const { view, filePath } = react.useContext(ObsidianContext);
     const inputRef = react.useRef();
+    const onAction = () => isEditing && setIsEditing(false);
+    const autocompleteProps = useAutocompleteInputProps({
+        isInputVisible: isEditing,
+        onEnter: onAction,
+        onEscape: onAction,
+        excludeDatePicker: true,
+    });
     react.useEffect(() => {
         if (isEditing && inputRef.current) {
             const input = inputRef.current;
@@ -39896,13 +40265,27 @@ function LaneTitle({ itemCount, isEditing, title, onChange, onKeyDown, }) {
             input.selectionStart = input.selectionEnd = input.value.length;
         }
     }, [isEditing]);
+    const markdownContent = react.useMemo(() => {
+        const tempEl = createDiv();
+        obsidian.MarkdownRenderer.renderMarkdown(title, tempEl, filePath, view);
+        return {
+            innerHTML: { __html: tempEl.innerHTML.toString() },
+        };
+    }, [title, filePath, view]);
     return (react.createElement("div", { className: c$2("lane-title") }, isEditing ? (react.createElement("div", { "data-replicated-value": title, className: c$2("grow-wrap") },
-        react.createElement("textarea", Object.assign({ ref: inputRef, rows: 1, value: title, className: c$2("lane-input"), placeholder: t$2("Enter list title..."), onChange: onChange, onKeyDown: (e) => {
-                if (getShouldIMEBlockAction())
-                    return;
-                onKeyDown(e);
-            } }, inputProps)))) : (react.createElement(react.Fragment, null,
-        react.createElement("span", { className: c$2("lane-title-text") }, title),
+        react.createElement("textarea", Object.assign({ ref: inputRef, rows: 1, value: title, className: c$2("lane-input"), placeholder: t$2("Enter list title..."), onChange: onChange }, autocompleteProps)))) : (react.createElement(react.Fragment, null,
+        react.createElement("span", { className: `markdown-preview-view ${c$2("lane-title-text")}`, onContextMenu: (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const internalLinkPath = e.target instanceof HTMLAnchorElement &&
+                    e.target.hasClass("internal-link")
+                    ? e.target.dataset.href
+                    : undefined;
+                if (internalLinkPath) {
+                    // @ts-ignore
+                    view.app.workspace.onLinkContextMenu(e, obsidian.getLinkpath(internalLinkPath), view.file.path);
+                }
+            }, dangerouslySetInnerHTML: markdownContent.innerHTML }),
         react.createElement("span", { className: c$2("lane-title-count") }, itemCount)))));
 }
 
@@ -39983,7 +40366,7 @@ function useSettingsMenu({ setIsEditing }) {
     };
 }
 
-function LaneHeader({ lane, laneIndex, dragHandleProps, }) {
+const LaneHeader = react.memo(({ lane, laneIndex, dragHandleProps }) => {
     const { boardModifiers } = react.useContext(KanbanContext);
     const [isEditing, setIsEditing] = react.useState(false);
     const { settingsMenu, confirmAction, setConfirmAction } = useSettingsMenu({
@@ -39993,12 +40376,7 @@ function LaneHeader({ lane, laneIndex, dragHandleProps, }) {
         react.createElement("div", { onDoubleClick: () => setIsEditing(true), className: c$2("lane-header-wrapper") },
             react.createElement("div", Object.assign({ className: c$2("lane-grip") }, dragHandleProps, { "aria-label": t$2("Move list") }),
                 react.createElement(GripIcon, null)),
-            react.createElement(LaneTitle, { isEditing: isEditing, itemCount: lane.items.length, title: lane.title, onChange: (e) => boardModifiers.updateLane(laneIndex, update$2(lane, { title: { $set: e.target.value } })), onKeyDown: (e) => {
-                    if (e.key === "Escape" || e.key === "Enter") {
-                        e.preventDefault();
-                        setIsEditing(false);
-                    }
-                } }),
+            react.createElement(LaneTitle, { isEditing: isEditing, setIsEditing: setIsEditing, itemCount: lane.items.length, title: lane.title, onChange: (e) => boardModifiers.updateLane(laneIndex, update$2(lane, { title: { $set: e.target.value } })) }),
             react.createElement("div", { className: c$2("lane-settings-button-wrapper") }, isEditing ? (react.createElement("button", { onClick: () => {
                     setIsEditing(false);
                 }, "aria-label": "Close", className: `${c$2("lane-settings-button")} is-enabled` },
@@ -40021,16 +40399,16 @@ function LaneHeader({ lane, laneIndex, dragHandleProps, }) {
                 }
                 setConfirmAction(null);
             }, cancel: () => setConfirmAction(null) }))));
-}
+});
 
-function LaneItems({ isGhost, items, laneId, laneIndex, shouldShowArchiveButton, }) {
+function LaneItems({ isGhost, items, laneId, laneIndex, shouldMarkItemsComplete, }) {
     const renderItem = draggableItemFactory({
         laneIndex,
         items,
     });
     if (isGhost) {
         return (react.createElement("div", { className: c$2("lane-items") }, items.map((item, i) => {
-            return (react.createElement(GhostItem, { item: item, shouldShowArchiveButton: shouldShowArchiveButton }));
+            return (react.createElement(GhostItem, { item: item, shouldMarkItemsComplete: shouldMarkItemsComplete }));
         })));
     }
     return (react.createElement(ConnectedDroppable, { droppableId: laneId, type: "ITEM", renderClone: renderItem }, (provided, snapshot) => (react.createElement("div", Object.assign({ className: `${c$2("lane-items")} ${snapshot.isDraggingOver ? "is-dragging-over" : ""}`, ref: provided.innerRef }, provided.droppableProps),
@@ -40044,7 +40422,7 @@ function draggableLaneFactory({ lanes, isGhost, }) {
         const { boardModifiers } = react.useContext(KanbanContext);
         const { view } = react.useContext(ObsidianContext);
         const lane = lanes[rubric.source.index];
-        const shouldShowArchiveButton = !!lane.data.shouldMarkItemsComplete;
+        const shouldMarkItemsComplete = !!lane.data.shouldMarkItemsComplete;
         const laneWidth = view.getSetting("lane-width");
         const settingStyles = laneWidth ? { width: `${laneWidth}px` } : undefined;
         const style = Object.assign(Object.assign({}, provided.draggableProps.style), settingStyles);
@@ -40054,7 +40432,7 @@ function draggableLaneFactory({ lanes, isGhost, }) {
         }
         return (react.createElement("div", Object.assign({ className: classList.join(' '), ref: provided.innerRef }, provided.draggableProps, { style: style }),
             react.createElement(LaneHeader, { dragHandleProps: provided.dragHandleProps, laneIndex: rubric.source.index, lane: lane }),
-            react.createElement(LaneItems, { laneId: lane.id, items: lane.items, laneIndex: rubric.source.index, isGhost: isGhost, shouldShowArchiveButton: shouldShowArchiveButton }),
+            react.createElement(LaneItems, { laneId: lane.id, items: lane.items, laneIndex: rubric.source.index, isGhost: isGhost, shouldMarkItemsComplete: shouldMarkItemsComplete }),
             react.createElement(ItemForm, { addItem: (item) => {
                     boardModifiers.addItemToLane(rubric.source.index, update$2(item, {
                         data: {
@@ -40292,6 +40670,20 @@ function getBoardModifiers({ view, boardData, setBoardData, }) {
                 },
             }));
         },
+        duplicateItem: (laneIndex, itemIndex) => {
+            view.app.workspace.trigger("kanban:card-duplicated", view.file, boardData.lanes[laneIndex], itemIndex);
+            setBoardData(update$2(boardData, {
+                lanes: {
+                    [laneIndex]: {
+                        items: {
+                            $splice: [
+                                [itemIndex, 0, boardData.lanes[laneIndex].items[itemIndex]],
+                            ],
+                        },
+                    },
+                },
+            }));
+        },
     };
 }
 const Kanban = ({ filePath, view, dataBridge }) => {
@@ -40447,6 +40839,147 @@ class DataBridge {
     }
 }
 
+function Item({ draggableProvided, metadataKey, label, shouldHideLabel, toggleShouldHideLabel, deleteKey, updateKey, updateLabel, }) {
+    return (react.createElement("div", Object.assign({ ref: draggableProvided.innerRef }, draggableProvided.draggableProps, { className: c$2("setting-item") }),
+        react.createElement("div", { className: c$2("setting-input-wrapper") },
+            react.createElement("input", { type: "text", value: metadataKey, onChange: (e) => updateKey(e.target.value) }),
+            react.createElement("input", { type: "text", value: label, onChange: (e) => updateLabel(e.target.value) })),
+        react.createElement("div", { className: c$2("setting-button-wrapper") },
+            react.createElement("div", null,
+                react.createElement("div", { className: `checkbox-container ${shouldHideLabel ? "is-enabled" : ""}`, onClick: toggleShouldHideLabel, "aria-label": t$2("Hide label") })),
+            react.createElement("div", { onClick: deleteKey, "aria-label": t$2("Delete") },
+                react.createElement(Icon, { name: "cross" })),
+            react.createElement("div", Object.assign({ className: "mobile-option-setting-drag-icon", "aria-label": t$2("Drag to rearrange") }, draggableProvided.dragHandleProps),
+                react.createElement(Icon, { name: "three-horizontal-bars" })))));
+}
+function useKeyModifiers({ onChange, inputValue, keys, setKeys, }) {
+    const updateKeys = (keys) => {
+        onChange(keys);
+        setKeys(keys);
+    };
+    return {
+        updateKey: (i) => (value) => {
+            updateKeys(update$2(keys, {
+                [i]: {
+                    metadataKey: {
+                        $set: value,
+                    },
+                },
+            }));
+        },
+        updateLabel: (i) => (value) => {
+            updateKeys(update$2(keys, {
+                [i]: {
+                    label: {
+                        $set: value,
+                    },
+                },
+            }));
+        },
+        toggleShouldHideLabel: (i) => () => {
+            updateKeys(update$2(keys, {
+                [i]: {
+                    $toggle: ["shouldHideLabel"],
+                },
+            }));
+        },
+        deleteKey: (i) => () => {
+            updateKeys(update$2(keys, {
+                $splice: [[i, 1]],
+            }));
+        },
+        newKey: () => {
+            updateKeys(update$2(keys, {
+                $push: [
+                    {
+                        id: generateInstanceId(),
+                        metadataKey: inputValue,
+                        label: "",
+                        shouldHideLabel: false,
+                    },
+                ],
+            }));
+        },
+        moveKey: (result) => {
+            if (!result.destination) {
+                return;
+            }
+            if (result.destination.index === result.source.index) {
+                return;
+            }
+            const clone = keys.slice();
+            const [removed] = clone.splice(result.source.index, 1);
+            clone.splice(result.destination.index, 0, removed);
+            updateKeys(clone);
+        },
+    };
+}
+function MetadataSettings(props) {
+    const [keys, setKeys] = react.useState(props.dataKeys);
+    const [inputValue, setInputValue] = react.useState("");
+    const _a = useIMEInputProps(), { getShouldIMEBlockAction } = _a, inputProps = __rest(_a, ["getShouldIMEBlockAction"]);
+    const { updateKey, updateLabel, toggleShouldHideLabel, deleteKey, newKey, moveKey, } = useKeyModifiers({
+        onChange: props.onChange,
+        inputValue,
+        keys,
+        setKeys,
+    });
+    return (react.createElement(react.Fragment, null,
+        react.createElement("div", { className: `${c$2("setting-item")} ${c$2("setting-item-labels")}` },
+            react.createElement("div", { className: c$2("setting-input-wrapper") },
+                react.createElement("span", { className: c$2("setting-item-label") }, t$2("Metadata key")),
+                react.createElement("span", { className: c$2("setting-item-label") }, t$2("Display label"))),
+            react.createElement("div", { className: c$2("setting-button-wrapper") },
+                react.createElement("div", { className: c$2("setting-item-label") }, t$2("Hide label")),
+                react.createElement("div", { className: c$2("setting-button-spacer") },
+                    react.createElement(Icon, { name: "cross" })),
+                react.createElement("div", { className: c$2("setting-button-spacer") },
+                    react.createElement(Icon, { name: "three-horizontal-bars" })))),
+        react.createElement(DragDropContext, { onDragEnd: moveKey },
+            react.createElement(ConnectedDroppable, { droppableId: "keys", renderClone: (draggableProvided, _, rubric) => {
+                    const i = rubric.source.index;
+                    const k = keys[i];
+                    return (react.createElement(Item, { draggableProvided: draggableProvided, metadataKey: k.metadataKey, label: k.label, shouldHideLabel: k.shouldHideLabel, updateKey: updateKey(i), updateLabel: updateLabel(i), toggleShouldHideLabel: toggleShouldHideLabel(i), deleteKey: deleteKey(i) }));
+                } }, (dropProvided) => (react.createElement("div", Object.assign({ ref: dropProvided.innerRef }, dropProvided.droppableProps),
+                keys.map((k, i) => {
+                    return (react.createElement(PublicDraggable, { draggableId: k.id, index: i, key: k.id }, (draggableProvided) => (react.createElement(Item, { draggableProvided: draggableProvided, metadataKey: k.metadataKey, label: k.label, shouldHideLabel: k.shouldHideLabel, updateKey: updateKey(i), updateLabel: updateLabel(i), toggleShouldHideLabel: toggleShouldHideLabel(i), deleteKey: deleteKey(i) }))));
+                }),
+                dropProvided.placeholder)))),
+        react.createElement("div", { className: `setting-item ${c$2("setting-key-input-wrapper")}` },
+            react.createElement("input", Object.assign({ placeholder: t$2("Metadata key"), type: "text", value: inputValue, onChange: (e) => setInputValue(e.target.value), onKeyDown: (e) => {
+                    if (getShouldIMEBlockAction())
+                        return;
+                    if (e.key === "Enter") {
+                        newKey();
+                        setInputValue("");
+                        const target = e.target;
+                        setTimeout(() => {
+                            target.scrollIntoView();
+                        });
+                        return;
+                    }
+                    if (e.key === "Escape") {
+                        setInputValue("");
+                        e.target.blur();
+                    }
+                } }, inputProps)),
+            react.createElement("button", { onClick: (e) => {
+                    newKey();
+                    setInputValue("");
+                    const target = e.target;
+                    setTimeout(() => {
+                        target.scrollIntoView();
+                    });
+                    return;
+                } }, t$2("Add key")))));
+}
+function renderMetadataSettings(containerEl, keys, onChange) {
+    reactDom.render(react.createElement(MetadataSettings, { dataKeys: keys, onChange: onChange }), containerEl);
+}
+function cleanupMetadataSettings(containerEl) {
+    reactDom.unmountComponentAtNode(containerEl);
+}
+
 const numberRegEx = /^\d+(?:\.\d+)?$/;
 class SettingsManager {
     constructor(app, plugin, config, settings) {
@@ -40587,6 +41120,76 @@ class SettingsManager {
                     toggleComponent.setValue(!!globalValue);
                     this.applySettingsUpdate({
                         $unset: ["show-checkboxes"],
+                    });
+                });
+            });
+        });
+        new obsidian.Setting(contentEl)
+            .setName(t$2("Hide tags in card titles"))
+            .setDesc(t$2("When toggled, tags will be hidden card titles. This will prevent tags from being included in the title when creating new notes."))
+            .then((setting) => {
+            let toggleComponent;
+            setting
+                .addToggle((toggle) => {
+                toggleComponent = toggle;
+                const [value, globalValue] = this.getSetting("hide-tags-in-title", local);
+                if (value !== undefined) {
+                    toggle.setValue(value);
+                }
+                else if (globalValue !== undefined) {
+                    toggle.setValue(globalValue);
+                }
+                toggle.onChange((newValue) => {
+                    this.applySettingsUpdate({
+                        "hide-tags-in-title": {
+                            $set: newValue,
+                        },
+                    });
+                });
+            })
+                .addExtraButton((b) => {
+                b.setIcon("reset")
+                    .setTooltip(t$2("Reset to default"))
+                    .onClick(() => {
+                    const [, globalValue] = this.getSetting("hide-tags-in-title", local);
+                    toggleComponent.setValue(!!globalValue);
+                    this.applySettingsUpdate({
+                        $unset: ["hide-tags-in-title"],
+                    });
+                });
+            });
+        });
+        new obsidian.Setting(contentEl)
+            .setName(t$2("Hide card display tags"))
+            .setDesc(t$2("When toggled, tags will not be displayed below the card title."))
+            .then((setting) => {
+            let toggleComponent;
+            setting
+                .addToggle((toggle) => {
+                toggleComponent = toggle;
+                const [value, globalValue] = this.getSetting("hide-tags-display", local);
+                if (value !== undefined) {
+                    toggle.setValue(value);
+                }
+                else if (globalValue !== undefined) {
+                    toggle.setValue(globalValue);
+                }
+                toggle.onChange((newValue) => {
+                    this.applySettingsUpdate({
+                        "hide-tags-display": {
+                            $set: newValue,
+                        },
+                    });
+                });
+            })
+                .addExtraButton((b) => {
+                b.setIcon("reset")
+                    .setTooltip(t$2("Reset to default"))
+                    .onClick(() => {
+                    const [, globalValue] = this.getSetting("hide-tags-display", local);
+                    toggleComponent.setValue(!!globalValue);
+                    this.applySettingsUpdate({
+                        $unset: ["hide-tags-display"],
                     });
                 });
             });
@@ -41000,6 +41603,27 @@ class SettingsManager {
                 });
             });
         });
+        contentEl.createEl("br");
+        contentEl.createEl("h4", { text: t$2("Linked Page Metadata") });
+        contentEl.createEl("p", {
+            cls: c$2("metadata-setting-desc"),
+            text: t$2("Display metadata for the first note linked within a card. Specify which metadata keys to display below. An optional label can be provided, and labels can be hidden altogether."),
+        });
+        new obsidian.Setting(contentEl).then((setting) => {
+            setting.settingEl.addClass(c$2("draggable-setting-container"));
+            const [value] = this.getSetting("metadata-keys", local);
+            const keys = value || [];
+            renderMetadataSettings(setting.settingEl, keys, (keys) => this.applySettingsUpdate({
+                "metadata-keys": {
+                    $set: keys,
+                },
+            }));
+            this.cleanupFns.push(() => {
+                if (setting.settingEl) {
+                    cleanupMetadataSettings(setting.settingEl);
+                }
+            });
+        });
     }
     cleanUp() {
         this.cleanupFns.forEach((fn) => fn());
@@ -41071,6 +41695,15 @@ class KanbanView extends obsidian.TextFileView {
             return globalSetting;
         return null;
     }
+    getGlobalSetting(key) {
+        const globalSetting = this.plugin.settings[key];
+        if (globalSetting !== undefined)
+            return globalSetting;
+        return null;
+    }
+    onFileMetadataChange(file) {
+        dispatch(`metadata:update:${file.path}`);
+    }
     onMoreOptionsMenu(menu) {
         // Add a menu item to force the board to markdown view
         menu
@@ -41119,7 +41752,7 @@ class KanbanView extends obsidian.TextFileView {
     }
     toggleSearch() {
         this.dataBridge.setExternal(update$2(this.dataBridge.data, {
-            $toggle: ['isSearching']
+            $toggle: ["isSearching"],
         }));
     }
     getViewData() {
@@ -41340,22 +41973,50 @@ class KanbanPlugin extends obsidian.Plugin {
             this.addCommand({
                 id: "archive-completed-cards",
                 name: t$2("Archive completed cards in active board"),
-                callback: () => {
-                    const view = this.app.workspace.getActiveViewOfType(KanbanView);
-                    if (view) {
-                        view.archiveCompletedCards();
+                checkCallback: (checking) => {
+                    const activeView = this.app.workspace.activeLeaf.view;
+                    if (checking) {
+                        return activeView && activeView instanceof KanbanView;
+                    }
+                    if (activeView instanceof KanbanView) {
+                        activeView.archiveCompletedCards();
+                    }
+                },
+            });
+            this.addCommand({
+                id: "toggle-kanban-view",
+                name: t$2("Toggle between Kanban and markdown mode"),
+                checkCallback: (checking) => {
+                    const activeFile = this.app.workspace.getActiveFile();
+                    if (checking) {
+                        if (!activeFile) {
+                            return false;
+                        }
+                        const fileCache = this.app.metadataCache.getFileCache(activeFile);
+                        return (fileCache.frontmatter && !!fileCache.frontmatter[frontMatterKey]);
+                    }
+                    const activeLeaf = this.app.workspace.activeLeaf;
+                    if (activeLeaf.view instanceof KanbanView) {
+                        this.kanbanFileModes[activeLeaf.id || activeFile.path] =
+                            "markdown";
+                        this.setMarkdownView(activeLeaf);
                     }
                     else {
-                        new obsidian.Notice(t$2("Error: current file is not a Kanban board"), 5000);
+                        this.kanbanFileModes[activeLeaf.id || activeFile.path] =
+                            kanbanViewType;
+                        this.setKanbanView(activeLeaf);
                     }
                 },
             });
             this.addCommand({
                 id: "convert-to-kanban",
                 name: t$2("Convert empty note to Kanban"),
-                callback: () => __awaiter(this, void 0, void 0, function* () {
-                    const activeLeaf = this.app.workspace.activeLeaf;
+                checkCallback: (checking) => {
                     const activeFile = this.app.workspace.getActiveFile();
+                    if (checking) {
+                        return activeFile && activeFile.stat.size === 0;
+                    }
+                    const activeLeaf = this.app.workspace.activeLeaf;
                     if (activeFile && activeFile.stat.size === 0) {
                         const frontmatter = [
                             "---",
@@ -41366,13 +42027,11 @@ class KanbanPlugin extends obsidian.Plugin {
                             "",
                             "",
                         ].join("\n");
-                        yield this.app.vault.modify(activeFile, frontmatter);
-                        this.setKanbanView(activeLeaf);
+                        this.app.vault.modify(activeFile, frontmatter).then(() => {
+                            this.setKanbanView(activeLeaf);
+                        });
                     }
-                    else {
-                        new obsidian.Notice(t$2("Error: cannot create Kanban, the current note is not empty"), 5000);
-                    }
-                }),
+                },
             });
             this.registerEvent(this.app.workspace.on("file-menu", (menu, file, source, leaf) => {
                 // Add a menu item to the folder context menu to create a board
@@ -41384,6 +42043,12 @@ class KanbanPlugin extends obsidian.Plugin {
                             .onClick(() => this.newKanban(file));
                     });
                 }
+            }));
+            this.registerEvent(this.app.metadataCache.on("changed", (file) => {
+                this.app.workspace.getLeavesOfType(kanbanViewType).forEach((leaf) => {
+                    const view = leaf.view;
+                    view.onFileMetadataChange(file);
+                });
             }));
         });
     }

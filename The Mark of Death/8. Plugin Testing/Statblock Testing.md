@@ -1,6 +1,6 @@
-a
+
 
 
 ```statblock
-monster: Ancient Black Dragon
+monster: Strahd von Zarovich
 ```

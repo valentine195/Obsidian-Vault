@@ -18,7 +18,7 @@ tags:
 | **Step 3:** | A sacrificial ritual is conducted, led by [[Rabar]]                               |
 | **End:**    | [[Rhashaak]] awakens [[Haka'Torvhak]] and releases its destruction                |
 
-### MILESTONE 2: Cold Sun Tribal Council
+## MILESTONE 2: Cold Sun Tribal Council
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -29,13 +29,12 @@ tags:
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 - Clan - `dice: 1d[[Cold Sun Tribe#^e45064]]`
 - Name - `dice: 1d[[Lizardfolk Names#^c6bf5c]]` 
 
 - Magic Shop Gen - https://donjon.bin.sh/5e/magic/shop.html
-#### Parley
-##### Notes
+### Parley
 > The servant opens the door to the guesthouse, and you step into a utilitarian common room. A wooden table large enough to sit eight people sits to your left, along with a small pantry, and on the right are several sitting chairs arrayed around an unlit stone fireplace. In the middle of the room is a large chest made out of a gray wood. Three doors in the back are open and through each you see a simple bed against the wall. The servant enters the room, still limping slightly, and then stands to one side. He says: 
 ```ad-quote
 title: Yoss
@@ -52,15 +51,42 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 [[Longsword of Verdict]]
 [[Gauntlets of Deliverance]]
 
-#### Setback - Krot the Destroyer
+### Setback - Kidnapping of [[Bob]]
 
-#### Conflict
+````ad-info
+While the three of you take in the house, Bob, where would you like to go?
+````
 
-#### Reward
+````ad-info
+
+Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. 
+
+
+You head out onto a rope bridge towards ==BLANK==. Bob, give me a perception check.
+`dice: 1d20 + 10` -> Stealth Roll 1
+
+```ad-success
+collapse: closed
+As you step move along the rope bridge, you catch a glimpse of a lizardfolk with ashy-grey skin clawhook his way into the treetop above you, but you don't see him afterwards. The platform you step onto from the bridge seems oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted. What are you doing?
+```
+
+```ad-fail
+collapse: closed
+The platform you step onto from the rope bridge is oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted and distant. What are you doing?
+```
+
+````
+
+
+
+
+### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
+
+### Reward
 
 ---
 
-### MILESTONE 3: Help the Cold Sun drive back the Blackscales
+## MILESTONE 3: Help the Cold Sun drive back the Blackscales
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -71,21 +97,21 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 
-#### Entrance
+### Entrance
 
-#### Parley
+### Parley
 
-#### Setback
+### Setback
 
-#### Conflict
+### Conflict
 
-#### Reward
+### Reward
 
 ---
 
-### FINALE: End the threat of Rabar the Rakshasa
+## FINALE: End the threat of Rabar the Rakshasa
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -96,23 +122,23 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 
-#### Entrance
+### Entrance
 
-#### Parley
+### Parley
 
-#### Setback
+### Setback
 
-#### Conflict
+### Conflict
 
-#### Reward
+### Reward
 
 ---
 
-## Complete
+# Complete
 
-### MILESTONE 1: Travel down the Adder River towards Newthrone
+## MILESTONE 1: Travel down the Adder River towards Newthrone
 
 |              | MAP                | MONSTER                         | REWARD                             |
 | ------------ | ------------------ | ------------------------------- | ---------------------------------- |
@@ -123,9 +149,9 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 | **Conflict** | Impassable River?  | Blackscale Clan Lizardfolk      |                                    |
 | **Reward**   |                    |                                 |                                    |
 
-#### Notes
+### Notes
 
-#### Conflict - The Blackscales Attack
+### Conflict - The Blackscales Attack
 
 [REFERENCE THIS](https://www.reddit.com/r/DnDBehindTheScreen/comments/6acd7t/guide_to_the_jungle/)
 
@@ -177,11 +203,11 @@ The Crazy Fist clan are truly honored to have an esteemed Templar in our midst. 
 ```
 
 
-#### Reward
+### Reward
 
 
 
-### MILESTONE 2: Cold Sun Tribal Council
+## MILESTONE 2: Cold Sun Tribal Council
 
 |              | MAP | MONSTER | REWARD |
 | ------------ | --- | ------- | ------ |
@@ -192,10 +218,10 @@ The Crazy Fist clan are truly honored to have an esteemed Templar in our midst. 
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
-#### Notes
+### Notes
 
 
-#### Entrance
+### Entrance
 
 ```ad-important
 [[Drox]] turns to the four of you and narrows his eyes.
@@ -228,8 +254,8 @@ And then he bows to each of you and takes his leave.
 
 > The servant [[Yoss]] bows to you and turns, walking to a nearby rope bridge. He stops and turns around to face you, waiting patiently for you to go with him.
 
-#### Parley
-##### Notes
+### Parley
+#### Notes
 
 > The servant heads out over the rope bridge, moving swiftly and sure-footed.
 
