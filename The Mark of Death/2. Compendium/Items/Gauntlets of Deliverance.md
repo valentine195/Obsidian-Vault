@@ -5,7 +5,8 @@ tier: major
 
 tags:
   - item/major/uncommon
-  
+  - item/wondrous/gauntlet
+  - item/attunement
 ---
  # Gauntlets of Deliverance
  _Wondrous item, uncommon (requires attunement by a paladin)_
