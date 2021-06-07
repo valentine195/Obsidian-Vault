@@ -13,7 +13,6 @@ overlay:
 overlayTag: nearby
 overlayColor: orange
 markerFile: [[Untitled]]
-coordinates: [[Untitled]]
 ```
 
 
@@ -21,10 +20,9 @@ coordinates: [[Untitled]]
 id: test2
 height: 500px
 maxZoom: 50
-defaultZoom: 6
 marker: location, -2, 3,
 unit: mi
-lat: -5
-long: 10
+coordinates: [[Untitled]]
+overlayTag: nearby
 darkMode: true
 ```
