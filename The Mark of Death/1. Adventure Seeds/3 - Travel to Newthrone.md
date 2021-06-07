@@ -51,7 +51,7 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 [[Longsword of Verdict]]
 [[Gauntlets of Deliverance]]
 
-### Setback - Kidnapping of [[Bob]]
+### Setback - Attempted Kidnapping of [[Bob]]
 
 ````ad-info
 While the three of you take in the house, Bob, where would you like to go?
@@ -82,12 +82,27 @@ The platform you step onto from the rope bridge is oddly deserted, considering t
 > collapse:
 > Ahhh, the templars pet machine. What are you doing out here all on your own?
 > ```
-> .
+> You see the rope bridge start to sway and, looking out over it, another ash-grey lizardman stands about halfway down it.
 
 
 ### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
 
+```ad-question
 
+What are the rest of you doing in the house?
+
+```
+
+````ad-info
+
+While you ==BLANK==, you hear a soft knock at the door. Yoss the servant walks over and opens it, and another servant in white robes stands there. He speaks softly to Yoss, then turns and walks away.
+
+Yoss turns towards Jeremiah and says, 
+
+```ad-quote
+**Sir Flame**, the tribal council will begin soon. Your presence is required. Your servants may join as they wish.
+```
+````
 
 ### Reward
 
