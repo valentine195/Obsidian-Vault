@@ -8,7 +8,7 @@ marker: location, -2, 3,
 unit: mi
 scale: 400
 overlayColor: orange
-markerFile: [[Untitled]]
+linksFrom: [[LinksTo and LinksFrom Test]]
 ```
 
 
