@@ -19,7 +19,8 @@ markerFile: [[Untitled]]
 ```leaflet
 id: test2
 height: 500px
-maxZoom: 50
+maxZoom: 25
+defaultZoom: 10
 marker: location, -2, 3,
 unit: mi
 coordinates: [[Untitled]]
