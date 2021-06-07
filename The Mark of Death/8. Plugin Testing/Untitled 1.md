@@ -1,6 +1,6 @@
 ---
 date updated: '2021-04-29T22:04:06-04:00'
-location: [-3, 5]
+location: [32, -89]
 nearby: 1000 mi
 mapoverlay: 
   - ['rgba(218, 165, 32, .6)', [48.23875, 10.37595], 1000 km, ""]

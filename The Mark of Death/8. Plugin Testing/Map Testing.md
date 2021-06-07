@@ -7,12 +7,9 @@ defaultZoom: 8
 marker: location, -2, 3,
 unit: mi
 scale: 400
-overlayColor: green
-overlay:
-	- [green, [-3, 5], 500 mi, "test 12345"]
-overlayTag: nearby
 overlayColor: orange
-markerFile: [[Untitled]]
+coordinates: [[Untitled]]
+zoomTag: nearby
 ```
 
 
@@ -23,7 +20,6 @@ maxZoom: 25
 defaultZoom: 10
 marker: location, -2, 3,
 unit: mi
-coordinates: [[Untitled]]
-overlayTag: nearby
-darkMode: true
+coordinates: [[Untitled 1]]
+zoomTag: nearby
 ```
