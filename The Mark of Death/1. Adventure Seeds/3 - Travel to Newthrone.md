@@ -88,7 +88,7 @@ The platform you step onto from the rope bridge is oddly deserted, considering t
 ### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
 
 ```ad-question
-
+title:
 What are the rest of you doing in the house?
 
 ```
