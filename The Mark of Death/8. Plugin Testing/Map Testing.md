@@ -25,6 +25,6 @@ defaultZoom: 6
 marker: location, -2, 3,
 unit: mi
 lat: -5
-long: 3
+long: 10
 darkMode: true
 ```
