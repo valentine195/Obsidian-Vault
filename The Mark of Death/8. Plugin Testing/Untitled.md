@@ -1,8 +1,9 @@
 ---
 date updated: '2021-04-29T22:04:06-04:00'
-location: [30%, 50%]
+location: [-5, 3]
+mapmarker: location
 nearby: 100 mi
 mapoverlay: 
-  - ['rgba(218, 165, 32, .6)', [48.23875, 10.37595], 1000 km, ""]
-  - [green, [48.23875, 10.37595], 100 km, "Home Zone"]
+  - [pink, [-5, 3], 100 km, "Test"]
+  - [green, [-3, 5], 500 km, "Home Zone"]
 ---

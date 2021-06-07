@@ -3,13 +3,12 @@ id: test
 image: [[Khorvaire.jpg]]
 height: 500px
 maxZoom: 10
-defaultZoom: 8
+defaultZoom: 5
 marker: location, -2, 3,
 unit: mi
 scale: 400
 overlayColor: orange
-coordinates: [[Untitled]]
-zoomTag: nearby
+markerFile: [[Untitled]]
 ```
 
 
