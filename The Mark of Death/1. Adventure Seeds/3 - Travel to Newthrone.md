@@ -63,7 +63,7 @@ Bob, as you move through the village, Lizardfolk are swinging through the trees 
 
 
 You head out onto a rope bridge towards ==BLANK==. Bob, give me a perception check.
-`dice: 1d20 + 10` -> Stealth Roll 1
+`dice: 1d20 + 7` -> Stealth Roll 1
 
 ```ad-success
 collapse: closed
@@ -77,10 +77,17 @@ The platform you step onto from the rope bridge is oddly deserted, considering t
 
 ````
 
-
+> As you ==BLANK==, a lizardman with ash covering his scales drops down from the treetop.
+> ```ad-quote
+> collapse:
+> Ahhh, the templars pet machine. What are you doing out here all on your own?
+> ```
+> .
 
 
 ### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
+
+
 
 ### Reward
 
