@@ -3,7 +3,7 @@ id: test
 image: [[Khorvaire.jpg]]
 height: 500px
 maxZoom: 10
-defaultZoom: 6
+defaultZoom: 8
 marker: location, -2, 3,
 unit: mi
 scale: 400
