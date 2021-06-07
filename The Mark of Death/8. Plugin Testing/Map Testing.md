@@ -8,7 +8,9 @@ marker: location, -2, 3,
 unit: mi
 scale: 400
 overlayColor: orange
-linksFrom: [[LinksTo and LinksFrom Test]]
+linksTo: 
+  - [[LinksTo and LinksFrom Test]]
+  - [[LinksTo and LinksFrom Test 1]]
 ```
 
 
