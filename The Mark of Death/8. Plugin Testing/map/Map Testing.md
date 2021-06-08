@@ -23,4 +23,5 @@ coordinates: [[Direct Marker]]
 markerFile: [[Untitled]]
 markerFile: [[Direct Marker]]
 overlayTag: nearby
+zoomTag: nearby
 ```
