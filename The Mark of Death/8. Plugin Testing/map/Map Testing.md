@@ -23,6 +23,4 @@ unit: mi
 marker: location, -2, 3,
 markerFile: [[Direct Marker]]
 markerFolder: 8. Plugin Testing/map/marker folder/folder
-markerTags: "#location"
-linksFrom: [[Link From]]
 ```

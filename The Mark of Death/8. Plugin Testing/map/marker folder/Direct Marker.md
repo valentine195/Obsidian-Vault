@@ -1,5 +1,5 @@
 ---
-location: [-4, 8]
+location: [-8, 8]
 mapmarker: location
 ---
 
