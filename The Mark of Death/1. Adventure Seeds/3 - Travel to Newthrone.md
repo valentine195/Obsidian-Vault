@@ -59,7 +59,7 @@ While the three of you take in the house, Bob, where would you like to go?
 
 ````ad-info
 
-Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. 
+Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. The lizardfolk all seem to be heading 
 
 
 You head out onto a rope bridge towards ==BLANK==. Bob, give me a perception check.
@@ -79,8 +79,7 @@ The platform you step onto from the rope bridge is oddly deserted, considering t
 
 > As you ==BLANK==, a lizardman with ash covering his scales drops down from the treetop.
 > ```ad-quote
-> collapse:
-> Ahhh, the templars pet machine. What are you doing out here all on your own?
+> Ahhh, the templars' pet machine. What are you doing all the way out here alone? It can be dangerous.
 > ```
 > You see the rope bridge start to sway and, looking out over it, another ash-grey lizardman stands about halfway down it.
 
@@ -105,6 +104,12 @@ Yoss turns towards Jeremiah and says,
 Yoss turns and beckons you outside the house.
 
 ````
+
+```ad-info
+
+Yoss leads you deeper into the city
+
+```
 
 ### Reward
 
