@@ -2,8 +2,8 @@
 location: [48.337838,10.9404818]
 mapmarker: event
 mapoverlay:
-    - [blue, [48.3434334,10.9393137], 20 m, "🅿️ Parkplatz Kuhsee Nord"]
-    - [blue, [48.3386505,10.9439455], 20 m, "🅿️ Parkplatz Kuhsee Süd"]
+    - [green, [48.3434334,10.9393137], 20 m, "🅿️ Parkplatz Kuhsee Nord"]
+    - [orange, [48.3386505,10.9439455], 20 m, "🅿️ Parkplatz Kuhsee Süd"]
     - [blue, [48.337911,10.944044], 20 m, "🅿️ Parkplatz am Kuhseelauf"]
     - [blue, [48.3360085,10.9431114], 10 m, "🚾 Toilette"]
     - [blue, [48.3356309,10.9396944], 10 m, "🚾 Toilette"]
