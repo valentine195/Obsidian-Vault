@@ -19,5 +19,6 @@ maxZoom: 25
 defaultZoom: 15
 unit: mi
 marker: location, -2, 3,
-markerFile: [[Direct Marker]]
+coordinates: [[Untitled]]
+zoomTag: nearby
 ```
