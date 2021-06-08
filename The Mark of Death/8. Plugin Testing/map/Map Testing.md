@@ -14,9 +14,12 @@ overlayColor: orange
 ```leaflet
 id: test2
 height: 500px
+coordinates:
+  - "-2"
+  - "5.7"
 maxZoom: 25
-defaultZoom: 10
-zoomDelta: 0.25
-marker: location, -2, 3,
+defaultZoom: 5
 unit: mi
+marker: location, -2, 3,
+markerFile: [[Direct Marker]]
 ```
