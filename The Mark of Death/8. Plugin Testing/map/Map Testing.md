@@ -20,5 +20,5 @@ defaultZoom: 15
 unit: mi
 marker: location, -2, 3,
 coordinates: [[Untitled]]
-zoomTag: nearby
+overlayTag: nearby
 ```
