@@ -1,6 +1,6 @@
 ---
 location: [-4, 8]
-nearby: 100 mi
+mapmarker: location
 ---
 
 [[Links 1]]
