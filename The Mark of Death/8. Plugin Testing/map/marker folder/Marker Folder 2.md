@@ -6,5 +6,3 @@ mapoverlay:
   - ['rgba(218, 165, 32, .6)', [48.23875, 10.37595], 1000 km, ""]
   - [green, [48.23875, 10.37595], 100 km, "Home Zone"]
 ---
-
-[[LinksTo and LinksFrom Test 1]]
