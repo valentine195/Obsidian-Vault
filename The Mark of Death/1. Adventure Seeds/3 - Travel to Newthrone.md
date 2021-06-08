@@ -59,30 +59,25 @@ While the three of you take in the house, Bob, where would you like to go?
 
 ````ad-info
 
-Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. The lizardfolk all seem to be heading 
+Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. While you're walking around, you hear a loud horn blare three times from towards the center of the village, and most of the lizardfolk begin heading towards it.
 
 
-You head out onto a rope bridge towards ==BLANK==. Bob, give me a perception check.
+Bob, give me a perception check.
 `dice: 1d20 + 7` -> Stealth Roll 1
 
 ```ad-success
 collapse: closed
-As you step move along the rope bridge, you catch a glimpse of a lizardfolk with ashy-grey skin clawhook his way into the treetop above you, but you don't see him afterwards. The platform you step onto from the bridge seems oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted. What are you doing?
+As the lizardfolk move, you catch a glimpse of a lizardfolk with ashy-grey skin clawhook his way into the treetop above you, but you don't see him afterwards. You suddenly realize that he's been following you for, as you have caught glimpses of him a few times.
 ```
 
 ```ad-fail
 collapse: closed
-The platform you step onto from the rope bridge is oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted and distant. What are you doing?
+The lizardfolk are leaving the platform you are currently on. What are you doing?
 ```
 
 ````
 
-> As you ==BLANK==, a lizardman with ash covering his scales drops down from the treetop.
-> ```ad-quote
-> Ahhh, the templars' pet machine. What are you doing all the way out here alone? It can be dangerous.
-> ```
-> You see the rope bridge start to sway and, looking out over it, another ash-grey lizardman stands about halfway down it.
-
+**SWITCH TO OTHER GROUP**
 
 ### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
 
@@ -93,9 +88,7 @@ What are the rest of you doing in the house?
 
 ````ad-info
 
-While you ==BLANK==, you hear a soft knock at the door. Yoss the servant walks over and opens it, and another servant in white robes stands there. He speaks softly to Yoss, then turns and walks away.
-
-Yoss turns towards Jeremiah and says, 
+While you ==BLANK==, you hear three loud horn blasts emanate from deeper into the city. Yoss turns towards Jeremiah and says, 
 
 ```ad-quote
 **Sir Flame**, the tribal council will begin soon. Your presence is required. Your servants may join as they wish. Please, follow me to the Council Circle.
