@@ -14,13 +14,10 @@ overlayColor: orange
 ```leaflet
 id: test2
 height: 500px
-coordinates:
-  - "-2"
-  - "5.7"
+coordinates: ["48.337838","10.9404818"]
 maxZoom: 25
-defaultZoom: 5
+defaultZoom: 15
 unit: mi
 marker: location, -2, 3,
 markerFile: [[Direct Marker]]
-markerFolder: 8. Plugin Testing/map/marker folder/folder
 ```
