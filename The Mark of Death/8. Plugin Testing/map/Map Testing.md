@@ -16,9 +16,11 @@ id: test2
 height: 500px
 coordinates: ["48.337838","10.9404818"]
 maxZoom: 25
-defaultZoom: 15
+defaultZoom: 5
 unit: mi
 marker: location, -2, 3,
-coordinates: [[Untitled]]
+coordinates: [[Direct Marker]]
+markerFile: [[Untitled]]
+markerFile: [[Direct Marker]]
 overlayTag: nearby
 ```
