@@ -109,7 +109,7 @@ Yoss leads you out over a rope bridge towards the middle of the city. Looking ar
 
 - [ ] Mention [[Rosamund Yirr]]
 - [ ] Circle of flame
-- [ ] Krot questions Jeremiah's intentions
+- [ ] Krot questions Jeremiah's intentions, reveals Bob had a Coin of Dust
 
 ```
 
@@ -129,6 +129,8 @@ Yoss leads you out over a rope bridge towards the middle of the city. Looking ar
 | **Reward**   |     |         |        |
 
 ### Notes
+- [ ] Build an Action Oriented monster for [[Rabar]] 
+
 
 ### Entrance
 

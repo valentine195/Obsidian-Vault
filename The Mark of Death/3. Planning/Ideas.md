@@ -4,3 +4,6 @@
 
 ### Monsters
 1. [[2. Compendium/Monsters/Royal Incinerator]]
+2. Quick Monster Maker - https://giffyglyph.com/monstermaker/app/
+3. Solo Boss Template - https://i.redd.it/zcusmtqv99g11.png
+4. Action Oriented Monsters - Matt Colville
