@@ -108,7 +108,8 @@ Yoss leads you out over a rope bridge towards the middle of the city. Looking ar
 ```ad-important
 
 - [ ] Mention [[Rosamund Yirr]]
-- [ ] 
+- [ ] Circle of flame
+- [ ] Krot questions Jeremiah's intentions
 
 ```
 
