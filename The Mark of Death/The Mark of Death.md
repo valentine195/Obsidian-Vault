@@ -17,9 +17,21 @@ date updated: '2021-03-30T20:37:16-04:00'
 
 ## Todo
 
-```dataview
-table todo where todo
-sort file.name asc
+```dataviewjs
+const tasks = dv.pages("#todo");
+const list = dv.taskList(tasks.file.tasks.where(t => !t.completed && t.text.includes("#todo")));
+
+console.log(list)
+
+dv.table(
+  ["File", "Tasks"], 
+  tasks.map(f => 
+  	[
+		f.file.link, 
+		'test'
+	]
+  )
+)
 ```
 
 ## Key NPCs

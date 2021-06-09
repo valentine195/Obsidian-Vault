@@ -129,7 +129,7 @@ Yoss leads you out over a rope bridge towards the middle of the city. Looking ar
 | **Reward**   |     |         |        |
 
 ### Notes
-- [ ] Build an Action Oriented monster for [[Rabar]] 
+- [ ] Build an Action Oriented monster for [[Rabar]] #todo
 
 
 ### Entrance
