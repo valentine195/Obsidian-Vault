@@ -100,7 +100,15 @@ Yoss turns and beckons you outside the house.
 
 ```ad-info
 
-Yoss leads you deeper into the city
+Yoss leads you out over a rope bridge towards the middle of the city. Looking around, you see a large number of lizardfolk are heading this direction, mostly swinging through the branches using clawhooks.
+
+```
+
+#### Circle of Elders
+```ad-important
+
+- [ ] Mention [[Rosamund Yirr]]
+- [ ] 
 
 ```
 
