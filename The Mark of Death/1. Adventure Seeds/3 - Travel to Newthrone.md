@@ -118,6 +118,15 @@ You cannot see the lizardman that has been following you - it seems like he is s
 What are you doing?
 ````
 
+````ad-info
+```ad-success
+title: If Succeeded Above
+collapse:
+As you do that, you finally spot the lizardman between the leaves, peering down out you through the branches. 
+```
+
+````
+
 #### Circle of Elders
 ```ad-important
 
