@@ -131,6 +131,8 @@ As you do that, you finally spot the lizardman between the leaves, peering down 
 
 ```ad-info
 
+The tree everyone is heading towards is massive, and it seems that all of the rope bridges leads towards it. There is no platform - instead, 
+
 ```
 
 ```ad-important
