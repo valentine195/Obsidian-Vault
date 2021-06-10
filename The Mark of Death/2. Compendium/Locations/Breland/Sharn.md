@@ -7,6 +7,9 @@ tags:
   - location/breland/sharn
 
 ---
+![masthead-fade](http://eberronunlimited.wdfiles.com/local--files/sharn/Sharn2)
+
+<div class="spacer"></div>
 
 ## Sharn
 
