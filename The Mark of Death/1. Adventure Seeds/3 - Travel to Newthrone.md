@@ -128,6 +128,11 @@ As you do that, you finally spot the lizardman between the leaves, peering down 
 ````
 
 #### Circle of Elders
+
+```ad-info
+
+```
+
 ```ad-important
 
 - [ ] Mention [[Rosamund Yirr]]
