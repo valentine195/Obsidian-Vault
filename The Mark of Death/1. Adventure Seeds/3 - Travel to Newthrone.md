@@ -104,6 +104,12 @@ Yoss leads you out over a rope bridge towards the middle of the city. Looking ar
 
 ```
 
+**SWITCH TO BOB**
+
+```
+
+```
+
 #### Circle of Elders
 ```ad-important
 
