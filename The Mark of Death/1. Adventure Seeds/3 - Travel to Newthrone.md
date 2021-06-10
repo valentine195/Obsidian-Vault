@@ -106,9 +106,17 @@ Yoss leads you out over a rope bridge towards the middle of the city. Looking ar
 
 **SWITCH TO BOB**
 
+````ad-info
+Bob, the lizardfolk around you are heading towards the center of the village. 
+
+```ad-success
+collapse:
+title: If Succeeded Above
+You cannot see the lizardman that has been following you - it seems like he is still in the treetops above you. 
 ```
 
-```
+What are you doing?
+````
 
 #### Circle of Elders
 ```ad-important
