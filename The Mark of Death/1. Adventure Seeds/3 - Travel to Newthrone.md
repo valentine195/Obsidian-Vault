@@ -72,7 +72,7 @@ As the lizardfolk move, you catch a glimpse of a lizardfolk with ashy-grey skin 
 
 ```ad-fail
 collapse: closed
-The lizardfolk are leaving the platform you are currently on. What are you doing?
+You can't see anything in the mass of lizardfolk leaving the platform.
 ```
 
 ````
