@@ -59,7 +59,7 @@ While the three of you take in the house, Bob, where would you like to go?
 
 ````ad-info
 
-Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. While you're walking around, you hear a loud horn blare three times from towards the center of the village, and most of the lizardfolk begin heading towards it.
+Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. While you're walking around, you hear a loud horn blare three times from towards the center of the village, and a good portion of the lizardfolk on the platform begin heading towards it.
 
 
 Bob, give me a perception check.
@@ -122,8 +122,10 @@ What are you doing?
 ```ad-success
 title: If Succeeded Above
 collapse:
-As you do that, you finally spot the lizardman between the leaves, peering down out you through the branches. 
+As you ==do that==, you finally spot the lizardman between the leaves, peering down out you through the branches. 
 ```
+
+
 
 ````
 
@@ -131,13 +133,15 @@ As you do that, you finally spot the lizardman between the leaves, peering down 
 
 ```ad-info
 
-The tree everyone is heading towards is massive, and it seems that all of the rope bridges leads towards it. There is no platform - instead, 
+The tree you are heading towards is massive, and it seems that all of the rope bridges leads towards it. There is no platform - instead, the rope bridges lead into the tree itself.
+
+When y
 
 ```
 
 ```ad-important
 
-- [ ] Mention [[Rosamund Yirr]]
+- [ ] Mention that [[Rosamund Yirr]] has been seeing oddities from the Boneyard
 - [ ] Circle of flame
 - [ ] Krot questions Jeremiah's intentions, reveals Bob had a Coin of Dust
 
