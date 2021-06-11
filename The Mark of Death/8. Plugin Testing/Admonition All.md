@@ -1,24 +1,17 @@
 ```ad-note
-title:  
-
+title:
 This worked yesterday
 ```
 
 ```ad-abstract
+collapse:
+title: ### Test
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. 
 
 [[ABCDEF]]
 
 
 ```
-
-```ad-info
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-
-[[3 - Travel to Newthrone]]
-```
-
-
 
 ````ad-info
 
@@ -34,55 +27,3 @@ console.log("Hello!");
 ```
 
 ````
-
-
-
-```ad-success
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-a
-b
-c
-d
-e
-f
-g
-
-[[3 - Travel to Newthrone]]
-
-[[3 - Travel to Newthrone]]
-
-[[3 - Travel to Newthrone]]
-
-[[3 - Travel to Newthrone]]
-
-[[3 - Travel to Newthrone]]
-```
-
-```ad-question
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-```
-
-```ad-warning
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-```
-
-```ad-failure
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-```
-
-```ad-danger
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-```
-
-```ad-bug
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-```
-
-```ad-example
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-```
-
-```ad-quote
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla.
-```
-

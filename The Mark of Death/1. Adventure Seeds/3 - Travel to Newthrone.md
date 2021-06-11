@@ -87,7 +87,6 @@ The platform you step onto from the rope bridge is oddly deserted, considering t
 ### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
 
 ```ad-question
-
 What are the rest of you doing in the house?
 
 ```
@@ -99,8 +98,11 @@ While you ==BLANK==, you hear a soft knock at the door. Yoss the servant walks o
 Yoss turns towards Jeremiah and says, 
 
 ```ad-quote
-**Sir Flame**, the tribal council will begin soon. Your presence is required. Your servants may join as they wish.
+**Sir Flame**, the tribal council will begin soon. Your presence is required. Your servants may join as they wish. Please, follow me to the Council Circle.
 ```
+
+Yoss turns and beckons you outside the house.
+
 ````
 
 ### Reward
