@@ -22,8 +22,9 @@ throw new Error("Oops, I'm a bug.");
 ~~~
 ```
 
-```javascript
-console.log("Hello!");
+```dataview
+list from "Adventure Seeds"
+where status = "current"
 ```
 
 ````
