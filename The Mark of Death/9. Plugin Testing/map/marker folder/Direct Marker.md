@@ -7,7 +7,7 @@ mapoverlay:
     - [blue, [48.3386505,10.9439455], 20 m, "🅿️ Parkplatz Kuhsee Süd"]
     - [blue, [48.337911,10.944044], 20 m, "🅿️ Parkplatz am Kuhseelauf"]
     - [blue, [48.3360085,10.9431114], 10 m, "🚾 Toilette"]
-    - [orange, [48.3356309,10.9396944], 10 m, "🚾 Toilette"]
+    - [orange, [48.3356309,10.9396944], 100 m, "🚾 Toilette"]
     - [green, [48.3389219,10.9380973], 10 m, "🚾 Toilette"]
     - ['rgba(192, 0, 192, .6)', [48.3341375,10.9425521], 20 m, "Grillbereich"]
     - ['rgba(192, 0, 192, .6)', [48.3399471,10.9408536], 20 m, "Kinderspielplatz"]
