@@ -16,7 +16,7 @@ id: test2
 height: 500px
 maxZoom: 25
 defaultZoom: 5
-unit: mi
+unit: km
 marker: location, -2, 3,
 markerFile: [[Untitled]]
 markerFile: [[Direct Marker]]
