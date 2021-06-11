@@ -131,15 +131,31 @@ As you ==do that==, you finally spot the lizardman between the leaves, peering d
 
 #### Circle of Elders
 
-```ad-info
+`````ad-info
 
 The tree you are heading towards is massive, at least a hundred feet wide, and it seems that all of the rope bridges leads towards it. There is no platform - instead, the rope bridges lead into the tree itself, which has been hollowed out.
 
 The inside of the tree-structure has been turned into a giant ampitheater. The rope bridge exits onto a circular walkway, and tiered benches lead down to a platform with twelve seats, facing each other.
 
-Lizardfolk are streaming in on all sides, heading down into the seating area. [[Yoss]] gestures to you to follow him 
+````ad-info
+title: Enter Immediately
+collapse:
+Lizardfolk are streaming in on all sides, heading down into the seating area. [[Yoss]] gestures to you to follow him to a set of stairs off to the side.
+````
+
+````ad-info
+title: Go After Bob
+collapse:
+You see [[Drox]] standing in the middle of the seats, and his magically-amplified voice is booming through the ampitheater.
+
+```ad-quote
+Krot, do not dismiss this so lightly! The Lords of Dust are showing themselves again! We cannot allow this! 
 
 ```
+
+````
+
+`````
 
 ```ad-important
 
