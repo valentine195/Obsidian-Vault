@@ -133,9 +133,11 @@ As you ==do that==, you finally spot the lizardman between the leaves, peering d
 
 ```ad-info
 
-The tree you are heading towards is massive, and it seems that all of the rope bridges leads towards it. There is no platform - instead, the rope bridges lead into the tree itself.
+The tree you are heading towards is massive, at least a hundred feet wide, and it seems that all of the rope bridges leads towards it. There is no platform - instead, the rope bridges lead into the tree itself, which has been hollowed out.
 
-When y
+The inside of the tree-structure has been turned into a giant ampitheater. The rope bridge exits onto a circular walkway, and tiered benches lead down to a platform with twelve seats, facing each other.
+
+Lizardfolk are streaming in on all sides, heading down into the seating area. [[Yoss]] gestures to you to follow him 
 
 ```
 
