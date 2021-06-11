@@ -2,7 +2,7 @@
 id: test
 image: [[Khorvaire.jpg]]
 height: 500px
-maxZoom: 9
+maxZoom: 10
 defaultZoom: 5
 unit: mi
 scale: 400
