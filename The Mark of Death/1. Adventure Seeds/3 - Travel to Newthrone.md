@@ -58,31 +58,26 @@ While the three of you take in the house, Bob, where would you like to go?
 ````
 
 ````ad-info
-Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. 
+
+Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red. While you're walking around, you hear a loud horn blare three times from towards the center of the village, and a good portion of the lizardfolk on the platform begin heading towards it.
 
 
-You head out onto a rope bridge towards ==BLANK==. Bob, give me a perception check.
+Bob, give me a perception check.
 `dice: 1d20 + 7` -> Stealth Roll 1
 
 ```ad-success
 collapse: closed
-As you step move along the rope bridge, you catch a glimpse of a lizardfolk with ashy-grey skin clawhook his way into the treetop above you, but you don't see him afterwards. The platform you step onto from the bridge seems oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted. What are you doing?
+As the lizardfolk move, you catch a glimpse of a lizardfolk with ashy-grey skin clawhook his way into the treetop above you, but you don't see him afterwards. You suddenly realize that he's been following you for, as you have caught glimpses of him a few times.
 ```
 
 ```ad-fail
 collapse: closed
-The platform you step onto from the rope bridge is oddly deserted, considering the other platforms were teeming with lizardfolk. The noise from the rest of the town seems muted and distant. What are you doing?
+You can't see anything in the mass of lizardfolk leaving the platform.
 ```
 
 ````
 
-> As you ==BLANK==, a lizardman with ash covering his scales drops down from the treetop.
-> ```ad-quote
-> collapse:
-> Ahhh, the templars pet machine. What are you doing out here all on your own?
-> ```
-> You see the rope bridge start to sway and, looking out over it, another ash-grey lizardman stands about halfway down it.
-
+**SWITCH TO OTHER GROUP**
 
 ### Conflict - [[Krot]] the Destroyer, Chief of the Gray Ash
 
@@ -93,9 +88,7 @@ What are the rest of you doing in the house?
 
 ````ad-info
 
-While you ==BLANK==, you hear a soft knock at the door. Yoss the servant walks over and opens it, and another servant in white robes stands there. He speaks softly to Yoss, then turns and walks away.
-
-Yoss turns towards Jeremiah and says, 
+While you ==BLANK==, you hear three loud horn blasts emanate from deeper into the city. Yoss turns towards Jeremiah and says, 
 
 ```ad-quote
 **Sir Flame**, the tribal council will begin soon. Your presence is required. Your servants may join as they wish. Please, follow me to the Council Circle.
@@ -104,6 +97,73 @@ Yoss turns towards Jeremiah and says,
 Yoss turns and beckons you outside the house.
 
 ````
+
+```ad-info
+
+Yoss leads you out over a rope bridge towards the middle of the city. Looking around, you see a large number of lizardfolk are heading this direction, mostly swinging through the branches using clawhooks.
+
+```
+
+**SWITCH TO BOB**
+
+````ad-info
+Bob, the lizardfolk around you are heading towards the center of the village. 
+
+```ad-success
+collapse:
+title: If Succeeded Above
+You cannot see the lizardman that has been following you - it seems like he is still in the treetops above you. 
+```
+
+What are you doing?
+````
+
+````ad-info
+```ad-success
+title: If Succeeded Above
+collapse:
+As you ==do that==, you finally spot the lizardman between the leaves, peering down out you through the branches. 
+```
+
+
+
+````
+
+#### Circle of Elders
+
+`````ad-info
+
+The tree you are heading towards is massive, at least a hundred feet wide, and it seems that all of the rope bridges leads towards it. There is no platform - instead, the rope bridges lead into the tree itself, which has been hollowed out.
+
+The inside of the tree-structure has been turned into a giant ampitheater. The rope bridge exits onto a circular walkway, and tiered benches lead down to a platform with twelve seats, facing each other.
+
+````ad-info
+title: Enter Immediately
+collapse:
+Lizardfolk are streaming in on all sides, heading down into the seating area. [[Yoss]] gestures to you to follow him to a set of stairs off to the side.
+````
+
+````ad-info
+title: Go After Bob
+collapse:
+You see [[Drox]] standing in the middle of the seats, and his magically-amplified voice is booming through the ampitheater.
+
+```ad-quote
+Krot, do not dismiss this so lightly! The Lords of Dust are showing themselves again! We cannot allow this! 
+
+```
+
+````
+
+`````
+
+```ad-important
+
+- [ ] Mention that [[Rosamund Yirr]] has been seeing oddities from the Boneyard
+- [ ] Circle of flame
+- [ ] Krot questions Jeremiah's intentions, reveals Bob had a Coin of Dust
+
+```
 
 ### Reward
 
@@ -120,7 +180,9 @@ Yoss turns and beckons you outside the house.
 | **Conflict** |     |         |        |
 | **Reward**   |     |         |        |
 
+- [ ] Build an Action Oriented monster for [[Rabar]] #todo
 ### Notes
+
 
 ### Entrance
 

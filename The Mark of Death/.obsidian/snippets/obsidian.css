@@ -7,6 +7,17 @@
     max-width: 900px;
 }
 
+h1:first-of-type,
+h2:first-of-type,
+.is-collapsed > h1,
+.is-collapsed > h2,
+.is-collapsed > h3,
+.is-collapsed > h4,
+.is-collapsed > h5,
+.is-collapsed > h6 {
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
 /**
   * Consistent header heights & colors
   */

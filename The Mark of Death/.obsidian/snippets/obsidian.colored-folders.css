@@ -265,7 +265,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="9"]
     + .nav-folder-children {
-    background-color: var(--Fold7);
+    background-color: var(--Fold8);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -276,7 +276,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="10"]
     + .nav-folder-children {
-    background-color: var(--Fold8);
+    background-color: var(--Fold9);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -287,7 +287,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="11"]
     + .nav-folder-children {
-    background-color: var(--Fold9);
+    background-color: var(--FoldA);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -298,7 +298,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path="12"]
     + .nav-folder-children {
-    background-color: var(--FoldA);
+    background-color: var(--FoldB);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -309,7 +309,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="13"]
     + .nav-folder-children {
-    background-color: var(--FoldB);
+    background-color: var(--FoldC);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -320,7 +320,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path="14"]
     + .nav-folder-children {
-    background-color: var(--FoldC);
+    background-color: var(--FoldD);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -331,7 +331,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="15"]
     + .nav-folder-children {
-    background-color: var(--FoldD);
+    background-color: var(--FoldE);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -342,7 +342,7 @@ You can change these to match your use case.
     > .nav-folder
     > .nav-folder-title[data-path^="16"]
     + .nav-folder-children {
-    background-color: var(--FoldE);
+    background-color: var(--FoldF);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -354,6 +354,19 @@ You can change these to match your use case.
     > .nav-folder-title[data-path^="17"]
     + .nav-folder-children {
     background-color: var(--FoldF);
+}
+
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path~="Archive"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="Archive"]
+    + .nav-folder-children {
+    background-color: var(--background-secondary-alt);
+    color: grey;
 }
 
 /* Scrollbars eliminated */
