@@ -109,8 +109,8 @@ Yoss leads you out over a rope bridge towards the middle of the city. Looking ar
 ````ad-info
 Bob, the lizardfolk around you are heading towards the center of the village. 
 
-```ad-success
-collapse:
+```ad-success 
+collapse: true
 title: If Succeeded Above
 You cannot see the lizardman that has been following you - it seems like he is still in the treetops above you. 
 ```
@@ -120,8 +120,9 @@ What are you doing?
 
 ````ad-info
 ```ad-success
+collapse: true
 title: If Succeeded Above
-collapse:
+
 As you ==do that==, you finally spot the lizardman between the leaves, peering down out you through the branches. 
 ```
 
@@ -139,19 +140,14 @@ The inside of the tree-structure has been turned into a giant ampitheater. The r
 
 ````ad-info
 title: Enter Immediately
-collapse:
-Lizardfolk are streaming in on all sides, heading down into the seating area. [[Yoss]] gestures to you to follow him to a set of stairs off to the side.
+collapse: true
+Lizardfolk are streaming in on all sides, heading down into the seating area. [[Yoss]] gestures to you to follow him to a set of stairs off to the side that spiral down underneath the benches.
 ````
 
 ````ad-info
 title: Go After Bob
-collapse:
+collapse: true
 You see [[Drox]] standing in the middle of the seats, and his magically-amplified voice is booming through the ampitheater.
-
-```ad-quote
-Krot, do not dismiss this so lightly! The Lords of Dust are showing themselves again! We cannot allow this! 
-
-```
 
 ````
 
@@ -163,6 +159,10 @@ Krot, do not dismiss this so lightly! The Lords of Dust are showing themselves a
 - [ ] Circle of flame
 - [ ] Krot questions Jeremiah's intentions, reveals Bob had a Coin of Dust
 
+```
+
+```ad-quote
+Krot, do not dismiss this so lightly! The Lords of Dust are showing themselves again! We cannot allow this! 
 ```
 
 ### Reward
