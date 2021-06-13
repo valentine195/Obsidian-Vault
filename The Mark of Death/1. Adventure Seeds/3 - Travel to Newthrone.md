@@ -141,13 +141,18 @@ The inside of the tree-structure has been turned into a giant ampitheater. The r
 ````ad-info
 title: Enter Immediately
 collapse: true
-Lizardfolk are streaming in on all sides, heading down into the seating area. [[Yoss]] gestures to you to follow him to a set of stairs off to the side that spiral down underneath the benches.
+Lizardfolk are streaming in on all sides, heading down into the seating area. [[Yoss]] gestures to you to follow him to a set of stairs off to the side that spiral down underneath the benches where you meet up with Drox. 
 ````
 
 ````ad-info
 title: Go After Bob
 collapse: true
-You see [[Drox]] standing in the middle of the seats, and his magically-amplified voice is booming through the ampitheater.
+You see [[Drox]] standing in the middle of the twelve seats, eleven of which are filled with the other Cold Sun clan chiefs, and his magically-amplified voice is booming through the ampitheater as you walk in.
+
+```ad-quote
+title: Drox
+The Lords of Dust have begun to make their moves. The Blackscale's attempts at awakening [[Haka'Torvhak]] are growing more frequent and bolder. The time has come to attack!
+```
 
 ````
 
@@ -156,7 +161,6 @@ You see [[Drox]] standing in the middle of the seats, and his magically-amplifie
 ```ad-important
 
 - [ ] Mention that [[Rosamund Yirr]] has been seeing oddities from the Boneyard
-- [ ] Circle of flame
 - [ ] Krot questions Jeremiah's intentions, reveals Bob had a Coin of Dust
 
 ```
@@ -173,7 +177,7 @@ Clearly they are showing themselves again! Drox, éYou brought one into our mids
 
 ```ad-quote
 title: Drox
-Jeremiah, sir Flame, please tell them! This threat, it cannot be allowed to grow!  
+Jeremiah, sir Flame, please tell them! This threat, it cannot be allowed to grow! The voice of the flame entrusted us to keep [[Haka'Torvhak]] silent. 
 ```
 
 ### Reward
