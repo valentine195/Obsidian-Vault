@@ -162,7 +162,18 @@ You see [[Drox]] standing in the middle of the seats, and his magically-amplifie
 ```
 
 ```ad-quote
+title: Drox
 Krot, do not dismiss this so lightly! The Lords of Dust are showing themselves again! We cannot allow this! 
+```
+
+```ad-quote
+title: Krot
+Clearly they are showing themselves again! Drox, éYou brought one into our midsts!
+```
+
+```ad-quote
+title: Drox
+Jeremiah, sir Flame, please tell them! This threat, it cannot be allowed to grow!  
 ```
 
 ### Reward
