@@ -25,5 +25,4 @@ overlayTag: nearby
 zoomTag: nearby
 geojson: 
   - [[geo-lk-günzburg.json]]
-  - [[Rivers_Line.geojson]]
 ```
