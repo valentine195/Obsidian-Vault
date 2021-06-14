@@ -109,8 +109,8 @@ Yoss leads you out over a rope bridge towards the middle of the city. Looking ar
 ````ad-info
 Bob, the lizardfolk around you are heading towards the center of the village. 
 
-```ad-success
-collapse:
+```ad-success 
+collapse: true
 title: If Succeeded Above
 You cannot see the lizardman that has been following you - it seems like he is still in the treetops above you. 
 ```
@@ -120,8 +120,9 @@ What are you doing?
 
 ````ad-info
 ```ad-success
+collapse: true
 title: If Succeeded Above
-collapse:
+
 As you ==do that==, you finally spot the lizardman between the leaves, peering down out you through the branches. 
 ```
 
@@ -139,18 +140,18 @@ The inside of the tree-structure has been turned into a giant ampitheater. The r
 
 ````ad-info
 title: Enter Immediately
-collapse:
-Lizardfolk are streaming in on all sides, heading down into the seating area. [[Yoss]] gestures to you to follow him to a set of stairs off to the side.
+collapse: true
+Lizardfolk are streaming in on all sides, heading down into the seating area. [[Yoss]] gestures to you to follow him to a set of stairs off to the side that spiral down underneath the benches where you meet up with Drox. 
 ````
 
 ````ad-info
 title: Go After Bob
-collapse:
-You see [[Drox]] standing in the middle of the seats, and his magically-amplified voice is booming through the ampitheater.
+collapse: true
+You see [[Drox]] standing in the middle of the twelve seats, eleven of which are filled with the other Cold Sun clan chiefs, and his magically-amplified voice is booming through the ampitheater as you walk in.
 
 ```ad-quote
-Krot, do not dismiss this so lightly! The Lords of Dust are showing themselves again! We cannot allow this! 
-
+title: Drox
+The Lords of Dust have begun to make their moves. The Blackscale's attempts at awakening [[Haka'Torvhak]] are growing more frequent and bolder. The time has come to attack!
 ```
 
 ````
@@ -160,9 +161,23 @@ Krot, do not dismiss this so lightly! The Lords of Dust are showing themselves a
 ```ad-important
 
 - [ ] Mention that [[Rosamund Yirr]] has been seeing oddities from the Boneyard
-- [ ] Circle of flame
 - [ ] Krot questions Jeremiah's intentions, reveals Bob had a Coin of Dust
 
+```
+
+```ad-quote
+title: Drox
+Krot, do not dismiss this so lightly! The Lords of Dust are showing themselves again! We cannot allow this! 
+```
+
+```ad-quote
+title: Krot
+Clearly they are showing themselves again! Drox, éYou brought one into our midsts!
+```
+
+```ad-quote
+title: Drox
+Jeremiah, sir Flame, please tell them! This threat, it cannot be allowed to grow! The voice of the flame entrusted us to keep [[Haka'Torvhak]] silent. 
 ```
 
 ### Reward
