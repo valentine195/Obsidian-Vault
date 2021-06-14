@@ -4,7 +4,7 @@ mapmarker: event
 nearby: 120 mi
 mapmarkers:
   - [location, [47.337838,10.9404818], "Test"]
-  - [events, [48.337838,11.9404818], "20"]
+  - [event, [48.337838,11.9404818], "20"]
 mapoverlay:
     - [orange, [48.3434334,10.9393137], 20 m, "🅿️ Parkplatz Kuhsee Nord"]
     - [blue, [48.3386505,10.9439455], 20 m, "🅿️ Parkplatz Kuhsee Süd"]
