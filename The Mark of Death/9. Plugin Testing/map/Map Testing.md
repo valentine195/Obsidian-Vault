@@ -19,6 +19,7 @@ unit: km
 marker: location, -2, 3,
 markerFile: [[Untitled]]
 markerFile: [[Direct Marker]]
+coordinates: [[Direct Marker]]
 overlayTag: nearby
 zoomTag: nearby
 ```
