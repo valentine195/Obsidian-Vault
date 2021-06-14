@@ -23,4 +23,5 @@ markerFile: [[Direct Marker]]
 coordinates: [[Direct Marker]]
 overlayTag: nearby
 zoomTag: nearby
+geojson: [[geo-lk-günzburg.json]]
 ```
