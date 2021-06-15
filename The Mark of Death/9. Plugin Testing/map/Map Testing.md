@@ -21,6 +21,8 @@ marker: location, -2, 3,
 markerFile: [[Untitled]]
 markerFile: [[Direct Marker]]
 overlayTag: nearby
+overlayColor: blue
+geojsonColor: blue
 geojson: 
   - [[geo-usa-columbus.json]]
 ```
