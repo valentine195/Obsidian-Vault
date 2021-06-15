@@ -19,10 +19,8 @@ defaultZoom: 10
 unit: km
 marker: location, -2, 3,
 markerFile: [[Untitled]]
+markerFile: [[Direct Marker 2]]
 markerFile: [[Direct Marker]]
+coordinates: [[Direct Marker]]
 overlayTag: nearby
-overlayColor: blue
-geojsonColor: blue
-geojson: 
-  - [[geo-usa-columbus.json]]
 ```
