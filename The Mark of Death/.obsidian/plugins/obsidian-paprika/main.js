@@ -78,7 +78,7 @@ class API {
                 redirect: "follow"
             };
             console.log("🚀 ~ file: index.ts ~ line 44 ~ requestOptions", requestOptions);
-            fetch("https://secret-ocean-49799.herokuapp.com//https://www.paprikaapp.com/api/v2/account/login/", requestOptions)
+            fetch("https://vast-woodland-91876.herokuapp.com/https://www.paprikaapp.com/api/v2/account/login/", requestOptions)
                 .then((response) => response.text())
                 .then((result) => console.log(result))
                 .catch((error) => console.log("error", error));
