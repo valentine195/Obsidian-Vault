@@ -1,5 +1,8 @@
 ---
 aliases: Jeremiah
+type: pc
+tag:
+  - pc/alive
 ---
 
 Warforged Paladin, played by Brian Marshall

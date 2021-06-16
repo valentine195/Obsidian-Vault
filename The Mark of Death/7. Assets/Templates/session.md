@@ -1,17 +1,27 @@
-# Session on 
+# Session
 
-## Main characters
+## Characters
+```dataview
+list from #pc/alive 
+```
 
-## Create a strong start
+## Strong Start
 
-## Potential scenes
 
-## Secrets and clues
+## Scenes
 
-## Locations
+
+## Secrets and Clues
+
+
+## Fantastic Locations
+
 
 ## Important NPCs
 
-## Encounter
-- [ ] Choose relevant monsters 
-- [ ] Select magic item rewards
+
+## Potential Monsters
+
+
+## Potential Treasure
+
