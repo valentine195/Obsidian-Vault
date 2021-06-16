@@ -1,10 +1,28 @@
 <%*
 function getNextSessionNumber() {
-	console.log(tp.obsidian.app)
+	const {index} = this.app.plugins?.plugins?.dataview ?? {} 
+	
+	if (!index) return;
+	
+	const tags = Array.from(index.etags.invMap);
+	
+	const sessionTags = tags.filter(([tag, set]) => {
+		return /\#session\/\d+/.test(tag)
+	});
+	
+	return sessionTags?.length + 1 ?? 1; 
+	
 }
 
-getNextSessionNumber()
-%>
+const YAML =`---
+type: session
+date: 
+session: ${getNextSessionNumber()}
+tags:
+  - session/planning
+  - session/${getNextSessionNumber()}
+---`;
+tR += YAML; %>
 
 # Session
 
