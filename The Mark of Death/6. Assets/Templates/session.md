@@ -1,3 +1,11 @@
+<%*
+function getNextSessionNumber() {
+	console.log(tp.obsidian.app)
+}
+
+getNextSessionNumber()
+%>
+
 # Session
 
 ## Characters
