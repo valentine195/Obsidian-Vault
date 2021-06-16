@@ -1,8 +1,11 @@
 ---
 date updated: '2021-05-17T13:28:48-04:00'
 type: recap
+session: 6
+date: 21-4-10
 tags:
-  - recap
+  - session/recap
+  - session/6
 ---
 
 - mim: we could send a letter with the ring saying he's still alive or forge Ven Leser's handwriting

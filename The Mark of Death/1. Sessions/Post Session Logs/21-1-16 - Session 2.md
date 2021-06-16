@@ -1,8 +1,10 @@
 ---
 date updated: '2021-05-04T12:57:54-04:00'
 type: recap
+session: 2
+date: 21-1-16
 tags:
-  - recap
+  - session/recap
 
 ---
 

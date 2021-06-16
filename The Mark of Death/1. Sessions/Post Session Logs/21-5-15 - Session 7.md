@@ -1,8 +1,11 @@
 ---
 date updated: '2021-05-17T13:28:52-04:00'
 type: recap
+session: 7
+date: 21-5-15
 tags:
-  - recap
+  - session/recap
+  - session/7
 ---
 
 - BOB IS WANDERING AROUND

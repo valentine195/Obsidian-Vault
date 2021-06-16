@@ -1,8 +1,11 @@
 ---
 date updated: '2021-03-30T20:36:10-04:00'
 type: recap
+session: 5
+date: 21-3-13
 tags:
-  - recap
+  - session/recap
+  - session/5
 ---
 
 The Heroes started in the Dhakaani temple. They saw Quinn's body melt away into nothingness, then long rested. While resting, Bob and Mim had a heart to heart about Mim's disregard for life, and then the group decided to rescue Jasper from Sharn. They backtracked through the mine and when they met the miners at the entrance, they told them that they saw the same thing - the bandits bodies just melted away into nothingness.

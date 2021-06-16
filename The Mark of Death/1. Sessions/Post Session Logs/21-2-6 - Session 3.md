@@ -1,8 +1,10 @@
 ---
 date updated: '2021-03-30T20:35:14-04:00'
 type: recap
+session: 3
+date: 21-2-6
 tags:
-  - recap
+  - session/recap
 ---
 
 The group long rested and nursed Jasper and [[Conk]] back to health. Jasper told them that he heard Percy talking about hearing information from Heather, the mayor's assistant. They went looking for her and found her in the Mayor's office, rifling through the bookcases, muttering "I know it's here somewhere."

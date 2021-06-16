@@ -36,7 +36,7 @@ where status = "current"
 ## Recaps
 
 ### Last Session
-![[21-5-15]]
+![[21-5-15 - Session 7]]
 
 ### All Sessions
 ```dataview
