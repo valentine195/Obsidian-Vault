@@ -2,12 +2,9 @@
 id: test2
 height: 100%
 maxZoom: 25
-defaultZoom: 10
+defaultZoom: 6
 unit: km
 overlayTag: nearby
-geojson: 
-  - [[geo-usa-columbus.json]]
-  - [[geo-usa-route66-edit.geojson]]
-zoomFeatures: true
+coordinates: [[Direct Marker 2]]
 markerFile: [[Direct Marker 2]]
 ```

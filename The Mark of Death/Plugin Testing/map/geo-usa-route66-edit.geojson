@@ -16,7 +16,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Extension of US 66 in 1937, upon completion of land reclamation for 1937 Chicago World's Fair",
         "stroke": "#ff0000",
         "title": "Jackson Road Extension"
@@ -44,7 +44,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Both eastbound and westbound until 1955; once converted to eastbound, Adams St became westbound",
         "stroke": "#ff0000",
         "title": "Jackson Blvd"
@@ -77,7 +77,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Westbound route after 1955",
         "stroke": "#ff0000",
         "title": "Adams St"
@@ -115,7 +115,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Chicago to Lyons"
       },
@@ -167,7 +167,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Lyons to McCook pre-1928"
       },
@@ -269,7 +269,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Lyons to McCook post-1928"
       },
@@ -451,7 +451,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "McCook to Bolingbrook"
       },
@@ -933,7 +933,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Bolingbrook to Gardner pre-1940"
       },
@@ -1195,7 +1195,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Bolingbrook to Gardner post-1940"
       },
@@ -1772,7 +1772,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Gardner to Bloomington"
       },
@@ -1849,7 +1849,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Bloomington 4-Lane Routing"
       },
@@ -1911,7 +1911,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Bloomington Veterans Parkway Bypass"
       },
@@ -2148,7 +2148,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Bloomington to Lincoln"
       },
@@ -2265,7 +2265,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Lincoln 2-Lane Routing"
       },
@@ -2367,7 +2367,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Lincoln 4-Lane Bypass"
       },
@@ -2584,7 +2584,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Lincoln to Sherman"
       },
@@ -2676,7 +2676,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Springfield City Loop Alternative"
       },
@@ -2753,7 +2753,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Springfield Mainline"
       },
@@ -3740,7 +3740,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Springfield past Stauton pre-1930"
       },
@@ -3922,7 +3922,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Springfield to Litchfield post-1930"
       },
@@ -4039,7 +4039,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Litchfield 1930-1940"
       },
@@ -4111,7 +4111,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Litchfield post-1940"
       },
@@ -4143,7 +4143,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Litchfield to Mt. Olive post-1940"
       },
@@ -4235,7 +4235,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Mt Olive 1930-1940"
       },
@@ -4322,7 +4322,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Mt. Olive post-1940"
       },
@@ -4574,7 +4574,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Stauton 1930-1940"
       },
@@ -4611,7 +4611,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Stauton to Hamel pre-1940"
       },
@@ -4743,7 +4743,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "South of Mt Olive to Hamel post-1940"
       },
@@ -4770,7 +4770,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "South of Mt Olive post-1930"
       },
@@ -5252,7 +5252,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Hamel to Mitchell pre-1940"
       },
@@ -5274,7 +5274,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "If travelling south overall, Pre-1940 travelling West, post-1940 travelling East",
         "stroke": "#ff0000",
         "title": "Through Hamel"
@@ -5472,7 +5472,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Mitchell to St Louis pre-1930"
       },
@@ -5859,7 +5859,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "US-66 Bypass (Mitchell to Sunset Hills)"
       },
@@ -6311,7 +6311,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Hamel to St. Louis post-1940"
       },
@@ -6493,7 +6493,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "St Louis to Sunset Hills (later alignment)"
       },
@@ -7330,7 +7330,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Manchester Road Alignment from St Louis to Gray Summit (original)"
       },
@@ -7842,7 +7842,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Sunset Hills to Gray Summit (later alignment)"
       },
@@ -11454,7 +11454,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Gray Summit to Hooker"
       },
@@ -11931,7 +11931,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Devil's Elbow (Earlier 2 Lane Alignment)"
       },
@@ -12103,7 +12103,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Past Devil's Elbow (Later 4 lane alignment)"
       },
@@ -12600,7 +12600,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Saint Robert to Hanna"
       },
@@ -12787,7 +12787,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Original 1926 Alignment through LaQuey"
       },
@@ -12874,7 +12874,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Bypass of LaQuey"
       },
@@ -14646,7 +14646,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "LaQuey to Springfield"
       },
@@ -14768,7 +14768,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Springfield pre-1935"
       },
@@ -14815,7 +14815,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Through Springfield post-1936"
       },
@@ -15357,7 +15357,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Springfield to Joplin"
       },
@@ -15459,7 +15459,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "City Route through Joplin"
       },
@@ -15496,7 +15496,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Bypass through Joplin"
       },
@@ -15518,7 +15518,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Joplin to Galena"
       },
@@ -15615,7 +15615,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Galena pre-1933"
       },
@@ -15667,7 +15667,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Through Galena post-1933"
       },
@@ -15754,7 +15754,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Galena to Baxter Springs"
       },
@@ -15781,7 +15781,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "S of Baxter Springs pre-1930s"
       },
@@ -15823,7 +15823,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "S of Baxter Springs 1930s"
       },
@@ -15870,7 +15870,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "S of Baxter Springs post-1930s"
       },
@@ -16072,7 +16072,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Baxter Springs to Miami"
       },
@@ -16199,7 +16199,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Take caution",
         "stroke": "#ffaaff",
         "title": "From Miami (before paving)"
@@ -16307,7 +16307,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Past Miami (after paving)"
       },
@@ -16329,7 +16329,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Through Narcissa"
       },
@@ -16381,7 +16381,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Take caution, especially at railroad tracks",
         "stroke": "#ffaaff",
         "title": "To Afton (Before Paving)"
@@ -16439,7 +16439,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "To Afton (After paving)"
       },
@@ -16836,7 +16836,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Afton to Catoosa"
       },
@@ -16933,7 +16933,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "North of Catoosa (old alignment)"
       },
@@ -16995,7 +16995,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "North of Catoosa (bypass)"
       },
@@ -17067,7 +17067,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Catoosa to Tulsa"
       },
@@ -17119,7 +17119,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Tulsa: Admiral Place Alignment"
       },
@@ -17141,7 +17141,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Tulsa: 11th St Alignment"
       },
@@ -17968,7 +17968,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Tulsa to Kellyville"
       },
@@ -18005,7 +18005,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "South of Kellyville (No longer road)"
       },
@@ -18042,7 +18042,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "South of Kellyville (Actually road)"
       },
@@ -18429,7 +18429,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Kellyville to Depew"
       },
@@ -18836,7 +18836,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Depew to Stroud (pre 1939)"
       },
@@ -19083,7 +19083,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Depew to Stroud (post-1939)"
       },
@@ -19355,7 +19355,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Stroud to Wellston"
       },
@@ -19467,7 +19467,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Wellston (pre-1933)"
       },
@@ -19504,7 +19504,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Past Wellston (post-1933)"
       },
@@ -19681,7 +19681,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Through Luther"
       },
@@ -19748,7 +19748,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Outside Arcadia (Newer Alignment)"
       },
@@ -19835,7 +19835,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Outside Arcadia (Older Alignment)"
       },
@@ -19897,7 +19897,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Conoco Station"
       },
@@ -19964,7 +19964,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Through Arcadia"
       },
@@ -20121,7 +20121,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Bypass of Edmond (post-1954)"
       },
@@ -20203,7 +20203,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Edmond (pre-1954)"
       },
@@ -20610,7 +20610,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Oklahoma City to El Paso"
       },
@@ -20822,7 +20822,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Calumet and Geary"
       },
@@ -20994,7 +20994,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Bypass of Calumet and Geary"
       },
@@ -21126,7 +21126,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Bridgeport to Weatherford"
       },
@@ -21188,7 +21188,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Weatherford (Main Street)"
       },
@@ -21215,7 +21215,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Weatherford (Davis and Washington Streets)"
       },
@@ -22832,7 +22832,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Weatherford to Amarillo"
       },
@@ -22869,7 +22869,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Amarillo Airport"
       },
@@ -22916,7 +22916,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Into Amarillo"
       },
@@ -22998,7 +22998,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Amarillo Airport Bypass"
       },
@@ -23070,7 +23070,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Amarillo Bypass"
       },
@@ -23137,7 +23137,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Amarillo City Route"
       },
@@ -23469,7 +23469,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Amarillo to Glenrio"
       },
@@ -23586,7 +23586,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Only recently paved",
         "stroke": "#ffaaff",
         "title": "Glenrio to San Jon (early unpaved alignment)"
@@ -23649,7 +23649,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Glenrio to San Jon later alignment"
       },
@@ -24216,7 +24216,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "San Jon to Cuervo"
       },
@@ -24293,7 +24293,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Don't even try",
         "stroke": "#ffaaff",
         "title": "Cuervo to Santa Rosa (older alignment)"
@@ -24421,7 +24421,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Don't even try the other alignment",
         "stroke": "#ff0000",
         "title": "Cuervo to Santa Rosa (newer, preferred alignment)"
@@ -24644,7 +24644,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Santa Rosa to Vegas Junction"
       },
@@ -26731,7 +26731,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Vegas Junction to Santa Fe (pre-1937)"
       },
@@ -28973,7 +28973,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "From Santa Fe to Route 16: A dirt road built for the model-T, not even 4x4's are completely safe on this most dangerous stretch of Route 66. If you don't have a 4x4 vehicle, or if the weather is or has been bad, do not take this route. DO NOT TAKE THIS ROUTE",
         "stroke": "#ffaaff",
         "title": "Santa Fe to Algodones pre-1932"
@@ -29346,7 +29346,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Don't worry about the other alignment",
         "stroke": "#ffaaff",
         "title": "Santa Fe to Algodones (1932-1937)"
@@ -30819,7 +30819,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Algodones to Mesita (pre-1937)"
       },
@@ -31691,7 +31691,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Vegas Junction to Mesita"
       },
@@ -32108,7 +32108,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Mesita to Budville"
       },
@@ -32255,7 +32255,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Budville to San Fidel (pre-1937)"
       },
@@ -32337,7 +32337,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Budville to San Fidel (post-1937)"
       },
@@ -35199,7 +35199,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "San Fidel to Winona"
       },
@@ -35541,7 +35541,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Winona to Flagstaff (pre-1947)"
       },
@@ -35778,7 +35778,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Winona to Flagstaff (post-1947)"
       },
@@ -36630,7 +36630,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Flagstaff to Williams"
       },
@@ -36672,7 +36672,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Williams (pre-1941)"
       },
@@ -36724,7 +36724,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Through Williams (post-1941)"
       },
@@ -38501,7 +38501,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Williams to McConnico"
       },
@@ -41718,7 +41718,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Oatman Highway",
         "stroke": "#ffaaff",
         "title": "McConnico to Topock (pre-1952)"
@@ -41936,7 +41936,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "McConnico to Topock (post-1952)"
       },
@@ -42308,7 +42308,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "From Topock (pre-1947)"
       },
@@ -42445,7 +42445,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "From Topock (1947-66)"
       },
@@ -42627,7 +42627,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Into Needles (pre-1966)"
       },
@@ -42724,7 +42724,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Topock to Needles (post-1966)"
       },
@@ -42886,7 +42886,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Into Needles from the South"
       },
@@ -42933,7 +42933,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Through Needles (older alignment)"
       },
@@ -42975,7 +42975,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Through Needles (newer alignment)"
       },
@@ -43132,7 +43132,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Needles to Klinefelter"
       },
@@ -43579,7 +43579,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Klinefelter to near Fenner (pre-1931)"
       },
@@ -43776,7 +43776,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Klinefelter to near Fenner (post-1931)"
       },
@@ -45698,7 +45698,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Fenner to Monrovia"
       },
@@ -45730,7 +45730,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Monrovia to Arcadia (pre-1933)"
       },
@@ -45752,7 +45752,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Monrovia to Arcadia (post-1933)"
       },
@@ -45824,7 +45824,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Arcadia to Pasadena"
       },
@@ -46021,7 +46021,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Pasadena to Los Angeles (original alignment)"
       },
@@ -46073,7 +46073,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Into Los Angeles (pre-1940)"
       },
@@ -46110,7 +46110,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "description": "Original terminus was in Los Angeles, and was later extended to Santa Monica",
         "stroke": "#ffaaff",
         "title": "Into Los Angeles (original alignment)"
@@ -46423,7 +46423,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Pasadena to Los Angeles (post-original alignment to 1940)"
       },
@@ -46670,7 +46670,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Pasadena to Los Angeles (post-1940)"
       },
@@ -46702,7 +46702,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ffaaff",
         "title": "Los Angeles Towards Santa Monica (post-original alignment to 1940)"
       },
@@ -46939,7 +46939,7 @@
         ],
         "type": "LineString"
       },
-      "properties": {
+      "properties": { "stroke-width": 3,
         "stroke": "#ff0000",
         "title": "Los Angeles to Santa Monica (post-original alignment)"
       },
