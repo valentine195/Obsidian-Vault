@@ -4,9 +4,13 @@ lat: 37.6556
 long: -101.7334
 #minZoom: 4
 maxZoom: 18
-#defaultZoom: 4.5
+defaultZoom: 6
 zoomDelta: 0.5
-zoomFeatures: true
+long: -87.617232
+lat: 41.8784146
 geojson: 
   - [[geo-usa-route66-edit.geojson]]
+  - [[geo-bayern-landkreise.geojson]]
+  - [[geo-usa-columbus.json]]
+  - [[geo-lk-günzburg-gemeinden.geojson]]
 ```
