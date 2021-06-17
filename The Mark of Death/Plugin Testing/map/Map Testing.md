@@ -19,4 +19,5 @@ defaultZoom: 10
 unit: km
 marker: location, -2, 3,
 overlayTag: nearby
+geojson: [[geo-usa-columbus.json]]
 ```
