@@ -22,4 +22,5 @@ overlayTag: nearby
 geojson: [[geo-usa-columbus.json]]
 coordinates: [[Direct Marker 2]]
 markerFile: [[Direct Marker 2]]
+zoomFeatures: true
 ```
