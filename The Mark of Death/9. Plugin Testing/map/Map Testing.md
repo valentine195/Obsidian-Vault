@@ -9,6 +9,7 @@ scale: 400
 overlayColor: orange
 ```
 
+---
 
 ```leaflet
 id: test2
@@ -19,6 +20,9 @@ unit: km
 marker: location, -2, 3,
 markerFile: [[Untitled]]
 markerFile: [[Direct Marker]]
+coordinates: [[Direct Marker]]
 overlayTag: nearby
 zoomTag: nearby
+geojson: 
+  - [[geo-lk-günzburg.json]]
 ```
