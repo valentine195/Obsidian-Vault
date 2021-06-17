@@ -368,6 +368,18 @@ You can change these to match your use case.
     background-color: var(--background-secondary-alt);
     color: grey;
 }
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path~="Plugin"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="Plugin"]
+    + .nav-folder-children {
+    background-color: var(--background-secondary-alt);
+    color: grey;
+}
 
 /* Scrollbars eliminated */
 ::-webkit-scrollbar {
