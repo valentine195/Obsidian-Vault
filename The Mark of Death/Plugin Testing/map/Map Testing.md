@@ -8,7 +8,5 @@ maxZoom: 18
 zoomDelta: 0.5
 zoomFeatures: true
 geojson: 
-  #- [[geo-usa-route66-edit2.geojson]]
-  - [[geo-bayern-landkreise.geojson]]
-  - [[geo-lk-günzburg-gemeinden.geojson]]
+  - [[geo-usa-route66-edit.geojson]]
 ```
