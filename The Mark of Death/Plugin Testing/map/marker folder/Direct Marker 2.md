@@ -1,8 +1,7 @@
 ---
-#location: [48.323380433488, 10.443368000767947] # Start Nord
-location: [48.2969, 10.459] # Start Süd
+location: [48.23875,10.37595]
 mapmarker: location
-# The map overlay shows 11 stations of an educational nature trail
+# stack smaller areas UNDER large ones or you won’t be able to access them!
 mapoverlay:
   - ['rgba(192, 0, 192, .6)', [48.2969, 10.459], 5 m, "GIEP Startpunkt Süd"]
   - ['rgba(192, 0, 192, .6)', [48.301, 10.4565], 5 m, "GIEP 1. Kanal und Wehr, Fischtreppe"]
@@ -17,6 +16,6 @@ mapoverlay:
   - ['rgba(192, 0, 192, .6)', [48.3192, 10.4455], 5 m, "GIEP 10. Biber"]
   - ['rgba(192, 0, 192, .6)', [48.3216, 10.4441], 5 m, "GIEP 11. Naturraum Mindeltal"]
   - ['rgba(192, 0, 192, .6)', [48.3234, 10.4437], 5 m, "GIEP Startpunkt Nord"]
-
-nearby: 2 km
+birthday: 1959-07-19
+nearby: 10 km
 ---

@@ -7,4 +7,5 @@ unit: km
 overlayTag: nearby
 coordinates: [[Direct Marker 2]]
 markerFile: [[Direct Marker 2]]
+markerFile: [[Direct Marker]]
 ```
