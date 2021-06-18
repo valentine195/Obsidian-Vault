@@ -12,6 +12,8 @@
             },
             "properties": {
                 "name": "(My address)",
+                "description": "Test",
+                "marker-symbol": "location",
                 "styleUrl": "#icon-1899-DB4436-nodesc",
                 "styleHash": "39590fa4",
                 "styleMapHash": {
