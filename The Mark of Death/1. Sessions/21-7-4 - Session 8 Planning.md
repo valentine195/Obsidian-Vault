@@ -64,7 +64,11 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 - [[Gauntlets of Deliverance]]
 ```
 
-### Assault on Bob
+### Assault on Bob / Bob Meets the Shamans
+
+- "This coin... it has left a filth on you"
+- She shuddered, then drew a deep, ragged breath and looked up with empty eyes that slowly turned black
+	- **Portent about Bob / His Father**
 
 
 ### Thunder in the Night
