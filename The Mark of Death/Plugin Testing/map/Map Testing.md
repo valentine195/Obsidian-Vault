@@ -11,4 +11,5 @@ lat: 41.8784146
 markerFile: [[Direct Marker 2]]
 overlayTag: nearby
 coordinates: [[Direct Marker 2]]
+geojson: [[geo-usa-route66-edit.geojson]]
 ```
