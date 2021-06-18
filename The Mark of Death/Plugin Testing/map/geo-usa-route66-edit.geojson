@@ -1,5 +1,26 @@
 {
   "features": [
+     {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    10.3762215,
+                    48.2389175,
+                    0
+                ]
+            },
+            "properties": {
+                "name": "(My address)",
+                "styleUrl": "#icon-1899-DB4436-nodesc",
+                "styleHash": "39590fa4",
+                "styleMapHash": {
+                    "normal": "#icon-1899-DB4436-nodesc-normal",
+                    "highlight": "#icon-1899-DB4436-nodesc-highlight"
+                },
+                "icon": "https://www.gstatic.com/mapspro/images/stock/503-wht-blank_maps.png"
+            }
+        }, 
     {
       "geometry": {
         "coordinates": [
