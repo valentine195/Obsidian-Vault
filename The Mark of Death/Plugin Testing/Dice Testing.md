@@ -17,4 +17,4 @@ dice: 1d[[Lizardfolk Names#^c6bf5c]]
 | 6   | Grape     | Purple |
 ^fruit-and-color-table
 
-`dice: [[Dice Testing#^fruit-and-color-table]]`
+`dice: [[Dice Testing^fruit-and-color-table]]|Fruit`
