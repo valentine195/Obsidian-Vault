@@ -67,8 +67,10 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 ### Assault on Bob / Bob Meets the Shamans
 
 - "This coin... it has left a filth on you"
-- She shuddered, then drew a deep, ragged breath and looked up with empty eyes that slowly turned black
-	- **Portent about Bob / His Father**
+- She shudders, then draws a deep, ragged breath and looks up with empty eyes that slowly turn black. She stares through you, unseeing, then throws her head back:
+	- THE LADY OF DEATH, THE UNDYING ONE, MOVES SHROUDED IN DUST, TOWARDS
+	- A SECOND DAY OF MOURNING THAT WILL DOUSE THE FLAME OF LIFE AND
+	- ALLOW YOUR FATHER'S MISTAKE TO UNDO YOUR FATHER'S SACRIFICE 
 
 
 ### Thunder in the Night
