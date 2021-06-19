@@ -1,22 +1,13 @@
 ```leaflet
-id: test
-image: [[Khorvaire.jpg]]
-height: 500px
-maxZoom: 10
-defaultZoom: 5
-unit: mi
-scale: 400
-overlayColor: orange
-```
-
----
-
-```leaflet
-id: test2
-height: 500px
-maxZoom: 25
-defaultZoom: 10
-unit: km
-marker: location, -2, 3,
-overlayTag: nearby
+id: route66
+lat: 37.6556
+long: -101.7334
+#minZoom: 4
+maxZoom: 18
+defaultZoom: 6
+zoomDelta: 0.5
+long: -87.617232
+lat: 41.8784146
+coordinates: [[Direct Marker 2]]
+geojson: [[geo-usa-route66-edit.geojson]]
 ```

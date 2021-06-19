@@ -38,7 +38,7 @@ While the three of you take in the house, Bob, where would you like to go?
 Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red.
 
 Bob, give me a perception check.
-dice: 1d20 -> Stealth Roll 1
+`dice: 1d20` -> Stealth Roll 1
 
 ```ad-success
 collapse: closed
@@ -64,7 +64,11 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 - [[Gauntlets of Deliverance]]
 ```
 
-### Assault on Bob
+### Assault on Bob / Bob Meets the Shamans
+
+- "This coin... it has left a filth on you"
+- She shuddered, then drew a deep, ragged breath and looked up with empty eyes that slowly turned black
+	- **Portent about Bob / His Father**
 
 
 ### Thunder in the Night
