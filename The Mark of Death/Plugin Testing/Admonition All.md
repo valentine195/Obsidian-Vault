@@ -21,8 +21,8 @@ test
 
 123
 
-```ad-bug
+??? ad-bug
 
 abc
 
-```
+--- admonition
