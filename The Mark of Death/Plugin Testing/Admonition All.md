@@ -4,7 +4,7 @@
 
 
 
-````ad-info
+````ad-note
 e
 
 ```ad-info
@@ -21,7 +21,7 @@ test
 
 123
 
-```ad-info
+```ad-bug
 
 abc
 
