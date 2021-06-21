@@ -1,20 +1,4 @@
-````ad-note
-e
-
-```ad-info
-
 abc
-
-```
-
-
-````
-
-
-test
-
-123
-
 
 ???+ ad-bug
 
@@ -24,5 +8,12 @@ abc
 
 # ABC
 ## Def
+
+--- admonition
+
+
+!!! ad-info
+
+123
 
 --- admonition
