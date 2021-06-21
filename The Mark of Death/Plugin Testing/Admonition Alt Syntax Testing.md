@@ -4,3 +4,8 @@ collapse: true
 
 <-- END -->
 
+```ad-info
+
+test
+
+```
