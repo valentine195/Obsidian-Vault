@@ -1,5 +1,12 @@
 .obsidian-initiative-tracker .initiative-tracker-buttons {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     align-items: center;
+}
+.obsidian-initiative-tracker .initiative-tracker-buttons  svg {
+    width: 17px;
+    height: 17px;
+ }
+.obsidian-initiative-tracker .initiative-tracker-buttons > *:not(:last-child) {
+margin-right: 0.25rem;
 }
