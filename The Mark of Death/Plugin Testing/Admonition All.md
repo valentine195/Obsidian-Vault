@@ -13,11 +13,6 @@ abc
 --- admonition
 
 
-# ABC
-## Def
-
---- admonition
-
 ???+ ad-dnd
 
 a
