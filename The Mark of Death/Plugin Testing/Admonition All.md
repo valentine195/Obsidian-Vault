@@ -1,32 +1,17 @@
 abc
 
-???+ ad-bug Test 123
+```ad-info
 
-a
-abc
-[[Thug]]
+$$
+1 +  \frac{q^2}{(1-q)}+\frac{q^6}{(1-q)(1-q^2)}+\cdots =
+    \prod_{j=0}^{\infty}\frac{1}{(1-q^{5j+2})(1-q^{5j+3})},
+     \quad\quad \text{for $|q|<1$}.
+$$
 
+```
+
+!!! ad-info
+
+Test
 
 --- admonition
-
-
-!!! ad-dnd  
-
-a
-abc
-[[Thug]]
-
-# ABC
-- Test this
-	- and this
-		- and this
-## Def
-
-abc def
-
-- [ ] Test
-
-lorem ipsum
---- admonition
-
-test 123
