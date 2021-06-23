@@ -48,18 +48,13 @@
 }
 .add-creature-container {
     display: flex;
-    justify-content: flex-end;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
     height: 25px;
     margin-right: 0.5rem;
 }
-
-.buttons[data-v-3e5932cd] {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-.buttons > *[data-v-3e5932cd]:not(:last-child) {
-    margin-right: 0.25rem;
+.add-button {
+    align-self: flex-end;
 }
 
 .table[data-v-07a9a4c8] {
@@ -81,6 +76,15 @@
 }
 .table .initiative-tracker-creature[data-v-07a9a4c8]:not(:last-child) {
     border-bottom: 1px solid var(--background-modifier-border-focus);
+}
+
+.buttons[data-v-3e5932cd] {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.buttons > *[data-v-3e5932cd]:not(:last-child) {
+    margin-right: 0.25rem;
 }
 
 .creature[data-v-4543140b] {
