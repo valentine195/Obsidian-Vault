@@ -34,10 +34,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0.5rem 0;
 }
 
 .obsidian-initiative-tracker
     .initiative-tracker-table
     .initiative-tracker-creature:not(:last-child) {
-    margin-bottom: 0.25rem;
+    border-bottom: 1px solid var(--background-modifier-border-focus);
 }
