@@ -1,19 +1,16 @@
 abc
 
-???+ ad-bug
+???+ ad-bug Test 123
 
 a
 abc
 [[Thug]]
 
-!!! ad-info Testing abc 123 4320-012098=
-
-123
 
 --- admonition
 
 
-???+ ad-dnd
+!!! ad-dnd  
 
 a
 abc
