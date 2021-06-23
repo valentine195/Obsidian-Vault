@@ -16,12 +16,28 @@
 }
 
 .obsidian-initiative-tracker .initiative-tracker-table {
+    margin: 0.5rem;
     display: flex;
     justify-content: flex-start;
-    align-items: space-between;
+    align-items: flex-start;
     flex-flow: column nowrap;
 }
 
 .obsidian-initiative-tracker .initiative-tracker-table.no-creatures {
-    justify-content: center;
+    align-items: center;
+}
+
+.obsidian-initiative-tracker
+    .initiative-tracker-table
+    .initiative-tracker-creature {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.obsidian-initiative-tracker
+    .initiative-tracker-table
+    .initiative-tracker-creature:not(:last-child) {
+    margin-bottom: 0.25rem;
 }
