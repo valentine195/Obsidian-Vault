@@ -43,11 +43,42 @@
     border-bottom: 1px solid var(--background-modifier-border-focus);
 }
 
-#app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-align: center;
-    color: #2c3e50;
-    margin-top: 60px;
+.obsidian-initiative-tracker {
+    margin: 0.5rem;
+}
+.add-creature-container {
+    display: flex;
+    justify-content: flex-end;
+    height: 25px;
+    margin-right: 0.5rem;
+}
+
+.table[data-v-07a9a4c8] {
+    margin: 0.5rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+}
+.table.no-creatures[data-v-07a9a4c8] {
+    align-items: center;
+}
+.table .initiative-tracker-creature[data-v-07a9a4c8] {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+}
+.table .initiative-tracker-creature[data-v-07a9a4c8]:not(:last-child) {
+    border-bottom: 1px solid var(--background-modifier-border-focus);
+}
+
+.buttons[data-v-3e5932cd] {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+.buttons > *[data-v-3e5932cd]:not(:last-child) {
+    margin-right: 0.25rem;
 }
