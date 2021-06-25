@@ -1,0 +1,3 @@
+.initiative-tracker-add-player-modal .has-error {
+    border: var(--text-error);
+}
