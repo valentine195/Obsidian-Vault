@@ -1,6 +1,9 @@
 ---
 date updated: '2021-06-16T10:01:34-04:00'
 type: pc
+hp: 23
+ac: 17
+modifier: 2
 tag:
   - pc/alive
 ---

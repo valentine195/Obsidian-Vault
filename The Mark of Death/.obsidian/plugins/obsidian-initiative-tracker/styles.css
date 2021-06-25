@@ -1,3 +1,9 @@
 .initiative-tracker-add-player-modal .has-error {
-    border: var(--text-error);
+    border-color: var(--background-modifier-error-hover);
+}
+
+.initiative-tracker-additional-container .initiative-tracker-players {
+    display: grid;
+    grid-template-columns: 1fr auto auto auto auto;
+    gap: 0.5rem;
 }
