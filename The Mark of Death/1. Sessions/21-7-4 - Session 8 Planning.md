@@ -8,8 +8,6 @@ tags:
   - session/8
 ---
 
-![[Khorvaire.jpg|profile|sprf|pc|right]]
-
 # Session 8
 ### Adventure seed
 [[3 - Travel to Newthrone]]
