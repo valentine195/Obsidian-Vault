@@ -1,1 +1,1 @@
-{"players":[{"note":"Bob","name":"Bob","ac":17,"hp":23,"modifier":2},{"note":"Jeremiah Pumpernickle","name":"Jeremiah Pumpernickle"},{"note":"Mim","name":"Mim"},{"note":"Merigold","name":"Merigold"}],"version":"0.0.1"}
+{"players":[{"note":"Bob","name":"Bob","ac":17,"hp":23,"modifier":2,"player":true},{"note":"Jeremiah Pumpernickle","name":"Jeremiah Pumpernickle","player":true},{"note":"Mim","name":"Mim","player":true},{"note":"Merigold","name":"Merigold","player":true}],"version":"0.0.1"}
