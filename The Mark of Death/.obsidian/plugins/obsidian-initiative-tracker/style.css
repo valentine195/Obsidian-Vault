@@ -46,23 +46,6 @@
 }
 
 .initiative-tracker-settings .initiative-sync {
-    border-top: 1px solid var(--background-modifier-border);
-    margin-top: 18px;
-    padding-top: 18px;
-}
-
-.initiative-tracker-settings .initiative-sync .initiative-synced {
-    border-top: 0px;
-    margin: 0 2rem;
-    padding-top: 0;
-}
-.initiative-tracker-settings
-    .initiative-sync
-    .initiative-synced
-    .setting-item-name {
-    color: var(--interactive-success);
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    gap: 0.5rem;
+    border-bottom: 1px solid var(--background-modifier-border);
+    margin-bottom: 18px;
 }
