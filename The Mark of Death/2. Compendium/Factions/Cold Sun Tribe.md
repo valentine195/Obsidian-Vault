@@ -33,10 +33,7 @@ The Cold Sun Tribe is one of three tribes of lizardfolk living in the [[Q'Barra|
 | Hoz      | Quiet Feet   | 
 ^chiefs
 
-
-
-
-
+ 
 
 
 
