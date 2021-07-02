@@ -5,7 +5,9 @@
 
  | Table | Test 
  | ------ | --- 
- | A | 2 
- | B | 3 
- | C | 4 
+ | A | 2 test
+ | B | 3 adfkljasd
+ | C [[Dice Testing|Test]] | 4 
 ^table
+
+[[Dice Testing]]
