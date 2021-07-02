@@ -27,7 +27,6 @@
     top: -5px;
     padding-top: 5px;
     background-color: inherit;
-    z-index: 1;
 }
 
 .statblock-additional-container > .setting-item-heading:only-child {
@@ -76,11 +75,9 @@
 }
 .obsidian-statblock-plugin > .bar.top {
     top: 0;
-    width: 404px;
 }
 .obsidian-statblock-plugin > .bar.bottom {
     bottom: 0;
-    width: 404px;
 }
 .obsidian-statblock-plugin {
     margin: 0 auto;
@@ -93,20 +90,18 @@
     font-size: 14px;
     color: var(--statblock-primary-color);
     background-color: var(--statblock-background-color);
-    /* padding: 0.5em; */
+    padding: 0.5em;
     border: 1px #ddd solid;
     box-shadow: 0 0 1.5em #ddd;
-    /* margin-left: 2px;
-    margin-right: 2px; */
-
-    /*column-width: 400px;
-        column-gap: 1em;
-    column-fill: auto; */
+    margin-left: 2px;
+    margin-right: 2px;
+    column-width: 400px;
+    column-gap: 1em;
+    column-fill: auto;
 }
 
 .obsidian-statblock-plugin > .content-wrap > * {
-    
-    width: 400px;
+    max-width: 400px;
 }
 
 /** Creature Name and Type */
@@ -128,6 +123,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    
 }
 
 .obsidian-statblock-plugin .creature-heading > .subheading {
