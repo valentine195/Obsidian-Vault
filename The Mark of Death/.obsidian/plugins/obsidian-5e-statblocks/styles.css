@@ -76,9 +76,11 @@
 }
 .obsidian-statblock-plugin > .bar.top {
     top: 0;
+    width: 404px;
 }
 .obsidian-statblock-plugin > .bar.bottom {
     bottom: 0;
+    width: 404px;
 }
 .obsidian-statblock-plugin {
     margin: 0 auto;
@@ -96,6 +98,11 @@
     box-shadow: 0 0 1.5em #ddd;
     margin-left: 2px;
     margin-right: 2px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 400px;
+
     /*column-width: 400px;
         column-gap: 1em;
     column-fill: auto; */
