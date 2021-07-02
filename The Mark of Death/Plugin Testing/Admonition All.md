@@ -1,6 +1,7 @@
 abc
 
-```ad-info
+````ad-info
+title: `= this.file.name`
 
 $$
 1 +  \frac{q^2}{(1-q)}+\frac{q^6}{(1-q)(1-q^2)}+\cdots =
@@ -8,7 +9,7 @@ $$
      \quad\quad \text{for $|q|<1$}.
 $$
 
-```
+````
 
 !!! ad-info
 
@@ -17,3 +18,5 @@ Test
 --- admonition
 
 #test
+
+`= this.file.name`
