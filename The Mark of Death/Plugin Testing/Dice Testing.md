@@ -3,9 +3,9 @@
 
 `dice: [[Dice Testing#^table]]`
 
- Table | Test 
- ------ | --- 
- A | 2 
- B | 3 
- C | 4 
+ | Table | Test 
+ | ------ | --- 
+ | A | 2 
+ | B | 3 
+ | C | 4 
 ^table
