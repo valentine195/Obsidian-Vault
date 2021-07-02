@@ -1,11 +1,10 @@
 `dice: 2d34dh + 3d4 + 1`
 
 
-`dice: [[Dice Testing#^table]]`
+`dice: [[Cold Sun Tribe#^chiefs]]`
 
- | Table | Test 
- | ------ | --- 
- | C  | [[Dice Testing]] 4 
+ | Table | Test            |
+ | ----- | --------------- |
+ | C     | [[Dire Wolf]] 4 |
+ | B [[Dinosaurs]]      | 3                 |
 ^table
-
-[[Dice Testing]]

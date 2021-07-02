@@ -31,8 +31,15 @@ The Cold Sun Tribe is one of three tribes of lizardfolk living in the [[Q'Barra|
 | Thaz     | Strong Fist  | 
 | Odra     | Steel Titan  |  
 | Hoz      | Quiet Feet   | 
+^chiefs
 
-^b04781
+
+
+
+
+
+
+
 
 ###
 
@@ -54,5 +61,6 @@ The Cold Sun Tribe is one of three tribes of lizardfolk living in the [[Q'Barra|
 | Quiet Feet   |
 
 ^e45064
+
 
 ### Organization Chart
