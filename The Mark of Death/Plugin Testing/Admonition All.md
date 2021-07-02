@@ -1,6 +1,6 @@
 abc
 
-````ad-info
+````ad-note
 title: `= this.file.name`
 
 $$
@@ -13,11 +13,6 @@ $$
 
 ````
 
-!!! ad-info
-
-Test
-
---- admonition
 
 #test
 
