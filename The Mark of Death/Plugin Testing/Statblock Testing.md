@@ -2,6 +2,6 @@
 
 
 ```statblock
-monster: Young Black Dragon
+monster: Ancient Black Dragon
 name: Test
 ```
