@@ -2,6 +2,6 @@
 
 
 ```statblock
-monster: Strahd von Zarovich
+monster: Ancient Black Dragon
 name: Test
 ```
