@@ -1,6 +1,4 @@
 
-
-
 ```statblock
-monster: Sun Diver
+monster: Allip
 ```
