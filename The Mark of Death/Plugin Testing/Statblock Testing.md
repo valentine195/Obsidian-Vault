@@ -2,5 +2,5 @@
 
 
 ```statblock
-monster: Shadowstalker
+monster: Sun Diver
 ```
