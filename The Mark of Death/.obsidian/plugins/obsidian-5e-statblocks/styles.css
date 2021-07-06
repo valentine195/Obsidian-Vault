@@ -17,10 +17,17 @@
     background-color: inherit;
 }
 
+.statblock-additional-container details {
+    padding: 18px 0 18px 0;
+    
+}
+
 .statblock-additional-container .task-list-inline {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0 1.5em;
+    gap: 0 3em;
+    padding-bottom: 0px;
+    margin: 0px;
 }
 
 .statblock-monster-filter {
