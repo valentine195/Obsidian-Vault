@@ -17,9 +17,8 @@
     background-color: inherit;
 }
 
-.statblock-additional-container .task-list-inline {
-    display: grid;
-    gap: 6px;
+.statblock-additional-container .task-list-inline li {
+    display: inline-block;
 }
 
 .statblock-monster-filter {
@@ -95,7 +94,7 @@
     box-shadow: 0 0 1.5em #ddd;
     margin-left: 2px;
     margin-right: 2px;
-    
+
     column-width: 400px;
     column-gap: 1em;
     column-fill: auto;
