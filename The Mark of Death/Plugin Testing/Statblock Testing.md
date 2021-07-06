@@ -2,5 +2,5 @@
 
 
 ```statblock
-monster: Ancient Black Dragon
+monster: Shadowstalker
 ```
