@@ -1,1 +1,0 @@
-![Name](/[6. Assets]/images/name.jpeg#full-width)
