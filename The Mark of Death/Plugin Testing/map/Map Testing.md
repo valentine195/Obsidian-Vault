@@ -9,5 +9,5 @@ markerFolder: Plugin Testing/map/marker folder
 id: test2
 image: [[Khorvaire.jpg]]
 markerTag: 
- - #location
+ - [#location, #test]
 ```
