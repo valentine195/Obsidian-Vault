@@ -13,13 +13,9 @@ imageOverlay:
 ```leaflet
 id: test2
 image: 
- - [[Khorvaire.jpg]]
- - [[Mine of Whitecliff.png]]
-markerTag: 
- - #location 
+ - [[middle-earth-map.jpg]]
 imageOverlay: 
  - [[[clouds-transparent.png|clouds]]]
  #, [0, 0], [-6.3125, 8.9063]
-geojson:
- - [[geo-fangorn.geojson]]
+ 
 ```
