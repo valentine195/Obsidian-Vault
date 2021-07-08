@@ -5,7 +5,9 @@ coordinates: [[Direct, Marker]]
 coordinates:
  - 30
  - 50
-markerFolder: Plugin Testing/map/marker folder 
+markerFolder: Plugin Testing/map/marker folder  
+imageOverlay: 
+ - [[[clouds-transparent.png]]]
 ```
 
 ```leaflet
@@ -16,7 +18,8 @@ image:
 markerTag: 
  - #location 
 imageOverlay: 
- - [[[clouds-transparent.png]], 1, 2]
+ - [[[clouds-transparent.png]]]
+ #, [0, 0], [-6.3125, 8.9063]
 geojson:
  - [[geo-fangorn.geojson]]
 ```
