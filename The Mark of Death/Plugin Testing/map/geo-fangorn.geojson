@@ -1,0 +1,36 @@
+{
+  "type": "FeatureCollection",
+  "source": "© 2021 Matthias C. Hormann, a.k.a. Moonbase59",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              5,
+                -5
+            ],
+            [
+              2,
+             -4
+            ],
+            [
+              3,
+-4
+            ],
+            [
+              3,
+              2
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "name": "The Forest of Fangorn",
+        "description": "At the southern end of the Misty Mountains lies the Forest of Fangorn, where the Ent Treebeard dwells. His name is 'Fangorn' in Sindarin, and the Forest was named after him."
+      }
+    }
+  ]
+}

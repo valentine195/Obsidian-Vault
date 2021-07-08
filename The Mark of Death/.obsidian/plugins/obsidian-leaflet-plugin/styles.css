@@ -343,6 +343,9 @@ input.is-invalid {
 .leaflet-pane.leaflet-geojson-pane {
     z-index: 399;
 }
+.leaflet-pane.leaflet-base-layer-pane {
+    z-index: 398;
+}
 
 .hidden-leaflet-popup {
     display: none;
