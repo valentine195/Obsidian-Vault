@@ -39,6 +39,7 @@ class ObsidianReadwiseSettingsGenerator {
             headerTemplatePath: "",
             highlightTemplatePath: "",
             highlightStoragePath: "",
+            authorsMappingFilename: "authors.json",
             lastUpdate: Date.now()
         };
     }
@@ -9359,7 +9360,7 @@ class FileDoc {
     }
     createOrUpdate(storagePath) {
         return __awaiter(this, void 0, void 0, function* () {
-            const file = this.filePath(storagePath);
+            const file = this.fsHandler.normalizePath(this.preparePath(storagePath));
             var content = '';
             if (!(yield this.fsHandler.exists(file))) {
                 Log.debug(`Document ${file} not found. Will be created`);
@@ -9377,11 +9378,11 @@ class FileDoc {
             yield this.fsHandler.write(file, content);
         });
     }
-    filePath(storagePath = '') {
+    preparePath(storagePath = '') {
         if (storagePath.length > 0 && storagePath.slice(-1) !== '/') {
             storagePath = storagePath + '/';
         }
-        return this.fsHandler.normalizePath(`${storagePath}${this.sanitizeName()}.md`);
+        return `${storagePath}${this.sanitizeName()}.md`;
     }
     sanitizeName() {
         console.log(`Replacing ${this.doc.title}`);
@@ -9412,8 +9413,9 @@ class TokenManager {
 }
 
 class FileSystemHandler {
-    constructor(adapter) {
-        this.adapter = adapter;
+    constructor(vault) {
+        this.vault = vault;
+        this.adapter = vault.adapter;
     }
     normalizePath(path) {
         return obsidian.normalizePath(path);
@@ -9432,6 +9434,9 @@ class FileSystemHandler {
         return __awaiter(this, void 0, void 0, function* () {
             return yield this.adapter.exists(path);
         });
+    }
+    pluginsDir() {
+        return this.normalizePath(`${this.vault.configDir}/plugins`);
     }
 }
 
@@ -9478,6 +9483,28 @@ class PromiseQueue {
     }
 }
 
+class AuthorsMapping {
+    constructor(filename, fsHandler) {
+        this.filename = filename;
+        this.fsHandler = fsHandler;
+    }
+    initialize() {
+        return __awaiter(this, void 0, void 0, function* () {
+            this.path = this.fsHandler.normalizePath(`${this.fsHandler.pluginsDir()}/obsidian-readwise/${this.filename}`);
+            if (!(yield this.fsHandler.exists(this.path))) {
+                Log.debug(`Creating authors mapping at ${this.path}`);
+                yield this.fsHandler.write(this.path, "{}");
+            }
+        });
+    }
+    load() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let content = JSON.parse(yield (this.fsHandler.read(this.path)));
+            return new Map(Object.entries(content));
+        });
+    }
+}
+
 class ObsidianReadwisePlugin extends obsidian.Plugin {
     constructor() {
         super(...arguments);
@@ -9504,6 +9531,8 @@ class ObsidianReadwisePlugin extends obsidian.Plugin {
                 name: "Sync highlights",
                 callback: () => this.promiseQueue.addTask(() => this.syncReadwise(this.settings.lastUpdate)),
             });
+            this.authorsMapping = new AuthorsMapping(this.settings.authorsMappingFilename, new FileSystemHandler(this.app.vault));
+            yield this.authorsMapping.initialize();
             if (this.settings.syncOnBoot) {
                 yield this.syncReadwise(this.settings.lastUpdate);
             }
@@ -9564,10 +9593,14 @@ class ObsidianReadwisePlugin extends obsidian.Plugin {
     updateNotes(documents) {
         return __awaiter(this, void 0, void 0, function* () {
             this.setState(PluginState.syncing);
-            const handler = new FileSystemHandler(this.app.vault.adapter);
+            const handler = new FileSystemHandler(this.app.vault);
             const header = yield HeaderTemplateRenderer.create(this.settings.headerTemplatePath, handler);
             const highlight = yield HighlightTemplateRenderer.create(this.settings.highlightTemplatePath, handler);
+            const mapping = yield this.authorsMapping.load();
             documents.forEach(doc => {
+                if (mapping.has(doc.author)) {
+                    doc.author = mapping.get(doc.author);
+                }
                 const fileDoc = new FileDoc(doc, header, highlight, handler);
                 fileDoc.createOrUpdate(this.settings.highlightStoragePath);
             });
