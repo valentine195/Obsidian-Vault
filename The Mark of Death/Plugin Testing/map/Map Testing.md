@@ -18,7 +18,7 @@ image:
 markerTag: 
  - #location 
 imageOverlay: 
- - [[[clouds-transparent.png]]]
+ - [[[clouds-transparent.png|clouds]]]
  #, [0, 0], [-6.3125, 8.9063]
 geojson:
  - [[geo-fangorn.geojson]]
