@@ -10,7 +10,9 @@ markerFolder: Plugin Testing/map/marker folder
 
 ```leaflet
 id: test2
-image: [[Khorvaire.jpg]]
+image: 
+ - [[Khorvaire.jpg]]
+ - [[Mine of Whitecliff.png]]
 markerTag: 
  - #location 
 imageOverlay: 
