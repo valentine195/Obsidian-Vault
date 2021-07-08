@@ -13,5 +13,6 @@ id: test2
 image: [[Khorvaire.jpg]]
 markerTag: 
  - #location 
-imageOverlay: [[[clouds-transparent.png]], 1, 2]
+imageOverlay: 
+ - [[[clouds-transparent.png]], 1, 2]
 ```
