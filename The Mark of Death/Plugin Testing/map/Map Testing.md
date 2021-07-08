@@ -8,5 +8,6 @@ markerFolder: Plugin Testing/map/marker folder
 ```leaflet
 id: test2
 image: [[Khorvaire.jpg]]
-markerTag: #location
+markerTag: 
+ - #location
 ```
