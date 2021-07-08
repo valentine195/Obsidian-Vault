@@ -2,6 +2,9 @@
 id: test
 markerFile: [[Direct Marker 2]]
 coordinates: [[Direct, Marker]]
+coordinates:
+ - 30
+ - 50
 markerFolder: Plugin Testing/map/marker folder 
 ```
 
