@@ -1,4 +1,4 @@
-
+%%
 ```leaflet
 id: test2
 # the image is 1600x1200 px
@@ -25,5 +25,18 @@ marker: location, 705.88, 941.175
 marker: location, 0, 0
 # Northeast (1411.76, 1882.35)
 marker: location, 1411.76, 1882.35
+imageOverlay:
+ - [[[clouds-transparent.png]]]
+```
+%%
+
+```leaflet
+id: GIEP
+maxZoom: 17
+#defaultZoom: 4.5
+#zoomDelta: 0.5
+zoomFeatures: true
+geojson: 
+  - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
 verbose: true
 ```
