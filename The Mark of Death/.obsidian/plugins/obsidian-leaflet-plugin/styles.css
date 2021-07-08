@@ -348,7 +348,10 @@ input.is-invalid {
     display: none;
     visibility: hidden;
 }
-/* required styles */
+/* 
+.leaflet-control-fullscreen a {
+    background-image: unset;
+} *//* required styles */
 
 .leaflet-pane,
 .leaflet-tile,
