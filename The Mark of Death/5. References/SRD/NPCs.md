@@ -1,5 +1,3 @@
-#NPCs
-
 - [[Acolyte]]
 - [[Archmage]]
 - [[Assassin]]

@@ -22,7 +22,6 @@ A score of 10 or 11 is the normal human average, but adventurers and many monste
 Each ability also has a modifier, derived from the score and ranging from -5 (for an ability score of 1) to +10 (for a score of 30). The Ability Scores and Modifiers table notes the ability modifiers for the range of possible ability scores, from 1 to 30.
 
 **Table- Ability Scores and Modifiers**
-#ability-score-modifier
 
 | Score | Modifier |
 |-------|----------|
