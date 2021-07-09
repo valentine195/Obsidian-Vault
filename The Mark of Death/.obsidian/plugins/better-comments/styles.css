@@ -1,3 +1,15 @@
+.better-comments-settings .better-comments-additional-container {
+    border-bottom: 0px solid var(--background-modifier-border);
+    padding: 18px 0 0 0;
+    background-color: inherit;
+}
+
+.better-comments-settings
+    .better-comments-additional-container
+    > .additional {
+    margin: 6px 12px;
+}
+
 /* 
 # Better Tasks is based of the VSCODE extension 'Better Comments'.
 It highlights different types to tasks to make your workflow more readable.
