@@ -1,4 +1,4 @@
-%%
+
 ```leaflet
 id: test2
 # the image is 1600x1200 px
@@ -28,9 +28,11 @@ marker: location, 0, 0
 marker: location, 1411.76, 1882.35
 imageOverlay:
  - [[[clouds-transparent.png]]]
+verbose: true
 ```
-%% 
+ 
 
+%%
 ```leaflet
 id: GIEP
 maxZoom: 17
@@ -42,4 +44,7 @@ geojson:
 linksTo: [[Untitled 1]]
 linksFrom: [[Link From]]
 coordinates: [[Link From]]
+markerFile: [[Direct, Marker]]
+verbose: true
 ```
+%%
