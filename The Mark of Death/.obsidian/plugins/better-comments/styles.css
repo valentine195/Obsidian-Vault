@@ -1,0 +1,89 @@
+/* 
+# Better Tasks is based of the VSCODE extension 'Better Comments'.
+It highlights different types to tasks to make your workflow more readable.
+
+USAGE: put the 'Better Tasks.css' file in your '/.obsidian/snippets' folder.
+
+You'll need to create each of the following tags within Obsidian:
+
+#ta --> Task/Alert
+#ti --> Task/Important
+#tr --> Task/Reminder
+#tt --> Task/TODO
+
+To use each tag, you have to create a task (- [ ]), specify which tag you want (e.g. #ta),
+and start the line with an underscore '_' to get the highlighting. 
+
+EXAMPLE:
+- [ ] #ta _this is an alert
+
+
+/* ================================== Tag color  ====================================== */
+.cm-s-obsidian span.cm-hashtag {
+    color: gray !important;
+}
+
+.cm-s-obsidian span.cm-hashtag,
+.frontmatter-container .tag,
+.tag {
+    color: gray !important;
+}
+
+/* ================================== Better Tasks =================================== */
+/* Tasks/Important, or #t/i */
+.cm-tag-ti ~ span.cm-highlight {
+    background-color: #98c379 !important;
+    color: black !important;
+}
+
+.cm-tag-ti ~ span.cm-strong {
+    color: #98c379;
+}
+
+.cm-tag-ti ~ span.cm-em {
+    color: #98c379;
+}
+
+/* Tasks/Reminder, or #t/r  */
+.cm-tag-tr ~ span.cm-highlight {
+    background-color: #3498db !important;
+    color: black !important;
+}
+
+.cm-tag-tr ~ span.cm-strong {
+    color: #3498db;
+}
+
+.cm-tag-tr ~ span.cm-em {
+    color: #3498db;
+}
+
+/* Tasks/Alert, or #t/a */
+.cm-tag-ta ~ span.cm-highlight {
+    background-color: #ff2d00 !important;
+    color: black !important;
+}
+
+.cm-tag-ta ~ span.cm-strong {
+    color: #ff2d00;
+}
+
+.cm-tag-ta ~ span.cm-em {
+    color: #ff2d00;
+}
+
+/* Tasks/TODO, or #t/t */
+.cm-tag-tt ~ span.cm-highlight {
+    background-color: #ff8c00 !important;
+    color: black !important;
+}
+
+.cm-tag-tt ~ span.cm-strong,
+.better-comments-tt {
+    color: #ff8c00;
+}
+
+.cm-tag-tt ~ span.cm-em,
+.better-comments-tt {
+    color: #ff8c00;
+}
