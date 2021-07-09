@@ -13,7 +13,7 @@ Personas: Halden, Dara, Nia
 
 ### Future
 
-Runs into a member of the [[Cabinet Of Faces]] who recognizes her and tells her [[Prince Kel]] has been looking for her, she needs to return to the [[Gray Tide]] ASAP
+Runs into a member of the [[Cabinet of Faces]] who recognizes her and tells her [[Prince Kel]] has been looking for her, she needs to return to the [[Gray Tide]] ASAP
 
 ### Past
 

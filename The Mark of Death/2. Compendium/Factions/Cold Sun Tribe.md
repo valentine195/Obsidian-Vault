@@ -8,7 +8,7 @@ type: faction
 
 ### Description
 
-The Cold Sun Tribe is one of three tribes of lizardfolk living in the [[Q'Barra|Q'Barran Jungle]]. The tribes are split into twelve different sects that oversee a section of the jungle to oppose the forces of evil that would attempt to free the Overlord trapped in [[Haka'Torvhak]].
+The Cold Sun Tribe is one of three tribes of lizardfolk living in the [[1. Q'Barra]]. The tribes are split into twelve different sects that oversee a section of the jungle to oppose the forces of evil that would attempt to free the Overlord trapped in [[Haka'Torvhak]].
 
 ### Notable Members
 
