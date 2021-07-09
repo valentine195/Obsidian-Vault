@@ -1,8 +1,8 @@
-%%
+
 ```leaflet
 id: test2
 # the image is 1600x1200 px
-image: [[middle-earth-map.jpg]]
+image: [[Khorvaire.jpg]]
 # bounds uses y,x (CRS.Simple)
 # bounds in miles (as per map scale: 100 mi = 85 px)
 bounds: [[0,0], [1411.76, 1882.35]]
@@ -40,3 +40,5 @@ geojson:
   - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
 verbose: true
 ```
+
+%%
