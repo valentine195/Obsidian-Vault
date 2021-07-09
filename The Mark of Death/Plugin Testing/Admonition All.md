@@ -2,6 +2,7 @@ abc
 
 ````ad-note
 title: `= this.file.name`
+icon: triforce
 
 $$
 1 +  \frac{q^2}{(1-q)}+\frac{q^6}{(1-q)(1-q^2)}+\cdots =
