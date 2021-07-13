@@ -1,0 +1,12 @@
+{
+  "obsidian-admonition:replace-with-html": [],
+  "obsidian-admonition:insert-admonition": [
+    {
+      "modifiers": [
+        "Alt",
+        "Mod"
+      ],
+      "key": "R"
+    }
+  ]
+}
