@@ -32,7 +32,7 @@ tags: check, location, recreation, walking, lehrpfad, trail, map
 86505 Münsterhausen
 
 
-![[Gewässer-Informations-Erlebnis-Pfad Münsterhausen Karte.png]]
+[[Gewässer-Informations-Erlebnis-Pfad Münsterhausen Karte.png]]
 
 
 
