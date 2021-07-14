@@ -37,20 +37,20 @@
       "files": [
         "Plugin Testing/map/Map Testing.md"
       ],
-      "lastAccessed": 1626272244928,
+      "lastAccessed": 1626272959273,
       "markers": [
         {
           "type": "location",
           "id": "tSUhHE",
           "loc": [
-            664,
-            1207.8506809226446
+            37.37343130288926,
+            -89.69238281250001
           ],
           "percent": [
             -0.11211547851562502,
             -0.0622890521714821
           ],
-          "layer": "real",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
           "zoom": 2,
           "description": null
@@ -59,14 +59,14 @@
           "type": "location",
           "id": "U9f9Hq",
           "loc": [
-            152,
-            775.9013756711295
+            40.730608477796636,
+            -79.29931640625001
           ],
           "percent": [
             -0.09912414550781251,
             -0.06788434746299439
           ],
-          "layer": "real",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
           "zoom": 2,
           "description": null
@@ -75,14 +75,14 @@
           "type": "default",
           "id": "xLYarb",
           "loc": [
-            428,
-            423.94147060856744
+            39.267879233182676,
+            -84.24316406250001
           ],
           "percent": [
             -0.10530395507812501,
             -0.0654464653886378
           ],
-          "layer": "real",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
           "zoom": 2,
           "description": null
@@ -91,14 +91,14 @@
           "type": "default",
           "id": "lMuJz7",
           "loc": [
-            512,
-            1051.8695762379887
+            39.96185925653243,
+            -80.99121093750001
           ],
           "percent": [
             -0.10123901367187502,
             -0.06660309876088738
           ],
-          "layer": "real",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
           "zoom": 2,
           "description": null
@@ -107,14 +107,14 @@
           "type": "location",
           "id": "U4kzj1",
           "loc": [
-            252,
-            595.9216535705234
+            42.635474190826905,
+            -84.48486328125
           ],
           "percent": [
             -0.1056060791015625,
             -0.07105912365137818
           ],
-          "layer": "real",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
           "zoom": 2,
           "description": null
@@ -123,14 +123,14 @@
           "type": "location",
           "id": "iBp46O",
           "loc": [
-            516,
-            1691.7953775606609
+            40.01236487583935,
+            -82.06787109375001
           ],
           "percent": [
             -0.10258483886718751,
             -0.06668727479306559
           ],
-          "layer": "real",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
           "zoom": 2,
           "description": null
@@ -139,14 +139,106 @@
           "type": "faction",
           "id": "YGRZxh",
           "loc": [
-            756,
-            603.9211927091735
+            39.1657381805265,
+            -80.96923828125001
           ],
           "percent": [
             -0.10121154785156251,
             -0.06527623030087751
           ],
-          "layer": "real",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "location",
+          "id": "5vf0v8",
+          "loc": [
+            284.375,
+            908
+          ],
+          "percent": [
+            1.135,
+            -0.4739583333333333
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "location",
+          "id": "semb3F",
+          "loc": [
+            588.375,
+            1536
+          ],
+          "percent": [
+            1.92,
+            -0.980625
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "location",
+          "id": "JetaLm",
+          "loc": [
+            956.375,
+            996.0000000000001
+          ],
+          "percent": [
+            1.245,
+            -1.5939583333333334
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "event",
+          "id": "vRY6Qv",
+          "loc": [
+            948.375,
+            392
+          ],
+          "percent": [
+            0.49,
+            -1.580625
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "faction",
+          "id": "VB2F1y",
+          "loc": [
+            276.375,
+            604
+          ],
+          "percent": [
+            0.755,
+            -0.460625
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "npc",
+          "id": "bhl0lP",
+          "loc": [
+            988.375,
+            1500
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
           "zoom": 2,
           "description": null
