@@ -10,7 +10,44 @@
       "y": -2
     }
   },
-  "markerIcons": [],
+  "markerIcons": [
+    {
+      "type": "location",
+      "iconName": "circle",
+      "color": "#e44949",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
+    },
+    {
+      "type": "event",
+      "iconName": "exclamation",
+      "color": "#8b51e1",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
+    },
+    {
+      "type": "faction",
+      "iconName": "users",
+      "color": "#21b066",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
+    }
+  ],
   "color": "#dddddd",
   "lat": 39.983334,
   "long": -82.98333,

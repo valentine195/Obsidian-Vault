@@ -34,19 +34,17 @@ verbose: true
  
 #item _test
 
-%%
+
 ```leaflet
 id: GIEP
 maxZoom: 17
 #defaultZoom: 4.5
 #zoomDelta: 0.5
-#zoomFeatures: true
+zoomFeatures: true
 geojson:
  - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
 linksTo: [[Untitled 1]]
 linksFrom: [[Link From]]
-coordinates: [[Link From]]
 markerFile: [[Direct, Marker]]
 verbose: true
 ```
-%%
