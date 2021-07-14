@@ -38,12 +38,12 @@ verbose: true
 id: GIEP
 maxZoom: 17
 #defaultZoom: 4.5
-#zoomDelta: 0.5
+# zoomDelta: 0.5
 zoomFeatures: true
 geojson:
  - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
-linksTo: [[Untitled 1]]
-linksFrom: [[Link From]]
-markerFile: [[Direct, Marker]]
+# linksTo: [[Untitled 1]]
+# linksFrom: [[Link From]]
+# markerFile: [[Direct, Marker]]
 verbose: true
 ```
