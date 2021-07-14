@@ -24,12 +24,15 @@ tags: check, location, recreation, walking, lehrpfad, trail, map
 [[-Locations TOC]] [[-Map]] `= elink("https://www.google.com/maps/search/?api=1&query=" + this.location[0] + "," + this.location[1], "Google Maps")` `= elink("https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=" + this.location[0] + "," + this.location[1], "Street View")` `= elink("https://www.google.com/maps/dir/?api=1&dir_action=navigate&destination=" + this.location[0] + "," + this.location[1], "Route")`
 
 ---
+# ![[Check.svg]] 
+![[Recreation.svg]] Gewässer-Informations-Erlebnis-Pfad Münsterhausen
 
-# ![[Check.svg]] ![[Recreation.svg]] Gewässer-Informations-Erlebnis-Pfad Münsterhausen
 
 86505 Münsterhausen
 
-[[Gewässer-Informations-Erlebnis-Pfad Münsterhausen Karte.png]]
+%%
+![[Gewässer-Informations-Erlebnis-Pfad Münsterhausen Karte.png]]
+%%
 
 ### Erlebnispfad mit 11 Stationen
 
