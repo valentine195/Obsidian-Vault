@@ -34,16 +34,8 @@ tags: check, location, recreation, walking, lehrpfad, trail, map
 
 ![[Gewässer-Informations-Erlebnis-Pfad Münsterhausen Karte.png]]
 
-```leaflet
-id: GIEP
-maxZoom: 18
-#defaultZoom: 4.5
-#zoomDelta: 0.5
-zoomFeatures: true
-geojson: 
-  - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
-# verbose: true
-```
+
+
 ### Erlebnispfad mit 11 Stationen
 
 
@@ -65,7 +57,18 @@ An 11 Stationen werden anhand von Informationstafeln verschiedene Facetten des L
 10. Biber
 11. Naturraum Mindeltal
 
+### Karn
 
+```leaflet
+id: GIEP
+maxZoom: 18
+#defaultZoom: 4.5
+#zoomDelta: 0.5
+zoomFeatures: true
+geojson: 
+  - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
+# verbose: true
+```
 
 
 ---
