@@ -1,5 +1,64 @@
 {
-  "mapMarkers": [],
+  "mapMarkers": [
+    {
+      "id": "test2",
+      "files": [
+        "Plugin Testing/map/Map Testing.md"
+      ],
+      "lastAccessed": 1626267575568,
+      "markers": [
+        {
+          "type": "event",
+          "id": "Xtbf_P",
+          "loc": [
+            164.1875,
+            386
+          ],
+          "percent": [
+            0.4825,
+            -0.2736458333333333
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "faction",
+          "id": "6__rBI",
+          "loc": [
+            570.1875,
+            412
+          ],
+          "percent": [
+            0.515,
+            -0.9503125
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "location",
+          "id": "D4MdGq",
+          "loc": [
+            872,
+            1623.9999999999998
+          ],
+          "percent": [
+            2.03,
+            -1.4533333333333334
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        }
+      ],
+      "overlays": []
+    }
+  ],
   "defaultMarker": {
     "type": "default",
     "iconName": "map-marker",
@@ -53,7 +112,7 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "3.19.5",
+  "previousVersion": "3.19.6",
   "warnedAboutMapMarker": false,
   "copyOnClick": false
 }

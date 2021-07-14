@@ -17,16 +17,16 @@ height: 500px
 lat: 50
 long: 50
 minZoom: -2
-maxZoom: 1
-defaultZoom: -1
+defaultZoom: -2
+maxZoom: 2
 unit: miles
 # make check markers in the center, SW, NE (y,x in "bounds" coordinates)
 # (in the middle of Fangorn!)
-marker: location, 705.88, 941.175
+# marker: location, 705.88, 941.175
 # Southwest (0,0)
-marker: location, 0, 0
+# marker: location, 0, 0
 # Northeast (1411.76, 1882.35)
-marker: location, 1411.76, 1882.35
+# marker: location, 1411.76, 1882.35
 imageOverlay:
  - [[[clouds-transparent.png]]]
 verbose: true
