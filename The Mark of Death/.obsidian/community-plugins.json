@@ -1,6 +1,5 @@
 [
   "table-editor-obsidian",
-  "obsidian-leaflet-plugin",
   "cycle-through-panes",
   "dataview",
   "hot-reload",
@@ -23,5 +22,6 @@
   "better-comments",
   "initiative-tracker",
   "obsidian-dice-roller",
-  "obsidian-map-view"
+  "obsidian-map-view",
+  "obsidian-leaflet-plugin"
 ]
