@@ -5,18 +5,18 @@
       "files": [
         "Plugin Testing/map/Map Testing.md"
       ],
-      "lastAccessed": 1626267575568,
+      "lastAccessed": 1626268791775,
       "markers": [
         {
           "type": "event",
           "id": "Xtbf_P",
           "loc": [
-            164.1875,
-            386
+            576,
+            644
           ],
           "percent": [
-            0.4825,
-            -0.2736458333333333
+            0.805,
+            -0.96
           ],
           "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
@@ -43,12 +43,60 @@
           "type": "location",
           "id": "D4MdGq",
           "loc": [
-            872,
-            1623.9999999999998
+            440,
+            1707.8810977717355
           ],
           "percent": [
             2.03,
             -1.4533333333333334
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "location",
+          "id": "iqouLu",
+          "loc": [
+            892,
+            660.050233887135
+          ],
+          "percent": [
+            1.37,
+            -1.1272916666666666
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "event",
+          "id": "Rt0OeR",
+          "loc": [
+            836,
+            1272
+          ],
+          "percent": [
+            1.59,
+            -1.3933333333333333
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "event",
+          "id": "I657M9",
+          "loc": [
+            648,
+            1128
+          ],
+          "percent": [
+            1.41,
+            -1.08
           ],
           "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
