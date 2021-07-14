@@ -25,6 +25,7 @@ unit: miles
 # marker: location, 0, 0
 # Northeast (1411.76, 1882.35)
 # marker: location, 1411.76, 1882.35
+markerTag: location
 imageOverlay:
  - [[[clouds-transparent.png]]]
 verbose: true
