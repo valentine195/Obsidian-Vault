@@ -21,20 +21,31 @@ tags: check, location, recreation, walking, lehrpfad, trail, map
 #nearby: 2 km
 ---
 
+
 [[-Locations TOC]] [[-Map]] `= elink("https://www.google.com/maps/search/?api=1&query=" + this.location[0] + "," + this.location[1], "Google Maps")` `= elink("https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=" + this.location[0] + "," + this.location[1], "Street View")` `= elink("https://www.google.com/maps/dir/?api=1&dir_action=navigate&destination=" + this.location[0] + "," + this.location[1], "Route")`
 
 ---
-# ![[Check.svg]] 
-![[Recreation.svg]] Gewässer-Informations-Erlebnis-Pfad Münsterhausen
+# [[Check.svg]] 
+[[Recreation.svg]] Gewässer-Informations-Erlebnis-Pfad Münsterhausen
 
 
 86505 Münsterhausen
 
-%%
-![[Gewässer-Informations-Erlebnis-Pfad Münsterhausen Karte.png]]
-%%
 
+![[Gewässer-Informations-Erlebnis-Pfad Münsterhausen Karte.png]]
+
+```leaflet
+id: GIEP
+maxZoom: 18
+#defaultZoom: 4.5
+#zoomDelta: 0.5
+zoomFeatures: true
+geojson: 
+  - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
+# verbose: true
+```
 ### Erlebnispfad mit 11 Stationen
+
 
 Die rund 5 km lange Route entlang der [[Mindel]] verläuft größtenteil auf dem Mindeltal-Radweg, ermöglicht aber auch Abstecher zu abseits gelegenen, interessanten Wasserorten, an denen Wasser erforscht sowie erlebt werden kann.  
   
@@ -54,18 +65,8 @@ An 11 Stationen werden anhand von Informationstafeln verschiedene Facetten des L
 10. Biber
 11. Naturraum Mindeltal
 
-### Karte
 
-```leaflet
-id: GIEP
-maxZoom: 18
-#defaultZoom: 4.5
-#zoomDelta: 0.5
-zoomFeatures: true
-geojson: 
-  - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
-# verbose: true
-```
+
 
 ---
 
