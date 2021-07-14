@@ -1,104 +1,152 @@
 {
   "mapMarkers": [
     {
-      "id": "test2",
+      "id": "real",
+      "files": [
+        "8. Plugin Testing/Map Testing.md"
+      ],
+      "lastAccessed": 1622037387629,
+      "markers": [
+        {
+          "type": "location",
+          "id": "75eY76",
+          "loc": [
+            40.1148394302364,
+            -87.626953125
+          ],
+          "layer": "real",
+          "command": false,
+          "zoom": 10
+        }
+      ],
+      "overlays": [
+        {
+          "radius": 630990.1748817236,
+          "loc": [
+            35.9635576265708,
+            -85.29785156250001
+          ],
+          "color": "blue",
+          "layer": "real",
+          "unit": "m"
+        }
+      ]
+    },
+    {
+      "id": "tester4",
       "files": [
         "Plugin Testing/map/Map Testing.md"
       ],
-      "lastAccessed": 1626268791775,
+      "lastAccessed": 1626269455057,
       "markers": [
         {
-          "type": "event",
-          "id": "Xtbf_P",
+          "type": "location",
+          "id": "tSUhHE",
           "loc": [
-            576,
-            644
+            664,
+            1207.8506809226446
           ],
           "percent": [
-            0.805,
-            -0.96
+            -0.11211547851562502,
+            -0.0622890521714821
           ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "layer": "real",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "location",
+          "id": "U9f9Hq",
+          "loc": [
+            152,
+            775.9013756711295
+          ],
+          "percent": [
+            -0.09912414550781251,
+            -0.06788434746299439
+          ],
+          "layer": "real",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "default",
+          "id": "xLYarb",
+          "loc": [
+            428,
+            423.94147060856744
+          ],
+          "percent": [
+            -0.10530395507812501,
+            -0.0654464653886378
+          ],
+          "layer": "real",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "default",
+          "id": "lMuJz7",
+          "loc": [
+            512,
+            1051.8695762379887
+          ],
+          "percent": [
+            -0.10123901367187502,
+            -0.06660309876088738
+          ],
+          "layer": "real",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "location",
+          "id": "U4kzj1",
+          "loc": [
+            252,
+            595.9216535705234
+          ],
+          "percent": [
+            -0.1056060791015625,
+            -0.07105912365137818
+          ],
+          "layer": "real",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "location",
+          "id": "iBp46O",
+          "loc": [
+            516,
+            1691.7953775606609
+          ],
+          "percent": [
+            -0.10258483886718751,
+            -0.06668727479306559
+          ],
+          "layer": "real",
           "command": false,
           "zoom": 2,
           "description": null
         },
         {
           "type": "faction",
-          "id": "6__rBI",
+          "id": "YGRZxh",
           "loc": [
-            570.1875,
-            412
+            756,
+            603.9211927091735
           ],
           "percent": [
-            0.515,
-            -0.9503125
+            -0.10121154785156251,
+            -0.06527623030087751
           ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null
-        },
-        {
-          "type": "location",
-          "id": "D4MdGq",
-          "loc": [
-            440,
-            1707.8810977717355
-          ],
-          "percent": [
-            2.03,
-            -1.4533333333333334
-          ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null
-        },
-        {
-          "type": "location",
-          "id": "iqouLu",
-          "loc": [
-            892,
-            660.050233887135
-          ],
-          "percent": [
-            1.37,
-            -1.1272916666666666
-          ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null
-        },
-        {
-          "type": "event",
-          "id": "Rt0OeR",
-          "loc": [
-            836,
-            1272
-          ],
-          "percent": [
-            1.59,
-            -1.3933333333333333
-          ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null
-        },
-        {
-          "type": "event",
-          "id": "I657M9",
-          "loc": [
-            648,
-            1128
-          ],
-          "percent": [
-            1.41,
-            -1.08
-          ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "layer": "real",
           "command": false,
           "zoom": 2,
           "description": null
@@ -115,44 +163,54 @@
       "size": 6,
       "x": 0,
       "y": -2
-    }
+    },
+    "isImage": false,
+    "imageUrl": "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkICQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBD/wAARCAAYABIDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAUGAwcI/8QAJxAAAgAGAgEDBQEAAAAAAAAAAQIAAwQFBhESIRMHImEUUWKhorL/xAAYAQADAQEAAAAAAAAAAAAAAAADBQYBAv/EACARAAIBAwQDAAAAAAAAAAAAAAECAAMREgRRoeEUFXH/2gAMAwEAAhEDEQA/AK7lGQ3q/Z7dr7it1rqejnU9NLWqoq3xy6sKp9ytKmEMo+zaYHZIAYEwgunqnWtcZV+yC619tCoq0825vMRk7LB1Z+DDfwYvONUeXWedOl3rC1pwyIAtGyoBoNssHmsWYk7LcuyYmhcJFdSVMsW/i9NNaRNRpQGm4g6JG+XTA76/USlTVMjNjYj6DHS0VYC97zW8u6YhwXlaqjehvXi1/iEW02GQxLfQIN968KdfzCCewXbnqC8V9+O50fccQnVNQ7LJBIO9kRGt6fopYvTgiZ7jxXsn5hCJwEiOMReZRgckADwnr8oQhHORm4Cf/9k="
   },
   "markerIcons": [
     {
       "type": "location",
       "iconName": "circle",
-      "color": "#e44949",
+      "color": "#e53434",
       "layer": true,
       "transform": {
         "size": 6,
         "x": 0,
-        "y": -2
-      },
-      "isImage": false
+        "y": -2.4067797660827637
+      }
     },
     {
       "type": "event",
       "iconName": "exclamation",
-      "color": "#8b51e1",
+      "color": "#d839db",
       "layer": true,
       "transform": {
         "size": 6,
         "x": 0,
         "y": -2
-      },
-      "isImage": false
+      }
+    },
+    {
+      "type": "npc",
+      "iconName": "user",
+      "color": "#5541ec",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      }
     },
     {
       "type": "faction",
       "iconName": "users",
-      "color": "#21b066",
+      "color": "#06c192",
       "layer": true,
       "transform": {
         "size": 6,
         "x": 0,
         "y": -2
-      },
-      "isImage": false
+      }
     }
   ],
   "color": "#dddddd",

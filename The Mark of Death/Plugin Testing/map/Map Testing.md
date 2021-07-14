@@ -1,6 +1,6 @@
 
 ```leaflet
-id: test2
+id: tester4
 # the image is 1600x1200 px
 image: [[middle-earth-map.jpg]]
 # bounds uses y,x (CRS.Simple)
