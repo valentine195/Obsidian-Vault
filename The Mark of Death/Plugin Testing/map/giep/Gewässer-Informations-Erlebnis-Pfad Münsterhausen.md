@@ -22,6 +22,17 @@ tags: check, location, recreation, walking, lehrpfad, trail, map
 ---
 
 
+```leaflet
+id: GIEP
+maxZoom: 18
+#defaultZoom: 4.5
+#zoomDelta: 0.5
+zoomFeatures: true
+geojson: 
+  - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
+# verbose: true
+```
+
 [[-Locations TOC]] [[-Map]] `= elink("https://www.google.com/maps/search/?api=1&query=" + this.location[0] + "," + this.location[1], "Google Maps")` `= elink("https://www.google.com/maps/@?api=1&map_action=pano&viewpoint=" + this.location[0] + "," + this.location[1], "Street View")` `= elink("https://www.google.com/maps/dir/?api=1&dir_action=navigate&destination=" + this.location[0] + "," + this.location[1], "Route")`
 
 ---
@@ -59,16 +70,6 @@ An 11 Stationen werden anhand von Informationstafeln verschiedene Facetten des L
 
 ### Karn
 
-```leaflet
-id: GIEP
-maxZoom: 18
-#defaultZoom: 4.5
-#zoomDelta: 0.5
-zoomFeatures: true
-geojson: 
-  - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
-# verbose: true
-```
 
 
 ---

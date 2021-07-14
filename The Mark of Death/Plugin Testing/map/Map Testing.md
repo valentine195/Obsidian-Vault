@@ -1,4 +1,4 @@
-%%
+
 ```leaflet
 id: tester4
 # the image is 1600x1200 px
@@ -30,7 +30,7 @@ imageOverlay:
  - [[[clouds-transparent.png]]]
 verbose: true
 ```
- %%
+
 #item _test
 
 
