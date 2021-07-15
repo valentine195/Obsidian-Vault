@@ -39,6 +39,7 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
 
     --FolderRadius: 5px;
     --FoldText: white;
+    --FoldTextMaster: var(--FoldText);
 }
 
 .theme-dark {
@@ -360,26 +361,36 @@ You can change these to match your use case.
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path~="Archive"],
+    > .nav-folder-title[data-path~="Archive"] {
+    background-color: var(--background-secondary-alt);
+    color: lightgrey;
+    --FoldText: lightgrey;
+}
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
     > .nav-folder-title[data-path^="Archive"]
     + .nav-folder-children {
     background-color: var(--background-secondary-alt);
-    color: grey;
+    color: var(--text-normal);
+    --FoldText: var(--text-normal);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path~="Plugin"],
+    > .nav-folder-title[data-path~="Plugin"] {
+    background-color: var(--background-secondary-alt);
+    color: lightgrey;
+    --FoldText: lightgrey;
+}
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
     > .nav-folder-title[data-path^="Plugin"]
     + .nav-folder-children {
     background-color: var(--background-secondary-alt);
-    color: grey;
+    color: var(--text-normal);
+    --FoldText: var(--text-normal);
 }
 
 /* Scrollbars eliminated */

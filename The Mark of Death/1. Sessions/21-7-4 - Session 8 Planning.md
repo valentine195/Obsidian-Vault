@@ -70,9 +70,11 @@ The chest is full of old, old Galifar gold coins, still depicting the first king
 - The three ancient lizard women sit in a circle facing the middle of the hut, and [[Chiax]] gestures for you to sit in the middle of them.
 - All three begin chanting in unison, and dozens of candles flare to life around the edge of the hut with a bright green flame that casts flickering shadows as a wind begins to blow.
 - She shudders, then draws a deep, ragged breath and looks up with empty eyes that slowly turn black. She stares through you, unseeing, then throws her head back:
-	- THE LADY OF DEATH, THE UNDYING ONE, MOVES SHROUDED IN DUST, TOWARDS
-	- A SECOND DAY OF MOURNING THAT WILL DOUSE THE FLAME OF LIFE AND
-	- ALLOW YOUR FATHER'S MISTAKE TO UNDO YOUR FATHER'S SACRIFICE 
+	
+	> _THE LADY OF DEATH, BLIND TO HER SHROUD OF DUST
+	> WORKS TO UNDO HER TERRIBLE CURSE
+	> BUT IN DOING SO, SHE WILL
+	> REPEAT YOUR FATHER'S GRAVE MISTAKE_
 
 
 ### Thunder in the Night
