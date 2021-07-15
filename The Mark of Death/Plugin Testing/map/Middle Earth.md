@@ -13,5 +13,6 @@ unit: miles
 verbose: true
 geojson:
  - [[geo-fangorn.geojson]]
+geojsonColor: red
 ```
 

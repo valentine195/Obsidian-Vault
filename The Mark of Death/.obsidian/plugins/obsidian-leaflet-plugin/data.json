@@ -35,20 +35,20 @@
     {
       "id": "tester4",
       "files": [
-        "Plugin Testing/map/Map Testing.md"
+        "Plugin Testing/map/Middle Earth.md"
       ],
-      "lastAccessed": 1626360474570,
+      "lastAccessed": 1626361632705,
       "markers": [
         {
           "type": "location",
           "id": "5vf0v8",
           "loc": [
-            284.375,
-            908
+            425,
+            1216
           ],
           "percent": [
-            1.135,
-            -0.4739583333333333
+            1.52,
+            -0.7083333333333334
           ],
           "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
@@ -56,15 +56,15 @@
           "description": null
         },
         {
-          "type": "location",
+          "type": "event",
           "id": "semb3F",
           "loc": [
-            588.375,
-            1536
+            530,
+            927.9999999999999
           ],
           "percent": [
-            1.92,
-            -0.980625
+            1.16,
+            -0.8833333333333333
           ],
           "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
@@ -75,12 +75,12 @@
           "type": "location",
           "id": "JetaLm",
           "loc": [
-            956.375,
-            996.0000000000001
+            1039,
+            911
           ],
           "percent": [
-            1.245,
-            -1.5939583333333334
+            1.13875,
+            -1.7316666666666667
           ],
           "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
@@ -91,12 +91,12 @@
           "type": "event",
           "id": "vRY6Qv",
           "loc": [
-            948.375,
-            392
+            470,
+            1334
           ],
           "percent": [
-            0.49,
-            -1.580625
+            1.6675,
+            -0.7833333333333333
           ],
           "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
@@ -107,12 +107,12 @@
           "type": "faction",
           "id": "VB2F1y",
           "loc": [
-            276.375,
-            604
+            814,
+            994
           ],
           "percent": [
-            0.755,
-            -0.460625
+            1.2425,
+            -1.3566666666666667
           ],
           "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
@@ -123,12 +123,12 @@
           "type": "npc",
           "id": "bhl0lP",
           "loc": [
-            988.375,
-            1500
+            1022.5,
+            483.5
           ],
           "percent": [
-            1.875,
-            -1.6472916666666666
+            0.604375,
+            -1.7041666666666666
           ],
           "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
           "command": false,
@@ -195,6 +195,18 @@
         "x": 0,
         "y": -2
       }
+    },
+    {
+      "type": "battle",
+      "iconName": "shield-alt",
+      "color": "#a626a2",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
     }
   ],
   "color": "#dddddd",

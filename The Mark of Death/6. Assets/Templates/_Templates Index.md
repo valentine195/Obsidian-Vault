@@ -2,7 +2,7 @@
 - [[Adventure Plotline Template]]
 - [[Battle]]
 - [[Faction]]
-- [[Group]]
+- [[group]]
 - [[Location]]
 - [[location-shop]]
 - [[location-town]]
