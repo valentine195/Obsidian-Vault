@@ -2,11 +2,13 @@
   "tags": [
     {
       "tag": "ti",
-      "color": "#7989c3"
+      "color": "#7989c3",
+      "highlight": true
     },
     {
       "tag": "ta",
-      "color": "#ff2d00"
+      "color": "#ff2d00",
+      "highlight": true
     },
     {
       "tag": "todo",
@@ -20,5 +22,6 @@
       "tag": "abc?",
       "color": "#ff0000"
     }
-  ]
+  ],
+  "highlight": false
 }

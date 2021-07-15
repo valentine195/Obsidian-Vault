@@ -33,3 +33,7 @@
     > *:first-child {
     margin: 0 6px;
 }
+
+.better-comments-settings .setting-item-name.better-comments {
+    width: fit-content;
+}
