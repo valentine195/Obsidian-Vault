@@ -1,4 +1,12 @@
-!!! ad-battle
+```ad-info
+title: Actiony things
+collapse: 
+test
 
-
---- admonition
+- [x] 1
+- [ ] 2
+- [ ] 3
+	
+	
+	
+```
