@@ -26,21 +26,6 @@
   ],
   "homebrew": [
     {
-      "name": "Baba Lysaga",
-      "ac": 15,
-      "hp": 120,
-      "stats": [
-        18,
-        10,
-        16,
-        20,
-        17,
-        13
-      ],
-      "cr": "11",
-      "source": "Curse of Strahd"
-    },
-    {
       "name": "Baba Lysaga's Creeping Hut",
       "ac": 16,
       "hp": 263,
@@ -1839,6 +1824,27 @@
         5
       ],
       "cr": ""
+    },
+    {
+      "name": "test",
+      "modifier": 5,
+      "source": "Homebrew"
+    },
+    {
+      "name": "Baba Lysaga",
+      "ac": 15,
+      "hp": 120,
+      "stats": [
+        18,
+        10,
+        16,
+        20,
+        17,
+        13
+      ],
+      "cr": "11",
+      "source": "Curse of Strahd",
+      "modifier": 3
     }
   ],
   "version": "0.0.1",
