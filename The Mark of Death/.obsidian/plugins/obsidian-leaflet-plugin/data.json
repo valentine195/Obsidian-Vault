@@ -37,7 +37,7 @@
       "files": [
         "Plugin Testing/map/Middle Earth.md"
       ],
-      "lastAccessed": 1626362117243,
+      "lastAccessed": 1626458274963,
       "markers": [
         {
           "type": "location",
@@ -216,5 +216,5 @@
   "layerMarkers": true,
   "previousVersion": "3.19.8",
   "warnedAboutMapMarker": false,
-  "copyOnClick": false
+  "copyOnClick": true
 }
