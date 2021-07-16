@@ -1,6 +1,8 @@
 ```init-tracker
-name: name
+name: Test
 players: false
-monsters: test
+monsters: 
+ - 1
+ - 2
 
 ```
