@@ -2,7 +2,7 @@
 name: Test
 players: false
 monsters: 
- - 1
- - 2
+ - [1, 3]
+ - [2, 2]
 
 ```
