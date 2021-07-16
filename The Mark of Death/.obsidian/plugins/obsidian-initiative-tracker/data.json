@@ -1849,5 +1849,7 @@
     }
   ],
   "version": "0.0.1",
+  "canUseDiceRoll": false,
+  "initiative": "3d6 + %mod%",
   "sync": true
 }
