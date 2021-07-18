@@ -10,7 +10,7 @@ tags:
 
 # Session 8
 ### Adventure seed
-[[3 - Travel to Newthrone]]
+[[3 - Travel to Newthrone]] ^b8e498
 
 ## Characters
 
