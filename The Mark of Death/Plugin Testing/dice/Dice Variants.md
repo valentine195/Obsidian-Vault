@@ -4,6 +4,7 @@ tags:
 ---
 
 ### Polyhedral dice
+
 A typical set of roleplaying dice in various colors. They consist of the five Platonic solids, along with a ten-sided die that is also used for generating percentages.
 
 Various shapes like two-sided or four-sided dice are documented in archaeological findings e.g. from Ancient Egypt or the Middle East. While the cubical six-sided die became the most common type in many parts of the world, other shapes were always known, like 20-sided dice in Ptolemaic and Roman times.
@@ -11,6 +12,7 @@ Various shapes like two-sided or four-sided dice are documented in archaeologica
 The modern tradition of using _sets_ of polyhedral dice started around the end of the 1960s when non-cubical dice became popular among players of [wargames](https://en.wikipedia.org/wiki/Wargaming "Wargaming"),[\[28\]](https://en.wikipedia.org/wiki/Dice#cite_note-Peterson2012-28) and since have been employed extensively in [role-playing games](https://en.wikipedia.org/wiki/Role-playing_game "Role-playing game") and [trading card games](https://en.wikipedia.org/wiki/Collectible_card_game "Collectible card game"). Dice using both the numerals 6 and 9, which are reciprocally symmetric through rotation, typically distinguish them with a dot or underline.
 
 #### Common variations
+
 Dice are often sold in sets, matching in color, of six different shapes. Five of the dice are shaped like the [Platonic solids](https://en.wikipedia.org/wiki/Platonic_solid "Platonic solid"), whose faces are [regular polygons](https://en.wikipedia.org/wiki/Regular_polygon "Regular polygon"). Aside from the cube, the other four Platonic solids have 4, 8, 12, and 20 faces, allowing for those number ranges to be generated. The only other common non-cubical die is the 10-sided die, a pentagonal [trapezohedron](https://en.wikipedia.org/wiki/Trapezohedron "Trapezohedron") die, whose faces are ten [kites](https://en.wikipedia.org/wiki/Kite_(geometry) "Kite (geometry)"), each with two different edge lengths, three different angles, and two different kinds of vertices. Such sets frequently include a second 10-sided die either of contrasting color or numbered by tens, allowing the pair of 10-sided dice to be combined to generate numbers between 1 and 100.
 
 Using these dice in various ways, games can closely approximate a variety of [probability distributions](https://en.wikipedia.org/wiki/Probability_distribution "Probability distribution"). For instance, 10-sided dice can be rolled in pairs to produce a [uniform distribution](https://en.wikipedia.org/wiki/Discrete_uniform_distribution "Discrete uniform distribution") of random percentages, and summing the values of multiple dice will produce approximations to [normal distributions](https://en.wikipedia.org/wiki/Normal_distribution "Normal distribution").[\[29\]](https://en.wikipedia.org/wiki/Dice#cite_note-29)
@@ -22,6 +24,7 @@ Normally, the faces on a die will be placed so opposite faces will add up to one
 Some twenty-sided dice sport a different arrangement used for the purpose of keeping track of an integer that counts down, such as health points. These _spindown dice_ are arranged such that adjacent integers appear on adjacent faces, allowing the user to easily find the next lower number. They are commonly used with [collectible card games](https://en.wikipedia.org/wiki/Collectible_card_games "Collectible card games").[\[30\]](https://en.wikipedia.org/wiki/Dice#cite_note-30)
 
 #### Rarer variations
+
 "Uniform fair dice" are dice where all faces have equal probability of outcome due to the symmetry of the die as it is [face-transitive](https://en.wikipedia.org/wiki/Isohedral_figure "Isohedral figure"). Theoretically, these include:
 
 -   [Platonic solids](https://en.wikipedia.org/wiki/Platonic_solid "Platonic solid"), the five regular polyhedra: 4, 6, 8, 12, 20 sides
@@ -39,10 +42,13 @@ Two other types of polyhedra are technically not face-transitive, but are still 
 
 
 ### Non-numeric dice
+
 The faces of most dice are labelled using sequences of whole numbers, usually starting at one, expressed with either pips or digits. However, there are some applications that require results other than numbers. Examples include letters for [Boggle](https://en.wikipedia.org/wiki/Boggle "Boggle"), directions for _[Warhammer Fantasy Battle](https://en.wikipedia.org/wiki/Warhammer_Fantasy_Battle "Warhammer Fantasy Battle")_, [Fudge dice](https://en.wikipedia.org/wiki/Fudge_(role-playing_game_system)#Fudge_dice "Fudge (role-playing game system)"), playing card symbols for [poker dice](https://en.wikipedia.org/wiki/Poker_dice "Poker dice"), and instructions for sexual acts using [sex dice](https://en.wikipedia.org/wiki/Sex_dice "Sex dice").
 
 ### Alternatively numbered dice
+
 Dice may have numbers that do not form a counting sequence starting at one. One variation on the standard die is known as the "average" die.[\[34\]](https://en.wikipedia.org/wiki/Dice#cite_note-em4-34)[\[35\]](https://en.wikipedia.org/wiki/Dice#cite_note-tmp-35) These are six-sided dice with sides numbered `2, 3, 3, 4, 4, 5`, which have the same [arithmetic mean](https://en.wikipedia.org/wiki/Arithmetic_mean "Arithmetic mean") as a standard die (3.5 for a single die, 7 for a pair of dice), but have a narrower range of possible values (2 through 5 for one, 4 through 10 for a pair). They are used in some table-top [wargames](https://en.wikipedia.org/wiki/Wargaming "Wargaming"), where a narrower range of numbers is required.[\[35\]](https://en.wikipedia.org/wiki/Dice#cite_note-tmp-35) Other numbered variations include [Sicherman dice](https://en.wikipedia.org/wiki/Sicherman_dice "Sicherman dice") and [intransitive dice](https://en.wikipedia.org/wiki/Intransitive_dice "Intransitive dice").
 
 ### Spherical dice
+
 A die can be constructed in the shape of a sphere, with the addition of an internal cavity in the shape of the [dual polyhedron](https://en.wikipedia.org/wiki/Dual_polyhedron "Dual polyhedron") of the desired die shape and an internal weight. The weight will settle in one of the points of the internal cavity, causing it to settle with one of the numbers uppermost. For instance, a sphere with an octahedral cavity and a small internal weight will settle with one of the 6 points of the cavity held downwards by the weight.

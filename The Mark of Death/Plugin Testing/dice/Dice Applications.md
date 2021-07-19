@@ -15,5 +15,6 @@ Astrological dice are a specialized set of three 12-sided dice for divination; t
 
 Dice can be used to generate random numbers for use in [passwords](https://en.wikipedia.org/wiki/Password "Password") and [cryptography](https://en.wikipedia.org/wiki/Cryptography "Cryptography") applications. The [Electronic Frontier Foundation](https://en.wikipedia.org/wiki/Electronic_Frontier_Foundation "Electronic Frontier Foundation") describes a method by which dice can be used to generate [passphrases](https://en.wikipedia.org/wiki/Passphrase "Passphrase").[\[38\]](https://en.wikipedia.org/wiki/Dice#cite_note-38) [Diceware](https://en.wikipedia.org/wiki/Diceware "Diceware") is a method recommended for generating secure but memorable passphrases, by repeatedly rolling five dice and picking the corresponding word from a pre-generated list.[\[39\]](https://en.wikipedia.org/wiki/Dice#cite_note-39)
 
-### Notation
+# Notation
+
 In many gaming contexts, especially tabletop role-playing games, shorthand notations representing different dice rolls are used. A "d" or "D" is used to indicate a die with a specific number of sides; for example, `d4` denotes a four-sided die. If several dice of the same type are to be rolled, this is indicated by a leading number specifying the number of dice. Hence, `6d8` means the player should roll six eight-sided dice and add the results. Modifiers to a die roll can also be indicated as desired. For example, `3d6+4` instructs the player to roll three six-sided dice, calculate the total, and add four to it.

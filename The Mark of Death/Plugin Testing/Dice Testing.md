@@ -3,7 +3,7 @@
 `dice: [[Cold Sun Tribe#^chiefs]]|Chiefs`
 
 
-`dice: [[Dice]]|paragraph`
+`dice: [[History of Dice]]|paragraph`
 
 
 `dice: 2d#location|paragraph`
