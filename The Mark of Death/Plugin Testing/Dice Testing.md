@@ -6,4 +6,4 @@
 `dice: [[Dice]]|paragraph`
 
 
-`dice: 1d#todo|-`
+`dice: 1d#todo`
