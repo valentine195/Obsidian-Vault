@@ -1,7 +1,7 @@
 `dice: [[Cold Sun Tribe#^chiefs]]`
 
 
-`dice: 1d[[Dice]]`
+`dice: [[Dice]]`
 
 
 `dice: 1d#location`
