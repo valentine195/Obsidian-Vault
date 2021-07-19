@@ -22,7 +22,6 @@
 .dice-roller.has-embed {
     display: flex;
     padding-right: 0.25rem;
-
 }
 .dice-roller.has-embed .internal-embed {
     width: 100%;
