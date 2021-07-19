@@ -6,4 +6,4 @@
 `dice: [[Dice]]|paragraph`
 
 
-`dice: 1d#location|-|paragraph`
+`dice: 2d#location|paragraph`
