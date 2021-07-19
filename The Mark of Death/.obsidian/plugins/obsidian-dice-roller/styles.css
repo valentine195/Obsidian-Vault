@@ -23,6 +23,12 @@
     display: flex;
     padding-right: 0.25rem;
 }
+
+
 .dice-roller.has-embed .internal-embed {
     width: 100%;
+}
+
+.dice-roller.has-embed .dice-file-name {
+    font-style: italic;
 }
