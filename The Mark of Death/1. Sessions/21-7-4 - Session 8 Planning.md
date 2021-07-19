@@ -21,6 +21,8 @@ list from #pc/alive
 ## Strong Start
 > The servant opens the door to the guesthouse, and you step into a utilitarian common room. A wooden table large enough to sit eight people sits to your left, along with a small pantry, and on the right are several sitting chairs arrayed around an unlit stone fireplace. Three doors in the back are open and through each you see a simple bed against the wall. The servant enters behind you, still limping and with a pained look on his face, and then stands to one side. He says: 
 
+^5cfb28
+
 ```ad-quote
 title: Yoss
 I have been instructed by my master to see to your needs. The full clanhold is at your disposal, but I must warn you - the other clans have begun arriving, and blood fueds will be settled this night. Please let me know if you require anything.
