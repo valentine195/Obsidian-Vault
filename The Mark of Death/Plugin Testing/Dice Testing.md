@@ -3,7 +3,7 @@
 `dice: [[Cold Sun Tribe#^chiefs]]`
 
 
-`dice: [[Dice]]`
+`dice: [[Dice]]|paragraph`
 
 
-`dice: #location`
+`dice: 2d#location|paragraph,yaml`
