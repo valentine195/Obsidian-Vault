@@ -13,7 +13,6 @@
   "templater-obsidian",
   "obsidian-timelines",
   "obsidian-readwise",
-  "obsidian-paprika",
   "obsidian-kindle-plugin",
   "obsidian-admonition",
   "calendar",
@@ -22,6 +21,5 @@
   "better-comments",
   "initiative-tracker",
   "obsidian-dice-roller",
-  "obsidian-map-view",
-  "obsidian-leaflet-plugin"
+  "obsidian-map-view"
 ]
