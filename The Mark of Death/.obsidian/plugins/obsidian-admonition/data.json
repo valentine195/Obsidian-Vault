@@ -57,6 +57,6 @@
   "version": "6.2.1",
   "autoCollapse": false,
   "defaultCollapseType": "closed",
-  "syncLinks": true,
+  "syncLinks": false,
   "enableMarkdownProcessor": true
 }
