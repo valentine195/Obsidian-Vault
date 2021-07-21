@@ -1,7 +1,8 @@
 {
-  "baseFontSize": 16,
+  "baseFontSize": 13,
   "obsidianCss": true,
   "enabledCssSnippets": [
+    "obsidian.auto-fading",
     "obsidian.colored-folders",
     "obsidian",
     "obsidian.image-adjustments",
@@ -14,6 +15,5 @@
     "obsidian.subhead"
   ],
   "cssTheme": "Minimal",
-  "theme": "moonstone",
-  "translucency": false
+  "theme": "moonstone"
 }

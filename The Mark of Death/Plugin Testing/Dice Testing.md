@@ -1,3 +1,9 @@
-`dice: 1d[[Dice]]`
+`dice: 3d4+3d4-(3d4 * 1d4) + 2^1d7`
 
-`dice: 1d#location`
+`dice: [[Cold Sun Tribe#^chiefs]]|Chiefs`
+
+
+`dice: [[History of Dice]]|paragraph`
+
+
+`dice: 2d#location|paragraph`
