@@ -61,10 +61,6 @@
     overflow-x: auto;
 }
 
-.admonition-content .markdown-preview-sizer.markdown-preview-sizer {
-    padding: 0;
-}
-
 .admonition-content-copy {
     color: var(--text-faint);
     cursor: pointer;
