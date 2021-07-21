@@ -1,1 +1,1 @@
-`dice: #dice|yaml`
+`dice: #dice|heading`
