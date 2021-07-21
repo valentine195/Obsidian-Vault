@@ -2,7 +2,6 @@
 date updated: '2021-03-30T20:37:16-04:00'
 
 ---
-
 # The Mark of Death
 
 ## Map
