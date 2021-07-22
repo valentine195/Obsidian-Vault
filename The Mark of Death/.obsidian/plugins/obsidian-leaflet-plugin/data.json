@@ -1,32 +1,11 @@
 {
   "mapMarkers": [
     {
-      "id": "index",
-      "files": [
-        "2. Compendium/Locations/1. Location Index.md"
-      ],
-      "lastAccessed": 1626912104671,
-      "markers": [],
-      "overlays": [
-        {
-          "radius": 0.5404759548883742,
-          "loc": [
-            -2.65061462850055,
-            3.6791649708612555
-          ],
-          "color": "blue",
-          "layer": "%5B%5BKhorvaire.jpg%5D%5D",
-          "unit": "mi",
-          "desc": ""
-        }
-      ]
-    },
-    {
       "id": "real",
       "files": [
         "Plugin Testing/map/Map.md"
       ],
-      "lastAccessed": 1626912754505,
+      "lastAccessed": 1626913537730,
       "markers": [
         {
           "type": "location",
@@ -72,7 +51,7 @@
       "files": [
         "Plugin Testing/map/Map.md"
       ],
-      "lastAccessed": 1626912754505,
+      "lastAccessed": 1626913537730,
       "markers": [
         {
           "type": "default",
