@@ -1,9 +1,3 @@
-![[Mine of Whitecliff.png]]
-
-![[Mine of Whitecliff.png]]
-
-![[Mine of Whitecliff.png]]
-
 ```leaflet
 id: tester4
 image: [[middle-earth-map.jpg]]
@@ -19,7 +13,7 @@ verbose: true
 geojson:
  - [[geo-fangorn.geojson]]
 geojsonColor: red
-zoomFeatures: true
+#zoomFeatures: true
 ```
 
 

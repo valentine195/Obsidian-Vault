@@ -5,7 +5,7 @@
       "files": [
         "Plugin Testing/map/Map.md"
       ],
-      "lastAccessed": 1626959830370,
+      "lastAccessed": 1626970347596,
       "markers": [
         {
           "type": "location",
@@ -45,6 +45,33 @@
         }
       ],
       "overlays": []
+    },
+    {
+      "id": "tester4",
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ],
+      "lastAccessed": 1626970347596,
+      "markers": [
+        {
+          "type": "location",
+          "id": "ID_6ababb186b78",
+          "loc": [
+            580.375,
+            488
+          ],
+          "percent": [
+            0.61,
+            -0.9672916666666667
+          ],
+          "link": "hotkeysplus-obsidian:toggle-block-quote",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": true,
+          "zoom": 2,
+          "description": null
+        }
+      ],
+      "overlays": []
     }
   ],
   "defaultMarker": {
@@ -76,7 +103,7 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "3.19.10",
+  "previousVersion": "3.20.0",
   "warnedAboutMapMarker": false,
   "copyOnClick": false
 }
