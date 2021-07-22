@@ -11,6 +11,17 @@
     color: white;
 }
 
+.view-header-title-container {
+    max-width: unset;
+    width: 100%;
+}
+.view-header-title {
+    width: 100%;
+    padding-right: 0;
+}
+.view-actions {
+    width: auto;
+}
 .view-header-title-container,
 .view-actions,
 .view-header-icon {

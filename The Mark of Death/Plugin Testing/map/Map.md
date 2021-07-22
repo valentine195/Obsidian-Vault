@@ -16,3 +16,6 @@ geojson:
 geojsonColor: red
 ```
 
+```leaflet
+id: real
+```

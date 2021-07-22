@@ -22,11 +22,57 @@
       ]
     },
     {
+      "id": "real",
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ],
+      "lastAccessed": 1626912754505,
+      "markers": [
+        {
+          "type": "location",
+          "id": "ID_ea286a381b19",
+          "loc": [
+            35.6427892190328,
+            -83.27636718750001
+          ],
+          "layer": "real",
+          "command": false,
+          "zoom": 10,
+          "description": null
+        },
+        {
+          "type": "event",
+          "id": "ID_a85aa95928fa",
+          "loc": [
+            38.275922859749215,
+            -89.73632812500001
+          ],
+          "layer": "real",
+          "command": false,
+          "zoom": 10,
+          "description": null
+        },
+        {
+          "type": "faction",
+          "id": "ID_48397ab89ba9",
+          "loc": [
+            40.14843850313905,
+            -82.35351562500001
+          ],
+          "layer": "real",
+          "command": false,
+          "zoom": 10,
+          "description": null
+        }
+      ],
+      "overlays": []
+    },
+    {
       "id": "tester4",
       "files": [
-        "Plugin Testing/map/Middle Earth.md"
+        "Plugin Testing/map/Map.md"
       ],
-      "lastAccessed": 1626912527386,
+      "lastAccessed": 1626912754505,
       "markers": [
         {
           "type": "default",

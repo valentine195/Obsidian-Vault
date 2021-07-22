@@ -1,9 +1,9 @@
 /* Auto fading UI */
-.view-header:not(:hover) .view-header-icon,
-.view-header:not(:hover) .view-actions,
-.status-bar:not(:hover) .status-bar-item,
-.frontmatter-container.is-collapsed:not(:hover),
-.side-dock-ribbon.mod-left.is-collapsed:not(:hover)
+body:not(.is-mobile) .view-header:not(:hover) .view-header-icon,
+body:not(.is-mobile) .view-header:not(:hover) .view-actions,
+body:not(.is-mobile) .status-bar:not(:hover) .status-bar-item,
+body:not(.is-mobile) .frontmatter-container.is-collapsed:not(:hover),
+body:not(.is-mobile) .side-dock-ribbon.mod-left.is-collapsed:not(:hover)
     > *:not(.workspace-ribbon-collapse-btn) {
     opacity: 0.1 !important;
     transition-delay: 5s !important;
