@@ -1849,6 +1849,6 @@
   ],
   "version": "0.0.1",
   "canUseDiceRoll": false,
-  "initiative": "1d1 + %mod%",
+  "initiative": "1d20 + %mod%",
   "sync": true
 }
