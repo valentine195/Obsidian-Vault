@@ -1,4 +1,4 @@
-%%
+
 ```leaflet
 id: tester4
 image: [[middle-earth-map.jpg]]
@@ -15,7 +15,7 @@ geojson:
  - [[geo-fangorn.geojson]]
 geojsonColor: red
 ```
-%%
+
 
 ```leaflet
 id: real
