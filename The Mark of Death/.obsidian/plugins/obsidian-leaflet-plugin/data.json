@@ -1,52 +1,6 @@
 {
   "mapMarkers": [
     {
-      "id": "tester4",
-      "files": [
-        "Plugin Testing/map/Middle Earth.md"
-      ],
-      "lastAccessed": 1626911744204,
-      "markers": [
-        {
-          "type": "default",
-          "id": "ID_4b880a094978",
-          "loc": [
-            692.375,
-            588
-          ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null
-        },
-        {
-          "type": "default",
-          "id": "ID_894878f80aa9",
-          "loc": [
-            492.375,
-            1280
-          ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null
-        },
-        {
-          "type": "default",
-          "id": "ID_eb7a09199849",
-          "loc": [
-            1000.375,
-            1520
-          ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null
-        }
-      ],
-      "overlays": []
-    },
-    {
       "id": "index",
       "files": [
         "2. Compendium/Locations/1. Location Index.md"
@@ -66,6 +20,64 @@
           "desc": ""
         }
       ]
+    },
+    {
+      "id": "tester4",
+      "files": [
+        "Plugin Testing/map/Middle Earth.md"
+      ],
+      "lastAccessed": 1626912527386,
+      "markers": [
+        {
+          "type": "default",
+          "id": "ID_4b880a094978",
+          "loc": [
+            692.375,
+            588
+          ],
+          "percent": [
+            0.735,
+            -1.1539583333333334
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "default",
+          "id": "ID_894878f80aa9",
+          "loc": [
+            492.37500000000006,
+            1280
+          ],
+          "percent": [
+            1.6,
+            -0.820625
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        },
+        {
+          "type": "default",
+          "id": "ID_eb7a09199849",
+          "loc": [
+            1000.375,
+            1520
+          ],
+          "percent": [
+            1.9,
+            -1.6672916666666666
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "command": false,
+          "zoom": 2,
+          "description": null
+        }
+      ],
+      "overlays": []
     }
   ],
   "defaultMarker": {
