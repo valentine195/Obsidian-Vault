@@ -6,6 +6,29 @@ if you want to view the source visit the plugins github repository
 'use strict';
 
 var obsidian = require('obsidian');
+var path = require('path');
+
+function _interopNamespace(e) {
+    if (e && e.__esModule) return e;
+    var n = Object.create(null);
+    if (e) {
+        Object.keys(e).forEach(function (k) {
+            if (k !== 'default') {
+                var d = Object.getOwnPropertyDescriptor(e, k);
+                Object.defineProperty(n, k, d.get ? d : {
+                    enumerable: true,
+                    get: function () {
+                        return e[k];
+                    }
+                });
+            }
+        });
+    }
+    n['default'] = e;
+    return Object.freeze(n);
+}
+
+var path__namespace = /*#__PURE__*/_interopNamespace(path);
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -14318,7 +14341,8 @@ const DEFAULT_SETTINGS = {
     zoomOnGoFromNote: 15,
     tilesUrl: TILES_URL_OPENSTREETMAP,
     autoZoom: true,
-    markerClickBehavior: 'samePane'
+    markerClickBehavior: 'samePane',
+    newNoteNameFormat: 'Location added on {{date:YYYY-MM-DD}}T{{date:HH-mm}}'
 };
 
 /*!
@@ -14492,34 +14516,53 @@ class FileMarker {
     constructor(file, location) {
         this.file = file;
         this.location = location;
-        this.id = new MarkerId(file.name, location);
+        this.id = this.generateId();
+    }
+    isSame(other) {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q, _r, _s, _t, _u, _v;
+        return this.file.name === other.file.name &&
+            this.location.toString() === other.location.toString() &&
+            this.fileLocation === other.fileLocation &&
+            ((_b = (_a = this.icon) === null || _a === void 0 ? void 0 : _a.options) === null || _b === void 0 ? void 0 : _b.iconUrl) === ((_d = (_c = other.icon) === null || _c === void 0 ? void 0 : _c.options) === null || _d === void 0 ? void 0 : _d.iconUrl) &&
+            // @ts-ignore
+            ((_f = (_e = this.icon) === null || _e === void 0 ? void 0 : _e.options) === null || _f === void 0 ? void 0 : _f.icon) === ((_h = (_g = other.icon) === null || _g === void 0 ? void 0 : _g.options) === null || _h === void 0 ? void 0 : _h.icon) &&
+            // @ts-ignore
+            ((_k = (_j = this.icon) === null || _j === void 0 ? void 0 : _j.options) === null || _k === void 0 ? void 0 : _k.iconColor) === ((_m = (_l = other.icon) === null || _l === void 0 ? void 0 : _l.options) === null || _m === void 0 ? void 0 : _m.iconColor) &&
+            // @ts-ignore
+            ((_p = (_o = this.icon) === null || _o === void 0 ? void 0 : _o.options) === null || _p === void 0 ? void 0 : _p.markerColor) === ((_r = (_q = other.icon) === null || _q === void 0 ? void 0 : _q.options) === null || _r === void 0 ? void 0 : _r.markerColor) &&
+            // @ts-ignore
+            ((_t = (_s = this.icon) === null || _s === void 0 ? void 0 : _s.options) === null || _t === void 0 ? void 0 : _t.shape) === ((_v = (_u = other.icon) === null || _u === void 0 ? void 0 : _u.options) === null || _v === void 0 ? void 0 : _v.shape);
+    }
+    generateId() {
+        return this.file.name + this.location.lat.toString() + this.location.lng.toString();
     }
 }
-class MarkerId {
-    constructor(fileName, location) {
-        this.fileName = fileName;
-        this.flattenedLocation = location.lat.toString() + location.lng.toString();
-    }
-}
-function buildMarkers(files, settings, app) {
+function buildAndAppendFileMarkers(mapToAppendTo, file, settings, app, skipMetadata) {
     return __awaiter(this, void 0, void 0, function* () {
-        let markers = [];
-        for (const file of files) {
-            const fileCache = app.metadataCache.getFileCache(file);
-            const frontMatter = fileCache === null || fileCache === void 0 ? void 0 : fileCache.frontmatter;
-            if (frontMatter) {
+        const fileCache = app.metadataCache.getFileCache(file);
+        const frontMatter = fileCache === null || fileCache === void 0 ? void 0 : fileCache.frontmatter;
+        if (frontMatter) {
+            if (!skipMetadata) {
                 const location = getFrontMatterLocation(file, app);
                 if (location) {
                     verifyLocation(location);
                     let leafletMarker = new FileMarker(file, location);
                     leafletMarker.icon = getIconForMarker(leafletMarker, settings, app);
-                    markers.push(leafletMarker);
-                }
-                if ('locations' in frontMatter) {
-                    const markersFromFile = yield getMarkersFromFileContent(file, settings, app);
-                    markers.push(...markersFromFile);
+                    mapToAppendTo.push(leafletMarker);
                 }
             }
+            if ('locations' in frontMatter) {
+                const markersFromFile = yield getMarkersFromFileContent(file, settings, app);
+                mapToAppendTo.push(...markersFromFile);
+            }
+        }
+    });
+}
+function buildMarkers(files, settings, app) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let markers = [];
+        for (const file of files) {
+            yield buildAndAppendFileMarkers(markers, file, settings, app);
         }
         return markers;
     });
@@ -14606,6 +14649,34 @@ function getFrontMatterLocation(file, app) {
     return null;
 }
 
+function formatWithTemplates(s) {
+    const datePattern = /{{date:([a-zA-Z\-\/\.\:]*)}}/g;
+    const replaced = s.replace(datePattern, (_, pattern) => {
+        // @ts-ignore
+        return moment().format(pattern);
+    });
+    return replaced;
+}
+function newNote(app, newNoteType, directory, fileName, location, templatePath) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let content = newNoteType === 'singleLocation' ?
+            `---\nlocation: [${location}]\n---\n\n` :
+            `---\nlocations:\n---\n\n\`location: ${location}\`\n`;
+        let templateContent = '';
+        if (templatePath)
+            templateContent = yield app.vault.adapter.read(templatePath);
+        let fullName = path__namespace.join(directory || '', fileName);
+        if (yield app.vault.adapter.exists(fullName + '.md'))
+            fullName += Math.random() * 1000;
+        try {
+            return app.vault.create(fullName + '.md', content + templateContent);
+        }
+        catch (e) {
+            throw Error(`Cannot create file named ${fullName}: ${e}`);
+        }
+    });
+}
+
 class MapView extends obsidian.ItemView {
     constructor(leaf, settings, plugin) {
         super(leaf);
@@ -14614,6 +14685,7 @@ class MapView extends obsidian.ItemView {
                 this.markers = new Map();
             }
         };
+        this.isOpen = false;
         this.onAfterOpen = null;
         this.navigation = true;
         this.settings = settings;
@@ -14636,11 +14708,15 @@ class MapView extends obsidian.ItemView {
         this.getState = () => {
             return this.state;
         };
+        this.app.vault.on('delete', file => this.updateMarkersWithRelationToFile(file.path, null, true));
+        this.app.vault.on('rename', (file, oldPath) => this.updateMarkersWithRelationToFile(oldPath, file, true));
+        this.app.metadataCache.on('changed', file => this.updateMarkersWithRelationToFile(file.path, file, false));
     }
     getViewType() { return 'map'; }
     getDisplayText() { return 'Interactive Map View'; }
     onOpen() {
         var that = this;
+        this.isOpen = true;
         this.state = this.defaultState;
         let controlsDiv = createDiv({
             'cls': 'graph-controls',
@@ -14708,6 +14784,10 @@ class MapView extends obsidian.ItemView {
         this.createMap();
         return super.onOpen();
     }
+    onClose() {
+        this.isOpen = false;
+        return super.onClose();
+    }
     onResize() {
         this.display.map.invalidateSize();
     }
@@ -14717,7 +14797,9 @@ class MapView extends obsidian.ItemView {
             this.display.map = new leafletSrc.Map(this.display.mapDiv, {
                 center: new leafletSrc.LatLng(40.731253, -73.996139),
                 zoom: 13,
-                zoomControl: false
+                zoomControl: false,
+                worldCopyJump: true,
+                maxBoundsViscosity: 1.0
             });
             leafletSrc.control.zoom({
                 position: 'topright'
@@ -14750,9 +14832,27 @@ class MapView extends obsidian.ItemView {
                 mapPopup.setNoIcon();
                 mapPopup.addItem((item) => {
                     const location = `${event.latlng.lat},${event.latlng.lng}`;
-                    item.setTitle(`Copy location as coordinates`);
+                    item.setTitle('New note here');
+                    item.onClick((ev) => __awaiter(this, void 0, void 0, function* () {
+                        const newFileName = formatWithTemplates(this.settings.newNoteNameFormat);
+                        const file = yield newNote(this.app, 'singleLocation', this.settings.newNotePath, newFileName, location, this.settings.newNoteTemplate);
+                        this.goToFile(file, ev.ctrlKey);
+                    }));
+                });
+                mapPopup.addItem((item) => {
+                    const location = `${event.latlng.lat},${event.latlng.lng}`;
+                    item.setTitle('New multi-location note');
+                    item.onClick((ev) => __awaiter(this, void 0, void 0, function* () {
+                        const newFileName = formatWithTemplates(this.settings.newNoteNameFormat);
+                        const file = yield newNote(this.app, 'multiLocation', this.settings.newNotePath, newFileName, location, this.settings.newNoteTemplate);
+                        this.goToFile(file, ev.ctrlKey);
+                    }));
+                });
+                mapPopup.addItem((item) => {
+                    const location = `${event.latlng.lat},${event.latlng.lng}`;
+                    item.setTitle(`Copy location as inline`);
                     item.onClick(_ev => {
-                        navigator.clipboard.writeText(location);
+                        navigator.clipboard.writeText(`\`location: [${location}]\``);
                     });
                 });
                 mapPopup.addItem((item) => {
@@ -14764,9 +14864,9 @@ class MapView extends obsidian.ItemView {
                 });
                 mapPopup.addItem((item) => {
                     const location = `${event.latlng.lat},${event.latlng.lng}`;
-                    item.setTitle(`Copy location as inline`);
+                    item.setTitle(`Copy location as coordinates`);
                     item.onClick(_ev => {
-                        navigator.clipboard.writeText(`\`location: [${location}]\``);
+                        navigator.clipboard.writeText(location);
                     });
                 });
                 mapPopup.addItem((item) => {
@@ -14828,9 +14928,10 @@ class MapView extends obsidian.ItemView {
     updateMapMarkers(newMarkers) {
         let newMarkersMap = new Map();
         for (let marker of newMarkers) {
-            if (this.display.markers.has(marker.id)) {
+            const existingMarker = this.display.markers.has(marker.id) ?
+                this.display.markers.get(marker.id) : null;
+            if (existingMarker && existingMarker.isSame(marker)) {
                 // This marker exists, so just keep it
-                // TODO: check if its string or marker has changed
                 newMarkersMap.set(marker.id, this.display.markers.get(marker.id));
                 this.display.markers.delete(marker.id);
             }
@@ -14840,14 +14941,14 @@ class MapView extends obsidian.ItemView {
                     .addTo(this.display.map)
                     .bindTooltip(marker.file.name);
                 marker.mapMarker.on('click', (event) => {
-                    this.goToMarker(marker, event.originalEvent.ctrlKey);
+                    this.goToMarker(marker, event.originalEvent.ctrlKey, true);
                 });
                 marker.mapMarker.getElement().addEventListener('contextmenu', (ev) => {
                     let mapPopup = new obsidian.Menu(this.app);
                     mapPopup.setNoIcon();
                     mapPopup.addItem((item) => {
                         item.setTitle('Open note');
-                        item.onClick((ev) => __awaiter(this, void 0, void 0, function* () { this.goToMarker(marker, ev.ctrlKey); }));
+                        item.onClick((ev) => __awaiter(this, void 0, void 0, function* () { this.goToMarker(marker, ev.ctrlKey, true); }));
                     });
                     mapPopup.addItem((item) => {
                         item.setTitle('Open in Google Maps');
@@ -14875,7 +14976,7 @@ class MapView extends obsidian.ItemView {
             }
         });
     }
-    goToMarker(marker, useCtrlKeyBehavior) {
+    goToFile(file, useCtrlKeyBehavior, fileLocation, highlight) {
         return __awaiter(this, void 0, void 0, function* () {
             let leafToUse = this.app.workspace.activeLeaf;
             const defaultDifferentPane = this.settings.markerClickBehavior != 'samePane';
@@ -14889,11 +14990,19 @@ class MapView extends obsidian.ItemView {
                 //    once, she wants to retain it until it's closed. (I hope no one will treat this as a bug...)
                 // 2. The default is to use a different pane and Ctrl is not pressed.
                 // 3. The default is to NOT use a different pane and Ctrl IS pressed.
+                const someOpenMarkdownLeaf = this.app.workspace.getLeavesOfType('markdown');
                 if (havePaneToReuse) {
                     // We have an existing pane, that pane still has a view (it was not closed), and the settings say
                     // to use a 2nd pane. That's the only case on which we reuse a pane
                     this.app.workspace.setActiveLeaf(this.newPaneLeaf);
                     leafToUse = this.newPaneLeaf;
+                }
+                else if (someOpenMarkdownLeaf.length > 0 && this.settings.markerClickBehavior != 'alwaysNew') {
+                    // We don't have a pane to reuse but the user wants a new pane and there is currently an open
+                    // Markdown pane. Let's take control over it and hope it's the right thing to do
+                    this.app.workspace.setActiveLeaf(someOpenMarkdownLeaf[0]);
+                    leafToUse = someOpenMarkdownLeaf[0];
+                    this.newPaneLeaf = leafToUse;
                 }
                 else {
                     // We need a new pane. We split it the way the settings tell us
@@ -14901,15 +15010,26 @@ class MapView extends obsidian.ItemView {
                     leafToUse = this.newPaneLeaf;
                 }
             }
-            yield leafToUse.openFile(marker.file);
+            yield leafToUse.openFile(file);
             const editor = this.getEditor();
             if (editor) {
-                if (marker.fileLocation) {
-                    let pos = editor.offsetToPos(marker.fileLocation);
-                    editor.setCursor(pos);
+                if (fileLocation) {
+                    let pos = editor.offsetToPos(fileLocation);
+                    if (highlight) {
+                        editor.setSelection({ ch: 0, line: pos.line }, { ch: 1000, line: pos.line });
+                    }
+                    else {
+                        editor.setCursor(pos);
+                        editor.refresh();
+                    }
                 }
                 editor.focus();
             }
+        });
+    }
+    goToMarker(marker, useCtrlKeyBehavior, highlight) {
+        return __awaiter(this, void 0, void 0, function* () {
+            return this.goToFile(marker.file, useCtrlKeyBehavior, marker.fileLocation, highlight);
         });
     }
     getAllTagNames() {
@@ -14930,6 +15050,20 @@ class MapView extends obsidian.ItemView {
         if (view)
             return view.editor;
         return null;
+    }
+    updateMarkersWithRelationToFile(fileRemoved, fileAddedOrChanged, skipMetadata) {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!this.display.map || !this.isOpen)
+                return;
+            let newMarkers = [];
+            for (let [markerId, fileMarker] of this.display.markers) {
+                if (fileMarker.file.path !== fileRemoved)
+                    newMarkers.push(fileMarker);
+            }
+            if (fileAddedOrChanged && fileAddedOrChanged instanceof obsidian.TFile)
+                yield buildAndAppendFileMarkers(newMarkers, fileAddedOrChanged, this.settings, this.app);
+            this.updateMapMarkers(newMarkers);
+        });
     }
 }
 
@@ -14955,12 +15089,19 @@ class MapViewPlugin extends obsidian.Plugin {
             this.app.workspace.on('file-menu', (menu, file, _source, leaf) => {
                 if (file instanceof obsidian.TFile) {
                     const location = getFrontMatterLocation(file, this.app);
-                    if (location)
+                    if (location) {
                         menu.addItem((item) => {
                             item.setTitle('Show on map');
                             item.setIcon('globe');
                             item.onClick(() => __awaiter(this, void 0, void 0, function* () { return yield this.openMapWithLocation(location); }));
                         });
+                        menu.addItem((item) => {
+                            item.setTitle('Open in Google Maps');
+                            item.onClick(_ev => {
+                                open(`https://maps.google.com/?q=${location.lat},${location.lng}`);
+                            });
+                        });
+                    }
                 }
             });
             // TODO function signature is a guess, revise when API is released
@@ -14973,6 +15114,12 @@ class MapViewPlugin extends obsidian.Plugin {
                             item.setTitle('Show on map');
                             item.setIcon('globe');
                             item.onClick(() => __awaiter(this, void 0, void 0, function* () { return yield this.openMapWithLocation(location); }));
+                        });
+                        menu.addItem((item) => {
+                            item.setTitle('Open in Google Maps');
+                            item.onClick(_ev => {
+                                open(`https://maps.google.com/?q=${location.lat},${location.lng}`);
+                            });
                         });
                     }
                 }
@@ -15065,6 +15212,39 @@ class SettingsTab extends obsidian.PluginSettingTab {
                 .setValue(this.plugin.settings.newPaneSplitDirection || 'horizontal')
                 .onChange((value) => __awaiter(this, void 0, void 0, function* () {
                 this.plugin.settings.newPaneSplitDirection = value;
+                this.plugin.saveSettings();
+            }));
+        });
+        new obsidian.Setting(containerEl)
+            .setName('New note name format')
+            .setDesc('Date/times in the format can be wrapped in {{date:...}}, e.g. "note-{{date:YYYY-MM-DD}}".')
+            .addText(component => {
+            component
+                .setValue(this.plugin.settings.newNoteNameFormat || DEFAULT_SETTINGS.newNoteNameFormat)
+                .onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.plugin.settings.newNoteNameFormat = value;
+                this.plugin.saveSettings();
+            }));
+        });
+        new obsidian.Setting(containerEl)
+            .setName('New note location')
+            .setDesc('Location for notes created from the map.')
+            .addText(component => {
+            component
+                .setValue(this.plugin.settings.newNotePath || '')
+                .onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.plugin.settings.newNotePath = value;
+                this.plugin.saveSettings();
+            }));
+        });
+        new obsidian.Setting(containerEl)
+            .setName('Template file location')
+            .setDesc('Choose the file to use as a template, e.g. "templates/map-log.md".')
+            .addText(component => {
+            component
+                .setValue(this.plugin.settings.newNoteTemplate || '')
+                .onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.plugin.settings.newNoteTemplate = value;
                 this.plugin.saveSettings();
             }));
         });
