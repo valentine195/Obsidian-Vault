@@ -1,3 +1,8 @@
+![[Mine of Whitecliff.png]]
+
+![[Mine of Whitecliff.png]]
+
+![[Mine of Whitecliff.png]]
 
 ```leaflet
 id: tester4
@@ -14,6 +19,7 @@ verbose: true
 geojson:
  - [[geo-fangorn.geojson]]
 geojsonColor: red
+zoomFeatures: true
 ```
 
 
