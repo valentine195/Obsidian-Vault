@@ -12,7 +12,8 @@
     "obsidian.portrait",
     "obsidian.auto-fading",
     "obsidian.material-icons",
-    "obsidian.masthead"
+    "obsidian.masthead",
+    "obsidian.kanban"
   ],
   "theme": "moonstone"
 }
