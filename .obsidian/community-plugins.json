@@ -5,14 +5,10 @@
   "hot-reload",
   "hotkeysplus-obsidian",
   "obsidian-kanban",
-  "markdown-prettifier",
-  "obsidian-outliner",
-  "tag-wrangler",
   "obsidian-tasks-plugin",
   "templater-obsidian",
   "obsidian-timelines",
   "obsidian-readwise",
-  "obsidian-kindle-plugin",
   "obsidian-admonition",
   "calendar",
   "obsidian-initiative-tracker",
@@ -22,6 +18,5 @@
   "obsidian-leaflet-plugin",
   "darlal-switcher-plus",
   "tag-highlighter",
-  "markdown-attributes",
-  "obsidian-git"
+  "markdown-attributes"
 ]
