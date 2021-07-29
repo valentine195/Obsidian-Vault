@@ -3,7 +3,7 @@
   "showUnsupportedFiles": true,
   "newFileLocation": "current",
   "showFrontmatter": false,
-  "foldHeading": false,
+  "foldHeading": true,
   "foldIndent": true,
   "defaultViewMode": "preview"
 }
