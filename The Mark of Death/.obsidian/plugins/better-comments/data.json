@@ -1,0 +1,27 @@
+{
+  "tags": [
+    {
+      "tag": "ti",
+      "color": "#7989c3",
+      "highlight": true
+    },
+    {
+      "tag": "ta",
+      "color": "#ff2d00",
+      "highlight": true
+    },
+    {
+      "tag": "todo",
+      "color": "#9a7e5b"
+    },
+    {
+      "tag": "test",
+      "color": "#613838"
+    },
+    {
+      "tag": "abc?",
+      "color": "#ff0000"
+    }
+  ],
+  "highlight": false
+}

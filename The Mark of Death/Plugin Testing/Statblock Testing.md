@@ -1,0 +1,4 @@
+
+```statblock
+monster: Allip
+```

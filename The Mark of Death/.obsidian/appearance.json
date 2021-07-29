@@ -1,0 +1,20 @@
+{
+  "baseFontSize": 16,
+  "obsidianCss": true,
+  "enabledCssSnippets": [
+    "obsidian.colored-folders",
+    "obsidian",
+    "obsidian.image-adjustments",
+    "obsidian.masthead",
+    "obsidian.material-icons",
+    "obsidian.minimal-overrides",
+    "obsidian.nav",
+    "obsidian.outliner-overrides",
+    "obsidian.portrait",
+    "obsidian.subhead",
+    "obsidian.auto-fading"
+  ],
+  "cssTheme": "Minimal",
+  "theme": "moonstone",
+  "translucency": false
+}

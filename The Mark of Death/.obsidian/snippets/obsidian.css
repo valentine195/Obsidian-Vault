@@ -1,0 +1,90 @@
+:root,
+.theme-dark {
+    --default-font: "iA Writer Quattro" !important;
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
+    max-width: 900px;
+}
+
+.markdown-preview-view h1:first-of-type,
+.markdown-preview-view h2:first-of-type,
+.markdown-preview-view .is-collapsed > h1,
+.markdown-preview-view .is-collapsed > h2,
+.markdown-preview-view .is-collapsed > h3,
+.markdown-preview-view .is-collapsed > h4,
+.markdown-preview-view .is-collapsed > h5,
+.markdown-preview-view .is-collapsed > h6 {
+    border-bottom: 1px solid var(--background-modifier-border);
+}
+
+/**
+  * Consistent header heights & colors
+  */
+.workspace-tab-header-container {
+    height: 36px;
+}
+.workspace-tab-header-inner-icon {
+    display: flex;
+    align-items: center;
+}
+:root {
+    --h1: 2.5em;
+    --h2: 2em;
+    --h3: 1.75em;
+    --h4: 1.5;
+    --h5: 1.25;
+    --h6: 1.125em;
+}
+
+/* h1,
+.cm-header-1 {
+    color: var(--Fold0) !important;
+}
+h2,
+.cm-header-2 {
+    color: var(--Fold1) !important;
+}
+h3,
+.cm-header-3 {
+    color: var(--Fold2) !important;
+}
+h4,
+.cm-header-4 {
+    color: var(--Fold3) !important;
+}
+h5,
+.cm-header-5 {
+    color: var(--Fold4) !important;
+}
+h6,
+.cm-header-6 {
+    color: var(--Fold5) !important;
+} */
+
+/** 
+  * Consistent Blockquote & Admonition Padding
+  */
+.markdown-preview-view blockquote {
+    margin-inline-start: 18px;
+    box-shadow: 0 0.2rem 0.5rem var(--background-modifier-box-shadow);
+}
+
+.admonition {
+    margin-inline-start: 18px !important;
+    margin-inline-end: 30px !important;
+}
+
+/* 4.2.1. Nifty arrow before internal links (also applies to embeds) */
+*:not(.nav) > .internal-link::before,
+*:not(.nav) > .markdown-embed-link::before {
+    content: " ";
+    background-color: var(--text-normal);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpolygon points='5.4 26 24 7.4 24 20 26 20 26 4 10 4 10 6 22.6 6 4 24.6'%3E%3C/polygon%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpolygon points='5.4 26 24 7.4 24 20 26 20 26 4 10 4 10 6 22.6 6 4 24.6'%3E%3C/polygon%3E%3C/svg%3E");
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    margin-right: 2px;
+    margin-bottom: -1px;
+}
