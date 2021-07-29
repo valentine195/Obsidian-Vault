@@ -1,6 +1,0 @@
-# Add below lines to exclude OS settings and caches
-.obsidian/workspace
-# .obsidian/config
-
-.trash/
-.DS_Store
