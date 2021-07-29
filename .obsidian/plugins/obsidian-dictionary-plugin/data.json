@@ -1,0 +1,17 @@
+{
+  "defaultLanguage": "de",
+  "shouldShowSynonymPopover": true,
+  "shouldShowCustomContextMenu": false,
+  "definitionApiName": "Free Dictionary API",
+  "synonymApiName": "Altervista",
+  "partOfSpeechApiName": "Systran API",
+  "advancedSynonymAnalysis": false,
+  "useCaching": false,
+  "cachedDefinitions": [],
+  "cachedSynonyms": [],
+  "folder": "",
+  "capitalizedFileName": true,
+  "prefix": "",
+  "suffix": "",
+  "template": "---\n# {{notice}}\n---\n\n# {{word}}\n\n## {{pronunciationHeader}}\n\n{{phoneticList}}\n\n## {{meaningHeader}}\n\n{{meanings}}\n"
+}
