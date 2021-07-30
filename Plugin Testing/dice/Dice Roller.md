@@ -1,1 +1,1 @@
-`dice: #dice|heading`
+`dice: #dice|link`

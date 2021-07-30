@@ -14342,7 +14342,122 @@ const DEFAULT_SETTINGS = {
     tilesUrl: TILES_URL_OPENSTREETMAP,
     autoZoom: true,
     markerClickBehavior: 'samePane',
-    newNoteNameFormat: 'Location added on {{date:YYYY-MM-DD}}T{{date:HH-mm}}'
+    newNoteNameFormat: 'Location added on {{date:YYYY-MM-DD}}T{{date:HH-mm}}',
+    snippetLines: 3
+};
+
+/* jshint node: true */
+
+var REGEXP_PARTS = /(\*|\?)/g;
+
+/**
+  # wildcard
+
+  Very simple wildcard matching, which is designed to provide the same
+  functionality that is found in the
+  [eve](https://github.com/adobe-webplatform/eve) eventing library.
+
+  ## Usage
+
+  It works with strings:
+
+  <<< examples/strings.js
+
+  Arrays:
+
+  <<< examples/arrays.js
+
+  Objects (matching against keys):
+
+  <<< examples/objects.js
+
+  ## Alternative Implementations
+
+  - <https://github.com/isaacs/node-glob>
+
+    Great for full file-based wildcard matching.
+
+  - <https://github.com/sindresorhus/matcher>
+
+     A well cared for and loved JS wildcard matcher.
+**/
+
+function WildcardMatcher(text, separator) {
+  this.text = text = text || '';
+  this.hasWild = text.indexOf('*') >= 0;
+  this.separator = separator;
+  this.parts = text.split(separator).map(this.classifyPart.bind(this));
+}
+
+WildcardMatcher.prototype.match = function(input) {
+  var matches = true;
+  var parts = this.parts;
+  var ii;
+  var partsCount = parts.length;
+  var testParts;
+
+  if (typeof input == 'string' || input instanceof String) {
+    if (!this.hasWild && this.text != input) {
+      matches = false;
+    } else {
+      testParts = (input || '').split(this.separator);
+      for (ii = 0; matches && ii < partsCount; ii++) {
+        if (parts[ii] === '*')  {
+          continue;
+        } else if (ii < testParts.length) {
+          matches = parts[ii] instanceof RegExp
+            ? parts[ii].test(testParts[ii])
+            : parts[ii] === testParts[ii];
+        } else {
+          matches = false;
+        }
+      }
+
+      // If matches, then return the component parts
+      matches = matches && testParts;
+    }
+  }
+  else if (typeof input.splice == 'function') {
+    matches = [];
+
+    for (ii = input.length; ii--; ) {
+      if (this.match(input[ii])) {
+        matches[matches.length] = input[ii];
+      }
+    }
+  }
+  else if (typeof input == 'object') {
+    matches = {};
+
+    for (var key in input) {
+      if (this.match(key)) {
+        matches[key] = input[key];
+      }
+    }
+  }
+
+  return matches;
+};
+
+WildcardMatcher.prototype.classifyPart = function(part) {
+  // in the event that we have been provided a part that is not just a wildcard
+  // then turn this into a regular expression for matching purposes
+  if (part === '*') {
+    return part;
+  } else if (part.indexOf('*') >= 0 || part.indexOf('?') >= 0) {
+    return new RegExp(part.replace(REGEXP_PARTS, '\.$1'));
+  }
+
+  return part;
+};
+
+var wildcard = function(text, test, separator) {
+  var matcher = new WildcardMatcher(text, separator || /[\/\.]/);
+  if (typeof test != 'undefined') {
+    return matcher.match(test);
+  }
+
+  return matcher;
 };
 
 /*!
@@ -14567,6 +14682,10 @@ function buildMarkers(files, settings, app) {
         return markers;
     });
 }
+function checkTagPatternMatch(tagPattern, fileTags) {
+    let match = wildcard(tagPattern, fileTags);
+    return match && match.length > 0;
+}
 function getIconForMarker(marker, settings, app) {
     let result = settings.markerIcons.default;
     const fileCache = app.metadataCache.getFileCache(marker.file);
@@ -14574,7 +14693,7 @@ function getIconForMarker(marker, settings, app) {
         const fileTags = fileCache.tags.map(tagCache => tagCache.tag);
         // We iterate over the rules and apply them one by one, so later rules override earlier ones
         for (const tag in settings.markerIcons) {
-            if (fileTags.indexOf(tag) > -1) {
+            if (checkTagPatternMatch(tag, fileTags)) {
                 result = Object.assign({}, result, settings.markerIcons[tag]);
             }
         }
@@ -14618,6 +14737,7 @@ function getMarkersFromFileContent(file, settings, app) {
                 const marker = new FileMarker(file, location);
                 marker.fileLocation = match.index;
                 marker.icon = getIconForMarker(marker, settings, app);
+                marker.snippet = yield makeTextSnippet(file, content, marker.fileLocation, settings);
                 markers.push(marker);
             }
             catch (e) {
@@ -14625,6 +14745,46 @@ function getMarkersFromFileContent(file, settings, app) {
             }
         }
         return markers;
+    });
+}
+function makeTextSnippet(file, fileContent, fileLocation, settings) {
+    return __awaiter(this, void 0, void 0, function* () {
+        let snippet = '';
+        if (settings.snippetLines && settings.snippetLines > 0) {
+            // We subtract 1 because the central (location) line will always be displayed
+            let linesAbove = Math.round((settings.snippetLines - 1) / 2);
+            let linesBelow = settings.snippetLines - 1 - linesAbove;
+            // Start from the beginning of the line on which the location was found, then go back
+            let snippetStart = fileContent.lastIndexOf('\n', fileLocation);
+            while (linesAbove > 0 && snippetStart > -1) {
+                const prevLine = fileContent.lastIndexOf('\n', snippetStart - 1);
+                const line = fileContent.substring(snippetStart, prevLine);
+                // If the new line above contains another location, don't include it and stop
+                if (!matchInlineLocation(line).next().done)
+                    break;
+                snippetStart = prevLine;
+                linesAbove -= 1;
+            }
+            // Either if we reached the beginning of the file (-1) or if we stopped due to a newline, we want a step forward
+            snippetStart += 1;
+            // Always include the line with the location
+            let snippetEnd = fileContent.indexOf('\n', fileLocation);
+            // Now continue forward
+            while (linesBelow > 0 && snippetEnd > -1) {
+                const nextLine = fileContent.indexOf('\n', snippetEnd + 1);
+                const line = fileContent.substring(snippetEnd, nextLine > -1 ? nextLine : fileContent.length);
+                // If the new line below contains another location, don't include it and stop
+                if (!matchInlineLocation(line).next().done)
+                    break;
+                snippetEnd = nextLine;
+                linesBelow -= 1;
+            }
+            if (snippetEnd === -1)
+                snippetEnd = fileContent.length;
+            snippet = fileContent.substring(snippetStart, snippetEnd);
+            snippet = snippet.replace(/\`location:.*\`/g, '<span class="map-view-location">`location:...`</span>');
+        }
+        return snippet;
     });
 }
 function getFrontMatterLocation(file, app) {
@@ -14700,9 +14860,15 @@ class MapView extends obsidian.ItemView {
         this.setState = (state, result) => __awaiter(this, void 0, void 0, function* () {
             if (state) {
                 console.log(`Received setState:`, state);
-                // We give the given state priority by setting a high version
-                state.version = 100;
-                yield this.updateMapToState(state);
+                if (!state.version) {
+                    // We give the given state priority by setting a high version
+                    state.version = this.plugin.highestVersionSeen + 1;
+                }
+                if (!state.mapCenter || !state.mapZoom) {
+                    state.mapCenter = this.defaultState.mapCenter;
+                    state.mapZoom = this.defaultState.mapZoom;
+                }
+                yield this.updateMapToState(state, false);
             }
         });
         this.getState = () => {
@@ -14715,74 +14881,79 @@ class MapView extends obsidian.ItemView {
     getViewType() { return 'map'; }
     getDisplayText() { return 'Interactive Map View'; }
     onOpen() {
-        var that = this;
-        this.isOpen = true;
-        this.state = this.defaultState;
-        let controlsDiv = createDiv({
-            'cls': 'graph-controls',
-            'text': 'Filters'
-        }, (el) => {
-            el.style.position = 'fixed';
-            el.style.zIndex = '2';
+        const _super = Object.create(null, {
+            onOpen: { get: () => super.onOpen }
         });
-        this.display.tagsBox = new obsidian.TextComponent(controlsDiv);
-        this.display.tagsBox.setPlaceholder('Tags, e.g. "#one,#two"');
-        this.display.tagsBox.onChange((tagsBox) => __awaiter(this, void 0, void 0, function* () {
-            that.state.tags = tagsBox.split(',').filter(t => t.length > 0);
-            yield this.updateMapToState(this.state, this.settings.autoZoom);
-        }));
-        let tagSuggestions = new obsidian.DropdownComponent(controlsDiv);
-        tagSuggestions.setValue('Quick add tag');
-        tagSuggestions.addOption('', 'Quick add tag');
-        for (const tagName of this.getAllTagNames())
-            tagSuggestions.addOption(tagName, tagName);
-        tagSuggestions.onChange(value => {
-            let currentTags = this.display.tagsBox.getValue();
-            if (currentTags.indexOf(value) < 0) {
-                this.display.tagsBox.setValue(currentTags.split(',').filter(tag => tag.length > 0).concat([value]).join(','));
-            }
+        return __awaiter(this, void 0, void 0, function* () {
+            var that = this;
+            this.isOpen = true;
+            this.state = this.defaultState;
+            let controlsDiv = createDiv({
+                'cls': 'graph-controls',
+                'text': 'Filters'
+            }, (el) => {
+                el.style.position = 'fixed';
+                el.style.zIndex = '2';
+            });
+            this.display.tagsBox = new obsidian.TextComponent(controlsDiv);
+            this.display.tagsBox.setPlaceholder('Tags, e.g. "#one,#two"');
+            this.display.tagsBox.onChange((tagsBox) => __awaiter(this, void 0, void 0, function* () {
+                that.state.tags = tagsBox.split(',').filter(t => t.length > 0);
+                yield this.updateMapToState(this.state, this.settings.autoZoom);
+            }));
+            let tagSuggestions = new obsidian.DropdownComponent(controlsDiv);
             tagSuggestions.setValue('Quick add tag');
-            this.display.tagsBox.inputEl.focus();
-            this.display.tagsBox.onChanged();
+            tagSuggestions.addOption('', 'Quick add tag');
+            for (const tagName of this.getAllTagNames())
+                tagSuggestions.addOption(tagName, tagName);
+            tagSuggestions.onChange(value => {
+                let currentTags = this.display.tagsBox.getValue();
+                if (currentTags.indexOf(value) < 0) {
+                    this.display.tagsBox.setValue(currentTags.split(',').filter(tag => tag.length > 0).concat([value]).join(','));
+                }
+                tagSuggestions.setValue('Quick add tag');
+                this.display.tagsBox.inputEl.focus();
+                this.display.tagsBox.onChanged();
+            });
+            let goDefault = new obsidian.ButtonComponent(controlsDiv);
+            goDefault
+                .setButtonText('Reset')
+                .setTooltip('Reset the view to the defined default.')
+                .onClick(() => __awaiter(this, void 0, void 0, function* () {
+                let newState = {
+                    mapZoom: this.settings.defaultZoom || DEFAULT_ZOOM,
+                    mapCenter: this.settings.defaultMapCenter || DEFAULT_CENTER,
+                    tags: this.settings.defaultTags || DEFAULT_TAGS,
+                    version: this.state.version + 1
+                };
+                yield this.updateMapToState(newState, false);
+            }));
+            let fitButton = new obsidian.ButtonComponent(controlsDiv);
+            fitButton
+                .setButtonText('Fit')
+                .setTooltip('Set the map view to fit all currently-displayed markers.')
+                .onClick(() => this.autoFitMapToMarkers());
+            let setDefault = new obsidian.ButtonComponent(controlsDiv);
+            setDefault
+                .setButtonText('Set as Default')
+                .setTooltip('Set this view (map state & filters) as default.')
+                .onClick(() => __awaiter(this, void 0, void 0, function* () {
+                this.settings.defaultZoom = this.state.mapZoom;
+                this.settings.defaultMapCenter = this.state.mapCenter;
+                this.settings.defaultTags = this.state.tags;
+                yield this.plugin.saveSettings();
+            }));
+            this.contentEl.style.padding = '0px 0px';
+            this.contentEl.append(controlsDiv);
+            this.display.mapDiv = createDiv({ cls: 'map' }, (el) => {
+                el.style.zIndex = '1';
+                el.style.width = '100%';
+                el.style.height = '100%';
+            });
+            this.contentEl.append(this.display.mapDiv);
+            yield this.createMap();
+            return _super.onOpen.call(this);
         });
-        let goDefault = new obsidian.ButtonComponent(controlsDiv);
-        goDefault
-            .setButtonText('Reset')
-            .setTooltip('Reset the view to the defined default.')
-            .onClick(() => __awaiter(this, void 0, void 0, function* () {
-            let newState = {
-                mapZoom: this.settings.defaultZoom || DEFAULT_ZOOM,
-                mapCenter: this.settings.defaultMapCenter || DEFAULT_CENTER,
-                tags: this.settings.defaultTags || DEFAULT_TAGS,
-                version: this.state.version + 1
-            };
-            yield this.updateMapToState(newState);
-        }));
-        let fitButton = new obsidian.ButtonComponent(controlsDiv);
-        fitButton
-            .setButtonText('Fit')
-            .setTooltip('Set the map view to fit all currently-displayed markers.')
-            .onClick(() => this.autoFitMapToMarkers());
-        let setDefault = new obsidian.ButtonComponent(controlsDiv);
-        setDefault
-            .setButtonText('Set as Default')
-            .setTooltip('Set this view (map state & filters) as default.')
-            .onClick(() => __awaiter(this, void 0, void 0, function* () {
-            this.settings.defaultZoom = this.state.mapZoom;
-            this.settings.defaultMapCenter = this.state.mapCenter;
-            this.settings.defaultTags = this.state.tags;
-            yield this.plugin.saveSettings();
-        }));
-        this.contentEl.style.padding = '0px 0px';
-        this.contentEl.append(controlsDiv);
-        this.display.mapDiv = createDiv({ cls: 'map' }, (el) => {
-            el.style.zIndex = '1';
-            el.style.width = '100%';
-            el.style.height = '100%';
-        });
-        this.contentEl.append(this.display.mapDiv);
-        this.createMap();
-        return super.onOpen();
     }
     onClose() {
         this.isOpen = false;
@@ -14793,10 +14964,9 @@ class MapView extends obsidian.ItemView {
     }
     createMap() {
         return __awaiter(this, void 0, void 0, function* () {
-            var that = this;
             this.display.map = new leafletSrc.Map(this.display.mapDiv, {
-                center: new leafletSrc.LatLng(40.731253, -73.996139),
-                zoom: 13,
+                center: this.defaultState.mapCenter,
+                zoom: this.defaultState.mapZoom,
                 zoomControl: false,
                 worldCopyJump: true,
                 maxBoundsViscosity: 1.0
@@ -14877,11 +15047,6 @@ class MapView extends obsidian.ItemView {
                 });
                 mapPopup.showAtPosition(event.originalEvent);
             }));
-            this.display.map.whenReady(() => __awaiter(this, void 0, void 0, function* () {
-                yield that.updateMapToState(this.defaultState, !this.settings.defaultZoom);
-                if (this.onAfterOpen != null)
-                    this.onAfterOpen(this.display.map, this.display.markers);
-            }));
         });
     }
     // Updates the map to the given state and then sets the state accordingly, but only if the given state version
@@ -14895,7 +15060,10 @@ class MapView extends obsidian.ItemView {
                 // of the method was called), cancel the update
                 return;
             }
+            // --- BEYOND THIS POINT NOTHING SHOULD BE ASYNC ---
+            // Saying it again: do not use 'await' below this line!
             this.state = state;
+            this.plugin.highestVersionSeen = Math.max(this.plugin.highestVersionSeen, this.state.version);
             this.updateMapMarkers(newMarkers);
             this.state.tags = this.state.tags || [];
             this.display.tagsBox.setValue(this.state.tags.filter(tag => tag.length > 0).join(','));
@@ -14937,28 +15105,7 @@ class MapView extends obsidian.ItemView {
             }
             else {
                 // New marker - create it
-                marker.mapMarker = leafletSrc.marker(marker.location, { icon: marker.icon || new leafletSrc.Icon.Default() })
-                    .addTo(this.display.map)
-                    .bindTooltip(marker.file.name);
-                marker.mapMarker.on('click', (event) => {
-                    this.goToMarker(marker, event.originalEvent.ctrlKey, true);
-                });
-                marker.mapMarker.getElement().addEventListener('contextmenu', (ev) => {
-                    let mapPopup = new obsidian.Menu(this.app);
-                    mapPopup.setNoIcon();
-                    mapPopup.addItem((item) => {
-                        item.setTitle('Open note');
-                        item.onClick((ev) => __awaiter(this, void 0, void 0, function* () { this.goToMarker(marker, ev.ctrlKey, true); }));
-                    });
-                    mapPopup.addItem((item) => {
-                        item.setTitle('Open in Google Maps');
-                        item.onClick(ev => {
-                            open(`https://maps.google.com/?q=${marker.location.lat},${marker.location.lng}`);
-                        });
-                    });
-                    mapPopup.showAtPosition(ev);
-                    ev.stopPropagation();
-                });
+                marker.mapMarker = this.newLeafletMarker(marker);
                 newMarkersMap.set(marker.id, marker);
             }
         }
@@ -14966,6 +15113,39 @@ class MapView extends obsidian.ItemView {
             value.mapMarker.removeFrom(this.display.map);
         }
         this.display.markers = newMarkersMap;
+    }
+    newLeafletMarker(marker) {
+        let newMarker = leafletSrc.marker(marker.location, { icon: marker.icon || new leafletSrc.Icon.Default() })
+            .addTo(this.display.map);
+        newMarker.on('click', (event) => {
+            this.goToMarker(marker, event.originalEvent.ctrlKey, true);
+        });
+        newMarker.on('mouseover', (event) => {
+            let content = `<p class="map-view-marker-name">${marker.file.name}</p>`;
+            if (marker.snippet)
+                content += `<p class="map-view-marker-snippet">${marker.snippet}</p>`;
+            newMarker.bindPopup(content, { closeButton: false }).openPopup();
+        });
+        newMarker.on('mouseout', (event) => {
+            newMarker.closePopup();
+        });
+        newMarker.getElement().addEventListener('contextmenu', (ev) => {
+            let mapPopup = new obsidian.Menu(this.app);
+            mapPopup.setNoIcon();
+            mapPopup.addItem((item) => {
+                item.setTitle('Open note');
+                item.onClick((ev) => __awaiter(this, void 0, void 0, function* () { this.goToMarker(marker, ev.ctrlKey, true); }));
+            });
+            mapPopup.addItem((item) => {
+                item.setTitle('Open in Google Maps');
+                item.onClick(ev => {
+                    open(`https://maps.google.com/?q=${marker.location.lat},${marker.location.lng}`);
+                });
+            });
+            mapPopup.showAtPosition(ev);
+            ev.stopPropagation();
+        });
+        return newMarker;
     }
     autoFitMapToMarkers() {
         return __awaiter(this, void 0, void 0, function* () {
@@ -15068,6 +15248,10 @@ class MapView extends obsidian.ItemView {
 }
 
 class MapViewPlugin extends obsidian.Plugin {
+    constructor() {
+        super(...arguments);
+        this.highestVersionSeen = 0;
+    }
     onload() {
         return __awaiter(this, void 0, void 0, function* () {
             obsidian.addIcon('globe', RIBBON_ICON);
@@ -15131,6 +15315,7 @@ class MapViewPlugin extends obsidian.Plugin {
             yield this.app.workspace.getLeaf().setViewState({
                 type: MAP_VIEW_NAME,
                 state: {
+                    version: this.highestVersionSeen + 1,
                     mapCenter: location,
                     mapZoom: this.settings.zoomOnGoFromNote
                 }
@@ -15179,7 +15364,7 @@ class SettingsTab extends obsidian.PluginSettingTab {
         containerEl.createEl('h2', { text: 'Settings for the map view plugin.' });
         new obsidian.Setting(containerEl)
             .setName('Map follows search results')
-            .setDesc('Auto focus the map to fit search results.')
+            .setDesc('Auto zoom & pan the map to fit search results.')
             .addToggle(component => {
             component
                 .setValue(this.plugin.settings.autoZoom)
@@ -15245,6 +15430,19 @@ class SettingsTab extends obsidian.PluginSettingTab {
                 .setValue(this.plugin.settings.newNoteTemplate || '')
                 .onChange((value) => __awaiter(this, void 0, void 0, function* () {
                 this.plugin.settings.newNoteTemplate = value;
+                this.plugin.saveSettings();
+            }));
+        });
+        new obsidian.Setting(containerEl)
+            .setName('Note lines to show on map marker popup')
+            .setDesc('Number of total lines to show in the snippet displayed for inline location notes.')
+            .addSlider(slider => {
+            slider
+                .setLimits(0, 12, 1)
+                .setDynamicTooltip()
+                .setValue(this.plugin.settings.snippetLines || DEFAULT_SETTINGS.snippetLines)
+                .onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.plugin.settings.snippetLines = value;
                 this.plugin.saveSettings();
             }));
         });

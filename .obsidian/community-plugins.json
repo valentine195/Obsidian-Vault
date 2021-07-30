@@ -14,9 +14,11 @@
   "obsidian-initiative-tracker",
   "obsidian-5e-statblocks",
   "initiative-tracker",
-  "obsidian-dice-roller",
   "obsidian-leaflet-plugin",
   "darlal-switcher-plus",
   "tag-highlighter",
-  "markdown-attributes"
+  "markdown-attributes",
+  "obsidian-dice-roller",
+  "obsidian-git",
+  "markdown-prettifier"
 ]

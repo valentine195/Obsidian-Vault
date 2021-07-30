@@ -1,3 +1,4 @@
 {
-  "returnAllTags": true
+  "returnAllTags": true,
+  "rollLinksForTags": true
 }

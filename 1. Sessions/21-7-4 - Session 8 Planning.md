@@ -8,7 +8,7 @@ tags:
   - session/8
 ---
 
-# Session 8
+## Session 8
 ### Adventure seed
 [[3 - Travel to Newthrone]] ^b8e498
 
