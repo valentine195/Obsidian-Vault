@@ -8,12 +8,10 @@
 
 `dice: [[Dice Testing#^XYZ]]`
 
-
-| Result                | Quantity    | Note |
-| --------------------- | ----------- | ---- |
-| [[Shifting Calamari]] | `dice: 1d4` | X    |
-| [[Fajita Nocturna]]   | `dice: 1d2` | x    |
-^XYZ
 %%
+```dataview
+table file.path, file.mtime FROM #location
+```
+^dataview
 
-`dice: #location`
+`dice: [[Dice Testing#^dataview]]`
