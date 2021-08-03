@@ -17,6 +17,8 @@ geojson:
 geojsonColor: red
 #zoomFeatures: true
 #verbose: true
+overlay: 
+ - [blue, [200, 500], 200, 'This is my overlay!']
 ```
 
 %%

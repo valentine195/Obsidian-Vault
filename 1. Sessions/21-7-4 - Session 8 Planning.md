@@ -25,7 +25,7 @@ list from #pc/alive
 
 ```ad-quote
 title: Yoss
-I have been instructed by my master to see to your needs. The full clanhold is at your disposal, but I must warn you - the other clans have begun arriving, and blood fueds will be settled this night. Please let me know if you require anything.
+I have been instructed by my master to see to your needs. The full clanhold is at your disposal, but I must warn you - the other clans have begun arriving, and blood fueds may be settled this night. Please let me know if you require anything.
 ```
 
 ---
@@ -37,7 +37,7 @@ While the three of you take in the house, Bob, where would you like to go?
 
 ````ad-info
 
-Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red.
+Bob, as you move through the village, Lizardfolk are swinging through the trees all around you. Most of the platforms you can see around you are teeming with groups of them going about their day, and you begin to see signs of the different clans - you see a group all wearing bright golden feathers, another who have all painted their faces red, and a third with bones tied to their clothing that rattle as they move. 
 
 Bob, give me a perception check.
 `dice: 1d20` -> Stealth Roll 1

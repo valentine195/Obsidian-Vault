@@ -211,7 +211,7 @@
       "files": [
         "Plugin Testing/map/Map.md"
       ],
-      "lastAccessed": 1627668908035,
+      "lastAccessed": 1627996205261,
       "markers": [
         {
           "type": "location",
@@ -341,7 +341,41 @@
           "maxZoom": null
         }
       ],
-      "overlays": []
+      "overlays": [
+        {
+          "radius": 200,
+          "loc": [
+            200,
+            500
+          ],
+          "color": "blue",
+          "layer": "[[middle-earth-map.jpg]]",
+          "unit": "mi",
+          "desc": "This is my overlay!"
+        },
+        {
+          "radius": 25,
+          "loc": [
+            200,
+            500
+          ],
+          "color": "blue",
+          "layer": "[[middle-earth-map.jpg]]",
+          "unit": "mi",
+          "desc": "This is my overlay!"
+        },
+        {
+          "radius": 25,
+          "loc": [
+            32,
+            -89
+          ],
+          "color": "blue",
+          "layer": "[[middle-earth-map.jpg]]",
+          "unit": "mi",
+          "desc": "This is my overlay!"
+        }
+      ]
     }
   ],
   "defaultMarker": {
@@ -373,7 +407,7 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "3.21.2",
+  "previousVersion": "3.21.3",
   "warnedAboutMapMarker": false,
   "copyOnClick": false
 }

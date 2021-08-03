@@ -1,17 +1,10 @@
-%%
-`dice: 1dS + 2`
+%%`dice: 1dS + 2`%%
 
 `dice: 3d4+3d4-(3d4 * 1d4) - 2^1d7`
 
-`dice: 3d4+3d4-(3d4 * 1d4) - 2^1d7 - 1dS`
-`dice: 3d4+3d4-(3d4 * 1d4) - 2^1d7 - 1dS`
+`dice: 3d4+3d4-(3d4 * 1d4) - 2^1d7`
+`dice: 3d4+3d4-(3d4 * 1d4) - 2^1d7`
 
-`dice: [[Dice Testing#^XYZ]]`
+`dice: [[Cold Sun Tribe#^chiefs]]`
 
-%%
-```dataview
-table file.path, file.mtime FROM #location
-```
-^dataview
 
-`dice: [[Dice Testing#^dataview]]`
