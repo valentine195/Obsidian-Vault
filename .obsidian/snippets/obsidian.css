@@ -3,6 +3,64 @@
     --default-font: "iA Writer Quattro" !important;
 }
 
+.kanban-plugin.test .kanban-plugin__board {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--lane-width));
+    gap: 10px;
+}
+
+h1 {
+    background: linear-gradient(to right, var(--Fold1), var(--Fold2));
+    -webkit-background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+h2 {
+    background: linear-gradient(to right, var(--Fold3), var(--Fold4));
+    -webkit-background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+h3 {
+    background: linear-gradient(to right, var(--Fold5), var(--Fold6));
+    -webkit-background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+h4 {
+    background: linear-gradient(to right, var(--Fold7), var(--Fold8));
+    -webkit-background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+h5 {
+    background: linear-gradient(to right, var(--Fold9), var(--Fold10));
+    -webkit-background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+h6 {
+    background: linear-gradient(to right, var(--Fold11), var(--Fold12));
+    -webkit-background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+
+mark.red {
+    background-color: red;
+    color: white;
+}
+.center {
+    display: flex;
+    width: max-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.smallcaps {
+    font-variant: small-caps;
+}
+
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
     max-width: 900px;
 }

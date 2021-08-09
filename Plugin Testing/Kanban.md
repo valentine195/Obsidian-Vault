@@ -1,7 +1,7 @@
 ---
 
 kanban-plugin: basic
-
+cssclasses: test
 ---
 
 ## Another List

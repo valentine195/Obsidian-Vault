@@ -7,4 +7,5 @@
 
 `dice: [[Cold Sun Tribe#^chiefs]]`
 
+`dice: #location|paragraph`
 

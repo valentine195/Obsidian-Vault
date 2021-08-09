@@ -14135,6 +14135,103 @@ const DEFAULT_TAGS = [];
 const LAT_LIMITS = [-90, 90];
 const LNG_LIMITS = [-180, 180];
 
+function e(){return (e=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var r=arguments[e];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(t[n]=r[n]);}return t}).apply(this,arguments)}function r(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,t.__proto__=e;}function n(t,e){return (n=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}function o(){if("undefined"==typeof Reflect||!Reflect.construct)return !1;if(Reflect.construct.sham)return !1;if("function"==typeof Proxy)return !0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(t){return !1}}function i(t,e,r){return (i=o()?Reflect.construct:function(t,e,r){var o=[null];o.push.apply(o,e);var i=new(Function.bind.apply(t,o));return r&&n(i,r.prototype),i}).apply(null,arguments)}function s(t,e,r,n){void 0===e&&(e=""),void 0===n&&(n={});var o=document.createElement(t);return e&&(o.className=e),Object.keys(n).forEach(function(t){if("function"==typeof n[t]){var e=0===t.indexOf("on")?t.substr(2).toLowerCase():t;o.addEventListener(e,n[t]);}else "html"===t?o.innerHTML=n[t]:"text"===t?o.innerText=n[t]:o.setAttribute(t,n[t]);}),r&&r.appendChild(o),o}function a(t){t.preventDefault(),t.stopPropagation();}var u=function(){for(var t=arguments.length,e=new Array(t),r=0;r<t;r++)e[r]=arguments[r];return e.filter(Boolean).join(" ").trim()};function c(t,e){t&&t.classList&&(Array.isArray(e)?e:[e]).forEach(function(e){t.classList.contains(e)||t.classList.add(e);});}function l(t,e){t&&t.classList&&(Array.isArray(e)?e:[e]).forEach(function(e){t.classList.contains(e)&&t.classList.remove(e);});}var h,p=13,f=40,d=38,m=[p,27,f,d,37,39],v=function(){function t(t){var e=this,r=t.handleSubmit,n=t.searchLabel,o=t.classNames,i=void 0===o?{}:o;this.hasError=!1,this.container=s("div",u("geosearch",i.container)),this.form=s("form",["",i.form].join(" "),this.container,{autocomplete:"none",onClick:a,onDblClick:a,touchStart:a,touchEnd:a}),this.input=s("input",["glass",i.input].join(" "),this.form,{type:"text",placeholder:n||"search",onInput:this.onInput,onKeyUp:function(t){return e.onKeyUp(t)},onKeyPress:function(t){return e.onKeyPress(t)},onFocus:this.onFocus,onBlur:this.onBlur,onClick:function(){e.input.focus(),e.input.dispatchEvent(new Event("focus"));}}),this.handleSubmit=r;}var e=t.prototype;return e.onFocus=function(){c(this.form,"active");},e.onBlur=function(){l(this.form,"active");},e.onSubmit=function(t){try{var e=this;return a(t),l(r=e.container,"error"),c(r,"pending"),Promise.resolve(e.handleSubmit({query:e.input.value})).then(function(){l(e.container,"pending");})}catch(t){return Promise.reject(t)}var r;},e.onInput=function(){this.hasError&&(l(this.container,"error"),this.hasError=!1);},e.onKeyUp=function(t){27===t.keyCode&&(l(this.container,["pending","active"]),this.input.value="",document.body.focus(),document.body.blur());},e.onKeyPress=function(t){t.keyCode===p&&this.onSubmit(t);},e.setQuery=function(t){this.input.value=t;},t}(),y=function(){function t(t){var e=this,r=t.handleClick,n=t.classNames,o=void 0===n?{}:n;this.selected=-1,this.results=[],this.onClick=function(t){if("function"==typeof e.handleClick){var r=t.target;if(r&&e.container.contains(r)&&r.hasAttribute("data-key")){var n=Number(r.getAttribute("data-key"));e.clear(),e.handleClick({result:e.results[n]});}}},this.handleClick=r,this.container=s("div",u("results",o.container)),this.container.addEventListener("click",this.onClick,!0),this.resultItem=s("div",u(o.item));}var e=t.prototype;return e.render=function(t,e){var r=this;void 0===t&&(t=[]),this.clear(),t.forEach(function(t,n){var o=r.resultItem.cloneNode(!0);o.setAttribute("data-key",""+n),o.innerHTML=e({result:t}),r.container.appendChild(o);}),t.length>0&&(c(this.container.parentElement,"open"),c(this.container,"active")),this.results=t;},e.select=function(t){return Array.from(this.container.children).forEach(function(e,r){return r===t?c(e,"active"):l(e,"active")}),this.selected=t,this.results[t]},e.count=function(){return this.results?this.results.length:0},e.clear=function(){for(this.selected=-1;this.container.lastChild;)this.container.removeChild(this.container.lastChild);l(this.container.parentElement,"open"),l(this.container,"active");},t}(),g={position:"topleft",style:"button",showMarker:!0,showPopup:!1,popupFormat:function(t){return ""+t.result.label},resultFormat:function(t){return ""+t.result.label},marker:{icon:leafletSrc&&leafletSrc.Icon?new leafletSrc.Icon.Default:void 0,draggable:!1},maxMarkers:1,maxSuggestions:5,retainZoomLevel:!1,animateZoom:!0,searchLabel:"Enter address",notFoundMessage:"Sorry, that address could not be found.",messageHideDelay:3e3,zoomLevel:18,classNames:{container:"leaflet-bar leaflet-control leaflet-control-geosearch",button:"leaflet-bar-part leaflet-bar-part-single",resetButton:"reset",msgbox:"leaflet-bar message",form:"",input:""},autoComplete:!0,autoCompleteDelay:250,autoClose:!1,keepResult:!1,updateMap:!0},b="Leaflet must be loaded before instantiating the GeoSearch control",E={options:e({},g),classNames:e({},g.classNames),initialize:function(r){var n,o,i,a,u=this;if(!leafletSrc)throw new Error(b);if(!r.provider)throw new Error("Provider is missing from options");this.options=e({},this.options,{},r),this.classNames=e({},this.classNames,{},r.classNames),this.markers=new leafletSrc.FeatureGroup,this.classNames.container+=" leaflet-geosearch-"+this.options.style,this.searchElement=new v({searchLabel:this.options.searchLabel,classNames:{container:this.classNames.container,form:this.classNames.form,input:this.classNames.input},handleSubmit:function(t){return u.onSubmit(t)}}),this.button=s("a",this.classNames.button,this.searchElement.container,{title:this.options.searchLabel,href:"#",onClick:function(t){return u.onClick(t)}}),leafletSrc.DomEvent.disableClickPropagation(this.button),this.resetButton=s("a",this.classNames.resetButton,this.searchElement.form,{text:"×",href:"#",onClick:function(){return u.clearResults(null,!0)}}),leafletSrc.DomEvent.disableClickPropagation(this.resetButton),this.options.autoComplete&&(this.resultList=new y({handleClick:function(t){var e=t.result;u.searchElement.input.value=e.label,u.onSubmit({query:e.label,data:e});}}),this.searchElement.form.appendChild(this.resultList.container),this.searchElement.input.addEventListener("keyup",(n=function(t){return u.autoSearch(t)},void 0===(o=this.options.autoCompleteDelay)&&(o=250),void 0===i&&(i=!1),function(){for(var t=arguments.length,e=new Array(t),r=0;r<t;r++)e[r]=arguments[r];a&&clearTimeout(a),a=setTimeout(function(){a=null,i||n.apply(void 0,e);},o),i&&!a&&n.apply(void 0,e);}),!0),this.searchElement.input.addEventListener("keydown",function(t){return u.selectResult(t)},!0),this.searchElement.input.addEventListener("keydown",function(t){return u.clearResults(t,!0)},!0)),this.searchElement.form.addEventListener("click",function(t){t.preventDefault();},!1);},onAdd:function(e){var r=this.options,n=r.showMarker,o=r.style;if(this.map=e,n&&this.markers.addTo(e),"bar"===o){var i=e.getContainer().querySelector(".leaflet-control-container");this.container=s("div","leaflet-control-geosearch leaflet-geosearch-bar"),this.container.appendChild(this.searchElement.form),i.appendChild(this.container);}return leafletSrc.DomEvent.disableClickPropagation(this.searchElement.form),this.searchElement.container},onRemove:function(){var t;return null==(t=this.container)||t.remove(),this},onClick:function(t){t.preventDefault(),t.stopPropagation();var e=this.searchElement,r=e.container,n=e.input;r.classList.contains("active")?(l(r,"active"),this.clearResults()):(c(r,"active"),n.focus());},selectResult:function(t){if(-1!==[p,f,d].indexOf(t.keyCode))if(t.preventDefault(),t.keyCode!==p){var e=this.resultList.count()-1;if(!(e<0)){var r=this.resultList.selected,n=t.keyCode===f?r+1:r-1,o=this.resultList.select(n<0?e:n>e?0:n);this.searchElement.input.value=o.label;}}else {var i=this.resultList.select(this.resultList.selected);this.onSubmit({query:this.searchElement.input.value,data:i});}},clearResults:function(t,e){if(void 0===e&&(e=!1),!t||27===t.keyCode){var r=this.options,n=r.autoComplete;!e&&r.keepResult||(this.searchElement.input.value="",this.markers.clearLayers()),n&&this.resultList.clear();}},autoSearch:function(t){try{var e=this;if(m.indexOf(t.keyCode)>-1)return Promise.resolve();var r=t.target.value,n=e.options.provider,o=function(){if(r.length)return Promise.resolve(n.search({query:r})).then(function(t){t=t.slice(0,e.options.maxSuggestions),e.resultList.render(t,e.options.resultFormat);});e.resultList.clear();}();return Promise.resolve(o&&o.then?o.then(function(){}):void 0)}catch(t){return Promise.reject(t)}},onSubmit:function(t){try{var e=this;return Promise.resolve(e.options.provider.search(t)).then(function(r){r&&r.length>0&&e.showResult(r[0],t);})}catch(t){return Promise.reject(t)}},showResult:function(t,e){var r=this.options,n=r.autoClose,o=r.updateMap,i=this.markers.getLayers();i.length>=this.options.maxMarkers&&this.markers.removeLayer(i[0]);var s=this.addMarker(t,e);o&&this.centerMap(t),this.map.fireEvent("geosearch/showlocation",{location:t,marker:s}),n&&this.closeResults();},closeResults:function(){var t=this.searchElement.container;t.classList.contains("active")&&l(t,"active"),this.clearResults();},addMarker:function(e,r){var n=this,o=this.options,i=o.marker,s=o.showPopup,a=o.popupFormat,u=new leafletSrc.Marker([e.y,e.x],i),c=e.label;return "function"==typeof a&&(c=a({query:r,result:e})),u.bindPopup(c),this.markers.addLayer(u),s&&u.openPopup(),i.draggable&&u.on("dragend",function(t){n.map.fireEvent("geosearch/marker/dragend",{location:u.getLatLng(),event:t});}),u},centerMap:function(e){var r=this.options,n=r.retainZoomLevel,o=r.animateZoom,i=e.bounds?new leafletSrc.LatLngBounds(e.bounds):new leafletSrc.LatLng(e.y,e.x).toBounds(10),s=i.isValid()?i:this.markers.getBounds();!n&&i.isValid()&&!e.bounds||n||!i.isValid()?this.map.setView(s.getCenter(),this.getZoom(),{animate:o}):this.map.fitBounds(s,{animate:o});},getZoom:function(){var t=this.options,e=t.zoomLevel;return t.retainZoomLevel?this.map.getZoom():e}};function x(){if(!leafletSrc)throw new Error(b);for(var e=leafletSrc.Control.extend(E),r=arguments.length,n=new Array(r),o=0;o<r;o++)n[o]=arguments[o];return i(e,n)}!function(t){t[t.SEARCH=0]="SEARCH",t[t.REVERSE=1]="REVERSE";}(h||(h={}));var L$1=function(){function t(t){void 0===t&&(t={}),this.options=t;}var r=t.prototype;return r.getParamString=function(t){void 0===t&&(t={});var r=e({},this.options.params,{},t);return Object.keys(r).map(function(t){return encodeURIComponent(t)+"="+encodeURIComponent(r[t])}).join("&")},r.getUrl=function(t,e){return t+"?"+this.getParamString(e)},r.search=function(t){try{var e=this,r=e.endpoint({query:t.query,type:h.SEARCH});return Promise.resolve(fetch(r)).then(function(t){return Promise.resolve(t.json()).then(function(t){return e.parse({data:t})})})}catch(t){return Promise.reject(t)}},t}();(function(t){function n(){return t.apply(this,arguments)||this}r(n,t);var o=n.prototype;return o.endpoint=function(){return "https://places-dsn.algolia.net/1/places/query"},o.findBestMatchLevelIndex=function(t){var e=t.find(function(t){return "full"===t.matchLevel})||t.find(function(t){return "partial"===t.matchLevel});return e?t.indexOf(e):0},o.getLabel=function(t){var e,r,n,o;return [null==(e=t.locale_names)?void 0:e.default[this.findBestMatchLevelIndex(t._highlightResult.locale_names.default)],null==(r=t.city)?void 0:r.default[this.findBestMatchLevelIndex(t._highlightResult.city.default)],t.administrative[this.findBestMatchLevelIndex(t._highlightResult.administrative)],null==(n=t.postcode)?void 0:n[this.findBestMatchLevelIndex(t._highlightResult.postcode)],null==(o=t.country)?void 0:o.default].filter(Boolean).join(", ")},o.parse=function(t){var e=this;return t.data.hits.map(function(t){return {x:t._geoloc.lng,y:t._geoloc.lat,label:e.getLabel(t),bounds:null,raw:t}})},o.search=function(t){var r=t.query;try{var n=this,o="string"==typeof r?{query:r}:r;return Promise.resolve(fetch(n.endpoint(),{method:"POST",body:JSON.stringify(e({},n.options.params,{},o))})).then(function(t){return Promise.resolve(t.json()).then(function(t){return n.parse({data:t})})})}catch(t){return Promise.reject(t)}},n})(L$1);(function(t){function e(){var e;return (e=t.apply(this,arguments)||this).searchUrl="https://dev.virtualearth.net/REST/v1/Locations",e}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query,r="string"==typeof e?{q:e}:e;return r.jsonp=t.jsonp,this.getUrl(this.searchUrl,r)},n.parse=function(t){return 0===t.data.resourceSets.length?[]:t.data.resourceSets[0].resources.map(function(t){return {x:t.point.coordinates[1],y:t.point.coordinates[0],label:t.address.formattedAddress,bounds:[[t.bbox[0],t.bbox[1]],[t.bbox[2],t.bbox[3]]],raw:t}})},n.search=function(t){var e,r,n,o=t.query;try{var i=this,a="BING_JSONP_CB_"+Date.now();return Promise.resolve((e=i.endpoint({query:o,jsonp:a}),r=a,n=s("script",null,document.body),n.setAttribute("type","text/javascript"),new Promise(function(t){window[r]=function(e){n.remove(),delete window[r],t(e);},n.setAttribute("src",e);}))).then(function(t){return i.parse({data:t})})}catch(t){return Promise.reject(t)}},e})(L$1);(function(t){function e(){var e;return (e=t.apply(this,arguments)||this).searchUrl="https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find",e}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query,r="string"==typeof e?{text:e}:e;return r.f="json",this.getUrl(this.searchUrl,r)},n.parse=function(t){return t.data.locations.map(function(t){return {x:t.feature.geometry.x,y:t.feature.geometry.y,label:t.name,bounds:[[t.extent.ymin,t.extent.xmin],[t.extent.ymax,t.extent.xmax]],raw:t}})},e})(L$1);(function(t){function e(){var e;return (e=t.apply(this,arguments)||this).searchUrl="https://maps.googleapis.com/maps/api/geocode/json",e}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query;return this.getUrl(this.searchUrl,"string"==typeof e?{address:e}:e)},n.parse=function(t){return t.data.results.map(function(t){return {x:t.geometry.location.lng,y:t.geometry.location.lat,label:t.formatted_address,bounds:[[t.geometry.viewport.southwest.lat,t.geometry.viewport.southwest.lng],[t.geometry.viewport.northeast.lat,t.geometry.viewport.northeast.lng]],raw:t}})},e})(L$1);(function(t){function e(){var e;return (e=t.apply(this,arguments)||this).searchUrl="https://geocode.search.hereapi.com/v1/geocode",e}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query;return this.getUrl(this.searchUrl,"string"==typeof e?{q:e}:e)},n.parse=function(t){return t.data.items.map(function(t){return {x:t.position.lng,y:t.position.lat,label:t.address.label,bounds:null,raw:t}})},e})(L$1);var S=function(t){function e(e){var r;void 0===e&&(e={});var n="https://nominatim.openstreetmap.org";return (r=t.call(this,e)||this).searchUrl=e.searchUrl||n+"/search",r.reverseUrl=e.reverseUrl||n+"/reverse",r}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query,r=t.type,n="string"==typeof e?{q:e}:e;switch(n.format="json",r){case h.REVERSE:return this.getUrl(this.reverseUrl,n);default:return this.getUrl(this.searchUrl,n)}},n.parse=function(t){return (Array.isArray(t.data)?t.data:[t.data]).map(function(t){return {x:Number(t.lon),y:Number(t.lat),label:t.display_name,bounds:[[parseFloat(t.boundingbox[0]),parseFloat(t.boundingbox[2])],[parseFloat(t.boundingbox[1]),parseFloat(t.boundingbox[3])]],raw:t}})},e}(L$1);(function(t){function n(r){return t.call(this,e({},r,{searchUrl:"https://locationiq.org/v1/search.php",reverseUrl:"https://locationiq.org/v1/reverse.php"}))||this}return r(n,t),n})(S);(function(t){function e(){var e;return (e=t.apply(this,arguments)||this).searchUrl="https://api.opencagedata.com/geocode/v1/json",e}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query,r="string"==typeof e?{q:e}:e;return r.format="json",this.getUrl(this.searchUrl,r)},n.parse=function(t){return t.data.results.map(function(t){return {x:t.geometry.lng,y:t.geometry.lat,label:t.formatted,bounds:[[t.bounds.southwest.lat,t.bounds.southwest.lng],[t.bounds.northeast.lat,t.bounds.northeast.lng]],raw:t}})},n.search=function(e){try{return Promise.resolve(e.query.length<2?[]:t.prototype.search.call(this,e))}catch(t){return Promise.reject(t)}},e})(L$1);(function(t){function e(e){var r;return void 0===e&&(e={}),(r=t.call(this,e)||this).searchUrl=e.searchUrl||"https://a.tiles.mapbox.com/v4/geocode/mapbox.places/",r}r(e,t);var n=e.prototype;return n.endpoint=function(t){return this.getUrl(""+this.searchUrl+t.query+".json")},n.parse=function(t){return (Array.isArray(t.data.features)?t.data.features:[]).map(function(t){var e=null;return t.bbox&&(e=[[parseFloat(t.bbox[1]),parseFloat(t.bbox[0])],[parseFloat(t.bbox[3]),parseFloat(t.bbox[2])]]),{x:Number(t.center[0]),y:Number(t.center[1]),label:t.place_name?t.place_name:t.text,bounds:e,raw:t}})},e})(L$1);
+
+function formatWithTemplates(s) {
+    const datePattern = /{{date:([a-zA-Z\-\/\.\:]*)}}/g;
+    const replaced = s.replace(datePattern, (_, pattern) => {
+        // @ts-ignore
+        return moment().format(pattern);
+    });
+    return replaced;
+}
+const CURSOR = '$CURSOR$';
+function newNote(app, newNoteType, directory, fileName, location, templatePath) {
+    return __awaiter(this, void 0, void 0, function* () {
+        // `$CURSOR$` is used to set the cursor
+        let content = newNoteType === 'singleLocation' ?
+            `---\nlocation: [${location}]\n---\n\n${CURSOR}` :
+            `---\nlocations:\n---\n\n\[${CURSOR}](geo:${location})\n`;
+        let templateContent = '';
+        if (templatePath)
+            templateContent = yield app.vault.adapter.read(templatePath);
+        let fullName = path__namespace.join(directory || '', fileName);
+        if (yield app.vault.adapter.exists(fullName + '.md'))
+            fullName += Math.random() * 1000;
+        try {
+            return app.vault.create(fullName + '.md', content + templateContent);
+        }
+        catch (e) {
+            throw Error(`Cannot create file named ${fullName}: ${e}`);
+        }
+    });
+}
+function goToEditorLocation(editor, fileLocation, highlight) {
+    return __awaiter(this, void 0, void 0, function* () {
+        if (fileLocation) {
+            let pos = editor.offsetToPos(fileLocation);
+            if (highlight) {
+                editor.setSelection({ ch: 0, line: pos.line }, { ch: 1000, line: pos.line });
+            }
+            else {
+                editor.setCursor(pos);
+                editor.refresh();
+            }
+        }
+        editor.focus();
+    });
+}
+function handleNewNoteCursorMarker(editor) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const templateValue = editor.getValue();
+        const cursorMarkerIndex = templateValue.indexOf(CURSOR);
+        if (cursorMarkerIndex > -1) {
+            editor.setValue(templateValue.replace(CURSOR, ''));
+            yield goToEditorLocation(editor, cursorMarkerIndex, false);
+        }
+    });
+}
+// Returns true if a replacement was made
+function verifyOrAddFrontMatter(editor) {
+    const content = editor.getValue();
+    const frontMatterRegex = /^---(.*)^---/ms;
+    const frontMatter = content.match(frontMatterRegex);
+    const locations = content.match(/^---.*locations:.*^---/ms);
+    const cursorLocation = editor.getCursor();
+    // That's not the best usage of the API, and rather be converted to editor transactions or something else
+    // that can preserve the cursor position better
+    if (frontMatter && !locations) {
+        const replaced = `---${frontMatter[1]}locations:\n---`;
+        editor.setValue(content.replace(frontMatterRegex, replaced));
+        editor.setCursor(cursorLocation);
+        return true;
+    }
+    else if (!frontMatter) {
+        editor.setValue('---\nlocations:\n---\n\n' + content);
+        editor.setCursor(cursorLocation);
+        return true;
+    }
+    return false;
+}
+
+function selectionToLink(editor) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const provider = new S();
+        const selection = editor.getSelection();
+        const results = yield provider.search({ query: selection });
+        if (results && results.length > 0) {
+            const firstResult = results[0];
+            editor.replaceSelection(`[${selection}](geo:${firstResult.y},${firstResult.x})`);
+            new obsidian.Notice(firstResult.label, 10 * 1000);
+            if (verifyOrAddFrontMatter(editor))
+                new obsidian.Notice("The note's front matter was updated to denote locations are present");
+        }
+        else {
+            new obsidian.Notice(`No location found for the term '${selection}'`);
+        }
+    });
+}
+
 L.Control.Fullscreen = L.Control.extend({
     options: {
         position: 'topleft',
@@ -14325,8 +14422,6 @@ function styleInject(css, ref) {
 var css_248z$2 = "/* required styles */\r\n\r\n.leaflet-pane,\r\n.leaflet-tile,\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow,\r\n.leaflet-tile-container,\r\n.leaflet-pane > svg,\r\n.leaflet-pane > canvas,\r\n.leaflet-zoom-box,\r\n.leaflet-image-layer,\r\n.leaflet-layer {\r\n\tposition: absolute;\r\n\tleft: 0;\r\n\ttop: 0;\r\n\t}\r\n.leaflet-container {\r\n\toverflow: hidden;\r\n\t}\r\n.leaflet-tile,\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow {\r\n\t-webkit-user-select: none;\r\n\t   -moz-user-select: none;\r\n\t        user-select: none;\r\n\t  -webkit-user-drag: none;\r\n\t}\r\n/* Prevents IE11 from highlighting tiles in blue */\r\n.leaflet-tile::selection {\r\n\tbackground: transparent;\r\n}\r\n/* Safari renders non-retina tile on retina better with this, but Chrome is worse */\r\n.leaflet-safari .leaflet-tile {\r\n\timage-rendering: -webkit-optimize-contrast;\r\n\t}\r\n/* hack that prevents hw layers \"stretching\" when loading new tiles */\r\n.leaflet-safari .leaflet-tile-container {\r\n\twidth: 1600px;\r\n\theight: 1600px;\r\n\t-webkit-transform-origin: 0 0;\r\n\t}\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow {\r\n\tdisplay: block;\r\n\t}\r\n/* .leaflet-container svg: reset svg max-width decleration shipped in Joomla! (joomla.org) 3.x */\r\n/* .leaflet-container img: map is broken in FF if you have max-width: 100% on tiles */\r\n.leaflet-container .leaflet-overlay-pane svg,\r\n.leaflet-container .leaflet-marker-pane img,\r\n.leaflet-container .leaflet-shadow-pane img,\r\n.leaflet-container .leaflet-tile-pane img,\r\n.leaflet-container img.leaflet-image-layer,\r\n.leaflet-container .leaflet-tile {\r\n\tmax-width: none !important;\r\n\tmax-height: none !important;\r\n\t}\r\n\r\n.leaflet-container.leaflet-touch-zoom {\r\n\t-ms-touch-action: pan-x pan-y;\r\n\ttouch-action: pan-x pan-y;\r\n\t}\r\n.leaflet-container.leaflet-touch-drag {\r\n\t-ms-touch-action: pinch-zoom;\r\n\t/* Fallback for FF which doesn't support pinch-zoom */\r\n\ttouch-action: none;\r\n\ttouch-action: pinch-zoom;\r\n}\r\n.leaflet-container.leaflet-touch-drag.leaflet-touch-zoom {\r\n\t-ms-touch-action: none;\r\n\ttouch-action: none;\r\n}\r\n.leaflet-container {\r\n\t-webkit-tap-highlight-color: transparent;\r\n}\r\n.leaflet-container a {\r\n\t-webkit-tap-highlight-color: rgba(51, 181, 229, 0.4);\r\n}\r\n.leaflet-tile {\r\n\tfilter: inherit;\r\n\tvisibility: hidden;\r\n\t}\r\n.leaflet-tile-loaded {\r\n\tvisibility: inherit;\r\n\t}\r\n.leaflet-zoom-box {\r\n\twidth: 0;\r\n\theight: 0;\r\n\t-moz-box-sizing: border-box;\r\n\t     box-sizing: border-box;\r\n\tz-index: 800;\r\n\t}\r\n/* workaround for https://bugzilla.mozilla.org/show_bug.cgi?id=888319 */\r\n.leaflet-overlay-pane svg {\r\n\t-moz-user-select: none;\r\n\t}\r\n\r\n.leaflet-pane         { z-index: 400; }\r\n\r\n.leaflet-tile-pane    { z-index: 200; }\r\n.leaflet-overlay-pane { z-index: 400; }\r\n.leaflet-shadow-pane  { z-index: 500; }\r\n.leaflet-marker-pane  { z-index: 600; }\r\n.leaflet-tooltip-pane   { z-index: 650; }\r\n.leaflet-popup-pane   { z-index: 700; }\r\n\r\n.leaflet-map-pane canvas { z-index: 100; }\r\n.leaflet-map-pane svg    { z-index: 200; }\r\n\r\n.leaflet-vml-shape {\r\n\twidth: 1px;\r\n\theight: 1px;\r\n\t}\r\n.lvml {\r\n\tbehavior: url(#default#VML);\r\n\tdisplay: inline-block;\r\n\tposition: absolute;\r\n\t}\r\n\r\n\r\n/* control positioning */\r\n\r\n.leaflet-control {\r\n\tposition: relative;\r\n\tz-index: 800;\r\n\tpointer-events: visiblePainted; /* IE 9-10 doesn't have auto */\r\n\tpointer-events: auto;\r\n\t}\r\n.leaflet-top,\r\n.leaflet-bottom {\r\n\tposition: absolute;\r\n\tz-index: 1000;\r\n\tpointer-events: none;\r\n\t}\r\n.leaflet-top {\r\n\ttop: 0;\r\n\t}\r\n.leaflet-right {\r\n\tright: 0;\r\n\t}\r\n.leaflet-bottom {\r\n\tbottom: 0;\r\n\t}\r\n.leaflet-left {\r\n\tleft: 0;\r\n\t}\r\n.leaflet-control {\r\n\tfloat: left;\r\n\tclear: both;\r\n\t}\r\n.leaflet-right .leaflet-control {\r\n\tfloat: right;\r\n\t}\r\n.leaflet-top .leaflet-control {\r\n\tmargin-top: 10px;\r\n\t}\r\n.leaflet-bottom .leaflet-control {\r\n\tmargin-bottom: 10px;\r\n\t}\r\n.leaflet-left .leaflet-control {\r\n\tmargin-left: 10px;\r\n\t}\r\n.leaflet-right .leaflet-control {\r\n\tmargin-right: 10px;\r\n\t}\r\n\r\n\r\n/* zoom and fade animations */\r\n\r\n.leaflet-fade-anim .leaflet-tile {\r\n\twill-change: opacity;\r\n\t}\r\n.leaflet-fade-anim .leaflet-popup {\r\n\topacity: 0;\r\n\t-webkit-transition: opacity 0.2s linear;\r\n\t   -moz-transition: opacity 0.2s linear;\r\n\t        transition: opacity 0.2s linear;\r\n\t}\r\n.leaflet-fade-anim .leaflet-map-pane .leaflet-popup {\r\n\topacity: 1;\r\n\t}\r\n.leaflet-zoom-animated {\r\n\t-webkit-transform-origin: 0 0;\r\n\t    -ms-transform-origin: 0 0;\r\n\t        transform-origin: 0 0;\r\n\t}\r\n.leaflet-zoom-anim .leaflet-zoom-animated {\r\n\twill-change: transform;\r\n\t}\r\n.leaflet-zoom-anim .leaflet-zoom-animated {\r\n\t-webkit-transition: -webkit-transform 0.25s cubic-bezier(0,0,0.25,1);\r\n\t   -moz-transition:    -moz-transform 0.25s cubic-bezier(0,0,0.25,1);\r\n\t        transition:         transform 0.25s cubic-bezier(0,0,0.25,1);\r\n\t}\r\n.leaflet-zoom-anim .leaflet-tile,\r\n.leaflet-pan-anim .leaflet-tile {\r\n\t-webkit-transition: none;\r\n\t   -moz-transition: none;\r\n\t        transition: none;\r\n\t}\r\n\r\n.leaflet-zoom-anim .leaflet-zoom-hide {\r\n\tvisibility: hidden;\r\n\t}\r\n\r\n\r\n/* cursors */\r\n\r\n.leaflet-interactive {\r\n\tcursor: pointer;\r\n\t}\r\n.leaflet-grab {\r\n\tcursor: -webkit-grab;\r\n\tcursor:    -moz-grab;\r\n\tcursor:         grab;\r\n\t}\r\n.leaflet-crosshair,\r\n.leaflet-crosshair .leaflet-interactive {\r\n\tcursor: crosshair;\r\n\t}\r\n.leaflet-popup-pane,\r\n.leaflet-control {\r\n\tcursor: auto;\r\n\t}\r\n.leaflet-dragging .leaflet-grab,\r\n.leaflet-dragging .leaflet-grab .leaflet-interactive,\r\n.leaflet-dragging .leaflet-marker-draggable {\r\n\tcursor: move;\r\n\tcursor: -webkit-grabbing;\r\n\tcursor:    -moz-grabbing;\r\n\tcursor:         grabbing;\r\n\t}\r\n\r\n/* marker & overlays interactivity */\r\n.leaflet-marker-icon,\r\n.leaflet-marker-shadow,\r\n.leaflet-image-layer,\r\n.leaflet-pane > svg path,\r\n.leaflet-tile-container {\r\n\tpointer-events: none;\r\n\t}\r\n\r\n.leaflet-marker-icon.leaflet-interactive,\r\n.leaflet-image-layer.leaflet-interactive,\r\n.leaflet-pane > svg path.leaflet-interactive,\r\nsvg.leaflet-image-layer.leaflet-interactive path {\r\n\tpointer-events: visiblePainted; /* IE 9-10 doesn't have auto */\r\n\tpointer-events: auto;\r\n\t}\r\n\r\n/* visual tweaks */\r\n\r\n.leaflet-container {\r\n\tbackground: #ddd;\r\n\toutline: 0;\r\n\t}\r\n.leaflet-container a {\r\n\tcolor: #0078A8;\r\n\t}\r\n.leaflet-container a.leaflet-active {\r\n\toutline: 2px solid orange;\r\n\t}\r\n.leaflet-zoom-box {\r\n\tborder: 2px dotted #38f;\r\n\tbackground: rgba(255,255,255,0.5);\r\n\t}\r\n\r\n\r\n/* general typography */\r\n.leaflet-container {\r\n\tfont: 12px/1.5 \"Helvetica Neue\", Arial, Helvetica, sans-serif;\r\n\t}\r\n\r\n\r\n/* general toolbar styles */\r\n\r\n.leaflet-bar {\r\n\tbox-shadow: 0 1px 5px rgba(0,0,0,0.65);\r\n\tborder-radius: 4px;\r\n\t}\r\n.leaflet-bar a,\r\n.leaflet-bar a:hover {\r\n\tbackground-color: #fff;\r\n\tborder-bottom: 1px solid #ccc;\r\n\twidth: 26px;\r\n\theight: 26px;\r\n\tline-height: 26px;\r\n\tdisplay: block;\r\n\ttext-align: center;\r\n\ttext-decoration: none;\r\n\tcolor: black;\r\n\t}\r\n.leaflet-bar a,\r\n.leaflet-control-layers-toggle {\r\n\tbackground-position: 50% 50%;\r\n\tbackground-repeat: no-repeat;\r\n\tdisplay: block;\r\n\t}\r\n.leaflet-bar a:hover {\r\n\tbackground-color: #f4f4f4;\r\n\t}\r\n.leaflet-bar a:first-child {\r\n\tborder-top-left-radius: 4px;\r\n\tborder-top-right-radius: 4px;\r\n\t}\r\n.leaflet-bar a:last-child {\r\n\tborder-bottom-left-radius: 4px;\r\n\tborder-bottom-right-radius: 4px;\r\n\tborder-bottom: none;\r\n\t}\r\n.leaflet-bar a.leaflet-disabled {\r\n\tcursor: default;\r\n\tbackground-color: #f4f4f4;\r\n\tcolor: #bbb;\r\n\t}\r\n\r\n.leaflet-touch .leaflet-bar a {\r\n\twidth: 30px;\r\n\theight: 30px;\r\n\tline-height: 30px;\r\n\t}\r\n.leaflet-touch .leaflet-bar a:first-child {\r\n\tborder-top-left-radius: 2px;\r\n\tborder-top-right-radius: 2px;\r\n\t}\r\n.leaflet-touch .leaflet-bar a:last-child {\r\n\tborder-bottom-left-radius: 2px;\r\n\tborder-bottom-right-radius: 2px;\r\n\t}\r\n\r\n/* zoom control */\r\n\r\n.leaflet-control-zoom-in,\r\n.leaflet-control-zoom-out {\r\n\tfont: bold 18px 'Lucida Console', Monaco, monospace;\r\n\ttext-indent: 1px;\r\n\t}\r\n\r\n.leaflet-touch .leaflet-control-zoom-in, .leaflet-touch .leaflet-control-zoom-out  {\r\n\tfont-size: 22px;\r\n\t}\r\n\r\n\r\n/* layers control */\r\n\r\n.leaflet-control-layers {\r\n\tbox-shadow: 0 1px 5px rgba(0,0,0,0.4);\r\n\tbackground: #fff;\r\n\tborder-radius: 5px;\r\n\t}\r\n.leaflet-control-layers-toggle {\r\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAQAAAADQ4RFAAACf0lEQVR4AY1UM3gkARTePdvdoTxXKc+qTl3aU5U6b2Kbkz3Gtq3Zw6ziLGNPzrYx7946Tr6/ee/XeCQ4D3ykPtL5tHno4n0d/h3+xfuWHGLX81cn7r0iTNzjr7LrlxCqPtkbTQEHeqOrTy4Yyt3VCi/IOB0v7rVC7q45Q3Gr5K6jt+3Gl5nCoDD4MtO+j96Wu8atmhGqcNGHObuf8OM/x3AMx38+4Z2sPqzCxRFK2aF2e5Jol56XTLyggAMTL56XOMoS1W4pOyjUcGGQdZxU6qRh7B9Zp+PfpOFlqt0zyDZckPi1ttmIp03jX8gyJ8a/PG2yutpS/Vol7peZIbZcKBAEEheEIAgFbDkz5H6Zrkm2hVWGiXKiF4Ycw0RWKdtC16Q7qe3X4iOMxruonzegJzWaXFrU9utOSsLUmrc0YjeWYjCW4PDMADElpJSSQ0vQvA1Tm6/JlKnqFs1EGyZiFCqnRZTEJJJiKRYzVYzJck2Rm6P4iH+cmSY0YzimYa8l0EtTODFWhcMIMVqdsI2uiTvKmTisIDHJ3od5GILVhBCarCfVRmo4uTjkhrhzkiBV7SsaqS+TzrzM1qpGGUFt28pIySQHR6h7F6KSwGWm97ay+Z+ZqMcEjEWebE7wxCSQwpkhJqoZA5ivCdZDjJepuJ9IQjGGUmuXJdBFUygxVqVsxFsLMbDe8ZbDYVCGKxs+W080max1hFCarCfV+C1KATwcnvE9gRRuMP2prdbWGowm1KB1y+zwMMENkM755cJ2yPDtqhTI6ED1M/82yIDtC/4j4BijjeObflpO9I9MwXTCsSX8jWAFeHr05WoLTJ5G8IQVS/7vwR6ohirYM7f6HzYpogfS3R2OAAAAAElFTkSuQmCC);\r\n\twidth: 36px;\r\n\theight: 36px;\r\n\t}\r\n.leaflet-retina .leaflet-control-layers-toggle {\r\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADQAAAA0CAQAAABvcdNgAAAEsklEQVR4AWL4TydIhpZK1kpWOlg0w3ZXP6D2soBtG42jeI6ZmQTHzAxiTbSJsYLjO9HhP+WOmcuhciVnmHVQcJnp7DFvScowZorad/+V/fVzMdMT2g9Cv9guXGv/7pYOrXh2U+RRR3dSd9JRx6bIFc/ekqHI29JC6pJ5ZEh1yWkhkbcFeSjxgx3L2m1cb1C7bceyxA+CNjT/Ifff+/kDk2u/w/33/IeCMOSaWZ4glosqT3DNnNZQ7Cs58/3Ce5HL78iZH/vKVIaYlqzfdLu8Vi7dnvUbEza5Idt36tquZFldl6N5Z/POLof0XLK61mZCmJSWjVF9tEjUluu74IUXvgttuVIHE7YxSkaYhJZam7yiM9Pv82JYfl9nptxZaxMJE4YSPty+vF0+Y2up9d3wwijfjZbabqm/3bZ9ecKHsiGmRflnn1MW4pjHf9oLufyn2z3y1D6n8g8TZhxyzipLNPnAUpsOiuWimg52psrTZYnOWYNDTMuWBWa0tJb4rgq1UvmutpaYEbZlwU3CLJm/ayYjHW5/h7xWLn9Hh1vepDkyf7dE7MtT5LR4e7yYpHrkhOUpEfssBLq2pPhAqoSWKUkk7EDqkmK6RrCEzqDjhNDWNE+XSMvkJRDWlZTmCW0l0PHQGRZY5t1L83kT0Y3l2SItk5JAWHl2dCOBm+fPu3fo5/3v61RMCO9Jx2EEYYhb0rmNQMX/vm7gqOEJLcXTGw3CAuRNeyaPWwjR8PRqKQ1PDA/dpv+on9Shox52WFnx0KY8onHayrJzm87i5h9xGw/tfkev0jGsQizqezUKjk12hBMKJ4kbCqGPVNXudyyrShovGw5CgxsRICxF6aRmSjlBnHRzg7Gx8fKqEubI2rahQYdR1YgDIRQO7JvQyD52hoIQx0mxa0ODtW2Iozn1le2iIRdzwWewedyZzewidueOGqlsn1MvcnQpuVwLGG3/IR1hIKxCjelIDZ8ldqWz25jWAsnldEnK0Zxro19TGVb2ffIZEsIO89EIEDvKMPrzmBOQcKQ+rroye6NgRRxqR4U8EAkz0CL6uSGOm6KQCdWjvjRiSP1BPalCRS5iQYiEIvxuBMJEWgzSoHADcVMuN7IuqqTeyUPq22qFimFtxDyBBJEwNyt6TM88blFHao/6tWWhuuOM4SAK4EI4QmFHA+SEyWlp4EQoJ13cYGzMu7yszEIBOm2rVmHUNqwAIQabISNMRstmdhNWcFLsSm+0tjJH1MdRxO5Nx0WDMhCtgD6OKgZeljJqJKc9po8juskR9XN0Y1lZ3mWjLR9JCO1jRDMd0fpYC2VnvjBSEFg7wBENc0R9HFlb0xvF1+TBEpF68d+DHR6IOWVv2BECtxo46hOFUBd/APU57WIoEwJhIi2CdpyZX0m93BZicktMj1AS9dClteUFAUNUIEygRZCtik5zSxI9MubTBH1GOiHsiLJ3OCoSZkILa9PxiN0EbvhsAo8tdAf9Seepd36lGWHmtNANTv5Jd0z4QYyeo/UEJqxKRpg5LZx6btLPsOaEmdMyxYdlc8LMaJnikDlhclqmPiQnTEpLUIZEwkRagjYkEibQErwhkTAKCLQEbUgkzJQWc/0PstHHcfEdQ+UAAAAASUVORK5CYII=);\r\n\tbackground-size: 26px 26px;\r\n\t}\r\n.leaflet-touch .leaflet-control-layers-toggle {\r\n\twidth: 44px;\r\n\theight: 44px;\r\n\t}\r\n.leaflet-control-layers .leaflet-control-layers-list,\r\n.leaflet-control-layers-expanded .leaflet-control-layers-toggle {\r\n\tdisplay: none;\r\n\t}\r\n.leaflet-control-layers-expanded .leaflet-control-layers-list {\r\n\tdisplay: block;\r\n\tposition: relative;\r\n\t}\r\n.leaflet-control-layers-expanded {\r\n\tpadding: 6px 10px 6px 6px;\r\n\tcolor: #333;\r\n\tbackground: #fff;\r\n\t}\r\n.leaflet-control-layers-scrollbar {\r\n\toverflow-y: scroll;\r\n\toverflow-x: hidden;\r\n\tpadding-right: 5px;\r\n\t}\r\n.leaflet-control-layers-selector {\r\n\tmargin-top: 2px;\r\n\tposition: relative;\r\n\ttop: 1px;\r\n\t}\r\n.leaflet-control-layers label {\r\n\tdisplay: block;\r\n\t}\r\n.leaflet-control-layers-separator {\r\n\theight: 0;\r\n\tborder-top: 1px solid #ddd;\r\n\tmargin: 5px -10px 5px -6px;\r\n\t}\r\n\r\n/* Default icon URLs */\r\n.leaflet-default-icon-path {\r\n\tbackground-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAApCAYAAADAk4LOAAAFgUlEQVR4Aa1XA5BjWRTN2oW17d3YaZtr2962HUzbDNpjszW24mRt28p47v7zq/bXZtrp/lWnXr337j3nPCe85NcypgSFdugCpW5YoDAMRaIMqRi6aKq5E3YqDQO3qAwjVWrD8Ncq/RBpykd8oZUb/kaJutow8r1aP9II0WmLKLIsJyv1w/kqw9Ch2MYdB++12Onxee/QMwvf4/Dk/Lfp/i4nxTXtOoQ4pW5Aj7wpici1A9erdAN2OH64x8OSP9j3Ft3b7aWkTg/Fm91siTra0f9on5sQr9INejH6CUUUpavjFNq1B+Oadhxmnfa8RfEmN8VNAsQhPqF55xHkMzz3jSmChWU6f7/XZKNH+9+hBLOHYozuKQPxyMPUKkrX/K0uWnfFaJGS1QPRtZsOPtr3NsW0uyh6NNCOkU3Yz+bXbT3I8G3xE5EXLXtCXbbqwCO9zPQYPRTZ5vIDXD7U+w7rFDEoUUf7ibHIR4y6bLVPXrz8JVZEql13trxwue/uDivd3fkWRbS6/IA2bID4uk0UpF1N8qLlbBlXs4Ee7HLTfV1j54APvODnSfOWBqtKVvjgLKzF5YdEk5ewRkGlK0i33Eofffc7HT56jD7/6U+qH3Cx7SBLNntH5YIPvODnyfIXZYRVDPqgHtLs5ABHD3YzLuespb7t79FY34DjMwrVrcTuwlT55YMPvOBnRrJ4VXTdNnYug5ucHLBjEpt30701A3Ts+HEa73u6dT3FNWwflY86eMHPk+Yu+i6pzUpRrW7SNDg5JHR4KapmM5Wv2E8Tfcb1HoqqHMHU+uWDD7zg54mz5/2BSnizi9T1Dg4QQXLToGNCkb6tb1NU+QAlGr1++eADrzhn/u8Q2YZhQVlZ5+CAOtqfbhmaUCS1ezNFVm2imDbPmPng5wmz+gwh+oHDce0eUtQ6OGDIyR0uUhUsoO3vfDmmgOezH0mZN59x7MBi++WDL1g/eEiU3avlidO671bkLfwbw5XV2P8Pzo0ydy4t2/0eu33xYSOMOD8hTf4CrBtGMSoXfPLchX+J0ruSePw3LZeK0juPJbYzrhkH0io7B3k164hiGvawhOKMLkrQLyVpZg8rHFW7E2uHOL888IBPlNZ1FPzstSJM694fWr6RwpvcJK60+0HCILTBzZLFNdtAzJaohze60T8qBzyh5ZuOg5e7uwQppofEmf2++DYvmySqGBuKaicF1blQjhuHdvCIMvp8whTTfZzI7RldpwtSzL+F1+wkdZ2TBOW2gIF88PBTzD/gpeREAMEbxnJcaJHNHrpzji0gQCS6hdkEeYt9DF/2qPcEC8RM28Hwmr3sdNyht00byAut2k3gufWNtgtOEOFGUwcXWNDbdNbpgBGxEvKkOQsxivJx33iow0Vw5S6SVTrpVq11ysA2Rp7gTfPfktc6zhtXBBC+adRLshf6sG2RfHPZ5EAc4sVZ83yCN00Fk/4kggu40ZTvIEm5g24qtU4KjBrx/BTTH8ifVASAG7gKrnWxJDcU7x8X6Ecczhm3o6YicvsLXWfh3Ch1W0k8x0nXF+0fFxgt4phz8QvypiwCCFKMqXCnqXExjq10beH+UUA7+nG6mdG/Pu0f3LgFcGrl2s0kNNjpmoJ9o4B29CMO8dMT4Q5ox8uitF6fqsrJOr8qnwNbRzv6hSnG5wP+64C7h9lp30hKNtKdWjtdkbuPA19nJ7Tz3zR/ibgARbhb4AlhavcBebmTHcFl2fvYEnW0ox9xMxKBS8btJ+KiEbq9zA4RthQXDhPa0T9TEe69gWupwc6uBUphquXgf+/FrIjweHQS4/pduMe5ERUMHUd9xv8ZR98CxkS4F2n3EUrUZ10EYNw7BWm9x1GiPssi3GgiGRDKWRYZfXlON+dfNbM+GgIwYdwAAAAASUVORK5CYII=);\r\n\t}\r\n\r\n\r\n/* attribution and scale controls */\r\n\r\n.leaflet-container .leaflet-control-attribution {\r\n\tbackground: #fff;\r\n\tbackground: rgba(255, 255, 255, 0.7);\r\n\tmargin: 0;\r\n\t}\r\n.leaflet-control-attribution,\r\n.leaflet-control-scale-line {\r\n\tpadding: 0 5px;\r\n\tcolor: #333;\r\n\t}\r\n.leaflet-control-attribution a {\r\n\ttext-decoration: none;\r\n\t}\r\n.leaflet-control-attribution a:hover {\r\n\ttext-decoration: underline;\r\n\t}\r\n.leaflet-container .leaflet-control-attribution,\r\n.leaflet-container .leaflet-control-scale {\r\n\tfont-size: 11px;\r\n\t}\r\n.leaflet-left .leaflet-control-scale {\r\n\tmargin-left: 5px;\r\n\t}\r\n.leaflet-bottom .leaflet-control-scale {\r\n\tmargin-bottom: 5px;\r\n\t}\r\n.leaflet-control-scale-line {\r\n\tborder: 2px solid #777;\r\n\tborder-top: none;\r\n\tline-height: 1.1;\r\n\tpadding: 2px 5px 1px;\r\n\tfont-size: 11px;\r\n\twhite-space: nowrap;\r\n\toverflow: hidden;\r\n\t-moz-box-sizing: border-box;\r\n\t     box-sizing: border-box;\r\n\r\n\tbackground: #fff;\r\n\tbackground: rgba(255, 255, 255, 0.5);\r\n\t}\r\n.leaflet-control-scale-line:not(:first-child) {\r\n\tborder-top: 2px solid #777;\r\n\tborder-bottom: none;\r\n\tmargin-top: -2px;\r\n\t}\r\n.leaflet-control-scale-line:not(:first-child):not(:last-child) {\r\n\tborder-bottom: 2px solid #777;\r\n\t}\r\n\r\n.leaflet-touch .leaflet-control-attribution,\r\n.leaflet-touch .leaflet-control-layers,\r\n.leaflet-touch .leaflet-bar {\r\n\tbox-shadow: none;\r\n\t}\r\n.leaflet-touch .leaflet-control-layers,\r\n.leaflet-touch .leaflet-bar {\r\n\tborder: 2px solid rgba(0,0,0,0.2);\r\n\tbackground-clip: padding-box;\r\n\t}\r\n\r\n\r\n/* popup */\r\n\r\n.leaflet-popup {\r\n\tposition: absolute;\r\n\ttext-align: center;\r\n\tmargin-bottom: 20px;\r\n\t}\r\n.leaflet-popup-content-wrapper {\r\n\tpadding: 1px;\r\n\ttext-align: left;\r\n\tborder-radius: 12px;\r\n\t}\r\n.leaflet-popup-content {\r\n\tmargin: 13px 19px;\r\n\tline-height: 1.4;\r\n\t}\r\n.leaflet-popup-content p {\r\n\tmargin: 18px 0;\r\n\t}\r\n.leaflet-popup-tip-container {\r\n\twidth: 40px;\r\n\theight: 20px;\r\n\tposition: absolute;\r\n\tleft: 50%;\r\n\tmargin-left: -20px;\r\n\toverflow: hidden;\r\n\tpointer-events: none;\r\n\t}\r\n.leaflet-popup-tip {\r\n\twidth: 17px;\r\n\theight: 17px;\r\n\tpadding: 1px;\r\n\r\n\tmargin: -10px auto 0;\r\n\r\n\t-webkit-transform: rotate(45deg);\r\n\t   -moz-transform: rotate(45deg);\r\n\t    -ms-transform: rotate(45deg);\r\n\t        transform: rotate(45deg);\r\n\t}\r\n.leaflet-popup-content-wrapper,\r\n.leaflet-popup-tip {\r\n\tbackground: white;\r\n\tcolor: #333;\r\n\tbox-shadow: 0 3px 14px rgba(0,0,0,0.4);\r\n\t}\r\n.leaflet-container a.leaflet-popup-close-button {\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tright: 0;\r\n\tpadding: 4px 4px 0 0;\r\n\tborder: none;\r\n\ttext-align: center;\r\n\twidth: 18px;\r\n\theight: 14px;\r\n\tfont: 16px/14px Tahoma, Verdana, sans-serif;\r\n\tcolor: #c3c3c3;\r\n\ttext-decoration: none;\r\n\tfont-weight: bold;\r\n\tbackground: transparent;\r\n\t}\r\n.leaflet-container a.leaflet-popup-close-button:hover {\r\n\tcolor: #999;\r\n\t}\r\n.leaflet-popup-scrolled {\r\n\toverflow: auto;\r\n\tborder-bottom: 1px solid #ddd;\r\n\tborder-top: 1px solid #ddd;\r\n\t}\r\n\r\n.leaflet-oldie .leaflet-popup-content-wrapper {\r\n\t-ms-zoom: 1;\r\n\t}\r\n.leaflet-oldie .leaflet-popup-tip {\r\n\twidth: 24px;\r\n\tmargin: 0 auto;\r\n\r\n\t-ms-filter: \"progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678)\";\r\n\tfilter: progid:DXImageTransform.Microsoft.Matrix(M11=0.70710678, M12=0.70710678, M21=-0.70710678, M22=0.70710678);\r\n\t}\r\n.leaflet-oldie .leaflet-popup-tip-container {\r\n\tmargin-top: -1px;\r\n\t}\r\n\r\n.leaflet-oldie .leaflet-control-zoom,\r\n.leaflet-oldie .leaflet-control-layers,\r\n.leaflet-oldie .leaflet-popup-content-wrapper,\r\n.leaflet-oldie .leaflet-popup-tip {\r\n\tborder: 1px solid #999;\r\n\t}\r\n\r\n\r\n/* div icon */\r\n\r\n.leaflet-div-icon {\r\n\tbackground: #fff;\r\n\tborder: 1px solid #666;\r\n\t}\r\n\r\n\r\n/* Tooltip */\r\n/* Base styles for the element that has a tooltip */\r\n.leaflet-tooltip {\r\n\tposition: absolute;\r\n\tpadding: 6px;\r\n\tbackground-color: #fff;\r\n\tborder: 1px solid #fff;\r\n\tborder-radius: 3px;\r\n\tcolor: #222;\r\n\twhite-space: nowrap;\r\n\t-webkit-user-select: none;\r\n\t-moz-user-select: none;\r\n\t-ms-user-select: none;\r\n\tuser-select: none;\r\n\tpointer-events: none;\r\n\tbox-shadow: 0 1px 3px rgba(0,0,0,0.4);\r\n\t}\r\n.leaflet-tooltip.leaflet-clickable {\r\n\tcursor: pointer;\r\n\tpointer-events: auto;\r\n\t}\r\n.leaflet-tooltip-top:before,\r\n.leaflet-tooltip-bottom:before,\r\n.leaflet-tooltip-left:before,\r\n.leaflet-tooltip-right:before {\r\n\tposition: absolute;\r\n\tpointer-events: none;\r\n\tborder: 6px solid transparent;\r\n\tbackground: transparent;\r\n\tcontent: \"\";\r\n\t}\r\n\r\n/* Directions */\r\n\r\n.leaflet-tooltip-bottom {\r\n\tmargin-top: 6px;\r\n}\r\n.leaflet-tooltip-top {\r\n\tmargin-top: -6px;\r\n}\r\n.leaflet-tooltip-bottom:before,\r\n.leaflet-tooltip-top:before {\r\n\tleft: 50%;\r\n\tmargin-left: -6px;\r\n\t}\r\n.leaflet-tooltip-top:before {\r\n\tbottom: 0;\r\n\tmargin-bottom: -12px;\r\n\tborder-top-color: #fff;\r\n\t}\r\n.leaflet-tooltip-bottom:before {\r\n\ttop: 0;\r\n\tmargin-top: -12px;\r\n\tmargin-left: -6px;\r\n\tborder-bottom-color: #fff;\r\n\t}\r\n.leaflet-tooltip-left {\r\n\tmargin-left: -6px;\r\n}\r\n.leaflet-tooltip-right {\r\n\tmargin-left: 6px;\r\n}\r\n.leaflet-tooltip-left:before,\r\n.leaflet-tooltip-right:before {\r\n\ttop: 50%;\r\n\tmargin-top: -6px;\r\n\t}\r\n.leaflet-tooltip-left:before {\r\n\tright: 0;\r\n\tmargin-right: -12px;\r\n\tborder-left-color: #fff;\r\n\t}\r\n.leaflet-tooltip-right:before {\r\n\tleft: 0;\r\n\tmargin-left: -12px;\r\n\tborder-right-color: #fff;\r\n\t}\r\n";
 styleInject(css_248z$2);
 
-function e(){return (e=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var r=arguments[e];for(var n in r)Object.prototype.hasOwnProperty.call(r,n)&&(t[n]=r[n]);}return t}).apply(this,arguments)}function r(t,e){t.prototype=Object.create(e.prototype),t.prototype.constructor=t,t.__proto__=e;}function n(t,e){return (n=Object.setPrototypeOf||function(t,e){return t.__proto__=e,t})(t,e)}function o(){if("undefined"==typeof Reflect||!Reflect.construct)return !1;if(Reflect.construct.sham)return !1;if("function"==typeof Proxy)return !0;try{return Date.prototype.toString.call(Reflect.construct(Date,[],function(){})),!0}catch(t){return !1}}function i(t,e,r){return (i=o()?Reflect.construct:function(t,e,r){var o=[null];o.push.apply(o,e);var i=new(Function.bind.apply(t,o));return r&&n(i,r.prototype),i}).apply(null,arguments)}function s(t,e,r,n){void 0===e&&(e=""),void 0===n&&(n={});var o=document.createElement(t);return e&&(o.className=e),Object.keys(n).forEach(function(t){if("function"==typeof n[t]){var e=0===t.indexOf("on")?t.substr(2).toLowerCase():t;o.addEventListener(e,n[t]);}else "html"===t?o.innerHTML=n[t]:"text"===t?o.innerText=n[t]:o.setAttribute(t,n[t]);}),r&&r.appendChild(o),o}function a(t){t.preventDefault(),t.stopPropagation();}var u=function(){for(var t=arguments.length,e=new Array(t),r=0;r<t;r++)e[r]=arguments[r];return e.filter(Boolean).join(" ").trim()};function c(t,e){t&&t.classList&&(Array.isArray(e)?e:[e]).forEach(function(e){t.classList.contains(e)||t.classList.add(e);});}function l(t,e){t&&t.classList&&(Array.isArray(e)?e:[e]).forEach(function(e){t.classList.contains(e)&&t.classList.remove(e);});}var h,p=13,f=40,d=38,m=[p,27,f,d,37,39],v=function(){function t(t){var e=this,r=t.handleSubmit,n=t.searchLabel,o=t.classNames,i=void 0===o?{}:o;this.hasError=!1,this.container=s("div",u("geosearch",i.container)),this.form=s("form",["",i.form].join(" "),this.container,{autocomplete:"none",onClick:a,onDblClick:a,touchStart:a,touchEnd:a}),this.input=s("input",["glass",i.input].join(" "),this.form,{type:"text",placeholder:n||"search",onInput:this.onInput,onKeyUp:function(t){return e.onKeyUp(t)},onKeyPress:function(t){return e.onKeyPress(t)},onFocus:this.onFocus,onBlur:this.onBlur,onClick:function(){e.input.focus(),e.input.dispatchEvent(new Event("focus"));}}),this.handleSubmit=r;}var e=t.prototype;return e.onFocus=function(){c(this.form,"active");},e.onBlur=function(){l(this.form,"active");},e.onSubmit=function(t){try{var e=this;return a(t),l(r=e.container,"error"),c(r,"pending"),Promise.resolve(e.handleSubmit({query:e.input.value})).then(function(){l(e.container,"pending");})}catch(t){return Promise.reject(t)}var r;},e.onInput=function(){this.hasError&&(l(this.container,"error"),this.hasError=!1);},e.onKeyUp=function(t){27===t.keyCode&&(l(this.container,["pending","active"]),this.input.value="",document.body.focus(),document.body.blur());},e.onKeyPress=function(t){t.keyCode===p&&this.onSubmit(t);},e.setQuery=function(t){this.input.value=t;},t}(),y=function(){function t(t){var e=this,r=t.handleClick,n=t.classNames,o=void 0===n?{}:n;this.selected=-1,this.results=[],this.onClick=function(t){if("function"==typeof e.handleClick){var r=t.target;if(r&&e.container.contains(r)&&r.hasAttribute("data-key")){var n=Number(r.getAttribute("data-key"));e.clear(),e.handleClick({result:e.results[n]});}}},this.handleClick=r,this.container=s("div",u("results",o.container)),this.container.addEventListener("click",this.onClick,!0),this.resultItem=s("div",u(o.item));}var e=t.prototype;return e.render=function(t,e){var r=this;void 0===t&&(t=[]),this.clear(),t.forEach(function(t,n){var o=r.resultItem.cloneNode(!0);o.setAttribute("data-key",""+n),o.innerHTML=e({result:t}),r.container.appendChild(o);}),t.length>0&&(c(this.container.parentElement,"open"),c(this.container,"active")),this.results=t;},e.select=function(t){return Array.from(this.container.children).forEach(function(e,r){return r===t?c(e,"active"):l(e,"active")}),this.selected=t,this.results[t]},e.count=function(){return this.results?this.results.length:0},e.clear=function(){for(this.selected=-1;this.container.lastChild;)this.container.removeChild(this.container.lastChild);l(this.container.parentElement,"open"),l(this.container,"active");},t}(),g={position:"topleft",style:"button",showMarker:!0,showPopup:!1,popupFormat:function(t){return ""+t.result.label},resultFormat:function(t){return ""+t.result.label},marker:{icon:leafletSrc&&leafletSrc.Icon?new leafletSrc.Icon.Default:void 0,draggable:!1},maxMarkers:1,maxSuggestions:5,retainZoomLevel:!1,animateZoom:!0,searchLabel:"Enter address",notFoundMessage:"Sorry, that address could not be found.",messageHideDelay:3e3,zoomLevel:18,classNames:{container:"leaflet-bar leaflet-control leaflet-control-geosearch",button:"leaflet-bar-part leaflet-bar-part-single",resetButton:"reset",msgbox:"leaflet-bar message",form:"",input:""},autoComplete:!0,autoCompleteDelay:250,autoClose:!1,keepResult:!1,updateMap:!0},b="Leaflet must be loaded before instantiating the GeoSearch control",E={options:e({},g),classNames:e({},g.classNames),initialize:function(r){var n,o,i,a,u=this;if(!leafletSrc)throw new Error(b);if(!r.provider)throw new Error("Provider is missing from options");this.options=e({},this.options,{},r),this.classNames=e({},this.classNames,{},r.classNames),this.markers=new leafletSrc.FeatureGroup,this.classNames.container+=" leaflet-geosearch-"+this.options.style,this.searchElement=new v({searchLabel:this.options.searchLabel,classNames:{container:this.classNames.container,form:this.classNames.form,input:this.classNames.input},handleSubmit:function(t){return u.onSubmit(t)}}),this.button=s("a",this.classNames.button,this.searchElement.container,{title:this.options.searchLabel,href:"#",onClick:function(t){return u.onClick(t)}}),leafletSrc.DomEvent.disableClickPropagation(this.button),this.resetButton=s("a",this.classNames.resetButton,this.searchElement.form,{text:"×",href:"#",onClick:function(){return u.clearResults(null,!0)}}),leafletSrc.DomEvent.disableClickPropagation(this.resetButton),this.options.autoComplete&&(this.resultList=new y({handleClick:function(t){var e=t.result;u.searchElement.input.value=e.label,u.onSubmit({query:e.label,data:e});}}),this.searchElement.form.appendChild(this.resultList.container),this.searchElement.input.addEventListener("keyup",(n=function(t){return u.autoSearch(t)},void 0===(o=this.options.autoCompleteDelay)&&(o=250),void 0===i&&(i=!1),function(){for(var t=arguments.length,e=new Array(t),r=0;r<t;r++)e[r]=arguments[r];a&&clearTimeout(a),a=setTimeout(function(){a=null,i||n.apply(void 0,e);},o),i&&!a&&n.apply(void 0,e);}),!0),this.searchElement.input.addEventListener("keydown",function(t){return u.selectResult(t)},!0),this.searchElement.input.addEventListener("keydown",function(t){return u.clearResults(t,!0)},!0)),this.searchElement.form.addEventListener("click",function(t){t.preventDefault();},!1);},onAdd:function(e){var r=this.options,n=r.showMarker,o=r.style;if(this.map=e,n&&this.markers.addTo(e),"bar"===o){var i=e.getContainer().querySelector(".leaflet-control-container");this.container=s("div","leaflet-control-geosearch leaflet-geosearch-bar"),this.container.appendChild(this.searchElement.form),i.appendChild(this.container);}return leafletSrc.DomEvent.disableClickPropagation(this.searchElement.form),this.searchElement.container},onRemove:function(){var t;return null==(t=this.container)||t.remove(),this},onClick:function(t){t.preventDefault(),t.stopPropagation();var e=this.searchElement,r=e.container,n=e.input;r.classList.contains("active")?(l(r,"active"),this.clearResults()):(c(r,"active"),n.focus());},selectResult:function(t){if(-1!==[p,f,d].indexOf(t.keyCode))if(t.preventDefault(),t.keyCode!==p){var e=this.resultList.count()-1;if(!(e<0)){var r=this.resultList.selected,n=t.keyCode===f?r+1:r-1,o=this.resultList.select(n<0?e:n>e?0:n);this.searchElement.input.value=o.label;}}else {var i=this.resultList.select(this.resultList.selected);this.onSubmit({query:this.searchElement.input.value,data:i});}},clearResults:function(t,e){if(void 0===e&&(e=!1),!t||27===t.keyCode){var r=this.options,n=r.autoComplete;!e&&r.keepResult||(this.searchElement.input.value="",this.markers.clearLayers()),n&&this.resultList.clear();}},autoSearch:function(t){try{var e=this;if(m.indexOf(t.keyCode)>-1)return Promise.resolve();var r=t.target.value,n=e.options.provider,o=function(){if(r.length)return Promise.resolve(n.search({query:r})).then(function(t){t=t.slice(0,e.options.maxSuggestions),e.resultList.render(t,e.options.resultFormat);});e.resultList.clear();}();return Promise.resolve(o&&o.then?o.then(function(){}):void 0)}catch(t){return Promise.reject(t)}},onSubmit:function(t){try{var e=this;return Promise.resolve(e.options.provider.search(t)).then(function(r){r&&r.length>0&&e.showResult(r[0],t);})}catch(t){return Promise.reject(t)}},showResult:function(t,e){var r=this.options,n=r.autoClose,o=r.updateMap,i=this.markers.getLayers();i.length>=this.options.maxMarkers&&this.markers.removeLayer(i[0]);var s=this.addMarker(t,e);o&&this.centerMap(t),this.map.fireEvent("geosearch/showlocation",{location:t,marker:s}),n&&this.closeResults();},closeResults:function(){var t=this.searchElement.container;t.classList.contains("active")&&l(t,"active"),this.clearResults();},addMarker:function(e,r){var n=this,o=this.options,i=o.marker,s=o.showPopup,a=o.popupFormat,u=new leafletSrc.Marker([e.y,e.x],i),c=e.label;return "function"==typeof a&&(c=a({query:r,result:e})),u.bindPopup(c),this.markers.addLayer(u),s&&u.openPopup(),i.draggable&&u.on("dragend",function(t){n.map.fireEvent("geosearch/marker/dragend",{location:u.getLatLng(),event:t});}),u},centerMap:function(e){var r=this.options,n=r.retainZoomLevel,o=r.animateZoom,i=e.bounds?new leafletSrc.LatLngBounds(e.bounds):new leafletSrc.LatLng(e.y,e.x).toBounds(10),s=i.isValid()?i:this.markers.getBounds();!n&&i.isValid()&&!e.bounds||n||!i.isValid()?this.map.setView(s.getCenter(),this.getZoom(),{animate:o}):this.map.fitBounds(s,{animate:o});},getZoom:function(){var t=this.options,e=t.zoomLevel;return t.retainZoomLevel?this.map.getZoom():e}};function x(){if(!leafletSrc)throw new Error(b);for(var e=leafletSrc.Control.extend(E),r=arguments.length,n=new Array(r),o=0;o<r;o++)n[o]=arguments[o];return i(e,n)}!function(t){t[t.SEARCH=0]="SEARCH",t[t.REVERSE=1]="REVERSE";}(h||(h={}));var L$1=function(){function t(t){void 0===t&&(t={}),this.options=t;}var r=t.prototype;return r.getParamString=function(t){void 0===t&&(t={});var r=e({},this.options.params,{},t);return Object.keys(r).map(function(t){return encodeURIComponent(t)+"="+encodeURIComponent(r[t])}).join("&")},r.getUrl=function(t,e){return t+"?"+this.getParamString(e)},r.search=function(t){try{var e=this,r=e.endpoint({query:t.query,type:h.SEARCH});return Promise.resolve(fetch(r)).then(function(t){return Promise.resolve(t.json()).then(function(t){return e.parse({data:t})})})}catch(t){return Promise.reject(t)}},t}();(function(t){function n(){return t.apply(this,arguments)||this}r(n,t);var o=n.prototype;return o.endpoint=function(){return "https://places-dsn.algolia.net/1/places/query"},o.findBestMatchLevelIndex=function(t){var e=t.find(function(t){return "full"===t.matchLevel})||t.find(function(t){return "partial"===t.matchLevel});return e?t.indexOf(e):0},o.getLabel=function(t){var e,r,n,o;return [null==(e=t.locale_names)?void 0:e.default[this.findBestMatchLevelIndex(t._highlightResult.locale_names.default)],null==(r=t.city)?void 0:r.default[this.findBestMatchLevelIndex(t._highlightResult.city.default)],t.administrative[this.findBestMatchLevelIndex(t._highlightResult.administrative)],null==(n=t.postcode)?void 0:n[this.findBestMatchLevelIndex(t._highlightResult.postcode)],null==(o=t.country)?void 0:o.default].filter(Boolean).join(", ")},o.parse=function(t){var e=this;return t.data.hits.map(function(t){return {x:t._geoloc.lng,y:t._geoloc.lat,label:e.getLabel(t),bounds:null,raw:t}})},o.search=function(t){var r=t.query;try{var n=this,o="string"==typeof r?{query:r}:r;return Promise.resolve(fetch(n.endpoint(),{method:"POST",body:JSON.stringify(e({},n.options.params,{},o))})).then(function(t){return Promise.resolve(t.json()).then(function(t){return n.parse({data:t})})})}catch(t){return Promise.reject(t)}},n})(L$1);(function(t){function e(){var e;return (e=t.apply(this,arguments)||this).searchUrl="https://dev.virtualearth.net/REST/v1/Locations",e}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query,r="string"==typeof e?{q:e}:e;return r.jsonp=t.jsonp,this.getUrl(this.searchUrl,r)},n.parse=function(t){return 0===t.data.resourceSets.length?[]:t.data.resourceSets[0].resources.map(function(t){return {x:t.point.coordinates[1],y:t.point.coordinates[0],label:t.address.formattedAddress,bounds:[[t.bbox[0],t.bbox[1]],[t.bbox[2],t.bbox[3]]],raw:t}})},n.search=function(t){var e,r,n,o=t.query;try{var i=this,a="BING_JSONP_CB_"+Date.now();return Promise.resolve((e=i.endpoint({query:o,jsonp:a}),r=a,n=s("script",null,document.body),n.setAttribute("type","text/javascript"),new Promise(function(t){window[r]=function(e){n.remove(),delete window[r],t(e);},n.setAttribute("src",e);}))).then(function(t){return i.parse({data:t})})}catch(t){return Promise.reject(t)}},e})(L$1);(function(t){function e(){var e;return (e=t.apply(this,arguments)||this).searchUrl="https://geocode.arcgis.com/arcgis/rest/services/World/GeocodeServer/find",e}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query,r="string"==typeof e?{text:e}:e;return r.f="json",this.getUrl(this.searchUrl,r)},n.parse=function(t){return t.data.locations.map(function(t){return {x:t.feature.geometry.x,y:t.feature.geometry.y,label:t.name,bounds:[[t.extent.ymin,t.extent.xmin],[t.extent.ymax,t.extent.xmax]],raw:t}})},e})(L$1);(function(t){function e(){var e;return (e=t.apply(this,arguments)||this).searchUrl="https://maps.googleapis.com/maps/api/geocode/json",e}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query;return this.getUrl(this.searchUrl,"string"==typeof e?{address:e}:e)},n.parse=function(t){return t.data.results.map(function(t){return {x:t.geometry.location.lng,y:t.geometry.location.lat,label:t.formatted_address,bounds:[[t.geometry.viewport.southwest.lat,t.geometry.viewport.southwest.lng],[t.geometry.viewport.northeast.lat,t.geometry.viewport.northeast.lng]],raw:t}})},e})(L$1);(function(t){function e(){var e;return (e=t.apply(this,arguments)||this).searchUrl="https://geocode.search.hereapi.com/v1/geocode",e}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query;return this.getUrl(this.searchUrl,"string"==typeof e?{q:e}:e)},n.parse=function(t){return t.data.items.map(function(t){return {x:t.position.lng,y:t.position.lat,label:t.address.label,bounds:null,raw:t}})},e})(L$1);var S=function(t){function e(e){var r;void 0===e&&(e={});var n="https://nominatim.openstreetmap.org";return (r=t.call(this,e)||this).searchUrl=e.searchUrl||n+"/search",r.reverseUrl=e.reverseUrl||n+"/reverse",r}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query,r=t.type,n="string"==typeof e?{q:e}:e;switch(n.format="json",r){case h.REVERSE:return this.getUrl(this.reverseUrl,n);default:return this.getUrl(this.searchUrl,n)}},n.parse=function(t){return (Array.isArray(t.data)?t.data:[t.data]).map(function(t){return {x:Number(t.lon),y:Number(t.lat),label:t.display_name,bounds:[[parseFloat(t.boundingbox[0]),parseFloat(t.boundingbox[2])],[parseFloat(t.boundingbox[1]),parseFloat(t.boundingbox[3])]],raw:t}})},e}(L$1);(function(t){function n(r){return t.call(this,e({},r,{searchUrl:"https://locationiq.org/v1/search.php",reverseUrl:"https://locationiq.org/v1/reverse.php"}))||this}return r(n,t),n})(S);(function(t){function e(){var e;return (e=t.apply(this,arguments)||this).searchUrl="https://api.opencagedata.com/geocode/v1/json",e}r(e,t);var n=e.prototype;return n.endpoint=function(t){var e=t.query,r="string"==typeof e?{q:e}:e;return r.format="json",this.getUrl(this.searchUrl,r)},n.parse=function(t){return t.data.results.map(function(t){return {x:t.geometry.lng,y:t.geometry.lat,label:t.formatted,bounds:[[t.bounds.southwest.lat,t.bounds.southwest.lng],[t.bounds.northeast.lat,t.bounds.northeast.lng]],raw:t}})},n.search=function(e){try{return Promise.resolve(e.query.length<2?[]:t.prototype.search.call(this,e))}catch(t){return Promise.reject(t)}},e})(L$1);(function(t){function e(e){var r;return void 0===e&&(e={}),(r=t.call(this,e)||this).searchUrl=e.searchUrl||"https://a.tiles.mapbox.com/v4/geocode/mapbox.places/",r}r(e,t);var n=e.prototype;return n.endpoint=function(t){return this.getUrl(""+this.searchUrl+t.query+".json")},n.parse=function(t){return (Array.isArray(t.data.features)?t.data.features:[]).map(function(t){var e=null;return t.bbox&&(e=[[parseFloat(t.bbox[1]),parseFloat(t.bbox[0])],[parseFloat(t.bbox[3]),parseFloat(t.bbox[2])]]),{x:Number(t.center[0]),y:Number(t.center[1]),label:t.place_name?t.place_name:t.text,bounds:e,raw:t}})},e})(L$1);
-
 var css_248z$1 = "/* global styling */\n.leaflet-control-geosearch *,\n.leaflet-control-geosearch *:before,\n.leaflet-control-geosearch *:after {\n  box-sizing: border-box;\n}\n\n/* leaflet button styling */\n.leaflet-control-geosearch .leaflet-bar-part {\n  border-radius: 4px;\n  border-bottom: none;\n}\n\n.leaflet-control-geosearch a.leaflet-bar-part:before,\n.leaflet-control-geosearch a.leaflet-bar-part:after {\n  position: absolute;\n  display: block;\n  content: '';\n}\n\n/* magnifying glass */\n.leaflet-control-geosearch a.leaflet-bar-part:before {\n  top: 15px;\n  left: 13px;\n  width: 6px;\n  border-top: 2px solid #555;\n  transform: rotateZ(45deg);\n}\n\n.leaflet-control-geosearch a.leaflet-bar-part:after {\n  top: 8px;\n  left: 8px;\n  height: 8px;\n  width: 8px;\n  border-radius: 50%;\n  border: 2px solid #555;\n}\n\n/* resets for pending and error icons */\n.leaflet-control-geosearch.error a.leaflet-bar-part:before,\n.leaflet-control-geosearch.pending a.leaflet-bar-part:before {\n  display: none;\n}\n\n.leaflet-control-geosearch.pending a.leaflet-bar-part:after,\n.leaflet-control-geosearch.error a.leaflet-bar-part:after {\n  left: 50%;\n  top: 50%;\n  width: 18px;\n  height: 18px;\n  margin: -9px 0 0 -9px;\n  border-radius: 50%;\n}\n\n/* pending icon */\n.leaflet-control-geosearch.pending a.leaflet-bar-part:after {\n  content: '';\n  border: 2px solid #555;\n  border-top: 2px solid #f3f3f3;\n  animation: spin 1s linear infinite;\n}\n\n/* error icon */\n.leaflet-control-geosearch.error a.leaflet-bar-part:after {\n  content: '!';\n  line-height: initial;\n  font-weight: 600;\n  font-size: 18px;\n  border: none;\n}\n\n/* search form styling */\n.leaflet-control-geosearch form {\n  display: none;\n  position: absolute;\n  top: 0;\n  left: 36px;\n  border-radius: 0 4px 4px 0;\n  background-color: #fff;\n  background-clip: padding-box;\n  z-index: -1;\n  height: auto;\n  margin: 0;\n  padding: 0 8px;\n  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);\n}\n\n.leaflet-geosearch-button form.open {\n  border-radius: 0 4px 4px 4px;\n}\n.leaflet-control-geosearch.active form {\n  display: block;\n}\n\n.leaflet-geosearch-button.active .leaflet-bar-part {\n  border-radius: 4px 0 0 4px;\n  width: 36px;\n}\n\n.leaflet-geosearch-button form {\n  max-width: 350px;\n}\n\n.leaflet-control-geosearch form input {\n  min-width: 200px;\n  width: 100%;\n  outline: none;\n  border: none;\n  margin: 0;\n  padding: 0;\n  font-size: 12px;\n  height: 26px;\n  border: none;\n  border-radius: 0 4px 4px 0;\n  text-indent: 8px;\n}\n\n.leaflet-touch .leaflet-geosearch-bar form {\n  border: 2px solid rgba(0,0,0,0.2);\n  box-shadow: none;\n}\n\n.leaflet-touch .leaflet-geosearch-bar form input {\n  height: 30px;\n}\n\n.leaflet-control-geosearch .results {\n  background: #fff;\n}\n\n.leaflet-control-geosearch .results > * {\n  line-height: 24px;\n  padding: 0 8px;\n  border: 1px solid transparent;\n\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\n.leaflet-control-geosearch .results.active {\n  padding: 8px 0;\n  border-top: 1px solid #c6c6c6;\n}\n\n.leaflet-control-geosearch .results > .active,\n.leaflet-control-geosearch .results > :hover {\n  background-color: #f8f8f8;\n  border-color: #c6c6c6;\n  cursor: pointer;\n}\n\n/* add missing border to form */\n.leaflet-control-geosearch .results.active:after {\n  content: '';\n  display: block;\n  width: 0;\n  position: absolute;\n  left: -2px;\n  bottom: -2px;\n  top: 30px;\n}\n\n.leaflet-touch .leaflet-control-geosearch .results.active:after {\n  border-left: 2px solid rgba(0, 0, 0, .2);\n}\n\n/* animations */\n@keyframes spin {\n  0% { transform: rotate(0deg); }\n  100% { transform: rotate(360deg); }\n}\n\n.leaflet-top .leaflet-geosearch-bar,\n.leaflet-bottom .leaflet-geosearch-bar {\n  display: none;\n}\n\n.leaflet-geosearch-bar {\n  position: relative;\n  display: block;\n  height: auto;\n  width: 400px;\n  max-width: calc(100% - 120px);\n  margin: 10px auto 0;\n  cursor: auto;\n  z-index: 1000;\n}\n\n.leaflet-geosearch-bar form {\n  position: relative;\n  top: 0;\n  left: 0;\n  display: block;\n  border-radius: 4px;\n}\n\n.leaflet-geosearch-bar form input {\n  min-width: 100%;\n  width: 100%;\n}\n\n.leaflet-geosearch-bar .results.active:after {\n  opacity: .2;\n}\n\n.leaflet-right .leaflet-control-geosearch form {\n  right: 28px;\n  left: initial;\n  border-radius: 4px 0 0 4px;\n  border-left: inherit;\n  border-right: none;\n}\n\n.leaflet-control-geosearch a.reset {\n  color: black;\n  font-weight: bold;\n  position: absolute;\n  line-height: 26px;\n  padding: 0 8px;\n  right: 0;\n  top: 0;\n  cursor: pointer;\n  border: none;\n  text-decoration: none;\n  background-color: #fff;\n  border-radius: 0 4px 4px 0;\n}\n\n.leaflet-touch .leaflet-control-geosearch a.reset {\n  line-height: 30px;\n}\n\n.leaflet-control-geosearch a.reset:hover {\n  background: #f5f5f5;\n}\n";
 styleInject(css_248z$1);
 
@@ -14343,7 +14438,8 @@ const DEFAULT_SETTINGS = {
     autoZoom: true,
     markerClickBehavior: 'samePane',
     newNoteNameFormat: 'Location added on {{date:YYYY-MM-DD}}T{{date:HH-mm}}',
-    snippetLines: 3
+    snippetLines: 3,
+    debug: false
 };
 
 /* jshint node: true */
@@ -14638,6 +14734,7 @@ class FileMarker {
         return this.file.name === other.file.name &&
             this.location.toString() === other.location.toString() &&
             this.fileLocation === other.fileLocation &&
+            this.extraName === other.extraName &&
             ((_b = (_a = this.icon) === null || _a === void 0 ? void 0 : _a.options) === null || _b === void 0 ? void 0 : _b.iconUrl) === ((_d = (_c = other.icon) === null || _c === void 0 ? void 0 : _c.options) === null || _d === void 0 ? void 0 : _d.iconUrl) &&
             // @ts-ignore
             ((_f = (_e = this.icon) === null || _e === void 0 ? void 0 : _e.options) === null || _f === void 0 ? void 0 : _f.icon) === ((_h = (_g = other.icon) === null || _g === void 0 ? void 0 : _g.options) === null || _h === void 0 ? void 0 : _h.icon) &&
@@ -14675,10 +14772,14 @@ function buildAndAppendFileMarkers(mapToAppendTo, file, settings, app, skipMetad
 }
 function buildMarkers(files, settings, app) {
     return __awaiter(this, void 0, void 0, function* () {
+        if (settings.debug)
+            console.time('buildMarkers');
         let markers = [];
         for (const file of files) {
             yield buildAndAppendFileMarkers(markers, file, settings, app);
         }
+        if (settings.debug)
+            console.timeEnd('buildMarkers');
         return markers;
     });
 }
@@ -14721,9 +14822,13 @@ function verifyLocation(location) {
         throw Error(`Lat ${location.lat} is outside the allowed limits`);
 }
 function matchInlineLocation(content) {
-    const locationRegex = /\`location:\s*\[?(.+)\s*,\s*(.+)\]?\`/g;
-    const matches = content.matchAll(locationRegex);
-    return matches;
+    // Old syntax of ` `location: ... ` `. This syntax doesn't support a name so we leave an empty capture group
+    const locationRegex1 = /\`()location:\s*\[?([0-9.\-]+)\s*,\s*([0-9.\-]+)\]?\`/g;
+    // New syntax of `[name](geo:...)`
+    const locationRegex2 = /\[(.*)\]\(geo:([0-9.\-]+),([0-9.\-]+)\)/g;
+    const matches1 = content.matchAll(locationRegex1);
+    const matches2 = content.matchAll(locationRegex2);
+    return Array.from(matches1).concat(Array.from(matches2));
 }
 function getMarkersFromFileContent(file, settings, app) {
     return __awaiter(this, void 0, void 0, function* () {
@@ -14732,9 +14837,11 @@ function getMarkersFromFileContent(file, settings, app) {
         const matches = matchInlineLocation(content);
         for (const match of matches) {
             try {
-                const location = new leafletSrc.LatLng(parseFloat(match[1]), parseFloat(match[2]));
+                const location = new leafletSrc.LatLng(parseFloat(match[2]), parseFloat(match[3]));
                 verifyLocation(location);
                 const marker = new FileMarker(file, location);
+                if (match[1] && match[1].length > 0)
+                    marker.extraName = match[1];
                 marker.fileLocation = match.index;
                 marker.icon = getIconForMarker(marker, settings, app);
                 marker.snippet = yield makeTextSnippet(file, content, marker.fileLocation, settings);
@@ -14760,7 +14867,7 @@ function makeTextSnippet(file, fileContent, fileLocation, settings) {
                 const prevLine = fileContent.lastIndexOf('\n', snippetStart - 1);
                 const line = fileContent.substring(snippetStart, prevLine);
                 // If the new line above contains another location, don't include it and stop
-                if (!matchInlineLocation(line).next().done)
+                if (matchInlineLocation(line).length > 0)
                     break;
                 snippetStart = prevLine;
                 linesAbove -= 1;
@@ -14774,7 +14881,7 @@ function makeTextSnippet(file, fileContent, fileLocation, settings) {
                 const nextLine = fileContent.indexOf('\n', snippetEnd + 1);
                 const line = fileContent.substring(snippetEnd, nextLine > -1 ? nextLine : fileContent.length);
                 // If the new line below contains another location, don't include it and stop
-                if (!matchInlineLocation(line).next().done)
+                if (matchInlineLocation(line).length > 0)
                     break;
                 snippetEnd = nextLine;
                 linesBelow -= 1;
@@ -14783,6 +14890,7 @@ function makeTextSnippet(file, fileContent, fileLocation, settings) {
                 snippetEnd = fileContent.length;
             snippet = fileContent.substring(snippetStart, snippetEnd);
             snippet = snippet.replace(/\`location:.*\`/g, '<span class="map-view-location">`location:...`</span>');
+            snippet = snippet.replace(/(\[.*\])\(.+\)/g, '<span class="map-view-location">$1(geo:...)</span>');
         }
         return snippet;
     });
@@ -14807,34 +14915,6 @@ function getFrontMatterLocation(file, app) {
         }
     }
     return null;
-}
-
-function formatWithTemplates(s) {
-    const datePattern = /{{date:([a-zA-Z\-\/\.\:]*)}}/g;
-    const replaced = s.replace(datePattern, (_, pattern) => {
-        // @ts-ignore
-        return moment().format(pattern);
-    });
-    return replaced;
-}
-function newNote(app, newNoteType, directory, fileName, location, templatePath) {
-    return __awaiter(this, void 0, void 0, function* () {
-        let content = newNoteType === 'singleLocation' ?
-            `---\nlocation: [${location}]\n---\n\n` :
-            `---\nlocations:\n---\n\n\`location: ${location}\`\n`;
-        let templateContent = '';
-        if (templatePath)
-            templateContent = yield app.vault.adapter.read(templatePath);
-        let fullName = path__namespace.join(directory || '', fileName);
-        if (yield app.vault.adapter.exists(fullName + '.md'))
-            fullName += Math.random() * 1000;
-        try {
-            return app.vault.create(fullName + '.md', content + templateContent);
-        }
-        catch (e) {
-            throw Error(`Cannot create file named ${fullName}: ${e}`);
-        }
-    });
 }
 
 class MapView extends obsidian.ItemView {
@@ -14951,6 +15031,10 @@ class MapView extends obsidian.ItemView {
                 el.style.height = '100%';
             });
             this.contentEl.append(this.display.mapDiv);
+            // Make touch move nicer on mobile
+            this.contentEl.addEventListener('touchmove', (ev) => {
+                ev.stopPropagation();
+            });
             yield this.createMap();
             return _super.onOpen.call(this);
         });
@@ -15006,7 +15090,7 @@ class MapView extends obsidian.ItemView {
                     item.onClick((ev) => __awaiter(this, void 0, void 0, function* () {
                         const newFileName = formatWithTemplates(this.settings.newNoteNameFormat);
                         const file = yield newNote(this.app, 'singleLocation', this.settings.newNotePath, newFileName, location, this.settings.newNoteTemplate);
-                        this.goToFile(file, ev.ctrlKey);
+                        this.goToFile(file, ev.ctrlKey, handleNewNoteCursorMarker);
                     }));
                 });
                 mapPopup.addItem((item) => {
@@ -15015,14 +15099,14 @@ class MapView extends obsidian.ItemView {
                     item.onClick((ev) => __awaiter(this, void 0, void 0, function* () {
                         const newFileName = formatWithTemplates(this.settings.newNoteNameFormat);
                         const file = yield newNote(this.app, 'multiLocation', this.settings.newNotePath, newFileName, location, this.settings.newNoteTemplate);
-                        this.goToFile(file, ev.ctrlKey);
+                        this.goToFile(file, ev.ctrlKey, handleNewNoteCursorMarker);
                     }));
                 });
                 mapPopup.addItem((item) => {
                     const location = `${event.latlng.lat},${event.latlng.lng}`;
                     item.setTitle(`Copy location as inline`);
                     item.onClick(_ev => {
-                        navigator.clipboard.writeText(`\`location: [${location}]\``);
+                        navigator.clipboard.writeText(`[](geo:${location})`);
                     });
                 });
                 mapPopup.addItem((item) => {
@@ -15040,6 +15124,12 @@ class MapView extends obsidian.ItemView {
                     });
                 });
                 mapPopup.addItem((item) => {
+                    item.setTitle('Open as geolocation');
+                    item.onClick(_ev => {
+                        open(`geo:${event.latlng.lat},${event.latlng.lng}`);
+                    });
+                });
+                mapPopup.addItem((item) => {
                     item.setTitle('Open in Google Maps');
                     item.onClick(_ev => {
                         open(`https://maps.google.com/?q=${event.latlng.lat},${event.latlng.lng}`);
@@ -15053,6 +15143,8 @@ class MapView extends obsidian.ItemView {
     // is not lower than the current state version (so concurrent async updates always keep the latest one)
     updateMapToState(state, autoFit = false) {
         return __awaiter(this, void 0, void 0, function* () {
+            if (this.settings.debug)
+                console.time('updateMapToState');
             const files = this.getFileListByQuery(state.tags);
             let newMarkers = yield buildMarkers(files, this.settings, this.app);
             if (state.version < this.state.version) {
@@ -15071,6 +15163,8 @@ class MapView extends obsidian.ItemView {
                 this.display.map.setView(this.state.mapCenter, this.state.mapZoom);
             if (autoFit)
                 this.autoFitMapToMarkers();
+            if (this.settings.debug)
+                console.timeEnd('updateMapToState');
         });
     }
     getFileListByQuery(tags) {
@@ -15122,6 +15216,8 @@ class MapView extends obsidian.ItemView {
         });
         newMarker.on('mouseover', (event) => {
             let content = `<p class="map-view-marker-name">${marker.file.name}</p>`;
+            if (marker.extraName)
+                content += `<p class="map-view-extra-name">${marker.extraName}</p>`;
             if (marker.snippet)
                 content += `<p class="map-view-marker-snippet">${marker.snippet}</p>`;
             newMarker.bindPopup(content, { closeButton: false }).openPopup();
@@ -15135,6 +15231,12 @@ class MapView extends obsidian.ItemView {
             mapPopup.addItem((item) => {
                 item.setTitle('Open note');
                 item.onClick((ev) => __awaiter(this, void 0, void 0, function* () { this.goToMarker(marker, ev.ctrlKey, true); }));
+            });
+            mapPopup.addItem((item) => {
+                item.setTitle('Open as geolocation');
+                item.onClick(ev => {
+                    open(`geo:${marker.location.lat},${marker.location.lng}`);
+                });
             });
             mapPopup.addItem((item) => {
                 item.setTitle('Open in Google Maps');
@@ -15156,7 +15258,7 @@ class MapView extends obsidian.ItemView {
             }
         });
     }
-    goToFile(file, useCtrlKeyBehavior, fileLocation, highlight) {
+    goToFile(file, useCtrlKeyBehavior, editorAction) {
         return __awaiter(this, void 0, void 0, function* () {
             let leafToUse = this.app.workspace.activeLeaf;
             const defaultDifferentPane = this.settings.markerClickBehavior != 'samePane';
@@ -15191,25 +15293,14 @@ class MapView extends obsidian.ItemView {
                 }
             }
             yield leafToUse.openFile(file);
-            const editor = this.getEditor();
-            if (editor) {
-                if (fileLocation) {
-                    let pos = editor.offsetToPos(fileLocation);
-                    if (highlight) {
-                        editor.setSelection({ ch: 0, line: pos.line }, { ch: 1000, line: pos.line });
-                    }
-                    else {
-                        editor.setCursor(pos);
-                        editor.refresh();
-                    }
-                }
-                editor.focus();
-            }
+            const editor = yield this.getEditor(leafToUse);
+            if (editor && editorAction)
+                yield editorAction(editor);
         });
     }
     goToMarker(marker, useCtrlKeyBehavior, highlight) {
         return __awaiter(this, void 0, void 0, function* () {
-            return this.goToFile(marker.file, useCtrlKeyBehavior, marker.fileLocation, highlight);
+            return this.goToFile(marker.file, useCtrlKeyBehavior, (editor) => __awaiter(this, void 0, void 0, function* () { yield goToEditorLocation(editor, marker.fileLocation, highlight); }));
         });
     }
     getAllTagNames() {
@@ -15225,11 +15316,15 @@ class MapView extends obsidian.ItemView {
         tags = tags.sort();
         return tags;
     }
-    getEditor() {
-        let view = this.app.workspace.getActiveViewOfType(obsidian.MarkdownView);
-        if (view)
-            return view.editor;
-        return null;
+    getEditor(leafToUse) {
+        return __awaiter(this, void 0, void 0, function* () {
+            let view = leafToUse && leafToUse.view instanceof obsidian.MarkdownView ?
+                leafToUse.view :
+                this.app.workspace.getActiveViewOfType(obsidian.MarkdownView);
+            if (view)
+                return view.editor;
+            return null;
+        });
     }
     updateMarkersWithRelationToFile(fileRemoved, fileAddedOrChanged, skipMetadata) {
         return __awaiter(this, void 0, void 0, function* () {
@@ -15269,6 +15364,15 @@ class MapViewPlugin extends obsidian.Plugin {
                     this.app.workspace.getLeaf().setViewState({ type: MAP_VIEW_NAME });
                 },
             });
+            this.addCommand({
+                id: 'convert-selection-to-location',
+                name: 'Convert Selection to Location',
+                editorCheckCallback: (checking, editor, view) => {
+                    if (checking)
+                        return editor.getSelection().length > 0;
+                    selectionToLink(editor);
+                }
+            });
             this.addSettingTab(new SettingsTab(this.app, this));
             this.app.workspace.on('file-menu', (menu, file, _source, leaf) => {
                 if (file instanceof obsidian.TFile) {
@@ -15278,6 +15382,12 @@ class MapViewPlugin extends obsidian.Plugin {
                             item.setTitle('Show on map');
                             item.setIcon('globe');
                             item.onClick(() => __awaiter(this, void 0, void 0, function* () { return yield this.openMapWithLocation(location); }));
+                        });
+                        menu.addItem((item) => {
+                            item.setTitle('Open as geolocation');
+                            item.onClick(_ev => {
+                                open(`geo:${location.lat},${location.lng}`);
+                            });
                         });
                         menu.addItem((item) => {
                             item.setTitle('Open in Google Maps');
@@ -15300,10 +15410,22 @@ class MapViewPlugin extends obsidian.Plugin {
                             item.onClick(() => __awaiter(this, void 0, void 0, function* () { return yield this.openMapWithLocation(location); }));
                         });
                         menu.addItem((item) => {
+                            item.setTitle('Open as geolocation');
+                            item.onClick(_ev => {
+                                open(`geo:${location.lat},${location.lng}`);
+                            });
+                        });
+                        menu.addItem((item) => {
                             item.setTitle('Open in Google Maps');
                             item.onClick(_ev => {
                                 open(`https://maps.google.com/?q=${location.lat},${location.lng}`);
                             });
+                        });
+                    }
+                    if (editor.getSelection()) {
+                        menu.addItem((item) => {
+                            item.setTitle('Convert to location link');
+                            item.onClick(() => __awaiter(this, void 0, void 0, function* () { return yield selectionToLink(editor); }));
                         });
                     }
                 }
@@ -15323,12 +15445,11 @@ class MapViewPlugin extends obsidian.Plugin {
         });
     }
     getLocationOnEditorLine(editor, view) {
-        var _a, _b;
         const line = editor.getLine(editor.getCursor().line);
-        const match = (_b = (_a = matchInlineLocation(line)) === null || _a === void 0 ? void 0 : _a.next()) === null || _b === void 0 ? void 0 : _b.value;
+        const match = matchInlineLocation(line)[0];
         let selectedLocation = null;
         if (match)
-            selectedLocation = new leafletSrc.LatLng(parseFloat(match[1]), parseFloat(match[2]));
+            selectedLocation = new leafletSrc.LatLng(parseFloat(match[2]), parseFloat(match[3]));
         else {
             const fmLocation = getFrontMatterLocation(view.file, this.app);
             if (line.indexOf('location') > -1 && fmLocation)
@@ -15483,6 +15604,16 @@ class SettingsTab extends obsidian.PluginSettingTab {
             catch (e) {
             }
         })));
+        new obsidian.Setting(containerEl)
+            .setName('Debug logs (advanced')
+            .addToggle(component => {
+            component
+                .setValue(this.plugin.settings.debug != null ? this.plugin.settings.debug : DEFAULT_SETTINGS.debug)
+                .onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.plugin.settings.debug = value;
+                yield this.plugin.saveSettings();
+            }));
+        });
     }
 }
 

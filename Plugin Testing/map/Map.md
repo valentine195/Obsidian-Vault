@@ -2,8 +2,8 @@
 ```leaflet
 id: tester4
 image: 
- - [[middle-earth-map.jpg]]
- - [[Khorvaire.jpg]]
+ - [[middle-earth-map.jpg|Middle Earth]]
+ - [[Khorvaire.jpg|Khorvaire]]
 bounds: [[0,0], [1411.76, 1882.35]]
 height: 500px
 lat: 50
@@ -17,15 +17,18 @@ geojson:
 geojsonColor: red
 #zoomFeatures: true
 #verbose: true
-overlay: 
- - [blue, [200, 500], 200, 'This is my overlay!']
 ```
 
-%%
+
 ```leaflet
 id: real
-markerFile: [[Direct, Marker]]
-marker: location, 36, -82,,,3,6
 # defaultZoom: 9
+maxZoom: 30
+verbose: true
+zoomFeatures: true
+markerFolder: Plugin Testing/map
+overlayTag: nearby
+coordinates: [-5.067, 5.0977]
+gpx: [[route_2018-07-29_12.37pm.gpx]]
+geojson: [[geo-usa-route66-edit.geojson]]
 ```
-%%

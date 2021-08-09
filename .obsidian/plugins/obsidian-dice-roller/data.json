@@ -1,4 +1,5 @@
 {
   "returnAllTags": true,
-  "rollLinksForTags": true
+  "rollLinksForTags": false,
+  "copyContentButton": true
 }

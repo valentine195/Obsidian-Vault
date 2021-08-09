@@ -1,379 +1,120 @@
 {
   "mapMarkers": [
     {
-      "id": "real",
-      "files": [
-        "Plugin Testing/map/Map.md"
-      ],
-      "lastAccessed": 1627404049095,
-      "markers": [
-        {
-          "type": "location",
-          "id": "ID_c8db5b7b69ea",
-          "loc": [
-            39.13325601865834,
-            -82.95774469721505
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": 5,
-          "maxZoom": 8
-        },
-        {
-          "type": "location",
-          "id": "ID_a9bab9eb79c8",
-          "loc": [
-            38.77121637244273,
-            -84.76800948227009
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": 4,
-          "maxZoom": 8
-        },
-        {
-          "type": "location",
-          "id": "ID_3b8bf95adbb9",
-          "loc": [
-            39.20139803081811,
-            -86.66015625000001
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_1b68a879fb7a",
-          "loc": [
-            41.049323867571616,
-            -74.92675781250001
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_6b9b6a3bb9db",
-          "loc": [
-            37.19697146753195,
-            -87.42919921875001
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_3baad8099a58",
-          "loc": [
-            38.65119833229951,
-            -75.10253906250001
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_48caab68a9bb",
-          "loc": [
-            39.26628442213066,
-            -79.49707031250001
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_7848ba4ad9c8",
-          "loc": [
-            39.06504800388501,
-            -94.61425781250001
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_b8bb3bcb3aba",
-          "loc": [
-            40.450082238680295,
-            -87.27539062500001
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_1acb284b19a9",
-          "loc": [
-            41.51166241770766,
-            -75.62988281250001
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_4adac93b6949",
-          "loc": [
-            39.099160259556236,
-            -88.7255859375
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_2809699918ca",
-          "loc": [
-            40.91351257612758,
-            -83.89160156250001
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_db59da8adbaa",
-          "loc": [
-            41.67598909594535,
-            -88.2421875
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_280b697ad87a",
-          "loc": [
-            41.74160260664951,
-            -79.27734375000001
-          ],
-          "layer": "real",
-          "command": false,
-          "zoom": 10,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        }
-      ],
-      "overlays": []
-    },
-    {
       "id": "tester4",
       "files": [
         "Plugin Testing/map/Map.md"
       ],
-      "lastAccessed": 1627996205261,
-      "markers": [
-        {
-          "type": "location",
-          "id": "ID_5aab0a59b8c8",
-          "loc": [
-            312,
-            736
-          ],
-          "percent": [
-            0.92,
-            -0.52
-          ],
-          "link": "",
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null,
-          "minZoom": 2,
-          "maxZoom": 2
-        },
-        {
-          "type": "location",
-          "id": "ID_2b08ea6a6b08",
-          "loc": [
-            636.375,
-            1120
-          ],
-          "percent": [
-            1.4,
-            -1.060625
-          ],
-          "layer": "%5B%5BKhorvaire.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_19d98b1a19c9",
-          "loc": [
-            444.375,
-            632
-          ],
-          "percent": [
-            0.79,
-            -0.740625
-          ],
-          "layer": "%5B%5BKhorvaire.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "default",
-          "id": "ID_6aaa2878a9db",
-          "loc": [
-            928.375,
-            784
-          ],
-          "percent": [
-            0.98,
-            -1.5472916666666667
-          ],
-          "layer": "%5B%5BKhorvaire.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_2bd90a5b9a7b",
-          "loc": [
-            344.375,
-            872.0000000000001
-          ],
-          "percent": [
-            1.09,
-            -0.5739583333333333
-          ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "location",
-          "id": "ID_ea2af8294b6a",
-          "loc": [
-            1036.375,
-            1176
-          ],
-          "percent": [
-            1.47,
-            -1.7272916666666667
-          ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        },
-        {
-          "type": "default",
-          "id": "ID_da6bb97ab8d9",
-          "loc": [
-            732.375,
-            1300
-          ],
-          "percent": [
-            1.625,
-            -1.220625
-          ],
-          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
-          "command": false,
-          "zoom": 2,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null
-        }
-      ],
+      "lastAccessed": 1628278142672,
+      "markers": [],
       "overlays": [
         {
-          "radius": 200,
+          "radius": 557.1642486735846,
           "loc": [
-            200,
-            500
+            308.375,
+            1012
           ],
           "color": "blue",
-          "layer": "[[middle-earth-map.jpg]]",
-          "unit": "mi",
-          "desc": "This is my overlay!"
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true
         },
         {
-          "radius": 25,
+          "radius": 338.1360672865289,
           "loc": [
-            200,
-            500
+            460.375,
+            1352
           ],
           "color": "blue",
-          "layer": "[[middle-earth-map.jpg]]",
-          "unit": "mi",
-          "desc": "This is my overlay!"
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true
         },
         {
-          "radius": 25,
+          "radius": 311.17840542042757,
           "loc": [
-            32,
-            -89
+            332.375,
+            532
           ],
           "color": "blue",
-          "layer": "[[middle-earth-map.jpg]]",
-          "unit": "mi",
-          "desc": "This is my overlay!"
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true
+        },
+        {
+          "radius": 207.53794833716555,
+          "loc": [
+            1152.375,
+            1172
+          ],
+          "color": "blue",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true
+        },
+        {
+          "radius": 191.2066944434739,
+          "loc": [
+            992.375,
+            1516
+          ],
+          "color": "blue",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true
+        },
+        {
+          "radius": 182.42806801586207,
+          "loc": [
+            420.375,
+            336
+          ],
+          "color": "blue",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true
+        },
+        {
+          "radius": 143.10835055998655,
+          "loc": [
+            816.375,
+            480
+          ],
+          "color": "blue",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true
+        },
+        {
+          "radius": 125.53883861180172,
+          "loc": [
+            1200.375,
+            560
+          ],
+          "color": "blue",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true
+        },
+        {
+          "radius": 0.0000741959368942814,
+          "loc": [
+            404.375,
+            652
+          ],
+          "color": "blue",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true
         }
       ]
     }
@@ -400,6 +141,18 @@
         "y": -2
       },
       "isImage": false
+    },
+    {
+      "type": "event",
+      "iconName": "exclamation",
+      "color": "#0f28a3",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
     }
   ],
   "color": "#dddddd",
@@ -407,7 +160,9 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "3.21.3",
+  "previousVersion": "3.24.3",
   "warnedAboutMapMarker": false,
-  "copyOnClick": false
+  "copyOnClick": false,
+  "displayMarkerTooltips": "never",
+  "displayOverlayTooltips": true
 }

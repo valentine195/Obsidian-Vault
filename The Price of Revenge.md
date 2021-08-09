@@ -2,8 +2,8 @@
 date updated: '2021-03-30T20:37:16-04:00'
 
 ---
-# The Mark of Death
-
+# The Price of Revenge
+`= this["date updated"]`
 ## Map
 ![[1. Location Index#^khorvaire-map]]
 

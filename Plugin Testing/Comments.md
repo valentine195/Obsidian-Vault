@@ -7,7 +7,8 @@ test 123
 abc
 {: id=an_id .a_class }
 
-I'm normal text, but *I'm italic {: class='internal-link' }*, **I'm bold {: style="background-color: yellow" }** and ==I'm highlighted {: id=highlight }==.
+I'm normal text, but *I'm italic { class='internal-link' }*, **I'm bold { style="background-color: yellow" }** and ==I'm highlighted { id=highlight }==. 
+{ class='test'}
 
 ### Lists
 - 3

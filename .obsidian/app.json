@@ -6,5 +6,12 @@
   "foldHeading": true,
   "foldIndent": true,
   "defaultViewMode": "preview",
-  "readableLineLength": true
+  "readableLineLength": true,
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "alwaysUpdateLinks": true
 }

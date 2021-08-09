@@ -3,15 +3,16 @@
   "theme": "moonstone",
   "cssTheme": "Minimal",
   "enabledCssSnippets": [
-    "obsidian.minimal-overrides",
-    "obsidian.masthead",
-    "obsidian.outliner-overrides",
-    "obsidian.image-adjustments",
     "obsidian.colored-folders",
+    "obsidian.auto-fading",
     "obsidian",
-    "obsidian.subhead",
+    "obsidian.image-adjustments",
+    "obsidian.masthead",
+    "obsidian.material-icons",
+    "obsidian.minimal-overrides",
     "obsidian.nav",
+    "obsidian.outliner-overrides",
     "obsidian.portrait",
-    "obsidian.material-icons"
+    "obsidian.subhead"
   ]
 }
