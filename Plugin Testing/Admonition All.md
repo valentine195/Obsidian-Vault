@@ -1,27 +1,16 @@
-abc
 
-def
+````ad-note
+test 123 
 
-```ad-info
-title: test
-collapse:
-test 123
-abcdef
-
-12345
-
-- [x] 1
-- [x] 1
-- [ ] 1
-
-
-
-
-
-
+```mermaid
+graph LR
+	A --> B
 ```
 
-- [ ] 1
-- [x] 2
-- [ ] 3
-	
+````
+
+%%
+```mermaid
+graph LR
+	A --> B
+```
