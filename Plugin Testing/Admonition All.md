@@ -1,16 +1,19 @@
 
+`````ad-info
+collapse:
 ````ad-note
-test 123 
-
 ```mermaid
 graph LR
-	A --> B
+    A --> B
 ```
-
 ````
+`````
 
-%%
+
+````ad-note
+%%collapse: closed%%
 ```mermaid
 graph LR
-	A --> B
+    A --> B
 ```
+````

@@ -2,11 +2,110 @@
   "mapMarkers": [
     {
       "id": "tester4",
-      "files": [
-        "Plugin Testing/map/Map.md"
+      "files": [],
+      "lastAccessed": 1628527887956,
+      "markers": [
+        {
+          "type": "location",
+          "id": "ID_8a4998b85a1b",
+          "loc": [
+            440.375,
+            996
+          ],
+          "percent": [
+            1.245,
+            -0.7339583333333334
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "location",
+          "id": "ID_dad87bab29f8",
+          "loc": [
+            704.375,
+            696
+          ],
+          "percent": [
+            0.87,
+            -1.1739583333333334
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "location",
+          "id": "ID_0b6bd95a3848",
+          "loc": [
+            368.375,
+            416
+          ],
+          "percent": [
+            0.52,
+            -0.6139583333333334
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "default",
+          "id": "ID_090adb2a6a49",
+          "loc": [
+            388,
+            1472
+          ],
+          "percent": [
+            1.84,
+            -0.6466666666666666
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "event",
+          "id": "ID_9919383a39b8",
+          "loc": [
+            1128.375,
+            1440
+          ],
+          "percent": [
+            1.8,
+            -1.880625
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        }
       ],
-      "lastAccessed": 1628514411238,
-      "markers": [],
       "overlays": [
         {
           "radius": 557.1642486735846,
@@ -126,6 +225,239 @@
           "tooltip": null
         }
       ]
+    },
+    {
+      "id": "tester5",
+      "files": [],
+      "lastAccessed": 1628528899412,
+      "markers": [
+        {
+          "type": "location",
+          "id": "ID_dbb9bb79185b",
+          "loc": [
+            468.375,
+            336
+          ],
+          "percent": [
+            0.42,
+            -0.780625
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "location",
+          "id": "ID_8b4a99ebeb1b",
+          "loc": [
+            916.375,
+            1212
+          ],
+          "percent": [
+            1.515,
+            -1.5272916666666667
+          ],
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "location",
+          "id": "ID_f988098bd899",
+          "loc": [
+            564.375,
+            828
+          ],
+          "percent": [
+            1.035,
+            -0.940625
+          ],
+          "layer": "%5B%5BKhorvaire.jpg%7CKhorvaire%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "event",
+          "id": "ID_89093b192a0b",
+          "loc": [
+            792.375,
+            1384
+          ],
+          "percent": [
+            1.73,
+            -1.320625
+          ],
+          "layer": "%5B%5BKhorvaire.jpg%7CKhorvaire%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "location",
+          "id": "ID_aa682abbf989",
+          "loc": [
+            700.375,
+            300
+          ],
+          "percent": [
+            0.375,
+            -1.1672916666666666
+          ],
+          "layer": "%5B%5BKhorvaire.jpg%7CKhorvaire%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "event",
+          "id": "ID_b8286ab9d87b",
+          "loc": [
+            1076.375,
+            1440
+          ],
+          "percent": [
+            1.8,
+            -1.7939583333333333
+          ],
+          "layer": "%5B%5BKhorvaire.jpg%7CKhorvaire%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "location",
+          "id": "ID_8b28ca389ba8",
+          "loc": [
+            684.375,
+            804
+          ],
+          "percent": [
+            1.005,
+            -1.140625
+          ],
+          "layer": "%5B%5BKhorvaire.jpg%7CKhorvaire%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        }
+      ],
+      "overlays": []
+    },
+    {
+      "id": "tester7",
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ],
+      "lastAccessed": 1628536724984,
+      "markers": [
+        {
+          "type": "default",
+          "id": "ID_7a0a9a799a88",
+          "loc": [
+            572,
+            932
+          ],
+          "percent": [
+            0.40743169398907103,
+            -0.35472868217054265
+          ],
+          "layer": "%5B%5BKhorvaire.jpg%7CKhorvaire%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "never"
+        },
+        {
+          "type": "location",
+          "id": "ID_8bf99b5ad8b8",
+          "loc": [
+            856.375,
+            536
+          ],
+          "percent": [
+            0.67,
+            -1.4272916666666666
+          ],
+          "link": "Untitled",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "type": "event",
+          "id": "ID_db4bf9c929a8",
+          "loc": [
+            1016.375,
+            1336
+          ],
+          "percent": [
+            1.67,
+            -1.6939583333333332
+          ],
+          "link": "Untitled 2",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "zoom": 2,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [
+        {
+          "radius": 253.55078386784766,
+          "loc": [
+            920.375,
+            1028
+          ],
+          "color": "blue",
+          "layer": "%5B%5BKhorvaire.jpg%7CKhorvaire%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true
+        }
+      ]
     }
   ],
   "defaultMarker": {
@@ -169,7 +501,7 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "3.24.5",
+  "previousVersion": "4.0.0",
   "warnedAboutMapMarker": false,
   "copyOnClick": false,
   "displayMarkerTooltips": "never",

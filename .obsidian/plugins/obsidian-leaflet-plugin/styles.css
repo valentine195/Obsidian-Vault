@@ -642,9 +642,9 @@ svg.leaflet-image-layer.leaflet-interactive path {
 	border-right-color: #fff;
 	}
 
-/*!********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/main.css ***!
-  \********************************************************************************************/
+/*!***************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/assets/main.css ***!
+  \***************************************************************************************************/
 /* Settings */
 .icon > .suggestion-flair {
     background-color: unset;
