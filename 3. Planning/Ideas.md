@@ -3,6 +3,7 @@
 2. [Society Ball](https://www.reddit.com/r/DMAcademy/comments/lsut3r/society_ball_ideas/)
 3. [[Fighting Pits]]
 4. [[Race of the Eight Winds]]
+5. AI reveals some info about PC past
 
 ### Monsters
 1. [[Royal Incinerator]]

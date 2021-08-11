@@ -3,41 +3,6 @@
     --default-font: "iA Writer Quattro" !important;
 }
 
-a.tag {
-    background-color: green;
-}
-
-a[href^="#zz/2020"], a[href^="#zz/2020"]:hover {
-    font-size: 1px;
-    letter-spacing: -1px;
-    color: transparent;
-    border: none;
-    position: relative;
-    background-color: transparent;
-}
-
-a[href^="#zz/2020"]::after {
-    width: fit-content;
-    content: "2020";
-    font-size: 12px;
-    line-height: 20px;
-    border: none;
-    color: #f5f5f5;
-    background-color: red !important;
-    padding: 1px 8px;
-    text-align: center;
-    text-decoration: none;
-    margin: 0px 0px;
-    cursor: pointer;
-    border-radius: 15px;
-}
-
-.kanban-plugin.test .kanban-plugin__board {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, var(--lane-width));
-    gap: 10px;
-}
-
 h1 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold2));
     -webkit-background-clip: text;

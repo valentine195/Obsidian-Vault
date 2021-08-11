@@ -379,7 +379,7 @@
       "files": [
         "Plugin Testing/map/Map.md"
       ],
-      "lastAccessed": 1628536724984,
+      "lastAccessed": 1628686846149,
       "markers": [
         {
           "type": "default",
@@ -393,7 +393,6 @@
             -0.35472868217054265
           ],
           "layer": "%5B%5BKhorvaire.jpg%7CKhorvaire%5D%5D",
-          "mutable": true,
           "command": false,
           "zoom": 2,
           "description": null,
@@ -403,39 +402,17 @@
         },
         {
           "type": "location",
-          "id": "ID_8bf99b5ad8b8",
+          "id": "ID_4b982939fa5a",
           "loc": [
-            856.375,
-            536
+            464.375,
+            236
           ],
           "percent": [
-            0.67,
-            -1.4272916666666666
+            0.295,
+            -0.7739583333333333
           ],
-          "link": "Untitled",
+          "link": "www.wikipedia.com",
           "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
-          "mutable": true,
-          "command": false,
-          "zoom": 2,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "type": "event",
-          "id": "ID_db4bf9c929a8",
-          "loc": [
-            1016.375,
-            1336
-          ],
-          "percent": [
-            1.67,
-            -1.6939583333333332
-          ],
-          "link": "Untitled 2",
-          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
-          "mutable": true,
           "command": false,
           "zoom": 2,
           "description": null,
@@ -446,16 +423,43 @@
       ],
       "overlays": [
         {
-          "radius": 253.55078386784766,
+          "radius": 512.1406056933974,
           "loc": [
-            920.375,
-            1028
+            1080.375,
+            892
+          ],
+          "color": "blue",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true,
+          "tooltip": null
+        },
+        {
+          "radius": 401.2779585275025,
+          "loc": [
+            280.375,
+            1336
+          ],
+          "color": "blue",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "unit": "miles",
+          "desc": "",
+          "mutable": true,
+          "tooltip": null
+        },
+        {
+          "radius": 289.882734911895,
+          "loc": [
+            396.375,
+            284
           ],
           "color": "blue",
           "layer": "%5B%5BKhorvaire.jpg%7CKhorvaire%5D%5D",
           "unit": "miles",
           "desc": "",
-          "mutable": true
+          "mutable": true,
+          "tooltip": null
         }
       ]
     }
@@ -501,9 +505,9 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "4.0.0",
+  "previousVersion": "3.24.9",
   "warnedAboutMapMarker": false,
   "copyOnClick": false,
-  "displayMarkerTooltips": "never",
+  "displayMarkerTooltips": "hover",
   "displayOverlayTooltips": true
 }
