@@ -10,31 +10,31 @@ h1 {
     width: max-content;
 }
 h2 {
-    background: linear-gradient(to right, var(--Fold3), var(--Fold4));
+    background: linear-gradient(to right, var(--Fold1), var(--Fold3));
     -webkit-background-clip: text;
     color: transparent;
     width: max-content;
 }
 h3 {
-    background: linear-gradient(to right, var(--Fold5), var(--Fold6));
+    background: linear-gradient(to right, var(--Fold1), var(--Fold4));
     -webkit-background-clip: text;
     color: transparent;
     width: max-content;
 }
 h4 {
-    background: linear-gradient(to right, var(--Fold7), var(--Fold8));
+    background: linear-gradient(to right, var(--Fold1), var(--Fold5));
     -webkit-background-clip: text;
     color: transparent;
     width: max-content;
 }
 h5 {
-    background: linear-gradient(to right, var(--Fold9), var(--Fold10));
+    background: linear-gradient(to right, var(--Fold1), var(--Fold6));
     -webkit-background-clip: text;
     color: transparent;
     width: max-content;
 }
 h6 {
-    background: linear-gradient(to right, var(--Fold11), var(--Fold12));
+    background: linear-gradient(to right, var(--Fold1), var(--Fold7));
     -webkit-background-clip: text;
     color: transparent;
     width: max-content;

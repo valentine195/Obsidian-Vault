@@ -32,5 +32,6 @@ overlayTag: nearby
 coordinates: [[Direct Marker 2]]
 gpx: [[route_2018-07-29_12.37pm.gpx]]
 geojson: [[Ferie2020geo.json]]
+verbose: true
 ```
 

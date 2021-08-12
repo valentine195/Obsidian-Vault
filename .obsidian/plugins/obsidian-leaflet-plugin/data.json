@@ -462,6 +462,32 @@
           "tooltip": null
         }
       ]
+    },
+    {
+      "id": "real",
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ],
+      "lastAccessed": 1628771448918,
+      "markers": [
+        {
+          "type": "location",
+          "id": "ID_288b7b3849b8",
+          "loc": [
+            36.73888412439431,
+            16.171875000000004
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": []
     }
   ],
   "defaultMarker": {
@@ -505,7 +531,7 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "3.24.9",
+  "previousVersion": "4.0.0",
   "warnedAboutMapMarker": false,
   "copyOnClick": false,
   "displayMarkerTooltips": "hover",
