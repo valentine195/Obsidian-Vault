@@ -1,3 +1,5 @@
+https://stackoverflow.com/questions/61615806/how-to-use-capacitor-plugin-in-web-worker
+
 %%
 ```leaflet
 id: tester7
@@ -6,8 +8,8 @@ image:
  - [[Khorvaire.jpg|Khorvaire]]
 bounds: [[0,0], [1411.76, 1882.35]]
 height: 500px
-lat: 50
-long: 50
+lat: 700
+long: 900
 minZoom: -2
 defaultZoom: -2
 maxZoom: 2
@@ -16,11 +18,11 @@ geojson:
  - [[geo-fangorn.geojson]]
 geojsonColor: red
 #zoomFeatures: true
-#verbose: true
+verbose: true
 ```
-
-
 %%
+
+
 ```leaflet
 id: real
 # defaultZoom: 9
@@ -34,4 +36,3 @@ gpx: [[route_2018-07-29_12.37pm.gpx]]
 geojson: [[Ferie2020geo.json]]
 verbose: true
 ```
-

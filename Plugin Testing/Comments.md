@@ -19,9 +19,9 @@ I'm normal text, but *I'm italic { class='internal-link' }*, **I'm bold 
 ### Tables
 #### Cells
 
-| set on td     | set on em    |
-| ------------- | ------------ |
-| a{: .foo } | *b{: .bar }* |
+|     | set on td     | set on em    |
+| --- | ------------- | ------------ |
+|     | a{: .foo }.   | *b{: .bar }* |
 
 | header1 | header2 |
 | ------- | ------- |
