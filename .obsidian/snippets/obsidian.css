@@ -3,70 +3,45 @@
     --default-font: "iA Writer Quattro" !important;
 }
 
-.red-line {
-    background-color: rgb(253, 208, 208);
-    border-left: 3px solid red;
-    padding-left: 3px;
-}
-.orange-line {
-    background-color: rgb(255, 236, 199);
-    border-left: 3px solid orange;
-    padding-left: 3px;
-}
-.yellow-line {
-    background-color: rgb(255, 255, 233);
-    border-left: 3px solid yellow;
-    padding-left: 3px;
-}
-.green-line {
-    background-color: rgb(225, 255, 225);
-    border-left: 3px solid green;
-    padding-left: 3px;
-}
-.teal-line {
-    background-color: rgb(200, 255, 255);
-    border-left: 3px solid teal;
-    padding-left: 3px;
-}
-.blue-line {
-    background-color: rgb(208, 208, 255);
-    border-left: 3px solid blue;
-    padding-left: 3px;
-}
-
 h1 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold2));
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
     width: max-content;
 }
 h2 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold3));
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
     width: max-content;
 }
 h3 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold4));
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
     width: max-content;
 }
 h4 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold5));
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
     width: max-content;
 }
 h5 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold6));
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
     width: max-content;
 }
 h6 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold7));
     -webkit-background-clip: text;
+    background-clip: text;
     color: transparent;
     width: max-content;
 }

@@ -1,71 +1,294 @@
 {
   "mapMarkers": [
     {
-      "id": "test-new",
-      "files": [
-        "Plugin Testing/map/test.md"
-      ],
-      "lastAccessed": 1629053570328,
+      "id": "real",
+      "lastAccessed": 1629255849035,
       "markers": [
         {
+          "id": "ID_d989abd8084a",
           "type": "default",
-          "id": "ID_5b1b6ada2988",
           "loc": [
-            -2.4697265625,
-            4.4898681640625
-          ],
-          "percent": [
-            0.5024726775956284,
-            0.39209302325581397
+            48.60658184761339,
+            5.449218750000001
           ],
           "link": null,
-          "layer": "%5B%5BKhorvaire.jpg%5D%5D",
+          "layer": "real",
           "mutable": true,
           "command": false,
           "description": null,
-          "minZoom": null,
-          "maxZoom": null,
           "tooltip": "hover"
         },
         {
-          "type": "default",
-          "id": "ID_7a7bca38a828",
+          "id": "ID_0bf8bb0b9bc9",
+          "type": "location",
           "loc": [
-            -1.8095703125,
-            6.0625
+            44.998795943614084,
+            2.1533203125000004
           ],
-          "percent": null,
           "link": null,
-          "layer": "%5B%5BKhorvaire.jpg%5D%5D",
+          "layer": "real",
           "mutable": true,
           "command": false,
           "description": null,
-          "minZoom": null,
-          "maxZoom": null,
           "tooltip": "hover"
         },
         {
-          "type": "default",
-          "id": "ID_59abfad91a3b",
+          "id": "ID_ebda08585ada",
+          "type": "location",
           "loc": [
-            -2.79541015625,
-            2.952880859375
-          ],
-          "percent": [
-            0.33046448087431696,
-            0.4437984496124031
+            48.72267919382413,
+            17.666015625000004
           ],
           "link": null,
-          "layer": "%5B%5BKhorvaire.jpg%5D%5D",
+          "layer": "real",
           "mutable": true,
           "command": false,
           "description": null,
-          "minZoom": null,
-          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_2aea5bfb5ad9",
+          "type": "default",
+          "loc": [
+            45.370478735401555,
+            24.4775390625
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_b8db18e85b4a",
+          "type": "default",
+          "loc": [
+            38.034030762875844,
+            22.236328125000004
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_b89809c929ca",
+          "type": "location",
+          "loc": [
+            45.86228122137575,
+            17.973632812500004
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_99fa788a2828",
+          "type": "default",
+          "loc": [
+            42.03603433407788,
+            11.206054687500002
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_0988984939d9",
+          "type": "default",
+          "loc": [
+            48.16883319202972,
+            1.7138671875000002
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_d9183a4ba829",
+          "type": "default",
+          "loc": [
+            45.33959785635098,
+            4.130859375000001
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_1a590a0b6ad9",
+          "type": "default",
+          "loc": [
+            41.1817547636353,
+            2.3291015625000004
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_2a1bdb1b98f8",
+          "type": "default",
+          "loc": [
+            41.47874688867862,
+            7.031250000000001
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_a9aae818887a",
+          "type": "default",
+          "loc": [
+            42.911177582396384,
+            10.283203125000002
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_2a7b28f9a87b",
+          "type": "default",
+          "loc": [
+            45.83166992465285,
+            16.918945312500004
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_5b7b4a29f8f9",
+          "type": "location",
+          "loc": [
+            48.63563125791999,
+            16.347656250000004
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_8ae88b19987a",
+          "type": "default",
+          "loc": [
+            50.01038671874375,
+            11.953125000000002
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_e84828cb7ad8",
+          "type": "default",
+          "loc": [
+            46.13702492883557,
+            14.458007812500002
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_a8e959a9f908",
+          "type": "default",
+          "loc": [
+            40.68376227690408,
+            13.403320312500002
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_1a4b2a3b6969",
+          "type": "default",
+          "loc": [
+            39.84544923128725,
+            3.6035156250000004
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_a9a9dbf82858",
+          "type": "default",
+          "loc": [
+            42.199020918176785,
+            -0.17578125
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_b97afad989b9",
+          "type": "default",
+          "loc": [
+            41.47874688867862,
+            3.4277343750000004
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "description": null,
           "tooltip": "hover"
         }
       ],
-      "overlays": []
+      "overlays": [],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
     }
   ],
   "defaultMarker": {
@@ -82,7 +305,19 @@
     {
       "type": "location",
       "iconName": "circle",
-      "color": "#ff5c5c",
+      "color": "#d72828",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
+    },
+    {
+      "type": "event",
+      "iconName": "exclamation",
+      "color": "#4e44d5",
       "layer": true,
       "transform": {
         "size": 6,
@@ -95,11 +330,12 @@
   "color": "#dddddd",
   "lat": 39.983334,
   "long": -82.98333,
-  "notePreview": false,
+  "notePreview": true,
   "layerMarkers": true,
   "previousVersion": "4.0.0",
   "warnedAboutMapMarker": false,
   "copyOnClick": false,
   "displayMarkerTooltips": "hover",
-  "displayOverlayTooltips": true
+  "displayOverlayTooltips": true,
+  "configDirectory": null
 }

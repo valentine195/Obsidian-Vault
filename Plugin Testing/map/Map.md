@@ -20,19 +20,20 @@ geojsonColor: red
 #zoomFeatures: true
 verbose: true
 ```
+
+
 %%
-
-
 ```leaflet
+height: 75%
 id: real
 # defaultZoom: 9
 maxZoom: 30
-#zoomFeatures: true
-#markerFolder: Plugin Testing/map
-markerFile: [[Direct Marker 2]]
+zoomFeatures: true
+markerFolder: Plugin Testing/map
+markerFile: [[Multiple Locations]]
 overlayTag: nearby
-coordinates: [[Direct Marker 2]]
+#coordinates: [[Direct, Marker]]
 gpx: [[route_2018-07-29_12.37pm.gpx]]
-geojson: [[Ferie2020geo.json]]
+geojson: [[geo-usa-route66-edit.geojson]]
 verbose: true
 ```

@@ -9,7 +9,9 @@ verbose: true
 ```leaflet
 id: test-new
 image: 
- - [[Khorvaire.jpg]]
  - [[Mine of Whitecliff.png]]
+ - [[Khorvaire.jpg]]
+imageOverlay: 
+ - [ [[clouds-transparent.png]] ]
 verbose: true
 ```
