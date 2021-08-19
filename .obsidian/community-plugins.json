@@ -20,5 +20,6 @@
   "obsidian-admonition",
   "obsidian-leaflet-plugin",
   "obsidian-map-view",
-  "block-dragging"
+  "block-dragging",
+  "dataview"
 ]

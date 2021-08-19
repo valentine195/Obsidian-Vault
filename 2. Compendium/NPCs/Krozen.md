@@ -20,7 +20,7 @@ High Cardinal **Krozen** is one of the thirteen High Cardinals of the Church of 
 [![](https://static.wikia.nocookie.net/eberron/images/8/87/Highcardinalkrozen.jpg/revision/latest/scale-to-width-down/350?cb=20200519093821)](https://static.wikia.nocookie.net/eberron/images/8/87/Highcardinalkrozen.jpg/revision/latest?cb=20200519093821)
 
 
-#### Details
+#### Status
 
 #### Relations
 

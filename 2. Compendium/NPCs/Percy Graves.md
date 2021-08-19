@@ -10,11 +10,6 @@ tags:
 
 ### Description
 
----
-date updated: '2021-02-26T13:49:30-05:00'
-
----
-
 Eldery man, uses a cane, walks stooped over.
 
 
