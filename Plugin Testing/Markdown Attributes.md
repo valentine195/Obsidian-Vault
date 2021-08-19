@@ -2,11 +2,11 @@
 /** 
  * A css snippet with the following css is active.
  *
+	color: white;
  */
 
 mark.red {
 	background-color: red;
-	color: white;
 }
 
 .center {
