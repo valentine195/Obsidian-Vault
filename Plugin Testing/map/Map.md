@@ -1,6 +1,6 @@
 https://stackoverflow.com/questions/61615806/how-to-use-capacitor-plugin-in-web-worker
 
-
+%%
 ```leaflet
 id: tester7
 image: 
@@ -8,11 +8,11 @@ image:
  - [[Khorvaire.jpg|Khorvaire]]
 bounds: [[0,0], [1411.76, 1882.35]]
 height: 500px
-
-minZoom: -2
+lat: 700
+long: 900
+minZoom: -5
 defaultZoom: -2
 maxZoom: 2
-zoomDelta: 0.25
 unit: miles
 geojson:
  - [[geo-fangorn.geojson]]
@@ -20,7 +20,7 @@ geojson:
 # - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]
 geojsonColor: red
 #zoomFeatures: true
-verbose: true
+#verbose: true
 ```
 %%
 
@@ -42,4 +42,3 @@ gpxMarkers:
  end: event
 verbose: true
 ```
-%%

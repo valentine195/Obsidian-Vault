@@ -295,6 +295,48 @@
         }
       ],
       "overlays": []
+    },
+    {
+      "id": "tester7",
+      "lastAccessed": 1629478993415,
+      "markers": [
+        {
+          "id": "ID_585859a9cbd9",
+          "type": "location",
+          "loc": [
+            932,
+            792
+          ],
+          "link": "The Price of Revenge",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.99,
+            -1.5533333333333332
+          ],
+          "description": null,
+          "tooltip": "always"
+        }
+      ],
+      "overlays": [
+        {
+          "radius": 316.0253154416589,
+          "loc": [
+            356.375,
+            472
+          ],
+          "color": "blue",
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "unit": "m",
+          "desc": "",
+          "mutable": true,
+          "marker": null
+        }
+      ],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
     }
   ],
   "defaultMarker": {

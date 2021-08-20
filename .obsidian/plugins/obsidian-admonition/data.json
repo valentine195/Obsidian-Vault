@@ -51,8 +51,8 @@
         "name": "gem"
       }
     },
-    "test": {
-      "type": "test",
+    "piège": {
+      "type": "piège",
       "color": "#7d7d7d",
       "icon": {
         "name": "crown",
@@ -63,7 +63,7 @@
   },
   "syntaxHighlight": true,
   "copyButton": true,
-  "version": "6.2.5",
+  "version": "6.2.6",
   "autoCollapse": false,
   "defaultCollapseType": "closed",
   "syncLinks": false,
