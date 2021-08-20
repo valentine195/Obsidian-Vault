@@ -1,0 +1,99 @@
+{
+  "main": {
+    "id": "996592108587ad34",
+    "type": "split",
+    "children": [
+      {
+        "id": "558fcc01e07bbae2",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "7aef44b2cb060dd5",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "9d76c4d8d5f56ce0",
+        "type": "leaf",
+        "state": {
+          "type": "file-explorer",
+          "state": {}
+        }
+      },
+      {
+        "id": "46687e5a2c9434f7",
+        "type": "leaf",
+        "state": {
+          "type": "search",
+          "state": {
+            "query": "/#[a-z]/",
+            "matchingCase": false,
+            "explainSearch": false,
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical"
+          }
+        }
+      },
+      {
+        "id": "0e220204d2bf7432",
+        "type": "leaf",
+        "state": {
+          "type": "tag",
+          "state": {
+            "sortOrder": "frequency",
+            "useHierarchy": true
+          }
+        }
+      },
+      {
+        "id": "cc4c1ace43dbfcab",
+        "type": "leaf",
+        "state": {
+          "type": "starred",
+          "state": {}
+        }
+      }
+    ],
+    "currentTab": 1
+  },
+  "right": {
+    "id": "229f006ab4a03ccf",
+    "type": "mobile-drawer",
+    "children": [
+      {
+        "id": "5871605a3880fd49",
+        "type": "leaf",
+        "state": {
+          "type": "initiative-tracker-view",
+          "state": {}
+        }
+      },
+      {
+        "id": "688c5d26e8b0dfbd",
+        "type": "leaf",
+        "state": {
+          "type": "backlink",
+          "state": {
+            "collapseAll": false,
+            "extraContext": false,
+            "sortOrder": "alphabetical",
+            "showSearch": false,
+            "searchQuery": "",
+            "backlinkCollapsed": false,
+            "unlinkedCollapsed": true
+          }
+        }
+      }
+    ],
+    "currentTab": 0
+  },
+  "active": "558fcc01e07bbae2",
+  "lastOpenFiles": []
+}
