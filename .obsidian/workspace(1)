@@ -4,22 +4,25 @@
     "type": "split",
     "children": [
       {
-        "id": "c346518749b4a6d8",
+        "id": "bc9ef2e08c37640d",
         "type": "leaf",
         "state": {
-          "type": "empty",
-          "state": {}
+          "type": "markdown",
+          "state": {
+            "file": "2. Compendium/Locations/Q'Barra/Whitecliff.md",
+            "mode": "preview"
+          }
         }
       }
     ],
     "direction": "vertical"
   },
   "left": {
-    "id": "c2cc1511306b7ce6",
+    "id": "2786c3bdf6fc505b",
     "type": "mobile-drawer",
     "children": [
       {
-        "id": "41f116b62f77b661",
+        "id": "1f4e74bda911556d",
         "type": "leaf",
         "state": {
           "type": "file-explorer",
@@ -27,7 +30,7 @@
         }
       },
       {
-        "id": "4e04c9f59fded045",
+        "id": "eca9dcb81e163bad",
         "type": "leaf",
         "state": {
           "type": "search",
@@ -42,7 +45,7 @@
         }
       },
       {
-        "id": "c0382c81eb7e59cb",
+        "id": "d13fa4f3a80e1150",
         "type": "leaf",
         "state": {
           "type": "tag",
@@ -53,7 +56,7 @@
         }
       },
       {
-        "id": "6b318f069aaf050c",
+        "id": "388b907a7fe762e1",
         "type": "leaf",
         "state": {
           "type": "starred",
@@ -64,11 +67,11 @@
     "currentTab": 0
   },
   "right": {
-    "id": "b0f01f865de4821e",
+    "id": "9425cbfc4bbe4e79",
     "type": "mobile-drawer",
     "children": [
       {
-        "id": "e60144a9e7461ddf",
+        "id": "b214a65790b243be",
         "type": "leaf",
         "state": {
           "type": "initiative-tracker-view",
@@ -76,11 +79,12 @@
         }
       },
       {
-        "id": "6d37f5bf09b9825a",
+        "id": "3ce67684353a50a8",
         "type": "leaf",
         "state": {
           "type": "backlink",
           "state": {
+            "file": "2. Compendium/Locations/Q'Barra/Whitecliff.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -94,6 +98,16 @@
     ],
     "currentTab": 0
   },
-  "active": "c346518749b4a6d8",
-  "lastOpenFiles": []
+  "active": "bc9ef2e08c37640d",
+  "lastOpenFiles": [
+    "2. Compendium/Locations/Q'Barra/Whitecliff.md",
+    "2. Compendium/Locations/Q'Barra/Newthrone.md",
+    "2. Compendium/Locations/Q'Barra/Mine Of Whitecliff.md",
+    "2. Compendium/Locations/Q'Barra/Crazy Fist Clanhold.md",
+    "2. Compendium/Locations/Q'Barra/1. Q'Barra.md",
+    "Plugin Testing/map/Map.md",
+    "Plugin Testing/map/test.md",
+    "Plugin Testing/Admonition All.md",
+    "Plugin Testing/Admonition Alt Syntax Testing.md"
+  ]
 }
