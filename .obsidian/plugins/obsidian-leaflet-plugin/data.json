@@ -298,7 +298,7 @@
     },
     {
       "id": "tester7",
-      "lastAccessed": 1629478993415,
+      "lastAccessed": 1629721493068,
       "markers": [
         {
           "id": "ID_585859a9cbd9",
@@ -328,6 +328,45 @@
           ],
           "color": "blue",
           "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "unit": "m",
+          "desc": "",
+          "mutable": true,
+          "marker": null
+        }
+      ],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
+    },
+    {
+      "id": "real 2",
+      "lastAccessed": 1629747360687,
+      "markers": [
+        {
+          "id": "ID_4ac92b9bf9da",
+          "type": "location",
+          "loc": [
+            38.3695990951697,
+            -84.94628906250001
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [
+        {
+          "radius": 146.1507581127548,
+          "loc": [
+            40.105547205682626,
+            -83.07228326797487
+          ],
+          "color": "blue",
+          "layer": "real",
           "unit": "m",
           "desc": "",
           "mutable": true,

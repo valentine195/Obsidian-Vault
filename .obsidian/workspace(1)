@@ -1,15 +1,15 @@
 {
   "main": {
-    "id": "d15fef91d9d2cc1a",
+    "id": "698bda177f9d2d9a",
     "type": "split",
     "children": [
       {
-        "id": "bc9ef2e08c37640d",
+        "id": "763b53d2d74249c1",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "2. Compendium/Locations/Q'Barra/Whitecliff.md",
+            "file": "Plugin Testing/Admonition All.md",
             "mode": "preview"
           }
         }
@@ -18,11 +18,11 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "2786c3bdf6fc505b",
+    "id": "d00c5481f4aed8aa",
     "type": "mobile-drawer",
     "children": [
       {
-        "id": "1f4e74bda911556d",
+        "id": "5298aa1335841062",
         "type": "leaf",
         "state": {
           "type": "file-explorer",
@@ -30,7 +30,7 @@
         }
       },
       {
-        "id": "eca9dcb81e163bad",
+        "id": "3cb711ca8ebc7d7a",
         "type": "leaf",
         "state": {
           "type": "search",
@@ -45,7 +45,7 @@
         }
       },
       {
-        "id": "d13fa4f3a80e1150",
+        "id": "b9c7a80494fd30b4",
         "type": "leaf",
         "state": {
           "type": "tag",
@@ -56,7 +56,7 @@
         }
       },
       {
-        "id": "388b907a7fe762e1",
+        "id": "4356a67bf8b1ba7f",
         "type": "leaf",
         "state": {
           "type": "starred",
@@ -67,11 +67,11 @@
     "currentTab": 0
   },
   "right": {
-    "id": "9425cbfc4bbe4e79",
+    "id": "61e1546a69969580",
     "type": "mobile-drawer",
     "children": [
       {
-        "id": "b214a65790b243be",
+        "id": "3a42dbd2b3dff60f",
         "type": "leaf",
         "state": {
           "type": "initiative-tracker-view",
@@ -79,12 +79,12 @@
         }
       },
       {
-        "id": "3ce67684353a50a8",
+        "id": "970f1e3f12436f76",
         "type": "leaf",
         "state": {
           "type": "backlink",
           "state": {
-            "file": "2. Compendium/Locations/Q'Barra/Whitecliff.md",
+            "file": "Plugin Testing/Admonition All.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -98,16 +98,8 @@
     ],
     "currentTab": 0
   },
-  "active": "bc9ef2e08c37640d",
+  "active": "763b53d2d74249c1",
   "lastOpenFiles": [
-    "2. Compendium/Locations/Q'Barra/Whitecliff.md",
-    "2. Compendium/Locations/Q'Barra/Newthrone.md",
-    "2. Compendium/Locations/Q'Barra/Mine Of Whitecliff.md",
-    "2. Compendium/Locations/Q'Barra/Crazy Fist Clanhold.md",
-    "2. Compendium/Locations/Q'Barra/1. Q'Barra.md",
-    "Plugin Testing/map/Map.md",
-    "Plugin Testing/map/test.md",
-    "Plugin Testing/Admonition All.md",
-    "Plugin Testing/Admonition Alt Syntax Testing.md"
+    "Plugin Testing/Admonition All.md"
   ]
 }
