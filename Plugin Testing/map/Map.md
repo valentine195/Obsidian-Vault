@@ -16,6 +16,7 @@ maxZoom: 2
 unit: miles
 geojson:
  - [[geo-fangorn.geojson]]
+grid: true
 #gpx:
 # - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]
 geojsonColor: red
@@ -34,12 +35,15 @@ maxZoom: 30
 #markerFolder: Plugin Testing/map
 overlayTag: nearby
 #coordinates: [[Direct, Marker]]
+gpxColor: red
 gpx:
- - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]
+#  - [[20210729 1859 2021-07-29 Oberegger Stausee mit M&M.gpx]]
+  - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]
 # - [[route_2018-07-29_12.37pm.gpx]]
 # - [[route_2020-04-18_11.38am.gpx]]
 gpxMarkers: 
  start: location
  end: event
-verbose: true
+#verbose: true
+grid: true
 ```

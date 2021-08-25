@@ -298,7 +298,7 @@
     },
     {
       "id": "tester7",
-      "lastAccessed": 1629721493068,
+      "lastAccessed": 1629833888350,
       "markers": [
         {
           "id": "ID_585859a9cbd9",
@@ -340,7 +340,7 @@
     },
     {
       "id": "real 2",
-      "lastAccessed": 1629747360687,
+      "lastAccessed": 1629834357766,
       "markers": [
         {
           "id": "ID_4ac92b9bf9da",
@@ -356,9 +356,127 @@
           "percent": null,
           "description": null,
           "tooltip": "hover"
+        },
+        {
+          "id": "ID_794b99882bb9",
+          "type": "location",
+          "loc": [
+            33.57326436362621,
+            -93.86718750000001
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_0a784b7ac919",
+          "type": "event",
+          "loc": [
+            42.15602950533365,
+            -80.50781250000001
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_e80b296b68db",
+          "type": "location",
+          "loc": [
+            36.99287001998089,
+            -89.82421875000001
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_aab8298b3b8b",
+          "type": "location",
+          "loc": [
+            28.422864965572042,
+            0.3515625
+          ],
+          "link": null,
+          "layer": "https%3A%2F%2F%7Bs%7D.tile.opentopomap.org%2F%7Bz%7D%2F%7Bx%7D%2F%7By%7D.png",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_d918f9aafb9b",
+          "type": "event",
+          "loc": [
+            0.8178509011439343,
+            -66.44531250000001
+          ],
+          "link": null,
+          "layer": "https%3A%2F%2F%7Bs%7D.tile.opentopomap.org%2F%7Bz%7D%2F%7Bx%7D%2F%7By%7D.png",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_69a9793b389b",
+          "type": "location",
+          "loc": [
+            47.02330913705545,
+            -75.41015625
+          ],
+          "link": null,
+          "layer": "https%3A%2F%2F%7Bs%7D.tile.opentopomap.org%2F%7Bz%7D%2F%7Bx%7D%2F%7By%7D.png",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_1ba8a8abba49",
+          "type": "event",
+          "loc": [
+            24.005792882748178,
+            -0.703125
+          ],
+          "link": null,
+          "layer": "https%3A%2F%2F%7Bs%7D.tile.opentopomap.org%2F%7Bz%7D%2F%7Bx%7D%2F%7By%7D.png",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
         }
       ],
       "overlays": [
+        {
+          "radius": 333.0582484669963,
+          "loc": [
+            40.106844643560315,
+            -83.07387113571168
+          ],
+          "color": "blue",
+          "layer": "real",
+          "unit": "m",
+          "desc": "",
+          "mutable": true,
+          "marker": null
+        },
         {
           "radius": 146.1507581127548,
           "loc": [
@@ -424,5 +542,50 @@
   "copyOnClick": false,
   "displayMarkerTooltips": "hover",
   "displayOverlayTooltips": true,
-  "configDirectory": null
+  "configDirectory": null,
+  "mapViewEnabled": true,
+  "mapViewParameters": {
+    "darkMode": "false",
+    "defaultZoom": 5,
+    "distanceMultiplier": 1,
+    "geojson": [],
+    "geojsonColor": "#3388ff",
+    "gpx": [
+      "[[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]"
+    ],
+    "gpxColor": "red",
+    "height": "500px",
+    "image": "real",
+    "imageOverlay": [],
+    "isMapView": false,
+    "layers": [
+      "real"
+    ],
+    "linksFrom": [],
+    "linksTo": [],
+    "maxZoom": 30,
+    "minZoom": 1,
+    "osmLayer": true,
+    "overlay": [],
+    "overlayColor": "blue",
+    "scale": 1,
+    "unit": "m",
+    "tileServer": [],
+    "verbose": false,
+    "zoomDelta": 1,
+    "zoomFeatures": false,
+    "id": "real 2",
+    "overlayTag": "nearby",
+    "gpxMarkers": {
+      "start": "location",
+      "end": "event"
+    },
+    "grid": true,
+    "marker": [],
+    "markerFile": [],
+    "markerFolder": [],
+    "markerTag": [],
+    "commandMarker": []
+  },
+  "mapViewActive": true
 }

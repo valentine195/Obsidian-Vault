@@ -1,15 +1,15 @@
 {
   "main": {
-    "id": "698bda177f9d2d9a",
+    "id": "f200b2656dee19a1",
     "type": "split",
     "children": [
       {
-        "id": "763b53d2d74249c1",
+        "id": "d1dd79c129740f43",
         "type": "leaf",
         "state": {
           "type": "markdown",
           "state": {
-            "file": "Plugin Testing/Admonition All.md",
+            "file": "1. Sessions/21-7-4 - Session 8 Planning.md",
             "mode": "preview"
           }
         }
@@ -18,11 +18,11 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "d00c5481f4aed8aa",
+    "id": "82027f702ebf4482",
     "type": "mobile-drawer",
     "children": [
       {
-        "id": "5298aa1335841062",
+        "id": "e9186a57b047b670",
         "type": "leaf",
         "state": {
           "type": "file-explorer",
@@ -30,7 +30,7 @@
         }
       },
       {
-        "id": "3cb711ca8ebc7d7a",
+        "id": "ba71c1acd55f6b08",
         "type": "leaf",
         "state": {
           "type": "search",
@@ -45,7 +45,7 @@
         }
       },
       {
-        "id": "b9c7a80494fd30b4",
+        "id": "ea5db388169f6e93",
         "type": "leaf",
         "state": {
           "type": "tag",
@@ -56,7 +56,7 @@
         }
       },
       {
-        "id": "4356a67bf8b1ba7f",
+        "id": "c3b400b302d8c676",
         "type": "leaf",
         "state": {
           "type": "starred",
@@ -67,11 +67,11 @@
     "currentTab": 0
   },
   "right": {
-    "id": "61e1546a69969580",
+    "id": "f8cb6d3338fdb91a",
     "type": "mobile-drawer",
     "children": [
       {
-        "id": "3a42dbd2b3dff60f",
+        "id": "7ddbdd41204bfc05",
         "type": "leaf",
         "state": {
           "type": "initiative-tracker-view",
@@ -79,12 +79,12 @@
         }
       },
       {
-        "id": "970f1e3f12436f76",
+        "id": "d7dad77addd163cd",
         "type": "leaf",
         "state": {
           "type": "backlink",
           "state": {
-            "file": "Plugin Testing/Admonition All.md",
+            "file": "1. Sessions/21-7-4 - Session 8 Planning.md",
             "collapseAll": false,
             "extraContext": false,
             "sortOrder": "alphabetical",
@@ -98,8 +98,8 @@
     ],
     "currentTab": 0
   },
-  "active": "763b53d2d74249c1",
+  "active": "d1dd79c129740f43",
   "lastOpenFiles": [
-    "Plugin Testing/Admonition All.md"
+    "1. Sessions/21-7-4 - Session 8 Planning.md"
   ]
 }

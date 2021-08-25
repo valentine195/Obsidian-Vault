@@ -21,5 +21,6 @@
   "obsidian-leaflet-plugin",
   "obsidian-map-view",
   "dataview",
-  "block-dragging"
+  "block-dragging",
+  "garble-text"
 ]
