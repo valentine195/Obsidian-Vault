@@ -44,7 +44,7 @@
     },
     {
       "id": "real 2",
-      "lastAccessed": 1629918484702,
+      "lastAccessed": 1630007212281,
       "markers": [
         {
           "id": "ID_4ac92b9bf9da",
@@ -167,34 +167,7 @@
           "tooltip": "hover"
         }
       ],
-      "overlays": [
-        {
-          "radius": 333.0582484669963,
-          "loc": [
-            40.106844643560315,
-            -83.07387113571168
-          ],
-          "color": "blue",
-          "layer": "real",
-          "unit": "m",
-          "desc": "",
-          "mutable": true,
-          "marker": null
-        },
-        {
-          "radius": 146.1507581127548,
-          "loc": [
-            40.105547205682626,
-            -83.07228326797487
-          ],
-          "color": "blue",
-          "layer": "real",
-          "unit": "m",
-          "desc": "",
-          "mutable": true,
-          "marker": null
-        }
-      ],
+      "overlays": [],
       "files": [
         "Plugin Testing/map/Map.md"
       ]

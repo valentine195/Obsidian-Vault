@@ -3,6 +3,17 @@
     --default-font: "iA Writer Quattro" !important;
 }
 
+img::after {
+    content: attr(src);
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    /* width: 100%;
+    max-height: calc(100% + 1px);
+    max-width: calc(100% - 20px); */
+    object-fit: contain;
+}
+
 h1 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold2));
     -webkit-background-clip: text;

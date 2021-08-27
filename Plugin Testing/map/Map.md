@@ -27,7 +27,7 @@ geojsonColor: red
 %%
 
 ```leaflet
-height: 75%
+#height: 75%
 id: real 2
 # defaultZoom: 9
 maxZoom: 30
@@ -37,13 +37,13 @@ overlayTag: nearby
 #coordinates: [[Direct, Marker]]
 gpxColor: red
 gpx:
-#  - [[20210729 1859 2021-07-29 Oberegger Stausee mit M&M.gpx]]
-  - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]
+ - [[Kleine_Runde_Kellerweg.gpx]]
+ - [[20210729 1859 2021-07-29 Oberegger Stausee mit M&M.gpx]]
+#  - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]
 # - [[route_2018-07-29_12.37pm.gpx]]
 # - [[route_2020-04-18_11.38am.gpx]]
 gpxMarkers: 
  start: location
  end: event
-#verbose: true
-grid: true
+verbose: true
 ```
