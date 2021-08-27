@@ -2,7 +2,7 @@
   "mapMarkers": [
     {
       "id": "tester7",
-      "lastAccessed": 1629833888350,
+      "lastAccessed": 1630087001778,
       "markers": [
         {
           "id": "ID_585859a9cbd9",
@@ -44,14 +44,14 @@
     },
     {
       "id": "real 2",
-      "lastAccessed": 1630007212281,
+      "lastAccessed": 1630091633297,
       "markers": [
         {
           "id": "ID_4ac92b9bf9da",
           "type": "location",
           "loc": [
-            38.3695990951697,
-            -84.94628906250001
+            41.541477666790286,
+            -79.98046875000001
           ],
           "link": null,
           "layer": "real",
@@ -65,8 +65,8 @@
           "id": "ID_794b99882bb9",
           "type": "location",
           "loc": [
-            33.57326436362621,
-            -93.86718750000001
+            29.22889003019423,
+            -113.20312500000001
           ],
           "link": null,
           "layer": "real",
@@ -80,8 +80,8 @@
           "id": "ID_0a784b7ac919",
           "type": "event",
           "loc": [
-            42.15602950533365,
-            -80.50781250000001
+            35.17380831799959,
+            -67.50000000000001
           ],
           "link": null,
           "layer": "real",
@@ -95,8 +95,8 @@
           "id": "ID_e80b296b68db",
           "type": "location",
           "loc": [
-            36.99287001998089,
-            -89.82421875000001
+            39.63953756436671,
+            -97.3828125
           ],
           "link": null,
           "layer": "real",
@@ -140,8 +140,8 @@
           "id": "ID_69a9793b389b",
           "type": "location",
           "loc": [
-            47.02330913705545,
-            -75.41015625
+            24.206889622398023,
+            -74.53125000000001
           ],
           "link": null,
           "layer": "https%3A%2F%2F%7Bs%7D.tile.opentopomap.org%2F%7Bz%7D%2F%7Bx%7D%2F%7By%7D.png",
@@ -160,6 +160,36 @@
           ],
           "link": null,
           "layer": "https%3A%2F%2F%7Bs%7D.tile.opentopomap.org%2F%7Bz%7D%2F%7Bx%7D%2F%7By%7D.png",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_e92be8da6b88",
+          "type": "location",
+          "loc": [
+            38.791556581282244,
+            -82.96875000000001
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_5999a97a4b89",
+          "type": "event",
+          "loc": [
+            35.49981018711526,
+            -81.87011718750001
+          ],
+          "link": null,
+          "layer": "real",
           "mutable": true,
           "command": false,
           "percent": null,
