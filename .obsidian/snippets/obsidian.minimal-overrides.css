@@ -47,7 +47,11 @@
     --max-width: 70em;
 }
 .theme-light {
-    --background-primary: hsl(var(--base-h), var(--base-s), 99%);
+    --background-primary: #EDE9E7;/* hsl(var(--base-h), var(--base-s), 99%); */
+}
+
+.titlebar {
+    background-color: var(--background-primary);
 }
 
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
