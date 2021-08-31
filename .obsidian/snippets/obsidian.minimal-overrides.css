@@ -47,7 +47,7 @@
     --max-width: 70em;
 }
 .theme-light {
-    --background-primary: #EDE9E7;/* hsl(var(--base-h), var(--base-s), 99%); */
+    --background-primary: #F9F7F4;/* hsl(var(--base-h), var(--base-s), 99%); */
 }
 
 .titlebar {
