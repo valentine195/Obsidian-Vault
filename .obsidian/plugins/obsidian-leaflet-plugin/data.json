@@ -1,57 +1,15 @@
 {
   "mapMarkers": [
     {
-      "id": "tester7",
-      "lastAccessed": 1630087001778,
-      "markers": [
-        {
-          "id": "ID_585859a9cbd9",
-          "type": "location",
-          "loc": [
-            932,
-            792
-          ],
-          "link": "The Price of Revenge",
-          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.99,
-            -1.5533333333333332
-          ],
-          "description": null,
-          "tooltip": "always"
-        }
-      ],
-      "overlays": [
-        {
-          "radius": 316.0253154416589,
-          "loc": [
-            356.375,
-            472
-          ],
-          "color": "blue",
-          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
-          "unit": "m",
-          "desc": "",
-          "mutable": true,
-          "marker": null
-        }
-      ],
-      "files": [
-        "Plugin Testing/map/Map.md"
-      ]
-    },
-    {
       "id": "real 2",
-      "lastAccessed": 1630353428540,
+      "lastAccessed": 1630439407220,
       "markers": [
         {
-          "id": "ID_4ac92b9bf9da",
-          "type": "location",
+          "id": "ID_daab481b0b79",
+          "type": "default",
           "loc": [
-            41.541477666790286,
-            -79.98046875000001
+            42.391008609205045,
+            -90.35156250000001
           ],
           "link": null,
           "layer": "real",
@@ -62,131 +20,11 @@
           "tooltip": "hover"
         },
         {
-          "id": "ID_794b99882bb9",
-          "type": "location",
+          "id": "ID_087be9384ada",
+          "type": "default",
           "loc": [
-            29.22889003019423,
-            -113.20312500000001
-          ],
-          "link": null,
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_0a784b7ac919",
-          "type": "event",
-          "loc": [
-            35.17380831799959,
-            -67.50000000000001
-          ],
-          "link": null,
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_e80b296b68db",
-          "type": "location",
-          "loc": [
-            39.63953756436671,
-            -97.3828125
-          ],
-          "link": null,
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_aab8298b3b8b",
-          "type": "location",
-          "loc": [
-            28.422864965572042,
-            0.3515625
-          ],
-          "link": null,
-          "layer": "https%3A%2F%2F%7Bs%7D.tile.opentopomap.org%2F%7Bz%7D%2F%7Bx%7D%2F%7By%7D.png",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_d918f9aafb9b",
-          "type": "event",
-          "loc": [
-            0.8178509011439343,
-            -66.44531250000001
-          ],
-          "link": null,
-          "layer": "https%3A%2F%2F%7Bs%7D.tile.opentopomap.org%2F%7Bz%7D%2F%7Bx%7D%2F%7By%7D.png",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_69a9793b389b",
-          "type": "location",
-          "loc": [
-            24.206889622398023,
-            -74.53125000000001
-          ],
-          "link": null,
-          "layer": "https%3A%2F%2F%7Bs%7D.tile.opentopomap.org%2F%7Bz%7D%2F%7Bx%7D%2F%7By%7D.png",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_1ba8a8abba49",
-          "type": "event",
-          "loc": [
-            24.005792882748178,
-            -0.703125
-          ],
-          "link": null,
-          "layer": "https%3A%2F%2F%7Bs%7D.tile.opentopomap.org%2F%7Bz%7D%2F%7Bx%7D%2F%7By%7D.png",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_e92be8da6b88",
-          "type": "location",
-          "loc": [
-            38.791556581282244,
-            -82.96875000000001
-          ],
-          "link": null,
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_5999a97a4b89",
-          "type": "event",
-          "loc": [
-            35.49981018711526,
-            -81.87011718750001
+            35.42486791930558,
+            -78.35449218750001
           ],
           "link": null,
           "layer": "real",
@@ -213,32 +51,7 @@
       "y": -2
     }
   },
-  "markerIcons": [
-    {
-      "type": "location",
-      "iconName": "circle",
-      "color": "#d72828",
-      "layer": true,
-      "transform": {
-        "size": 6,
-        "x": 0,
-        "y": -2
-      },
-      "isImage": false
-    },
-    {
-      "type": "event",
-      "iconName": "exclamation",
-      "color": "#4e44d5",
-      "layer": true,
-      "transform": {
-        "size": 6,
-        "x": 0,
-        "y": -2
-      },
-      "isImage": false
-    }
-  ],
+  "markerIcons": [],
   "color": "#dddddd",
   "lat": 39.983334,
   "long": -82.98333,
@@ -251,48 +64,5 @@
   "displayOverlayTooltips": true,
   "configDirectory": null,
   "mapViewEnabled": true,
-  "mapViewParameters": {
-    "darkMode": "false",
-    "defaultZoom": 5,
-    "distanceMultiplier": 1,
-    "geojson": [],
-    "geojsonColor": "#3388ff",
-    "gpx": [
-      "[[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]"
-    ],
-    "gpxColor": "red",
-    "height": "500px",
-    "image": "real",
-    "imageOverlay": [],
-    "isMapView": false,
-    "layers": [
-      "real"
-    ],
-    "linksFrom": [],
-    "linksTo": [],
-    "maxZoom": 30,
-    "minZoom": 1,
-    "osmLayer": true,
-    "overlay": [],
-    "overlayColor": "blue",
-    "scale": 1,
-    "unit": "m",
-    "tileServer": [],
-    "verbose": false,
-    "zoomDelta": 1,
-    "zoomFeatures": false,
-    "id": "real 2",
-    "overlayTag": "nearby",
-    "gpxMarkers": {
-      "start": "location",
-      "end": "event"
-    },
-    "grid": true,
-    "marker": [],
-    "markerFile": [],
-    "markerFolder": [],
-    "markerTag": [],
-    "commandMarker": []
-  },
-  "mapViewActive": true
+  "mapViewParameters": {}
 }

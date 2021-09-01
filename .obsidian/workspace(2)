@@ -1,0 +1,129 @@
+{
+  "main": {
+    "id": "326d8d5446ed87a2",
+    "type": "split",
+    "children": [
+      {
+        "id": "fa6499e090b9b382",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Plugin Testing/map/Map.md",
+            "mode": "preview"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "d65f3e25bae6f76f",
+    "type": "split",
+    "children": [
+      {
+        "id": "027fe62608098cce",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "92e715143647a2ab",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "940215a1d0f41a39",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fc8e5756f2b81dd1",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "5d60a2820d4b7572",
+    "type": "split",
+    "children": [
+      {
+        "id": "da830beab80f4087",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0a4faf761e984a34",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "e380feff2cef1b12",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Plugin Testing/map/Map.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9731693669d34aee",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "fa6499e090b9b382",
+  "lastOpenFiles": [
+    "Plugin Testing/map/Map.md",
+    "Plugin Testing/Admonition All.md",
+    "Plugin Testing/CSS.md",
+    "Plugin Testing/map/clouds-transparent.png",
+    "2. Compendium/Items/1. Item Index.md",
+    "2. Compendium/NPCs/Jasper Bartlett.md",
+    "1. Sessions/21-7-4 - Session 8 Planning.md",
+    "Plugin Testing/Untitled.md",
+    "Plugin Testing/Attributes.md",
+    "Plugin Testing/Comments.md"
+  ]
+}
