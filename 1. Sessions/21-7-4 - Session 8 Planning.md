@@ -19,17 +19,17 @@ list from #pc/alive
 ```
 
 ## Strong Start
-> The servant opens the door to the guesthouse, and you step into a utilitarian common room. A wooden table large enough to sit eight people sits to your left, along with a small pantry, and on the right are several sitting chairs arrayed around an unlit stone fireplace. Three doors in the back are open and through each you see a simple bed against the wall. The servant enters behind you, still limping and with a pained look on his face, and then stands to one side. He says: 
+> The servant opens the door to the guesthouse, and you step into a utilitarian common room. A wooden table large enough to sit eight people sits to your left, along with a small pantry, and on the right are several sitting chairs arrayed around an unlit stone fireplace.  In the back there are three beds along one side, but most of the back is open and you have a balcony view out over the jungle to the east, where are you can see a massive volcano spewing black smoke into the air. The servant enters behind you, still limping and with a pained look on his face, and then stands to one side. He says: 
 
 ```ad-quote
 title: Yoss
 I have been instructed by my master to see to your needs. The full clanhold is at your disposal, but I must warn you - the other clans have begun arriving, and blood fueds may be settled this night. Please let me know if you require anything.
 ```
 
-> As you take in the house, you hear a deep, distant, rolling rumble that goes on for several seconds. 
+> As you take in the house, you hear a deep, distant, rolling rumble that goes on for several seconds. The servant walks to the balcony  and stares out towards the volcano.
 > ```ad-quote
 > title: Yoss
-> Hmm. A greatstorm approaches. A bad omen on the eve of the clanmeet.
+> Hmm. [[Haka'Torvhak]] is awakening and a great storm approaches. Bad omens on the eve of the clanmeet.
 > ```
 
 
@@ -37,7 +37,7 @@ I have been instructed by my master to see to your needs. The full clanhold is a
 **SWITCH TO BOB**
 
 ````ad-info
-While the three of you take in the house, Bob, where would you like to go?
+While the three of you are in the house, Bob, where would you like to go?
 ````
 
 ````ad-info
@@ -49,7 +49,7 @@ Bob, give me a perception check.
 
 ```ad-success
 collapse: closed
-As you move through the crowds, you catch a glimpse of a lizardfolk with ashy-grey skin clawhook his way into the treetop above you, but you don't see him afterwards. You suddenly realize that he's been following you for, as you have caught glimpses of him a few times.
+As you move through the crowds, you catch a glimpse of a lizardfolk with ashy-grey skin clawhook his way into the treetop above you, but you don't see him afterwards. You suddenly realize that he's been following you, as you have caught fleeting glimpses of him a few times now.
 ```
 
 ```ad-fail

@@ -7,11 +7,14 @@ body:not(.is-mobile)
     .side-dock-ribbon.mod-left.is-collapsed:not(:hover)
     > *:not(.workspace-ribbon-collapse-btn),
 .workspace-split.mod-left-split:not(:hover) > .workspace-leaf-resize-handle {
-    opacity: 0.1 !important;
+    opacity: 0 !important;
     transition-delay: 5s !important;
     transition-duration: 2.5s !important;
     transition-timing-function: ease-in-out !important;
     transition-property: opacity !important;
+}
+.workspace-split.mod-root {
+    background-color: var(--background-primary);
 }
 .workspace-ribbon.side-dock-ribbon,
 .status-bar,
@@ -27,7 +30,7 @@ body:not(.is-mobile)
 body:not(.is-mobile)
     .workspace-split.mod-left-split:not(:hover)
     .workspace-leaf-resize-handle {
-    transition-delay: 0s !important;
+    transition-delay: 1s !important;
     transition-duration: 1s !important;
     opacity: 0 !important;
 }
@@ -39,7 +42,7 @@ body:not(.is-mobile) .status-bar:not(:hover) {
     border-top: 0;
     transition-delay: 0s !important;
     transition-duration: 1s !important;
-    transition-timing-function: ease-in-out !important;
+    transition-timing-function: ease-in !important;
     transition-property: opacity !important;
 }
 

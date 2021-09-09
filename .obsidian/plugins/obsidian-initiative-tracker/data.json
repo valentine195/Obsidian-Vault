@@ -1850,5 +1850,6 @@
   "version": "0.0.1",
   "canUseDiceRoll": false,
   "initiative": "1d20 + %mod%",
-  "sync": true
+  "sync": true,
+  "leafletIntegration": true
 }

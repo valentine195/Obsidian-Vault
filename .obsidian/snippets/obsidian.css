@@ -1,7 +1,6 @@
 :root {
     --default-font: "iA Writer Quattro" !important;
 }
-
 h1 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold2));
     -webkit-background-clip: text;

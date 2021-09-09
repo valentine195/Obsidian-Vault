@@ -2,14 +2,14 @@
   "mapMarkers": [
     {
       "id": "real 2",
-      "lastAccessed": 1630439407220,
+      "lastAccessed": 1631211881316,
       "markers": [
         {
-          "id": "ID_daab481b0b79",
-          "type": "default",
+          "id": "ID_8ae94979baab",
+          "type": "location",
           "loc": [
-            42.391008609205045,
-            -90.35156250000001
+            40.883409680091006,
+            -93.99902343750001
           ],
           "link": null,
           "layer": "real",
@@ -20,11 +20,41 @@
           "tooltip": "hover"
         },
         {
-          "id": "ID_087be9384ada",
-          "type": "default",
+          "id": "ID_2bea0afa0acb",
+          "type": "location",
           "loc": [
-            35.42486791930558,
-            -78.35449218750001
+            42.199020918176785,
+            -80.24414062500001
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_6bf90adbe8aa",
+          "type": "location",
+          "loc": [
+            36.95318415967938,
+            -85.60546875000001
+          ],
+          "link": "Untitled",
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_3859196a59e9",
+          "type": "npc",
+          "loc": [
+            35.10530458056332,
+            -80.41992187500001
           ],
           "link": null,
           "layer": "real",
@@ -36,6 +66,76 @@
         }
       ],
       "overlays": [],
+      "shapes": [
+        {
+          "type": "rectangle",
+          "color": "#eb0000",
+          "vertices": [
+            {
+              "lat": 28.613459424004414,
+              "lng": -101.42578125000001,
+              "id": "ID_8a88abcb39f8",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": 28.613459424004414,
+              "lng": -81.56250000000001,
+              "id": "ID_cac9d86af9e9",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": 18.994608853186378,
+              "lng": -81.56250000000001,
+              "id": "ID_7a48ba290978",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": 18.994608853186378,
+              "lng": -101.42578125000001,
+              "id": "ID_9939f8d8892a",
+              "targets": {
+                "vertexIds": []
+              }
+            }
+          ]
+        },
+        {
+          "type": "polyline",
+          "color": "#eb0000",
+          "vertices": [
+            {
+              "lat": 49.19157654903325,
+              "lng": -61.34765625000001,
+              "id": "ID_39eb297bdbeb",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": 35.889050079360935,
+              "lng": -48.51562500000001,
+              "id": "ID_f88a1a0af93a",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": 31.09152313906808,
+              "lng": -73.212890625,
+              "id": "ID_a8f8299a1aeb",
+              "targets": {
+                "vertexIds": []
+              }
+            }
+          ]
+        }
+      ],
       "files": [
         "Plugin Testing/map/Map.md"
       ]
@@ -51,7 +151,44 @@
       "y": -2
     }
   },
-  "markerIcons": [],
+  "markerIcons": [
+    {
+      "type": "location",
+      "iconName": "circle",
+      "color": "#ff4015",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
+    },
+    {
+      "type": "event",
+      "iconName": "exclamation",
+      "color": "#0091ff",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
+    },
+    {
+      "type": "npc",
+      "iconName": "user",
+      "color": "#13961b",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
+    }
+  ],
   "color": "#dddddd",
   "lat": 39.983334,
   "long": -82.98333,
@@ -64,5 +201,6 @@
   "displayOverlayTooltips": true,
   "configDirectory": null,
   "mapViewEnabled": true,
-  "mapViewParameters": {}
+  "mapViewParameters": {},
+  "enableDraw": true
 }

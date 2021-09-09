@@ -15,7 +15,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Recreation",
+        "marker-symbol": "location",
         "name": "GIEP Startpunkt Süd"
       }
     },
@@ -32,7 +32,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 1. Kanal und Wehr, Fischtreppe"
       }
     },
@@ -49,7 +49,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 2. Fischregionen, Heimische Fische"
       }
     },
@@ -66,7 +66,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 3. Ausgleichsfläche, Amphibien, Vegetation Kühgraben"
       }
     },
@@ -83,7 +83,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 4. Element Wasser, Spielplatz"
       }
     },
@@ -100,7 +100,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 5. Wasservögel, Hochwasser"
       }
     },
@@ -117,7 +117,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 6. Uferbegleitvegetation"
       }
     },
@@ -134,7 +134,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 7. Wasserkraft, Mühlengeschichte"
       }
     },
@@ -151,7 +151,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 8. Weißstorch"
       }
     },
@@ -168,7 +168,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 9. Kiesabbau"
       }
     },
@@ -185,7 +185,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 10. Biber"
       }
     },
@@ -202,7 +202,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Sight",
+        "marker-symbol": "location",
         "name": "GIEP 11. Naturraum Mindeltal"
       }
     },
@@ -219,7 +219,7 @@
       "properties": {
         "marker-color": "#c000c0",
         "marker-size": "medium",
-        "marker-symbol": "Recreation",
+        "marker-symbol": "location",
         "name": "GIEP Startpunkt Nord"
       }
     },
