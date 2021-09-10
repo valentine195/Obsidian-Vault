@@ -23,4 +23,3 @@ creatures:
  - Goblin, 7, 15, 2
 ```
 
-

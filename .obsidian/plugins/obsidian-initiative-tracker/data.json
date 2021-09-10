@@ -1851,5 +1851,7 @@
   "canUseDiceRoll": false,
   "initiative": "1d20 + %mod%",
   "sync": true,
-  "leafletIntegration": true
+  "leafletIntegration": true,
+  "playerMarker": "default",
+  "monsterMarker": "default"
 }

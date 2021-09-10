@@ -15,7 +15,7 @@ gpxIcons:
 ```leaflet
 id: test-new
 image: 
- - [[Mine of Whitecliff.png]]
+# - [[Mine of Whitecliff.png]]
  - [[Khorvaire.jpg]]
 imageOverlay: 
  - [ [[clouds-transparent.png]] ]

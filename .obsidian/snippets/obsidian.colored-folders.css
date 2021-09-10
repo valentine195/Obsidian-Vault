@@ -123,6 +123,7 @@ body:not(.is-grabbing)
 .nav-folder.mod-root > .nav-folder-children {
     display: grid;
     gap: 7px;
+    grid-auto-rows: max-content;
 }
 
 /** Top Level Folder Title */
@@ -163,7 +164,6 @@ body:not(.is-grabbing)
     padding-left: 0px;
     color: var(--FoldText);
 }
-
 
 /** 16 Top level Folders By Starting Digit
 The Folder Name is stored in the `data-path` attribute.
@@ -427,7 +427,9 @@ The Folder Name is stored in the `data-path` attribute.
     border-radius: 6px;
     font-weight: bold;
     border-left: 2px solid var(--text-accent);
-    transition: all 0.25s ease;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+    transition-property: background-color, color;
 }
 
 .nav-file.is-active > .nav-file-title {
@@ -443,9 +445,10 @@ body:not(.is-grabbing)
     > .nav-folder
     > .nav-folder-title:hover {
     background-color: var(--background-primary);
-    transition: all 0.25s ease;
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+    transition-property: background-color, color;
 }
-
 
 /* .nav-file-title.is-active::before {
     margin-top: 2px;
