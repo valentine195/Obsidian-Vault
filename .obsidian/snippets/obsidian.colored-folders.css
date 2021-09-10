@@ -6,7 +6,8 @@ This will allow the colouring of the top level folders into sections that "drop 
 This is currently set to be the same colour regardless of theme, but you can change that by copy/pasting the colors from the root section into light/dark theme then changing them according to preference.
 The colours are rainbow coloured and 16 in number by default. They are shades such that white/lightgrey text shows up the best. Some have a bit let contrast (the lighter blue and the yellow) but should still be visible. Again, change them however you would like. 
 */
-:root {
+.theme-light,
+.theme-dark {
     /* folder colours */
     --Fold0: #d32f2f;
     --Fold1: #c2185c;
@@ -25,21 +26,9 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     --FoldE: #ef6c00;
     --FoldF: #d84315;
     /* line styles for nesting indicators */
-    --nestlinesize1: solid;
-    --nestlinestyle1: 2px;
-    --nestlinecolor1: white;
-
-    --nestlinesize2: groove;
-    --nestlinestyle2: 2px;
-    --nestlinecolor2: white;
-
-    --nestlinesize3: dashed;
-    --nestlinestyle3: 2px;
-    --nestlinecolor3: white;
 
     --FolderRadius: 5px;
-    --FoldText: white;
-    --FoldTextMaster: var(--FoldText);
+    --FoldText: var(--background-primary);
 }
 
 .theme-dark {
@@ -53,7 +42,7 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     color: unset;
 }
 
-/* Minimal Theme overrides */
+/** Minimal Theme overrides */
 .nav-file {
     margin-left: 0;
     padding: 0;
@@ -71,22 +60,25 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     margin: 0;
 }
 
-/* Set up explorer container margins */
+/** Remove Top Level Folder Name */
+.nav-folder.mod-root > .nav-folder-title {
+    display: none;
+}
+
+/** Set up explorer container margins */
 .nav-files-container {
     margin: 0px 5px;
 }
 
+/** Set the background color of folder and file icons */
 .nav-file-title::before {
     background-color: var(--FoldText) !important;
-}
-
-.nav-folder.mod-root > .nav-folder-children > .nav-file .nav-file-title {
-    color: var(--root-file-color);
 }
 .nav-folder .nav-folder-title .nav-folder-title-content::before {
     background-color: var(--FoldText) !important;
 }
 
+/** Reset background and color when necessary */
 .nav-folder.mod-root > .nav-folder-title > .nav-folder-title-content::before,
 .nav-folder.mod-root > .nav-folder-children > .nav-file .nav-file-title::before,
 .nav-file-title-content.is-being-renamed::before,
@@ -95,7 +87,6 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     .nav-folder-title-content.is-being-renamed::before {
     background-color: var(--root-file-color) !important;
 }
-
 .nav-file-title.is-active,
 .nav-folder-title.is-active,
 .nav-file-title-content.is-being-renamed,
@@ -113,12 +104,13 @@ body:not(.is-grabbing)
     background-color: var(--root-file-color) !important;
 }
 
+/** Make generic folder and file border radiuses square. */
 .nav-file-title,
 .nav-folder-title {
     border-radius: 0px;
 }
 
-/* Remove collapse arrow from top level folders */
+/** Remove collapse arrows */
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
@@ -127,16 +119,22 @@ body:not(.is-grabbing)
     display: none;
 }
 
-/* Top Level Folder Titles */
+/** Grid */
+.nav-folder.mod-root > .nav-folder-children {
+    display: grid;
+    gap: 7px;
+}
+
+/** Top Level Folder Title */
 .nav-folder.mod-root > .nav-folder-children > .nav-folder > .nav-folder-title {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-size: 18px;
     color: var(--FoldText);
     padding-left: 3px;
-    margin-top: 7px; /* space between top level sections */
     border-radius: var(--FolderRadius) var(--FolderRadius) 0px 0px;
 }
-/* Rounded borders */
+
+/** Rounded borders */
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder.is-collapsed
@@ -144,31 +142,32 @@ body:not(.is-grabbing)
     border-radius: var(--FolderRadius);
 }
 
-/* General Nav Folder Children (this is the part that expands from each top level folder) */
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-children {
+    border-radius: 0px 0px var(--FolderRadius) var(--FolderRadius);
+}
+
+/** Give the top level folder name a bottom border */
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder:not(.is-collapsed)
+    > .nav-folder-title {
+    border-bottom: var(--FoldText) 1px solid;
+}
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
     > .nav-folder-children {
     padding-left: 0px;
-    border-top: var(--FoldText) 1px solid;
-    border-radius: 0px 0px var(--FolderRadius) var(--FolderRadius);
     color: var(--FoldText);
-    /* padding-bottom: 12px; */
 }
 
-/* active file increase font size and removes normal highlight marker */
-.nav-file-title.is-active {
-    background-color: #00000000;
-    font-size: 105%;
-}
-/* Adds hemisphere marker to active file instead */
-/* .nav-file-title.is-active {
-    background-color: var(--background-secondary-alt);
-} */
 
-/* 16 Top level Folders By Starting Digit (0-F)
-These are set for me by leading number/letter which also ensures they are in the correct order when sorted alphabetically
-You can change these to match your use case.
+/** 16 Top level Folders By Starting Digit
+The Folder Name is stored in the `data-path` attribute.
+[data-path^="..."] targets a path that *begins with* the content.
 */
 .nav-folder.mod-root
     > .nav-folder-children
@@ -404,89 +403,22 @@ You can change these to match your use case.
     > .nav-folder-children
     > .nav-folder
     > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-file {
-    border-left: var(--nestlinestyle1) var(--nestlinesize1)
-        var(--nestlinecolor1);
+    .nav-folder
+    .nav-file {
+    border-left: 2px solid white;
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
     > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder {
-    border-left: var(--nestlinestyle1) var(--nestlinesize1)
-        var(--nestlinecolor1);
+    .nav-folder
+    .nav-folder {
+    border-left: 2px solid white;
 }
-
-.nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-file {
-    border-left: var(--nestlinestyle2) var(--nestlinesize2)
-        var(--nestlinecolor2);
-}
-.nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder {
-    border-left: var(--nestlinestyle2) var(--nestlinesize2)
-        var(--nestlinecolor2);
-}
-
-.nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-file {
-    border-left: var(--nestlinestyle3) var(--nestlinesize3)
-        var(--nestlinecolor3);
-}
-.nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-children
-    > .nav-folder {
-    border-left: var(--nestlinestyle3) var(--nestlinesize3)
-        var(--nestlinecolor3);
-}
-
 /* == File Explorer - animation for active file as per Obuntu === */
 
 .nav-folder-title {
     font-weight: bold;
-}
-
-.nav-folder.mod-root > .nav-folder-title {
-    padding-left: 6px;
-    font-size: 14px;
-    font-weight: bolder;
-    top: -6px;
-    cursor: default;
 }
 
 .nav-file.is-active > .nav-file-title,
@@ -495,7 +427,7 @@ You can change these to match your use case.
     border-radius: 6px;
     font-weight: bold;
     border-left: 2px solid var(--text-accent);
-    transition: all 0.5s ease;
+    transition: all 0.25s ease;
 }
 
 .nav-file.is-active > .nav-file-title {
@@ -504,21 +436,22 @@ You can change these to match your use case.
 
 .nav-file-title.is-active,
 body:not(.is-grabbing) .nav-file-title:hover,
-body:not(.is-grabbing) .nav-folder-title:hover {
+body:not(.is-grabbing) .nav-folder-title:hover,
+body:not(.is-grabbing)
+    .nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title:hover {
     background-color: var(--background-primary);
-    /* border-radius: 2px; */
-    transition: all 0.2s ease;
+    transition: all 0.25s ease;
 }
 
-body:not(.is-grabbing) .nav-folder-title:hover {
-    border-radius: 0px;
-}
 
-.nav-file-title.is-active::before {
+/* .nav-file-title.is-active::before {
     margin-top: 2px;
     width: 22px;
     height: 20px;
-}
+} */
 
 .nav-file-tag {
     background-color: var(--background-secondary-alt);

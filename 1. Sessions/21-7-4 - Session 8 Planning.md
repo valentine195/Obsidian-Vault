@@ -19,17 +19,17 @@ list from #pc/alive
 ```
 
 ## Strong Start
-> The servant opens the door to the guesthouse, and you step into a utilitarian common room. A wooden table large enough to sit eight people sits to your left, along with a small pantry, and on the right are several sitting chairs arrayed around an unlit stone fireplace.  In the back there are three beds along one side, but most of the back is open and you have a balcony view out over the jungle to the east, where are you can see a massive volcano spewing black smoke into the air. The servant enters behind you, still limping and with a pained look on his face, and then stands to one side. He says: 
+> The servant opens the door to the guesthouse, and you step into a utilitarian common room. A wooden table large enough to sit eight people sits to your left, along with a small pantry, and on the right are several sitting chairs arrayed around an unlit stone fireplace.  In the back there are three beds along one side, but most of the back is open and you have a balcony. It seems the clan tree is on the crest of a high cliff, and you can see far over the jungle to the east, where are you can see a massive volcano spewing black smoke into the air. The servant enters behind you, still limping and with a pained look on his face, and then stands to one side. He says: 
 
 ```ad-quote
 title: Yoss
-I have been instructed by my master to see to your needs. The full clanhold is at your disposal, but I must warn you - the other clans have begun arriving, and blood fueds may be settled this night. Please let me know if you require anything.
+I have been instructed by my master to see to your needs. The full clanhold is at your disposal, but I must warn you - the other clans have begun arriving, and blood fueds may be settled this night. Beware the Gray Ash. Please let me know if you require anything.
 ```
 
-> As you take in the house, you hear a deep, distant, rolling rumble that goes on for several seconds. The servant walks to the balcony  and stares out towards the volcano.
+> As you take in the house, you hear a deep, distant, rolling rumble that goes on for several seconds. The servant walks to the balcony  and stares out, where you can see the erupting volcano surrounded by massive storm clouds.
 > ```ad-quote
 > title: Yoss
-> Hmm. [[Haka'Torvhak]] is awakening and a great storm approaches. Bad omens on the eve of the clanmeet.
+> Hmm. [[Haka'Torvhak]] awaken. A great storm will strike tonight. Bad omens on the eve of the clanmeet.
 > ```
 
 
@@ -69,7 +69,7 @@ You can't see anything in the mass of lizardfolk on the platform.
 > title: Drox
 > Templar, for millenia have we stood vigilant against the Dust Lords, long awaiting the return of your order to complete the tasks set before us by the first templar, [[Tira Miron]]. She told us the Templars would return to us in strength when we most needed them, and here you stand.
 > 
-> Jeremiah, one of the tasks she entrusted to my clan was to guard the chest of the Flame until the return, and guarded it we have. It is now yours.
+> Jeremiah, one of the tasks she entrusted to my clan was to guard this chest of the Flame until the return, and guarded it we have. It is now yours.
 >```
 >
 > He bows, then steps aside as four lizardfolk enter the room, burdened by weight of a massive dark grey chest.
@@ -96,11 +96,12 @@ The chest is full of ancient Galifarian gold coins, still depicting the first ki
 	> _THE LADY OF DEATH, BLIND TO HER SHROUD OF DUST
 	> WORKS TO UNDO HER TERRIBLE CURSE
 	> BUT IN DOING SO, SHE WILL
-	> REPEAT YOUR FATHER'S GRAVE MISTAKE_
+	> THE WORLD WILL MOURN
+	> AS IT DID WITH YOUR FATHER'S DEATH_
 
 
 ### Thunder in the Night
-
+> As night falls, a flash of lightning 
 
 ### The Clan Council
 
