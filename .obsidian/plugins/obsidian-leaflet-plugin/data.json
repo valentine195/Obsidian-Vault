@@ -2,7 +2,7 @@
   "mapMarkers": [
     {
       "id": "real 2",
-      "lastAccessed": 1631283429383,
+      "lastAccessed": 1631302125693,
       "markers": [
         {
           "id": "ID_8ae94979baab",
@@ -56,13 +56,13 @@
             35.10530458056332,
             -80.41992187500001
           ],
-          "link": null,
+          "link": "The Price of Revenge",
           "layer": "real",
           "mutable": true,
           "command": false,
           "percent": null,
           "description": null,
-          "tooltip": "hover"
+          "tooltip": "always"
         }
       ],
       "overlays": [],
@@ -271,6 +271,18 @@
         "y": -2
       },
       "isImage": false
+    },
+    {
+      "type": "pc",
+      "iconName": "user",
+      "color": "#0156f4",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
     }
   ],
   "color": "#dddddd",
@@ -279,6 +291,11 @@
   "notePreview": false,
   "layerMarkers": true,
   "previousVersion": "4.0.0",
+  "version": {
+    "major": 4,
+    "minor": 0,
+    "patch": 0
+  },
   "warnedAboutMapMarker": false,
   "copyOnClick": false,
   "displayMarkerTooltips": "hover",

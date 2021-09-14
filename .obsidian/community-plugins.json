@@ -7,7 +7,6 @@
   "cycle-through-panes",
   "obsidian-dice-roller",
   "hot-reload",
-  "initiative-tracker",
   "obsidian-kanban",
   "markdown-attributes",
   "obsidian-git",
@@ -21,6 +20,6 @@
   "obsidian-leaflet-plugin",
   "obsidian-map-view",
   "dataview",
-  "block-dragging",
-  "garble-text"
+  "garble-text",
+  "initiative-tracker"
 ]

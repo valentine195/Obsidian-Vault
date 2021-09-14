@@ -1,27 +1,32 @@
 {
   "players": [
     {
-      "note": "Bob",
       "name": "Bob",
+      "hp": 27,
       "ac": 17,
-      "hp": 23,
-      "modifier": 2,
-      "player": true
+      "player": true,
+      "marker": "pc"
     },
     {
-      "note": "Jeremiah Pumpernickle",
-      "name": "Jeremiah Pumpernickle",
-      "player": true
+      "name": "Jeremiah Pumperknickle",
+      "hp": 24,
+      "ac": 3,
+      "player": true,
+      "marker": "pc"
     },
     {
-      "note": "Mim",
       "name": "Mim",
-      "player": true
+      "hp": 23,
+      "ac": 16,
+      "player": true,
+      "marker": "pc"
     },
     {
-      "note": "Merigold",
       "name": "Merigold",
-      "player": true
+      "hp": 36,
+      "ac": 18,
+      "player": true,
+      "marker": "pc"
     }
   ],
   "homebrew": [
@@ -1852,6 +1857,6 @@
   "initiative": "1d20 + %mod%",
   "sync": true,
   "leafletIntegration": true,
-  "playerMarker": "default",
-  "monsterMarker": "default"
+  "playerMarker": "pc",
+  "monsterMarker": "npc"
 }

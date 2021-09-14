@@ -1,42 +1,70 @@
 :root {
     --default-font: "iA Writer Quattro" !important;
 }
-h1 {
+
+a[href="Test"] {
+/*     font-size: 1px;
+    letter-spacing: -1px;
+    font-size: 14px; */
+/*     line-height: 1.2; */
+    padding: 0.5rem;
+    box-shadow: 0px 0px 2px grey;
+    border-radius: 0.25rem;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+*:not(.nav) > .internal-link[href="Test"]::before {
+    content: none;
+    font-size: 14px;
+    line-height: 1.2;
+    background-color: var(--background-primary);
+    mask-image: unset;
+    -webkit-mask-image: unset;
+    padding: 0.5rem;
+    box-shadow: 0px 0px 2px grey;
+    border-radius: 0.25rem;
+}
+
+.cm-s-obsidian .cm-header-1, h1 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold2));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     width: max-content;
 }
-h2 {
+
+.cm-s-obsidian .cm-header-2, h2 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold3));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     width: max-content;
 }
-h3 {
+.cm-s-obsidian .cm-header-3, h3 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold4));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     width: max-content;
 }
-h4 {
+.cm-s-obsidian .cm-header-4, h4 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold5));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     width: max-content;
 }
-h5 {
+.cm-s-obsidian .cm-header-5, h5 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold6));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     width: max-content;
 }
-h6 {
+.cm-s-obsidian .cm-header-6, h6 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold7));
     -webkit-background-clip: text;
     background-clip: text;

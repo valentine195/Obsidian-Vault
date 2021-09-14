@@ -26,11 +26,15 @@ title: Yoss
 I have been instructed by my master to see to your needs. The full clanhold is at your disposal, but I must warn you - the other clans have begun arriving, and blood fueds may be settled this night. Beware the Gray Ash. Please let me know if you require anything.
 ```
 
-> As you take in the house, you hear a deep, distant, rolling rumble that goes on for several seconds. The servant walks to the balcony  and stares out, where you can see the erupting volcano surrounded by massive storm clouds.
+> As you take in the house, you hear a deep, distant, rolling rumble that goes on for several seconds. The servant walks to the balcony  and stares out, where you can see the volcano surrounded by massive dark storm clouds.
 > ```ad-quote
 > title: Yoss
-> Hmm. [[Haka'Torvhak]] awaken. A great storm will strike tonight. Bad omens on the eve of the clanmeet.
+> Hmm. [[Haka'Torvhak]] awakens. Bad omen on the eve of the clanmeet.
 > ```
+> Another rumble shakes the house, causing the furniture to 
+
+![[0AA23014-77DF-4D23-BB07-00169D12BBB4.jpeg]]
+
 
 
 ---
