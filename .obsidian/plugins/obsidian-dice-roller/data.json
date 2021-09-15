@@ -1,5 +1,10 @@
 {
   "returnAllTags": true,
   "rollLinksForTags": false,
-  "copyContentButton": true
+  "copyContentButton": true,
+  "displayResultsInline": false,
+  "formulas": {
+    "abc": "1d2 + 2d4"
+  },
+  "results": {}
 }

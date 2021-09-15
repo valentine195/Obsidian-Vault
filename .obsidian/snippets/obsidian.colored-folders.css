@@ -124,6 +124,7 @@ body:not(.is-grabbing)
     display: grid;
     gap: 7px;
     grid-auto-rows: max-content;
+    grid-auto-columns: 100%;
 }
 
 /** Top Level Folder Title */

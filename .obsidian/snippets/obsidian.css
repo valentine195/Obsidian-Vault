@@ -2,11 +2,23 @@
     --default-font: "iA Writer Quattro" !important;
 }
 
+.popover.hover-popover {
+    max-height: 600px;
+}
+
+/* .popover.hover-popover .markdown-embed {
+    height: 200%;
+}
+ */
+.popover.hover-popover .markdown-embed .markdown-embed-content {
+    height: 200%;
+}
+
 a[href="Test"] {
-/*     font-size: 1px;
+    /*     font-size: 1px;
     letter-spacing: -1px;
     font-size: 14px; */
-/*     line-height: 1.2; */
+    /*     line-height: 1.2; */
     padding: 0.5rem;
     box-shadow: 0px 0px 2px grey;
     border-radius: 0.25rem;
@@ -28,7 +40,8 @@ a[href="Test"] {
     border-radius: 0.25rem;
 }
 
-.cm-s-obsidian .cm-header-1, h1 {
+.cm-s-obsidian .cm-header-1,
+h1 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold2));
     -webkit-background-clip: text;
     background-clip: text;
@@ -36,35 +49,40 @@ a[href="Test"] {
     width: max-content;
 }
 
-.cm-s-obsidian .cm-header-2, h2 {
+.cm-s-obsidian .cm-header-2,
+h2 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold3));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     width: max-content;
 }
-.cm-s-obsidian .cm-header-3, h3 {
+.cm-s-obsidian .cm-header-3,
+h3 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold4));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     width: max-content;
 }
-.cm-s-obsidian .cm-header-4, h4 {
+.cm-s-obsidian .cm-header-4,
+h4 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold5));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     width: max-content;
 }
-.cm-s-obsidian .cm-header-5, h5 {
+.cm-s-obsidian .cm-header-5,
+h5 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold6));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     width: max-content;
 }
-.cm-s-obsidian .cm-header-6, h6 {
+.cm-s-obsidian .cm-header-6,
+h6 {
     background: linear-gradient(to right, var(--Fold1), var(--Fold7));
     -webkit-background-clip: text;
     background-clip: text;
