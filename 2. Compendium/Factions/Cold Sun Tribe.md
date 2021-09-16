@@ -22,19 +22,16 @@ The Cold Sun Tribe is one of three tribes of lizardfolk living in the [[1. Q'Bar
 | -------- | ------------ |
 | Bruk     | Hell Fox     |
 | Brazik   | Red Hunt     |
-| Gask     | Misty Forest |
+| Gask     | Misty Forest | 
 | Tratlik  | Quiet Rock   |
 | Jato     | Molten Earth |
-| Duroa    | Golden Eagle | 
-| [[Krot]] | Gray Ash     | 
-| Ogoje    | Twin Boulder |  
-| Thaz     | Strong Fist  | 
-| Odra     | Steel Titan  |  
-| Hoz      | Quiet Feet   | 
+| Duroa    | Golden Eagle |
+| [[Krot]] | Gray Ash     |
+| Ogoje    | Twin Boulder |
+| Thaz     | Strong Fist  |
+| Odra     | Steel Titan  |
+| Hoz      | Quiet Feet   |
 ^chiefs
-
- 
-
 
 
 
