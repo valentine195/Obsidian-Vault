@@ -1,0 +1,126 @@
+{
+  "main": {
+    "id": "326d8d5446ed87a2",
+    "type": "split",
+    "children": [
+      {
+        "id": "3360feb030ba6625",
+        "type": "leaf",
+        "state": {
+          "type": "empty",
+          "state": {}
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "21313dd00d5d6fb8",
+    "type": "split",
+    "children": [
+      {
+        "id": "0d45ba19112100c2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "eba81d74dc975725",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "7380a4fb7b03ebe2",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "82caed24e932c2b5",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "7e1fc02f09511d2d",
+    "type": "split",
+    "children": [
+      {
+        "id": "06a0e95cd75c47f2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "814e0bc9f453fc56",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0c074b05cdb37fd6",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "c37bad236f68df1c",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "3360feb030ba6625",
+  "lastOpenFiles": [
+    "Plugin Testing/Dice Testing.md",
+    "Plugin Testing/dice/Dice Roller.md",
+    "Plugin Testing/dice/60_00_Dice.md",
+    "Plugin Testing/Attributes.md",
+    "Plugin Testing/Comments.md",
+    "Plugin Testing/Admonition All.md",
+    "2. Compendium/Items/Longsword of Verdict.md",
+    "1. Sessions/21-7-4 - Session 8 Planning.md",
+    "1. Sessions/Post Session Logs/21-9-10.md",
+    "1. Sessions/Post Session Logs/Untitled.md"
+  ]
+}

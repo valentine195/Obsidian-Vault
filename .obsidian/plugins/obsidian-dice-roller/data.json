@@ -6,5 +6,45 @@
   "formulas": {
     "abc": "1d2 + 2d4"
   },
-  "results": {}
+  "results": {
+    "Plugin Testing/Dice Testing.md": {
+      "0": {
+        "0": {
+          "tooltip": "2d3 + 4d5\n[2, 2] + [1, 3, 5, 2]",
+          "result": 15
+        }
+      },
+      "1": {
+        "0": {
+          "tooltip": "2d3 + 4d5\n[1, 2] + [5, 3, 4, 5]",
+          "result": 22
+        }
+      },
+      "2": {
+        "0": {
+          "tooltip": "2d3 + 4d5\n[2, 3] + [3, 5, 3, 1]",
+          "result": 17
+        }
+      },
+      "3": {
+        "0": {
+          "tooltip": "2d3 + 4d5\n[2, 2] + [1, 4, 3, 3]",
+          "result": 15
+        }
+      },
+      "4": {
+        "0": {
+          "tooltip": "2d3 + 4d5\n[1, 3] + [5, 1, 1, 5]",
+          "result": 16
+        }
+      },
+      "6": {
+        "0": {
+          "tooltip": "2d3 + 4d5\n[2, 3] + [2, 5, 3, 1]",
+          "result": 16
+        }
+      }
+    }
+  },
+  "persistResults": false
 }
