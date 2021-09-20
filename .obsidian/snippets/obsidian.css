@@ -2,6 +2,25 @@
     --default-font: "iA Writer Quattro" !important;
 }
 
+body.is-mobile .admonition {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+body.is-mobile .admonition-content,
+body.is-mobile
+    .admonition
+    > .admonition-title.no-title
+    + .admonition-content-holder {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* body.is-mobile .admonition-content > * {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+} */
+
 a[href="Test"] {
     /*     font-size: 1px;
     letter-spacing: -1px;
@@ -15,7 +34,6 @@ a[href="Test"] {
     height: 30px;
     text-align: center;
 }
-
 
 *:not(.nav) > .internal-link[href="Test"]::before {
     content: none;

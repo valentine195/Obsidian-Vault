@@ -3,48 +3,498 @@
   "rollLinksForTags": false,
   "copyContentButton": true,
   "displayResultsInline": false,
-  "formulas": {
-    "abc": "1d2 + 2d4"
-  },
+  "formulas": {},
+  "persistResults": true,
   "results": {
     "Plugin Testing/Dice Testing.md": {
-      "0": {
-        "0": {
-          "tooltip": "2d3 + 4d5\n[2, 2] + [1, 3, 5, 2]",
-          "result": 15
-        }
-      },
-      "1": {
-        "0": {
-          "tooltip": "2d3 + 4d5\n[1, 2] + [5, 3, 4, 5]",
-          "result": 22
-        }
-      },
       "2": {
         "0": {
-          "tooltip": "2d3 + 4d5\n[2, 3] + [3, 5, 3, 1]",
-          "result": 17
-        }
-      },
-      "3": {
-        "0": {
-          "tooltip": "2d3 + 4d5\n[2, 2] + [1, 4, 3, 3]",
-          "result": 15
+          "type": "dice",
+          "result": 5,
+          "tooltip": "5d2-1 - 1\n[2, 1, 2, 1, 1]-1 - 1"
         }
       },
       "4": {
         "0": {
-          "tooltip": "2d3 + 4d5\n[1, 3] + [5, 1, 1, 5]",
-          "result": 16
+          "type": "dice",
+          "result": 4,
+          "tooltip": "8d10>=8-=1!i>9\n[1-, 8*, 3, 8*, 9*, 8*, 2, 9*]!i>9"
         }
       },
       "6": {
         "0": {
-          "tooltip": "2d3 + 4d5\n[2, 3] + [2, 5, 3, 1]",
-          "result": 16
+          "type": "dice",
+          "result": 113,
+          "tooltip": "3d\n[48, 7, 58]"
+        }
+      },
+      "8": {
+        "0": {
+          "type": "tag",
+          "random": 5,
+          "result": {
+            "2. Compendium/Locations/Q'Barra/Whitecliff.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 12,
+                      "col": 0,
+                      "offset": 149
+                    },
+                    "end": {
+                      "line": 12,
+                      "col": 550,
+                      "offset": 699
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Q'Barra/Crazy Fist Clanhold.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 12,
+                      "col": 0,
+                      "offset": 194
+                    },
+                    "end": {
+                      "line": 12,
+                      "col": 110,
+                      "offset": 304
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Breland/Sharn.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 9,
+                      "col": 0,
+                      "offset": 124
+                    },
+                    "end": {
+                      "line": 9,
+                      "col": 79,
+                      "offset": 203
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Q'Barra/Newthrone.md": {
+              "type": "section"
+            },
+            "2. Compendium/NPCs/Rabar.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 12,
+                      "col": 0,
+                      "offset": 153
+                    },
+                    "end": {
+                      "line": 12,
+                      "col": 67,
+                      "offset": 220
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Talenta Plains/Boneyard.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 14,
+                      "col": 0,
+                      "offset": 265
+                    },
+                    "end": {
+                      "line": 14,
+                      "col": 373,
+                      "offset": 638
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Q'Barra/Haka'Torvhak.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 16,
+                      "col": 0,
+                      "offset": 327
+                    },
+                    "end": {
+                      "line": 16,
+                      "col": 101,
+                      "offset": 428
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Demon Wastes/Lake of Fire.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "id": "230377",
+                  "position": {
+                    "start": {
+                      "line": 12,
+                      "col": 0,
+                      "offset": 194
+                    },
+                    "end": {
+                      "line": 12,
+                      "col": 137,
+                      "offset": 331
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Thrane/Flamekeep.md": {
+              "type": "section"
+            },
+            "2. Compendium/Locations/Q'Barra/Mine Of Whitecliff.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 13,
+                      "col": 0,
+                      "offset": 200
+                    },
+                    "end": {
+                      "line": 13,
+                      "col": 85,
+                      "offset": 285
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Karrnath/Crimson Monastery.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 14,
+                      "col": 0,
+                      "offset": 228
+                    },
+                    "end": {
+                      "line": 14,
+                      "col": 263,
+                      "offset": 491
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "10": {
+        "0": {
+          "type": "section",
+          "result": [
+            {
+              "type": "paragraph",
+              "position": {
+                "start": {
+                  "line": 53,
+                  "col": 0,
+                  "offset": 8936
+                },
+                "end": {
+                  "line": 53,
+                  "col": 524,
+                  "offset": 9460
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "Plugin Testing/dice/Dice Roller.md": {
+      "0": {
+        "0": {
+          "type": "link",
+          "result": "2. Compendium/Locations/Q'Barra/Whitecliff.md"
+        }
+      }
+    },
+    "Dice Testing.md": {
+      "2": {
+        "0": {
+          "type": "dice",
+          "result": 3,
+          "tooltip": "5d2-1 - 1\n[1, 1, 1, 1, 1]-1 - 1"
+        }
+      },
+      "4": {
+        "0": {
+          "type": "dice",
+          "result": 4,
+          "tooltip": "8d10>=8-=1!i>9\n[4, 5, 8*, 8*, 4, 8*, 2, 10!*, 5]!i>9"
+        }
+      },
+      "6": {
+        "0": {
+          "type": "dice",
+          "result": 125,
+          "tooltip": "3d\n[65, 55, 5]"
+        }
+      },
+      "8": {
+        "0": {
+          "type": "tag",
+          "random": 6,
+          "result": {
+            "2. Compendium/Locations/Q'Barra/Whitecliff.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 21,
+                      "col": 0,
+                      "offset": 798
+                    },
+                    "end": {
+                      "line": 21,
+                      "col": 50,
+                      "offset": 848
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Q'Barra/Crazy Fist Clanhold.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 12,
+                      "col": 0,
+                      "offset": 194
+                    },
+                    "end": {
+                      "line": 12,
+                      "col": 110,
+                      "offset": 304
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Breland/Sharn.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 9,
+                      "col": 0,
+                      "offset": 124
+                    },
+                    "end": {
+                      "line": 9,
+                      "col": 79,
+                      "offset": 203
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Q'Barra/Newthrone.md": {
+              "type": "section"
+            },
+            "2. Compendium/NPCs/Rabar.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 12,
+                      "col": 0,
+                      "offset": 153
+                    },
+                    "end": {
+                      "line": 12,
+                      "col": 67,
+                      "offset": 220
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Talenta Plains/Boneyard.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 16,
+                      "col": 0,
+                      "offset": 642
+                    },
+                    "end": {
+                      "line": 16,
+                      "col": 82,
+                      "offset": 724
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Q'Barra/Haka'Torvhak.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 16,
+                      "col": 0,
+                      "offset": 327
+                    },
+                    "end": {
+                      "line": 16,
+                      "col": 101,
+                      "offset": 428
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Demon Wastes/Lake of Fire.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "id": "230377",
+                  "position": {
+                    "start": {
+                      "line": 12,
+                      "col": 0,
+                      "offset": 194
+                    },
+                    "end": {
+                      "line": 12,
+                      "col": 137,
+                      "offset": 331
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Thrane/Flamekeep.md": {
+              "type": "section"
+            },
+            "2. Compendium/Locations/Q'Barra/Mine Of Whitecliff.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 28,
+                      "col": 0,
+                      "offset": 778
+                    },
+                    "end": {
+                      "line": 28,
+                      "col": 38,
+                      "offset": 816
+                    }
+                  }
+                }
+              ]
+            },
+            "2. Compendium/Locations/Karrnath/Crimson Monastery.md": {
+              "type": "section",
+              "result": [
+                {
+                  "type": "paragraph",
+                  "position": {
+                    "start": {
+                      "line": 14,
+                      "col": 0,
+                      "offset": 228
+                    },
+                    "end": {
+                      "line": 14,
+                      "col": 263,
+                      "offset": 491
+                    }
+                  }
+                }
+              ]
+            }
+          }
+        }
+      },
+      "10": {
+        "0": {
+          "type": "section",
+          "result": [
+            {
+              "type": "heading",
+              "position": {
+                "start": {
+                  "line": 43,
+                  "col": 0,
+                  "offset": 7113
+                },
+                "end": {
+                  "line": 43,
+                  "col": 20,
+                  "offset": 7133
+                }
+              }
+            }
+          ]
         }
       }
     }
   },
-  "persistResults": false
+  "defaultRoll": 1,
+  "defaultFace": 100
 }

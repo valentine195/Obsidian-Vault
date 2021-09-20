@@ -4,6 +4,7 @@
 3. [[Fighting Pits]]
 4. [[Race of the Eight Winds]]
 5. AI reveals some info about PC past
+6. https://www.reddit.com/r/DnDBehindTheScreen/comments/ppk2tr/wilder_chases_rules/?utm_source=share&utm_medium=ios_app&utm_name=iossmf
 
 ### Monsters
 1. [[Royal Incinerator]]
