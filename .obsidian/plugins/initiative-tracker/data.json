@@ -1,0 +1,20 @@
+{
+  "players": [
+    {
+      "name": "Bob",
+      "hp": 26,
+      "ac": 15,
+      "modifier": 3,
+      "marker": "pc",
+      "player": true
+    }
+  ],
+  "homebrew": [],
+  "version": null,
+  "canUseDiceRoll": false,
+  "initiative": "1d20 + %mod%",
+  "sync": false,
+  "leafletIntegration": true,
+  "playerMarker": "pc",
+  "monsterMarker": "npc"
+}

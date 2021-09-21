@@ -5,7 +5,6 @@
   "hotkeysplus-obsidian",
   "table-editor-obsidian",
   "cycle-through-panes",
-  "obsidian-dice-roller",
   "hot-reload",
   "obsidian-kanban",
   "markdown-attributes",
@@ -21,5 +20,6 @@
   "dataview",
   "garble-text",
   "initiative-tracker",
+  "obsidian-dice-roller",
   "obsidian-leaflet-plugin"
 ]

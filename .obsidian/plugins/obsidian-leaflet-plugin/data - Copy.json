@@ -1,0 +1,136 @@
+{
+  "mapMarkers": [],
+  "defaultMarker": {
+    "type": "default",
+    "iconName": "map-marker",
+    "color": "#dddddd",
+    "transform": {
+      "size": 6,
+      "x": 0,
+      "y": -2
+    }
+  },
+  "markerIcons": [
+    {
+      "type": "location",
+      "iconName": "circle",
+      "color": "#ff4015",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tag": "location",
+      "tags": [
+        "location"
+      ]
+    },
+    {
+      "type": "event",
+      "iconName": "exclamation",
+      "color": "#0091ff",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
+    },
+    {
+      "type": "npc",
+      "iconName": "user",
+      "color": "#13961b",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
+    },
+    {
+      "type": "pc",
+      "iconName": "user",
+      "color": "#0156f4",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false
+    }
+  ],
+  "color": "#dddddd",
+  "lat": 39.983334,
+  "long": -82.98333,
+  "notePreview": false,
+  "layerMarkers": true,
+  "previousVersion": "3.24.14",
+  "warnedAboutMapMarker": false,
+  "copyOnClick": false,
+  "displayMarkerTooltips": "hover",
+  "displayOverlayTooltips": true,
+  "configDirectory": null,
+  "version": {
+    "major": 4,
+    "minor": 0,
+    "patch": 0
+  },
+  "mapViewEnabled": true,
+  "mapViewParameters": {
+    "darkMode": "false",
+    "defaultZoom": 5,
+    "distanceMultiplier": 1,
+    "drawColor": "#3388ff",
+    "geojson": [
+      null
+    ],
+    "geojsonColor": "#3388ff",
+    "gpx": [
+      "[[route_2018-07-29_12.37pm.gpx]]"
+    ],
+    "gpxColor": "red",
+    "height": "500px",
+    "image": "real",
+    "imageOverlay": [],
+    "isMapView": false,
+    "layers": [
+      "real"
+    ],
+    "linksFrom": [],
+    "linksTo": [],
+    "marker": [
+      "location, 50, 50"
+    ],
+    "commandMarker": [],
+    "markerFile": [],
+    "markerFolder": [
+      "Plugin Testing/map/marker folder"
+    ],
+    "markerTag": [],
+    "maxZoom": 30,
+    "minZoom": 1,
+    "osmLayer": true,
+    "overlay": [],
+    "overlayColor": "blue",
+    "scale": 1,
+    "tileServer": [],
+    "verbose": false,
+    "zoomDelta": 1,
+    "zoomFeatures": false,
+    "id": "real 2",
+    "overlayTag": "nearby",
+    "gpxMarkers": {
+      "start": "location",
+      "waypoint": "event",
+      "end": "event"
+    },
+    "filterTag": []
+  },
+  "enableDraw": true,
+  "defaultUnitType": "imperial"
+}

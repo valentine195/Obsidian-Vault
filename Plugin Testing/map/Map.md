@@ -1,6 +1,5 @@
-
-
 %%
+
 ```leaflet
 id: tester7
 image: 
@@ -26,21 +25,24 @@ geojsonColor: red
 %%
 
 ```leaflet
-#height: 75%
+#height: 100%
 id: real 2
 # defaultZoom: 9
 maxZoom: 30
 #zoomFeatures: true
-#markerFolder: Plugin Testing/map
+markerFolder: Plugin Testing/map/marker folder
+marker: location, 50, 50
 overlayTag: nearby
 #coordinates: [[Direct, Marker]]
 gpxColor: red
+#geojsonFolder: Plugin Testing/map/geojson
+#gpxFolder: Plugin Testing/map/gpx
 geojson:
 # - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
 gpx:
- - [[20210729 1859 2021-07-29 Oberegger Stausee mit M&M.gpx]]
+# - [[20210729 1859 2021-07-29 Oberegger Stausee mit M&M.gpx]]
 # - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]
-# - [[route_2018-07-29_12.37pm.gpx]]
+ - [[route_2018-07-29_12.37pm.gpx]]
 # - [[route_2020-04-18_11.38am.gpx]]
 gpxMarkers: 
  start: location

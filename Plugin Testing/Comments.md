@@ -36,7 +36,7 @@ I'm normal text, but _I'm italic { class='internal-link' }_, **I'm bold 
 | header1      | header2 |
 | ------------ | ------- |
 | column1      | column2 |
-| {: .special} |         |
+{: style="background-color: red;"}
 
 
 ### Code

@@ -3,9 +3,11 @@
   "theme": "moonstone",
   "cssTheme": "Minimal",
   "enabledCssSnippets": [
-    "obsidian.colored-folders",
+    "text-garbled",
     "obsidian.auto-fading",
+    "obsidian.colored-folders",
     "obsidian",
+    "obsidian.garble",
     "obsidian.image-adjustments",
     "obsidian.masthead",
     "obsidian.material-icons",
@@ -13,8 +15,6 @@
     "obsidian.nav",
     "obsidian.outliner-overrides",
     "obsidian.portrait",
-    "obsidian.subhead",
-    "text-garbled",
-    "obsidian.garble"
+    "obsidian.subhead"
   ]
 }
