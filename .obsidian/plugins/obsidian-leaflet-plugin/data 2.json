@@ -10,7 +10,23 @@
       "y": -2
     }
   },
-  "markerIcons": [],
+  "markerIcons": [
+    {
+      "type": "location",
+      "iconName": "circle",
+      "color": "#e22400",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [
+        "location"
+      ]
+    }
+  ],
   "color": "#dddddd",
   "lat": 39.983334,
   "long": -82.98333,

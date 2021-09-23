@@ -460,6 +460,22 @@
           "tooltip": "1d100\n[35]"
         }
       }
+    },
+    "1. Sessions/21-7-4 - Session 8 Planning.md": {
+      "46": {
+        "0": {
+          "type": "dice",
+          "result": 11,
+          "tooltip": "1d20\n[11]"
+        }
+      },
+      "82": {
+        "0": {
+          "type": "dice",
+          "result": 1744,
+          "tooltip": "4d57 + 1600\n[42, 45, 15, 42] + 1600"
+        }
+      }
     }
   },
   "defaultRoll": 1,
