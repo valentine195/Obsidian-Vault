@@ -1,3 +1,6 @@
+/*!***************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/assets/main.css ***!
+  \***************************************************************************************************/
 .dice-roller {
     position: relative;
     display: inline-block;
@@ -141,3 +144,32 @@
     .setting-item {
     border: 0;
 }
+
+/*!*************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/view/view.css ***!
+  \*************************************************************************************************/
+/** Dice Roller View CSS */
+
+.dice-roller-view .dice-view-grid {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
+.dice-roller-view .setting-editor-extra-setting-button {
+    width: fit-content;
+}
+
+.dice-roller-view .dice-button .clickable-icon > svg {
+    width: 36px;
+    height: 36px;
+}
+
+.dice-roller-view .dice-view-formula {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+

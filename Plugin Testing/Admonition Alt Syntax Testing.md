@@ -17,7 +17,3 @@ bc
 edlkj
 
 --- admonition
-
-```query
-tag:#location
-```

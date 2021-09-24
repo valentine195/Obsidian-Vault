@@ -15,5 +15,6 @@
   },
   "alwaysUpdateLinks": true,
   "strictLineBreaks": true,
-  "fileSortOrder": "alphabetical"
+  "fileSortOrder": "alphabetical",
+  "showLineNumber": false
 }
