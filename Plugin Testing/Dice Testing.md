@@ -1,13 +1,18 @@
 
 
+`dice: -1d100`
+
+`dice: 2d6 -1`
+
+`dice: abc`
+%%
+
 `dice+: 5d2-1 - 1`
 
 `dice+: 8d10>=8-=1!i>9`
 
 Let's try an inline result in a paragraph. 3d100 + 12 -> [75, 20, 75] + 12 ->  **182**! Did it work?
 
-`dice-mod: #location|-|paragraph`
-%%
 
 
 `dice+: [[Dice Variants]]`

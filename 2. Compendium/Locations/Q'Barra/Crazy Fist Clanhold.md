@@ -1,7 +1,7 @@
 ---
 type: location
 location: [-4.41, 6.89]
-#mapmarker: location
+mapmarker: location
 tags:
  - location/q'barra/q'barran-jungle
  - factions/cold-sun/crazy-fist
