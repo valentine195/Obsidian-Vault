@@ -16,11 +16,6 @@ test
 
 ````
 
-```mermaid
-
-A -> B
-
-```
 
 ```ad-bug
 title:

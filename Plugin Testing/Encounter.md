@@ -11,9 +11,9 @@ creatures:
 name: Example 3
 players: none
 creatures:
- - Goblin, 7, 15, 2
- - Goblin, 3, 15, 2
- - Goblin test long name la la la la, 10, 15, 2
+ - Goblin,, 15, 2
+ - Goblin,, 15, 2
+ - Goblin test long name la la la la,, 15, 2
 ---
 name: Example 4
 players:

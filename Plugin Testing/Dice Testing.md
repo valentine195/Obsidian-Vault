@@ -5,7 +5,7 @@
 `dice: 2d6 -1`
 
 `dice: abc`
-%%
+
 
 `dice+: 5d2-1 - 1`
 

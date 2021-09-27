@@ -1,7 +1,7 @@
 ---
 type: location
 location: [-3.1709, 4.3953]
-mapmarker: location
+#mapmarker: location
 tags:
  - location/thrane/flamekeep
  - factions/church-of-the-silver-flame

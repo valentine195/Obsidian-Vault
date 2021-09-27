@@ -1,5 +1,3 @@
-%%
-
 ```leaflet
 id: tester7
 image: 
