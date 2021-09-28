@@ -1,5 +1,136 @@
 {
-  "mapMarkers": [],
+  "mapMarkers": [
+    {
+      "id": "real 2",
+      "lastAccessed": 1632769773073,
+      "markers": [
+        {
+          "id": "ID_8a8a98baa899",
+          "type": "test",
+          "loc": [
+            40.450082238680295,
+            -77.28417889290074
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": 3,
+          "maxZoom": 6,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [
+        {
+          "radius": 228.11091105028058,
+          "loc": [
+            38.688725613296725,
+            -89.90674582994308
+          ],
+          "color": "blue",
+          "layer": "real",
+          "unit": "mi",
+          "desc": "",
+          "mutable": true,
+          "marker": null
+        },
+        {
+          "radius": 125.3430341375956,
+          "loc": [
+            37.93011726880927,
+            -89.33499192687144
+          ],
+          "color": "blue",
+          "layer": "real",
+          "unit": "mi",
+          "desc": "",
+          "mutable": true,
+          "marker": null
+        }
+      ],
+      "shapes": [],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
+    },
+    {
+      "id": "tester7",
+      "lastAccessed": 1632770980413,
+      "markers": [],
+      "overlays": [],
+      "shapes": [
+        {
+          "type": "polyline",
+          "color": "#3388FF",
+          "vertices": [
+            {
+              "lat": 884.375,
+              "lng": 1441.4385679414158,
+              "id": "ID_48e9f879d8d8",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": 976.375,
+              "lng": 748.8755085435314,
+              "id": "ID_1a7a69eb7908",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": 504.375,
+              "lng": 716.8494711147275,
+              "id": "ID_197988c9d9a8",
+              "targets": {
+                "vertexIds": []
+              }
+            }
+          ],
+          "arrows": false,
+          "reversed": false
+        },
+        {
+          "type": "polyline",
+          "color": "#3388FF",
+          "vertices": [
+            {
+              "lat": 264.375,
+              "lng": 1573.545972335232,
+              "id": "ID_597b59a8db2b",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": 192.375,
+              "lng": 872.9764035801466,
+              "id": "ID_4a086a4a593a",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": 476.375,
+              "lng": 296.50772986167624,
+              "id": "ID_3b1a29787a29",
+              "targets": {
+                "vertexIds": []
+              }
+            }
+          ],
+          "arrows": true,
+          "reversed": true
+        }
+      ],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
+    }
+  ],
   "defaultMarker": {
     "type": "default",
     "iconName": "map-marker",
@@ -10,17 +141,63 @@
       "y": -2
     }
   },
-  "markerIcons": [],
+  "markerIcons": [
+    {
+      "type": "location",
+      "iconName": "circle",
+      "color": "#e22828",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [
+        "location"
+      ]
+    },
+    {
+      "type": "event",
+      "iconName": "exclamation",
+      "color": "#34adea",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [
+        "event"
+      ]
+    },
+    {
+      "type": "test",
+      "iconName": "cog",
+      "color": "#dddddd",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [],
+      "minZoom": 3,
+      "maxZoom": 6
+    }
+  ],
   "color": "#dddddd",
   "lat": 39.983334,
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "4.0.0",
+  "previousVersion": "4.1.1",
   "version": {
     "major": 4,
-    "minor": 0,
-    "patch": 0
+    "minor": 1,
+    "patch": 1
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": false,

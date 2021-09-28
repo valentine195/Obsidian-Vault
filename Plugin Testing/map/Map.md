@@ -1,8 +1,7 @@
 ```leaflet
 id: tester7
-image: 
- - [[middle-earth-map.jpg|Middle Earth]]
- - [[Khorvaire.jpg|Khorvaire]]
+image: [[middle-earth-map.jpg|Middle Earth]]
+image: [[Khorvaire.jpg|Khorvaire]]
 bounds: [[0,0], [1411.76, 1882.35]]
 height: 500px
 lat: 700
@@ -11,13 +10,11 @@ minZoom: -5
 defaultZoom: -2
 maxZoom: 2
 unit: miles
-geojson:
- - [[geo-fangorn.geojson]]
+geojson: [[geo-fangorn.geojson]]
 grid: true
 
 geojsonColor: red
-#zoomFeatures: true
-#verbose: true
+
 ```
 
 %%
@@ -38,13 +35,14 @@ gpxColor: red
 geojson:
 # - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
 gpx:
-# - [[20210729 1859 2021-07-29 Oberegger Stausee mit M&M.gpx]]
-# - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]
+ - [[20210729 1859 2021-07-29 Oberegger Stausee mit M&M.gpx]]
+ - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx]]
  - [[route_2018-07-29_12.37pm.gpx]]
-# - [[route_2020-04-18_11.38am.gpx]]
+ - [[route_2020-04-18_11.38am.gpx]]
 gpxMarkers: 
  start: location
  waypoint: event
  end: event
 #verbose: true
+commandMarker: location,42.78229917261048,-77.59204637917007,workspace:copy-path,,,
 ```

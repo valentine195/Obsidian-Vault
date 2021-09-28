@@ -1,4 +1,4 @@
-
+%%
 
 `dice: -1d100`
 
@@ -13,9 +13,11 @@
 
 Let's try an inline result in a paragraph. 3d100 + 12 -> [75, 20, 75] + 12 ->  **182**! Did it work?
 
+%%
 
+`dice+: [[Dice Variants#^abcdef]]`
 
-`dice+: [[Dice Variants]]`
+%%
 
 `dice: [[Cold Sun Tribe^chiefs]]`
 

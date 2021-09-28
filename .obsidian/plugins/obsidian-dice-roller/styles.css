@@ -1,3 +1,6 @@
+/*!***************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/assets/main.css ***!
+  \***************************************************************************************************/
 .dice-roller {
     position: relative;
     display: inline-block;
@@ -142,6 +145,9 @@
     border: 0;
 }
 
+/*!*************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/view/view.css ***!
+  \*************************************************************************************************/
 /** Dice Roller View CSS */
 .workspace-split.mod-right-split .view-content.dice-roller-view {
     padding: 0.5rem;
@@ -266,5 +272,11 @@
 .dice-roller-view .dice-roller-results > span {
     color: var(--text-muted);
     margin: 0 auto;
+}
+
+.dice-renderer {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 

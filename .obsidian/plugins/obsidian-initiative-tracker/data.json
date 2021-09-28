@@ -1,0 +1,20 @@
+{
+  "players": [
+    {
+      "name": "Bob",
+      "hp": 32,
+      "ac": 16,
+      "modifier": 3,
+      "player": true,
+      "marker": "default"
+    }
+  ],
+  "homebrew": [],
+  "version": null,
+  "canUseDiceRoll": false,
+  "initiative": "1d20 + %mod%",
+  "sync": true,
+  "leafletIntegration": true,
+  "playerMarker": "default",
+  "monsterMarker": "default"
+}

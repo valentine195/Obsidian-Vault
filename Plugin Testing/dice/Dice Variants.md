@@ -3,6 +3,20 @@ tags:
  - dice
 ---
 
+- a
+- b
+- c
+- d
+- e
+- f
+- g
+- h
+- i
+- j
+- k
+
+^abcdef
+
 ### Polyhedral dice
 
 A typical set of roleplaying dice in various colors. They consist of the five Platonic solids, along with a ten-sided die that is also used for generating percentages.
