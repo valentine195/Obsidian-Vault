@@ -2,6 +2,8 @@
     --default-font: "iA Writer Quattro" !important;
 }
 
+/** Make Admonitions Closer on Mobile */
+
 body.is-mobile .admonition {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
@@ -16,115 +18,8 @@ body.is-mobile
     margin-bottom: 0px;
 }
 
-/* body.is-mobile .admonition-content > * {
-    margin-top: 0.25rem;
-    margin-bottom: 0.25rem;
-} */
-
-a[href="Test"] {
-    /*     font-size: 1px;
-    letter-spacing: -1px;
-    font-size: 14px; */
-    /*     line-height: 1.2; */
-    padding: 0.5rem;
-    box-shadow: 0px 0px 2px grey;
-    border-radius: 0.25rem;
-    display: inline-block;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-}
-
-*:not(.nav) > .internal-link[href="Test"]::before {
-    content: none;
-    font-size: 14px;
-    line-height: 1.2;
-    background-color: var(--background-primary);
-    mask-image: unset;
-    -webkit-mask-image: unset;
-    padding: 0.5rem;
-    box-shadow: 0px 0px 2px grey;
-    border-radius: 0.25rem;
-}
-
-.cm-s-obsidian .cm-header-1,
-h1 {
-    background: linear-gradient(to right, var(--Fold1), var(--Fold2));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    width: max-content;
-}
-
-.cm-s-obsidian .cm-header-2,
-h2 {
-    background: linear-gradient(to right, var(--Fold1), var(--Fold3));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    width: max-content;
-}
-.cm-s-obsidian .cm-header-3,
-h3 {
-    background: linear-gradient(to right, var(--Fold1), var(--Fold4));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    width: max-content;
-}
-.cm-s-obsidian .cm-header-4,
-h4 {
-    background: linear-gradient(to right, var(--Fold1), var(--Fold5));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    width: max-content;
-}
-.cm-s-obsidian .cm-header-5,
-h5 {
-    background: linear-gradient(to right, var(--Fold1), var(--Fold6));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    width: max-content;
-}
-.cm-s-obsidian .cm-header-6,
-h6 {
-    background: linear-gradient(to right, var(--Fold1), var(--Fold7));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    width: max-content;
-}
-
-mark.red {
-    background-color: red;
-    color: white;
-}
-.center {
-    display: flex;
-    width: max-content;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.smallcaps {
-    font-variant: small-caps;
-}
-
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
     max-width: 900px;
-}
-
-.markdown-preview-view h1:first-of-type,
-.markdown-preview-view h2:first-of-type,
-.markdown-preview-view .is-collapsed > h1,
-.markdown-preview-view .is-collapsed > h2,
-.markdown-preview-view .is-collapsed > h3,
-.markdown-preview-view .is-collapsed > h4,
-.markdown-preview-view .is-collapsed > h5,
-.markdown-preview-view .is-collapsed > h6 {
-    border-bottom: 1px solid var(--background-modifier-border);
 }
 
 /**
@@ -137,39 +32,6 @@ mark.red {
     display: flex;
     align-items: center;
 }
-:root {
-    --h1: 2.5em;
-    --h2: 2em;
-    --h3: 1.75em;
-    --h4: 1.5;
-    --h5: 1.25;
-    --h6: 1.125em;
-}
-
-/* h1,
-.cm-header-1 {
-    color: var(--Fold0) !important;
-}
-h2,
-.cm-header-2 {
-    color: var(--Fold1) !important;
-}
-h3,
-.cm-header-3 {
-    color: var(--Fold2) !important;
-}
-h4,
-.cm-header-4 {
-    color: var(--Fold3) !important;
-}
-h5,
-.cm-header-5 {
-    color: var(--Fold4) !important;
-}
-h6,
-.cm-header-6 {
-    color: var(--Fold5) !important;
-} */
 
 /** 
   * Consistent Blockquote & Admonition Padding
