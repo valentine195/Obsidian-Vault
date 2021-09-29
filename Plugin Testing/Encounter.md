@@ -1,4 +1,4 @@
-```encounter
+```
 name: Example
 creatures:
  - Hobgoblin
@@ -21,5 +21,12 @@ players:
 creatures:
  - Strahd von Zarovich
  - Goblin, 7, 15, 2
+```
+
+
+```encounter
+name: Fight
+creatures:
+- 3: Salamander, 60, 12, 20
 ```
 

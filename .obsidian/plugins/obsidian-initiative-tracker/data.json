@@ -16,5 +16,58 @@
   "sync": true,
   "leafletIntegration": true,
   "playerMarker": "default",
-  "monsterMarker": "default"
+  "monsterMarker": "default",
+  "state": {
+    "creatures": [
+      {
+        "name": "Salamander",
+        "initiative": 16,
+        "modifier": 20,
+        "hp": 60,
+        "ac": 12,
+        "id": "ID_295a08e8083a",
+        "currentHP": 60,
+        "status": [],
+        "enabled": true
+      },
+      {
+        "name": "Salamander",
+        "initiative": 15,
+        "modifier": 20,
+        "hp": 60,
+        "ac": 12,
+        "id": "ID_295a08e8083a",
+        "currentHP": 60,
+        "status": [],
+        "enabled": true
+      },
+      {
+        "name": "Salamander",
+        "initiative": 8,
+        "modifier": 20,
+        "hp": 60,
+        "ac": 12,
+        "id": "ID_295a08e8083a",
+        "currentHP": 60,
+        "status": [],
+        "enabled": true
+      },
+      {
+        "name": "Bob",
+        "initiative": 19,
+        "modifier": 3,
+        "hp": 32,
+        "ac": 16,
+        "id": "ID_d8ba18baa8b9",
+        "marker": "default",
+        "currentHP": 32,
+        "status": [],
+        "enabled": true,
+        "player": true
+      }
+    ],
+    "state": true,
+    "current": 2,
+    "name": "Fight"
+  }
 }

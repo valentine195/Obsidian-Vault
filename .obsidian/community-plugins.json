@@ -5,6 +5,7 @@
   "hotkeysplus-obsidian",
   "table-editor-obsidian",
   "cycle-through-panes",
+  "obsidian-dice-roller",
   "hot-reload",
   "obsidian-kanban",
   "markdown-attributes",
@@ -15,12 +16,10 @@
   "templater-obsidian",
   "obsidian-timelines",
   "obsidian-5e-statblocks",
-  "obsidian-admonition",
   "obsidian-map-view",
   "dataview",
   "garble-text",
-  "initiative-tracker",
-  "obsidian-dice-roller",
   "obsidian-leaflet-plugin",
-  "obsidian-prominent-starred-files"
+  "initiative-tracker",
+  "obsidian-admonition"
 ]
