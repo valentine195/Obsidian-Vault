@@ -11,12 +11,12 @@
 }
 
 body.is-mobile {
-    --h1: 1.5rem;
-    --h2: 1.375rem;
-    --h3: 1.25rem;
-    --h4: 1.125rem;
-    --h5: 1.1rem;
-    --h6: 1rem;
+    --h1: 1.875rem;
+    --h2: 1.75rem;
+    --h3: 1.675rem;
+    --h4: 1.5rem;
+    --h5: 1.375rem;
+    --h6: 1.25rem;
 }
 
 /** Background Gradient on Headers */
