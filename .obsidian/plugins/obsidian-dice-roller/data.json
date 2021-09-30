@@ -1,0 +1,12 @@
+{
+  "returnAllTags": true,
+  "rollLinksForTags": false,
+  "copyContentButton": true,
+  "displayResultsInline": false,
+  "formulas": {},
+  "persistResults": false,
+  "results": {},
+  "defaultRoll": 1,
+  "defaultFace": 100,
+  "renderer": true
+}

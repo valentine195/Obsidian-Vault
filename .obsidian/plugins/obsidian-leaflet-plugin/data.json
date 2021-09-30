@@ -1,5 +1,34 @@
 {
-  "mapMarkers": [],
+  "mapMarkers": [
+    {
+      "id": "tester7",
+      "lastAccessed": 1633029159308,
+      "markers": [
+        {
+          "id": "ID_0a6bfb0959fa",
+          "type": "default",
+          "loc": [
+            344.375,
+            884.9873980726463
+          ],
+          "link": null,
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": -3,
+          "maxZoom": 0,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
+    }
+  ],
   "defaultMarker": {
     "type": "default",
     "iconName": "map-marker",
