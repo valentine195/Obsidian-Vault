@@ -9,6 +9,6 @@
   "defaultRoll": 1,
   "defaultFace": 100,
   "renderer": true,
-  "diceColor": "#c42121",
+  "diceColor": "#0042a9",
   "textColor": "#ffffff"
 }
