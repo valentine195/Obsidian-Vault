@@ -8,5 +8,7 @@
   "results": {},
   "defaultRoll": 1,
   "defaultFace": 100,
-  "renderer": true
+  "renderer": true,
+  "diceColor": "#c42121",
+  "textColor": "#ffffff"
 }
