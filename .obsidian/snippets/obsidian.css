@@ -2,6 +2,13 @@
     --default-font: "iA Writer Quattro" !important;
 }
 
+.kanban-plugin__board.kanban-plugin__board > div {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, var(--lane-width));
+    width: 100%;
+    gap: 10px;
+}
+
 /** Generic */
 .body.is-mobile .setting-item-description {
     word-break: break-word;

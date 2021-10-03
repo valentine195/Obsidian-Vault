@@ -16,15 +16,11 @@
   "templater-obsidian",
   "obsidian-timelines",
   "obsidian-5e-statblocks",
-  "obsidian-map-view",
   "obsidian-admonition",
+  "obsidian-map-view",
   "dataview",
   "garble-text",
   "obsidian-leaflet-plugin",
-<<<<<<< HEAD
-  "initiative-tracker"
-=======
   "initiative-tracker",
-  "obsidian-dice-roller"
->>>>>>> b279656f43d8b3c030d6174e1e99767d9de2f9de
+  "quick-monsters-5e"
 ]

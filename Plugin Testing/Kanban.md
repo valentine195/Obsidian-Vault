@@ -20,10 +20,12 @@ cssclasses: test
 
 ## a
 
+- [ ] 2
 
 
 ## b
 
+- [ ] 3
 
 
 ## c
@@ -36,14 +38,12 @@ cssclasses: test
 
 ## e
 
-- [ ] test
-- [ ] 2
-- [ ] 3
 - [ ] 5
 
 
 ## f
 
+- [ ] test
 
 
 ## g
