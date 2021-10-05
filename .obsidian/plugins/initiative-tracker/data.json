@@ -1,0 +1,50 @@
+{
+  "players": [],
+  "homebrew": [],
+  "version": null,
+  "canUseDiceRoll": false,
+  "initiative": "1d20 + %mod%",
+  "sync": false,
+  "leafletIntegration": false,
+  "playerMarker": "default",
+  "monsterMarker": "default",
+  "state": {
+    "creatures": [
+      {
+        "name": "Goblin test long name la la la la",
+        "initiative": 14,
+        "modifier": 0,
+        "ac": 15,
+        "id": "ID_08da28bb0b79",
+        "marker": "default",
+        "status": [],
+        "enabled": true
+      },
+      {
+        "name": "Goblin",
+        "initiative": 11,
+        "modifier": 0,
+        "hp": 7,
+        "ac": 15,
+        "id": "ID_0a79289a488b",
+        "currentHP": 7,
+        "status": [],
+        "enabled": true
+      },
+      {
+        "name": "Goblin",
+        "initiative": 7,
+        "modifier": 0,
+        "hp": 7,
+        "ac": 15,
+        "id": "ID_ab9a597aca4b",
+        "currentHP": 7,
+        "status": [],
+        "enabled": true
+      }
+    ],
+    "state": true,
+    "current": 1,
+    "name": "Example 3"
+  }
+}

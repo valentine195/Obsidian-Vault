@@ -1,0 +1,15 @@
+/** Fix for colored folders. */
+
+.nav-folder-title {
+    margin: 0;
+    min-width: unset;
+    width: auto;
+}
+
+.nav-folder-children {
+    padding-left: 12px;
+}
+
+.nav-folder:not(.mod-root) > .nav-folder-children .nav-file-title {
+    padding-left: 10px;
+}
