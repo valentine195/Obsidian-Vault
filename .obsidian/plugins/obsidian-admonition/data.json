@@ -1,14 +1,5 @@
 {
   "userAdmonitions": {
-    "battle": {
-      "type": "battle",
-      "color": "229, 52, 52",
-      "icon": {
-        "type": "font-awesome",
-        "name": "skull-crossbones"
-      },
-      "command": true
-    },
     "dnd": {
       "type": "dnd",
       "color": "162, 63, 207",
@@ -50,6 +41,26 @@
         "type": "font-awesome",
         "name": "gem"
       }
+    },
+    "battle": {
+      "type": "battle",
+      "color": "229, 52, 52",
+      "icon": {
+        "type": "font-awesome",
+        "name": "skull-crossbones"
+      },
+      "command": true,
+      "title": "Testing"
+    },
+    "test": {
+      "type": "test",
+      "color": "#7d7d7d",
+      "icon": {
+        "name": "windows",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": null
     }
   },
   "syntaxHighlight": true,

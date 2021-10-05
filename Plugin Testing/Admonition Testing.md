@@ -1,9 +1,5 @@
-`````ad-note
-title: `= this.file.name`
+```ad-test
 
-```dataview
-list from #location
+Test
+
 ```
-
-
-`````
