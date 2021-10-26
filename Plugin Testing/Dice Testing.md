@@ -7,6 +7,8 @@
 | 96-100    | `dice: [[treasure table#^platinum]]` platinum |
 ^treasure
 
+`dice: #location `
+
 `dice: [[Dice Testing#^treasure]]`
 
 %%
@@ -83,3 +85,11 @@ This is a dice result in a paragraph. This is just for testing. `dice: 3d4 + 3` 
 `dice: 3d4+3d4-(3d4 * 1d4) - 2^1d7`
 
 %%
+
+- 1
+-  2
+-  3
+- 4
+^test
+
+`dice: [[Dice Testing]]|listItem`

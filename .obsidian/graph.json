@@ -1,28 +1,56 @@
 {
-  "collapse-filter": false,
-  "search": "",
+  "collapse-filter": true,
+  "search": "-path:Archive -path:\"Plugin Testing\"",
   "showTags": false,
   "showAttachments": false,
   "hideUnresolved": false,
   "showOrphans": true,
-  "collapse-color-groups": false,
+  "collapse-color-groups": true,
   "colorGroups": [
     {
-      "query": "",
+      "query": "path:\"1. Sessions\"",
       "color": {
         "a": 1,
         "rgb": 14048348
       }
     },
     {
-      "query": "",
+      "query": "path:\"2. Compendium\"",
       "color": {
         "a": 1,
-        "rgb": 14069084
+        "rgb": 7001692
+      }
+    },
+    {
+      "query": "path:\"3. Planning\"",
+      "color": {
+        "a": 1,
+        "rgb": 11392604
+      }
+    },
+    {
+      "query": "path:\"4. Characters\"",
+      "color": {
+        "a": 1,
+        "rgb": 6084188
+      }
+    },
+    {
+      "query": "path:\"5. References\"",
+      "color": {
+        "a": 1,
+        "rgb": 6084269
+      }
+    },
+    {
+      "query": "path:\"6. Assets\"",
+      "color": {
+        "a": 1,
+        "rgb": 6073814
       }
     }
   ],
-  "collapse-display": false,
+  "collapse-display": true,
   "showArrow": false,
   "textFadeMultiplier": 0,
   "nodeSizeMultiplier": 1,
@@ -32,6 +60,6 @@
   "repelStrength": 10,
   "linkStrength": 1,
   "linkDistance": 250,
-  "scale": 0.09730369830147637,
+  "scale": 0.13641812090903546,
   "close": false
 }

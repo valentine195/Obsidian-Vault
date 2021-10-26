@@ -1,7 +1,6 @@
 /* Auto fading UI */
 body:not(.is-mobile) .view-header:not(:hover) .view-header-icon,
 body:not(.is-mobile) .view-header:not(:hover) .view-actions,
-body:not(.is-mobile) .status-bar:not(:hover) .status-bar-item,
 body:not(.is-mobile) .frontmatter-container.is-collapsed:not(:hover),
 body:not(.is-mobile)
     .side-dock-ribbon.mod-left.is-collapsed:not(:hover)

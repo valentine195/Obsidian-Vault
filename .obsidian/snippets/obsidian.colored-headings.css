@@ -1,0 +1,56 @@
+/** Background Gradient on Headers */
+.cm-s-obsidian .cm-header-1,
+.cm-s-obsidian .cm-formatting-header.cm-header-1,
+.markdown-preview-view h1 {
+    background: linear-gradient(to right, var(--Fold1), var(--Fold2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+
+.cm-s-obsidian .cm-header-2,
+.cm-s-obsidian .cm-formatting-header.cm-header-2,
+.markdown-preview-view h2 {
+    background: linear-gradient(to right, var(--Fold1), var(--Fold3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+.cm-s-obsidian .cm-header-3,
+.cm-s-obsidian .cm-formatting-header.cm-header-3,
+.markdown-preview-view h3 {
+    background: linear-gradient(to right, var(--Fold1), var(--Fold4));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+.cm-s-obsidian .cm-header-4,
+.cm-s-obsidian .cm-formatting-header.cm-header-4,
+.markdown-preview-view h4 {
+    background: linear-gradient(to right, var(--Fold1), var(--Fold5));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+.cm-s-obsidian .cm-header-5,
+.cm-s-obsidian .cm-formatting-header.cm-header-5,
+.markdown-preview-view h5 {
+    background: linear-gradient(to right, var(--Fold1), var(--Fold6));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    width: max-content;
+}
+.cm-s-obsidian .cm-header-6,
+.cm-s-obsidian .cm-formatting-header.cm-header-6,
+.markdown-preview-view h6 {
+    background: linear-gradient(to right, var(--Fold1), var(--Fold7));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    width: max-content;
+}

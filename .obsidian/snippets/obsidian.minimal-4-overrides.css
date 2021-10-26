@@ -13,3 +13,11 @@
 .nav-folder:not(.mod-root) > .nav-folder-children .nav-file-title {
     padding-left: 10px;
 }
+
+body:not(.is-mobile) .status-bar {
+    background: var(--background-secondary);
+    top: calc(-1 * var(--titlebar-height) + 1px);
+    height: var(--titlebar-height);
+    right: 120px;
+    bottom: unset;
+}

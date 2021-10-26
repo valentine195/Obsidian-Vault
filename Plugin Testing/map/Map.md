@@ -1,3 +1,14 @@
+
+```leaflet
+id: test 3
+markerFile: [[Direct Marker 2]]
+markerFolder: "Plugin Testing/map/🗺 marker folder"
+maxZoom: 8
+minZoom: -2
+```
+
+%%
+
 ```leaflet
 id: tester7
 image: [[middle-earth-map.jpg|Middle Earth]]
@@ -12,10 +23,9 @@ minZoom: -5
 defaultZoom: -2
 maxZoom: 2
 unit: miles
-geojson: [[geo-fangorn.geojson|Fangorn]]
-grid: true
+geojson: 
+ - [[geo-fangorn.geojson]]
 
-geojsonColor: red
 
 ```
 
@@ -36,6 +46,7 @@ gpxColor: red
 #gpxFolder: Plugin Testing/map/gpx
 geojson:
  - [[Gewässer-Informations-Erlebnis-Pfad Münsterhausen.geojson]]
+ - [[geo-lk-günzburg-gemeinden.geojson]]
 gpx:
  - [[20210729 1859 2021-07-29 Oberegger Stausee mit M&M.gpx]]
  - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx|House Run]]
@@ -48,3 +59,4 @@ gpxMarkers:
 #verbose: true
 commandMarker: location,42.78229917261048,-77.59204637917007,workspace:copy-path,,,
 ```
+%%
