@@ -24,7 +24,9 @@
   "fantasy-calendar",
   "obsidian-collapse-all-plugin",
   "obsidian-view-mode-by-frontmatter",
+  "obsidian-leaflet-plugin",
+  "lightmode-darkmode-plugin",
   "obsidian-codemirror-options",
-  "obsidian-map-view",
-  "obsidian-leaflet-plugin"
+  "obsidian-kanban",
+  "obsidian-outliner"
 ]

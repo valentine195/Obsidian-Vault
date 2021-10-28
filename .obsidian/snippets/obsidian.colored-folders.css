@@ -41,6 +41,7 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
 
 .theme-dark {
     --root-file-color: white;
+    --FoldText: white;
 }
 .theme-light {
     --root-file-color: var(--text-normal);
@@ -53,19 +54,18 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
 /** Minimal Theme overrides */
 .nav-file {
     margin-left: 0;
-    padding: 0;
+    padding: 0 4px;
 }
 
 .nav-folder-children {
     padding-left: 18px;
 }
 
-.nav-folder:not(.mod-root) > .nav-folder-children .nav-file-title {
-    padding-left: 12px;
-}
-
-.nav-file-title {
+.nav-folder:not(.mod-root)
+    > .nav-folder-children
+    .nav-file-title.nav-file-title {
     margin: 0;
+    padding-left: 7px;
 }
 
 /** Remove Top Level Folder Name */
@@ -113,7 +113,9 @@ body:not(.is-grabbing)
 }
 
 /** Make generic folder and file border radiuses square. */
-.nav-file-title,
+.nav-file-title {
+    border-radius: 6px;
+}
 .nav-folder-title {
     border-radius: 0px;
 }
@@ -174,6 +176,30 @@ body:not(.is-grabbing)
     color: var(--FoldText);
 }
 
+/** Generics */
+.nav-folder.mod-root > .nav-folder-children > .nav-folder > .nav-folder-title,
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title
+    + .nav-folder-children {
+    background-color: var(--folder-background);
+}
+
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title
+    + .nav-folder-children
+    > .nav-file:last-child {
+    border-right: 1px solid var(--folder-background);
+    border-left: 1px solid var(--folder-background);
+    border-bottom: 1px solid var(--folder-background);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding-bottom: 1px;
+}
+
 /** 16 Top level Folders By Starting Digit
 The Folder Name is stored in the `data-path` attribute.
 [data-path^="..."] targets a path that *begins with* the content.
@@ -187,8 +213,9 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="1"]
     + .nav-folder-children {
-    background-color: var(--Fold0);
+    --folder-background: var(--Fold0);
 }
+
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
@@ -198,7 +225,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="2"]
     + .nav-folder-children {
-    background-color: var(--Fold1);
+    --folder-background: var(--Fold1);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -209,7 +236,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="3"]
     + .nav-folder-children {
-    background-color: var(--Fold2);
+    --folder-background: var(--Fold2);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -220,7 +247,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="4"]
     + .nav-folder-children {
-    background-color: var(--Fold3);
+    --folder-background: var(--Fold3);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -231,7 +258,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="5"]
     + .nav-folder-children {
-    background-color: var(--Fold4);
+    --folder-background: var(--Fold4);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -242,7 +269,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="6"]
     + .nav-folder-children {
-    background-color: var(--Fold5);
+    --folder-background: var(--Fold5);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -253,7 +280,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="7"]
     + .nav-folder-children {
-    background-color: var(--Fold6);
+    --folder-background: var(--Fold6);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -264,7 +291,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="8"]
     + .nav-folder-children {
-    background-color: var(--Fold7);
+    --folder-background: var(--Fold7);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -275,7 +302,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="9"]
     + .nav-folder-children {
-    background-color: var(--Fold8);
+    --folder-background: var(--Fold8);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -286,7 +313,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="10"]
     + .nav-folder-children {
-    background-color: var(--Fold9);
+    --folder-background: var(--Fold9);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -297,7 +324,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="11"]
     + .nav-folder-children {
-    background-color: var(--FoldA);
+    --folder-background: var(--FoldA);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -308,7 +335,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path="12"]
     + .nav-folder-children {
-    background-color: var(--FoldB);
+    --folder-background: var(--FoldB);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -319,7 +346,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="13"]
     + .nav-folder-children {
-    background-color: var(--FoldC);
+    --folder-background: var(--FoldC);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -330,7 +357,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path="14"]
     + .nav-folder-children {
-    background-color: var(--FoldD);
+    --folder-background: var(--FoldD);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -341,7 +368,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="15"]
     + .nav-folder-children {
-    background-color: var(--FoldE);
+    --folder-background: var(--FoldE);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -352,7 +379,7 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="16"]
     + .nav-folder-children {
-    background-color: var(--FoldF);
+    --folder-background: var(--FoldF);
 }
 .nav-folder.mod-root
     > .nav-folder-children
@@ -363,26 +390,9 @@ The Folder Name is stored in the `data-path` attribute.
     > .nav-folder
     > .nav-folder-title[data-path^="17"]
     + .nav-folder-children {
-    background-color: var(--FoldF);
+    --folder-background: var(--FoldF);
 }
 
-/* .nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-title[data-path~="Archive"] {
-    background-color: var(--background-secondary-alt);
-    color: lightgrey;
-    --FoldText: lightgrey;
-}
-.nav-folder.mod-root
-    > .nav-folder-children
-    > .nav-folder
-    > .nav-folder-title[data-path^="Archive"]
-    + .nav-folder-children {
-    background-color: var(--background-secondary-alt);
-    color: var(--text-normal);
-    --FoldText: var(--text-normal);
-} */
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder

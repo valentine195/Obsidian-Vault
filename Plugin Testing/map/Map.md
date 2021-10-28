@@ -7,7 +7,6 @@ maxZoom: 8
 minZoom: -2
 ```
 
-%%
 
 ```leaflet
 id: tester7
@@ -30,6 +29,7 @@ geojson:
 ```
 
 
+%%
 
 ```leaflet
 #height: 100%

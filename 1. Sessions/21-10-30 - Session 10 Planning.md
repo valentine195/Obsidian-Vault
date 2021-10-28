@@ -57,14 +57,32 @@ She turns to regard you, the flames dancing in her gleaming armor. She lifts her
 Jeremiah Pumperknickle, heed my words. The dust lord [[Durastoran the Wyrmbreaker|Durastoran]] has set his plans in motion. The lady of death is the key. Find the seekers of the [[Draconic Prophecy]] - your group was unforeseen and can work outside the bounds of fate.
 
 
-
 ```
 
 ````
 
 ### Agathax the Witch
 
+> 
+
+
 ### Confluence of the Grey Ash
+
+```ad-battle
+collapse: true
+
+- 1 lizardfolk shaman
+- 3 lizardfolk
+
+---
+
+- Merigold
+- Jeremiah (starts unconscious)
+- Bob
+
+
+```
+
 
 ## Secrets and Clues
 
@@ -78,4 +96,4 @@ Jeremiah Pumperknickle, heed my words. The dust lord [[Durastoran the Wyrmbreake
 
 ## Potential Monsters
 
-## Pote
+## Potential Treasure
