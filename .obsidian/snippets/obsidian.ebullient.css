@@ -1,0 +1,282 @@
+:root {
+    /** 
+        Grayscale Design palette: https://grayscale.design/app?lums=93.72,91.59,87.95,83.18,76.99,69.05,59.94,47.16,34.89,25.18,17.24,11.05,6.39,2.80,0.20&palettes=&filters=&names=&labels=
+    */
+    --gray-light-7: rgb(248, 248, 248);
+    --gray-light-6: rgb(245, 245, 245);
+    --gray-light-5: rgb(241, 241, 241);
+    --gray-light-4: rgb(235, 235, 235);
+    --gray-light-3: rgb(227, 227, 227);
+    --gray-light-2: rgb(217, 217, 217);
+    --gray-light-1: rgb(203, 203, 203);
+    --gray: rgb(183, 183, 183);
+    --gray-dark-1: rgb(159, 159, 159);
+    --gray-dark-2: rgb(137, 137, 137);
+    --gray-dark-3: rgb(115, 115, 115);
+    --gray-dark-4: rgb(93, 93, 93);
+    --gray-dark-5: rgb(77, 77, 77);
+    --gray-dark-6: rgb(63, 63, 63);
+    --gray-dark-7: rgb(49, 49, 49);
+    --gray-dark-8: rgb(33, 33, 33);
+    --gray-dark-9: rgb(7, 7, 7);
+
+    /** 
+        Subset for colors: https://grayscale.design/app?lums=85.18,71.05,48.16,25.18,11.05&palettes=&filters=&names=&labels=
+        Grayscale Design palette: https://grayscale.design/app?lums=71.05,60.94,48.16,35.39,17.24,6.39,2.80&palettes=%231D3461,%23FFC145,%23809F87,%23C76E85,%235BAFAB,%23A17E9B&filters=0%7C0,0%7C0,0%7C0,0%7C0,0%7C0,0%7C0&names=blue,yellow,green,pink,teal,purple&labels=,,,,,
+    */
+    --yellow-bright: 255, 232, 185;
+    --yellow-0: rgb(255, 214, 132);
+    --yellow-1: rgb(255, 216, 99);
+    --yellow-2: rgb(255, 196, 19);
+    --yellow-3: rgb(234, 175, 0);
+    --yellow-4: rgb(204, 153, 0);
+    /* --yellow-1: rgb(255, 195, 75);
+    --yellow-2: rgb(251, 167, 0);
+    --yellow-3: rgb(219, 146, 0);
+    --yellow-4: rgb(157, 105, 0); */
+
+    --green-0: rgb(211, 222, 214);
+    --green-1: rgb(194, 209, 198);
+    --green-1-rgb: 194, 209, 198;
+    --green-2: rgb(169, 190, 174);
+    --green-3: rgb(139, 167, 145);
+    --green-4: rgb(92, 122, 99);
+    --green-4-rgb: 92, 122, 99;
+    --green-5: rgb(57, 76, 62);
+    --green-6: rgb(38, 50, 41);
+
+    --teal-0: rgb(195, 226, 224);
+    --teal-1: rgb(169, 213, 211);
+    --teal-2: rgb(134, 196, 193);
+    --teal-3: rgb(89, 174, 170);
+    --teal-4: rgb(61, 126, 123);
+    --teal-5: rgb(38, 78, 76);
+    --teal-6: rgb(25, 51, 50);
+
+    --blue-0: rgb(202, 222, 239);
+    --blue-1: rgb(180, 209, 232);
+    --blue-2: rgb(148, 189, 223);
+    --blue-3: rgb(111, 166, 211);
+    --blue-4: rgb(53, 120, 175);
+    --blue-5: rgb(33, 75, 109);
+    --blue-6: rgb(22, 49, 72);
+
+    --purple-0: rgb(227, 216, 225);
+    --purple-0-rgb: 227, 216, 225;
+    --purple-1: rgb(216, 201, 213);
+    --purple-2: rgb(199, 178, 195);
+    --purple-3: rgb(180, 152, 175);
+    --purple-4: rgb(142, 103, 135);
+    --purple-4-rgb: 142, 103, 135;
+    --purple-5: rgb(88, 64, 84);
+    --purple-6: rgb(57, 42, 55);
+
+    --pink-0: rgb(239, 213, 220);
+    --pink-1: rgb(232, 196, 206);
+    --pink-2: rgb(223, 171, 185);
+    --pink-3: rgb(211, 141, 160);
+    --pink-4: rgb(187, 79, 108);
+    --pink-5: rgb(120, 46, 66);
+    --pink-5-rgb: 120, 46, 66;
+    --pink-6: rgb(79, 31, 44);
+}
+
+.theme-light {
+    /** Core styles **/
+    --background-primary: var(--gray-light-7); /*   Note background */
+    --background-primary-alt: var(--gray-light-5); /*   Note title background
+ */
+    --background-secondary: var(--gray-light-6); /*   Sidebar background */
+    --background-secondary-alt: var(
+        --gray-light-2
+    ); /*   Sidebar title background
+ */
+    --background-modifier-border: var(
+        --gray-light-1
+    ); /*   Border outline of quotes, tables, line breaks */
+    --background-modifier-form-field: white;
+    --background-modifier-form-field-highlighted: white; /*  Search Bar Active Highlight */
+    --background-modifier-box-shadow: rgba(0, 0, 0, 0.1);
+    --background-modifier-success: var(
+        --green-2
+    ); /*  Publish Upload Success Background */
+    --background-modifier-error: var(--pink-1); /*  Delete Screen Button */
+    --background-modifier-error-rgb: var(
+        --pink-5-rgb
+    ); /*  Ctrl F Search Background */
+    --background-modifier-error-hover: var(--pink-2);
+    --background-modifier-cover: rgba(
+        158,
+        158,
+        158,
+        0.2
+    ); /*  Obsidian Title Bar
+ */
+    --text-accent: var(--purple-4); /*  Links */
+    --text-accent-hover: var(--green-3); /*  Links hover */
+    --text-normal: var(--gray-dark-5); /*  Text body of note */
+    --text-muted: var(
+        --gray-dark-4
+    ); /*  Text darker for sidebar, toggles, inactive, tags, etc */
+    --text-muted-rgb: 33, 33, 33;
+    --text-faint: var(--gray-dark-1); /*  Link brackets color
+ */
+    --text-error: var(--pink-5);
+    --text-error-hover: var(--pink-4);
+
+    --text-highlight-fg: var(--text-normal);
+    --text-highlight-bg: rgb(255, 255, 0, 0.4);
+    --text-highlight-bg-active: rgba(255, 128, 0, 0.3);
+
+    /* --text-selection: rgba(var(--green-1-rgb), 1); */
+    --text-selection: hsl(130deg 14% 90%);
+
+    /** Text on accent should work as foreground for all interactive elements */
+    --text-on-accent: var(--gray-dark-6); /*  Program Title bar text */
+    --interactive-normal: var(--blue-1); /*  Button background Color */
+    --interactive-hover: var(--purple-1); /*  Button hover text; pin */
+    --interactive-accent: var(--green-1); /*  Workspace Note Title Underline */
+    --interactive-accent-rgb: var(
+        --green-1-rgb
+    ); /*  Publish item select, Resize Handle */
+    --interactive-accent-hover: var(--green-2); /*  Menu Button Hover */
+    --interactive-success: var(--green-3);
+
+    --scrollbar-active-thumb-bg: rgba(0, 0, 0, 0.08);
+    --scrollbar-bg: rgba(0, 0, 0, 0.03);
+    --scrollbar-thumb-bg: rgba(0, 0, 0, 0.05);
+    --highlight-mix-blend-mode: lighten; /*  Search Highlight Mode */
+
+    --text-title-h1: var(--yellow-3);
+    --text-title-h2: var(--green-4);
+    --text-title-h3: var(--teal-4);
+    --text-title-h4: var(--blue-4);
+    --text-title-h5: var(--purple-4);
+    --text-title-h6: var(--pink-4);
+}
+
+.theme-dark {
+    /** Core styles **/
+    --background-primary: var(--gray-dark-8); /*   Note background */
+    --background-primary-alt: var(--gray-dark-6); /*   Note title background
+ */
+    --background-secondary: var(
+        --gray-dark-7
+    ); /*   Sidebar/modal background, active/hover tab nav items, tab content, drag ghost, menu item hover */
+    --background-secondary-alt: var(
+        --gray-dark-8
+    ); /*   muted button, checkbox container, kbd, modal border, modal button, tab nav items, vertical tab header, clickable tree item, card, drag ghost border
+ */
+    --background-modifier-border: var(
+        --gray-dark-7
+    ); /*   Border outline of quotes, tables, line breaks */
+    --background-modifier-form-field: rgba(0, 0, 0, 0.3);
+    --background-modifier-form-field-highlighted: rgba(
+        0,
+        0,
+        0,
+        0.22
+    ); /*  Search Bar Active Highlight */
+    --background-modifier-box-shadow: rgba(0, 0, 0, 0.3);
+    --background-modifier-success: var(
+        --green-5
+    ); /*   with text-on-accent / Publish Upload Success Background */
+    --background-modifier-error: var(
+        --pink-5
+    ); /*   with text-on-accent / Delete Screen Button */
+    --background-modifier-error-rgb: 61, 0, 0; /*   Ctrl F Search Background */
+    --background-modifier-error-hover: var(--pink-5);
+    --background-modifier-cover: rgba(0, 0, 0, 0.8); /*   Obsidian Title Bar
+ */
+    --text-accent: var(--pink-2); /*  Links */
+    --text-accent-hover: var(--pink-1);
+    --text-normal: var(--gray-light-3); /*   Text body of note */
+    --text-muted: var(
+        --gray-light-1
+    ); /*   Text darker for sidebar, toggles, inactive, tags, etc */
+    --text-muted-rgb: 153, 153, 153;
+    --text-faint: var(--gray-dark-1); /*   Link brackets color */
+    --text-error: var(--pink-5);
+    --text-error-hover: var(--pink-5);
+
+    --text-highlight-fg: var(--gray-dark-7);
+    --text-highlight-bg: rgba(252, 232, 131, 0.9);
+    --text-highlight-bg-active: rgba(255, 128, 0, 0.4);
+    --text-selection: rgba(var(--green-4-rgb), 0.7);
+
+    /** Text on accent should work as foreground for all interactive elements */
+    --text-on-accent: var(--gray-light-1); /*   Program Title bar text */
+    --interactive-normal: var(--green-4); /*  Button background Color */
+    --interactive-hover: var(--purple-1); /*  Button hover text; pin */
+    --interactive-accent: var(--green-4); /*  Workspace Note Title Underline */
+    --interactive-accent-rgb: var(
+        --purple-4-rgb
+    ); /*  Publish item select, Resize Handle */
+    --interactive-accent-hover: var(--blue-1); /*  Menu Button Hover */
+    --interactive-success: var(--green-3);
+
+    --scrollbar-active-thumb-bg: rgba(255, 255, 255, 0.2);
+    --scrollbar-bg: rgba(255, 255, 255, 0.05);
+    --scrollbar-thumb-bg: rgba(255, 255, 255, 0.1);
+    --highlight-mix-blend-mode: lighten; /*   Search Highlight Mode */
+}
+
+.theme-dark {
+    --text-title-h1: var(--yellow-1);
+    --text-title-h2: var(--green-3);
+    --text-title-h3: var(--teal-3);
+    --text-title-h4: var(--blue-3);
+    --text-title-h5: var(--purple-3);
+    --text-title-h6: var(--pink-3);
+}
+.theme-light {
+    --text-title-h1: var(--yellow-3);
+    --text-title-h2: var(--green-4);
+    --text-title-h3: var(--teal-4);
+    --text-title-h4: var(--blue-4);
+    --text-title-h5: var(--purple-4);
+    --text-title-h6: var(--pink-4);
+}
+
+.cm-header-1,
+.view-content h1 {
+    color: var(--text-title-h1);
+    font-variant: common-ligatures small-caps;
+    line-height: 1.2em;
+}
+
+blockquote .cm-header-1,
+blockquote h1 {
+    color: var(--text-title-h2);
+    font-variant: common-ligatures;
+}
+
+.cm-header-2,
+.view-content h2 {
+    color: var(--text-title-h2);
+}
+
+.cm-header-3,
+.view-content h3 {
+    color: var(--text-title-h3);
+}
+
+.cm-header-4,
+.view-content h4 {
+    color: var(--text-title-h4);
+}
+
+.cm-header-5,
+.view-content h5 {
+    color: var(--text-title-h5);
+}
+
+.cm-header-6,
+.view-content .markdown-preview-view h6 {
+    color: var(--text-title-h6);
+}
+
+body:not(.hider-frameless):not(.is-fullscreen):not(.is-mobile) .titlebar {
+    border: 0;
+    background: var(--background-primary);
+}

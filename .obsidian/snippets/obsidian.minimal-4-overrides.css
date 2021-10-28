@@ -15,7 +15,7 @@
 }
 
 body:not(.is-mobile) .status-bar {
-    background: var(--background-secondary);
+    background: transparent;
     top: calc(-1 * var(--titlebar-height) + 1px);
     height: var(--titlebar-height);
     right: 120px;

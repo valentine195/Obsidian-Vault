@@ -35,7 +35,9 @@
 }
 .markdown-source-view.is-readable-line-width .CodeMirror,
 .CodeMirror {
-    margin-left: 0;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 .markdown-source-view.mod-cm5 {
     padding-left: 0;
@@ -47,7 +49,7 @@
     --max-width: 70em;
 }
 .theme-light {
-    --background-primary: #F9F7F4;/* hsl(var(--base-h), var(--base-s), 99%); */
+    --background-primary: #f9f7f4; /* hsl(var(--base-h), var(--base-s), 99%); */
 }
 
 .titlebar {
@@ -56,14 +58,16 @@
 
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
     max-width: var(--max-width);
-    margin: 0;
+
+    margin: 0 auto;
     padding-left: 40px;
     padding-right: 40px;
 }
 .markdown-source-view.mod-cm5 {
     padding-left: calc(40px - 11.1875px);
     padding-right: 40px;
-    margin: 0;
+
+    margin: 0 auto;
 }
 
 .markdown-preview-view blockquote {

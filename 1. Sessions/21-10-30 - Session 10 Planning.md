@@ -1,12 +1,11 @@
 ---
 type: session
 date: 21-10-30
-session: 9
+session: 10
 tags:
   - session/planning
-  - session/9
+  - session/10
 date updated: 2021-10-24 13:55
-
 ---
 
 # Session
@@ -23,7 +22,7 @@ list from #pc/alive
 
 ## Strong Start
 
-> Bob and Merigold, you are standing above Jeremiah's unconscious form. Lizardfolk are starting to trickle back onto the platform, and you hear a commotion from across a bridge, where several grey-scaled lizardfolk are pointing at you and gesturing wildy. What are you doing?
+> Bob and Merigold, you are standing above Jeremiah's unconscious form. Lizardfolk are starting to trickle back onto the platform, and you hear a commotion from across a bridge, where several grey-scaled lizardfolk are pointing at you and gesturing wildy. Rain has begun to fall from the volcanic storm, and the sky is beginning to darken as the storm moves towards the tree. What are you doing?
 
 > Mim, you start moving towards the middle of the Clan Tree in search of Agathax the witch. As you head out, you hear someone rushing up towards you and see Yoss, Drox's servant, rushing up to you. He reaches you and catches his breath, then says, "Mistress Mim, please, we have to do something. Please, I do not know what to do."
 >
@@ -40,7 +39,7 @@ Jeremiah, you open your eyes to see that you're laying on top of a stepped pyram
 
 ```ad-quote
 
-The flame does not take the slaughtering of the defenseless lightly, mortal.
+The flame does not take the slaughtering of the defenseless lightly, mortal. Are you truly worthy of carrying my sword and shield?
 
 ```
 
@@ -51,11 +50,13 @@ What are you doing, Jeremiah?
 
 ````ad-flame
 
-She turns to regard you, the flames reflection dancing in her gleaming armor.
+She turns to regard you, the flames dancing in her gleaming armor. She lifts her visor and you see rugged looking woman, her face scarred by battle.
 
 ```ad-quote
 
-The dust lord [[Durastoran the Wyrmbreaker]] has set his plans in motion. The lady of death is the key.
+Jeremiah Pumperknickle, heed my words. The dust lord [[Durastoran the Wyrmbreaker|Durastoran]] has set his plans in motion. The lady of death is the key. Find the seekers of the [[Draconic Prophecy]] - your group was unforeseen and can work outside the bounds of fate.
+
+
 
 ```
 
@@ -73,8 +74,8 @@ The dust lord [[Durastoran the Wyrmbreaker]] has set his plans in motion. The la
 
 - [[Agathax the Witch]]
 - [[Krot]]
--
+
 
 ## Potential Monsters
 
-## Potential Treasure
+## Pote

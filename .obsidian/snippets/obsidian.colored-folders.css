@@ -9,7 +9,7 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
 .theme-light,
 .theme-dark {
     /* folder colours */
-    --Fold0: #d32f2f;
+    /* --Fold0: #d32f2f;
     --Fold1: #c2185c;
     --Fold2: #8c2ab6;
     --Fold3: #6c48c0;
@@ -24,7 +24,15 @@ The colours are rainbow coloured and 16 in number by default. They are shades su
     --FoldC: #f9ab25;
     --FoldD: #ff8f00;
     --FoldE: #ef6c00;
-    --FoldF: #d84315;
+    --FoldF: #d84315; */
+
+    --Fold0: var(--yellow-3);
+    --Fold1: var(--green-3);
+    --Fold2: var(--teal-3);
+    --Fold3: var(--blue-3);
+    --Fold4: var(--purple-3);
+    --Fold5: var(--pink-3);
+
     /* line styles for nesting indicators */
 
     --FolderRadius: 5px;
@@ -358,7 +366,7 @@ The Folder Name is stored in the `data-path` attribute.
     background-color: var(--FoldF);
 }
 
-.nav-folder.mod-root
+/* .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
     > .nav-folder-title[data-path~="Archive"] {
@@ -374,23 +382,32 @@ The Folder Name is stored in the `data-path` attribute.
     background-color: var(--background-secondary-alt);
     color: var(--text-normal);
     --FoldText: var(--text-normal);
-}
+} */
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
-    > .nav-folder-title[data-path~="Plugin"] {
-    background-color: var(--background-secondary-alt);
-    color: lightgrey;
-    --FoldText: lightgrey;
+    > .nav-folder-title[data-path~="Plugin"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path~="Archive"] {
+    background-color: transparent;
+    color: var(--text-muted);
+    --FoldText: var(--text-muted);
 }
 .nav-folder.mod-root
     > .nav-folder-children
     > .nav-folder
     > .nav-folder-title[data-path^="Plugin"]
+    + .nav-folder-children,
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="Archive"]
     + .nav-folder-children {
-    background-color: var(--background-secondary-alt);
-    color: var(--text-normal);
-    --FoldText: var(--text-normal);
+    background-color: transparent;
+    color: var(--text-muted);
+    --FoldText: var(--text-muted);
 }
 
 /* Scrollbars eliminated */

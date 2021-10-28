@@ -14,16 +14,17 @@
   "hotkeysplus-obsidian",
   "markdown-attributes",
   "markdown-prettifier",
-  "obsidian-outliner",
   "darlal-switcher-plus",
   "tag-wrangler",
   "templater-obsidian",
   "hot-reload",
-  "obsidian-leaflet-plugin",
   "quick-monsters-5e",
   "calendar",
-  "obsidian-codemirror-options",
   "obsidian42-brat",
   "fantasy-calendar",
-  "homepage"
+  "obsidian-collapse-all-plugin",
+  "obsidian-view-mode-by-frontmatter",
+  "obsidian-codemirror-options",
+  "obsidian-map-view",
+  "obsidian-leaflet-plugin"
 ]

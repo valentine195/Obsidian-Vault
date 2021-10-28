@@ -1,3 +1,0 @@
-
-
-`dice: #session`

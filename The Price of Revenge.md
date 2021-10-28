@@ -1,6 +1,6 @@
 ---
 date updated: '2021-03-30T20:37:16-04:00'
-
+obsidianUIMode: preview
 ---
 # The Price of Revenge
 
@@ -18,31 +18,45 @@ date updated: '2021-03-30T20:37:16-04:00'
 - [[Jeremiah Pumpernickle]]
 - [[Merigold]]
 
-## Todo
-
-```tasks
-not done
-```
-
 ## Key NPCs
 
 - [[Jasper Bartlett]]
 - [[Erandis Vol]]
 
 ## Current Adventure
+```dataviewjs
 
-```dataview
-list from "Adventure Seeds"
-where status = "current"
+dv.header(3, "Planning");
+dv.list([dv.pages('#session/planning')
+	.sort(p => p.session).values
+	.pop().file.link]);
+
+dv.header(3, "Seed");
+dv.list([dv.pages('#plot/adventures/seed')
+	.sort(p => p.ctime).values
+	.pop().file.link]);
+	
 ```
+
+
 
 ## Recaps
 
 ### Last Session
-![[21-5-15]]
+```dataviewjs
+
+const last = dv
+			.pages('#session/recap')
+			.sort(p => p.session).values
+			.pop();
+
+dv.list([last.file.link])
+
+```
 
 ### All Sessions
 ```dataview
-list from "Post Session Logs"
-sort file.name desc
+list from "1. Sessions/Post Session Logs"
+where !contains(file.name, "Index") 
+sort file.ctime desc
 ```

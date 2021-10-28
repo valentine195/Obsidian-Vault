@@ -1,3 +1,7 @@
+---
+css:
+ test: abc
+---
 
 ```dataviewjs
 
@@ -22,4 +26,3 @@ list from #location
 abc
 
 ```
-
