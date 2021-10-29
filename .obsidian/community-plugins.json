@@ -21,12 +21,13 @@
   "quick-monsters-5e",
   "calendar",
   "obsidian42-brat",
-  "fantasy-calendar",
   "obsidian-collapse-all-plugin",
   "obsidian-view-mode-by-frontmatter",
   "obsidian-leaflet-plugin",
   "lightmode-darkmode-plugin",
   "obsidian-codemirror-options",
   "obsidian-kanban",
-  "obsidian-outliner"
+  "obsidian-outliner",
+  "obsidian-fullscreen-plugin",
+  "fantasy-calendar"
 ]

@@ -22,9 +22,11 @@ list from #pc/alive
 
 ## Strong Start
 
-> Bob and Merigold, you are standing above Jeremiah's unconscious form. Lizardfolk are starting to trickle back onto the platform, and you hear a commotion from across a bridge, where several grey-scaled lizardfolk are pointing at you and gesturing wildy. Rain has begun to fall from the volcanic storm, and the sky is beginning to darken as the storm moves towards the tree. What are you doing?
+> Bob and Merigold, you are standing above Jeremiah's unconscious form. You hear a commotion from across a bridge, where several grey-scaled lizardfolk are pointing at you and gesturing wildy. Rain has begun to fall from the volcanic storm, and the sky is beginning to darken as the storm moves towards the tree. What are you doing?
 
-> Mim, you start moving towards the middle of the Clan Tree in search of Agathax the witch. As you head out, you hear someone rushing up towards you and see Yoss, Drox's servant, rushing up to you. He reaches you and catches his breath, then says, "Mistress Mim, please, we have to do something. Please, I do not know what to do."
+*After they answer, go to Mim*
+
+> Mim, you start moving towards the middle of the Clan Tree in search of Agathax the witch. As you head out, you hear someone rushing up towards you and see Yoss, Drox's servant, rushing up to you. He reaches you and catches his breath, then says, "Mistress Mim, is Drox dead? Where is Agathax? What happened back there?"
 >
 > "The clan witch? Agathax was hurt? Her warden must have taken her to the witchhouse, in the center of the clan tree."
 
@@ -63,7 +65,8 @@ Jeremiah Pumperknickle, heed my words. The dust lord [[Durastoran the Wyrmbreake
 
 ### Agathax the Witch
 
-> 
+> Yoss leads you towards the center of the tree. The storm is beginning to pick up strength, and the rope bridges he leads you across are starting to sway in the wind. The sky is darkening quickly as night falls and the storm approaches. After a particularly strong gust of wind causes the bridge you are crossing to swing violently, Yoss stops you and hands you a clawhook. "Mistress Mim, this storm, it worries me. Something is happening - the storm, the rakshasa, the volcano, I do not think it is a coincidence." 
+
 
 
 ### Confluence of the Grey Ash
