@@ -1,0 +1,177 @@
+{
+  "main": {
+    "id": "e8c0e985fce26902",
+    "type": "split",
+    "children": [
+      {
+        "id": "cf0c650527e305d1",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "1. Sessions/21-10-30 - Session 10 Planning.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "77f353a696197e89",
+    "type": "split",
+    "children": [
+      {
+        "id": "1d100f56d5b0be0f",
+        "type": "tabs",
+        "dimension": 73.38551859099805,
+        "children": [
+          {
+            "id": "c9ed80e9edd963e8",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "3a4b39d812f57338",
+        "type": "tabs",
+        "dimension": 26.614481409001954,
+        "children": [
+          {
+            "id": "fbf5b46cf2eceaad",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "9c61b9d3bb502948",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#plot/adventures/seed",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "f82ef8147be621ca",
+    "type": "split",
+    "children": [
+      {
+        "id": "9a8855c1f33ba79c",
+        "type": "tabs",
+        "dimension": 63.20939334637965,
+        "children": [
+          {
+            "id": "542cf61a49d088be",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "1. Sessions/21-10-30 - Session 10 Planning.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "a2bb21a26ae96320",
+            "type": "leaf",
+            "state": {
+              "type": "calendar",
+              "state": {}
+            }
+          },
+          {
+            "id": "79865b262a528909",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "935e5da21ed0307d",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {}
+            }
+          },
+          {
+            "id": "2c3273681c65d3ac",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          },
+          {
+            "id": "6e54d16721a72cdb",
+            "type": "leaf",
+            "state": {
+              "type": "FANTASY_CALENDAR",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 5
+      },
+      {
+        "id": "b252e51137c4db7f",
+        "type": "tabs",
+        "dimension": 36.79060665362035,
+        "children": [
+          {
+            "id": "191790278d0203a5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 498.5
+  },
+  "active": "cf0c650527e305d1",
+  "lastOpenFiles": [
+    "1. Sessions/21-10-30 - Session 10 Planning.md",
+    "4. Characters/Mim.md",
+    "2. Compendium/Index.md",
+    "3. Planning/Race of the Eight Winds.md",
+    "1. Sessions/Post Session Logs/_Session Index.md",
+    "1. Sessions/Post Session Logs/21-10-02.md",
+    "1. Sessions/Post Session Logs/21-4-10.md",
+    "Plugin Testing/map/Map.md",
+    "The Price of Revenge.md",
+    "3. Planning/Adventure Seeds/3 - Travel to Newthrone.md"
+  ]
+}

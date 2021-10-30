@@ -1,7 +1,7 @@
 {
   "baseFontSize": 29,
   "cssTheme": "Minimal",
-  "theme": "moonstone",
+  "theme": "obsidian",
   "enabledCssSnippets": [
     "obsidian 2",
     "obsidian.colors",
