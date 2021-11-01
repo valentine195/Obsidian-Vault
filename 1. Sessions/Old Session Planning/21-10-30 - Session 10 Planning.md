@@ -67,7 +67,7 @@ Jeremiah Pumperknickle, heed my words. The dust lord [[Durastoran the Wyrmbreake
 
 > Yoss leads you towards the center of the tree. The storm is beginning to pick up strength, and the rope bridges he leads you across are starting to sway in the wind. The sky is darkening quickly as night falls and the storm approaches. After a particularly strong gust of wind causes the bridge you are crossing to swing violently, Yoss stops you and hands you a clawhook. "Mistress Mim, this storm, it worries me. Something is happening - the storm, the rakshasa, the volcano, I do not think it is a coincidence." 
 
-
+> 
 
 ### Confluence of the Grey Ash
 
