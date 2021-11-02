@@ -3,5 +3,6 @@
   "foldHeading": true,
   "foldIndent": true,
   "smartIndentList": false,
-  "showFrontmatter": false
+  "showFrontmatter": false,
+  "newFileLocation": "current"
 }
