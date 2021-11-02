@@ -1,9 +1,6 @@
 :root {
     --default-font: "iA Writer Quattro" !important;
 }
-.external-link {
-    background-position-y: 0px;
-}
 
 blockquote.handwritten-letter.handwritten-letter {
     padding: 30px;

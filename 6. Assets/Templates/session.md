@@ -25,6 +25,15 @@ tags:
 tR += YAML; %>
 
 # Session
+```dataviewjs
+
+const last = dv.pages('#session/recap')
+	.sort(p => p.session).values
+	.pop().file.link;
+
+dv.paragraph(`![[${last.path}]]`)
+
+```
 
 ## Characters
 ```dataview
