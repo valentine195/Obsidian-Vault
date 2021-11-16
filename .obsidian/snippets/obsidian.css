@@ -6,15 +6,16 @@
     column-gap: 0.5rem;
 }
 
+
 /*Link Styling*/
-.external-link::before {
+/* .external-link::before {
     display: inline-block;
     padding-right: 3px;
     vertical-align: -2px;
     height: 20px;
     width: 20px;
     padding-top: 10px;
-}
+} */
 
 a[href^="https://en.wikipedia.org/wiki"]:not(:hover)
 {
