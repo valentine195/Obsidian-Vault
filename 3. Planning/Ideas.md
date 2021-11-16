@@ -5,6 +5,9 @@
 4. [[Race of the Eight Winds]]
 5. AI reveals some info about PC past
 6. https://www.reddit.com/r/DnDBehindTheScreen/comments/ppk2tr/wilder_chases_rules/?utm_source=share&utm_medium=ios_app&utm_name=iossmf
+7. https://www.reddit.com/r/dndnext/comments/qpbqlj/my_players_are_escaping_from_a_magical_laboratory/
+8. https://www.reddit.com/r/DnDBehindTheScreen/comments/qixdog/3_full_settings_big_city_small_city_village_10/
+9. https://www.reddit.com/r/DnDBehindTheScreen/comments/qfqrxm/the_forgotten_circle_of_orcus_level_7_adventure/?utm_source=share&utm_medium=ios_app&utm_name=iossmf
 
 ### Monsters
 1. [[Royal Incinerator]]

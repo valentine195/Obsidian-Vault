@@ -25,10 +25,10 @@
   "obsidian-view-mode-by-frontmatter",
   "obsidian-leaflet-plugin",
   "lightmode-darkmode-plugin",
-  "obsidian-codemirror-options",
-  "obsidian-kanban",
   "obsidian-outliner",
   "obsidian-fullscreen-plugin",
   "obsidian-style-settings",
-  "fantasy-calendar"
+  "fantasy-calendar",
+  "obsidian-character-sheet",
+  "obsidian-kanban"
 ]

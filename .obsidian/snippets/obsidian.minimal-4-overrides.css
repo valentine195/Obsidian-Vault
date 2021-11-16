@@ -21,3 +21,7 @@ body:not(.is-mobile) .status-bar {
     right: 120px;
     bottom: unset;
 }
+
+.markdown-preview-view .internal-query.is-embed .internal-query-header-title {
+    font-size: var(--h5);
+}

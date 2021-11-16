@@ -56,6 +56,11 @@
     background-color: var(--background-primary);
 }
 
+.markdown-source-view.mod-cm6 .cm-content {
+    max-width: var(--max-width);
+
+}
+
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
     max-width: var(--max-width);
 

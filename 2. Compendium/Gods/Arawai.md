@@ -4,7 +4,7 @@ tags:
 
 ---
 
-## <% tp.file.title %>
+## Arawai
 
 ### Description
 
@@ -16,11 +16,11 @@ tags:
 
 ### Adventures
 ```query
-<%tp.file.title%> -file:<%tp.file.title%>
+Arawai -file:Arawai
 ```
 
 %%
 ```dataview
-list FROM [[<% tp.file.title %>]] AND "Adventure Seeds"
+list FROM [[Arawai]] AND "Adventure Seeds"
 ```
 %%

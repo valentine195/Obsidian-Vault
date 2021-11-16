@@ -4,5 +4,6 @@
   "foldIndent": true,
   "smartIndentList": false,
   "showFrontmatter": false,
-  "newFileLocation": "current"
+  "newFileLocation": "current",
+  "livePreview": false
 }
