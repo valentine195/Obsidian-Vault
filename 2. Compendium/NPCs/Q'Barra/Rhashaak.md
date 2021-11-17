@@ -10,7 +10,9 @@ tags:
 ## Rhashaak
 
 ### Description
-
+```statblock
+monster: Ancient Black Dragon
+```
 
 #### Details
 

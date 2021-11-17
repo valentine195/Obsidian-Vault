@@ -7,3 +7,5 @@ Warder's cloaks tend to invoke a disturbing feeling on people who see them while
 - your persuasion checks are made with disadvantage while moving
 - your stealth checks are made with advantage while stationary
 - you get 1/day [[Blur]]
+
+![[Warder's Cloak.png]]

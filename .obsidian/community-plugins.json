@@ -13,7 +13,6 @@
   "garble-text",
   "hotkeysplus-obsidian",
   "markdown-attributes",
-  "markdown-prettifier",
   "darlal-switcher-plus",
   "tag-wrangler",
   "templater-obsidian",
@@ -30,5 +29,7 @@
   "obsidian-style-settings",
   "fantasy-calendar",
   "obsidian-character-sheet",
-  "obsidian-kanban"
+  "obsidian-kanban",
+  "obsidian-linter",
+  "customjs"
 ]
