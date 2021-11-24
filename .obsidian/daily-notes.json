@@ -1,1 +1,5 @@
-{"folder":"1. Sessions/Post Session Logs","template":"","format":"YY-M-DD"}
+{
+  "folder": "Plugin Testing/calendar",
+  "template": "Plugin Testing/calendar/test template",
+  "format": "YYYY-M-DD"
+}

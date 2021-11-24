@@ -1,9 +1,10 @@
-- ---
+---
 aliases: 
 tags: 
 date created: Tuesday, September 28th 2021, 4:39:15 pm
 date modified: Tuesday, November 16th 2021, 3:48:06 pm
 ---
+
 
 | dice:1d% |              Races              |
 |:--------:|:-------------------------------:|
@@ -11,6 +12,10 @@ date modified: Tuesday, November 16th 2021, 3:48:06 pm
 |  64-88   | `dice: [[Race Generator#^uncommon]]` |
 |  88-100  |   `dice:[[Race Generator#^rare]]`    |
 ^main
+
+
+`dice: test`
+
 
 | dice:1d7 |                                 Common Races                                 |
 |:--------:|:----------------------------------------------------------------------------:|
@@ -20,7 +25,7 @@ date modified: Tuesday, November 16th 2021, 3:48:06 pm
 |    4     |                                    Dwarf                                     |
 |    5     |                                     Orc                                      |
 |    6     |                                     Elf                                      |
-|    7     | Half `dice: [[Race Generator#^half-gen]]` and half `dice:[[Race Generator#^main-alt]]` |
+|    7     | Half `dice: [[Race Generator#^half-gen]]` `dice:[[Race Generator#^main-alt]]` |
 ^common
 
 
@@ -95,6 +100,8 @@ date modified: Tuesday, November 16th 2021, 3:48:06 pm
 |     3     | `dice: [[Race Generator#^main-alt]]` and `dice: [[Race Generator#^common]]` |
 |     4     |                                      Other                                      |
 ^test
+
+`dice: [[Race Generator#^test]]`
 
 | dice: 1d4 |                Test2 Table                |
 |:---------:|:-----------------------------------------:|

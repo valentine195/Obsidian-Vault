@@ -1,28 +1,33 @@
----
-css:
- test: abc
----
 
-```dataviewjs
+abc
 
-app.plugins.plugins["obsidian-admonition"].postprocessor("info", "markdown content", this.container.createDiv());
+`````ad-info
+title: test
+collapse: closed
+## Header
 
+- abc
+- def
+- [ ] checkbox
 
-```
+![[Test]]
 
-^20470e
+def
+````ad-info
+title: test
+collapse: closed
+```mermaid
 
-````ad-note
-title: # Test
+graph TD;  
+ A-->B;  
+ A-->C;  
+ B-->D;  
+ C-->D;
 
-```dataview
-list from #location
 ```
 
 ````
 
-```ad-info
+`````
 
-abc
 
-```
