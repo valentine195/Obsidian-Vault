@@ -14,7 +14,6 @@ date modified: Tuesday, November 16th 2021, 3:48:06 pm
 ^main
 
 
-`dice: test`
 
 
 | dice:1d7 |                                 Common Races                                 |

@@ -1,0 +1,198 @@
+{
+  "mapMarkers": [
+    {
+      "id": "real 2",
+      "lastAccessed": 1633361324906,
+      "markers": [
+        {
+          "id": "ID_7a080b193b89",
+          "type": "location",
+          "loc": [
+            37.408346344485,
+            -82.51799221510602
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": 5,
+          "maxZoom": 10,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
+    },
+    {
+      "id": "tester7",
+      "lastAccessed": 1638237285187,
+      "markers": [
+        {
+          "id": "ID_18ab29d8ea29",
+          "type": "location",
+          "loc": [
+            500.375,
+            1377.3371024734984
+          ],
+          "link": null,
+          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
+    },
+    {
+      "id": "test 3",
+      "lastAccessed": 1638237285187,
+      "markers": [
+        {
+          "id": "ID_98ba18f8ab19",
+          "type": "location",
+          "loc": [
+            35.98183081026476,
+            -21.86341473336338
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_990bf8e8aacb",
+          "type": "location",
+          "loc": [
+            33.60025036574813,
+            1.4277047761183417
+          ],
+          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [
+        {
+          "type": "polyline",
+          "color": "#3388FF",
+          "vertices": [
+            {
+              "lat": 35.98183081026476,
+              "lng": -21.86341473336338,
+              "id": "ID_29fa281b4a2a",
+              "targets": {
+                "vertexIds": [],
+                "markerId": "ID_98ba18f8ab19"
+              }
+            },
+            {
+              "lat": 33.60025036574813,
+              "lng": 1.4277047761183417,
+              "id": "ID_490a9b0be8c9",
+              "targets": {
+                "vertexIds": [],
+                "markerId": "ID_990bf8e8aacb"
+              }
+            }
+          ],
+          "arrows": false,
+          "reversed": false
+        }
+      ],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
+    }
+  ],
+  "defaultMarker": {
+    "type": "default",
+    "iconName": "map-marker",
+    "color": "#dddddd",
+    "transform": {
+      "size": 6,
+      "x": 0,
+      "y": -2
+    }
+  },
+  "markerIcons": [
+    {
+      "type": "location",
+      "iconName": "circle",
+      "color": "#b80000",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [
+        "location"
+      ],
+      "minZoom": null,
+      "maxZoom": null
+    },
+    {
+      "type": "event",
+      "iconName": "exclamation",
+      "color": "#668cff",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [
+        "event"
+      ],
+      "minZoom": null,
+      "maxZoom": null
+    }
+  ],
+  "color": "#dddddd",
+  "lat": 39.983334,
+  "long": -82.98333,
+  "notePreview": false,
+  "layerMarkers": true,
+  "previousVersion": "4.3.5",
+  "version": {
+    "major": 4,
+    "minor": 3,
+    "patch": 5
+  },
+  "warnedAboutMapMarker": false,
+  "copyOnClick": false,
+  "displayMarkerTooltips": "hover",
+  "displayOverlayTooltips": true,
+  "configDirectory": null,
+  "mapViewEnabled": true,
+  "mapViewParameters": {},
+  "enableDraw": true,
+  "defaultUnitType": "imperial"
+}

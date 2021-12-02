@@ -1,0 +1,75 @@
+{
+  "userAdmonitions": {
+    "dnd": {
+      "type": "dnd",
+      "color": "162, 63, 207",
+      "icon": {
+        "type": "font-awesome",
+        "name": "dice-d20"
+      },
+      "command": false
+    },
+    "info": {
+      "type": "info",
+      "color": "99, 99, 99",
+      "icon": {
+        "type": "font-awesome",
+        "name": "scroll"
+      }
+    },
+    "important": {
+      "type": "important",
+      "color": "210, 86, 86",
+      "icon": {
+        "type": "font-awesome",
+        "name": "exclamation"
+      }
+    },
+    "item": {
+      "type": "item",
+      "color": "32, 177, 37",
+      "icon": {
+        "type": "rpg",
+        "name": "broadsword"
+      },
+      "command": false
+    },
+    "treasure": {
+      "type": "treasure",
+      "color": "96, 11, 224",
+      "icon": {
+        "type": "font-awesome",
+        "name": "gem"
+      }
+    },
+    "battle": {
+      "type": "battle",
+      "color": "229, 52, 52",
+      "icon": {
+        "type": "font-awesome",
+        "name": "skull-crossbones"
+      },
+      "command": true,
+      "title": "Testing"
+    },
+    "test": {
+      "type": "test",
+      "color": "#7d7d7d",
+      "icon": {
+        "name": "windows",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": null
+    }
+  },
+  "syntaxHighlight": true,
+  "copyButton": true,
+  "version": "6.7.1",
+  "autoCollapse": false,
+  "defaultCollapseType": "closed",
+  "syncLinks": false,
+  "enableMarkdownProcessor": true,
+  "injectColor": true,
+  "parseTitles": true
+}

@@ -1,0 +1,74 @@
+{
+  "players": [
+    {
+      "name": "Bob",
+      "hp": 32,
+      "ac": 16,
+      "modifier": 3,
+      "player": true,
+      "marker": "default"
+    }
+  ],
+  "homebrew": [],
+  "version": null,
+  "canUseDiceRoll": false,
+  "initiative": "1d20 + %mod%",
+  "sync": true,
+  "leafletIntegration": true,
+  "playerMarker": "default",
+  "monsterMarker": "default",
+  "state": {
+    "creatures": [
+      {
+        "name": "Dire Wolf",
+        "initiative": 20,
+        "modifier": 0,
+        "hp": 30,
+        "ac": 13,
+        "id": "ID_6859881bd99a",
+        "currentHP": 30,
+        "status": [],
+        "enabled": true
+      },
+      {
+        "name": "Bob",
+        "initiative": 12,
+        "modifier": 3,
+        "hp": 32,
+        "ac": 16,
+        "id": "ID_d9ca4b6ab84a",
+        "marker": "default",
+        "currentHP": 32,
+        "status": [],
+        "enabled": true,
+        "player": true
+      },
+      {
+        "name": "Goblin Boss",
+        "initiative": 13,
+        "modifier": 0,
+        "hp": 24,
+        "ac": 13,
+        "id": "ID_c82898b818d9",
+        "currentHP": 24,
+        "status": [],
+        "enabled": true
+      },
+      {
+        "name": "Goblin",
+        "initiative": 6,
+        "modifier": 0,
+        "hp": 15,
+        "ac": 13,
+        "id": "ID_590b4b3b3beb",
+        "currentHP": 15,
+        "status": [],
+        "enabled": true
+      }
+    ],
+    "state": true,
+    "current": 2,
+    "name": "Fight"
+  },
+  "displayDifficulty": true
+}

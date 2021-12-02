@@ -3,8 +3,10 @@
 id: test 3
 markerFile: [[Direct Marker 2]]
 markerFolder: "Plugin Testing/map/🗺 marker folder"
-maxZoom: 8
-minZoom: -2
+maxZoom: 30
+minZoom: -10
+gpx:
+ - [[2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx|House Run]]
 ```
 
 

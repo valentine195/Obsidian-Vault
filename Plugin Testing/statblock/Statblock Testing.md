@@ -1,7 +1,3 @@
-| test | test |
-| ---- | ---- |
-| `abc|def`     |      |
-
 
 ```statblock
 monster: Archmage
