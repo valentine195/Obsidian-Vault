@@ -332,3 +332,10 @@ body:not(.hider-frameless):not(.is-fullscreen):not(.is-mobile) .titlebar {
 .theme-light .cm-s-obsidian div.HyperMD-codeblock-end-bg {
     border-bottom: 2px solid var(--background-primary-alt);
 }
+
+/** Block Quotes */
+
+.markdown-preview-view.markdown-preview-view blockquote {
+    background-color: var(--background-secondary);
+    box-shadow: 0 0rem 0.5rem var(--background-modifier-box-shadow);
+}

@@ -2,28 +2,28 @@
 date updated: '2021-03-30T20:37:16-04:00'
 obsidianUIMode: preview
 ---
-# The Price of Revenge
+## The Price of Revenge
 
 ```ActivityHistory
 /
 ```
 
-## Map
+### Map
 ![[1. Location Index#^khorvaire-map]]
 
-## Characters
+### Characters
 
 - [[Bob]]
 - [[Mim]]
 - [[Jeremiah Pumpernickle]]
 - [[Merigold]]
 
-## Key NPCs
+### Key NPCs
 
 - [[Jasper Bartlett]]
 - [[Erandis Vol]]
 
-## Current Adventure
+### Current Adventure
 ```dataviewjs
 
 dv.header(3, "Planning");
@@ -40,9 +40,9 @@ dv.list([dv.pages('#plot/adventures/seed')
 
 
 
-## Recaps
+### Recaps
 
-### Last Session
+#### Last Session
 ```dataviewjs
 
 const last = dv
@@ -54,7 +54,7 @@ dv.list([last.file.link])
 
 ```
 
-### All Sessions
+#### All Sessions
 ```dataview
 list from "1. Sessions/Post Session Logs"
 where !contains(file.name, "Index") 

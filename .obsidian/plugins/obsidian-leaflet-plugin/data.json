@@ -30,7 +30,7 @@
     },
     {
       "id": "tester7",
-      "lastAccessed": 1638237285187,
+      "lastAccessed": 1638752142499,
       "markers": [
         {
           "id": "ID_18ab29d8ea29",
@@ -58,7 +58,7 @@
     },
     {
       "id": "test 3",
-      "lastAccessed": 1638237285187,
+      "lastAccessed": 1638805647676,
       "markers": [
         {
           "id": "ID_98ba18f8ab19",
@@ -67,7 +67,6 @@
             35.98183081026476,
             -21.86341473336338
           ],
-          "link": null,
           "layer": "real",
           "mutable": true,
           "command": false,
@@ -84,7 +83,22 @@
             33.60025036574813,
             1.4277047761183417
           ],
-          "link": null,
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_3b4bf83b69c9",
+          "type": "location",
+          "loc": [
+            38.03227271228383,
+            -77.92532932451442
+          ],
           "layer": "real",
           "mutable": true,
           "command": false,
@@ -180,11 +194,11 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "4.3.5",
+  "previousVersion": "4.4.0",
   "version": {
     "major": 4,
-    "minor": 3,
-    "patch": 5
+    "minor": 4,
+    "patch": 0
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": false,
@@ -192,7 +206,50 @@
   "displayOverlayTooltips": true,
   "configDirectory": null,
   "mapViewEnabled": true,
-  "mapViewParameters": {},
+  "mapViewParameters": {
+    "darkMode": "false",
+    "defaultZoom": 6.3,
+    "distanceMultiplier": 1,
+    "drawColor": "#3388ff",
+    "geojson": [],
+    "geojsonColor": "#3388ff",
+    "gpx": [],
+    "gpxColor": "#3388ff",
+    "height": "600px",
+    "image": "[[khorvaire.png]]",
+    "imageOverlay": [],
+    "isMapView": false,
+    "layers": [
+      "[[khorvaire.png]]"
+    ],
+    "linksFrom": [],
+    "linksTo": [],
+    "marker": [],
+    "commandMarker": [],
+    "markerFile": [],
+    "markerFolder": [],
+    "markerTag": [
+      [
+        "location"
+      ]
+    ],
+    "maxZoom": 10,
+    "minZoom": 1,
+    "noUI": true,
+    "osmLayer": true,
+    "overlay": [],
+    "overlayColor": "blue",
+    "scale": 400,
+    "showAllMarkers": false,
+    "tileServer": [],
+    "verbose": false,
+    "zoomDelta": 0.5,
+    "zoomFeatures": false,
+    "id": "index",
+    "unit": "mi",
+    "preserveAspect": true,
+    "filterTag": []
+  },
   "enableDraw": true,
   "defaultUnitType": "imperial"
 }

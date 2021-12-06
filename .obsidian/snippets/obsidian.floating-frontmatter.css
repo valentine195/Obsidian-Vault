@@ -1,0 +1,66 @@
+pre.frontmatter {
+    float: right;
+    position: absolute;
+    right: 0.2rem;
+    top: 0.6rem;
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    border: none !important;
+    background-color: transparent;
+}
+pre.frontmatter .code {
+    visibility: hidden;
+}
+pre.frontmatter button.copy-code-button {
+    display: none;
+}
+pre.frontmatter::before {
+    content: "✧";
+    font-size: 24px;
+    color: var(--primary-accent-3);
+    float: right;
+}
+pre.frontmatter:hover {
+    background-color: var(--background-secondary) !important;
+    filter: drop-shadow(0 0 0.1rem var(--background-secondary-alt));
+    width: unset;
+    height: unset;
+    z-index: 3;
+}
+pre.frontmatter:hover .code {
+    visibility: visible;
+}
+.frontmatter-container {
+    float: right;
+    position: absolute;
+    right: 0.7rem;
+    top: 0;
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    border: none !important;
+    background-color: transparent;
+    padding: 0.5rem;
+}
+.frontmatter-container .frontmatter-container-header,
+.frontmatter-container .frontmatter-section {
+    visibility: hidden;
+}
+.frontmatter-container::before {
+    content: "✧";
+    font-size: 20px;
+    color: var(--primary-accent-3);
+    float: right;
+}
+.frontmatter-container:hover {
+    background-color: var(--background-secondary);
+    filter: drop-shadow(0 0 0.1rem var(--background-secondary-alt));
+    width: unset;
+    height: unset;
+    z-index: 3;
+}
+.frontmatter-container:hover .frontmatter-container-header,
+.frontmatter-container:hover .frontmatter-section {
+    visibility: visible;
+}

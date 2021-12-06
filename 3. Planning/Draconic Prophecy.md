@@ -13,7 +13,7 @@ The prophecy is incomplete, missing the second half. The first half is in the Ho
 
 ### First Portion
 
-```quote
+```ad-quote
 title:
  _An ancient house, unmarked, can return to glory_,
  _Using the fragments of ultimate energy,_
@@ -33,7 +33,7 @@ title:
 
 ### Second Portion
 
-```quote
+```ad-quote
 title:
  _Another nearby, guarded by_
  _One in the wastes,_ _**something something**_
@@ -59,7 +59,7 @@ title:
 
 ### Third Portion
 
-```quote
+```ad-quote
 title:
 _If used with a heart set on revenge,_
 _A return to the first age of dominion,_

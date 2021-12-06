@@ -3,9 +3,10 @@
   "foldHeading": true,
   "foldIndent": true,
   "smartIndentList": false,
-  "showFrontmatter": false,
+  "showFrontmatter": true,
   "newFileLocation": "current",
   "livePreview": false,
   "showUnsupportedFiles": true,
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "readableLineLength": false
 }

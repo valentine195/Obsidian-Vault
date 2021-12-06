@@ -5,8 +5,7 @@ type: faction
 tags: 
  - factions/church-of-the-silver-flame
 ---
-[[]]
-# Church of the Silver Flame
+## Church of the Silver Flame
 
 Based In: [[Flamekeep|Flamekeep (Thrane)]]
 

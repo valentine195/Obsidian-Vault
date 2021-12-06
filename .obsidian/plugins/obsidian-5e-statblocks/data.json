@@ -10741,7 +10741,7 @@
       "blocks": [
         {
           "type": "group",
-          "id": "68cb98ab6809",
+          "id": "fa7a59e9f8db",
           "properties": [
             "name",
             "size",
@@ -10752,17 +10752,15 @@
           "nested": [
             {
               "type": "heading",
-              "id": "9a4848b8f80a",
+              "id": "79e8dbc9fa29",
               "properties": [
                 "name"
               ],
-              "saveIcon": true,
-              "downloadIcon": true,
               "conditioned": true
             },
             {
               "type": "subheading",
-              "id": "08a86ab8882b",
+              "id": "b98adb69a8eb",
               "properties": [
                 "size",
                 "type",
@@ -10777,7 +10775,7 @@
         },
         {
           "type": "group",
-          "id": "4899fa2a4848",
+          "id": "d87b087b9b4a",
           "properties": [
             "ac",
             "hp",
@@ -10786,7 +10784,7 @@
           "nested": [
             {
               "type": "property",
-              "id": "eafa2aba2aa8",
+              "id": "aa7ae898b98b",
               "properties": [
                 "ac"
               ],
@@ -10795,7 +10793,7 @@
             },
             {
               "type": "property",
-              "id": "e8daea88987a",
+              "id": "2a4aa82a8839",
               "properties": [
                 "hp"
               ],
@@ -10810,7 +10808,7 @@
             },
             {
               "type": "property",
-              "id": "0afa8b6bdb4b",
+              "id": "d8790b9829f9",
               "display": "Speed",
               "properties": [
                 "speed"
@@ -10823,7 +10821,7 @@
         },
         {
           "type": "table",
-          "id": "7adbeb889ba8",
+          "id": "c84bfb9a08b9",
           "properties": [
             "stats"
           ],
@@ -10840,7 +10838,7 @@
         },
         {
           "type": "group",
-          "id": "d858483938a9",
+          "id": "eb39cb7acabb",
           "properties": [
             "saves",
             "skillsaves",
@@ -10855,7 +10853,7 @@
           "nested": [
             {
               "type": "saves",
-              "id": "9aa8e82bf9d8",
+              "id": "d9185839f94b",
               "display": "Saves",
               "properties": [
                 "saves"
@@ -10867,7 +10865,7 @@
             },
             {
               "type": "saves",
-              "id": "4b6ab93b1ac9",
+              "id": "d97b88b9aa98",
               "display": "Skills",
               "properties": [
                 "skillsaves"
@@ -10879,7 +10877,7 @@
             },
             {
               "type": "property",
-              "id": "19bbd8b93aba",
+              "id": "cb9afa0b2aa8",
               "display": "Damage Immunities",
               "properties": [
                 "damage_immunities"
@@ -10888,7 +10886,7 @@
             },
             {
               "type": "property",
-              "id": "88ca8b88f8c8",
+              "id": "6b3a381ada38",
               "display": "Condition Immunities",
               "properties": [
                 "condition_immunities"
@@ -10897,7 +10895,7 @@
             },
             {
               "type": "property",
-              "id": "6ad9dbd8cbc9",
+              "id": "b8fba959eac8",
               "display": "Resistances",
               "properties": [
                 "damage_resistances"
@@ -10906,7 +10904,7 @@
             },
             {
               "type": "property",
-              "id": "aa4ab9ab6b58",
+              "id": "786829cb0b7b",
               "display": "Damage Vulnerabilities",
               "properties": [
                 "damage_vulnerabilities"
@@ -10915,7 +10913,7 @@
             },
             {
               "type": "property",
-              "id": "fbbaea59c83b",
+              "id": "eac8eaf89918",
               "display": "Senses",
               "properties": [
                 "senses"
@@ -10924,7 +10922,7 @@
             },
             {
               "type": "property",
-              "id": "286a8999f8ab",
+              "id": "298b980b6a1b",
               "display": "Languages",
               "properties": [
                 "languages"
@@ -10933,13 +10931,13 @@
             },
             {
               "type": "inline",
-              "id": "cb9b184ac819",
+              "id": "da9adba8aa19",
               "properties": [],
               "conditioned": true,
               "nested": [
                 {
                   "type": "property",
-                  "id": "cae8896b5b5b",
+                  "id": "eb199abaeab9",
                   "display": "Challenge",
                   "properties": [
                     "cr"
@@ -10947,7 +10945,7 @@
                 },
                 {
                   "type": "property",
-                  "id": "b829582a09bb",
+                  "id": "6ae879e8ba9b",
                   "display": "Proficiency Bonus",
                   "properties": [
                     "cr"
@@ -10960,8 +10958,8 @@
           "hasRule": true
         },
         {
-          "type": "section",
-          "id": "db39ba3a585b",
+          "type": "traits",
+          "id": "39886bf9684a",
           "properties": [
             "traits"
           ],
@@ -10972,7 +10970,7 @@
         },
         {
           "type": "spells",
-          "id": "a9588b4aeb08",
+          "id": "894a5aaae8a9",
           "properties": [
             "spells"
           ],
@@ -10982,8 +10980,8 @@
           }
         },
         {
-          "type": "section",
-          "id": "6a1988ea485b",
+          "type": "traits",
+          "id": "d98a8b1bf9fb",
           "properties": [
             "actions"
           ],
@@ -10994,8 +10992,8 @@
           }
         },
         {
-          "type": "section",
-          "id": "2a0beb1b1b59",
+          "type": "traits",
+          "id": "a8891b69fbb8",
           "properties": [
             "legendary_actions"
           ],
@@ -11006,8 +11004,8 @@
           }
         },
         {
-          "type": "section",
-          "id": "f8aa8b788a48",
+          "type": "traits",
+          "id": "3a1bbaaaab1b",
           "properties": [
             "reactions"
           ],

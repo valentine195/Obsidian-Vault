@@ -19,6 +19,8 @@
     "obsidian.nav",
     "obsidian.outliner-overrides",
     "obsidian.portrait",
-    "obsidian.subhead"
+    "obsidian.subhead",
+    "obsidian.floating-frontmatter",
+    "obsidian.tag-column"
   ]
 }
