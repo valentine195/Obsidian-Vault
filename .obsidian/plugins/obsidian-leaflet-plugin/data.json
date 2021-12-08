@@ -235,7 +235,6 @@
     ],
     "maxZoom": 10,
     "minZoom": 1,
-    "noUI": true,
     "osmLayer": true,
     "overlay": [],
     "overlayColor": "blue",
@@ -248,7 +247,8 @@
     "id": "index",
     "unit": "mi",
     "preserveAspect": true,
-    "filterTag": []
+    "filterTag": [],
+    "noUI": true
   },
   "enableDraw": true,
   "defaultUnitType": "imperial"

@@ -1,7 +1,5 @@
 {
   "pluginList": [
-    "valentine195/obsidian-image-window",
-    "KjellConnelly/obsidian-dev-tools",
     "valentine195/obsidian-5e-statblocks"
   ],
   "themesList": [],

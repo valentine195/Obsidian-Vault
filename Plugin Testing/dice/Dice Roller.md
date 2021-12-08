@@ -8,10 +8,9 @@
 
 `dice: [[Dice Roller#^table]]`
 
-| dice: 1d2 | Result                           |
+| dice: 1d1 | Result                           |
 | ---------- | -------------------------------- |
 | 1          | `dice: [[Dice Roller#^quest]]`   |
-| 2          | `dice: [[Dice Roller#^pursuit]]` |
 ^table
 
 | dice: 1d12 | Quest or Adventure |
@@ -29,19 +28,3 @@
 | 11         | divide             |
 | 12         | eliminate                   |
 ^quest
-
-| dice: 1d12 | Pursuit or Escape |
-| ---------- | ----------------- |
-| 1          | pursue            |
-| 2          | abduct            |
-| 3          | recover lost      |
-| 4          | save              |
-| 5          | flee from         |
-| 6          | escape            |
-| 7          | survive           |
-| 8          | fear              |
-| 9          | hunt              |
-| 10         | seek              |
-| 11         | surprise          |
-| 12         | retreat           |
-^pursuit

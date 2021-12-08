@@ -238,40 +238,40 @@
     --text-title-h6: var(--pink-4);
 }
 
-.cm-header-1,
+.cm-s-obsidian .cm-header-1,
 .view-content h1 {
     color: var(--text-title-h1);
     font-variant: common-ligatures small-caps;
     line-height: 1.2em;
 }
 
-blockquote .cm-header-1,
+blockquote .cm-s-obsidian .cm-header-1,
 blockquote h1 {
     color: var(--text-title-h2);
     font-variant: common-ligatures;
 }
 
-.cm-header-2,
+.cm-s-obsidian .cm-header-2,
 .view-content h2 {
     color: var(--text-title-h2);
 }
 
-.cm-header-3,
+.cm-s-obsidian .cm-header-3,
 .view-content h3 {
     color: var(--text-title-h3);
 }
 
-.cm-header-4,
+.cm-s-obsidian .cm-header-4,
 .view-content h4 {
     color: var(--text-title-h4);
 }
 
-.cm-header-5,
+.cm-s-obsidian .cm-header-5,
 .view-content h5 {
     color: var(--text-title-h5);
 }
 
-.cm-header-6,
+.cm-s-obsidian .cm-header-6,
 .view-content .markdown-preview-view h6 {
     color: var(--text-title-h6);
 }

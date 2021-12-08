@@ -58,7 +58,6 @@
 
 .markdown-source-view.mod-cm6 .cm-content {
     max-width: var(--max-width);
-
 }
 
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
@@ -83,4 +82,36 @@
 
 .popover .markdown-embed .markdown-preview-view {
     padding: 20px 15px 10px 15px;
+}
+
+body.outliner-plugin-bls .cm-s-obsidian span.cm-formatting-list {
+    letter-spacing: 3px;
+}
+
+/** Fix for colored folders. */
+
+.nav-folder-title {
+    margin: 0;
+    min-width: unset;
+    width: auto;
+}
+
+.nav-folder-children {
+    padding-left: 12px;
+}
+
+.nav-folder:not(.mod-root) > .nav-folder-children .nav-file-title {
+    padding-left: 10px;
+}
+
+body:not(.is-mobile) .status-bar {
+    background: transparent;
+    top: calc(-1 * var(--titlebar-height) + 1px);
+    height: var(--titlebar-height);
+    right: 120px;
+    bottom: unset;
+}
+
+.markdown-preview-view .internal-query.is-embed .internal-query-header-title {
+    font-size: var(--h5);
 }
