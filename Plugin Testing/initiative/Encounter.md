@@ -1,4 +1,17 @@
 
+
+```encounter
+hide: players
+players: 
+ - Bob
+ - test2
+creatures:
+- 3: Salamander, 60, 12, 5
+- 1d3: Goblin
+- Goblin
+
+```
+
 ```encounter
 name: Example
 creatures:
@@ -17,9 +30,6 @@ creatures:
  - Testing
  - Testing CR
 ---
-name: Fight
-creatures:
-- 3: Salamander, 60, 12, 20
 ```
 
 ```encounter

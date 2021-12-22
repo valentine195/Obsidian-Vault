@@ -2,7 +2,10 @@
   "returnAllTags": true,
   "rollLinksForTags": false,
   "copyContentButton": true,
-  "customFormulas": [],
+  "customFormulas": [
+    "10d20",
+    "20d100"
+  ],
   "displayFormulaForMod": true,
   "displayResultsInline": false,
   "displayLookupRoll": false,
@@ -46,5 +49,5 @@
   "diceColor": "#3b3b3b",
   "textColor": "#ffffff",
   "showLeafOnStartup": true,
-  "showDice": false
+  "showDice": true
 }

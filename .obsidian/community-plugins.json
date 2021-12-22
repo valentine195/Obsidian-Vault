@@ -8,11 +8,6 @@
   "customjs",
   "cycle-through-panes",
   "dataview",
-  "obsidian-dice-roller",
-  "fantasy-calendar",
-  "hot-reload",
-  "hotkeysplus-obsidian",
-  "initiative-tracker",
   "obsidian-linter",
   "markdown-attributes",
   "obsidian-leaflet-plugin",
@@ -24,5 +19,9 @@
   "image-window",
   "toggle-readable-length",
   "obsidian-info-plugin",
-  "obsidian-5e-statblocks"
+  "obsidian-dice-roller",
+  "hotkeysplus-obsidian",
+  "hot-reload",
+  "obsidian-5e-statblocks",
+  "initiative-tracker"
 ]

@@ -58,7 +58,7 @@
     },
     {
       "id": "test 3",
-      "lastAccessed": 1638805647676,
+      "lastAccessed": 1639670005793,
       "markers": [
         {
           "id": "ID_98ba18f8ab19",
@@ -82,22 +82,6 @@
           "loc": [
             33.60025036574813,
             1.4277047761183417
-          ],
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_3b4bf83b69c9",
-          "type": "location",
-          "loc": [
-            38.03227271228383,
-            -77.92532932451442
           ],
           "layer": "real",
           "mutable": true,
@@ -131,6 +115,38 @@
               "targets": {
                 "vertexIds": [],
                 "markerId": "ID_990bf8e8aacb"
+              }
+            }
+          ],
+          "arrows": false,
+          "reversed": false
+        },
+        {
+          "type": "polyline",
+          "color": "#3388FF",
+          "vertices": [
+            {
+              "lat": -4.3707275390625,
+              "lng": 4.240234375,
+              "id": "ID_88195888fb09",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": -3.7496337890625,
+              "lng": 4.357421875,
+              "id": "ID_2839fa6bbae9",
+              "targets": {
+                "vertexIds": []
+              }
+            },
+            {
+              "lat": -3.7890625,
+              "lng": 4.671875,
+              "id": "ID_291838d8e8b8",
+              "targets": {
+                "vertexIds": []
               }
             }
           ],
@@ -194,10 +210,10 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "4.4.0",
+  "previousVersion": "4.8.0",
   "version": {
     "major": 4,
-    "minor": 4,
+    "minor": 8,
     "patch": 0
   },
   "warnedAboutMapMarker": false,
@@ -247,8 +263,7 @@
     "id": "index",
     "unit": "mi",
     "preserveAspect": true,
-    "filterTag": [],
-    "noUI": true
+    "filterTag": []
   },
   "enableDraw": true,
   "defaultUnitType": "imperial"

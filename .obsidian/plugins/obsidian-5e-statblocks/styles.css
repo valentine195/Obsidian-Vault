@@ -1,3 +1,33 @@
+.statblock-edit-block
+    .statblock-additional-container
+    > .additional
+    > .setting-item
+    .setting-item-name {
+    font-size: small;
+    font-style: italic;
+}
+.statblock-edit-block
+    .statblock-additional-container
+    > .additional
+    > .setting-item {
+    color: var(--text-muted);
+}
+.statblock-edit-block .statblock-additional-container > :not(.additional) {
+    padding-bottom: 0;
+}
+
+.statblock-edit-block .setting-item {
+    border: 0;
+
+    padding-top: 0rem;
+}
+
+.statblock-edit-block textarea {
+    width: 100%;
+    resize: vertical;
+    overflow: hidden;
+}
+
 :root {
     --statblock-primary-color: #7a200d;
     --statblock-rule-color: #922610;
@@ -19,6 +49,10 @@
 
 .statblock-additional-container details {
     padding: 18px 0 18px 0;
+}
+
+.statblock-additional-container .clickable-icon {
+    margin: 0 6px;
 }
 
 .statblock-additional-container .task-list-inline {
@@ -56,6 +90,9 @@
     margin: 0 6px;
 }
 
+.statblock-settings div {
+    background-color: inherit;
+}
 .statblock-settings .coffee {
     width: 60%;
     color: var(--text-faint);
@@ -65,6 +102,4 @@
 .statblock-settings .coffee img {
     height: 30px;
 }
-
-
 
