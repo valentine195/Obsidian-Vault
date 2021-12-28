@@ -2,18 +2,22 @@
   "players": [
     {
       "name": "Bob",
+      "level": 3,
       "player": true
     },
     {
-      "name": "Jeremiah",
+      "name": "Test",
+      "level": 3,
       "player": true
     },
     {
-      "name": "Goldie",
+      "name": "Test2",
+      "level": 3,
       "player": true
     },
     {
-      "name": "Mim",
+      "name": "Test4",
+      "level": 4,
       "player": true
     }
   ],
@@ -25,178 +29,57 @@
   "leafletIntegration": false,
   "playerMarker": "default",
   "monsterMarker": "default",
-  "state": null,
+  "state": {
+    "creatures": [
+      {
+        "name": "Test4",
+        "initiative": 16,
+        "modifier": 0,
+        "id": "ID_d84bebda38fb",
+        "status": [],
+        "enabled": true,
+        "level": 4,
+        "player": true,
+        "active": true
+      },
+      {
+        "name": "Test",
+        "initiative": 15,
+        "modifier": 0,
+        "id": "ID_6b6a2b194a18",
+        "status": [],
+        "enabled": true,
+        "level": 3,
+        "player": true,
+        "active": false
+      },
+      {
+        "name": "Bob",
+        "initiative": 6,
+        "modifier": 0,
+        "id": "ID_d90aa839095b",
+        "status": [],
+        "enabled": true,
+        "level": 3,
+        "player": true,
+        "active": false
+      },
+      {
+        "name": "Test2",
+        "initiative": 6,
+        "modifier": 0,
+        "id": "ID_2a78192ae829",
+        "status": [],
+        "enabled": true,
+        "level": 3,
+        "player": true,
+        "active": false
+      }
+    ],
+    "state": true,
+    "name": "Example"
+  },
   "condense": false,
   "displayDifficulty": true,
-  "encounters": {
-    "Here Be Dragons": {
-      "creatures": [
-        {
-          "name": "Adult Blue Dragon",
-          "initiative": 20,
-          "modifier": 0,
-          "hp": 225,
-          "ac": 19,
-          "id": "ID_da39eb186b08",
-          "marker": "default",
-          "currentHP": 225,
-          "status": [],
-          "enabled": true,
-          "xp": 15000,
-          "active": true
-        },
-        {
-          "name": "Adult Brass Dragon",
-          "initiative": 20,
-          "modifier": 0,
-          "hp": 172,
-          "ac": 18,
-          "id": "ID_8a3bfae88a59",
-          "marker": "default",
-          "currentHP": 172,
-          "status": [],
-          "enabled": true,
-          "xp": 10000,
-          "active": false
-        },
-        {
-          "name": "Adult Black Dragon",
-          "initiative": 16,
-          "modifier": 2,
-          "hp": 195,
-          "ac": 19,
-          "id": "ID_f86af8fbaa3a",
-          "marker": "default",
-          "currentHP": 195,
-          "status": [],
-          "enabled": true,
-          "xp": 11500,
-          "active": false
-        },
-        {
-          "name": "Jeremiah",
-          "initiative": 16,
-          "modifier": 0,
-          "id": "ID_5afbcb08f85a",
-          "status": [],
-          "enabled": true,
-          "player": true,
-          "active": false
-        },
-        {
-          "name": "Adult Red Dragon",
-          "initiative": 14,
-          "modifier": 0,
-          "hp": 256,
-          "ac": 19,
-          "id": "ID_6a7b59b84a29",
-          "marker": "default",
-          "currentHP": 256,
-          "status": [],
-          "enabled": true,
-          "xp": 18000,
-          "active": false
-        },
-        {
-          "name": "Adult Bronze Dragon",
-          "initiative": 11,
-          "modifier": 0,
-          "hp": 212,
-          "ac": 19,
-          "id": "ID_090bb869b969",
-          "marker": "default",
-          "currentHP": 212,
-          "status": [],
-          "enabled": true,
-          "xp": 13000,
-          "active": false
-        },
-        {
-          "name": "Adult Blue Dragon",
-          "initiative": 9,
-          "modifier": 0,
-          "hp": 225,
-          "ac": 19,
-          "id": "ID_bb1b184959a9",
-          "marker": "default",
-          "currentHP": 225,
-          "status": [],
-          "enabled": true,
-          "xp": 15000
-        },
-        {
-          "name": "Mim",
-          "initiative": 8,
-          "modifier": 0,
-          "id": "ID_8a8a797b99a9",
-          "status": [],
-          "enabled": true,
-          "player": true,
-          "active": false
-        },
-        {
-          "name": "Bob",
-          "initiative": 7,
-          "modifier": 0,
-          "id": "ID_690bc97b7a19",
-          "status": [],
-          "enabled": true,
-          "player": true,
-          "active": false
-        },
-        {
-          "name": "Adult Black Dragon",
-          "initiative": 2,
-          "modifier": 2,
-          "hp": 195,
-          "ac": 19,
-          "id": "ID_fa09f9e98b5b",
-          "marker": "default",
-          "currentHP": 195,
-          "status": [],
-          "enabled": true,
-          "xp": 11500
-        },
-        {
-          "name": "Goldie",
-          "initiative": 3,
-          "modifier": 0,
-          "id": "ID_096a6bf8d92a",
-          "status": [],
-          "enabled": true,
-          "player": true,
-          "active": false
-        },
-        {
-          "name": "Adult White Dragon",
-          "initiative": 2,
-          "modifier": 0,
-          "hp": 200,
-          "ac": 18,
-          "id": "ID_791be899db2b",
-          "marker": "default",
-          "currentHP": 200,
-          "status": [],
-          "enabled": true,
-          "xp": 10000,
-          "active": false
-        },
-        {
-          "name": "Adult Red Dragon",
-          "initiative": 1,
-          "modifier": 0,
-          "hp": 256,
-          "ac": 19,
-          "id": "ID_3a6bf89898d8",
-          "marker": "default",
-          "currentHP": 256,
-          "status": [],
-          "enabled": true,
-          "xp": 18000
-        }
-      ],
-      "state": false,
-      "name": "Here Be Dragons"
-    }
-  }
+  "encounters": {}
 }

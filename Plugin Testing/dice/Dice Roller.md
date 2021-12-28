@@ -1,9 +1,15 @@
-123 testing 123 abc `dice: 1d6` adbce  [[Dice Roller]] #interesting 123 **123** abc
+[[Dice Variants]] -> Dice Variants ->  **![[Dice Variants#^dice-0e4q]]**
 
-*test `dice: 2d3` 123 123 abcdefaskjdhflakdjfa asdas `dice: 2d6+3` abcde*
+#location|paragraph ->  **![[2. Compendium/Locations/Talenta Plains/Boneyard.md#^dice-n6rn]]**
 
-```ad-note
-test
+#location|link -> Whitecliff ->  **[[Whitecliff]]**
 
+[[Race Generator#^common]] -> Race Generator > common ->  **Halfling**
 
-```
+[[Race Generator#^main]] -> Race Generator > main ->  **`dice:[[Race Generator#^rare]]`**
+
+**`dice: [[Race Generator#^common]]`**
+
+`dice: 1d6`
+
+**![[2. Compendium/Locations/Q'Barra/Whitecliff.md#^dice-hfmb]]**

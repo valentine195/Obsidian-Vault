@@ -3,24 +3,22 @@
   "theme": "moonstone",
   "cssTheme": "Minimal",
   "enabledCssSnippets": [
-    "obsidian",
     "obsidian.auto-fading",
+    "obsidian.external-icons",
+    "obsidian",
     "obsidian.colored-folders",
     "obsidian.ebullient",
-    "obsidian.external-icons",
+    "obsidian.floating-frontmatter",
     "obsidian.fonts",
     "obsidian.garble",
     "obsidian.headings",
     "obsidian.image-adjustments",
     "obsidian.masthead",
     "obsidian.material-icons",
-    "obsidian.minimal-4-overrides",
     "obsidian.minimal-overrides",
-    "obsidian.nav",
     "obsidian.outliner-overrides",
     "obsidian.portrait",
     "obsidian.subhead",
-    "obsidian.floating-frontmatter",
-    "obsidian.tag-column"
+    "obsidian.tags"
   ]
 }

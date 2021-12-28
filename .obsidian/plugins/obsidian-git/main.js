@@ -6516,6 +6516,10 @@ var ObsidianGitSettingsTab = class extends import_obsidian.PluginSettingTab {
       plugin.settings.autoPullOnBoot = value;
       plugin.saveSettings();
     }));
+    new import_obsidian.Setting(containerEl).setName("Merge on pull").setDesc("If turned on, merge on pull. If turned off, rebase on pull.").addToggle((toggle) => toggle.setValue(plugin.settings.mergeOnPull).onChange((value) => {
+      plugin.settings.mergeOnPull = value;
+      plugin.saveSettings();
+    }));
     new import_obsidian.Setting(containerEl).setName("Disable push").setDesc("Do not push changes to the remote repository").addToggle((toggle) => toggle.setValue(plugin.settings.disablePush).onChange((value) => {
       plugin.settings.disablePush = value;
       plugin.saveSettings();
@@ -6744,7 +6748,8 @@ var DEFAULT_SETTINGS = {
   updateSubmodules: false,
   gitPath: "",
   customMessageOnAutoBackup: false,
-  autoBackupAfterFileChange: false
+  autoBackupAfterFileChange: false,
+  mergeOnPull: true
 };
 var VIEW_CONFIG = {
   type: "git-view",
@@ -6923,7 +6928,11 @@ var SimpleGit = class extends GitManager {
       this.plugin.setState(PluginState.pull);
       if (this.plugin.settings.updateSubmodules)
         yield this.git.subModule(["update", "--remote", "--merge", "--recursive"], (err) => this.onError(err));
-      const pullResult = yield this.git.pull(["--no-rebase"], (err) => __async(this, null, function* () {
+      let lastRemoteCommitBefore;
+      if (!this.plugin.settings.mergeOnPull) {
+        lastRemoteCommitBefore = yield this.getNewestRemoteCommit();
+      }
+      const pullResult = yield this.git.pull([this.plugin.settings.mergeOnPull ? "--no-rebase" : "--rebase"], (err) => __async(this, null, function* () {
         if (err) {
           this.plugin.displayError(`Pull failed ${err.message}`);
           const status = yield this.git.status();
@@ -6932,7 +6941,23 @@ var SimpleGit = class extends GitManager {
           }
         }
       }));
-      return pullResult.files.length;
+      if (!this.plugin.settings.mergeOnPull) {
+        const lastRemoteCommitAfter = yield this.getNewestRemoteCommit();
+        if (lastRemoteCommitAfter != lastRemoteCommitBefore) {
+          return 1;
+        } else {
+          return 0;
+        }
+      } else {
+        return pullResult.files.length;
+      }
+    });
+  }
+  getNewestRemoteCommit() {
+    return __async(this, null, function* () {
+      const branchInfo = yield this.branchInfo();
+      const newestRemoteCommit = (yield this.git.log([`-n 1 ${branchInfo.tracking}`])).all[0].hash;
+      return newestRemoteCommit;
     });
   }
   push() {
@@ -7427,20 +7452,20 @@ function schedule_update() {
 function add_render_callback(fn) {
   render_callbacks.push(fn);
 }
-var flushing = false;
 var seen_callbacks = new Set();
+var flushidx = 0;
 function flush() {
-  if (flushing)
-    return;
-  flushing = true;
+  const saved_component = current_component;
   do {
-    for (let i = 0; i < dirty_components.length; i += 1) {
-      const component = dirty_components[i];
+    while (flushidx < dirty_components.length) {
+      const component = dirty_components[flushidx];
+      flushidx++;
       set_current_component(component);
       update(component.$$);
     }
     set_current_component(null);
     dirty_components.length = 0;
+    flushidx = 0;
     while (binding_callbacks.length)
       binding_callbacks.pop()();
     for (let i = 0; i < render_callbacks.length; i += 1) {
@@ -7456,8 +7481,8 @@ function flush() {
     flush_callbacks.pop()();
   }
   update_scheduled = false;
-  flushing = false;
   seen_callbacks.clear();
+  set_current_component(saved_component);
 }
 function update($$) {
   if ($$.fragment !== null) {
@@ -9304,13 +9329,13 @@ var ObsidianGit = class extends import_obsidian12.Plugin {
       if (!(yield this.isAllInitialized()))
         return;
       const filesUpdated = yield this.pull();
-      if (filesUpdated == 0) {
+      if (!filesUpdated) {
         this.displayMessage("Everything is up-to-date");
       }
       if (this.gitManager instanceof SimpleGit) {
         const status = yield this.gitManager.status();
         if (status.conflicted.length > 0) {
-          this.displayError(`You have ${status.conflicted.length} conflict files`);
+          this.displayError(`You have ${status.conflicted.length} conflict ${status.conflicted.length > 1 ? "files" : "file"}`);
         }
       }
       this.lastUpdate = Date.now();
@@ -9329,7 +9354,7 @@ var ObsidianGit = class extends import_obsidian12.Plugin {
         const status = yield this.gitManager.status();
         if (fromAutoBackup && status.conflicted.length > 0) {
           this.setState(PluginState.idle);
-          this.displayError(`Did not commit, because you have ${status.conflicted.length} conflict files. Please resolve them and commit per command.`);
+          this.displayError(`Did not commit, because you have ${status.conflicted.length} conflict ${status.conflicted.length > 1 ? "files" : "file"}. Please resolve them and commit per command.`);
           this.handleConflict(status.conflicted);
           return;
         }
@@ -9369,8 +9394,8 @@ var ObsidianGit = class extends import_obsidian12.Plugin {
             return false;
           }
         }
-        const commitedFiles = yield this.gitManager.commitAll(commitMessage);
-        this.displayMessage(`Committed ${commitedFiles} files`);
+        const committedFiles = yield this.gitManager.commitAll(commitMessage);
+        this.displayMessage(`Committed ${committedFiles} ${committedFiles > 1 ? "files" : "file"}`);
       } else {
         this.displayMessage("No changes to commit");
       }
@@ -9387,13 +9412,13 @@ var ObsidianGit = class extends import_obsidian12.Plugin {
       }
       let status;
       if (this.gitManager instanceof SimpleGit && (status = yield this.gitManager.status()).conflicted.length > 0) {
-        this.displayError(`Cannot push. You have ${status.conflicted.length} conflict files`);
+        this.displayError(`Cannot push. You have ${status.conflicted.length} conflict ${status.conflicted.length > 1 ? "files" : "file"}`);
         this.handleConflict(status.conflicted);
         return false;
       } else {
         const pushedFiles = yield this.gitManager.push();
         this.lastUpdate = Date.now();
-        this.displayMessage(`Pushed ${pushedFiles} files to remote`);
+        this.displayMessage(`Pushed ${pushedFiles} ${pushedFiles > 1 ? "files" : "file"} to remote`);
         this.setState(PluginState.idle);
         return true;
       }
@@ -9403,9 +9428,13 @@ var ObsidianGit = class extends import_obsidian12.Plugin {
     return __async(this, null, function* () {
       const pulledFilesLength = yield this.gitManager.pull();
       if (pulledFilesLength > 0) {
-        this.displayMessage(`Pulled ${pulledFilesLength} files from remote`);
+        if (this.settings.mergeOnPull) {
+          this.displayMessage(`Pulled ${pulledFilesLength} ${pulledFilesLength > 1 ? "files" : "file"} from remote`);
+        } else {
+          this.displayMessage("Rebased on pull");
+        }
       }
-      return pulledFilesLength;
+      return pulledFilesLength != 0;
     });
   }
   remotesAreSet() {
