@@ -1,0 +1,287 @@
+.nav-folder,
+.nav-file {
+    margin: 0;
+    border-left: 0;
+}
+
+/** Modal Background Colors */
+.modal .prompt,
+.modal .vertical-tab-header,
+.modal .vertical-tab-nav-item,
+.modal .community-plugin-search,
+.modal.mod-settings .prompt,
+.modal.mod-settings .vertical-tab-header,
+.modal.mod-settings .vertical-tab-nav-item,
+.modal.mod-settings .community-plugin-search {
+    background-color: inherit;
+}
+
+.modal .horizontal-tab-nav-item:hover,
+.modal .vertical-tab-nav-item:hover,
+.modal .vertical-tab-nav-item.is-active,
+.modal.mod-settings .community-plugin-item:hover,
+.modal.mod-settings .horizontal-tab-nav-item:hover,
+.modal.mod-settings .vertical-tab-nav-item:hover,
+.modal.mod-settings .vertical-tab-nav-item.is-active {
+    border-radius: 6px;
+}
+.modal.mod-settings .vertical-tab-nav-item:not(:last-child) {
+    margin-bottom: 2px;
+}
+
+/** Admonitions */
+.rendered-widget .admonition-content-holder .admonition-content,
+.markdown-preview-section .admonition-content-holder .admonition-content {
+    margin-top: 0;
+}
+
+.admonition-warning {
+    --admonition-color: var(--admonition-warning) !important;
+}
+.admonition-success {
+    --admonition-color: var(--admonition-success) !important;
+}
+.admonition-note {
+    --admonition-color: var(--admonition-note) !important;
+}
+.admonition-info {
+    --admonition-color: var(--admonition-info) !important;
+}
+.admonition-quote {
+    --admonition-color: var(--admonition-quote) !important;
+}
+.admonition-tip {
+    --admonition-color: var(--admonition-tip) !important;
+}
+.admonition-question {
+    --admonition-color: var(--admonition-question) !important;
+}
+.admonition-abstract {
+    --admonition-color: var(--admonition-abstract) !important;
+}
+.admonition-bug {
+    --admonition-color: var(--admonition-bug) !important;
+}
+.admonition-example {
+    --admonition-color: var(--admonition-example) !important;
+}
+.admonition-failure {
+    --admonition-color: var(--admonition-failure) !important;
+}
+.admonition-danger {
+    --admonition-color: var(--admonition-danger) !important;
+}
+.admonition-reference {
+    --admonition-color: var(--admonition-reference) !important;
+}
+.admonition-toc {
+    --admonition-color: var(--admonition-toc) !important;
+}
+
+/** Workspace Collapse Buttons */
+.workspace-ribbon.mod-left .workspace-ribbon-collapse-btn,
+.workspace-ribbon.mod-right .workspace-ribbon-collapse-btn {
+    opacity: 1;
+    position: fixed;
+    width: 26px;
+    display: flex;
+    align-items: center;
+    top: auto;
+    text-align: center;
+    bottom: 10px;
+    z-index: 9999;
+}
+
+.workspace-ribbon.mod-left .workspace-ribbon-collapse-btn {
+    left: 2px;
+}
+
+.workspace-ribbon.mod-right {
+    right: 4px;
+    bottom: 0;
+    height: 32px;
+    padding-top: 6px;
+    position: absolute;
+    background: transparent;
+    border: 0;
+}
+
+.dropdown {
+    font-size: 0.8em;
+    padding: 6px 14px;
+}
+
+body,
+input,
+button {
+    font-family: var(--font-ui);
+}
+
+.workspace h1::before,
+.workspace h2::before,
+.workspace h3::before,
+.workspace h4::before,
+.workspace h5::before,
+.workspace h6::before {
+    content: unset;
+}
+
+.markdown-preview-view blockquote:before {
+    content: unset;
+}
+
+.vertical-tabs-container {
+    background-color: var(--modal-content-bg);
+}
+
+.workspace-leaf-header,
+.view-header,
+.workspace-leaf.mod-active .view-header,
+.workspace-split.mod-root
+    > .workspace-leaf:first-of-type:last-of-type
+    .view-header,
+.workspace-split.mod-root
+    > .workspace-leaf:first-of-type:last-of-type.mod-active
+    .view-header,
+.workspace-leaf.mod-active .view-header {
+    color: var(--text-normal);
+    background: var(--background-primary) !important;
+    border-top: none;
+    border-bottom: none;
+}
+
+.workspace-leaf-header *,
+.view-header *,
+.workspace-leaf.mod-active .view-header,
+.workspace-split.mod-root
+    > .workspace-leaf:first-of-type:last-of-type
+    .view-header
+    *,
+.workspace-split.mod-root
+    > .workspace-leaf:first-of-type:last-of-type.mod-active
+    .view-header
+    *,
+.workspace-leaf.mod-active .view-header * {
+    color: var(--text-normal);
+}
+
+.workspace-ribbon.side-dock-ribbon,
+.status-bar,
+.workspace-tabs.workspace-tabs,
+.workspace-split:not(.mod-right-split) .workspace-tabs,
+.workspace-tabs .workspace-leaf {
+    background: transparent;
+}
+
+.workspace-tab-header-container,
+.workspace-tab-header-container
+    .workspace-tab-header.is-before-active
+    .workspace-tab-header-inner,
+.workspace-tab-header-container
+    .workspace-tab-header.is-after-active
+    .workspace-tab-header-inner {
+    background: transparent;
+}
+.workspace-tab-container-before {
+    width: 0;
+}
+.workspace-tab-header-inner {
+    padding: 0 6px;
+}
+
+.workspace-tab-header,
+.workspace-tab-header.is-after-active,
+.workspace-tab-header.is-active,
+.workspace-tab-header.is-before-active,
+.workspace-tab-container-before.is-before-active,
+.workspace-tab-container-after.is-after-active,
+.workspace-tab-header.is-before-active,
+.workspace-tab-header.is-after-active {
+    background: transparent;
+    color: var(--text-muted);
+    opacity: 0.5;
+    transition: opacity 0.1s ease-in-out;
+    line-height: 0;
+}
+.workspace-tab-header:hover,
+.side-dock-ribbon-tab:hover,
+.side-dock-ribbon-action:hover,
+.workspace-ribbon-collapse-btn:hover {
+    color: var(--text-muted);
+}
+
+.workspace-tab-container-before.is-before-active .workspace-tab-header-inner,
+.workspace-tab-container-after.is-after-active .workspace-tab-header-inner,
+.workspace-tab-header.is-before-active .workspace-tab-header-inner,
+.workspace-tab-header.is-after-active .workspace-tab-header-inner {
+    background: transparent;
+}
+
+.nav-action-button.is-active,
+.workspace-leaf-content[data-type="dictionary-view"]
+    .nav-action-button.is-active,
+.workspace-leaf-content[data-type="search"] .nav-action-button.is-active,
+.workspace-leaf-content[data-type="backlink"] .nav-action-button.is-active,
+.workspace-leaf-content[data-type="tag"] .nav-action-button.is-active,
+.workspace-tab-header.is-active,
+.workspace-leaf-content[data-type="search"] .nav-action-button.is-active {
+    /* background: transparent;
+    color: var(--text-muted); */
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
+}
+.nav-action-button.is-active,
+.workspace-tab-header.is-active:hover {
+    color: var(--text-muted);
+}
+.workspace-leaf-content[data-type="search"] .nav-action-button.is-active {
+    background: transparent;
+}
+.graph-controls-button:hover,
+.view-action:hover,
+.view-header-icon:hover,
+.nav-action-button:hover,
+.nav-action-button.is-active:hover,
+.workspace-tab-header:hover,
+.side-dock-ribbon-tab:hover,
+.side-dock-ribbon-action:hover {
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.workspace-leaf-content .view-content {
+    padding: 20px 0;
+}
+
+.nav-file:hover {
+    background-color: unset;
+}
+
+.nav-file-title.is-active:not(.is-folder-note) {
+    font-style: normal;
+}
+
+.side-dock-ribbon-action {
+    padding: 4px 0;
+}
+
+.workspace-ribbon-collapse-btn {
+    padding: 14px 6px;
+}
+
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle,
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle {
+    height: 100%;
+}
+
+body:not(.ebullientworks-nix-checkbox)
+    .markdown-source-view.mod-cm6
+    input.task-list-item-checkbox:checked::before,
+body:not(.ebullientworks-nix-checkbox)
+    .markdown-preview-view
+    input.task-list-item-checkbox:checked::before {
+    font-size: 10px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+}

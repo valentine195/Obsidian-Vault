@@ -5,27 +5,10 @@ if you want to view the source, please visit the github repository of this plugi
 
 var __create = Object.create;
 var __defProp = Object.defineProperty;
-var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
-var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
 var __commonJS = (cb, mod) => function __require() {
   return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
@@ -45,26 +28,6 @@ var __reExport = (target, module2, desc) => {
 };
 var __toModule = (module2) => {
   return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
-};
-var __async = (__this, __arguments, generator) => {
-  return new Promise((resolve, reject) => {
-    var fulfilled = (value) => {
-      try {
-        step(generator.next(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var rejected = (value) => {
-      try {
-        step(generator.throw(value));
-      } catch (e) {
-        reject(e);
-      }
-    };
-    var step = (x) => x.done ? resolve(x.value) : Promise.resolve(x.value).then(fulfilled, rejected);
-    step((generator = generator.apply(__this, __arguments)).next());
-  });
 };
 
 // node_modules/tslib/tslib.js
@@ -500,7 +463,7 @@ var require_tslib = __commonJS({
 __export(exports, {
   default: () => InitiativeTracker
 });
-var import_obsidian17 = __toModule(require("obsidian"));
+var import_obsidian20 = __toModule(require("obsidian"));
 
 // src/utils/constants.ts
 var INTIATIVE_TRACKER_VIEW = "initiative-tracker-view";
@@ -512,6 +475,7 @@ var DEFAULT_SETTINGS = {
   version: null,
   canUseDiceRoll: false,
   initiative: "1d20 + %mod%",
+  modifier: null,
   sync: false,
   leafletIntegration: false,
   playerMarker: "default",
@@ -519,11 +483,13 @@ var DEFAULT_SETTINGS = {
   state: {
     creatures: [],
     state: false,
-    name: null
+    name: null,
+    round: null
   },
   condense: false,
   displayDifficulty: true,
-  encounters: {}
+  encounters: {},
+  warnedAboutImports: false
 };
 var XP_PER_CR = {
   "0": 0,
@@ -776,563 +742,6 @@ var Conditions = [
 
 // src/settings.ts
 var import_obsidian3 = __toModule(require("obsidian"));
-
-// node_modules/title-case/dist.es2015/index.js
-var SMALL_WORDS = /\b(?:an?d?|a[st]|because|but|by|en|for|i[fn]|neither|nor|o[fnr]|only|over|per|so|some|tha[tn]|the|to|up|upon|vs?\.?|versus|via|when|with|without|yet)\b/i;
-var TOKENS = /[^\s:–—-]+|./g;
-var WHITESPACE = /\s/;
-var IS_MANUAL_CASE = /.(?=[A-Z]|\..)/;
-var ALPHANUMERIC_PATTERN = /[A-Za-z0-9\u00C0-\u00FF]/;
-function titleCase(input) {
-  var result = "";
-  var m;
-  while ((m = TOKENS.exec(input)) !== null) {
-    var token = m[0], index = m.index;
-    if (!IS_MANUAL_CASE.test(token) && (!SMALL_WORDS.test(token) || index === 0 || index + token.length === input.length) && (input.charAt(index + token.length) !== ":" || WHITESPACE.test(input.charAt(index + token.length + 1)))) {
-      result += token.replace(ALPHANUMERIC_PATTERN, function(m2) {
-        return m2.toUpperCase();
-      });
-      continue;
-    }
-    result += token;
-  }
-  return result;
-}
-
-// src/import/DnDAppFilesImport.ts
-var ImportEntitiesFromXml = (...files) => __async(void 0, null, function* () {
-  return new Promise((resolve) => {
-    for (let xmlFile of files) {
-      const reader = new FileReader();
-      reader.onload = (event) => __async(void 0, null, function* () {
-        const xml = event.target.result;
-        const dom = new DOMParser().parseFromString(xml, "application/xml");
-        const monsters = dom.getElementsByTagName("monster");
-        const importedMonsters = [];
-        if (!monsters.length)
-          return;
-        for (let monster of Array.from(monsters)) {
-          const importedMonster = {
-            name: getParameter(monster, "name"),
-            ac: getAC(monster),
-            hp: Number(getHP(monster, "hp")),
-            stats: [
-              Number(getParameter(monster, "str")),
-              Number(getParameter(monster, "dex")),
-              Number(getParameter(monster, "con")),
-              Number(getParameter(monster, "int")),
-              Number(getParameter(monster, "wis")),
-              Number(getParameter(monster, "cha"))
-            ],
-            cr: getParameter(monster, "cr"),
-            source: getSource(monster)
-          };
-          importedMonsters.push(importedMonster);
-        }
-        resolve(importedMonsters);
-      });
-      reader.readAsText(xmlFile);
-    }
-  });
-});
-function getParameter(monster, tag) {
-  const element2 = monster.getElementsByTagName(tag);
-  if (element2 && element2.length)
-    return element2[0].textContent;
-}
-function getHP(monster, arg1) {
-  if (!monster.getElementsByTagName("hp"))
-    return "";
-  let [, hp, hit_dice] = monster.getElementsByTagName("hp")[0].textContent.match(/(\d+) \(([\s\S]+)\)/);
-  return { hp, hit_dice }[arg1];
-}
-function getAC(monster) {
-  var _a;
-  if (monster.getElementsByTagName("ac")) {
-    const [, ac] = (_a = monster.getElementsByTagName("ac")[0]) == null ? void 0 : _a.textContent.match(/(\d+)/);
-    return Number(ac);
-  }
-  return 0;
-}
-function getSource(monster) {
-  let source = "Unknown";
-  const description = monster.getElementsByTagName("description");
-  if (description && description.length) {
-    const searchString = "Source: ";
-    const sourcePos = description[0].textContent.lastIndexOf(searchString);
-    const sources = description[0].textContent.substr(sourcePos + searchString.length).split(/, ?/);
-    source = sources[0];
-  } else {
-    const types = monster.getElementsByTagName("type");
-    if (types && types.length) {
-      let type = types[0].textContent.split(/, ?/);
-      source = titleCase(type.length > 1 ? type[type.length - 1] : source);
-    }
-  }
-  return source;
-}
-
-// src/import/ImprovedInitiativeImport.ts
-var ImportEntitiesFromImprovedInitiative = (...files) => __async(void 0, null, function* () {
-  return new Promise((resolve, reject) => {
-    for (let file of files) {
-      const reader = new FileReader();
-      reader.onload = (event) => __async(void 0, null, function* () {
-        var _a, _b, _c;
-        const importedMonsters = /* @__PURE__ */ new Map();
-        try {
-          let json = JSON.parse(event.target.result);
-          const monsters = Object.keys(json).filter((key) => /^Creatures/.test(key));
-          for (let key of monsters) {
-            try {
-              const monster = json[key];
-              const importedMonster = {
-                name: monster.Name,
-                source: ((_a = monster.Source) == null ? void 0 : _a.trim().length) ? monster.Source.trim() : "Unknown - Improved Initiative File",
-                hp: monster.HP.Value,
-                ac: monster.AC.Value,
-                stats: Object.values(monster.Abilities),
-                cr: (_c = (_b = monster.Challenge) == null ? void 0 : _b.trim()) != null ? _c : ""
-              };
-              importedMonsters.set(importedMonster.name, importedMonster);
-            } catch (e) {
-              continue;
-            }
-          }
-          resolve(importedMonsters);
-        } catch (e) {
-          reject();
-        }
-      });
-      reader.readAsText(file);
-    }
-  });
-});
-
-// src/import/CritterDBImport.ts
-var ImportFromCritterDB = (...files) => __async(void 0, null, function* () {
-  let importedMonsters = /* @__PURE__ */ new Map();
-  for (let file of files) {
-    try {
-      const monsters = yield buildMonsterFromFile(file);
-      importedMonsters = new Map([...importedMonsters, ...monsters]);
-    } catch (e) {
-    }
-  }
-  return importedMonsters;
-});
-function buildMonsterFromFile(file) {
-  return __async(this, null, function* () {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (event) => __async(this, null, function* () {
-        var _a;
-        const importedMonsters = /* @__PURE__ */ new Map();
-        try {
-          const parsed = JSON.parse(event.target.result);
-          let monsters = [];
-          if (parsed.creatures) {
-            monsters = parsed.creatures;
-          } else {
-            monsters = [parsed];
-          }
-          for (let monster of monsters) {
-            const importedMonster = {
-              name: monster.name,
-              source: "CritterDB",
-              hp: monster.stats.hitPoints,
-              ac: monster.stats.armorClass,
-              stats: [
-                monster.stats.abilityScores.strength,
-                monster.stats.abilityScores.dexterity,
-                monster.stats.abilityScores.constitution,
-                monster.stats.abilityScores.intelligence,
-                monster.stats.abilityScores.wisdom,
-                monster.stats.abilityScores.charisma
-              ],
-              cr: (_a = monster.stats.challengeRating) != null ? _a : ""
-            };
-            importedMonsters.set(importedMonster.name, importedMonster);
-          }
-          resolve(importedMonsters);
-        } catch (e) {
-          reject();
-        }
-      });
-      reader.readAsText(file);
-    });
-  });
-}
-
-// src/import/5eToolsImport.ts
-var ImportFrom5eTools = (...files) => __async(void 0, null, function* () {
-  const importedMonsters = /* @__PURE__ */ new Map();
-  for (let file of files) {
-    try {
-      const monster = yield buildMonsterFromFile2(file);
-      importedMonsters.set(monster.name, monster);
-    } catch (e) {
-    }
-  }
-  return importedMonsters;
-});
-function buildMonsterFromFile2(file) {
-  return __async(this, null, function* () {
-    return new Promise((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = (event) => __async(this, null, function* () {
-        var _a, _b, _c, _d, _e, _f;
-        try {
-          const monster = JSON.parse(event.target.result);
-          const importedMonster = {
-            name: monster.name,
-            source: `${(_a = SOURCE_JSON_TO_FULL[monster.source]) != null ? _a : "5e.tools"}`,
-            hp: (_c = (_b = monster.hp) == null ? void 0 : _b.average) != null ? _c : "",
-            ac: (_f = (_e = ((_d = monster.ac) != null ? _d : [])[0]) == null ? void 0 : _e.ac) != null ? _f : "",
-            stats: [
-              monster.str,
-              monster.dex,
-              monster.con,
-              monster.int,
-              monster.wis,
-              monster.cha
-            ],
-            cr: monster.cr ? monster.cr.cr || monster.cr : ""
-          };
-          resolve(importedMonster);
-        } catch (e) {
-          reject();
-        }
-      });
-      reader.readAsText(file);
-    });
-  });
-}
-var SZ_FINE = "F";
-var SZ_DIMINUTIVE = "D";
-var SZ_TINY = "T";
-var SZ_SMALL = "S";
-var SZ_MEDIUM = "M";
-var SZ_LARGE = "L";
-var SZ_HUGE = "H";
-var SZ_GARGANTUAN = "G";
-var SZ_COLOSSAL = "C";
-var SZ_VARIES = "V";
-var SIZE_ABV_TO_FULL = {};
-SIZE_ABV_TO_FULL[SZ_FINE] = "Fine";
-SIZE_ABV_TO_FULL[SZ_DIMINUTIVE] = "Diminutive";
-SIZE_ABV_TO_FULL[SZ_TINY] = "Tiny";
-SIZE_ABV_TO_FULL[SZ_SMALL] = "Small";
-SIZE_ABV_TO_FULL[SZ_MEDIUM] = "Medium";
-SIZE_ABV_TO_FULL[SZ_LARGE] = "Large";
-SIZE_ABV_TO_FULL[SZ_HUGE] = "Huge";
-SIZE_ABV_TO_FULL[SZ_GARGANTUAN] = "Gargantuan";
-SIZE_ABV_TO_FULL[SZ_COLOSSAL] = "Colossal";
-SIZE_ABV_TO_FULL[SZ_VARIES] = "Varies";
-var SRC_CoS = "CoS";
-var SRC_DMG = "DMG";
-var SRC_EEPC = "EEPC";
-var SRC_EET = "EET";
-var SRC_HotDQ = "HotDQ";
-var SRC_LMoP = "LMoP";
-var SRC_Mag = "Mag";
-var SRC_MM = "MM";
-var SRC_OotA = "OotA";
-var SRC_PHB = "PHB";
-var SRC_PotA = "PotA";
-var SRC_RoT = "RoT";
-var SRC_RoTOS = "RoTOS";
-var SRC_SCAG = "SCAG";
-var SRC_SKT = "SKT";
-var SRC_ToA = "ToA";
-var SRC_ToD = "ToD";
-var SRC_TTP = "TTP";
-var SRC_TYP = "TftYP";
-var SRC_TYP_AtG = "TftYP-AtG";
-var SRC_TYP_DiT = "TftYP-DiT";
-var SRC_TYP_TFoF = "TftYP-TFoF";
-var SRC_TYP_THSoT = "TftYP-THSoT";
-var SRC_TYP_TSC = "TftYP-TSC";
-var SRC_TYP_ToH = "TftYP-ToH";
-var SRC_TYP_WPM = "TftYP-WPM";
-var SRC_VGM = "VGM";
-var SRC_XGE = "XGE";
-var SRC_OGA = "OGA";
-var SRC_MTF = "MTF";
-var SRC_WDH = "WDH";
-var SRC_WDMM = "WDMM";
-var SRC_GGR = "GGR";
-var SRC_KKW = "KKW";
-var SRC_LLK = "LLK";
-var SRC_GoS = "GoS";
-var SRC_AI = "AI";
-var SRC_OoW = "OoW";
-var SRC_ESK = "ESK";
-var SRC_DIP = "DIP";
-var SRC_HftT = "HftT";
-var SRC_DC = "DC";
-var SRC_SLW = "SLW";
-var SRC_SDW = "SDW";
-var SRC_BGDIA = "BGDIA";
-var SRC_LR = "LR";
-var SRC_AL = "AL";
-var SRC_SAC = "SAC";
-var SRC_ERLW = "ERLW";
-var SRC_EFR = "EFR";
-var SRC_RMBRE = "RMBRE";
-var SRC_RMR = "RMR";
-var SRC_MFF = "MFF";
-var SRC_AWM = "AWM";
-var SRC_IMR = "IMR";
-var SRC_SADS = "SADS";
-var SRC_EGW = "EGW";
-var SRC_EGW_ToR = "ToR";
-var SRC_EGW_DD = "DD";
-var SRC_EGW_FS = "FS";
-var SRC_EGW_US = "US";
-var SRC_MOT = "MOT";
-var SRC_IDRotF = "IDRotF";
-var SRC_TCE = "TCE";
-var SRC_VRGR = "VRGR";
-var SRC_HoL = "HoL";
-var SRC_SCREEN = "Screen";
-var SRC_SCREEN_WILDERNESS_KIT = "ScreenWildernessKit";
-var SRC_HEROES_FEAST = "HF";
-var SRC_CM = "CM";
-var SRC_AL_PREFIX = "AL";
-var SRC_ALCoS = `${SRC_AL_PREFIX}CurseOfStrahd`;
-var SRC_ALEE = `${SRC_AL_PREFIX}ElementalEvil`;
-var SRC_ALRoD = `${SRC_AL_PREFIX}RageOfDemons`;
-var SRC_PS_PREFIX = "PS";
-var SRC_PSA = `${SRC_PS_PREFIX}A`;
-var SRC_PSI = `${SRC_PS_PREFIX}I`;
-var SRC_PSK = `${SRC_PS_PREFIX}K`;
-var SRC_PSZ = `${SRC_PS_PREFIX}Z`;
-var SRC_PSX = `${SRC_PS_PREFIX}X`;
-var SRC_PSD = `${SRC_PS_PREFIX}D`;
-var SRC_UA_PREFIX = "UA";
-var SRC_UAA = `${SRC_UA_PREFIX}Artificer`;
-var SRC_UAEAG = `${SRC_UA_PREFIX}EladrinAndGith`;
-var SRC_UAEBB = `${SRC_UA_PREFIX}Eberron`;
-var SRC_UAFFR = `${SRC_UA_PREFIX}FeatsForRaces`;
-var SRC_UAFFS = `${SRC_UA_PREFIX}FeatsForSkills`;
-var SRC_UAFO = `${SRC_UA_PREFIX}FiendishOptions`;
-var SRC_UAFT = `${SRC_UA_PREFIX}Feats`;
-var SRC_UAGH = `${SRC_UA_PREFIX}GothicHeroes`;
-var SRC_UAMDM = `${SRC_UA_PREFIX}ModernMagic`;
-var SRC_UASSP = `${SRC_UA_PREFIX}StarterSpells`;
-var SRC_UATMC = `${SRC_UA_PREFIX}TheMysticClass`;
-var SRC_UATOBM = `${SRC_UA_PREFIX}ThatOldBlackMagic`;
-var SRC_UATRR = `${SRC_UA_PREFIX}TheRangerRevised`;
-var SRC_UAWA = `${SRC_UA_PREFIX}WaterborneAdventures`;
-var SRC_UAVR = `${SRC_UA_PREFIX}VariantRules`;
-var SRC_UALDR = `${SRC_UA_PREFIX}LightDarkUnderdark`;
-var SRC_UARAR = `${SRC_UA_PREFIX}RangerAndRogue`;
-var SRC_UAATOSC = `${SRC_UA_PREFIX}ATrioOfSubclasses`;
-var SRC_UABPP = `${SRC_UA_PREFIX}BarbarianPrimalPaths`;
-var SRC_UARSC = `${SRC_UA_PREFIX}RevisedSubclasses`;
-var SRC_UAKOO = `${SRC_UA_PREFIX}KitsOfOld`;
-var SRC_UABBC = `${SRC_UA_PREFIX}BardBardColleges`;
-var SRC_UACDD = `${SRC_UA_PREFIX}ClericDivineDomains`;
-var SRC_UAD = `${SRC_UA_PREFIX}Druid`;
-var SRC_UARCO = `${SRC_UA_PREFIX}RevisedClassOptions`;
-var SRC_UAF = `${SRC_UA_PREFIX}Fighter`;
-var SRC_UAM = `${SRC_UA_PREFIX}Monk`;
-var SRC_UAP = `${SRC_UA_PREFIX}Paladin`;
-var SRC_UAMC = `${SRC_UA_PREFIX}ModifyingClasses`;
-var SRC_UAS = `${SRC_UA_PREFIX}Sorcerer`;
-var SRC_UAWAW = `${SRC_UA_PREFIX}WarlockAndWizard`;
-var SRC_UATF = `${SRC_UA_PREFIX}TheFaithful`;
-var SRC_UAWR = `${SRC_UA_PREFIX}WizardRevisited`;
-var SRC_UAESR = `${SRC_UA_PREFIX}ElfSubraces`;
-var SRC_UAMAC = `${SRC_UA_PREFIX}MassCombat`;
-var SRC_UA3PE = `${SRC_UA_PREFIX}ThreePillarExperience`;
-var SRC_UAGHI = `${SRC_UA_PREFIX}GreyhawkInitiative`;
-var SRC_UATSC = `${SRC_UA_PREFIX}ThreeSubclasses`;
-var SRC_UAOD = `${SRC_UA_PREFIX}OrderDomain`;
-var SRC_UACAM = `${SRC_UA_PREFIX}CentaursMinotaurs`;
-var SRC_UAGSS = `${SRC_UA_PREFIX}GiantSoulSorcerer`;
-var SRC_UARoE = `${SRC_UA_PREFIX}RacesOfEberron`;
-var SRC_UARoR = `${SRC_UA_PREFIX}RacesOfRavnica`;
-var SRC_UAWGE = `${SRC_UA_PREFIX}WGE`;
-var SRC_UAOSS = `${SRC_UA_PREFIX}OfShipsAndSea`;
-var SRC_UASIK = `${SRC_UA_PREFIX}Sidekicks`;
-var SRC_UAAR = `${SRC_UA_PREFIX}ArtificerRevisited`;
-var SRC_UABAM = `${SRC_UA_PREFIX}BarbarianAndMonk`;
-var SRC_UASAW = `${SRC_UA_PREFIX}SorcererAndWarlock`;
-var SRC_UABAP = `${SRC_UA_PREFIX}BardAndPaladin`;
-var SRC_UACDW = `${SRC_UA_PREFIX}ClericDruidWizard`;
-var SRC_UAFRR = `${SRC_UA_PREFIX}FighterRangerRogue`;
-var SRC_UACFV = `${SRC_UA_PREFIX}ClassFeatureVariants`;
-var SRC_UAFRW = `${SRC_UA_PREFIX}FighterRogueWizard`;
-var SRC_UAPCRM = `${SRC_UA_PREFIX}PrestigeClassesRunMagic`;
-var SRC_UAR = `${SRC_UA_PREFIX}Ranger`;
-var SRC_UA2020SC1 = `${SRC_UA_PREFIX}2020SubclassesPt1`;
-var SRC_UA2020SC2 = `${SRC_UA_PREFIX}2020SubclassesPt2`;
-var SRC_UA2020SC3 = `${SRC_UA_PREFIX}2020SubclassesPt3`;
-var SRC_UA2020SC4 = `${SRC_UA_PREFIX}2020SubclassesPt4`;
-var SRC_UA2020SC5 = `${SRC_UA_PREFIX}2020SubclassesPt5`;
-var SRC_UA2020SMT = `${SRC_UA_PREFIX}2020SpellsAndMagicTattoos`;
-var SRC_UA2020POR = `${SRC_UA_PREFIX}2020PsionicOptionsRevisited`;
-var SRC_UA2020SCR = `${SRC_UA_PREFIX}2020SubclassesRevisited`;
-var SRC_UA2020F = `${SRC_UA_PREFIX}2020Feats`;
-var SRC_UA2021GL = `${SRC_UA_PREFIX}2021GothicLineages`;
-var SRC_UA2021FF = `${SRC_UA_PREFIX}2021FolkOfTheFeywild`;
-var SRC_UA2021DO = `${SRC_UA_PREFIX}2021DraconicOptions`;
-var SRC_UA2021MoS = `${SRC_UA_PREFIX}2021MagesOfStrixhaven`;
-var AL_PREFIX = "Adventurers League: ";
-var PS_PREFIX = "Plane Shift: ";
-var UA_PREFIX = "Unearthed Arcana: ";
-var TftYP_NAME = "Tales from the Yawning Portal";
-var SOURCE_JSON_TO_FULL = {};
-SOURCE_JSON_TO_FULL[SRC_CoS] = "Curse of Strahd";
-SOURCE_JSON_TO_FULL[SRC_DMG] = "Dungeon Master's Guide";
-SOURCE_JSON_TO_FULL[SRC_EEPC] = "Elemental Evil Player's Companion";
-SOURCE_JSON_TO_FULL[SRC_EET] = "Elemental Evil: Trinkets";
-SOURCE_JSON_TO_FULL[SRC_HotDQ] = "Hoard of the Dragon Queen";
-SOURCE_JSON_TO_FULL[SRC_LMoP] = "Lost Mine of Phandelver";
-SOURCE_JSON_TO_FULL[SRC_Mag] = "Dragon Magazine";
-SOURCE_JSON_TO_FULL[SRC_MM] = "Monster Manual";
-SOURCE_JSON_TO_FULL[SRC_OotA] = "Out of the Abyss";
-SOURCE_JSON_TO_FULL[SRC_PHB] = "Player's Handbook";
-SOURCE_JSON_TO_FULL[SRC_PotA] = "Princes of the Apocalypse";
-SOURCE_JSON_TO_FULL[SRC_RoT] = "The Rise of Tiamat";
-SOURCE_JSON_TO_FULL[SRC_RoTOS] = "The Rise of Tiamat Online Supplement";
-SOURCE_JSON_TO_FULL[SRC_SCAG] = "Sword Coast Adventurer's Guide";
-SOURCE_JSON_TO_FULL[SRC_SKT] = "Storm King's Thunder";
-SOURCE_JSON_TO_FULL[SRC_ToA] = "Tomb of Annihilation";
-SOURCE_JSON_TO_FULL[SRC_ToD] = "Tyranny of Dragons";
-SOURCE_JSON_TO_FULL[SRC_TTP] = "The Tortle Package";
-SOURCE_JSON_TO_FULL[SRC_TYP] = TftYP_NAME;
-SOURCE_JSON_TO_FULL[SRC_TYP_AtG] = `${TftYP_NAME}: Against the Giants`;
-SOURCE_JSON_TO_FULL[SRC_TYP_DiT] = `${TftYP_NAME}: Dead in Thay`;
-SOURCE_JSON_TO_FULL[SRC_TYP_TFoF] = `${TftYP_NAME}: The Forge of Fury`;
-SOURCE_JSON_TO_FULL[SRC_TYP_THSoT] = `${TftYP_NAME}: The Hidden Shrine of Tamoachan`;
-SOURCE_JSON_TO_FULL[SRC_TYP_TSC] = `${TftYP_NAME}: The Sunless Citadel`;
-SOURCE_JSON_TO_FULL[SRC_TYP_ToH] = `${TftYP_NAME}: Tomb of Horrors`;
-SOURCE_JSON_TO_FULL[SRC_TYP_WPM] = `${TftYP_NAME}: White Plume Mountain`;
-SOURCE_JSON_TO_FULL[SRC_VGM] = "Volo's Guide to Monsters";
-SOURCE_JSON_TO_FULL[SRC_XGE] = "Xanathar's Guide to Everything";
-SOURCE_JSON_TO_FULL[SRC_OGA] = "One Grung Above";
-SOURCE_JSON_TO_FULL[SRC_MTF] = "Mordenkainen's Tome of Foes";
-SOURCE_JSON_TO_FULL[SRC_WDH] = "Waterdeep: Dragon Heist";
-SOURCE_JSON_TO_FULL[SRC_WDMM] = "Waterdeep: Dungeon of the Mad Mage";
-SOURCE_JSON_TO_FULL[SRC_GGR] = "Guildmasters' Guide to Ravnica";
-SOURCE_JSON_TO_FULL[SRC_KKW] = "Krenko's Way";
-SOURCE_JSON_TO_FULL[SRC_LLK] = "Lost Laboratory of Kwalish";
-SOURCE_JSON_TO_FULL[SRC_GoS] = "Ghosts of Saltmarsh";
-SOURCE_JSON_TO_FULL[SRC_AI] = "Acquisitions Incorporated";
-SOURCE_JSON_TO_FULL[SRC_OoW] = "The Orrery of the Wanderer";
-SOURCE_JSON_TO_FULL[SRC_ESK] = "Essentials Kit";
-SOURCE_JSON_TO_FULL[SRC_DIP] = "Dragon of Icespire Peak";
-SOURCE_JSON_TO_FULL[SRC_HftT] = "Hunt for the Thessalhydra";
-SOURCE_JSON_TO_FULL[SRC_DC] = "Divine Contention";
-SOURCE_JSON_TO_FULL[SRC_SLW] = "Storm Lord's Wrath";
-SOURCE_JSON_TO_FULL[SRC_SDW] = "Sleeping Dragon's Wake";
-SOURCE_JSON_TO_FULL[SRC_BGDIA] = "Baldur's Gate: Descent Into Avernus";
-SOURCE_JSON_TO_FULL[SRC_LR] = "Locathah Rising";
-SOURCE_JSON_TO_FULL[SRC_AL] = "Adventurers' League";
-SOURCE_JSON_TO_FULL[SRC_SAC] = "Sage Advice Compendium";
-SOURCE_JSON_TO_FULL[SRC_ERLW] = "Eberron: Rising from the Last War";
-SOURCE_JSON_TO_FULL[SRC_EFR] = "Eberron: Forgotten Relics";
-SOURCE_JSON_TO_FULL[SRC_RMBRE] = "The Lost Dungeon of Rickedness: Big Rick Energy";
-SOURCE_JSON_TO_FULL[SRC_RMR] = "Dungeons & Dragons vs. Rick and Morty: Basic Rules";
-SOURCE_JSON_TO_FULL[SRC_MFF] = "Mordenkainen's Fiendish Folio";
-SOURCE_JSON_TO_FULL[SRC_AWM] = "Adventure with Muk";
-SOURCE_JSON_TO_FULL[SRC_IMR] = "Infernal Machine Rebuild";
-SOURCE_JSON_TO_FULL[SRC_SADS] = "Sapphire Anniversary Dice Set";
-SOURCE_JSON_TO_FULL[SRC_EGW] = "Explorer's Guide to Wildemount";
-SOURCE_JSON_TO_FULL[SRC_EGW_ToR] = "Tide of Retribution";
-SOURCE_JSON_TO_FULL[SRC_EGW_DD] = "Dangerous Designs";
-SOURCE_JSON_TO_FULL[SRC_EGW_FS] = "Frozen Sick";
-SOURCE_JSON_TO_FULL[SRC_EGW_US] = "Unwelcome Spirits";
-SOURCE_JSON_TO_FULL[SRC_MOT] = "Mythic Odysseys of Theros";
-SOURCE_JSON_TO_FULL[SRC_IDRotF] = "Icewind Dale: Rime of the Frostmaiden";
-SOURCE_JSON_TO_FULL[SRC_TCE] = "Tasha's Cauldron of Everything";
-SOURCE_JSON_TO_FULL[SRC_VRGR] = "Van Richten's Guide to Ravenloft";
-SOURCE_JSON_TO_FULL[SRC_HoL] = "The House of Lament";
-SOURCE_JSON_TO_FULL[SRC_SCREEN] = "Dungeon Master's Screen";
-SOURCE_JSON_TO_FULL[SRC_SCREEN_WILDERNESS_KIT] = "Dungeon Master's Screen: Wilderness Kit";
-SOURCE_JSON_TO_FULL[SRC_HEROES_FEAST] = "Heroes' Feast";
-SOURCE_JSON_TO_FULL[SRC_CM] = "Candlekeep Mysteries";
-SOURCE_JSON_TO_FULL[SRC_ALCoS] = `${AL_PREFIX}Curse of Strahd`;
-SOURCE_JSON_TO_FULL[SRC_ALEE] = `${AL_PREFIX}Elemental Evil`;
-SOURCE_JSON_TO_FULL[SRC_ALRoD] = `${AL_PREFIX}Rage of Demons`;
-SOURCE_JSON_TO_FULL[SRC_PSA] = `${PS_PREFIX}Amonkhet`;
-SOURCE_JSON_TO_FULL[SRC_PSI] = `${PS_PREFIX}Innistrad`;
-SOURCE_JSON_TO_FULL[SRC_PSK] = `${PS_PREFIX}Kaladesh`;
-SOURCE_JSON_TO_FULL[SRC_PSZ] = `${PS_PREFIX}Zendikar`;
-SOURCE_JSON_TO_FULL[SRC_PSX] = `${PS_PREFIX}Ixalan`;
-SOURCE_JSON_TO_FULL[SRC_PSD] = `${PS_PREFIX}Dominaria`;
-SOURCE_JSON_TO_FULL[SRC_UAA] = `${UA_PREFIX}Artificer`;
-SOURCE_JSON_TO_FULL[SRC_UAEAG] = `${UA_PREFIX}Eladrin and Gith`;
-SOURCE_JSON_TO_FULL[SRC_UAEBB] = `${UA_PREFIX}Eberron`;
-SOURCE_JSON_TO_FULL[SRC_UAFFR] = `${UA_PREFIX}Feats for Races`;
-SOURCE_JSON_TO_FULL[SRC_UAFFS] = `${UA_PREFIX}Feats for Skills`;
-SOURCE_JSON_TO_FULL[SRC_UAFO] = `${UA_PREFIX}Fiendish Options`;
-SOURCE_JSON_TO_FULL[SRC_UAFT] = `${UA_PREFIX}Feats`;
-SOURCE_JSON_TO_FULL[SRC_UAGH] = `${UA_PREFIX}Gothic Heroes`;
-SOURCE_JSON_TO_FULL[SRC_UAMDM] = `${UA_PREFIX}Modern Magic`;
-SOURCE_JSON_TO_FULL[SRC_UASSP] = `${UA_PREFIX}Starter Spells`;
-SOURCE_JSON_TO_FULL[SRC_UATMC] = `${UA_PREFIX}The Mystic Class`;
-SOURCE_JSON_TO_FULL[SRC_UATOBM] = `${UA_PREFIX}That Old Black Magic`;
-SOURCE_JSON_TO_FULL[SRC_UATRR] = `${UA_PREFIX}The Ranger, Revised`;
-SOURCE_JSON_TO_FULL[SRC_UAWA] = `${UA_PREFIX}Waterborne Adventures`;
-SOURCE_JSON_TO_FULL[SRC_UAVR] = `${UA_PREFIX}Variant Rules`;
-SOURCE_JSON_TO_FULL[SRC_UALDR] = `${UA_PREFIX}Light, Dark, Underdark!`;
-SOURCE_JSON_TO_FULL[SRC_UARAR] = `${UA_PREFIX}Ranger and Rogue`;
-SOURCE_JSON_TO_FULL[SRC_UAATOSC] = `${UA_PREFIX}A Trio of Subclasses`;
-SOURCE_JSON_TO_FULL[SRC_UABPP] = `${UA_PREFIX}Barbarian Primal Paths`;
-SOURCE_JSON_TO_FULL[SRC_UARSC] = `${UA_PREFIX}Revised Subclasses`;
-SOURCE_JSON_TO_FULL[SRC_UAKOO] = `${UA_PREFIX}Kits of Old`;
-SOURCE_JSON_TO_FULL[SRC_UABBC] = `${UA_PREFIX}Bard: Bard Colleges`;
-SOURCE_JSON_TO_FULL[SRC_UACDD] = `${UA_PREFIX}Cleric: Divine Domains`;
-SOURCE_JSON_TO_FULL[SRC_UAD] = `${UA_PREFIX}Druid`;
-SOURCE_JSON_TO_FULL[SRC_UARCO] = `${UA_PREFIX}Revised Class Options`;
-SOURCE_JSON_TO_FULL[SRC_UAF] = `${UA_PREFIX}Fighter`;
-SOURCE_JSON_TO_FULL[SRC_UAM] = `${UA_PREFIX}Monk`;
-SOURCE_JSON_TO_FULL[SRC_UAP] = `${UA_PREFIX}Paladin`;
-SOURCE_JSON_TO_FULL[SRC_UAMC] = `${UA_PREFIX}Modifying Classes`;
-SOURCE_JSON_TO_FULL[SRC_UAS] = `${UA_PREFIX}Sorcerer`;
-SOURCE_JSON_TO_FULL[SRC_UAWAW] = `${UA_PREFIX}Warlock and Wizard`;
-SOURCE_JSON_TO_FULL[SRC_UATF] = `${UA_PREFIX}The Faithful`;
-SOURCE_JSON_TO_FULL[SRC_UAWR] = `${UA_PREFIX}Wizard Revisited`;
-SOURCE_JSON_TO_FULL[SRC_UAESR] = `${UA_PREFIX}Elf Subraces`;
-SOURCE_JSON_TO_FULL[SRC_UAMAC] = `${UA_PREFIX}Mass Combat`;
-SOURCE_JSON_TO_FULL[SRC_UA3PE] = `${UA_PREFIX}Three-Pillar Experience`;
-SOURCE_JSON_TO_FULL[SRC_UAGHI] = `${UA_PREFIX}Greyhawk Initiative`;
-SOURCE_JSON_TO_FULL[SRC_UATSC] = `${UA_PREFIX}Three Subclasses`;
-SOURCE_JSON_TO_FULL[SRC_UAOD] = `${UA_PREFIX}Order Domain`;
-SOURCE_JSON_TO_FULL[SRC_UACAM] = `${UA_PREFIX}Centaurs and Minotaurs`;
-SOURCE_JSON_TO_FULL[SRC_UAGSS] = `${UA_PREFIX}Giant Soul Sorcerer`;
-SOURCE_JSON_TO_FULL[SRC_UARoE] = `${UA_PREFIX}Races of Eberron`;
-SOURCE_JSON_TO_FULL[SRC_UARoR] = `${UA_PREFIX}Races of Ravnica`;
-SOURCE_JSON_TO_FULL[SRC_UAWGE] = "Wayfinder's Guide to Eberron";
-SOURCE_JSON_TO_FULL[SRC_UAOSS] = `${UA_PREFIX}Of Ships and the Sea`;
-SOURCE_JSON_TO_FULL[SRC_UASIK] = `${UA_PREFIX}Sidekicks`;
-SOURCE_JSON_TO_FULL[SRC_UAAR] = `${UA_PREFIX}Artificer Revisited`;
-SOURCE_JSON_TO_FULL[SRC_UABAM] = `${UA_PREFIX}Barbarian and Monk`;
-SOURCE_JSON_TO_FULL[SRC_UASAW] = `${UA_PREFIX}Sorcerer and Warlock`;
-SOURCE_JSON_TO_FULL[SRC_UABAP] = `${UA_PREFIX}Bard and Paladin`;
-SOURCE_JSON_TO_FULL[SRC_UACDW] = `${UA_PREFIX}Cleric, Druid, and Wizard`;
-SOURCE_JSON_TO_FULL[SRC_UAFRR] = `${UA_PREFIX}Fighter, Ranger, and Rogue`;
-SOURCE_JSON_TO_FULL[SRC_UACFV] = `${UA_PREFIX}Class Feature Variants`;
-SOURCE_JSON_TO_FULL[SRC_UAFRW] = `${UA_PREFIX}Fighter, Rogue, and Wizard`;
-SOURCE_JSON_TO_FULL[SRC_UAPCRM] = `${UA_PREFIX}Prestige Classes and Rune Magic`;
-SOURCE_JSON_TO_FULL[SRC_UAR] = `${UA_PREFIX}Ranger`;
-SOURCE_JSON_TO_FULL[SRC_UA2020SC1] = `${UA_PREFIX}2020 Subclasses, Part 1`;
-SOURCE_JSON_TO_FULL[SRC_UA2020SC2] = `${UA_PREFIX}2020 Subclasses, Part 2`;
-SOURCE_JSON_TO_FULL[SRC_UA2020SC3] = `${UA_PREFIX}2020 Subclasses, Part 3`;
-SOURCE_JSON_TO_FULL[SRC_UA2020SC4] = `${UA_PREFIX}2020 Subclasses, Part 4`;
-SOURCE_JSON_TO_FULL[SRC_UA2020SC5] = `${UA_PREFIX}2020 Subclasses, Part 5`;
-SOURCE_JSON_TO_FULL[SRC_UA2020SMT] = `${UA_PREFIX}2020 Spells and Magic Tattoos`;
-SOURCE_JSON_TO_FULL[SRC_UA2020POR] = `${UA_PREFIX}2020 Psionic Options Revisited`;
-SOURCE_JSON_TO_FULL[SRC_UA2020SCR] = `${UA_PREFIX}2020 Subclasses Revisited`;
-SOURCE_JSON_TO_FULL[SRC_UA2020F] = `${UA_PREFIX}2020 Feats`;
-SOURCE_JSON_TO_FULL[SRC_UA2021GL] = `${UA_PREFIX}2021 Gothic Lineages`;
-SOURCE_JSON_TO_FULL[SRC_UA2021FF] = `${UA_PREFIX}2021 Folk of the Feywild`;
-SOURCE_JSON_TO_FULL[SRC_UA2021DO] = `${UA_PREFIX}2021 Draconic Options`;
-SOURCE_JSON_TO_FULL[SRC_UA2021MoS] = `${UA_PREFIX}2021 Mages of Strixhaven`;
 
 // src/utils/suggester.ts
 var import_obsidian2 = __toModule(require("obsidian"));
@@ -1824,26 +1233,26 @@ var passive = {
   passive: true
 };
 function effect3(_ref) {
-  var state = _ref.state, instance13 = _ref.instance, options = _ref.options;
+  var state = _ref.state, instance16 = _ref.instance, options = _ref.options;
   var _options$scroll = options.scroll, scroll = _options$scroll === void 0 ? true : _options$scroll, _options$resize = options.resize, resize = _options$resize === void 0 ? true : _options$resize;
   var window2 = getWindow(state.elements.popper);
   var scrollParents = [].concat(state.scrollParents.reference, state.scrollParents.popper);
   if (scroll) {
     scrollParents.forEach(function(scrollParent) {
-      scrollParent.addEventListener("scroll", instance13.update, passive);
+      scrollParent.addEventListener("scroll", instance16.update, passive);
     });
   }
   if (resize) {
-    window2.addEventListener("resize", instance13.update, passive);
+    window2.addEventListener("resize", instance16.update, passive);
   }
   return function() {
     if (scroll) {
       scrollParents.forEach(function(scrollParent) {
-        scrollParent.removeEventListener("scroll", instance13.update, passive);
+        scrollParent.removeEventListener("scroll", instance16.update, passive);
       });
     }
     if (resize) {
-      window2.removeEventListener("resize", instance13.update, passive);
+      window2.removeEventListener("resize", instance16.update, passive);
     }
   };
 }
@@ -2711,7 +2120,7 @@ function popperGenerator(generatorOptions) {
     };
     var effectCleanupFns = [];
     var isDestroyed = false;
-    var instance13 = {
+    var instance16 = {
       state,
       setOptions: function setOptions(setOptionsAction) {
         var options2 = typeof setOptionsAction === "function" ? setOptionsAction(state.options) : setOptionsAction;
@@ -2748,7 +2157,7 @@ function popperGenerator(generatorOptions) {
           }
         }
         runModifierEffects();
-        return instance13.update();
+        return instance16.update();
       },
       forceUpdate: function forceUpdate() {
         if (isDestroyed) {
@@ -2790,14 +2199,14 @@ function popperGenerator(generatorOptions) {
               state,
               options: _options,
               name,
-              instance: instance13
+              instance: instance16
             }) || state;
           }
         }
       },
       update: debounce(function() {
         return new Promise(function(resolve) {
-          instance13.forceUpdate();
+          instance16.forceUpdate();
           resolve(state);
         });
       }),
@@ -2810,9 +2219,9 @@ function popperGenerator(generatorOptions) {
       if (true) {
         console.error(INVALID_ELEMENT_ERROR);
       }
-      return instance13;
+      return instance16;
     }
-    instance13.setOptions(options).then(function(state2) {
+    instance16.setOptions(options).then(function(state2) {
       if (!isDestroyed && options.onFirstUpdate) {
         options.onFirstUpdate(state2);
       }
@@ -2824,7 +2233,7 @@ function popperGenerator(generatorOptions) {
           var cleanupFn = effect4({
             state,
             name,
-            instance: instance13,
+            instance: instance16,
             options: options2
           });
           var noopFn = function noopFn2() {
@@ -2839,7 +2248,7 @@ function popperGenerator(generatorOptions) {
       });
       effectCleanupFns = [];
     }
-    return instance13;
+    return instance16;
   };
 }
 
@@ -3137,114 +2546,6 @@ var SRDMonsterSuggestionModal = class extends SuggestionModal {
     });
   }
 };
-var ElementSuggestionModal = class extends import_obsidian2.FuzzySuggestModal {
-  constructor(app, inputEl, suggestEl) {
-    super(app);
-    this.items = [];
-    this.scope = new import_obsidian2.Scope();
-    this.emptyStateText = "No match found";
-    this.limit = Infinity;
-    this.filteredItems = [];
-    this.inputEl = inputEl;
-    this.suggestEl = suggestEl.createDiv();
-    this.contentEl = this.suggestEl.createDiv();
-    this.suggester = new Suggester(this, this.contentEl, this.scope);
-    this.scope.register([], "Escape", this.close.bind(this));
-    this.inputEl.addEventListener("input", this._onInputChanged.bind(this));
-    this.inputEl.addEventListener("focus", this._onInputChanged.bind(this));
-    this.inputEl.addEventListener("blur", this.close.bind(this));
-    this.suggestEl.on("mousedown", ".suggestion-container", (event) => {
-      event.preventDefault();
-    });
-  }
-  empty() {
-    this.suggester.empty();
-  }
-  _onInputChanged() {
-    const inputStr = this.inputEl.value;
-    this.filteredItems = this.getSuggestions(inputStr);
-    if (this.filteredItems.length > 0) {
-      this.suggester.setSuggestions(this.filteredItems.slice(0, this.limit));
-    } else {
-      this.onNoSuggestion();
-    }
-    this.onInputChanged();
-    this.open();
-  }
-  onInputChanged() {
-  }
-  onNoSuggestion() {
-    this.empty();
-    this.renderSuggestion(null, this.contentEl.createDiv());
-  }
-  open() {
-  }
-  close() {
-  }
-  createPrompt(prompts) {
-    if (!this.promptEl)
-      this.promptEl = this.suggestEl.createDiv("prompt-instructions");
-    let prompt = this.promptEl.createDiv("prompt-instruction");
-    for (let p of prompts) {
-      prompt.appendChild(p);
-    }
-  }
-};
-var HomebrewMonsterSuggestionModal = class extends ElementSuggestionModal {
-  constructor(plugin, inputEl, el) {
-    super(plugin.app, inputEl, el);
-    this.plugin = plugin;
-    this.homebrew = [...this.plugin.data.homebrew];
-    this._onInputChanged();
-  }
-  getItems() {
-    return this.homebrew;
-  }
-  getItemText(item) {
-    return item.name;
-  }
-  onChooseItem(item) {
-    this.inputEl.value = item.name;
-    this.creature = item;
-  }
-  selectSuggestion({ item }) {
-    return;
-  }
-  renderSuggestion(result, el) {
-    var _a;
-    let { item, match: matches } = result || {};
-    let content = new import_obsidian2.Setting(el);
-    if (!item) {
-      content.nameEl.setText(this.emptyStateText);
-      return;
-    }
-    const matchElements = matches.matches.map((m) => {
-      return createSpan("suggestion-highlight");
-    });
-    for (let i = 0; i < item.name.length; i++) {
-      let match = matches.matches.find((m) => m[0] === i);
-      if (match) {
-        let element2 = matchElements[matches.matches.indexOf(match)];
-        content.nameEl.appendChild(element2);
-        element2.appendText(item.name.substring(match[0], match[1]));
-        i += match[1] - match[0] - 1;
-        continue;
-      }
-      content.nameEl.appendText(item.name[i]);
-    }
-    content.setDesc((_a = item.source) != null ? _a : "");
-    content.addExtraButton((b) => {
-      b.setIcon("pencil").setTooltip("Edit").onClick(() => this.onEditItem(item));
-    });
-    content.addExtraButton((b) => {
-      b.setIcon("trash").setTooltip("Delete").onClick(() => this.onRemoveItem(item));
-    });
-  }
-  onEditItem(item) {
-  }
-  onRemoveItem(item) {
-  }
-};
 var ConditionSuggestionModal = class extends SuggestionModal {
   constructor(plugin, inputEl) {
     super(plugin.app, inputEl);
@@ -3308,405 +2609,297 @@ var ConditionSuggestionModal = class extends SuggestionModal {
 };
 
 // src/settings.ts
+var import_obsidian4 = __toModule(require("obsidian"));
 var InitiativeTrackerSettings = class extends import_obsidian3.PluginSettingTab {
   constructor(plugin) {
     super(plugin.app, plugin);
     this.plugin = plugin;
   }
-  display() {
-    return __async(this, null, function* () {
-      try {
-        let { containerEl } = this;
-        containerEl.empty();
-        containerEl.addClass("initiative-tracker-settings");
-        containerEl.createEl("h2", { text: "Initiative Tracker Settings" });
-        const additionalContainer = containerEl.createDiv("initiative-tracker-additional-container");
-        this._displayPlayers(additionalContainer);
-        if (this.plugin.canUseStatBlocks) {
-          const syncEl = containerEl.createDiv("initiative-sync");
-          new import_obsidian3.Setting(syncEl).setName("Sync Monsters from 5e Statblocks").setDesc("Homebrew creatures saved to the TTRPG Statblocks plugin will be available in the quick-add.").addToggle((t) => {
-            t.setValue(this.plugin.data.sync);
-            t.onChange((v) => __async(this, null, function* () {
-              this.plugin.data.sync = v;
-              yield this.plugin.saveSettings();
-              this.display();
-            }));
-          });
-          if (this.plugin.data.sync) {
-            const synced = new import_obsidian3.Setting(syncEl).setDesc(`${this.plugin.statblock_creatures.length} creatures synced.`);
-            synced.settingEl.addClass("initiative-synced");
-            (0, import_obsidian3.setIcon)(synced.nameEl, "check-in-circle");
-            synced.nameEl.appendChild(createSpan({ text: "Synced" }));
-          }
+  async display() {
+    try {
+      let { containerEl } = this;
+      containerEl.empty();
+      containerEl.addClass("initiative-tracker-settings");
+      containerEl.createEl("h2", { text: "Initiative Tracker Settings" });
+      this._displayBase(containerEl.createDiv());
+      this._displayPlayers(containerEl.createDiv("initiative-tracker-additional-container"));
+      this._displayIntegrations(containerEl.createDiv());
+      this._displayHomebrew(containerEl.createDiv("initiative-tracker-additional-container"));
+      const div = containerEl.createDiv("coffee");
+      div.createEl("a", {
+        href: "https://www.buymeacoffee.com/valentine195"
+      }).createEl("img", {
+        attr: {
+          src: "https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=\u2615&slug=valentine195&button_colour=e3e7ef&font_colour=262626&font_family=Inter&outline_colour=262626&coffee_colour=ff0000"
         }
-        new import_obsidian3.Setting(containerEl).setName("Display Encounter Difficulty").setDesc("Display encounter difficulty based on creature CR and player level. Creatures without CR or level will not be considered in the calculation.").addToggle((t) => {
-          t.setValue(this.plugin.data.displayDifficulty).onChange((v) => __async(this, null, function* () {
-            this.plugin.data.displayDifficulty = v;
-            yield this.plugin.saveSettings();
-          }));
-        });
-        new import_obsidian3.Setting(containerEl).setName("Roll Equivalent Creatures Together").setDesc("Equivalent creatures (same HP, AC and Name) will roll the same initiative by default.").addToggle((t) => {
-          t.setValue(this.plugin.data.condense).onChange((v) => __async(this, null, function* () {
-            this.plugin.data.condense = v;
-            const view = this.plugin.view;
-            if (view) {
-              view.setCondensed(this.plugin.data.condense);
-            }
-            yield this.plugin.saveSettings();
-          }));
-        });
-        const formula = new import_obsidian3.Setting(containerEl).setName("Initiative Formula").addText((t) => {
-          if (!this.plugin.canUseDiceRoller) {
-            t.setDisabled(true);
-            this.plugin.data.initiative = "1d20 + %mod%";
-          }
-          t.setValue(this.plugin.data.initiative);
-          t.onChange((v) => {
-            this.plugin.data.initiative = v;
-          });
-          t.inputEl.onblur = () => __async(this, null, function* () {
-            const view = this.plugin.view;
-            if (view)
-              view.rollInitiatives();
-            yield this.plugin.saveSettings();
-          });
-        });
-        formula.descEl.createSpan({
-          text: "Initiative formula to use when calculating initiative. Use "
-        });
-        formula.descEl.createEl("code", { text: "%mod%" });
-        formula.descEl.createSpan({
-          text: " for the modifier placeholder."
-        });
-        if (!this.plugin.canUseDiceRoller) {
-          formula.descEl.createEl("br");
-          formula.descEl.createEl("br");
-          formula.descEl.createSpan({
-            attr: {
-              style: `color: var(--text-error);`
-            },
-            text: "Requires the "
-          });
-          formula.descEl.createEl("a", {
-            text: "Dice Roller",
-            href: "https://github.com/valentine195/obsidian-dice-roller",
-            cls: "external-link"
-          });
-          formula.descEl.createSpan({
-            attr: {
-              style: `color: var(--text-error);`
-            },
-            text: " plugin to modify."
-          });
+      });
+    } catch (e) {
+      console.error(e);
+      new import_obsidian3.Notice("There was an error displaying the settings tab for Obsidian Initiative Tracker.");
+    }
+  }
+  _displayBase(containerEl) {
+    containerEl.empty();
+    new import_obsidian3.Setting(containerEl).setHeading().setName("Basic Settings");
+    new import_obsidian3.Setting(containerEl).setName("Display Encounter Difficulty").setDesc("Display encounter difficulty based on creature CR and player level. Creatures without CR or level will not be considered in the calculation.").addToggle((t) => {
+      t.setValue(this.plugin.data.displayDifficulty).onChange(async (v) => {
+        this.plugin.data.displayDifficulty = v;
+        await this.plugin.saveSettings();
+      });
+    });
+    new import_obsidian3.Setting(containerEl).setName("Roll Equivalent Creatures Together").setDesc("Equivalent creatures (same HP, AC and Name) will roll the same initiative by default.").addToggle((t) => {
+      t.setValue(this.plugin.data.condense).onChange(async (v) => {
+        this.plugin.data.condense = v;
+        const view = this.plugin.view;
+        if (view) {
+          view.setCondensed(this.plugin.data.condense);
         }
-        const leaflet = new import_obsidian3.Setting(containerEl).setName("Integrate with Obsidian Leaflet").addToggle((t) => {
-          if (!this.plugin.canUseLeaflet) {
-            t.setDisabled(true);
-            this.plugin.data.leafletIntegration = false;
-          }
-          t.setValue(this.plugin.data.leafletIntegration);
-          t.onChange((v) => __async(this, null, function* () {
-            this.plugin.data.leafletIntegration = v;
-            this.plugin.view.setMapState(v);
-            yield this.plugin.saveSettings();
-            this.display();
-          }));
-        });
-        leaflet.descEl.createSpan({
-          text: "Integrate with the Obsidian Leaflet plugin and display combats on a map."
-        });
-        if (!this.plugin.canUseLeaflet) {
-          leaflet.descEl.createEl("br");
-          leaflet.descEl.createEl("br");
-          leaflet.descEl.createSpan({
-            attr: {
-              style: `color: var(--text-error);`
-            },
-            text: "Requires  "
-          });
-          leaflet.descEl.createEl("a", {
-            text: "Obsidian Leaflet",
-            href: "https://github.com/valentine195/obsidian-leaflet-plugin",
-            cls: "external-link"
-          });
-          leaflet.descEl.createSpan({
-            attr: {
-              style: `color: var(--text-error);`
-            },
-            text: " version 4.0.0 to modify."
-          });
-        }
-        if (this.plugin.canUseLeaflet) {
-          const playerMarker = new import_obsidian3.Setting(containerEl).setName("Default Player Marker Type").addDropdown((drop) => {
-            var _a;
-            for (let marker of this.plugin.leaflet.markerIcons) {
-              drop.addOption(marker.type, marker.type);
-            }
-            drop.setValue((_a = this.plugin.data.playerMarker) != null ? _a : "default");
-            drop.onChange((v) => __async(this, null, function* () {
-              this.plugin.data.playerMarker = v;
-              yield this.plugin.saveSettings();
-              this.display();
-            }));
-          });
-          if (this.plugin.data.playerMarker) {
-            const div2 = createDiv("marker-type-display");
-            const inner = div2.createDiv("marker-icon-display");
-            const marker = this.plugin.leaflet.markerIcons.find((icon) => icon.type == this.plugin.data.playerMarker);
-            if (marker) {
-              inner.innerHTML = marker.html;
-              playerMarker.descEl.appendChild(div2);
-            }
-          }
-          const monsterMarker = new import_obsidian3.Setting(containerEl).setName("Default Monster Marker Type").addDropdown((drop) => {
-            for (let marker of this.plugin.leaflet.markerIcons) {
-              drop.addOption(marker.type, marker.type);
-            }
-            drop.setValue(this.plugin.data.monsterMarker);
-            drop.onChange((v) => __async(this, null, function* () {
-              this.plugin.data.monsterMarker = v;
-              yield this.plugin.saveSettings();
-              this.display();
-            }));
-          });
-          if (this.plugin.data.monsterMarker) {
-            const div2 = createDiv("marker-type-display");
-            const inner = div2.createDiv("marker-icon-display");
-            const marker = this.plugin.leaflet.markerIcons.find((icon) => icon.type == this.plugin.data.monsterMarker);
-            if (marker) {
-              inner.innerHTML = marker.html;
-              monsterMarker.descEl.appendChild(div2);
-            }
-          }
-        }
-        this._displayImports(containerEl);
-        const homebrewContainer = containerEl.createDiv("initiative-tracker-additional-container initiative-tracker-monsters");
-        this._displayHomebrew(homebrewContainer);
-        const div = containerEl.createDiv("coffee");
-        div.createEl("a", {
-          href: "https://www.buymeacoffee.com/valentine195"
-        }).createEl("img", {
-          attr: {
-            src: "https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=\u2615&slug=valentine195&button_colour=e3e7ef&font_colour=262626&font_family=Inter&outline_colour=262626&coffee_colour=ff0000"
-          }
-        });
-      } catch (e) {
-        console.error(e);
-        new import_obsidian3.Notice("There was an error displaying the settings tab for Obsidian Initiative Tracker.");
-      }
+        await this.plugin.saveSettings();
+      });
     });
   }
-  _displayImports(containerEl) {
-    const importSettingsContainer = containerEl.createDiv("initiative-tracker-additional-container");
-    new import_obsidian3.Setting(importSettingsContainer).setName("Import Creatures").setDesc("Import creatures from creature files. Only import data that you own.");
-    const importAdditional = importSettingsContainer.createDiv("additional");
-    const importAppFile = new import_obsidian3.Setting(importAdditional).setName("Import DnDAppFile").setDesc("Only import content that you own.");
-    const inputAppFile = createEl("input", {
-      attr: {
-        type: "file",
-        name: "dndappfile",
-        accept: ".xml"
+  async _displayIntegrations(containerEl) {
+    containerEl.empty();
+    new import_obsidian3.Setting(containerEl).setHeading().setName("Plugin Integrations");
+    const syncEl = containerEl.createDiv("initiative-sync");
+    if (!this.plugin.canUseStatBlocks) {
+      this.plugin.data.sync = false;
+      await this.plugin.saveSettings();
+    }
+    new import_obsidian3.Setting(syncEl).setName("Sync Monsters from 5e Statblocks").setDesc(createFragment((e) => {
+      e.createSpan({
+        text: "Homebrew creatures saved to the TTRPG Statblocks plugin will be available in the quick-add."
+      });
+      if (!this.plugin.canUseStatBlocks) {
+        e.createEl("br");
+        e.createEl("br");
+        e.createSpan({
+          text: "Install and enable the "
+        });
+        e.createEl("a", {
+          text: "5e Statblocks",
+          href: "obsidian://show-plugin?id=obsidian-5e-statblocks"
+        });
+        e.createSpan({
+          text: " plugin to use homebrew creatures."
+        });
       }
+    })).addToggle((t) => {
+      t.setDisabled(!this.plugin.canUseStatBlocks).setValue(this.plugin.data.sync);
+      t.onChange(async (v) => {
+        this.plugin.data.sync = v;
+        await this.plugin.saveSettings();
+        this._displayIntegrations(containerEl);
+      });
     });
-    inputAppFile.onchange = () => __async(this, null, function* () {
-      const { files } = inputAppFile;
-      if (!files.length)
-        return;
-      try {
-        const importedMonsters = yield ImportEntitiesFromXml(...Array.from(files));
-        try {
-          yield this.plugin.saveMonsters(importedMonsters);
-          new import_obsidian3.Notice(`Successfully imported ${importedMonsters.length} creatures.`);
-        } catch (e) {
-          new import_obsidian3.Notice(`There was an issue importing the file${files.length > 1 ? "s" : ""}.`);
+    if (this.plugin.data.sync) {
+      const synced = new import_obsidian3.Setting(syncEl).setDesc(`${this.plugin.statblock_creatures.length} creatures synced.`);
+      synced.settingEl.addClass("initiative-synced");
+      (0, import_obsidian3.setIcon)(synced.nameEl, "check-in-circle");
+      synced.nameEl.appendChild(createSpan({ text: "Synced" }));
+    }
+    new import_obsidian3.Setting(containerEl).setName("Initiative Formula").setDesc(createFragment((e) => {
+      e.createSpan({
+        text: "Initiative formula to use when calculating initiative. Use "
+      });
+      e.createEl("code", { text: "%mod%" });
+      e.createSpan({
+        text: " for the modifier placeholder."
+      });
+      if (!this.plugin.canUseDiceRoller) {
+        e.createEl("br");
+        e.createEl("br");
+        e.createSpan({
+          attr: {
+            style: `color: var(--text-error);`
+          },
+          text: "Requires the "
+        });
+        e.createEl("a", {
+          text: "Dice Roller",
+          href: "https://github.com/valentine195/obsidian-dice-roller",
+          cls: "external-link"
+        });
+        e.createSpan({
+          attr: {
+            style: `color: var(--text-error);`
+          },
+          text: " plugin to modify."
+        });
+      }
+    })).addText((t) => {
+      if (!this.plugin.canUseDiceRoller) {
+        t.setDisabled(true);
+        this.plugin.data.initiative = "1d20 + %mod%";
+      }
+      t.setValue(this.plugin.data.initiative);
+      t.onChange((v) => {
+        this.plugin.data.initiative = v;
+      });
+      t.inputEl.onblur = async () => {
+        const view = this.plugin.view;
+        if (view)
+          view.rollInitiatives();
+        await this.plugin.saveSettings();
+      };
+    });
+    new import_obsidian3.Setting(containerEl).setName("Integrate with Obsidian Leaflet").setDesc(createFragment((e) => {
+      e.createSpan({
+        text: "Integrate with the Obsidian Leaflet plugin and display combats on a map."
+      });
+      if (!this.plugin.canUseLeaflet) {
+        e.createEl("br");
+        e.createEl("br");
+        e.createSpan({
+          attr: {
+            style: `color: var(--text-error);`
+          },
+          text: "Requires  "
+        });
+        e.createEl("a", {
+          text: "Obsidian Leaflet",
+          href: "https://github.com/valentine195/obsidian-leaflet-plugin",
+          cls: "external-link"
+        });
+        e.createSpan({
+          attr: {
+            style: `color: var(--text-error);`
+          },
+          text: " version 4.0.0 to modify."
+        });
+      }
+    })).addToggle((t) => {
+      if (!this.plugin.canUseLeaflet) {
+        t.setDisabled(true);
+        this.plugin.data.leafletIntegration = false;
+      }
+      t.setValue(this.plugin.data.leafletIntegration);
+      t.onChange(async (v) => {
+        this.plugin.data.leafletIntegration = v;
+        this.plugin.view.setMapState(v);
+        await this.plugin.saveSettings();
+        this._displayIntegrations(containerEl);
+      });
+    });
+    if (this.plugin.canUseLeaflet && this.plugin.data.leafletIntegration) {
+      new import_obsidian3.Setting(containerEl).setName("Default Player Marker Type").setDesc(createFragment((e) => {
+        if (this.plugin.data.playerMarker) {
+          const div = e.createDiv("marker-type-display");
+          const inner = div.createDiv("marker-icon-display");
+          const marker = this.plugin.leaflet.markerIcons.find((icon) => icon.type == this.plugin.data.playerMarker);
+          if (marker) {
+            inner.innerHTML = marker.html;
+          }
         }
-        this.display();
-      } catch (e) {
-      }
-    });
-    importAppFile.addButton((b) => {
-      b.setButtonText("Choose File").setTooltip("Import DnDAppFile Data");
-      b.buttonEl.addClass("initiative-tracker-file-upload");
-      b.buttonEl.appendChild(inputAppFile);
-      b.onClick(() => inputAppFile.click());
-    });
-    const importImprovedInitiative = new import_obsidian3.Setting(importAdditional).setName("Import Improved Initiative Data").setDesc("Only import content that you own.");
-    const inputImprovedInitiative = createEl("input", {
-      attr: {
-        type: "file",
-        name: "dndappfile",
-        accept: ".json"
-      }
-    });
-    inputImprovedInitiative.onchange = () => __async(this, null, function* () {
-      const { files } = inputImprovedInitiative;
-      if (!files.length)
-        return;
-      try {
-        const importedMonsters = yield ImportEntitiesFromImprovedInitiative(...Array.from(files));
-        try {
-          yield this.plugin.saveMonsters(Array.from(importedMonsters.values()));
-          new import_obsidian3.Notice(`Successfully imported ${importedMonsters.size} creatures.`);
-        } catch (e) {
-          new import_obsidian3.Notice(`There was an issue importing the file${files.length > 1 ? "s" : ""}.`);
+      })).addDropdown((drop) => {
+        for (let marker of this.plugin.leaflet.markerIcons) {
+          drop.addOption(marker.type, marker.type);
         }
-        this.display();
-      } catch (e) {
-      }
-    });
-    importImprovedInitiative.addButton((b) => {
-      b.setButtonText("Choose File").setTooltip("Import Improved Initiative Data");
-      b.buttonEl.addClass("initiative-tracker-file-upload");
-      b.buttonEl.appendChild(inputImprovedInitiative);
-      b.onClick(() => inputImprovedInitiative.click());
-    });
-    const importCritterDB = new import_obsidian3.Setting(importAdditional).setName("Import CritterDB Data").setDesc("Only import content that you own.");
-    const inputCritterDB = createEl("input", {
-      attr: {
-        type: "file",
-        name: "critterdb",
-        accept: ".json"
-      }
-    });
-    inputCritterDB.onchange = () => __async(this, null, function* () {
-      const { files } = inputCritterDB;
-      if (!files.length)
-        return;
-      try {
-        const importedMonsters = yield ImportFromCritterDB(...Array.from(files));
-        try {
-          yield this.plugin.saveMonsters(Array.from(importedMonsters.values()));
-          new import_obsidian3.Notice(`Successfully imported ${importedMonsters.size} creatures.`);
-        } catch (e) {
-          new import_obsidian3.Notice(`There was an issue importing the file${files.length > 1 ? "s" : ""}.`);
+        drop.setValue(this.plugin.data.playerMarker ?? "default");
+        drop.onChange(async (v) => {
+          this.plugin.data.playerMarker = v;
+          await this.plugin.saveSettings();
+          this._displayIntegrations(containerEl);
+        });
+      });
+      new import_obsidian3.Setting(containerEl).setName("Default Monster Marker Type").setDesc(createFragment((e) => {
+        if (this.plugin.data.monsterMarker) {
+          const div = e.createDiv("marker-type-display");
+          const inner = div.createDiv("marker-icon-display");
+          const marker = this.plugin.leaflet.markerIcons.find((icon) => icon.type == this.plugin.data.monsterMarker);
+          if (marker) {
+            inner.innerHTML = marker.html;
+          }
         }
-        this.display();
-      } catch (e) {
-      }
-    });
-    importCritterDB.addButton((b) => {
-      b.setButtonText("Choose File").setTooltip("Import CritterDB Data");
-      b.buttonEl.addClass("statblock-file-upload");
-      b.buttonEl.appendChild(inputCritterDB);
-      b.onClick(() => inputCritterDB.click());
-    });
-    const import5eTools = new import_obsidian3.Setting(importAdditional).setName("Import 5e.tools Data").setDesc("Only import content that you own.");
-    const input5eTools = createEl("input", {
-      attr: {
-        type: "file",
-        name: "fivetools",
-        accept: ".json"
-      }
-    });
-    input5eTools.onchange = () => __async(this, null, function* () {
-      const { files } = input5eTools;
-      if (!files.length)
-        return;
-      try {
-        const importedMonsters = yield ImportFrom5eTools(...Array.from(files));
-        try {
-          yield this.plugin.saveMonsters(Array.from(importedMonsters.values()));
-          new import_obsidian3.Notice(`Successfully imported ${importedMonsters.size} creatures.`);
-        } catch (e) {
-          new import_obsidian3.Notice(`There was an issue importing the file${files.length > 1 ? "s" : ""}.`);
+      })).addDropdown((drop) => {
+        for (let marker of this.plugin.leaflet.markerIcons) {
+          drop.addOption(marker.type, marker.type);
         }
-        this.display();
-      } catch (e) {
-      }
-    });
-    import5eTools.addButton((b) => {
-      b.setButtonText("Choose File").setTooltip("Import 5e.tools Data");
-      b.buttonEl.addClass("statblock-file-upload");
-      b.buttonEl.appendChild(input5eTools);
-      b.onClick(() => input5eTools.click());
-    });
+        drop.setValue(this.plugin.data.monsterMarker);
+        drop.onChange(async (v) => {
+          this.plugin.data.monsterMarker = v;
+          await this.plugin.saveSettings();
+          this._displayIntegrations(containerEl);
+        });
+      });
+    }
   }
   _displayHomebrew(additionalContainer) {
     additionalContainer.empty();
-    new import_obsidian3.Setting(additionalContainer).setName("Add New Creature").addButton((button) => {
-      let b = button.setTooltip("Add Creature").setButtonText("+").onClick(() => __async(this, null, function* () {
-        const modal = new NewCreatureModal(this.plugin);
-        modal.open();
-        modal.onClose = () => __async(this, null, function* () {
-          if (!modal.saved)
-            return;
-          this.plugin.saveMonster(__spreadProps(__spreadValues({}, modal.creature), {
-            source: "Homebrew"
-          }));
-          this.display();
-        });
-      }));
-      return b;
-    });
-    let monsterFilter;
-    const filters = additionalContainer.createDiv("initiative-tracker-monster-filter");
-    const searchMonsters = new import_obsidian3.Setting(filters).setName("Homebrew Monsters").addSearch((t) => {
-      t.setPlaceholder("Filter Monsters");
-      monsterFilter = t;
-    });
-    const additional = additionalContainer.createDiv("additional");
-    if (!this.plugin.data.homebrew.length) {
-      additional.createDiv({
+    if (this.plugin.data.homebrew.length) {
+      const additional = additionalContainer.createDiv("additional");
+      new import_obsidian3.Setting(additional).setHeading().setName("Homebrew Creatures");
+      const warning = additional.createDiv({
         attr: {
-          style: "display: flex; justify-content: center; padding-bottom: 18px;"
+          style: "display: flex; justify-content: center; padding: 18px;"
         }
-      }).createSpan({
-        text: "No saved creatures! Create one to see it here."
+      }).createEl("strong");
+      warning.createSpan({
+        text: "Homebrew creatures have moved to the "
       });
-      return;
-    }
-    let suggester = new HomebrewMonsterSuggestionModal(this.plugin, monsterFilter.inputEl, additional);
-    searchMonsters.setDesc(`Manage homebrew creatures. Currently: ${suggester.getItems().length} creature${suggester.filteredItems.length != 1 ? "s" : ""}.`);
-    suggester.onRemoveItem = (monster) => __async(this, null, function* () {
-      try {
-        yield this.plugin.deleteMonster(monster);
-      } catch (e) {
-        new import_obsidian3.Notice(`There was an error deleting the creature:${`
-
-` + e.message}`);
+      warning.createEl("a", {
+        text: "5e Statblocks",
+        href: "obsidian://show-plugin?id=obsidian-5e-statblocks"
+      });
+      warning.createSpan({
+        text: " plugin."
+      });
+      if (this.plugin.canUseStatBlocks) {
+        new import_obsidian3.Setting(additional).setName("Migrate Hombrew").setDesc("Move all created homebrew creatures to the 5e Statblocks plugin.").addButton((b) => {
+          b.setIcon("install").setTooltip("Migrate").onClick(async () => {
+            const statblocks = this.app.plugins.getPlugin("obsidian-5e-statblocks");
+            const existing = statblocks.settings.monsters.length;
+            await statblocks.saveMonsters(this.plugin.data.homebrew);
+            new import_obsidian3.Notice(`${statblocks.settings.monsters.length - existing} of ${this.plugin.data.homebrew.length} Homebrew Monsters saved.`);
+          });
+        }).addExtraButton((b) => {
+          b.setIcon("cross-in-box").setTooltip("Delete Homebrew").onClick(async () => {
+            if (await confirmWithModal(this.app, "Are you sure you want to delete all homebrew creatures?")) {
+              this.plugin.data.homebrew = [];
+              await this.plugin.saveSettings();
+              this._displayHomebrew(additionalContainer);
+            }
+          });
+        });
+      } else {
+        additional.createDiv({
+          attr: {
+            style: "display: flex; justify-content: center; padding: 18px;"
+          }
+        }).createEl("strong");
+        warning.createSpan({
+          text: "Install the "
+        });
+        warning.createEl("a", {
+          text: "5e Statblocks",
+          href: "obsidian://show-plugin?id=obsidian-5e-statblocks"
+        });
+        warning.createSpan({
+          text: " plugin to migrate."
+        });
       }
-      suggester.homebrew = [...this.plugin.data.homebrew];
-      suggester._onInputChanged();
-    });
-    suggester.onEditItem = (monster) => {
-      const modal = new NewCreatureModal(this.plugin, monster);
-      modal.onClose = () => __async(this, null, function* () {
-        if (!modal.saved)
-          return;
-        try {
-          yield this.plugin.updateMonster(monster, modal.creature);
-          this.plugin.app.workspace.trigger("initiative-tracker:creature-updated-in-settings", monster);
-        } catch (e) {
-          new import_obsidian3.Notice(`There was an error updating the monster:${`
-
-` + e.message}`);
-        }
-        suggester.homebrew = [...this.plugin.data.homebrew];
-        suggester._onInputChanged();
-      });
-      modal.open();
-    };
-    suggester.onInputChanged = () => searchMonsters.setDesc(`Manage homebrew creatures. Currently: ${suggester.filteredItems.length} creature${suggester.filteredItems.length != 1 ? "s" : ""}.`);
+    }
   }
   _displayPlayers(additionalContainer) {
-    var _a, _b, _c;
     additionalContainer.empty();
-    const additional = additionalContainer.createDiv("additional");
-    new import_obsidian3.Setting(additional).setName("Add New Player").setDesc("These players will always be added to new encounters.").addButton((button) => {
-      let b = button.setTooltip("Add Player").setButtonText("+").onClick(() => __async(this, null, function* () {
+    new import_obsidian3.Setting(additionalContainer).setHeading().setName("Players");
+    new import_obsidian3.Setting(additionalContainer).setName("Add New Player").setDesc("These players will always be added to new encounters.").addButton((button) => {
+      let b = button.setTooltip("Add Player").setButtonText("+").onClick(async () => {
         const modal = new NewPlayerModal(this.plugin);
         modal.open();
-        modal.onClose = () => __async(this, null, function* () {
+        modal.onClose = async () => {
           if (!modal.saved)
             return;
-          yield this.plugin.savePlayer(__spreadProps(__spreadValues({}, modal.player), {
+          await this.plugin.savePlayer({
+            ...modal.player,
             player: true
-          }));
+          });
           this._displayPlayers(additionalContainer);
-        });
-      }));
+        };
+      });
       return b;
     });
+    const additional = additionalContainer.createDiv("additional");
     const playerView = additional.createDiv("initiative-tracker-players");
     if (!this.plugin.data.players.length) {
       additional.createDiv({
@@ -3727,208 +2920,202 @@ var InitiativeTrackerSettings = class extends import_obsidian3.PluginSettingTab 
         const playerDiv = playerView.createDiv("initiative-tracker-player");
         playerDiv.createDiv({ text: player.name });
         playerDiv.createDiv({
-          text: `${(_a = player.hp) != null ? _a : DEFAULT_UNDEFINED}`
+          text: `${player.hp ?? DEFAULT_UNDEFINED}`
         });
         playerDiv.createDiv({
-          text: `${(_b = player.ac) != null ? _b : DEFAULT_UNDEFINED}`
+          text: `${player.ac ?? DEFAULT_UNDEFINED}`
         });
         playerDiv.createDiv({
-          text: `${(_c = player.modifier) != null ? _c : DEFAULT_UNDEFINED}`
+          text: `${player.modifier ?? DEFAULT_UNDEFINED}`
         });
         const icons = playerDiv.createDiv("initiative-tracker-player-icon");
         new import_obsidian3.ExtraButtonComponent(icons.createDiv()).setIcon(EDIT).setTooltip("Edit").onClick(() => {
           const modal = new NewPlayerModal(this.plugin, player);
           modal.open();
-          modal.onClose = () => __async(this, null, function* () {
+          modal.onClose = async () => {
             if (!modal.saved)
               return;
-            yield this.plugin.updatePlayer(player, modal.player);
+            await this.plugin.updatePlayer(player, modal.player);
             this.plugin.app.workspace.trigger("initiative-tracker:creature-updated-in-settings", player);
             this._displayPlayers(additionalContainer);
-          });
+          };
         });
-        new import_obsidian3.ExtraButtonComponent(icons.createDiv()).setIcon("trash").setTooltip("Delete").onClick(() => __async(this, null, function* () {
+        new import_obsidian3.ExtraButtonComponent(icons.createDiv()).setIcon("trash").setTooltip("Delete").onClick(async () => {
           this.plugin.data.players = this.plugin.data.players.filter((p) => p != player);
-          yield this.plugin.saveSettings();
+          await this.plugin.saveSettings();
           this._displayPlayers(additionalContainer);
-        }));
+        });
       }
     }
   }
 };
-var NewPlayerModal = class extends import_obsidian3.Modal {
+var NewPlayerModal = class extends import_obsidian4.Modal {
   constructor(plugin, original) {
     super(plugin.app);
     this.plugin = plugin;
     this.original = original;
-    this.player = __spreadValues({}, original != null ? original : {});
+    this.player = { ...original ?? {} };
   }
-  display(load) {
-    return __async(this, null, function* () {
-      let { contentEl } = this;
-      contentEl.addClass("initiative-tracker-add-player-modal");
-      contentEl.empty();
-      let error = false;
-      contentEl.createEl("h2", {
-        text: this.original ? "Edit Player" : "New Player"
+  async display(load) {
+    let { contentEl } = this;
+    contentEl.addClass("initiative-tracker-add-player-modal");
+    contentEl.empty();
+    let error = false;
+    contentEl.createEl("h2", {
+      text: this.original ? "Edit Player" : "New Player"
+    });
+    new import_obsidian3.Setting(contentEl).setName("Link to Note").setDesc("Link player to a note in your vault.").addText((t) => {
+      t.setValue(this.player.note ?? "");
+      const modal = new FileSuggestionModal(this.app, t);
+      modal.onClose = async () => {
+        if (!modal.file)
+          return;
+        const metaData = this.app.metadataCache.getFileCache(modal.file);
+        this.player.note = modal.file.basename;
+        this.player.name = modal.file.basename;
+        if (!metaData || !metaData.frontmatter)
+          return;
+        const { ac, hp, modifier, level } = metaData.frontmatter;
+        this.player = {
+          ...this.player,
+          ...{ ac, hp, modifier, level }
+        };
+        this.display();
+      };
+    });
+    let nameInput, levelInput, hpInput, acInput, modInput;
+    new import_obsidian3.Setting(contentEl).setName("Name").setDesc("Player name. Must be unique!").addText((t) => {
+      nameInput = {
+        input: t.inputEl,
+        validate: (i) => {
+          let error2 = false;
+          if (!i.value.length && !load || this.plugin.data.players.find((p) => p.name === i.value) && this.player.name != this.original.name) {
+            i.addClass("has-error");
+            error2 = true;
+          }
+          return error2;
+        }
+      };
+      t.setValue(this.player.name ?? "");
+      t.onChange((v) => {
+        t.inputEl.removeClass("has-error");
+        this.player.name = v;
       });
-      new import_obsidian3.Setting(contentEl).setName("Link to Note").setDesc("Link player to a note in your vault.").addText((t) => {
-        var _a;
-        t.setValue((_a = this.player.note) != null ? _a : "");
-        const modal = new FileSuggestionModal(this.app, t);
-        modal.onClose = () => __async(this, null, function* () {
-          if (!modal.file)
-            return;
-          const metaData = this.app.metadataCache.getFileCache(modal.file);
-          this.player.note = modal.file.basename;
-          this.player.name = modal.file.basename;
-          if (!metaData || !metaData.frontmatter)
-            return;
-          const { ac, hp, modifier, level } = metaData.frontmatter;
-          this.player = __spreadValues(__spreadValues({}, this.player), { ac, hp, modifier, level });
+    });
+    new import_obsidian3.Setting(contentEl).setName("Level").setDesc("Player level.").addText((t) => {
+      levelInput = {
+        input: t.inputEl,
+        validate: (i) => {
+          let error2 = false;
+          if (isNaN(Number(i.value)) || Number(i.value) <= 0) {
+            i.addClass("has-error");
+            error2 = true;
+          }
+          return error2;
+        }
+      };
+      t.setValue(`${this.player.level ?? ""}`);
+      t.onChange((v) => {
+        t.inputEl.removeClass("has-error");
+        this.player.level = Number(v);
+      });
+    });
+    new import_obsidian3.Setting(contentEl).setName("Max Hit Points").addText((t) => {
+      hpInput = {
+        input: t.inputEl,
+        validate: (i) => {
+          let error2 = false;
+          if (isNaN(Number(i.value))) {
+            i.addClass("has-error");
+            error2 = true;
+          }
+          return error2;
+        }
+      };
+      t.setValue(`${this.player.hp ?? ""}`);
+      t.onChange((v) => {
+        t.inputEl.removeClass("has-error");
+        this.player.hp = Number(v);
+      });
+    });
+    new import_obsidian3.Setting(contentEl).setName("Armor Class").addText((t) => {
+      acInput = {
+        input: t.inputEl,
+        validate: (i) => {
+          let error2 = false;
+          if (isNaN(Number(i.value))) {
+            t.inputEl.addClass("has-error");
+            error2 = true;
+          }
+          return error2;
+        }
+      };
+      t.setValue(`${this.player.ac ?? ""}`);
+      t.onChange((v) => {
+        t.inputEl.removeClass("has-error");
+        this.player.ac = Number(v);
+      });
+    });
+    new import_obsidian3.Setting(contentEl).setName("Initiative Modifier").setDesc("This will be added to randomly-rolled initiatives.").addText((t) => {
+      modInput = {
+        input: t.inputEl,
+        validate: (i) => {
+          let error2 = false;
+          if (isNaN(Number(i.value))) {
+            t.inputEl.addClass("has-error");
+            error2 = true;
+          }
+          return error2;
+        }
+      };
+      t.setValue(`${this.player.modifier ?? ""}`);
+      t.onChange((v) => {
+        this.player.modifier = Number(v);
+      });
+    });
+    if (this.plugin.canUseLeaflet) {
+      const markerSetting = new import_obsidian3.Setting(contentEl).setName("Leaflet Marker").addDropdown((drop) => {
+        for (let marker of this.plugin.leaflet.markerIcons) {
+          drop.addOption(marker.type, marker.type);
+        }
+        drop.setValue(this.player.marker ?? this.plugin.data.playerMarker ?? "default");
+        drop.onChange(async (v) => {
+          this.player.marker = v;
           this.display();
         });
       });
-      let nameInput, levelInput, hpInput, acInput, modInput;
-      new import_obsidian3.Setting(contentEl).setName("Name").setDesc("Player name. Must be unique!").addText((t) => {
-        var _a;
-        nameInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (!i.value.length && !load || this.plugin.data.players.find((p) => p.name === i.value) && this.player.name != this.original.name) {
-              i.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue((_a = this.player.name) != null ? _a : "");
-        t.onChange((v) => {
-          t.inputEl.removeClass("has-error");
-          this.player.name = v;
-        });
-      });
-      new import_obsidian3.Setting(contentEl).setName("Level").setDesc("Player level.").addText((t) => {
-        var _a;
-        levelInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (isNaN(Number(i.value)) || Number(i.value) <= 0) {
-              i.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue(`${(_a = this.player.level) != null ? _a : ""}`);
-        t.onChange((v) => {
-          t.inputEl.removeClass("has-error");
-          this.player.level = Number(v);
-        });
-      });
-      new import_obsidian3.Setting(contentEl).setName("Max Hit Points").addText((t) => {
-        var _a;
-        hpInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (isNaN(Number(i.value))) {
-              i.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue(`${(_a = this.player.hp) != null ? _a : ""}`);
-        t.onChange((v) => {
-          t.inputEl.removeClass("has-error");
-          this.player.hp = Number(v);
-        });
-      });
-      new import_obsidian3.Setting(contentEl).setName("Armor Class").addText((t) => {
-        var _a;
-        acInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (isNaN(Number(i.value))) {
-              t.inputEl.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue(`${(_a = this.player.ac) != null ? _a : ""}`);
-        t.onChange((v) => {
-          t.inputEl.removeClass("has-error");
-          this.player.ac = Number(v);
-        });
-      });
-      new import_obsidian3.Setting(contentEl).setName("Initiative Modifier").setDesc("This will be added to randomly-rolled initiatives.").addText((t) => {
-        var _a;
-        modInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (isNaN(Number(i.value))) {
-              t.inputEl.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue(`${(_a = this.player.modifier) != null ? _a : ""}`);
-        t.onChange((v) => {
-          this.player.modifier = Number(v);
-        });
-      });
-      if (this.plugin.canUseLeaflet) {
-        const markerSetting = new import_obsidian3.Setting(contentEl).setName("Leaflet Marker").addDropdown((drop) => {
-          var _a, _b;
-          for (let marker of this.plugin.leaflet.markerIcons) {
-            drop.addOption(marker.type, marker.type);
-          }
-          drop.setValue((_b = (_a = this.player.marker) != null ? _a : this.plugin.data.playerMarker) != null ? _b : "default");
-          drop.onChange((v) => __async(this, null, function* () {
-            this.player.marker = v;
-            this.display();
-          }));
-        });
-        if (this.player.marker) {
-          const div = createDiv("marker-type-display");
-          const inner = div.createDiv("marker-icon-display");
-          const marker = this.plugin.leaflet.markerIcons.find((icon) => icon.type == this.player.marker);
-          if (marker) {
-            inner.innerHTML = marker.html;
-            markerSetting.descEl.appendChild(div);
-          }
+      if (this.player.marker) {
+        const div = createDiv("marker-type-display");
+        const inner = div.createDiv("marker-icon-display");
+        const marker = this.plugin.leaflet.markerIcons.find((icon) => icon.type == this.player.marker);
+        if (marker) {
+          inner.innerHTML = marker.html;
+          markerSetting.descEl.appendChild(div);
         }
       }
-      let footerEl = contentEl.createDiv();
-      let footerButtons = new import_obsidian3.Setting(footerEl);
-      footerButtons.addButton((b) => {
-        b.setTooltip("Save").setIcon("checkmark").onClick(() => __async(this, null, function* () {
-          let error2 = this.validateInputs(nameInput, acInput, hpInput, modInput);
-          if (error2) {
-            new import_obsidian3.Notice("Fix errors before saving.");
-            return;
-          }
-          this.saved = true;
-          this.close();
-        }));
-        return b;
+    }
+    let footerEl = contentEl.createDiv();
+    let footerButtons = new import_obsidian3.Setting(footerEl);
+    footerButtons.addButton((b) => {
+      b.setTooltip("Save").setIcon("checkmark").onClick(async () => {
+        let error2 = this.validateInputs(nameInput, acInput, hpInput, modInput);
+        if (error2) {
+          new import_obsidian3.Notice("Fix errors before saving.");
+          return;
+        }
+        this.saved = true;
+        this.close();
       });
-      footerButtons.addExtraButton((b) => {
-        b.setIcon("cross").setTooltip("Cancel").onClick(() => {
-          this.saved = false;
-          this.close();
-        });
-        return b;
-      });
-      this.validateInputs(nameInput, acInput, hpInput, modInput);
+      return b;
     });
+    footerButtons.addExtraButton((b) => {
+      b.setIcon("cross").setTooltip("Cancel").onClick(() => {
+        this.saved = false;
+        this.close();
+      });
+      return b;
+    });
+    this.validateInputs(nameInput, acInput, hpInput, modInput);
   }
   validateInputs(...inputs) {
     let error = false;
@@ -3945,216 +3132,49 @@ var NewPlayerModal = class extends import_obsidian3.Modal {
     this.display(true);
   }
 };
-var NewCreatureModal = class extends import_obsidian3.Modal {
-  constructor(plugin, original) {
-    super(plugin.app);
-    this.plugin = plugin;
-    this.original = original;
-    this.creature = __spreadValues({}, original != null ? original : {});
-    this.edit = original ? true : false;
+async function confirmWithModal(app, text2, buttons = {
+  cta: "Yes",
+  secondary: "No"
+}) {
+  return new Promise((resolve, reject) => {
+    const modal = new ConfirmModal(app, text2, buttons);
+    modal.onClose = () => {
+      resolve(modal.confirmed);
+    };
+    modal.open();
+  });
+}
+var ConfirmModal = class extends import_obsidian4.Modal {
+  constructor(app, text2, buttons) {
+    super(app);
+    this.text = text2;
+    this.buttons = buttons;
+    this.confirmed = false;
   }
-  display(load) {
-    return __async(this, null, function* () {
-      let { contentEl } = this;
-      contentEl.addClass("initiative-tracker-add-player-modal");
-      contentEl.empty();
-      let error = false;
-      contentEl.createEl("h2", {
-        text: `${this.edit ? "New" : "Edit"} Homebrew Creature`
+  async display() {
+    new Promise((resolve) => {
+      this.contentEl.empty();
+      this.contentEl.addClass("confirm-modal");
+      this.contentEl.createEl("p", {
+        text: this.text
       });
-      new import_obsidian3.Setting(contentEl).setName("Link to Note").setDesc("Link creature to a note in your vault.").addText((t) => {
-        var _a;
-        t.setValue((_a = this.creature.note) != null ? _a : "");
-        const modal = new FileSuggestionModal(this.app, t);
-        modal.onClose = () => __async(this, null, function* () {
-          if (!modal.file)
-            return;
-          const metaData = this.app.metadataCache.getFileCache(modal.file);
-          this.creature.note = modal.file.basename;
-          this.creature.name = modal.file.basename;
-          if (!metaData || !metaData.frontmatter)
-            return;
-          const { ac, hp, modifier } = metaData.frontmatter;
-          this.creature = __spreadValues(__spreadValues({}, this.creature), { ac, hp, modifier });
-          this.display();
-        });
+      const buttonEl = this.contentEl.createDiv("fantasy-calendar-confirm-buttons");
+      new import_obsidian4.ButtonComponent(buttonEl).setButtonText(this.buttons.cta).setCta().onClick(() => {
+        this.confirmed = true;
+        this.close();
       });
-      let nameInput, hpInput, acInput, modInput;
-      new import_obsidian3.Setting(contentEl).setName("Name").setDesc("Creature name.").addText((t) => {
-        var _a;
-        nameInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (!i.value.length && !load || this.plugin.data.players.find((p) => p.name === i.value) && this.creature.name != this.original.name) {
-              i.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue((_a = this.creature.name) != null ? _a : "");
-        t.onChange((v) => {
-          t.inputEl.removeClass("has-error");
-          this.creature.name = v;
-        });
+      new import_obsidian4.ButtonComponent(buttonEl).setButtonText(this.buttons.secondary).onClick(() => {
+        this.close();
       });
-      new import_obsidian3.Setting(contentEl).setName("Max Hit Points").addText((t) => {
-        var _a;
-        hpInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (isNaN(Number(i.value))) {
-              i.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue(`${(_a = this.creature.hp) != null ? _a : ""}`);
-        t.onChange((v) => {
-          t.inputEl.removeClass("has-error");
-          this.creature.hp = Number(v);
-        });
-      });
-      new import_obsidian3.Setting(contentEl).setName("Armor Class").addText((t) => {
-        var _a;
-        acInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (isNaN(Number(i.value))) {
-              t.inputEl.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue(`${(_a = this.creature.ac) != null ? _a : ""}`);
-        t.onChange((v) => {
-          t.inputEl.removeClass("has-error");
-          this.creature.ac = Number(v);
-        });
-      });
-      new import_obsidian3.Setting(contentEl).setName("Initiative Modifier").setDesc("This will be added to randomly-rolled initiatives.").addText((t) => {
-        var _a;
-        modInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (isNaN(Number(i.value))) {
-              t.inputEl.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue(`${(_a = this.creature.modifier) != null ? _a : ""}`);
-        t.onChange((v) => {
-          this.creature.modifier = Number(v);
-        });
-      });
-      new import_obsidian3.Setting(contentEl).setName("Experience Points").setDesc("If entered, this will be used to calculate encounter experience points.").addText((t) => {
-        var _a;
-        modInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (isNaN(Number(i.value))) {
-              t.inputEl.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue(`${(_a = this.creature.xp) != null ? _a : ""}`);
-        t.onChange((v) => {
-          this.creature.xp = Number(v);
-        });
-      });
-      new import_obsidian3.Setting(contentEl).setName("Challenge Rating").setDesc("If entered, this will be used to calculate creature experience points (if not provided).").addText((t) => {
-        var _a;
-        modInput = {
-          input: t.inputEl,
-          validate: (i) => {
-            let error2 = false;
-            if (i.value && typeof i.value != "string") {
-              t.inputEl.addClass("has-error");
-              error2 = true;
-            }
-            return error2;
-          }
-        };
-        t.setValue(`${(_a = this.creature.cr) != null ? _a : ""}`);
-        t.onChange((v) => {
-          this.creature.cr = v;
-        });
-      });
-      if (this.plugin.canUseLeaflet) {
-        const markerSetting = new import_obsidian3.Setting(contentEl).setName("Leaflet Marker").addDropdown((drop) => {
-          var _a, _b;
-          for (let marker of this.plugin.leaflet.markerIcons) {
-            drop.addOption(marker.type, marker.type);
-          }
-          drop.setValue((_b = (_a = this.creature.marker) != null ? _a : this.plugin.data.monsterMarker) != null ? _b : "default");
-          drop.onChange((v) => __async(this, null, function* () {
-            this.creature.marker = v;
-            this.display();
-          }));
-        });
-        if (this.creature.marker) {
-          const div = createDiv("marker-type-display");
-          const inner = div.createDiv("marker-icon-display");
-          const marker = this.plugin.leaflet.markerIcons.find((icon) => icon.type == this.creature.marker);
-          if (marker) {
-            inner.innerHTML = marker.html;
-            markerSetting.descEl.appendChild(div);
-          }
-        }
-      }
-      let footerEl = contentEl.createDiv();
-      let footerButtons = new import_obsidian3.Setting(footerEl);
-      footerButtons.addButton((b) => {
-        b.setTooltip("Save").setIcon("checkmark").onClick(() => __async(this, null, function* () {
-          let error2 = this.validateInputs(nameInput, acInput, hpInput, modInput);
-          if (error2) {
-            new import_obsidian3.Notice("Fix errors before saving.");
-            return;
-          }
-          this.saved = true;
-          this.close();
-        }));
-        return b;
-      });
-      footerButtons.addExtraButton((b) => {
-        b.setIcon("cross").setTooltip("Cancel").onClick(() => {
-          this.saved = false;
-          this.close();
-        });
-        return b;
-      });
-      this.validateInputs(nameInput, acInput, hpInput, modInput);
     });
   }
-  validateInputs(...inputs) {
-    let error = false;
-    for (let input of inputs) {
-      if (input.validate(input.input)) {
-        error = true;
-      } else {
-        input.input.removeClass("has-error");
-      }
-    }
-    return error;
-  }
   onOpen() {
-    this.display(true);
+    this.display();
   }
 };
 
 // src/encounter/index.ts
-var import_obsidian5 = __toModule(require("obsidian"));
+var import_obsidian7 = __toModule(require("obsidian"));
 
 // src/utils/creature.ts
 function getId() {
@@ -4170,10 +3190,9 @@ var Creature = class {
     this.status = /* @__PURE__ */ new Set();
     this.viewing = false;
     this.number = 0;
-    var _a, _b;
     this.name = creature.name;
-    this._initiative = "initiative" in creature ? creature.initiative : Number(initiative != null ? initiative : 0);
-    this.modifier = Number((_a = creature.modifier) != null ? _a : 0);
+    this._initiative = "initiative" in creature ? creature.initiative : Number(initiative ?? 0);
+    this.modifier = Number(creature.modifier ?? 0);
     this.max = creature.hp ? Number(creature.hp) : void 0;
     this.ac = creature.ac ? Number(creature.ac) : void 0;
     this.note = creature.note;
@@ -4187,7 +3206,7 @@ var Creature = class {
     } else if ("cr" in creature) {
       this.xp = XP_PER_CR[`${creature.cr}`];
     }
-    this.id = (_b = creature.id) != null ? _b : getId();
+    this.id = creature.id ?? getId();
   }
   get hpDisplay() {
     if (this.max) {
@@ -4213,18 +3232,20 @@ var Creature = class {
     yield this.xp;
   }
   static new(creature) {
-    return new Creature(__spreadValues({}, creature), creature._initiative);
+    return new Creature({
+      ...creature
+    }, creature._initiative);
   }
   static from(creature) {
     const modifier = "modifier" in creature ? creature.modifier : Math.floor((("stats" in creature && creature.stats.length > 1 ? creature.stats[1] : 10) - 10) / 2);
-    return new Creature(__spreadProps(__spreadValues({}, creature), {
+    return new Creature({
+      ...creature,
       modifier
-    }));
+    });
   }
   update(creature) {
-    var _a;
     this.name = creature.name;
-    this.modifier = Number((_a = creature.modifier) != null ? _a : 0);
+    this.modifier = Number(creature.modifier ?? 0);
     this.max = creature.hp ? Number(creature.hp) : void 0;
     if (this.hp > this.max)
       this.hp = this.max;
@@ -4236,7 +3257,7 @@ var Creature = class {
     this.source = creature.source;
   }
   toProperties() {
-    return __spreadValues({}, this);
+    return { ...this };
   }
   toJSON() {
     return {
@@ -4412,6 +3433,12 @@ function empty() {
 function listen(node, event, handler, options) {
   node.addEventListener(event, handler, options);
   return () => node.removeEventListener(event, handler, options);
+}
+function stop_propagation(fn2) {
+  return function(event) {
+    event.stopPropagation();
+    return fn2.call(this, event);
+  };
 }
 function attr(node, attribute, value) {
   if (value == null)
@@ -4711,7 +3738,7 @@ function fix_and_outro_and_destroy_block(block, lookup) {
   block.f();
   outro_and_destroy_block(block, lookup);
 }
-function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy, create_each_block5, next2, get_context) {
+function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, lookup, node, destroy, create_each_block8, next2, get_context) {
   let o = old_blocks.length;
   let n = list.length;
   let i = o;
@@ -4727,7 +3754,7 @@ function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, looku
     const key = get_key(child_ctx);
     let block = lookup.get(key);
     if (!block) {
-      block = create_each_block5(key, child_ctx);
+      block = create_each_block8(key, child_ctx);
       block.c();
     } else if (dynamic) {
       block.p(child_ctx, dirty);
@@ -4778,6 +3805,41 @@ function update_keyed_each(old_blocks, dirty, get_key, dynamic, ctx, list, looku
     insert2(new_blocks[n - 1]);
   return new_blocks;
 }
+function get_spread_update(levels, updates) {
+  const update2 = {};
+  const to_null_out = {};
+  const accounted_for = { $$scope: 1 };
+  let i = levels.length;
+  while (i--) {
+    const o = levels[i];
+    const n = updates[i];
+    if (n) {
+      for (const key in o) {
+        if (!(key in n))
+          to_null_out[key] = 1;
+      }
+      for (const key in n) {
+        if (!accounted_for[key]) {
+          update2[key] = n[key];
+          accounted_for[key] = 1;
+        }
+      }
+      levels[i] = n;
+    } else {
+      for (const key in o) {
+        accounted_for[key] = 1;
+      }
+    }
+  }
+  for (const key in to_null_out) {
+    if (!(key in update2))
+      update2[key] = void 0;
+  }
+  return update2;
+}
+function get_spread_object(spread_props) {
+  return typeof spread_props === "object" && spread_props !== null ? spread_props : {};
+}
 function create_component(block) {
   block && block.c();
 }
@@ -4814,7 +3876,7 @@ function make_dirty(component, i) {
   }
   component.$$.dirty[i / 31 | 0] |= 1 << i % 31;
 }
-function init(component, options, instance13, create_fragment13, not_equal, props, append_styles2, dirty = [-1]) {
+function init(component, options, instance16, create_fragment16, not_equal, props, append_styles2, dirty = [-1]) {
   const parent_component = current_component;
   set_current_component(component);
   const $$ = component.$$ = {
@@ -4837,7 +3899,7 @@ function init(component, options, instance13, create_fragment13, not_equal, prop
   };
   append_styles2 && append_styles2($$.root);
   let ready = false;
-  $$.ctx = instance13 ? instance13(component, options.props || {}, (i, ret, ...rest) => {
+  $$.ctx = instance16 ? instance16(component, options.props || {}, (i, ret, ...rest) => {
     const value = rest.length ? rest[0] : ret;
     if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
       if (!$$.skip_bound && $$.bound[i])
@@ -4850,7 +3912,7 @@ function init(component, options, instance13, create_fragment13, not_equal, prop
   $$.update();
   ready = true;
   run_all($$.before_update);
-  $$.fragment = create_fragment13 ? create_fragment13($$.ctx) : false;
+  $$.fragment = create_fragment16 ? create_fragment16($$.ctx) : false;
   if (options.target) {
     if (options.hydrate) {
       start_hydrating();
@@ -4963,7 +4025,7 @@ var {
 } = import_tslib.default;
 
 // src/encounter/ui/Encounter.svelte
-var import_obsidian4 = __toModule(require("obsidian"));
+var import_obsidian5 = __toModule(require("obsidian"));
 
 // src/utils/encounter-difficulty.ts
 var tresholds = {
@@ -5009,7 +4071,7 @@ function formatDifficultyReport(report) {
   ].join("\n")}`;
 }
 function encounterDifficulty(characterLevels, monsterXp) {
-  if (!(characterLevels == null ? void 0 : characterLevels.length) || !(monsterXp == null ? void 0 : monsterXp.length))
+  if (!characterLevels?.length || !monsterXp?.length)
     return;
   const xp = monsterXp.reduce((acc, xp2) => acc + xp2, 0);
   const numberOfMonsters = monsterXp.length;
@@ -5049,17 +4111,17 @@ function encounterDifficulty(characterLevels, monsterXp) {
 
 // src/encounter/ui/Encounter.svelte
 function add_css(target) {
-  append_styles(target, "svelte-1q2sk7x", ".encounter-name.svelte-1q2sk7x.svelte-1q2sk7x{display:flex;justify-content:flex-start;align-items:center}.encounter-instance.svelte-1q2sk7x>.creatures-container>.encounter-creatures:first-of-type h4.svelte-1q2sk7x,.encounter-creatures.svelte-1q2sk7x>ul.svelte-1q2sk7x{margin-top:0}.creature-li.svelte-1q2sk7x.svelte-1q2sk7x{width:fit-content}.xp-parent.svelte-1q2sk7x.svelte-1q2sk7x{display:inline-flex}.difficulty.svelte-1q2sk7x.svelte-1q2sk7x{width:fit-content}.deadly.svelte-1q2sk7x .difficulty-label.svelte-1q2sk7x{color:red}.hard.svelte-1q2sk7x .difficulty-label.svelte-1q2sk7x{color:orange}.medium.svelte-1q2sk7x .difficulty-label.svelte-1q2sk7x{color:yellow}.easy.svelte-1q2sk7x .difficulty-label.svelte-1q2sk7x{color:green}");
+  append_styles(target, "svelte-ymtxyj", ".encounter-name.svelte-ymtxyj.svelte-ymtxyj{display:flex;justify-content:flex-start;align-items:center}.encounter-instance.svelte-ymtxyj>.creatures-container>.encounter-creatures:first-of-type h4.svelte-ymtxyj,.encounter-creatures.svelte-ymtxyj>ul.svelte-ymtxyj{margin-top:0}.creature-li.svelte-ymtxyj.svelte-ymtxyj{width:fit-content}.xp-parent.svelte-ymtxyj.svelte-ymtxyj{display:inline-flex}.difficulty.svelte-ymtxyj.svelte-ymtxyj{width:fit-content}.deadly.svelte-ymtxyj .difficulty-label.svelte-ymtxyj{color:red}.hard.svelte-ymtxyj .difficulty-label.svelte-ymtxyj{color:orange}.medium.svelte-ymtxyj .difficulty-label.svelte-ymtxyj{color:yellow}.easy.svelte-ymtxyj .difficulty-label.svelte-ymtxyj{color:green}.icons.svelte-ymtxyj.svelte-ymtxyj{display:flex}.icons.svelte-ymtxyj>div.svelte-ymtxyj:first-child .clickable-icon{margin-right:0}");
 }
 function get_each_context(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[14] = list[i][0];
-  child_ctx[15] = list[i][1];
+  child_ctx[16] = list[i][0];
+  child_ctx[17] = list[i][1];
   return child_ctx;
 }
 function get_each_context_1(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[18] = list[i];
+  child_ctx[20] = list[i];
   return child_ctx;
 }
 function create_if_block_5(ctx) {
@@ -5110,7 +4172,7 @@ function create_if_block_7(ctx) {
   return {
     c() {
       div = element("div");
-      div.innerHTML = `<h4 class="svelte-1q2sk7x">No Players</h4>`;
+      div.innerHTML = `<h4 class="svelte-ymtxyj">No Players</h4>`;
       attr(div, "class", "encounter-creatures encounter-players");
     },
     m(target, anchor) {
@@ -5143,9 +4205,9 @@ function create_if_block_6(ctx) {
       for (let i = 0; i < each_blocks.length; i += 1) {
         each_blocks[i].c();
       }
-      attr(h4, "class", "svelte-1q2sk7x");
-      attr(ul, "class", "svelte-1q2sk7x");
-      attr(div, "class", "encounter-creatures encounter-players svelte-1q2sk7x");
+      attr(h4, "class", "svelte-ymtxyj");
+      attr(ul, "class", "svelte-ymtxyj");
+      attr(div, "class", "encounter-creatures encounter-players svelte-ymtxyj");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -5186,7 +4248,7 @@ function create_if_block_6(ctx) {
 function create_each_block_1(ctx) {
   let li;
   let span;
-  let t0_value = ctx[18] + "";
+  let t0_value = ctx[20] + "";
   let t0;
   let t1;
   return {
@@ -5203,7 +4265,7 @@ function create_each_block_1(ctx) {
       append(li, t1);
     },
     p(ctx2, dirty) {
-      if (dirty & 8 && t0_value !== (t0_value = ctx2[18] + ""))
+      if (dirty & 8 && t0_value !== (t0_value = ctx2[20] + ""))
         set_data(t0, t0_value);
     },
     d(detaching) {
@@ -5230,7 +4292,7 @@ function create_if_block_2(ctx) {
       t1 = space();
       if_block.c();
       if_block_anchor = empty();
-      attr(h4, "class", "svelte-1q2sk7x");
+      attr(h4, "class", "svelte-ymtxyj");
     },
     m(target, anchor) {
       insert(target, h4, anchor);
@@ -5291,7 +4353,7 @@ function create_if_block_3(ctx) {
       for (let i = 0; i < each_blocks.length; i += 1) {
         each_blocks[i].c();
       }
-      attr(ul, "class", "svelte-1q2sk7x");
+      attr(ul, "class", "svelte-ymtxyj");
     },
     m(target, anchor) {
       insert(target, ul, anchor);
@@ -5300,7 +4362,7 @@ function create_if_block_3(ctx) {
       }
     },
     p(ctx2, dirty) {
-      if (dirty & 1156) {
+      if (dirty & 4228) {
         each_value = [...ctx2[2]];
         let i;
         for (i = 0; i < each_value.length; i += 1) {
@@ -5332,7 +4394,7 @@ function create_if_block_4(ctx) {
   let t1;
   let span3;
   let span1;
-  let t2_value = ctx[14].xp * ctx[7].get(ctx[14]) + "";
+  let t2_value = ctx[16].xp * ctx[7].get(ctx[16]) + "";
   let t2;
   let t3;
   let span2;
@@ -5358,7 +4420,7 @@ function create_if_block_4(ctx) {
       attr(span2, "class", "xp text");
       attr(span3, "class", "xp-container");
       attr(span4, "class", "paren right");
-      attr(span5, "class", "xp-parent svelte-1q2sk7x");
+      attr(span5, "class", "xp-parent svelte-ymtxyj");
     },
     m(target, anchor) {
       insert(target, span5, anchor);
@@ -5373,7 +4435,7 @@ function create_if_block_4(ctx) {
       append(span5, span4);
     },
     p(ctx2, dirty) {
-      if (dirty & 4 && t2_value !== (t2_value = ctx2[14].xp * ctx2[7].get(ctx2[14]) + ""))
+      if (dirty & 4 && t2_value !== (t2_value = ctx2[16].xp * ctx2[7].get(ctx2[16]) + ""))
         set_data(t2, t2_value);
     },
     d(detaching) {
@@ -5389,12 +4451,12 @@ function create_each_block(ctx) {
   let t0;
   let span;
   let t1;
-  let t2_value = ctx[14].name + "";
+  let t2_value = ctx[16].name + "";
   let t2;
-  let t3_value = (ctx[15] == 1 ? "" : "s") + "";
+  let t3_value = (ctx[17] == 1 ? "" : "s") + "";
   let t3;
   let t4;
-  let show_if = ctx[14].xp && ctx[7].has(ctx[14]);
+  let show_if = ctx[16].xp && ctx[7].has(ctx[16]);
   let t5;
   let li_aria_label_value;
   let mounted;
@@ -5413,8 +4475,8 @@ function create_each_block(ctx) {
       if (if_block)
         if_block.c();
       t5 = space();
-      attr(li, "aria-label", li_aria_label_value = ctx[10](ctx[14]));
-      attr(li, "class", "creature-li svelte-1q2sk7x");
+      attr(li, "aria-label", li_aria_label_value = ctx[12](ctx[16]));
+      attr(li, "class", "creature-li svelte-ymtxyj");
     },
     m(target, anchor) {
       insert(target, li, anchor);
@@ -5429,20 +4491,20 @@ function create_each_block(ctx) {
         if_block.m(li, null);
       append(li, t5);
       if (!mounted) {
-        dispose = action_destroyer(rollerEl_action = ctx[9].call(null, strong, ctx[14]));
+        dispose = action_destroyer(rollerEl_action = ctx[11].call(null, strong, ctx[16]));
         mounted = true;
       }
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
       if (rollerEl_action && is_function(rollerEl_action.update) && dirty & 4)
-        rollerEl_action.update.call(null, ctx[14]);
-      if (dirty & 4 && t2_value !== (t2_value = ctx[14].name + ""))
+        rollerEl_action.update.call(null, ctx[16]);
+      if (dirty & 4 && t2_value !== (t2_value = ctx[16].name + ""))
         set_data(t2, t2_value);
-      if (dirty & 4 && t3_value !== (t3_value = (ctx[15] == 1 ? "" : "s") + ""))
+      if (dirty & 4 && t3_value !== (t3_value = (ctx[17] == 1 ? "" : "s") + ""))
         set_data(t3, t3_value);
       if (dirty & 4)
-        show_if = ctx[14].xp && ctx[7].has(ctx[14]);
+        show_if = ctx[16].xp && ctx[7].has(ctx[16]);
       if (show_if) {
         if (if_block) {
           if_block.p(ctx, dirty);
@@ -5455,7 +4517,7 @@ function create_each_block(ctx) {
         if_block.d(1);
         if_block = null;
       }
-      if (dirty & 4 && li_aria_label_value !== (li_aria_label_value = ctx[10](ctx[14]))) {
+      if (dirty & 4 && li_aria_label_value !== (li_aria_label_value = ctx[12](ctx[16]))) {
         attr(li, "aria-label", li_aria_label_value);
       }
     },
@@ -5477,7 +4539,7 @@ function create_if_block(ctx) {
       div = element("div");
       if (if_block)
         if_block.c();
-      attr(div, "class", "encounter-xp difficulty svelte-1q2sk7x");
+      attr(div, "class", "encounter-xp difficulty svelte-ymtxyj");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -5543,15 +4605,15 @@ function create_if_block_1(ctx) {
       t7 = space();
       span4 = element("span");
       span4.textContent = ")";
-      attr(strong, "class", "difficulty-label svelte-1q2sk7x");
+      attr(strong, "class", "difficulty-label svelte-ymtxyj");
       attr(span0, "class", "paren left");
       attr(span1, "class", "xp number");
       attr(span2, "class", "xp text");
       attr(span3, "class", "xp-container");
       attr(span4, "class", "paren right");
-      attr(span5, "class", "xp-parent difficulty svelte-1q2sk7x");
+      attr(span5, "class", "xp-parent difficulty svelte-ymtxyj");
       attr(span6, "aria-label", span6_aria_label_value = formatDifficultyReport(ctx[6]));
-      attr(span6, "class", span6_class_value = "" + (null_to_empty(ctx[6].difficulty.toLowerCase()) + " svelte-1q2sk7x"));
+      attr(span6, "class", span6_class_value = "" + (null_to_empty(ctx[6].difficulty.toLowerCase()) + " svelte-ymtxyj"));
     },
     m(target, anchor) {
       insert(target, span6, anchor);
@@ -5577,7 +4639,7 @@ function create_if_block_1(ctx) {
       if (dirty & 64 && span6_aria_label_value !== (span6_aria_label_value = formatDifficultyReport(ctx2[6]))) {
         attr(span6, "aria-label", span6_aria_label_value);
       }
-      if (dirty & 64 && span6_class_value !== (span6_class_value = "" + (null_to_empty(ctx2[6].difficulty.toLowerCase()) + " svelte-1q2sk7x"))) {
+      if (dirty & 64 && span6_class_value !== (span6_class_value = "" + (null_to_empty(ctx2[6].difficulty.toLowerCase()) + " svelte-ymtxyj"))) {
         attr(span6, "class", span6_class_value);
       }
     },
@@ -5588,20 +4650,24 @@ function create_if_block_1(ctx) {
   };
 }
 function create_fragment(ctx) {
-  let div4;
-  let div1;
+  let div6;
+  let div3;
+  let h3;
+  let t0;
+  let t1;
+  let div2;
   let div0;
   let open_action;
-  let t0;
-  let h3;
-  let t1;
   let t2;
-  let div3;
-  let show_if_1 = !ctx[4].includes("players");
+  let div1;
+  let addButton_action;
   let t3;
-  let div2;
-  let show_if = !ctx[4].includes("creatures");
+  let div5;
+  let show_if_1 = !ctx[4].includes("players");
   let t4;
+  let div4;
+  let show_if = !ctx[4].includes("creatures");
+  let t5;
   let mounted;
   let dispose;
   let if_block0 = show_if_1 && create_if_block_5(ctx);
@@ -5609,56 +4675,70 @@ function create_fragment(ctx) {
   let if_block2 = ctx[0].data.displayDifficulty && create_if_block(ctx);
   return {
     c() {
-      div4 = element("div");
-      div1 = element("div");
-      div0 = element("div");
-      t0 = space();
-      h3 = element("h3");
-      t1 = text(ctx[1]);
-      t2 = space();
+      div6 = element("div");
       div3 = element("div");
+      h3 = element("h3");
+      t0 = text(ctx[1]);
+      t1 = space();
+      div2 = element("div");
+      div0 = element("div");
+      t2 = space();
+      div1 = element("div");
+      t3 = space();
+      div5 = element("div");
       if (if_block0)
         if_block0.c();
-      t3 = space();
-      div2 = element("div");
+      t4 = space();
+      div4 = element("div");
       if (if_block1)
         if_block1.c();
-      t4 = space();
+      t5 = space();
       if (if_block2)
         if_block2.c();
       attr(h3, "data-heading", ctx[1]);
       attr(h3, "class", "initiative-tracker-name");
-      attr(div1, "class", "encounter-name svelte-1q2sk7x");
-      attr(div2, "class", "encounter-creatures svelte-1q2sk7x");
-      attr(div3, "class", "creatures-container");
-      attr(div4, "class", "encounter-instance svelte-1q2sk7x");
+      attr(div0, "class", "svelte-ymtxyj");
+      attr(div1, "aria-label", "Add to Encounter");
+      attr(div1, "class", "svelte-ymtxyj");
+      attr(div2, "class", "icons svelte-ymtxyj");
+      attr(div3, "class", "encounter-name svelte-ymtxyj");
+      attr(div4, "class", "encounter-creatures svelte-ymtxyj");
+      attr(div5, "class", "creatures-container");
+      attr(div6, "class", "encounter-instance svelte-ymtxyj");
     },
     m(target, anchor) {
-      insert(target, div4, anchor);
-      append(div4, div1);
-      append(div1, div0);
-      append(div1, t0);
-      append(div1, h3);
-      append(h3, t1);
-      append(div4, t2);
-      append(div4, div3);
-      if (if_block0)
-        if_block0.m(div3, null);
-      append(div3, t3);
+      insert(target, div6, anchor);
+      append(div6, div3);
+      append(div3, h3);
+      append(h3, t0);
+      append(div3, t1);
       append(div3, div2);
+      append(div2, div0);
+      append(div2, t2);
+      append(div2, div1);
+      append(div6, t3);
+      append(div6, div5);
+      if (if_block0)
+        if_block0.m(div5, null);
+      append(div5, t4);
+      append(div5, div4);
       if (if_block1)
-        if_block1.m(div2, null);
-      append(div3, t4);
+        if_block1.m(div4, null);
+      append(div5, t5);
       if (if_block2)
-        if_block2.m(div3, null);
+        if_block2.m(div5, null);
       if (!mounted) {
-        dispose = action_destroyer(open_action = ctx[8].call(null, div0));
+        dispose = [
+          action_destroyer(open_action = ctx[8].call(null, div0)),
+          action_destroyer(addButton_action = ctx[9].call(null, div1)),
+          listen(div1, "click", ctx[10])
+        ];
         mounted = true;
       }
     },
     p(ctx2, [dirty]) {
       if (dirty & 2)
-        set_data(t1, ctx2[1]);
+        set_data(t0, ctx2[1]);
       if (dirty & 2) {
         attr(h3, "data-heading", ctx2[1]);
       }
@@ -5670,7 +4750,7 @@ function create_fragment(ctx) {
         } else {
           if_block0 = create_if_block_5(ctx2);
           if_block0.c();
-          if_block0.m(div3, t3);
+          if_block0.m(div5, t4);
         }
       } else if (if_block0) {
         if_block0.d(1);
@@ -5684,7 +4764,7 @@ function create_fragment(ctx) {
         } else {
           if_block1 = create_if_block_2(ctx2);
           if_block1.c();
-          if_block1.m(div2, null);
+          if_block1.m(div4, null);
         }
       } else if (if_block1) {
         if_block1.d(1);
@@ -5696,7 +4776,7 @@ function create_fragment(ctx) {
         } else {
           if_block2 = create_if_block(ctx2);
           if_block2.c();
-          if_block2.m(div3, null);
+          if_block2.m(div5, null);
         }
       } else if (if_block2) {
         if_block2.d(1);
@@ -5707,7 +4787,7 @@ function create_fragment(ctx) {
     o: noop,
     d(detaching) {
       if (detaching)
-        detach(div4);
+        detach(div6);
       if (if_block0)
         if_block0.d();
       if (if_block1)
@@ -5715,7 +4795,7 @@ function create_fragment(ctx) {
       if (if_block2)
         if_block2.d();
       mounted = false;
-      dispose();
+      run_all(dispose);
     }
   };
 }
@@ -5746,7 +4826,7 @@ function instance($$self, $$props, $$invalidate) {
   }
   let difficulty;
   const open = (node) => {
-    new import_obsidian4.ExtraButtonComponent(node).setIcon(START_ENCOUNTER).setTooltip("Begin Encounter").onClick(() => __awaiter(void 0, void 0, void 0, function* () {
+    new import_obsidian5.ExtraButtonComponent(node).setIcon(START_ENCOUNTER).setTooltip("Begin Encounter").onClick(() => __awaiter(void 0, void 0, void 0, function* () {
       if (!plugin.view) {
         yield plugin.addTrackerView();
       }
@@ -5760,6 +4840,21 @@ function instance($$self, $$props, $$invalidate) {
       plugin.app.workspace.revealLeaf(view.leaf);
     }));
   };
+  const addButton = (node) => {
+    new import_obsidian5.ExtraButtonComponent(node).setIcon("plus-with-circle");
+  };
+  const add = (evt) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!plugin.view) {
+      yield plugin.addTrackerView();
+    }
+    const view = plugin.view;
+    const creatures2 = [...creatureMap].map(([creature, number]) => {
+      if (isNaN(Number(number)) || number < 1)
+        return [creature];
+      return [...Array(number).keys()].map((v) => Creature.from(creature));
+    }).flat();
+    view.addCreatures(creatures2, true);
+  });
   const rollerEl = (node, creature) => {
     var _a, _b;
     if (plugin.canUseDiceRoller && rollerMap.has(creature) && !rollerMap.get(creature).isStatic) {
@@ -5795,12 +4890,12 @@ function instance($$self, $$props, $$invalidate) {
     if ("hide" in $$props2)
       $$invalidate(4, hide2 = $$props2.hide);
     if ("xp" in $$props2)
-      $$invalidate(11, xp = $$props2.xp);
+      $$invalidate(13, xp = $$props2.xp);
     if ("playerLevels" in $$props2)
-      $$invalidate(12, playerLevels = $$props2.playerLevels);
+      $$invalidate(14, playerLevels = $$props2.playerLevels);
   };
   $$self.$$.update = () => {
-    if ($$self.$$.dirty & 4132) {
+    if ($$self.$$.dirty & 16420) {
       $: {
         if (!isNaN(totalXP)) {
           $$invalidate(6, difficulty = encounterDifficulty(playerLevels, [...creatures].map((creature) => creature[0].xp)));
@@ -5818,6 +4913,8 @@ function instance($$self, $$props, $$invalidate) {
     difficulty,
     creatureMap,
     open,
+    addButton,
+    add,
     rollerEl,
     label,
     xp,
@@ -5833,50 +4930,996 @@ var Encounter = class extends SvelteComponent {
       creatures: 2,
       players: 3,
       hide: 4,
-      xp: 11,
-      playerLevels: 12
+      xp: 13,
+      playerLevels: 14
     }, add_css);
   }
 };
 var Encounter_default = Encounter;
 
+// src/encounter/ui/EncounterRow.svelte
+var import_obsidian6 = __toModule(require("obsidian"));
+function add_css2(target) {
+  append_styles(target, "svelte-is5m16", ".deadly.svelte-is5m16 .difficulty-label.svelte-is5m16{color:red}.hard.svelte-is5m16 .difficulty-label.svelte-is5m16{color:orange}.medium.svelte-is5m16 .difficulty-label.svelte-is5m16{color:yellow}.easy.svelte-is5m16 .difficulty-label.svelte-is5m16{color:green}.icons.svelte-is5m16.svelte-is5m16{display:flex}.icons.svelte-is5m16>div.svelte-is5m16:first-child .clickable-icon{margin-right:0}");
+}
+function get_each_context2(ctx, list, i) {
+  const child_ctx = ctx.slice();
+  child_ctx[18] = list[i];
+  child_ctx[20] = i;
+  return child_ctx;
+}
+function get_each_context_12(ctx, list, i) {
+  const child_ctx = ctx.slice();
+  child_ctx[21] = list[i][0];
+  child_ctx[22] = list[i][1];
+  child_ctx[20] = i;
+  return child_ctx;
+}
+function create_if_block_42(ctx) {
+  let td;
+  let show_if;
+  function select_block_type(ctx2, dirty) {
+    if (show_if == null || dirty & 10)
+      show_if = !!(!ctx2[3].includes("creatures") && ctx2[1].size);
+    if (show_if)
+      return create_if_block_52;
+    return create_else_block_2;
+  }
+  let current_block_type = select_block_type(ctx, -1);
+  let if_block = current_block_type(ctx);
+  return {
+    c() {
+      td = element("td");
+      if_block.c();
+    },
+    m(target, anchor) {
+      insert(target, td, anchor);
+      if_block.m(td, null);
+    },
+    p(ctx2, dirty) {
+      if (current_block_type === (current_block_type = select_block_type(ctx2, dirty)) && if_block) {
+        if_block.p(ctx2, dirty);
+      } else {
+        if_block.d(1);
+        if_block = current_block_type(ctx2);
+        if (if_block) {
+          if_block.c();
+          if_block.m(td, null);
+        }
+      }
+    },
+    d(detaching) {
+      if (detaching)
+        detach(td);
+      if_block.d();
+    }
+  };
+}
+function create_else_block_2(ctx) {
+  let t;
+  return {
+    c() {
+      t = text("-");
+    },
+    m(target, anchor) {
+      insert(target, t, anchor);
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching)
+        detach(t);
+    }
+  };
+}
+function create_if_block_52(ctx) {
+  let each_1_anchor;
+  let each_value_1 = [...ctx[1]];
+  let each_blocks = [];
+  for (let i = 0; i < each_value_1.length; i += 1) {
+    each_blocks[i] = create_each_block_12(get_each_context_12(ctx, each_value_1, i));
+  }
+  return {
+    c() {
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].c();
+      }
+      each_1_anchor = empty();
+    },
+    m(target, anchor) {
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].m(target, anchor);
+      }
+      insert(target, each_1_anchor, anchor);
+    },
+    p(ctx2, dirty) {
+      if (dirty & 12290) {
+        each_value_1 = [...ctx2[1]];
+        let i;
+        for (i = 0; i < each_value_1.length; i += 1) {
+          const child_ctx = get_each_context_12(ctx2, each_value_1, i);
+          if (each_blocks[i]) {
+            each_blocks[i].p(child_ctx, dirty);
+          } else {
+            each_blocks[i] = create_each_block_12(child_ctx);
+            each_blocks[i].c();
+            each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+          }
+        }
+        for (; i < each_blocks.length; i += 1) {
+          each_blocks[i].d(1);
+        }
+        each_blocks.length = each_value_1.length;
+      }
+    },
+    d(detaching) {
+      destroy_each(each_blocks, detaching);
+      if (detaching)
+        detach(each_1_anchor);
+    }
+  };
+}
+function create_each_block_12(ctx) {
+  let span;
+  let t0_value = ctx[12](ctx[20], ctx[1].size) + "";
+  let t0;
+  let t1;
+  let strong;
+  let rollerEl_action;
+  let t2;
+  let t3_value = ctx[21].name + "";
+  let t3;
+  let t4_value = (ctx[22] == 1 ? "" : "s") + "";
+  let t4;
+  let t5;
+  let span_aria_label_value;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      span = element("span");
+      t0 = text(t0_value);
+      t1 = space();
+      strong = element("strong");
+      t2 = text("\xA0");
+      t3 = text(t3_value);
+      t4 = text(t4_value);
+      t5 = space();
+      attr(span, "aria-label", span_aria_label_value = ctx[13](ctx[21]));
+    },
+    m(target, anchor) {
+      insert(target, span, anchor);
+      append(span, t0);
+      append(span, t1);
+      append(span, strong);
+      append(span, t2);
+      append(span, t3);
+      append(span, t4);
+      append(span, t5);
+      if (!mounted) {
+        dispose = action_destroyer(rollerEl_action = ctx[11].call(null, strong, ctx[21]));
+        mounted = true;
+      }
+    },
+    p(new_ctx, dirty) {
+      ctx = new_ctx;
+      if (dirty & 2 && t0_value !== (t0_value = ctx[12](ctx[20], ctx[1].size) + ""))
+        set_data(t0, t0_value);
+      if (rollerEl_action && is_function(rollerEl_action.update) && dirty & 2)
+        rollerEl_action.update.call(null, ctx[21]);
+      if (dirty & 2 && t3_value !== (t3_value = ctx[21].name + ""))
+        set_data(t3, t3_value);
+      if (dirty & 2 && t4_value !== (t4_value = (ctx[22] == 1 ? "" : "s") + ""))
+        set_data(t4, t4_value);
+      if (dirty & 2 && span_aria_label_value !== (span_aria_label_value = ctx[13](ctx[21]))) {
+        attr(span, "aria-label", span_aria_label_value);
+      }
+    },
+    d(detaching) {
+      if (detaching)
+        detach(span);
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_if_block_22(ctx) {
+  let td;
+  let show_if;
+  function select_block_type_1(ctx2, dirty) {
+    if (show_if == null || dirty & 12)
+      show_if = !!(!ctx2[3].includes("players") && ctx2[2] instanceof Array && ctx2[2].length);
+    if (show_if)
+      return create_if_block_32;
+    return create_else_block_1;
+  }
+  let current_block_type = select_block_type_1(ctx, -1);
+  let if_block = current_block_type(ctx);
+  return {
+    c() {
+      td = element("td");
+      if_block.c();
+    },
+    m(target, anchor) {
+      insert(target, td, anchor);
+      if_block.m(td, null);
+    },
+    p(ctx2, dirty) {
+      if (current_block_type === (current_block_type = select_block_type_1(ctx2, dirty)) && if_block) {
+        if_block.p(ctx2, dirty);
+      } else {
+        if_block.d(1);
+        if_block = current_block_type(ctx2);
+        if (if_block) {
+          if_block.c();
+          if_block.m(td, null);
+        }
+      }
+    },
+    d(detaching) {
+      if (detaching)
+        detach(td);
+      if_block.d();
+    }
+  };
+}
+function create_else_block_1(ctx) {
+  let t;
+  return {
+    c() {
+      t = text("-");
+    },
+    m(target, anchor) {
+      insert(target, t, anchor);
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching)
+        detach(t);
+    }
+  };
+}
+function create_if_block_32(ctx) {
+  let each_1_anchor;
+  let each_value = ctx[2];
+  let each_blocks = [];
+  for (let i = 0; i < each_value.length; i += 1) {
+    each_blocks[i] = create_each_block2(get_each_context2(ctx, each_value, i));
+  }
+  return {
+    c() {
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].c();
+      }
+      each_1_anchor = empty();
+    },
+    m(target, anchor) {
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].m(target, anchor);
+      }
+      insert(target, each_1_anchor, anchor);
+    },
+    p(ctx2, dirty) {
+      if (dirty & 4100) {
+        each_value = ctx2[2];
+        let i;
+        for (i = 0; i < each_value.length; i += 1) {
+          const child_ctx = get_each_context2(ctx2, each_value, i);
+          if (each_blocks[i]) {
+            each_blocks[i].p(child_ctx, dirty);
+          } else {
+            each_blocks[i] = create_each_block2(child_ctx);
+            each_blocks[i].c();
+            each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+          }
+        }
+        for (; i < each_blocks.length; i += 1) {
+          each_blocks[i].d(1);
+        }
+        each_blocks.length = each_value.length;
+      }
+    },
+    d(detaching) {
+      destroy_each(each_blocks, detaching);
+      if (detaching)
+        detach(each_1_anchor);
+    }
+  };
+}
+function create_each_block2(ctx) {
+  let t0_value = ctx[12](ctx[20], ctx[2].length) + "";
+  let t0;
+  let t1_value = ctx[18] + "";
+  let t1;
+  return {
+    c() {
+      t0 = text(t0_value);
+      t1 = text(t1_value);
+    },
+    m(target, anchor) {
+      insert(target, t0, anchor);
+      insert(target, t1, anchor);
+    },
+    p(ctx2, dirty) {
+      if (dirty & 4 && t0_value !== (t0_value = ctx2[12](ctx2[20], ctx2[2].length) + ""))
+        set_data(t0, t0_value);
+      if (dirty & 4 && t1_value !== (t1_value = ctx2[18] + ""))
+        set_data(t1, t1_value);
+    },
+    d(detaching) {
+      if (detaching)
+        detach(t0);
+      if (detaching)
+        detach(t1);
+    }
+  };
+}
+function create_if_block2(ctx) {
+  let td;
+  let div;
+  function select_block_type_2(ctx2, dirty) {
+    if (ctx2[6] > 0 && ctx2[7])
+      return create_if_block_12;
+    return create_else_block2;
+  }
+  let current_block_type = select_block_type_2(ctx, -1);
+  let if_block = current_block_type(ctx);
+  return {
+    c() {
+      td = element("td");
+      div = element("div");
+      if_block.c();
+      attr(div, "class", "encounter-xp difficulty");
+    },
+    m(target, anchor) {
+      insert(target, td, anchor);
+      append(td, div);
+      if_block.m(div, null);
+    },
+    p(ctx2, dirty) {
+      if (current_block_type === (current_block_type = select_block_type_2(ctx2, dirty)) && if_block) {
+        if_block.p(ctx2, dirty);
+      } else {
+        if_block.d(1);
+        if_block = current_block_type(ctx2);
+        if (if_block) {
+          if_block.c();
+          if_block.m(div, null);
+        }
+      }
+    },
+    d(detaching) {
+      if (detaching)
+        detach(td);
+      if_block.d();
+    }
+  };
+}
+function create_else_block2(ctx) {
+  let t;
+  return {
+    c() {
+      t = text("-");
+    },
+    m(target, anchor) {
+      insert(target, t, anchor);
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching)
+        detach(t);
+    }
+  };
+}
+function create_if_block_12(ctx) {
+  let span;
+  let strong;
+  let t_value = ctx[7].difficulty + "";
+  let t;
+  let span_aria_label_value;
+  let span_class_value;
+  return {
+    c() {
+      span = element("span");
+      strong = element("strong");
+      t = text(t_value);
+      attr(strong, "class", "difficulty-label svelte-is5m16");
+      attr(span, "aria-label", span_aria_label_value = formatDifficultyReport(ctx[7]));
+      attr(span, "class", span_class_value = "" + (null_to_empty(ctx[7].difficulty.toLowerCase()) + " svelte-is5m16"));
+    },
+    m(target, anchor) {
+      insert(target, span, anchor);
+      append(span, strong);
+      append(strong, t);
+    },
+    p(ctx2, dirty) {
+      if (dirty & 128 && t_value !== (t_value = ctx2[7].difficulty + ""))
+        set_data(t, t_value);
+      if (dirty & 128 && span_aria_label_value !== (span_aria_label_value = formatDifficultyReport(ctx2[7]))) {
+        attr(span, "aria-label", span_aria_label_value);
+      }
+      if (dirty & 128 && span_class_value !== (span_class_value = "" + (null_to_empty(ctx2[7].difficulty.toLowerCase()) + " svelte-is5m16"))) {
+        attr(span, "class", span_class_value);
+      }
+    },
+    d(detaching) {
+      if (detaching)
+        detach(span);
+    }
+  };
+}
+function create_fragment2(ctx) {
+  let tr;
+  let td0;
+  let t0;
+  let t1;
+  let show_if_1 = ctx[5].includes("creatures");
+  let t2;
+  let show_if = ctx[5].includes("players");
+  let t3;
+  let t4;
+  let td1;
+  let div2;
+  let div0;
+  let open_action;
+  let t5;
+  let div1;
+  let addButton_action;
+  let mounted;
+  let dispose;
+  let if_block0 = show_if_1 && create_if_block_42(ctx);
+  let if_block1 = show_if && create_if_block_22(ctx);
+  let if_block2 = ctx[4].data.displayDifficulty && create_if_block2(ctx);
+  return {
+    c() {
+      tr = element("tr");
+      td0 = element("td");
+      t0 = text(ctx[0]);
+      t1 = space();
+      if (if_block0)
+        if_block0.c();
+      t2 = space();
+      if (if_block1)
+        if_block1.c();
+      t3 = space();
+      if (if_block2)
+        if_block2.c();
+      t4 = space();
+      td1 = element("td");
+      div2 = element("div");
+      div0 = element("div");
+      t5 = space();
+      div1 = element("div");
+      attr(div0, "class", "svelte-is5m16");
+      attr(div1, "aria-label", "Add to Encounter");
+      attr(div1, "class", "svelte-is5m16");
+      attr(div2, "class", "icons svelte-is5m16");
+      attr(tr, "class", "encounter-row");
+    },
+    m(target, anchor) {
+      insert(target, tr, anchor);
+      append(tr, td0);
+      append(td0, t0);
+      append(tr, t1);
+      if (if_block0)
+        if_block0.m(tr, null);
+      append(tr, t2);
+      if (if_block1)
+        if_block1.m(tr, null);
+      append(tr, t3);
+      if (if_block2)
+        if_block2.m(tr, null);
+      append(tr, t4);
+      append(tr, td1);
+      append(td1, div2);
+      append(div2, div0);
+      append(div2, t5);
+      append(div2, div1);
+      if (!mounted) {
+        dispose = [
+          action_destroyer(open_action = ctx[8].call(null, div0)),
+          action_destroyer(addButton_action = ctx[9].call(null, div1)),
+          listen(div1, "click", ctx[10])
+        ];
+        mounted = true;
+      }
+    },
+    p(ctx2, [dirty]) {
+      if (dirty & 1)
+        set_data(t0, ctx2[0]);
+      if (dirty & 32)
+        show_if_1 = ctx2[5].includes("creatures");
+      if (show_if_1) {
+        if (if_block0) {
+          if_block0.p(ctx2, dirty);
+        } else {
+          if_block0 = create_if_block_42(ctx2);
+          if_block0.c();
+          if_block0.m(tr, t2);
+        }
+      } else if (if_block0) {
+        if_block0.d(1);
+        if_block0 = null;
+      }
+      if (dirty & 32)
+        show_if = ctx2[5].includes("players");
+      if (show_if) {
+        if (if_block1) {
+          if_block1.p(ctx2, dirty);
+        } else {
+          if_block1 = create_if_block_22(ctx2);
+          if_block1.c();
+          if_block1.m(tr, t3);
+        }
+      } else if (if_block1) {
+        if_block1.d(1);
+        if_block1 = null;
+      }
+      if (ctx2[4].data.displayDifficulty) {
+        if (if_block2) {
+          if_block2.p(ctx2, dirty);
+        } else {
+          if_block2 = create_if_block2(ctx2);
+          if_block2.c();
+          if_block2.m(tr, t4);
+        }
+      } else if (if_block2) {
+        if_block2.d(1);
+        if_block2 = null;
+      }
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(tr);
+      if (if_block0)
+        if_block0.d();
+      if (if_block1)
+        if_block1.d();
+      if (if_block2)
+        if_block2.d();
+      mounted = false;
+      run_all(dispose);
+    }
+  };
+}
+function instance2($$self, $$props, $$invalidate) {
+  let { name = "Encounter" } = $$props;
+  let { creatures } = $$props;
+  let { players = true } = $$props;
+  let { hide: hide2 = [] } = $$props;
+  let { xp } = $$props;
+  let { playerLevels } = $$props;
+  let { plugin } = $$props;
+  let { headers } = $$props;
+  const creatureMap = /* @__PURE__ */ new Map();
+  const rollerMap = /* @__PURE__ */ new Map();
+  let totalXP = [...creatureMap].reduce((a, c) => a + c[0].xp * c[1], 0);
+  for (let [creature, count] of creatures) {
+    let number = Number(count);
+    if (plugin.canUseDiceRoller) {
+      let roller = plugin.getRoller(`${count}`);
+      roller.on("new-result", () => {
+        creatureMap.set(creature, roller.result);
+        $$invalidate(6, totalXP = [...creatureMap].reduce((a, c) => a + c[0].xp * c[1], 0));
+      });
+      rollerMap.set(creature, roller);
+      roller.roll();
+    } else {
+      creatureMap.set(creature, number);
+    }
+  }
+  let difficulty;
+  const open = (node) => {
+    new import_obsidian6.ExtraButtonComponent(node).setIcon(START_ENCOUNTER).setTooltip("Begin Encounter").onClick(() => __awaiter(void 0, void 0, void 0, function* () {
+      if (!plugin.view) {
+        yield plugin.addTrackerView();
+      }
+      const view = plugin.view;
+      const creatures2 = [...creatureMap].map(([creature, number]) => {
+        if (isNaN(Number(number)) || number < 1)
+          return [creature];
+        return [...Array(number).keys()].map((v) => Creature.from(creature));
+      }).flat();
+      view === null || view === void 0 ? void 0 : view.newEncounter({ name, players, creatures: creatures2, xp });
+      plugin.app.workspace.revealLeaf(view.leaf);
+    }));
+  };
+  const addButton = (node) => {
+    new import_obsidian6.ExtraButtonComponent(node).setIcon("plus-with-circle");
+  };
+  const add = (evt) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!plugin.view) {
+      yield plugin.addTrackerView();
+    }
+    const view = plugin.view;
+    const creatures2 = [...creatureMap].map(([creature, number]) => {
+      if (isNaN(Number(number)) || number < 1)
+        return [creature];
+      return [...Array(number).keys()].map((v) => Creature.from(creature));
+    }).flat();
+    view.addCreatures(creatures2, true);
+  });
+  const rollerEl = (node, creature) => {
+    var _a, _b;
+    if (plugin.canUseDiceRoller && rollerMap.has(creature) && !rollerMap.get(creature).isStatic) {
+      node.appendChild((_b = (_a = rollerMap.get(creature)) === null || _a === void 0 ? void 0 : _a.containerEl) !== null && _b !== void 0 ? _b : createSpan({ text: `${creatureMap.get(creature)}` }));
+    } else {
+      node.setText(`${creatureMap.get(creature)}`);
+    }
+  };
+  const joiner = (index, length) => {
+    if (length == 1 || index == 0)
+      return "";
+    const delim = length > 2 ? "," : "";
+    if (index == length - 1)
+      return `${delim} and `;
+    return `${delim} `;
+  };
+  const label = (creature) => {
+    if (!creature)
+      return;
+    let label2 = [];
+    if (creature.hp) {
+      label2.push(`HP: ${creature.hp}`);
+    }
+    if (creature.ac) {
+      label2.push(`AC: ${creature.ac}`);
+    }
+    if (creature.modifier) {
+      label2.push(`MOD: ${creature.modifier}`);
+    }
+    return `${label2.join(", ")}`;
+  };
+  $$self.$$set = ($$props2) => {
+    if ("name" in $$props2)
+      $$invalidate(0, name = $$props2.name);
+    if ("creatures" in $$props2)
+      $$invalidate(1, creatures = $$props2.creatures);
+    if ("players" in $$props2)
+      $$invalidate(2, players = $$props2.players);
+    if ("hide" in $$props2)
+      $$invalidate(3, hide2 = $$props2.hide);
+    if ("xp" in $$props2)
+      $$invalidate(14, xp = $$props2.xp);
+    if ("playerLevels" in $$props2)
+      $$invalidate(15, playerLevels = $$props2.playerLevels);
+    if ("plugin" in $$props2)
+      $$invalidate(4, plugin = $$props2.plugin);
+    if ("headers" in $$props2)
+      $$invalidate(5, headers = $$props2.headers);
+  };
+  $$self.$$.update = () => {
+    if ($$self.$$.dirty & 32834) {
+      $: {
+        if (!isNaN(totalXP)) {
+          $$invalidate(7, difficulty = encounterDifficulty(playerLevels, [...creatures].map((creature) => creature[0].xp)));
+        }
+      }
+    }
+  };
+  return [
+    name,
+    creatures,
+    players,
+    hide2,
+    plugin,
+    headers,
+    totalXP,
+    difficulty,
+    open,
+    addButton,
+    add,
+    rollerEl,
+    joiner,
+    label,
+    xp,
+    playerLevels
+  ];
+}
+var EncounterRow = class extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance2, create_fragment2, safe_not_equal, {
+      name: 0,
+      creatures: 1,
+      players: 2,
+      hide: 3,
+      xp: 14,
+      playerLevels: 15,
+      plugin: 4,
+      headers: 5
+    }, add_css2);
+  }
+};
+var EncounterRow_default = EncounterRow;
+
+// src/encounter/ui/EncounterTable.svelte
+function get_each_context3(ctx, list, i) {
+  const child_ctx = ctx.slice();
+  child_ctx[3] = list[i];
+  return child_ctx;
+}
+function create_if_block_23(ctx) {
+  let th;
+  return {
+    c() {
+      th = element("th");
+      th.textContent = "Creatures";
+    },
+    m(target, anchor) {
+      insert(target, th, anchor);
+    },
+    d(detaching) {
+      if (detaching)
+        detach(th);
+    }
+  };
+}
+function create_if_block_13(ctx) {
+  let th;
+  return {
+    c() {
+      th = element("th");
+      th.textContent = "Players";
+    },
+    m(target, anchor) {
+      insert(target, th, anchor);
+    },
+    d(detaching) {
+      if (detaching)
+        detach(th);
+    }
+  };
+}
+function create_if_block3(ctx) {
+  let th;
+  return {
+    c() {
+      th = element("th");
+      th.textContent = "Difficulty";
+    },
+    m(target, anchor) {
+      insert(target, th, anchor);
+    },
+    d(detaching) {
+      if (detaching)
+        detach(th);
+    }
+  };
+}
+function create_each_block3(ctx) {
+  let encounterrow;
+  let current;
+  const encounterrow_spread_levels = [
+    ctx[3],
+    { headers: ctx[2] },
+    { plugin: ctx[1] }
+  ];
+  let encounterrow_props = {};
+  for (let i = 0; i < encounterrow_spread_levels.length; i += 1) {
+    encounterrow_props = assign(encounterrow_props, encounterrow_spread_levels[i]);
+  }
+  encounterrow = new EncounterRow_default({ props: encounterrow_props });
+  return {
+    c() {
+      create_component(encounterrow.$$.fragment);
+    },
+    m(target, anchor) {
+      mount_component(encounterrow, target, anchor);
+      current = true;
+    },
+    p(ctx2, dirty) {
+      const encounterrow_changes = dirty & 7 ? get_spread_update(encounterrow_spread_levels, [
+        dirty & 1 && get_spread_object(ctx2[3]),
+        dirty & 4 && { headers: ctx2[2] },
+        dirty & 2 && { plugin: ctx2[1] }
+      ]) : {};
+      encounterrow.$set(encounterrow_changes);
+    },
+    i(local) {
+      if (current)
+        return;
+      transition_in(encounterrow.$$.fragment, local);
+      current = true;
+    },
+    o(local) {
+      transition_out(encounterrow.$$.fragment, local);
+      current = false;
+    },
+    d(detaching) {
+      destroy_component(encounterrow, detaching);
+    }
+  };
+}
+function create_fragment3(ctx) {
+  let table;
+  let thead;
+  let tr;
+  let th0;
+  let t1;
+  let show_if_1 = ctx[2].includes("creatures");
+  let t2;
+  let show_if = ctx[2].includes("players");
+  let t3;
+  let t4;
+  let th1;
+  let t6;
+  let tbody;
+  let current;
+  let if_block0 = show_if_1 && create_if_block_23(ctx);
+  let if_block1 = show_if && create_if_block_13(ctx);
+  let if_block2 = ctx[1].data.displayDifficulty && create_if_block3(ctx);
+  let each_value = ctx[0];
+  let each_blocks = [];
+  for (let i = 0; i < each_value.length; i += 1) {
+    each_blocks[i] = create_each_block3(get_each_context3(ctx, each_value, i));
+  }
+  const out = (i) => transition_out(each_blocks[i], 1, 1, () => {
+    each_blocks[i] = null;
+  });
+  return {
+    c() {
+      table = element("table");
+      thead = element("thead");
+      tr = element("tr");
+      th0 = element("th");
+      th0.textContent = "Name";
+      t1 = space();
+      if (if_block0)
+        if_block0.c();
+      t2 = space();
+      if (if_block1)
+        if_block1.c();
+      t3 = space();
+      if (if_block2)
+        if_block2.c();
+      t4 = space();
+      th1 = element("th");
+      th1.textContent = "Launch";
+      t6 = space();
+      tbody = element("tbody");
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].c();
+      }
+      attr(table, "class", "initiative-tracker encounter-table");
+    },
+    m(target, anchor) {
+      insert(target, table, anchor);
+      append(table, thead);
+      append(thead, tr);
+      append(tr, th0);
+      append(tr, t1);
+      if (if_block0)
+        if_block0.m(tr, null);
+      append(tr, t2);
+      if (if_block1)
+        if_block1.m(tr, null);
+      append(tr, t3);
+      if (if_block2)
+        if_block2.m(tr, null);
+      append(tr, t4);
+      append(tr, th1);
+      append(table, t6);
+      append(table, tbody);
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].m(tbody, null);
+      }
+      current = true;
+    },
+    p(ctx2, [dirty]) {
+      if (ctx2[1].data.displayDifficulty) {
+        if (if_block2) {
+        } else {
+          if_block2 = create_if_block3(ctx2);
+          if_block2.c();
+          if_block2.m(tr, t4);
+        }
+      } else if (if_block2) {
+        if_block2.d(1);
+        if_block2 = null;
+      }
+      if (dirty & 7) {
+        each_value = ctx2[0];
+        let i;
+        for (i = 0; i < each_value.length; i += 1) {
+          const child_ctx = get_each_context3(ctx2, each_value, i);
+          if (each_blocks[i]) {
+            each_blocks[i].p(child_ctx, dirty);
+            transition_in(each_blocks[i], 1);
+          } else {
+            each_blocks[i] = create_each_block3(child_ctx);
+            each_blocks[i].c();
+            transition_in(each_blocks[i], 1);
+            each_blocks[i].m(tbody, null);
+          }
+        }
+        group_outros();
+        for (i = each_value.length; i < each_blocks.length; i += 1) {
+          out(i);
+        }
+        check_outros();
+      }
+    },
+    i(local) {
+      if (current)
+        return;
+      for (let i = 0; i < each_value.length; i += 1) {
+        transition_in(each_blocks[i]);
+      }
+      current = true;
+    },
+    o(local) {
+      each_blocks = each_blocks.filter(Boolean);
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        transition_out(each_blocks[i]);
+      }
+      current = false;
+    },
+    d(detaching) {
+      if (detaching)
+        detach(table);
+      if (if_block0)
+        if_block0.d();
+      if (if_block1)
+        if_block1.d();
+      if (if_block2)
+        if_block2.d();
+      destroy_each(each_blocks, detaching);
+    }
+  };
+}
+function instance3($$self, $$props, $$invalidate) {
+  let { encounters } = $$props;
+  let { plugin } = $$props;
+  const headers = [];
+  if (encounters.some((encounter) => !encounter.hide.includes("players") && (typeof encounter.players == "boolean" && encounter.players || encounter.players instanceof Array && encounter.players.length)))
+    headers.push("players");
+  if (encounters.some((encounter) => !encounter.hide.includes("creatures") && encounter.creatures.size))
+    headers.push("creatures");
+  $$self.$$set = ($$props2) => {
+    if ("encounters" in $$props2)
+      $$invalidate(0, encounters = $$props2.encounters);
+    if ("plugin" in $$props2)
+      $$invalidate(1, plugin = $$props2.plugin);
+  };
+  return [encounters, plugin, headers];
+}
+var EncounterTable = class extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance3, create_fragment3, safe_not_equal, { encounters: 0, plugin: 1 });
+  }
+};
+var EncounterTable_default = EncounterTable;
+
 // src/encounter/index.ts
 var equivalent = (creature, existing) => {
   return creature.name == existing.name && creature.ac == existing.ac && creature.hp == existing.hp && creature.modifier == existing.modifier && creature.xp == existing.xp;
 };
-var EncounterComponent = class {
-  constructor(params, encounterEl, plugin) {
-    this.params = params;
-    this.encounterEl = encounterEl;
+var EncounterParser = class {
+  constructor(plugin) {
     this.plugin = plugin;
-    this.display();
   }
-  display() {
-    return __async(this, null, function* () {
-      var _a, _b;
-      const name = this.params.name;
-      const players = this.parsePlayers(this.params);
-      const hide2 = this.parseHide(this.params);
-      const rawMonsters = (_a = this.params.creatures) != null ? _a : [];
-      let creatures = yield this.parseRawCreatures(rawMonsters);
-      const xp = (_b = this.params.xp) != null ? _b : null;
-      const playerLevels = this.plugin.data.players.map((p) => p.level).filter((p) => p);
-      this.instance = new Encounter_default({
-        target: this.encounterEl,
-        props: {
-          plugin: this.plugin,
-          name,
-          players,
-          playerLevels,
-          creatures,
-          xp,
-          hide: hide2
-        }
-      });
-    });
+  async parse(params) {
+    const name = params.name;
+    const players = this.parsePlayers(params);
+    const hide2 = this.parseHide(params);
+    const rawMonsters = params.creatures ?? [];
+    let creatures = await this.parseRawCreatures(rawMonsters);
+    const xp = params.xp ?? null;
+    const playerLevels = this.plugin.data.players.map((p) => p.level).filter((p) => p);
+    return {
+      name,
+      players,
+      hide: hide2,
+      creatures,
+      xp,
+      playerLevels
+    };
   }
   parseHide(params) {
-    if (!("hide" in (params != null ? params : {})))
+    if (!("hide" in (params ?? {})))
       return [];
     if (typeof params.hide == "string")
       return ["creatures", "players"].filter((v) => params.hide == v);
@@ -5885,7 +5928,6 @@ var EncounterComponent = class {
     return [];
   }
   parsePlayers(params) {
-    var _a;
     const players = params.players;
     if (players == "none" || players == false) {
       return [];
@@ -5897,46 +5939,46 @@ var EncounterComponent = class {
       return [players];
     }
     if (Array.isArray(players)) {
-      return ((_a = this.plugin.data.players) != null ? _a : []).filter((p) => players.map((n) => n.toLowerCase()).includes(p.name.toLowerCase())).map((p) => p.name);
+      return (this.plugin.data.players ?? []).filter((p) => players.map((n) => n.toLowerCase()).includes(p.name.toLowerCase())).map((p) => p.name);
     }
   }
-  parseRawCreatures(rawMonsters) {
-    return __async(this, null, function* () {
-      var _a;
-      const creatureMap = /* @__PURE__ */ new Map();
-      if (rawMonsters && Array.isArray(rawMonsters)) {
-        for (const raw of rawMonsters) {
-          const { creature, number } = (_a = this.parseRawCreature(raw)) != null ? _a : {};
-          const stats = {
-            name: creature.name,
-            ac: creature.ac,
-            hp: creature.hp,
-            modifier: creature.modifier,
-            xp: creature.xp
-          };
-          const existing = [...creatureMap].find(([c]) => equivalent(c, stats));
-          if (!existing) {
-            creatureMap.set(creature, number);
+  async parseRawCreatures(rawMonsters) {
+    const creatureMap = /* @__PURE__ */ new Map();
+    if (rawMonsters && Array.isArray(rawMonsters)) {
+      for (const raw of rawMonsters) {
+        const { creature, number = 1 } = this.parseRawCreature(raw) ?? {};
+        if (!creature)
+          continue;
+        const stats = {
+          name: creature.name,
+          ac: creature.ac,
+          hp: creature.hp,
+          modifier: creature.modifier,
+          xp: creature.xp
+        };
+        const existing = [...creatureMap].find(([c]) => equivalent(c, stats));
+        if (!existing) {
+          creatureMap.set(creature, number);
+        } else {
+          let amount;
+          if (!isNaN(Number(number)) && !isNaN(Number(existing[1]))) {
+            amount = Number(number) + existing[1];
           } else {
-            let amount;
-            if (!isNaN(Number(number)) && !isNaN(Number(existing[1]))) {
-              amount = Number(number) + existing[1];
-            } else {
-              amount = `${number} + ${existing[1]}`;
-            }
-            creatureMap.set(existing[0], amount);
+            amount = `${number} + ${existing[1]}`;
           }
+          creatureMap.set(existing[0], amount);
         }
       }
-      return creatureMap;
-    });
+    }
+    return creatureMap;
   }
   parseRawCreature(raw) {
-    var _a;
+    if (!raw)
+      return {};
     let monster, number = 1;
     if (typeof raw == "string") {
       const match = raw.match(/(\d+)?:?\s?(.+)/);
-      number = isNaN(Number((_a = match[1]) != null ? _a : null)) ? number : Number(match[1]);
+      number = isNaN(Number(match[1] ?? null)) ? number : Number(match[1]);
       monster = match[2];
     } else if (typeof raw == "object") {
       let entries = Object.entries(raw).flat();
@@ -5958,53 +6000,427 @@ var EncounterComponent = class {
       return {};
     let existing = this.plugin.bestiary.find((c) => c.name == name);
     let creature = existing ? Creature.from(existing) : new Creature({ name });
-    creature.hp = hp != null ? hp : creature.hp;
-    creature.ac = ac != null ? ac : creature.ac;
-    creature.modifier = mod != null ? mod : creature.modifier;
-    creature.xp = xp != null ? xp : creature.xp;
+    creature.hp = hp ?? creature.hp;
+    creature.ac = ac ?? creature.ac;
+    creature.modifier = mod ?? creature.modifier;
+    creature.xp = xp ?? creature.xp;
     return { creature, number };
   }
 };
-var Encounter2 = class extends import_obsidian5.MarkdownRenderChild {
-  constructor(plugin, src, containerEl) {
-    super(containerEl);
+var EncounterComponent = class {
+  constructor(params, encounterEl, plugin) {
+    this.params = params;
+    this.encounterEl = encounterEl;
     this.plugin = plugin;
-    this.src = src;
-    this.containerEl = containerEl;
+    this.display();
   }
-  onload() {
-    this.postprocess();
-  }
-  postprocess() {
-    return __async(this, null, function* () {
-      var _a;
-      const encounters = (_a = this.src.split("---")) != null ? _a : [];
-      const containerEl = this.containerEl.createDiv("encounter-container");
-      const empty2 = containerEl.createSpan({
-        text: "No encounters created. Please check your syntax and try again."
-      });
-      for (let encounter of encounters) {
-        if (!(encounter == null ? void 0 : encounter.trim().length))
-          continue;
-        try {
-          const params = (0, import_obsidian5.parseYaml)(encounter);
-          const component = new EncounterComponent(params, containerEl.createDiv("encounter-instance"), this.plugin);
-          empty2.detach();
-        } catch (e) {
-          console.error(e);
-          new import_obsidian5.Notice("Initiative Tracker: here was an issue parsing: \n\n" + encounter);
-        }
-        this.registerEvent(this.plugin.app.workspace.on("initiative-tracker:unload", () => {
-          this.containerEl.empty();
-          this.containerEl.createEl("pre").createEl("code", {
-            text: `\`\`\`encounter
-${this.src}\`\`\``
-          });
-        }));
+  async display() {
+    this.instance = new Encounter_default({
+      target: this.encounterEl,
+      props: {
+        plugin: this.plugin,
+        name: this.params.name,
+        players: this.params.players,
+        playerLevels: this.params.playerLevels,
+        creatures: this.params.creatures,
+        xp: this.params.xp,
+        hide: this.params.hide
       }
     });
   }
 };
+var EncounterBlock = class extends import_obsidian7.MarkdownRenderChild {
+  constructor(plugin, src, containerEl, table = false) {
+    super(containerEl);
+    this.plugin = plugin;
+    this.src = src;
+    this.containerEl = containerEl;
+    this.table = table;
+    this.parser = new EncounterParser(this.plugin);
+  }
+  onload() {
+    if (this.table) {
+      this.postprocessTable();
+    } else {
+      this.postprocess();
+    }
+  }
+  async postprocess() {
+    const encounters = this.src.split("---") ?? [];
+    const containerEl = this.containerEl.createDiv("encounter-container");
+    const empty2 = containerEl.createSpan({
+      text: "No encounters created. Please check your syntax and try again."
+    });
+    for (let encounter of encounters) {
+      if (!encounter?.trim().length)
+        continue;
+      try {
+        const params = (0, import_obsidian7.parseYaml)(encounter);
+        new EncounterComponent(await this.parser.parse(params), containerEl.createDiv("encounter-instance"), this.plugin);
+        empty2.detach();
+      } catch (e) {
+        console.error(e);
+        new import_obsidian7.Notice("Initiative Tracker: here was an issue parsing: \n\n" + encounter);
+      }
+    }
+    this.registerEvent(this.plugin.app.workspace.on("initiative-tracker:unload", () => {
+      this.containerEl.empty();
+      this.containerEl.createEl("pre").createEl("code", {
+        text: `\`\`\`encounter
+${this.src}\`\`\``
+      });
+    }));
+  }
+  async postprocessTable() {
+    const encounterSource = this.src.split("---") ?? [];
+    const containerEl = this.containerEl.createDiv("encounter-container");
+    const empty2 = containerEl.createSpan({
+      text: "No encounters created. Please check your syntax and try again."
+    });
+    const encounters = [];
+    for (let encounter of encounterSource) {
+      if (!encounter?.trim().length)
+        continue;
+      try {
+        const params = (0, import_obsidian7.parseYaml)(encounter);
+        encounters.push(await this.parser.parse(params));
+      } catch (e) {
+        console.error(e);
+        new import_obsidian7.Notice("Initiative Tracker: here was an issue parsing: \n\n" + encounter);
+      }
+    }
+    if (encounters.length) {
+      empty2.detach();
+      new EncounterTable_default({
+        target: this.containerEl,
+        props: {
+          encounters,
+          plugin: this.plugin
+        }
+      });
+    }
+    this.registerEvent(this.plugin.app.workspace.on("initiative-tracker:unload", () => {
+      this.containerEl.empty();
+      this.containerEl.createEl("pre").createEl("code", {
+        text: `\`\`\`encounter-table
+${this.src}\`\`\``
+      });
+    }));
+  }
+};
+
+// src/encounter/ui/EncounterLine.svelte
+var import_obsidian8 = __toModule(require("obsidian"));
+function add_css3(target) {
+  append_styles(target, "svelte-kf2ut3", ".encounter-line.svelte-kf2ut3.svelte-kf2ut3{display:flex;gap:1rem}.icons.svelte-kf2ut3.svelte-kf2ut3{display:flex}.icons.svelte-kf2ut3>span.svelte-kf2ut3 .clickable-icon{margin-right:0}");
+}
+function get_each_context4(ctx, list, i) {
+  const child_ctx = ctx.slice();
+  child_ctx[11] = list[i][0];
+  child_ctx[12] = list[i][1];
+  child_ctx[14] = i;
+  return child_ctx;
+}
+function create_else_block3(ctx) {
+  let t;
+  return {
+    c() {
+      t = text("-");
+    },
+    m(target, anchor) {
+      insert(target, t, anchor);
+    },
+    p: noop,
+    d(detaching) {
+      if (detaching)
+        detach(t);
+    }
+  };
+}
+function create_if_block4(ctx) {
+  let each_1_anchor;
+  let each_value = [...ctx[0]];
+  let each_blocks = [];
+  for (let i = 0; i < each_value.length; i += 1) {
+    each_blocks[i] = create_each_block4(get_each_context4(ctx, each_value, i));
+  }
+  return {
+    c() {
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].c();
+      }
+      each_1_anchor = empty();
+    },
+    m(target, anchor) {
+      for (let i = 0; i < each_blocks.length; i += 1) {
+        each_blocks[i].m(target, anchor);
+      }
+      insert(target, each_1_anchor, anchor);
+    },
+    p(ctx2, dirty) {
+      if (dirty & 193) {
+        each_value = [...ctx2[0]];
+        let i;
+        for (i = 0; i < each_value.length; i += 1) {
+          const child_ctx = get_each_context4(ctx2, each_value, i);
+          if (each_blocks[i]) {
+            each_blocks[i].p(child_ctx, dirty);
+          } else {
+            each_blocks[i] = create_each_block4(child_ctx);
+            each_blocks[i].c();
+            each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+          }
+        }
+        for (; i < each_blocks.length; i += 1) {
+          each_blocks[i].d(1);
+        }
+        each_blocks.length = each_value.length;
+      }
+    },
+    d(detaching) {
+      destroy_each(each_blocks, detaching);
+      if (detaching)
+        detach(each_1_anchor);
+    }
+  };
+}
+function create_each_block4(ctx) {
+  let span;
+  let t0_value = ctx[6](ctx[14], ctx[0].size) + "";
+  let t0;
+  let t1;
+  let strong;
+  let rollerEl_action;
+  let t2;
+  let t3_value = ctx[11].name + "";
+  let t3;
+  let t4_value = (ctx[12] == 1 ? "" : "s") + "";
+  let t4;
+  let t5;
+  let span_aria_label_value;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      span = element("span");
+      t0 = text(t0_value);
+      t1 = space();
+      strong = element("strong");
+      t2 = text("\xA0");
+      t3 = text(t3_value);
+      t4 = text(t4_value);
+      t5 = space();
+      attr(span, "aria-label", span_aria_label_value = ctx[7](ctx[11]));
+    },
+    m(target, anchor) {
+      insert(target, span, anchor);
+      append(span, t0);
+      append(span, t1);
+      append(span, strong);
+      append(span, t2);
+      append(span, t3);
+      append(span, t4);
+      append(span, t5);
+      if (!mounted) {
+        dispose = action_destroyer(rollerEl_action = ctx[5].call(null, strong, ctx[11]));
+        mounted = true;
+      }
+    },
+    p(new_ctx, dirty) {
+      ctx = new_ctx;
+      if (dirty & 1 && t0_value !== (t0_value = ctx[6](ctx[14], ctx[0].size) + ""))
+        set_data(t0, t0_value);
+      if (rollerEl_action && is_function(rollerEl_action.update) && dirty & 1)
+        rollerEl_action.update.call(null, ctx[11]);
+      if (dirty & 1 && t3_value !== (t3_value = ctx[11].name + ""))
+        set_data(t3, t3_value);
+      if (dirty & 1 && t4_value !== (t4_value = (ctx[12] == 1 ? "" : "s") + ""))
+        set_data(t4, t4_value);
+      if (dirty & 1 && span_aria_label_value !== (span_aria_label_value = ctx[7](ctx[11]))) {
+        attr(span, "aria-label", span_aria_label_value);
+      }
+    },
+    d(detaching) {
+      if (detaching)
+        detach(span);
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_fragment4(ctx) {
+  let span4;
+  let span0;
+  let t0;
+  let span3;
+  let span1;
+  let openButton_action;
+  let t1;
+  let span2;
+  let addButton_action;
+  let mounted;
+  let dispose;
+  function select_block_type(ctx2, dirty) {
+    if (ctx2[0].size)
+      return create_if_block4;
+    return create_else_block3;
+  }
+  let current_block_type = select_block_type(ctx, -1);
+  let if_block = current_block_type(ctx);
+  return {
+    c() {
+      span4 = element("span");
+      span0 = element("span");
+      if_block.c();
+      t0 = space();
+      span3 = element("span");
+      span1 = element("span");
+      t1 = space();
+      span2 = element("span");
+      attr(span1, "aria-label", "Begin Encounter");
+      attr(span1, "class", "svelte-kf2ut3");
+      attr(span2, "aria-label", "Add to Encounter");
+      attr(span2, "class", "svelte-kf2ut3");
+      attr(span3, "class", "icons svelte-kf2ut3");
+      attr(span4, "class", "encounter-line encounter-row svelte-kf2ut3");
+    },
+    m(target, anchor) {
+      insert(target, span4, anchor);
+      append(span4, span0);
+      if_block.m(span0, null);
+      append(span4, t0);
+      append(span4, span3);
+      append(span3, span1);
+      append(span3, t1);
+      append(span3, span2);
+      if (!mounted) {
+        dispose = [
+          action_destroyer(openButton_action = ctx[1].call(null, span1)),
+          listen(span1, "click", stop_propagation(ctx[2])),
+          action_destroyer(addButton_action = ctx[3].call(null, span2)),
+          listen(span2, "click", stop_propagation(ctx[4]))
+        ];
+        mounted = true;
+      }
+    },
+    p(ctx2, [dirty]) {
+      if (current_block_type === (current_block_type = select_block_type(ctx2, dirty)) && if_block) {
+        if_block.p(ctx2, dirty);
+      } else {
+        if_block.d(1);
+        if_block = current_block_type(ctx2);
+        if (if_block) {
+          if_block.c();
+          if_block.m(span0, null);
+        }
+      }
+    },
+    i: noop,
+    o: noop,
+    d(detaching) {
+      if (detaching)
+        detach(span4);
+      if_block.d();
+      mounted = false;
+      run_all(dispose);
+    }
+  };
+}
+function instance4($$self, $$props, $$invalidate) {
+  let { creatures } = $$props;
+  let { plugin } = $$props;
+  const creatureMap = /* @__PURE__ */ new Map();
+  const rollerMap = /* @__PURE__ */ new Map();
+  for (let [creature, count] of creatures) {
+    let number = Number(count);
+    if (plugin.canUseDiceRoller) {
+      let roller = plugin.getRoller(`${count}`);
+      roller.on("new-result", () => {
+        creatureMap.set(creature, roller.result);
+      });
+      rollerMap.set(creature, roller);
+      roller.roll();
+    } else {
+      creatureMap.set(creature, number);
+    }
+  }
+  const openButton = (node) => {
+    new import_obsidian8.ExtraButtonComponent(node).setIcon(START_ENCOUNTER);
+  };
+  const open = () => __awaiter(void 0, void 0, void 0, function* () {
+    if (!plugin.view) {
+      yield plugin.addTrackerView();
+    }
+    const view = plugin.view;
+    const creatures2 = [...creatureMap].map(([creature, number]) => {
+      if (isNaN(Number(number)) || number < 1)
+        return [creature];
+      return [...Array(number).keys()].map((v) => Creature.from(creature));
+    }).flat();
+    view === null || view === void 0 ? void 0 : view.newEncounter({ creatures: creatures2 });
+    plugin.app.workspace.revealLeaf(view.leaf);
+  });
+  const addButton = (node) => {
+    new import_obsidian8.ExtraButtonComponent(node).setIcon("plus-with-circle");
+  };
+  const add = (evt) => __awaiter(void 0, void 0, void 0, function* () {
+    if (!plugin.view) {
+      yield plugin.addTrackerView();
+    }
+    const view = plugin.view;
+    const creatures2 = [...creatureMap].map(([creature, number]) => {
+      if (isNaN(Number(number)) || number < 1)
+        return [creature];
+      return [...Array(number).keys()].map((v) => Creature.from(creature));
+    }).flat();
+    view.addCreatures(creatures2, true);
+  });
+  const rollerEl = (node, creature) => {
+    var _a, _b;
+    if (plugin.canUseDiceRoller && rollerMap.has(creature) && !rollerMap.get(creature).isStatic) {
+      node.appendChild((_b = (_a = rollerMap.get(creature)) === null || _a === void 0 ? void 0 : _a.containerEl) !== null && _b !== void 0 ? _b : createSpan({ text: `${creatureMap.get(creature)}` }));
+    } else {
+      node.setText(`${creatureMap.get(creature)}`);
+    }
+  };
+  const joiner = (index, length) => {
+    if (length == 1 || index == 0)
+      return "";
+    const delim = length > 2 ? "," : "";
+    if (index == length - 1)
+      return `${delim} and `;
+    return `${delim} `;
+  };
+  const label = (creature) => {
+    if (!creature)
+      return;
+    let label2 = [];
+    if (creature.hp) {
+      label2.push(`HP: ${creature.hp}`);
+    }
+    if (creature.ac) {
+      label2.push(`AC: ${creature.ac}`);
+    }
+    if (creature.modifier) {
+      label2.push(`MOD: ${creature.modifier}`);
+    }
+    return `${label2.join(", ")}`;
+  };
+  $$self.$$set = ($$props2) => {
+    if ("creatures" in $$props2)
+      $$invalidate(0, creatures = $$props2.creatures);
+    if ("plugin" in $$props2)
+      $$invalidate(8, plugin = $$props2.plugin);
+  };
+  return [creatures, openButton, open, addButton, add, rollerEl, joiner, label, plugin];
+}
+var EncounterLine = class extends SvelteComponent {
+  constructor(options) {
+    super();
+    init(this, options, instance4, create_fragment4, safe_not_equal, { creatures: 0, plugin: 8 }, add_css3);
+  }
+};
+var EncounterLine_default = EncounterLine;
 
 // src/utils/srd-bestiary.ts
 var BESTIARY = [
@@ -25080,15 +25496,15 @@ var BESTIARY_BY_NAME = new Map(BESTIARY.map((monster) => {
 }));
 
 // src/view.ts
-var import_obsidian16 = __toModule(require("obsidian"));
+var import_obsidian19 = __toModule(require("obsidian"));
 
 // src/svelte/Controls.svelte
-var import_obsidian6 = __toModule(require("obsidian"));
-var import_obsidian7 = __toModule(require("obsidian"));
-function add_css2(target) {
+var import_obsidian9 = __toModule(require("obsidian"));
+var import_obsidian10 = __toModule(require("obsidian"));
+function add_css4(target) {
   append_styles(target, "svelte-g63m31", ".buttons.svelte-g63m31.svelte-g63m31{display:flex;justify-content:space-between;padding:0 0 0.5rem 0}.state.svelte-g63m31.svelte-g63m31{display:flex;justify-content:flex-start;align-items:center}.clean.svelte-g63m31.svelte-g63m31{display:flex;justify-content:flex-end;align-items:center}.state.svelte-g63m31>.svelte-g63m31:not(:last-child),.clean.svelte-g63m31>.svelte-g63m31:not(:last-child){margin-right:0.25rem}");
 }
-function create_else_block2(ctx) {
+function create_else_block4(ctx) {
   let div;
   let playButton_action;
   let mounted;
@@ -25113,7 +25529,7 @@ function create_else_block2(ctx) {
     }
   };
 }
-function create_if_block2(ctx) {
+function create_if_block5(ctx) {
   let div0;
   let stopButton_action;
   let t0;
@@ -25166,7 +25582,7 @@ function create_if_block2(ctx) {
     }
   };
 }
-function create_fragment2(ctx) {
+function create_fragment5(ctx) {
   let div3;
   let div0;
   let t;
@@ -25177,8 +25593,8 @@ function create_fragment2(ctx) {
   let dispose;
   function select_block_type(ctx2, dirty) {
     if (ctx2[0])
-      return create_if_block2;
-    return create_else_block2;
+      return create_if_block5;
+    return create_else_block4;
   }
   let current_block_type = select_block_type(ctx, -1);
   let if_block = current_block_type(ctx);
@@ -25231,29 +25647,29 @@ function create_fragment2(ctx) {
     }
   };
 }
-function instance2($$self, $$props, $$invalidate) {
+function instance5($$self, $$props, $$invalidate) {
   let { state = false } = $$props;
   let { map = false } = $$props;
   let view = getContext("view");
   const playButton = (node) => {
-    new import_obsidian6.ExtraButtonComponent(node).setIcon(PLAY).setTooltip("Play").onClick(() => {
+    new import_obsidian9.ExtraButtonComponent(node).setIcon(PLAY).setTooltip("Play").onClick(() => {
       view.toggleState();
       $$invalidate(0, state = view.state);
     });
   };
   const stopButton = (node) => {
-    new import_obsidian6.ExtraButtonComponent(node).setIcon(STOP).setTooltip("Stop").onClick(() => {
+    new import_obsidian9.ExtraButtonComponent(node).setIcon(STOP).setTooltip("Stop").onClick(() => {
       view.toggleState();
       $$invalidate(0, state = view.state);
     });
   };
   const nextButton = (node) => {
-    new import_obsidian6.ExtraButtonComponent(node).setIcon(FORWARD).setTooltip("Next").onClick(() => {
+    new import_obsidian9.ExtraButtonComponent(node).setIcon(FORWARD).setTooltip("Next").onClick(() => {
       view.goToNext();
     });
   };
   const prevButton = (node) => {
-    new import_obsidian6.ExtraButtonComponent(node).setIcon(BACKWARD).setTooltip("Previous").onClick(() => {
+    new import_obsidian9.ExtraButtonComponent(node).setIcon(BACKWARD).setTooltip("Previous").onClick(() => {
       view.goToPrevious();
     });
   };
@@ -25261,7 +25677,7 @@ function instance2($$self, $$props, $$invalidate) {
   const open = (evt) => {
     menu.showAtMouseEvent(evt);
   };
-  const menu = new import_obsidian7.Menu(plugin.app);
+  const menu = new import_obsidian10.Menu(plugin.app);
   menu.addItem((item) => {
     item.setIcon(NEW).setTitle("New Encounter").onClick(() => view.newEncounter());
   });
@@ -25299,7 +25715,7 @@ function instance2($$self, $$props, $$invalidate) {
     });
   }
   const menuIcon = (node) => {
-    new import_obsidian6.ExtraButtonComponent(node).setIcon("vertical-three-dots");
+    new import_obsidian9.ExtraButtonComponent(node).setIcon("vertical-three-dots");
   };
   const click_handler3 = (evt) => open(evt);
   $$self.$$set = ($$props2) => {
@@ -25323,13 +25739,13 @@ function instance2($$self, $$props, $$invalidate) {
 var Controls = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance2, create_fragment2, safe_not_equal, { state: 0, map: 7 }, add_css2);
+    init(this, options, instance5, create_fragment5, safe_not_equal, { state: 0, map: 7 }, add_css4);
   }
 };
 var Controls_default = Controls;
 
 // src/svelte/Table.svelte
-var import_obsidian11 = __toModule(require("obsidian"));
+var import_obsidian14 = __toModule(require("obsidian"));
 
 // node_modules/svelte/easing/index.mjs
 function cubicOut(t) {
@@ -27201,8 +27617,8 @@ function isInt(value) {
 }
 
 // src/svelte/Initiative.svelte
-var import_obsidian8 = __toModule(require("obsidian"));
-function add_css3(target) {
+var import_obsidian11 = __toModule(require("obsidian"));
+function add_css5(target) {
   append_styles(target, "svelte-1kp13ds", '.tree-item-flair-outer.svelte-1kp13ds::after{content:""}.initiative.svelte-1kp13ds{display:block;padding:0;width:20px;text-align:center;white-space:nowrap;user-select:all;border:0;color:inherit}');
 }
 function create_key_block(ctx) {
@@ -27244,7 +27660,7 @@ function create_key_block(ctx) {
     }
   };
 }
-function create_fragment3(ctx) {
+function create_fragment6(ctx) {
   let div;
   let previous_key = ctx[0];
   let key_block = create_key_block(ctx);
@@ -27291,14 +27707,14 @@ var keydown_handler = function(evt) {
     return false;
   }
 };
-function instance3($$self, $$props, $$invalidate) {
+function instance6($$self, $$props, $$invalidate) {
   const dispatch = createEventDispatcher();
   let { initiative } = $$props;
   let { modifier } = $$props;
   const blur_handler = function(evt) {
     const value = this.value;
     if (isNaN(Number(value)) || Number(value) < 1) {
-      new import_obsidian8.Notice("Enter a valid initiative.");
+      new import_obsidian11.Notice("Enter a valid initiative.");
       this.value = `${initiative}`;
       return;
     }
@@ -27318,17 +27734,17 @@ function instance3($$self, $$props, $$invalidate) {
 var Initiative = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance3, create_fragment3, safe_not_equal, { initiative: 0, modifier: 1 }, add_css3);
+    init(this, options, instance6, create_fragment6, safe_not_equal, { initiative: 0, modifier: 1 }, add_css5);
   }
 };
 var Initiative_default = Initiative;
 
 // src/svelte/CreatureControls.svelte
-var import_obsidian9 = __toModule(require("obsidian"));
-function add_css4(target) {
+var import_obsidian12 = __toModule(require("obsidian"));
+function add_css6(target) {
   append_styles(target, "svelte-ptr4mi", ".controls.svelte-ptr4mi{display:flex;justify-content:flex-end}.icon.svelte-ptr4mi .clickable-icon{margin-right:0}");
 }
-function create_fragment4(ctx) {
+function create_fragment7(ctx) {
   let div1;
   let div0;
   let hamburgerIcon_action;
@@ -27360,15 +27776,20 @@ function create_fragment4(ctx) {
     }
   };
 }
-function instance4($$self, $$props, $$invalidate) {
+function instance7($$self, $$props, $$invalidate) {
   const dispatch = createEventDispatcher();
   let { view } = $$props;
   let { creature } = $$props;
   const hamburgerIcon = (node) => {
-    const hamburger = new import_obsidian9.ExtraButtonComponent(node).setIcon("vertical-three-dots").setTooltip("Actions");
+    const hamburger = new import_obsidian12.ExtraButtonComponent(node).setIcon("vertical-three-dots").setTooltip("Actions");
     hamburger.extraSettingsEl.onclick = (evt) => {
       evt.stopPropagation();
-      const menu = new import_obsidian9.Menu(view.plugin.app);
+      const menu = new import_obsidian12.Menu(view.plugin.app);
+      menu.addItem((item) => {
+        item.setIcon("pencil").setTitle("Edit").onClick(() => {
+          dispatch("edit", creature);
+        });
+      });
       menu.addItem((item) => {
         item.setIcon(TAG).setTitle("Add Status").onClick(() => {
           dispatch("tag", creature);
@@ -27390,7 +27811,7 @@ function instance4($$self, $$props, $$invalidate) {
       if (view.plugin.data.leafletIntegration) {
         menu.addItem((item) => {
           item.setIcon(MAPMARKER).setTitle("Change Marker").onClick((evt2) => {
-            const markerMenu = new import_obsidian9.Menu(view.plugin.app);
+            const markerMenu = new import_obsidian12.Menu(view.plugin.app);
             markerMenu.setNoIcon();
             for (let marker of view.plugin.leaflet.markerIcons) {
               markerMenu.addItem((item2) => {
@@ -27423,17 +27844,17 @@ function instance4($$self, $$props, $$invalidate) {
 var CreatureControls = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance4, create_fragment4, safe_not_equal, { view: 1, creature: 2 }, add_css4);
+    init(this, options, instance7, create_fragment7, safe_not_equal, { view: 1, creature: 2 }, add_css6);
   }
 };
 var CreatureControls_default = CreatureControls;
 
 // src/svelte/Status.svelte
-var import_obsidian10 = __toModule(require("obsidian"));
-function add_css5(target) {
+var import_obsidian13 = __toModule(require("obsidian"));
+function add_css7(target) {
   append_styles(target, "svelte-7lk3cs", ".tag.svelte-7lk3cs{display:flex;align-items:center;gap:0.125rem;color:var(--text-muted);font-size:small;width:fit-content;border-radius:0.25rem}.tag.svelte-7lk3cs .clickable-icon{margin:0}");
 }
-function create_fragment5(ctx) {
+function create_fragment8(ctx) {
   let div1;
   let span;
   let t0_value = ctx[0].name + "";
@@ -27446,14 +27867,13 @@ function create_fragment5(ctx) {
   let dispose;
   return {
     c() {
-      var _a;
       div1 = element("div");
       span = element("span");
       t0 = text(t0_value);
       t1 = space();
       div0 = element("div");
       attr(div1, "class", "tag svelte-7lk3cs");
-      attr(div1, "aria-label", div1_aria_label_value = ((_a = ctx[0].description) == null ? void 0 : _a.length) ? ctx[0].description.join("\n\n") : null);
+      attr(div1, "aria-label", div1_aria_label_value = ctx[0].description?.length ? ctx[0].description.join("\n\n") : null);
       attr(div1, "aria-label-classes", "initiative-tracker-condition-tooltip");
     },
     m(target, anchor) {
@@ -27471,10 +27891,9 @@ function create_fragment5(ctx) {
       }
     },
     p(ctx2, [dirty]) {
-      var _a;
       if (dirty & 1 && t0_value !== (t0_value = ctx2[0].name + ""))
         set_data(t0, t0_value);
-      if (dirty & 1 && div1_aria_label_value !== (div1_aria_label_value = ((_a = ctx2[0].description) == null ? void 0 : _a.length) ? ctx2[0].description.join("\n\n") : null)) {
+      if (dirty & 1 && div1_aria_label_value !== (div1_aria_label_value = ctx2[0].description?.length ? ctx2[0].description.join("\n\n") : null)) {
         attr(div1, "aria-label", div1_aria_label_value);
       }
     },
@@ -27488,11 +27907,11 @@ function create_fragment5(ctx) {
     }
   };
 }
-function instance5($$self, $$props, $$invalidate) {
+function instance8($$self, $$props, $$invalidate) {
   const dispatch = createEventDispatcher();
   let { status } = $$props;
   const deleteIcon = (node) => {
-    new import_obsidian10.ExtraButtonComponent(node).setIcon("cross-in-box");
+    new import_obsidian13.ExtraButtonComponent(node).setIcon("cross-in-box");
   };
   const click_handler3 = () => dispatch("remove");
   $$self.$$set = ($$props2) => {
@@ -27504,52 +27923,39 @@ function instance5($$self, $$props, $$invalidate) {
 var Status = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance5, create_fragment5, safe_not_equal, { status: 0 }, add_css5);
+    init(this, options, instance8, create_fragment8, safe_not_equal, { status: 0 }, add_css7);
   }
 };
 var Status_default = Status;
 
 // src/svelte/Creature.svelte
-function add_css6(target) {
+function add_css8(target) {
   append_styles(target, "svelte-cnqzyh", ".name-holder.svelte-cnqzyh{display:flex;gap:0.25rem;font-size:small}.name.svelte-cnqzyh{display:block;text-align:left;background-color:inherit;border:0;padding:0;height:unset;word-break:keep-all}.center.svelte-cnqzyh{text-align:center}.editable.svelte-cnqzyh:not(.player){cursor:pointer}.statuses.svelte-cnqzyh{display:flex;flex-flow:row wrap;column-gap:0.25rem}.initiative-container.svelte-cnqzyh{border-top-left-radius:0.25rem;border-bottom-left-radius:0.25rem}.controls-container.svelte-cnqzyh{border-top-right-radius:0.25rem;border-bottom-right-radius:0.25rem}");
 }
-function get_each_context2(ctx, list, i) {
+function get_each_context5(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[10] = list[i];
+  child_ctx[11] = list[i];
   return child_ctx;
 }
-function create_else_block3(ctx) {
+function create_else_block5(ctx) {
   let span;
-  let mounted;
-  let dispose;
   return {
     c() {
       span = element("span");
-      span.textContent = `${ctx[5]()}`;
-      attr(span, "contenteditable", "");
-      attr(span, "class", "editable name svelte-cnqzyh");
-      attr(span, "type", "text");
+      span.textContent = `${ctx[4]()}`;
+      attr(span, "class", "name svelte-cnqzyh");
     },
     m(target, anchor) {
       insert(target, span, anchor);
-      if (!mounted) {
-        dispose = [
-          listen(span, "blur", ctx[3]),
-          listen(span, "keydown", keydown_handler2)
-        ];
-        mounted = true;
-      }
     },
     p: noop,
     d(detaching) {
       if (detaching)
         detach(span);
-      mounted = false;
-      run_all(dispose);
     }
   };
 }
-function create_if_block_12(ctx) {
+function create_if_block_14(ctx) {
   let span;
   let t_value = ctx[0].name + "";
   let t;
@@ -27573,13 +27979,13 @@ function create_if_block_12(ctx) {
     }
   };
 }
-function create_if_block3(ctx) {
+function create_if_block6(ctx) {
   let each_1_anchor;
   let current;
   let each_value = [...ctx[1]];
   let each_blocks = [];
   for (let i = 0; i < each_value.length; i += 1) {
-    each_blocks[i] = create_each_block2(get_each_context2(ctx, each_value, i));
+    each_blocks[i] = create_each_block5(get_each_context5(ctx, each_value, i));
   }
   const out = (i) => transition_out(each_blocks[i], 1, 1, () => {
     each_blocks[i] = null;
@@ -27603,12 +28009,12 @@ function create_if_block3(ctx) {
         each_value = [...ctx2[1]];
         let i;
         for (i = 0; i < each_value.length; i += 1) {
-          const child_ctx = get_each_context2(ctx2, each_value, i);
+          const child_ctx = get_each_context5(ctx2, each_value, i);
           if (each_blocks[i]) {
             each_blocks[i].p(child_ctx, dirty);
             transition_in(each_blocks[i], 1);
           } else {
-            each_blocks[i] = create_each_block2(child_ctx);
+            each_blocks[i] = create_each_block5(child_ctx);
             each_blocks[i].c();
             transition_in(each_blocks[i], 1);
             each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
@@ -27643,13 +28049,13 @@ function create_if_block3(ctx) {
     }
   };
 }
-function create_each_block2(ctx) {
+function create_each_block5(ctx) {
   let status;
   let current;
   function remove_handler() {
-    return ctx[7](ctx[10]);
+    return ctx[6](ctx[11]);
   }
-  status = new Status_default({ props: { status: ctx[10] } });
+  status = new Status_default({ props: { status: ctx[11] } });
   status.$on("remove", remove_handler);
   return {
     c() {
@@ -27663,7 +28069,7 @@ function create_each_block2(ctx) {
       ctx = new_ctx;
       const status_changes = {};
       if (dirty & 2)
-        status_changes.status = ctx[10];
+        status_changes.status = ctx[11];
       status.$set(status_changes);
     },
     i(local) {
@@ -27681,8 +28087,7 @@ function create_each_block2(ctx) {
     }
   };
 }
-function create_fragment6(ctx) {
-  var _a;
+function create_fragment9(ctx) {
   let td0;
   let initiative;
   let t0;
@@ -27697,7 +28102,7 @@ function create_fragment6(ctx) {
   let t3;
   let t4;
   let td3;
-  let t5_value = ((_a = ctx[0].ac) != null ? _a : DEFAULT_UNDEFINED) + "";
+  let t5_value = (ctx[0].ac ?? DEFAULT_UNDEFINED) + "";
   let t5;
   let t6;
   let td4;
@@ -27712,23 +28117,24 @@ function create_fragment6(ctx) {
     }
   });
   initiative.$on("click", click_handler2);
-  initiative.$on("initiative", ctx[6]);
+  initiative.$on("initiative", ctx[5]);
   function select_block_type(ctx2, dirty) {
     if (ctx2[0].player)
-      return create_if_block_12;
-    return create_else_block3;
+      return create_if_block_14;
+    return create_else_block5;
   }
   let current_block_type = select_block_type(ctx, -1);
   let if_block0 = current_block_type(ctx);
-  let if_block1 = ctx[1].size && create_if_block3(ctx);
+  let if_block1 = ctx[1].size && create_if_block6(ctx);
   creaturecontrols = new CreatureControls_default({
     props: {
-      view: ctx[4],
+      view: ctx[3],
       creature: ctx[0]
     }
   });
   creaturecontrols.$on("click", click_handler_4);
-  creaturecontrols.$on("tag", ctx[9]);
+  creaturecontrols.$on("tag", ctx[8]);
+  creaturecontrols.$on("edit", ctx[9]);
   return {
     c() {
       td0 = element("td");
@@ -27786,13 +28192,12 @@ function create_fragment6(ctx) {
         dispose = [
           listen(td0, "click", click_handler_1),
           listen(div1, "click", click_handler_2),
-          listen(span, "click", ctx[8])
+          listen(span, "click", ctx[7])
         ];
         mounted = true;
       }
     },
     p(ctx2, [dirty]) {
-      var _a2;
       const initiative_changes = {};
       if (dirty & 1)
         initiative_changes.initiative = ctx2[0].initiative;
@@ -27816,7 +28221,7 @@ function create_fragment6(ctx) {
             transition_in(if_block1, 1);
           }
         } else {
-          if_block1 = create_if_block3(ctx2);
+          if_block1 = create_if_block6(ctx2);
           if_block1.c();
           transition_in(if_block1, 1);
           if_block1.m(div1, null);
@@ -27830,7 +28235,7 @@ function create_fragment6(ctx) {
       }
       if ((!current || dirty & 1) && t3_value !== (t3_value = ctx2[0].hpDisplay + ""))
         set_data(t3, t3_value);
-      if ((!current || dirty & 1) && t5_value !== (t5_value = ((_a2 = ctx2[0].ac) != null ? _a2 : DEFAULT_UNDEFINED) + ""))
+      if ((!current || dirty & 1) && t5_value !== (t5_value = (ctx2[0].ac ?? DEFAULT_UNDEFINED) + ""))
         set_data(t5, t5_value);
       const creaturecontrols_changes = {};
       if (dirty & 1)
@@ -27882,16 +28287,9 @@ function create_fragment6(ctx) {
 }
 var click_handler2 = (e) => e.stopPropagation();
 var click_handler_1 = (e) => e.stopPropagation();
-var keydown_handler2 = function(evt) {
-  if (evt.key === "Enter" || evt.key === "Tab") {
-    evt.preventDefault();
-    this.blur();
-    return;
-  }
-};
 var click_handler_2 = (e) => e.stopPropagation();
 var click_handler_4 = (e) => e.stopPropagation();
-function instance6($$self, $$props, $$invalidate) {
+function instance9($$self, $$props, $$invalidate) {
   let statuses;
   let { creature } = $$props;
   const dispatch = createEventDispatcher();
@@ -27919,6 +28317,9 @@ function instance6($$self, $$props, $$invalidate) {
   function tag_handler(event) {
     bubble.call(this, $$self, event);
   }
+  function edit_handler(event) {
+    bubble.call(this, $$self, event);
+  }
   $$self.$$set = ($$props2) => {
     if ("creature" in $$props2)
       $$invalidate(0, creature = $$props2.creature);
@@ -27933,34 +28334,34 @@ function instance6($$self, $$props, $$invalidate) {
     creature,
     statuses,
     dispatch,
-    updateName,
     view,
     name,
     initiative_handler,
     remove_handler,
     click_handler_3,
-    tag_handler
+    tag_handler,
+    edit_handler
   ];
 }
 var Creature2 = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance6, create_fragment6, safe_not_equal, { creature: 0 }, add_css6);
+    init(this, options, instance9, create_fragment9, safe_not_equal, { creature: 0 }, add_css8);
   }
 };
 var Creature_default = Creature2;
 
 // src/svelte/Table.svelte
-function add_css7(target) {
+function add_css9(target) {
   append_styles(target, "svelte-1q4i3f4", ".no-creatures.svelte-1q4i3f4{margin:1rem;text-align:center}.initiative-tracker-table.svelte-1q4i3f4{padding:0.5rem;align-items:center;gap:0.25rem 0.5rem;width:100%;margin-left:0rem;table-layout:fixed;border-collapse:separate;border-spacing:0 2px}.left.svelte-1q4i3f4{text-align:left}.center.svelte-1q4i3f4{text-align:center}.tracker-table-header.svelte-1q4i3f4{font-weight:bolder;display:contents}.initiative-tracker-creature.svelte-1q4i3f4{position:relative}.initiative-tracker-creature.active.svelte-1q4i3f4{background-color:rgba(0, 0, 0, 0.1)}.initiative-tracker-creature.disabled.svelte-1q4i3f4 *{color:var(--text-faint)}.initiative-tracker-creature.svelte-1q4i3f4 td{border-top:1px solid transparent;border-bottom:1px solid transparent}.initiative-tracker-creature.svelte-1q4i3f4 td:first-child{border-left:1px solid transparent}.initiative-tracker-creature.svelte-1q4i3f4 td:last-child{border-right:1px solid transparent}.initiative-tracker-creature.svelte-1q4i3f4:hover td,.initiative-tracker-creature.viewing.svelte-1q4i3f4 td{border-top:1px solid var(--background-modifier-border);border-bottom:1px solid var(--background-modifier-border)}.initiative-tracker-creature.svelte-1q4i3f4:hover td:first-child,.initiative-tracker-creature.viewing.svelte-1q4i3f4 td:first-child{border-left:1px solid var(--background-modifier-border)}.initiative-tracker-creature.svelte-1q4i3f4:hover td:last-child,.initiative-tracker-creature.viewing.svelte-1q4i3f4 td:last-child{border-right:1px solid var(--background-modifier-border)}");
 }
-function get_each_context3(ctx, list, i) {
+function get_each_context6(ctx, list, i) {
   const child_ctx = ctx.slice();
-  child_ctx[12] = list[i].creature;
-  child_ctx[13] = list[i].id;
+  child_ctx[16] = list[i].creature;
+  child_ctx[17] = list[i].id;
   return child_ctx;
 }
-function create_else_block4(ctx) {
+function create_else_block6(ctx) {
   let div;
   return {
     c() {
@@ -27981,7 +28382,7 @@ function create_else_block4(ctx) {
     }
   };
 }
-function create_if_block4(ctx) {
+function create_if_block7(ctx) {
   let table;
   let thead;
   let th0;
@@ -28004,11 +28405,11 @@ function create_if_block4(ctx) {
   let mounted;
   let dispose;
   let each_value = ctx[2];
-  const get_key = (ctx2) => ctx2[13];
+  const get_key = (ctx2) => ctx2[17];
   for (let i = 0; i < each_value.length; i += 1) {
-    let child_ctx = get_each_context3(ctx, each_value, i);
+    let child_ctx = get_each_context6(ctx, each_value, i);
     let key = get_key(child_ctx);
-    each_1_lookup.set(key, each_blocks[i] = create_each_block3(key, child_ctx));
+    each_1_lookup.set(key, each_blocks[i] = create_each_block6(key, child_ctx));
   }
   return {
     c() {
@@ -28075,12 +28476,12 @@ function create_if_block4(ctx) {
       }
     },
     p(ctx2, dirty) {
-      if (dirty & 134) {
+      if (dirty & 390) {
         each_value = ctx2[2];
         group_outros();
         for (let i = 0; i < each_blocks.length; i += 1)
           each_blocks[i].r();
-        each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx2, each_value, each_1_lookup, tbody, fix_and_outro_and_destroy_block, create_each_block3, null, get_each_context3);
+        each_blocks = update_keyed_each(each_blocks, dirty, get_key, 1, ctx2, each_value, each_1_lookup, tbody, fix_and_outro_and_destroy_block, create_each_block6, null, get_each_context6);
         for (let i = 0; i < each_blocks.length; i += 1)
           each_blocks[i].a();
         check_outros();
@@ -28118,7 +28519,7 @@ function create_if_block4(ctx) {
     }
   };
 }
-function create_each_block3(key_1, ctx) {
+function create_each_block6(key_1, ctx) {
   let tr;
   let creaturetemplate;
   let t;
@@ -28128,12 +28529,16 @@ function create_each_block3(key_1, ctx) {
   let mounted;
   let dispose;
   creaturetemplate = new Creature_default({
-    props: { creature: ctx[12] }
+    props: { creature: ctx[16] }
   });
-  creaturetemplate.$on("hp", ctx[8]);
-  creaturetemplate.$on("tag", ctx[9]);
+  creaturetemplate.$on("hp", ctx[9]);
+  creaturetemplate.$on("tag", ctx[10]);
+  creaturetemplate.$on("edit", ctx[11]);
   function click_handler3() {
-    return ctx[10](ctx[12]);
+    return ctx[12](ctx[16]);
+  }
+  function contextmenu_handler(...args) {
+    return ctx[13](ctx[16], ...args);
   }
   return {
     key: key_1,
@@ -28143,9 +28548,9 @@ function create_each_block3(key_1, ctx) {
       create_component(creaturetemplate.$$.fragment);
       t = space();
       attr(tr, "class", "draggable initiative-tracker-creature svelte-1q4i3f4");
-      toggle_class(tr, "disabled", !ctx[12].enabled);
-      toggle_class(tr, "active", ctx[1] && ctx[12].active);
-      toggle_class(tr, "viewing", ctx[12].viewing);
+      toggle_class(tr, "disabled", !ctx[16].enabled);
+      toggle_class(tr, "active", ctx[1] && ctx[16].active);
+      toggle_class(tr, "viewing", ctx[16].viewing);
       this.first = tr;
     },
     m(target, anchor) {
@@ -28154,7 +28559,10 @@ function create_each_block3(key_1, ctx) {
       append(tr, t);
       current = true;
       if (!mounted) {
-        dispose = listen(tr, "click", click_handler3);
+        dispose = [
+          listen(tr, "click", click_handler3),
+          listen(tr, "contextmenu", contextmenu_handler)
+        ];
         mounted = true;
       }
     },
@@ -28162,16 +28570,16 @@ function create_each_block3(key_1, ctx) {
       ctx = new_ctx;
       const creaturetemplate_changes = {};
       if (dirty & 4)
-        creaturetemplate_changes.creature = ctx[12];
+        creaturetemplate_changes.creature = ctx[16];
       creaturetemplate.$set(creaturetemplate_changes);
       if (dirty & 4) {
-        toggle_class(tr, "disabled", !ctx[12].enabled);
+        toggle_class(tr, "disabled", !ctx[16].enabled);
       }
       if (dirty & 6) {
-        toggle_class(tr, "active", ctx[1] && ctx[12].active);
+        toggle_class(tr, "active", ctx[1] && ctx[16].active);
       }
       if (dirty & 4) {
-        toggle_class(tr, "viewing", ctx[12].viewing);
+        toggle_class(tr, "viewing", ctx[16].viewing);
       }
     },
     r() {
@@ -28200,16 +28608,16 @@ function create_each_block3(key_1, ctx) {
         detach(tr);
       destroy_component(creaturetemplate);
       mounted = false;
-      dispose();
+      run_all(dispose);
     }
   };
 }
-function create_fragment7(ctx) {
+function create_fragment10(ctx) {
   let div;
   let current_block_type_index;
   let if_block;
   let current;
-  const if_block_creators = [create_if_block4, create_else_block4];
+  const if_block_creators = [create_if_block7, create_else_block6];
   const if_blocks = [];
   function select_block_type(ctx2, dirty) {
     if (ctx2[0].length)
@@ -28268,16 +28676,17 @@ function create_fragment7(ctx) {
   };
 }
 var flipDurationMs = 300;
-function instance7($$self, $$props, $$invalidate) {
+function instance10($$self, $$props, $$invalidate) {
   let items;
   let { creatures = [] } = $$props;
   let { state } = $$props;
+  const dispatch = createEventDispatcher();
   const view = getContext("view");
   const hpIcon = (node) => {
-    (0, import_obsidian11.setIcon)(node, HP);
+    (0, import_obsidian14.setIcon)(node, HP);
   };
   const acIcon = (node) => {
-    (0, import_obsidian11.setIcon)(node, AC);
+    (0, import_obsidian14.setIcon)(node, AC);
   };
   function handleDndConsider(e) {
     $$invalidate(2, items = e.detail.items);
@@ -28298,13 +28707,67 @@ function instance7($$self, $$props, $$invalidate) {
   const openView = (creature) => {
     view.openCombatant(creature);
   };
+  const hamburgerIcon = (evt, creature) => {
+    evt.stopPropagation();
+    const menu = new import_obsidian14.Menu(view.plugin.app);
+    menu.addItem((item) => {
+      item.setIcon("pencil").setTitle("Edit").onClick(() => {
+        dispatch("edit", creature);
+      });
+    });
+    menu.addItem((item) => {
+      item.setIcon(TAG).setTitle("Add Status").onClick(() => {
+        dispatch("tag", creature);
+      });
+    });
+    if (creature.enabled) {
+      menu.addItem((item) => {
+        item.setIcon(DISABLE).setTitle("Disable").onClick(() => {
+          view.setCreatureState(creature, false);
+        });
+      });
+    } else {
+      menu.addItem((item) => {
+        item.setIcon(ENABLE).setTitle("Enable").onClick(() => {
+          view.setCreatureState(creature, true);
+        });
+      });
+    }
+    if (view.plugin.data.leafletIntegration) {
+      menu.addItem((item) => {
+        item.setIcon(MAPMARKER).setTitle("Change Marker").onClick((evt2) => {
+          const markerMenu = new import_obsidian14.Menu(view.plugin.app);
+          markerMenu.setNoIcon();
+          for (let marker of view.plugin.leaflet.markerIcons) {
+            markerMenu.addItem((item2) => {
+              item2.setTitle(marker.type);
+              item2.onClick(() => {
+                view.updateCreature(creature, { marker: marker.type });
+              });
+            });
+          }
+          markerMenu.showAtMouseEvent(evt2);
+        });
+      });
+    }
+    menu.addItem((item) => {
+      item.setIcon(REMOVE).setTitle("Remove").onClick(() => {
+        view.removeCreature(creature);
+      });
+    });
+    menu.showAtPosition(evt);
+  };
   function hp_handler(event) {
     bubble.call(this, $$self, event);
   }
   function tag_handler(event) {
     bubble.call(this, $$self, event);
   }
+  function edit_handler(event) {
+    bubble.call(this, $$self, event);
+  }
   const click_handler3 = (creature) => openView(creature);
+  const contextmenu_handler = (creature, evt) => hamburgerIcon(evt, creature);
   $$self.$$set = ($$props2) => {
     if ("creatures" in $$props2)
       $$invalidate(0, creatures = $$props2.creatures);
@@ -28328,26 +28791,74 @@ function instance7($$self, $$props, $$invalidate) {
     handleDndConsider,
     handleDndFinalize,
     openView,
+    hamburgerIcon,
     hp_handler,
     tag_handler,
-    click_handler3
+    edit_handler,
+    click_handler3,
+    contextmenu_handler
   ];
 }
 var Table = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance7, create_fragment7, safe_not_equal, { creatures: 0, state: 1 }, add_css7);
+    init(this, options, instance10, create_fragment10, safe_not_equal, { creatures: 0, state: 1 }, add_css9);
   }
 };
 var Table_default = Table;
 
 // src/svelte/Create.svelte
-var import_obsidian12 = __toModule(require("obsidian"));
-function add_css8(target) {
+var import_obsidian15 = __toModule(require("obsidian"));
+function add_css10(target) {
   append_styles(target, "svelte-1rjv45j", ".create-new.svelte-1rjv45j>.svelte-1rjv45j{display:grid;grid-template-columns:33% 66%;margin-bottom:0.5rem}.context-buttons.svelte-1rjv45j.svelte-1rjv45j{display:flex;justify-content:flex-end;align-items:center;grid-gap:0.125rem}.cancel-button.svelte-1rjv45j.svelte-1rjv45j{color:var(--text-faint)}.initiative.svelte-1rjv45j.svelte-1rjv45j{position:relative}.initiative.svelte-1rjv45j>.dice.svelte-1rjv45j{position:absolute;right:0.25rem;top:50%;transform:translateY(-50%)}");
 }
-function create_fragment8(ctx) {
-  let div7;
+function create_if_block8(ctx) {
+  let div;
+  let label;
+  let t1;
+  let input;
+  let mounted;
+  let dispose;
+  return {
+    c() {
+      div = element("div");
+      label = element("label");
+      label.textContent = "Amount";
+      t1 = space();
+      input = element("input");
+      attr(label, "for", "add-init");
+      attr(input, "id", "add-init");
+      attr(input, "type", "number");
+      attr(input, "name", "initiative");
+      attr(input, "tabindex", "0");
+      attr(div, "class", "amount svelte-1rjv45j");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      append(div, label);
+      append(div, t1);
+      append(div, input);
+      set_input_value(input, ctx[6]);
+      if (!mounted) {
+        dispose = listen(input, "input", ctx[17]);
+        mounted = true;
+      }
+    },
+    p(ctx2, dirty) {
+      if (dirty & 64 && to_number(input.value) !== ctx2[6]) {
+        set_input_value(input, ctx2[6]);
+      }
+    },
+    d(detaching) {
+      if (detaching)
+        detach(div);
+      mounted = false;
+      dispose();
+    }
+  };
+}
+function create_fragment11(ctx) {
+  let div6;
   let div0;
   let label0;
   let t1;
@@ -28376,22 +28887,19 @@ function create_fragment8(ctx) {
   let div4;
   let diceButton_action;
   let t15;
-  let div6;
-  let label5;
-  let t17;
-  let input5;
-  let t18;
-  let div10;
-  let div8;
-  let saveButton_action;
-  let t19;
+  let t16;
   let div9;
+  let div7;
+  let saveButton_action;
+  let t17;
+  let div8;
   let cancelButton_action;
   let mounted;
   let dispose;
+  let if_block = !ctx[5] && create_if_block8(ctx);
   return {
     c() {
-      div7 = element("div");
+      div6 = element("div");
       div0 = element("div");
       label0 = element("label");
       label0.textContent = "Name";
@@ -28424,16 +28932,13 @@ function create_fragment8(ctx) {
       t14 = space();
       div4 = element("div");
       t15 = space();
-      div6 = element("div");
-      label5 = element("label");
-      label5.textContent = "Amount";
-      t17 = space();
-      input5 = element("input");
-      t18 = space();
-      div10 = element("div");
-      div8 = element("div");
-      t19 = space();
+      if (if_block)
+        if_block.c();
+      t16 = space();
       div9 = element("div");
+      div7 = element("div");
+      t17 = space();
+      div8 = element("div");
       attr(label0, "for", "add-name");
       attr(input0, "id", "add-name");
       attr(input0, "type", "text");
@@ -28465,73 +28970,63 @@ function create_fragment8(ctx) {
       attr(input4, "tabindex", "0");
       attr(div4, "class", "dice svelte-1rjv45j");
       attr(div5, "class", "initiative svelte-1rjv45j");
-      attr(label5, "for", "add-init");
-      attr(input5, "id", "add-init");
-      attr(input5, "type", "number");
-      attr(input5, "name", "initiative");
-      attr(input5, "tabindex", "0");
-      attr(div6, "class", "amount svelte-1rjv45j");
-      attr(div7, "class", "create-new svelte-1rjv45j");
-      attr(div8, "class", "add-button");
-      attr(div9, "class", "add-button cancel-button svelte-1rjv45j");
-      attr(div10, "class", "context-buttons svelte-1rjv45j");
+      attr(div6, "class", "create-new svelte-1rjv45j");
+      attr(div7, "class", "add-button");
+      attr(div8, "class", "add-button cancel-button svelte-1rjv45j");
+      attr(div9, "class", "context-buttons svelte-1rjv45j");
     },
     m(target, anchor) {
-      insert(target, div7, anchor);
-      append(div7, div0);
+      insert(target, div6, anchor);
+      append(div6, div0);
       append(div0, label0);
       append(div0, t1);
       append(div0, input0);
       set_input_value(input0, ctx[0]);
-      append(div7, t2);
-      append(div7, div1);
+      append(div6, t2);
+      append(div6, div1);
       append(div1, label1);
       append(div1, t4);
       append(div1, input1);
       set_input_value(input1, ctx[1]);
-      append(div7, t5);
-      append(div7, div2);
+      append(div6, t5);
+      append(div6, div2);
       append(div2, label2);
       append(div2, t7);
       append(div2, input2);
       set_input_value(input2, ctx[3]);
-      append(div7, t8);
-      append(div7, div3);
+      append(div6, t8);
+      append(div6, div3);
       append(div3, label3);
       append(div3, t10);
       append(div3, input3);
       set_input_value(input3, ctx[4]);
-      append(div7, t11);
-      append(div7, div5);
+      append(div6, t11);
+      append(div6, div5);
       append(div5, label4);
       append(div5, t13);
       append(div5, input4);
       set_input_value(input4, ctx[2]);
       append(div5, t14);
       append(div5, div4);
-      append(div7, t15);
-      append(div7, div6);
-      append(div6, label5);
-      append(div6, t17);
-      append(div6, input5);
-      set_input_value(input5, ctx[5]);
-      insert(target, t18, anchor);
-      insert(target, div10, anchor);
-      append(div10, div8);
-      append(div10, t19);
-      append(div10, div9);
+      append(div6, t15);
+      if (if_block)
+        if_block.m(div6, null);
+      insert(target, t16, anchor);
+      insert(target, div9, anchor);
+      append(div9, div7);
+      append(div9, t17);
+      append(div9, div8);
       if (!mounted) {
         dispose = [
-          listen(input0, "input", ctx[10]),
-          listen(input0, "focus", ctx[11]),
-          listen(input1, "input", ctx[12]),
-          listen(input2, "input", ctx[13]),
-          listen(input3, "input", ctx[14]),
-          listen(input4, "input", ctx[15]),
-          action_destroyer(diceButton_action = ctx[8].call(null, div4)),
-          listen(input5, "input", ctx[16]),
-          action_destroyer(saveButton_action = ctx[6].call(null, div8)),
-          action_destroyer(cancelButton_action = ctx[7].call(null, div9))
+          listen(input0, "input", ctx[11]),
+          listen(input0, "focus", ctx[12]),
+          listen(input1, "input", ctx[13]),
+          listen(input2, "input", ctx[14]),
+          listen(input3, "input", ctx[15]),
+          listen(input4, "input", ctx[16]),
+          action_destroyer(diceButton_action = ctx[9].call(null, div4)),
+          action_destroyer(saveButton_action = ctx[7].call(null, div7)),
+          action_destroyer(cancelButton_action = ctx[8].call(null, div8))
         ];
         mounted = true;
       }
@@ -28552,40 +29047,52 @@ function create_fragment8(ctx) {
       if (dirty & 4 && to_number(input4.value) !== ctx2[2]) {
         set_input_value(input4, ctx2[2]);
       }
-      if (dirty & 32 && to_number(input5.value) !== ctx2[5]) {
-        set_input_value(input5, ctx2[5]);
+      if (!ctx2[5]) {
+        if (if_block) {
+          if_block.p(ctx2, dirty);
+        } else {
+          if_block = create_if_block8(ctx2);
+          if_block.c();
+          if_block.m(div6, null);
+        }
+      } else if (if_block) {
+        if_block.d(1);
+        if_block = null;
       }
     },
     i: noop,
     o: noop,
     d(detaching) {
       if (detaching)
-        detach(div7);
+        detach(div6);
+      if (if_block)
+        if_block.d();
       if (detaching)
-        detach(t18);
+        detach(t16);
       if (detaching)
-        detach(div10);
+        detach(div9);
       mounted = false;
       run_all(dispose);
     }
   };
 }
-function instance8($$self, $$props, $$invalidate) {
+function instance11($$self, $$props, $$invalidate) {
   const dispatch = createEventDispatcher();
   let view = getContext("view");
-  let name;
-  let hp;
-  let initiative;
-  let ac;
-  let modifier;
+  let { editing = false } = $$props;
+  let { name = null } = $$props;
+  let { hp = null } = $$props;
+  let { initiative = null } = $$props;
+  let { ac = null } = $$props;
+  let { modifier = null } = $$props;
   let xp;
   let player;
   let level;
   let number = 1;
   const saveButton = (node) => {
-    new import_obsidian12.ExtraButtonComponent(node).setTooltip("Add Creature").setIcon(SAVE).onClick(() => {
+    new import_obsidian15.ExtraButtonComponent(node).setTooltip("Add Creature").setIcon(SAVE).onClick(() => {
       if (!name || !(name === null || name === void 0 ? void 0 : name.length)) {
-        new import_obsidian12.Notice("Enter a name!");
+        new import_obsidian15.Notice("Enter a name!");
         return;
       }
       if (!modifier) {
@@ -28605,12 +29112,12 @@ function instance8($$self, $$props, $$invalidate) {
     });
   };
   const cancelButton = (node) => {
-    new import_obsidian12.ExtraButtonComponent(node).setTooltip("Cancel").setIcon("cross").onClick(() => {
+    new import_obsidian15.ExtraButtonComponent(node).setTooltip("Cancel").setIcon("cross").onClick(() => {
       dispatch("cancel");
     });
   };
   const diceButton = (node) => {
-    new import_obsidian12.ExtraButtonComponent(node).setIcon(DICE).setTooltip("Roll Initiative").onClick(() => {
+    new import_obsidian15.ExtraButtonComponent(node).setIcon(DICE).setTooltip("Roll Initiative").onClick(() => {
       $$invalidate(2, initiative = Math.floor(Math.random() * 19 + 1) + (modifier !== null && modifier !== void 0 ? modifier : 0));
     });
   };
@@ -28657,16 +29164,31 @@ function instance8($$self, $$props, $$invalidate) {
     initiative = to_number(this.value);
     $$invalidate(2, initiative);
   }
-  function input5_input_handler() {
+  function input_input_handler() {
     number = to_number(this.value);
-    $$invalidate(5, number);
+    $$invalidate(6, number);
   }
+  $$self.$$set = ($$props2) => {
+    if ("editing" in $$props2)
+      $$invalidate(5, editing = $$props2.editing);
+    if ("name" in $$props2)
+      $$invalidate(0, name = $$props2.name);
+    if ("hp" in $$props2)
+      $$invalidate(1, hp = $$props2.hp);
+    if ("initiative" in $$props2)
+      $$invalidate(2, initiative = $$props2.initiative);
+    if ("ac" in $$props2)
+      $$invalidate(3, ac = $$props2.ac);
+    if ("modifier" in $$props2)
+      $$invalidate(4, modifier = $$props2.modifier);
+  };
   return [
     name,
     hp,
     initiative,
     ac,
     modifier,
+    editing,
     number,
     saveButton,
     cancelButton,
@@ -28678,19 +29200,26 @@ function instance8($$self, $$props, $$invalidate) {
     input2_input_handler,
     input3_input_handler,
     input4_input_handler,
-    input5_input_handler
+    input_input_handler
   ];
 }
 var Create = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance8, create_fragment8, safe_not_equal, {}, add_css8);
+    init(this, options, instance11, create_fragment11, safe_not_equal, {
+      editing: 5,
+      name: 0,
+      hp: 1,
+      initiative: 2,
+      ac: 3,
+      modifier: 4
+    }, add_css10);
   }
 };
 var Create_default = Create;
 
 // src/svelte/App.svelte
-var import_obsidian15 = __toModule(require("obsidian"));
+var import_obsidian18 = __toModule(require("obsidian"));
 
 // node_modules/svelte/store/index.mjs
 var subscriber_queue = [];
@@ -28835,10 +29364,10 @@ function tweened(value, defaults = {}) {
 }
 
 // src/svelte/Difficulty.svelte
-function add_css9(target) {
+function add_css11(target) {
   append_styles(target, "svelte-137y560", ".difficulty-bar-container.svelte-137y560{display:grid;grid-template-columns:auto 1fr auto;gap:0.5rem;align-items:center;padding:0 0.5rem;margin-bottom:0.5rem;width:100%}.difficulty-bar.svelte-137y560{width:100%;border:1px solid #ccc;border-radius:3px}");
 }
-function create_if_block5(ctx) {
+function create_if_block9(ctx) {
   let div;
   let span0;
   let t1;
@@ -28890,9 +29419,9 @@ function create_if_block5(ctx) {
     }
   };
 }
-function create_fragment9(ctx) {
+function create_fragment12(ctx) {
   let if_block_anchor;
-  let if_block = ctx[0] && create_if_block5(ctx);
+  let if_block = ctx[0] && create_if_block9(ctx);
   return {
     c() {
       if (if_block)
@@ -28909,7 +29438,7 @@ function create_fragment9(ctx) {
         if (if_block) {
           if_block.p(ctx2, dirty);
         } else {
-          if_block = create_if_block5(ctx2);
+          if_block = create_if_block9(ctx2);
           if_block.c();
           if_block.m(if_block_anchor.parentNode, if_block_anchor);
         }
@@ -28928,7 +29457,7 @@ function create_fragment9(ctx) {
     }
   };
 }
-function instance9($$self, $$props, $$invalidate) {
+function instance12($$self, $$props, $$invalidate) {
   let $difficultyBar;
   var _a;
   let { creatures } = $$props;
@@ -28969,17 +29498,17 @@ function instance9($$self, $$props, $$invalidate) {
 var Difficulty = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance9, create_fragment9, safe_not_equal, { creatures: 4 }, add_css9);
+    init(this, options, instance12, create_fragment12, safe_not_equal, { creatures: 4 }, add_css11);
   }
 };
 var Difficulty_default = Difficulty;
 
 // src/svelte/SaveEncounter.svelte
-var import_obsidian13 = __toModule(require("obsidian"));
-function add_css10(target) {
+var import_obsidian16 = __toModule(require("obsidian"));
+function add_css12(target) {
   append_styles(target, "svelte-1ud8n4x", ".saving-container.svelte-1ud8n4x.svelte-1ud8n4x{padding:0.5rem}.saving-encounter.svelte-1ud8n4x.svelte-1ud8n4x{display:flex;align-items:center;justify-content:space-between}.save-buttons.svelte-1ud8n4x.svelte-1ud8n4x{margin-top:1rem;display:flex;justify-content:flex-end;gap:1rem}.save-buttons.svelte-1ud8n4x>div.svelte-1ud8n4x{display:flex;align-items:center}.save-buttons.svelte-1ud8n4x .clickable-icon{margin:0}.save-buttons.svelte-1ud8n4x>.save.svelte-1ud8n4x .clickable-icon.is-disabled{cursor:not-allowed;color:var(--text-faint)}");
 }
-function create_if_block6(ctx) {
+function create_if_block10(ctx) {
   let span;
   return {
     c() {
@@ -28996,7 +29525,7 @@ function create_if_block6(ctx) {
     }
   };
 }
-function create_fragment10(ctx) {
+function create_fragment13(ctx) {
   let div4;
   let div0;
   let span;
@@ -29012,7 +29541,7 @@ function create_fragment10(ctx) {
   let cancel_action;
   let mounted;
   let dispose;
-  let if_block = ctx[1] && create_if_block6(ctx);
+  let if_block = ctx[1] && create_if_block10(ctx);
   return {
     c() {
       div4 = element("div");
@@ -29068,7 +29597,7 @@ function create_fragment10(ctx) {
       if (ctx2[1]) {
         if (if_block) {
         } else {
-          if_block = create_if_block6(ctx2);
+          if_block = create_if_block10(ctx2);
           if_block.c();
           if_block.m(div3, t3);
         }
@@ -29089,7 +29618,7 @@ function create_fragment10(ctx) {
     }
   };
 }
-function instance10($$self, $$props, $$invalidate) {
+function instance13($$self, $$props, $$invalidate) {
   let { name } = $$props;
   let encounterName = name;
   const view = getContext("view");
@@ -29103,7 +29632,7 @@ function instance10($$self, $$props, $$invalidate) {
   };
   let checking = false;
   const save = (node) => {
-    saveButton = new import_obsidian13.ExtraButtonComponent(node).setIcon(SAVE).setDisabled(!(encounterName != void 0 && (encounterName === null || encounterName === void 0 ? void 0 : encounterName.length) > 0)).onClick(() => __awaiter(void 0, void 0, void 0, function* () {
+    saveButton = new import_obsidian16.ExtraButtonComponent(node).setIcon(SAVE).setDisabled(!(encounterName != void 0 && (encounterName === null || encounterName === void 0 ? void 0 : encounterName.length) > 0)).onClick(() => __awaiter(void 0, void 0, void 0, function* () {
       if (encounterName && encounterName in view.plugin.data.encounters && !checking) {
         $$invalidate(1, checking = true);
       } else {
@@ -29114,7 +29643,7 @@ function instance10($$self, $$props, $$invalidate) {
   };
   const dispatch = createEventDispatcher();
   const cancel = (node) => {
-    new import_obsidian13.ExtraButtonComponent(node).setIcon("cross").onClick(() => {
+    new import_obsidian16.ExtraButtonComponent(node).setIcon("cross").onClick(() => {
       dispatch("cancel");
     });
   };
@@ -29131,22 +29660,22 @@ function instance10($$self, $$props, $$invalidate) {
 var SaveEncounter = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance10, create_fragment10, safe_not_equal, { name: 5 }, add_css10);
+    init(this, options, instance13, create_fragment13, safe_not_equal, { name: 5 }, add_css12);
   }
 };
 var SaveEncounter_default = SaveEncounter;
 
 // src/svelte/LoadEncounter.svelte
-var import_obsidian14 = __toModule(require("obsidian"));
-function add_css11(target) {
+var import_obsidian17 = __toModule(require("obsidian"));
+function add_css13(target) {
   append_styles(target, "svelte-vsvyan", ".controls.svelte-vsvyan.svelte-vsvyan{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--background-modifier-border)}.controls.svelte-vsvyan h4.svelte-vsvyan{margin:0}.loading-container.svelte-vsvyan.svelte-vsvyan{display:flex;flex-flow:column nowrap;gap:0.5rem;padding:0.5rem;height:100%}.loading-container.svelte-vsvyan .clickable-icon{margin:0}.encounter-container.svelte-vsvyan.svelte-vsvyan{height:100%;display:flex;flex-flow:column nowrap;gap:1rem;overflow-y:auto}.no-encounters.svelte-vsvyan.svelte-vsvyan{color:var(--text-muted);display:flex;justify-content:center}.encounter.svelte-vsvyan.svelte-vsvyan{display:flex;justify-content:space-between;align-items:center}.encounter-controls.svelte-vsvyan.svelte-vsvyan{display:flex;align-items:center;gap:1rem}");
 }
-function get_each_context4(ctx, list, i) {
+function get_each_context7(ctx, list, i) {
   const child_ctx = ctx.slice();
   child_ctx[7] = list[i];
   return child_ctx;
 }
-function create_if_block7(ctx) {
+function create_if_block11(ctx) {
   let span;
   return {
     c() {
@@ -29163,7 +29692,7 @@ function create_if_block7(ctx) {
     }
   };
 }
-function create_each_block4(ctx) {
+function create_each_block7(ctx) {
   let div3;
   let span;
   let t0_value = ctx[7] + "";
@@ -29227,8 +29756,7 @@ function create_each_block4(ctx) {
     }
   };
 }
-function create_fragment11(ctx) {
-  var _a;
+function create_fragment14(ctx) {
   let div3;
   let div1;
   let h4;
@@ -29237,15 +29765,15 @@ function create_fragment11(ctx) {
   let cancel_action;
   let t2;
   let div2;
-  let show_if = !ctx[0] || !((_a = Object.keys(ctx[0])) == null ? void 0 : _a.length);
+  let show_if = !ctx[0] || !Object.keys(ctx[0])?.length;
   let t3;
   let mounted;
   let dispose;
-  let if_block = show_if && create_if_block7(ctx);
+  let if_block = show_if && create_if_block11(ctx);
   let each_value = Object.keys(ctx[0]);
   let each_blocks = [];
   for (let i = 0; i < each_value.length; i += 1) {
-    each_blocks[i] = create_each_block4(get_each_context4(ctx, each_value, i));
+    each_blocks[i] = create_each_block7(get_each_context7(ctx, each_value, i));
   }
   return {
     c() {
@@ -29291,13 +29819,12 @@ function create_fragment11(ctx) {
       }
     },
     p(ctx2, [dirty]) {
-      var _a2;
       if (dirty & 1)
-        show_if = !ctx2[0] || !((_a2 = Object.keys(ctx2[0])) == null ? void 0 : _a2.length);
+        show_if = !ctx2[0] || !Object.keys(ctx2[0])?.length;
       if (show_if) {
         if (if_block) {
         } else {
-          if_block = create_if_block7(ctx2);
+          if_block = create_if_block11(ctx2);
           if_block.c();
           if_block.m(div2, t3);
         }
@@ -29309,11 +29836,11 @@ function create_fragment11(ctx) {
         each_value = Object.keys(ctx2[0]);
         let i;
         for (i = 0; i < each_value.length; i += 1) {
-          const child_ctx = get_each_context4(ctx2, each_value, i);
+          const child_ctx = get_each_context7(ctx2, each_value, i);
           if (each_blocks[i]) {
             each_blocks[i].p(child_ctx, dirty);
           } else {
-            each_blocks[i] = create_each_block4(child_ctx);
+            each_blocks[i] = create_each_block7(child_ctx);
             each_blocks[i].c();
             each_blocks[i].m(div2, null);
           }
@@ -29337,21 +29864,21 @@ function create_fragment11(ctx) {
     }
   };
 }
-function instance11($$self, $$props, $$invalidate) {
+function instance14($$self, $$props, $$invalidate) {
   let encounters;
   const dispatch = createEventDispatcher();
   const view = getContext("view");
   const cancel = (node) => {
-    new import_obsidian14.ExtraButtonComponent(node).setIcon("cross").setTooltip("Cancel");
+    new import_obsidian17.ExtraButtonComponent(node).setIcon("cross").setTooltip("Cancel");
   };
   const load = (node, encounter) => {
-    new import_obsidian14.ExtraButtonComponent(node).setIcon("open-elsewhere-glyph").setTooltip("Load Encounter").onClick(() => {
+    new import_obsidian17.ExtraButtonComponent(node).setIcon("open-elsewhere-glyph").setTooltip("Load Encounter").onClick(() => {
       view.loadEncounter(encounter);
       dispatch("cancel");
     });
   };
   const trash = (node, encounter) => {
-    new import_obsidian14.ExtraButtonComponent(node).setIcon("trash").setTooltip("Delete Encounter").onClick(() => {
+    new import_obsidian17.ExtraButtonComponent(node).setIcon("trash").setTooltip("Delete Encounter").onClick(() => {
       delete view.plugin.data.encounters[encounter];
       $$invalidate(0, encounters = view.plugin.data.encounters);
     });
@@ -29364,21 +29891,53 @@ function instance11($$self, $$props, $$invalidate) {
 var LoadEncounter = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance11, create_fragment11, safe_not_equal, {}, add_css11);
+    init(this, options, instance14, create_fragment14, safe_not_equal, {}, add_css13);
   }
 };
 var LoadEncounter_default = LoadEncounter;
 
 // src/svelte/App.svelte
-function add_css12(target) {
-  append_styles(target, "svelte-1nwugqa", ".obsidian-initiative-tracker.svelte-1nwugqa{margin:0.5rem;min-width:180px}.add-creature-container.svelte-1nwugqa{display:flex;flex-flow:column nowrap;justify-content:flex-start;margin-right:0.5rem}.context-container.svelte-1nwugqa{display:flex;flex-flow:row nowrap;justify-content:space-between}.copy-button.svelte-1nwugqa{width:min-content;opacity:0.25}.copy-button.svelte-1nwugqa:hover{opacity:1}.add-button.svelte-1nwugqa{width:min-content}.add-button.svelte-1nwugqa .clickable-icon{margin:0}.initiative-tracker-name-container.svelte-1nwugqa{display:flex;justify-content:space-between;align-items:center;padding:0 0.5rem}.initiative-tracker-name.svelte-1nwugqa{margin:0}");
+function add_css14(target) {
+  append_styles(target, "svelte-gq0izh", ".obsidian-initiative-tracker.svelte-gq0izh{margin:0.5rem;min-width:180px}.initiative-tracker-round-container.svelte-gq0izh{padding:0 0.5rem}.add-creature-container.svelte-gq0izh{display:flex;flex-flow:column nowrap;justify-content:flex-start;margin-right:0.5rem}.context-container.svelte-gq0izh{display:flex;flex-flow:row nowrap;justify-content:space-between}.copy-button.svelte-gq0izh{width:min-content;opacity:0.25}.copy-button.svelte-gq0izh:hover{opacity:1}.add-button.svelte-gq0izh{width:min-content}.add-button.svelte-gq0izh .clickable-icon{margin:0}.initiative-tracker-name-container.svelte-gq0izh{display:flex;justify-content:space-between;align-items:center;padding:0 0.5rem}.initiative-tracker-name.svelte-gq0izh{margin:0}");
+}
+function create_if_block_8(ctx) {
+  let div;
+  let small;
+  let em;
+  let t0;
+  let t1;
+  return {
+    c() {
+      div = element("div");
+      small = element("small");
+      em = element("em");
+      t0 = text("Round ");
+      t1 = text(ctx[8]);
+      attr(div, "class", "initiative-tracker-round-container svelte-gq0izh");
+    },
+    m(target, anchor) {
+      insert(target, div, anchor);
+      append(div, small);
+      append(small, em);
+      append(em, t0);
+      append(em, t1);
+    },
+    p(ctx2, dirty) {
+      if (dirty[0] & 256)
+        set_data(t1, ctx2[8]);
+    },
+    d(detaching) {
+      if (detaching)
+        detach(div);
+    }
+  };
 }
 function create_if_block_62(ctx) {
   let div;
   let h2;
   let t0;
   let t1;
-  let if_block = ctx[8] > 0 && create_if_block_72(ctx);
+  let if_block = ctx[9] > 0 && create_if_block_72(ctx);
   return {
     c() {
       div = element("div");
@@ -29387,8 +29946,8 @@ function create_if_block_62(ctx) {
       t1 = space();
       if (if_block)
         if_block.c();
-      attr(h2, "class", "initiative-tracker-name svelte-1nwugqa");
-      attr(div, "class", "initiative-tracker-name-container svelte-1nwugqa");
+      attr(h2, "class", "initiative-tracker-name svelte-gq0izh");
+      attr(div, "class", "initiative-tracker-name-container svelte-gq0izh");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -29401,7 +29960,7 @@ function create_if_block_62(ctx) {
     p(ctx2, dirty) {
       if (dirty[0] & 16)
         set_data(t0, ctx2[4]);
-      if (ctx2[8] > 0) {
+      if (ctx2[9] > 0) {
         if (if_block) {
           if_block.p(ctx2, dirty);
         } else {
@@ -29429,7 +29988,7 @@ function create_if_block_72(ctx) {
   return {
     c() {
       span = element("span");
-      t0 = text(ctx[8]);
+      t0 = text(ctx[9]);
       t1 = text(" XP");
       attr(span, "class", "initiative-tracker-xp encounter-xp");
     },
@@ -29439,8 +29998,8 @@ function create_if_block_72(ctx) {
       append(span, t1);
     },
     p(ctx2, dirty) {
-      if (dirty[0] & 256)
-        set_data(t0, ctx2[8]);
+      if (dirty[0] & 512)
+        set_data(t0, ctx2[9]);
     },
     d(detaching) {
       if (detaching)
@@ -29448,7 +30007,7 @@ function create_if_block_72(ctx) {
     }
   };
 }
-function create_if_block_52(ctx) {
+function create_if_block_53(ctx) {
   let difficulty;
   let current;
   difficulty = new Difficulty_default({
@@ -29483,15 +30042,15 @@ function create_if_block_52(ctx) {
     }
   };
 }
-function create_else_block5(ctx) {
+function create_else_block7(ctx) {
   let div;
   let current_block_type_index;
   let if_block;
   let current;
-  const if_block_creators = [create_if_block_42, create_else_block_1];
+  const if_block_creators = [create_if_block_43, create_else_block_12];
   const if_blocks = [];
   function select_block_type_1(ctx2, dirty) {
-    if (ctx2[9] || ctx2[2])
+    if (ctx2[11] || ctx2[10] || ctx2[2])
       return 0;
     return 1;
   }
@@ -29501,7 +30060,7 @@ function create_else_block5(ctx) {
     c() {
       div = element("div");
       if_block.c();
-      attr(div, "class", "add-creature-container svelte-1nwugqa");
+      attr(div, "class", "add-creature-container svelte-gq0izh");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -29547,11 +30106,11 @@ function create_else_block5(ctx) {
     }
   };
 }
-function create_if_block_32(ctx) {
+function create_if_block_33(ctx) {
   let loadencounter;
   let current;
   loadencounter = new LoadEncounter_default({});
-  loadencounter.$on("cancel", ctx[30]);
+  loadencounter.$on("cancel", ctx[33]);
   return {
     c() {
       create_component(loadencounter.$$.fragment);
@@ -29576,11 +30135,11 @@ function create_if_block_32(ctx) {
     }
   };
 }
-function create_if_block_22(ctx) {
+function create_if_block_24(ctx) {
   let saveencounter;
   let current;
   saveencounter = new SaveEncounter_default({ props: { name: ctx[4] } });
-  saveencounter.$on("cancel", ctx[29]);
+  saveencounter.$on("cancel", ctx[32]);
   return {
     c() {
       create_component(saveencounter.$$.fragment);
@@ -29610,7 +30169,7 @@ function create_if_block_22(ctx) {
     }
   };
 }
-function create_if_block_13(ctx) {
+function create_if_block_15(ctx) {
   let div;
   let span;
   let t1;
@@ -29635,8 +30194,8 @@ function create_if_block_13(ctx) {
       append(div, input);
       if (!mounted) {
         dispose = [
-          listen(input, "focus", ctx[27]),
-          listen(input, "blur", ctx[28]),
+          listen(input, "focus", ctx[30]),
+          listen(input, "blur", ctx[31]),
           listen(input, "keydown", keydown_handler_1),
           action_destroyer(init_action = init2.call(null, input))
         ];
@@ -29654,7 +30213,7 @@ function create_if_block_13(ctx) {
     }
   };
 }
-function create_if_block8(ctx) {
+function create_if_block12(ctx) {
   let div;
   let span;
   let t1;
@@ -29679,8 +30238,8 @@ function create_if_block8(ctx) {
       append(div, input);
       if (!mounted) {
         dispose = [
-          listen(input, "blur", ctx[26]),
-          listen(input, "keydown", keydown_handler3),
+          listen(input, "blur", ctx[29]),
+          listen(input, "keydown", keydown_handler2),
           action_destroyer(init_action = init2.call(null, input))
         ];
         mounted = true;
@@ -29697,7 +30256,7 @@ function create_if_block8(ctx) {
     }
   };
 }
-function create_else_block_1(ctx) {
+function create_else_block_12(ctx) {
   let div2;
   let div0;
   let copyButton_action;
@@ -29712,9 +30271,9 @@ function create_else_block_1(ctx) {
       div0 = element("div");
       t = space();
       div1 = element("div");
-      attr(div0, "class", "copy-button svelte-1nwugqa");
-      attr(div1, "class", "add-button svelte-1nwugqa");
-      attr(div2, "class", "context-container svelte-1nwugqa");
+      attr(div0, "class", "copy-button svelte-gq0izh");
+      attr(div1, "class", "add-button svelte-gq0izh");
+      attr(div2, "class", "context-container svelte-gq0izh");
     },
     m(target, anchor) {
       insert(target, div2, anchor);
@@ -29723,8 +30282,8 @@ function create_else_block_1(ctx) {
       append(div2, div1);
       if (!mounted) {
         dispose = [
-          action_destroyer(copyButton_action = ctx[18].call(null, div0)),
-          action_destroyer(addButton_action = ctx[17].call(null, div1))
+          action_destroyer(copyButton_action = ctx[20].call(null, div0)),
+          action_destroyer(addButton_action = ctx[19].call(null, div1))
         ];
         mounted = true;
       }
@@ -29740,12 +30299,21 @@ function create_else_block_1(ctx) {
     }
   };
 }
-function create_if_block_42(ctx) {
+function create_if_block_43(ctx) {
   let create;
   let current;
-  create = new Create_default({});
-  create.$on("cancel", ctx[31]);
-  create.$on("save", ctx[32]);
+  create = new Create_default({
+    props: {
+      editing: ctx[11] != null,
+      name: ctx[11]?.name,
+      hp: `${ctx[11]?.hp}`,
+      initiative: ctx[11]?.initiative,
+      modifier: ctx[11]?.modifier,
+      ac: `${ctx[11]?.ac}`
+    }
+  });
+  create.$on("cancel", ctx[34]);
+  create.$on("save", ctx[35]);
   return {
     c() {
       create_component(create.$$.fragment);
@@ -29754,7 +30322,22 @@ function create_if_block_42(ctx) {
       mount_component(create, target, anchor);
       current = true;
     },
-    p: noop,
+    p(ctx2, dirty) {
+      const create_changes = {};
+      if (dirty[0] & 2048)
+        create_changes.editing = ctx2[11] != null;
+      if (dirty[0] & 2048)
+        create_changes.name = ctx2[11]?.name;
+      if (dirty[0] & 2048)
+        create_changes.hp = `${ctx2[11]?.hp}`;
+      if (dirty[0] & 2048)
+        create_changes.initiative = ctx2[11]?.initiative;
+      if (dirty[0] & 2048)
+        create_changes.modifier = ctx2[11]?.modifier;
+      if (dirty[0] & 2048)
+        create_changes.ac = `${ctx2[11]?.ac}`;
+      create.$set(create_changes);
+    },
     i(local) {
       if (current)
         return;
@@ -29770,41 +30353,44 @@ function create_if_block_42(ctx) {
     }
   };
 }
-function create_fragment12(ctx) {
+function create_fragment15(ctx) {
   let div;
   let controls;
   let t0;
   let t1;
-  let table;
   let t2;
+  let table;
   let t3;
+  let t4;
   let current_block_type_index;
-  let if_block2;
+  let if_block3;
   let current;
   controls = new Controls_default({
     props: {
       state: ctx[5],
-      map: ctx[14]
+      map: ctx[16]
     }
   });
-  controls.$on("save", ctx[22]);
-  controls.$on("load", ctx[23]);
-  let if_block0 = ctx[4] && ctx[4].length && create_if_block_62(ctx);
+  controls.$on("save", ctx[24]);
+  controls.$on("load", ctx[25]);
+  let if_block0 = ctx[5] && create_if_block_8(ctx);
+  let if_block1 = ctx[4] && ctx[4].length && create_if_block_62(ctx);
   table = new Table_default({
     props: {
       creatures: ctx[3],
       state: ctx[5]
     }
   });
-  table.$on("hp", ctx[24]);
-  table.$on("tag", ctx[25]);
-  let if_block1 = ctx[6].data.displayDifficulty && create_if_block_52(ctx);
+  table.$on("hp", ctx[26]);
+  table.$on("tag", ctx[27]);
+  table.$on("edit", ctx[28]);
+  let if_block2 = ctx[6].data.displayDifficulty && create_if_block_53(ctx);
   const if_block_creators = [
-    create_if_block8,
-    create_if_block_13,
-    create_if_block_22,
-    create_if_block_32,
-    create_else_block5
+    create_if_block12,
+    create_if_block_15,
+    create_if_block_24,
+    create_if_block_33,
+    create_else_block7
   ];
   const if_blocks = [];
   function select_block_type(ctx2, dirty) {
@@ -29812,14 +30398,14 @@ function create_fragment12(ctx) {
       return 0;
     if (ctx2[1])
       return 1;
-    if (ctx2[11])
+    if (ctx2[13])
       return 2;
-    if (ctx2[12])
+    if (ctx2[14])
       return 3;
     return 4;
   }
   current_block_type_index = select_block_type(ctx, [-1, -1]);
-  if_block2 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+  if_block3 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
   return {
     c() {
       div = element("div");
@@ -29828,13 +30414,16 @@ function create_fragment12(ctx) {
       if (if_block0)
         if_block0.c();
       t1 = space();
-      create_component(table.$$.fragment);
-      t2 = space();
       if (if_block1)
         if_block1.c();
+      t2 = space();
+      create_component(table.$$.fragment);
       t3 = space();
-      if_block2.c();
-      attr(div, "class", "obsidian-initiative-tracker svelte-1nwugqa");
+      if (if_block2)
+        if_block2.c();
+      t4 = space();
+      if_block3.c();
+      attr(div, "class", "obsidian-initiative-tracker svelte-gq0izh");
     },
     m(target, anchor) {
       insert(target, div, anchor);
@@ -29843,11 +30432,14 @@ function create_fragment12(ctx) {
       if (if_block0)
         if_block0.m(div, null);
       append(div, t1);
-      mount_component(table, div, null);
-      append(div, t2);
       if (if_block1)
         if_block1.m(div, null);
+      append(div, t2);
+      mount_component(table, div, null);
       append(div, t3);
+      if (if_block2)
+        if_block2.m(div, null);
+      append(div, t4);
       if_blocks[current_block_type_index].m(div, null);
       current = true;
     },
@@ -29856,17 +30448,29 @@ function create_fragment12(ctx) {
       if (dirty[0] & 32)
         controls_changes.state = ctx2[5];
       controls.$set(controls_changes);
-      if (ctx2[4] && ctx2[4].length) {
+      if (ctx2[5]) {
         if (if_block0) {
           if_block0.p(ctx2, dirty);
         } else {
-          if_block0 = create_if_block_62(ctx2);
+          if_block0 = create_if_block_8(ctx2);
           if_block0.c();
           if_block0.m(div, t1);
         }
       } else if (if_block0) {
         if_block0.d(1);
         if_block0 = null;
+      }
+      if (ctx2[4] && ctx2[4].length) {
+        if (if_block1) {
+          if_block1.p(ctx2, dirty);
+        } else {
+          if_block1 = create_if_block_62(ctx2);
+          if_block1.c();
+          if_block1.m(div, t2);
+        }
+      } else if (if_block1) {
+        if_block1.d(1);
+        if_block1 = null;
       }
       const table_changes = {};
       if (dirty[0] & 8)
@@ -29875,21 +30479,21 @@ function create_fragment12(ctx) {
         table_changes.state = ctx2[5];
       table.$set(table_changes);
       if (ctx2[6].data.displayDifficulty) {
-        if (if_block1) {
-          if_block1.p(ctx2, dirty);
+        if (if_block2) {
+          if_block2.p(ctx2, dirty);
           if (dirty[0] & 64) {
-            transition_in(if_block1, 1);
+            transition_in(if_block2, 1);
           }
         } else {
-          if_block1 = create_if_block_52(ctx2);
-          if_block1.c();
-          transition_in(if_block1, 1);
-          if_block1.m(div, t3);
+          if_block2 = create_if_block_53(ctx2);
+          if_block2.c();
+          transition_in(if_block2, 1);
+          if_block2.m(div, t4);
         }
-      } else if (if_block1) {
+      } else if (if_block2) {
         group_outros();
-        transition_out(if_block1, 1, 1, () => {
-          if_block1 = null;
+        transition_out(if_block2, 1, 1, () => {
+          if_block2 = null;
         });
         check_outros();
       }
@@ -29903,15 +30507,15 @@ function create_fragment12(ctx) {
           if_blocks[previous_block_index] = null;
         });
         check_outros();
-        if_block2 = if_blocks[current_block_type_index];
-        if (!if_block2) {
-          if_block2 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx2);
-          if_block2.c();
+        if_block3 = if_blocks[current_block_type_index];
+        if (!if_block3) {
+          if_block3 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx2);
+          if_block3.c();
         } else {
-          if_block2.p(ctx2, dirty);
+          if_block3.p(ctx2, dirty);
         }
-        transition_in(if_block2, 1);
-        if_block2.m(div, null);
+        transition_in(if_block3, 1);
+        if_block3.m(div, null);
       }
     },
     i(local) {
@@ -29919,15 +30523,15 @@ function create_fragment12(ctx) {
         return;
       transition_in(controls.$$.fragment, local);
       transition_in(table.$$.fragment, local);
-      transition_in(if_block1);
       transition_in(if_block2);
+      transition_in(if_block3);
       current = true;
     },
     o(local) {
       transition_out(controls.$$.fragment, local);
       transition_out(table.$$.fragment, local);
-      transition_out(if_block1);
       transition_out(if_block2);
+      transition_out(if_block3);
       current = false;
     },
     d(detaching) {
@@ -29936,9 +30540,11 @@ function create_fragment12(ctx) {
       destroy_component(controls);
       if (if_block0)
         if_block0.d();
-      destroy_component(table);
       if (if_block1)
         if_block1.d();
+      destroy_component(table);
+      if (if_block2)
+        if_block2.d();
       if_blocks[current_block_type_index].d();
     }
   };
@@ -29946,7 +30552,7 @@ function create_fragment12(ctx) {
 function init2(el) {
   el.focus();
 }
-var keydown_handler3 = function(evt) {
+var keydown_handler2 = function(evt) {
   if (evt.key === "Enter" || evt.key === "Tab") {
     evt.preventDefault();
     this.blur();
@@ -29979,7 +30585,7 @@ var keydown_handler_1 = function(evt) {
     return;
   }
 };
-function instance12($$self, $$props, $$invalidate) {
+function instance15($$self, $$props, $$invalidate) {
   var _a;
   const dispatch = createEventDispatcher();
   let { creatures = [] } = $$props;
@@ -29988,6 +30594,7 @@ function instance12($$self, $$props, $$invalidate) {
   let { xp } = $$props;
   let { plugin } = $$props;
   let { view } = $$props;
+  let { round: round3 } = $$props;
   let map = plugin.data.leafletIntegration;
   setContext("plugin", plugin);
   setContext("view", view);
@@ -30004,34 +30611,38 @@ function instance12($$self, $$props, $$invalidate) {
   };
   let addNew = false;
   let { addNewAsync = false } = $$props;
+  let editCreature = null;
   const addButton = (node) => {
-    new import_obsidian15.ExtraButtonComponent(node).setTooltip("Add Creature").setIcon(ADD).onClick(() => {
-      $$invalidate(9, addNew = true);
+    new import_obsidian18.ExtraButtonComponent(node).setTooltip("Add Creature").setIcon(ADD).onClick(() => {
+      $$invalidate(10, addNew = true);
     });
   };
   const copyButton = (node) => {
-    new import_obsidian15.ExtraButtonComponent(node).setTooltip("Copy Initiative Order").setIcon(COPY).onClick(() => __awaiter(void 0, void 0, void 0, function* () {
+    new import_obsidian18.ExtraButtonComponent(node).setTooltip("Copy Initiative Order").setIcon(COPY).onClick(() => __awaiter(void 0, void 0, void 0, function* () {
       const contents = creatures.map((creature) => `${creature.initiative} ${creature.name}`).join("\n");
       yield navigator.clipboard.writeText(contents);
     }));
   };
   let modal;
   const suggestConditions = (node) => {
-    $$invalidate(10, modal = new ConditionSuggestionModal(view.plugin, node));
-    $$invalidate(10, modal.onClose = () => {
+    $$invalidate(12, modal = new ConditionSuggestionModal(view.plugin, node));
+    $$invalidate(12, modal.onClose = () => {
       node.blur();
     }, modal);
     modal.open();
   };
   let saving = false;
   let loading = false;
-  const save_handler = () => $$invalidate(11, saving = true);
-  const load_handler = () => $$invalidate(12, loading = true);
+  const save_handler = () => $$invalidate(13, saving = true);
+  const load_handler = () => $$invalidate(14, loading = true);
   const hp_handler = (evt) => {
     $$invalidate(0, updatingHP = evt.detail);
   };
   const tag_handler = (evt) => {
     $$invalidate(1, updatingStatus = evt.detail);
+  };
+  const edit_handler = (evt) => {
+    $$invalidate(11, editCreature = evt.detail);
   };
   const blur_handler = function(evt) {
     updateHP(Number(this.value));
@@ -30046,11 +30657,12 @@ function instance12($$self, $$props, $$invalidate) {
     }
     addStatus(modal.condition);
   };
-  const cancel_handler = () => $$invalidate(11, saving = false);
-  const cancel_handler_1 = () => $$invalidate(12, loading = false);
+  const cancel_handler = () => $$invalidate(13, saving = false);
+  const cancel_handler_1 = () => $$invalidate(14, loading = false);
   const cancel_handler_2 = () => {
-    $$invalidate(9, addNew = false);
+    $$invalidate(10, addNew = false);
     $$invalidate(2, addNewAsync = false);
+    $$invalidate(11, editCreature = null);
     dispatch("cancel-add-new-async");
   };
   const save_handler_1 = (evt) => {
@@ -30067,12 +30679,19 @@ function instance12($$self, $$props, $$invalidate) {
     }, creature.initiative);
     if (addNewAsync) {
       dispatch("add-new-async", newCreature);
+    } else if (editCreature) {
+      $$invalidate(11, editCreature.name = creature.name, editCreature);
+      $$invalidate(11, editCreature.ac = creature.ac, editCreature);
+      $$invalidate(11, editCreature.initiative = creature.initiative, editCreature);
+      $$invalidate(11, editCreature.modifier = creature.modifier, editCreature);
+      view.updateCreature(editCreature, { name: creature.name });
     } else {
       const number = Math.max(isNaN(creature.number) ? 1 : creature.number, 1);
       view.addCreatures([...Array(number).keys()].map((k) => Creature.new(newCreature)));
     }
-    $$invalidate(9, addNew = false);
+    $$invalidate(10, addNew = false);
     $$invalidate(2, addNewAsync = false);
+    $$invalidate(11, editCreature = null);
   };
   $$self.$$set = ($$props2) => {
     if ("creatures" in $$props2)
@@ -30082,11 +30701,13 @@ function instance12($$self, $$props, $$invalidate) {
     if ("state" in $$props2)
       $$invalidate(5, state = $$props2.state);
     if ("xp" in $$props2)
-      $$invalidate(20, xp = $$props2.xp);
+      $$invalidate(22, xp = $$props2.xp);
     if ("plugin" in $$props2)
       $$invalidate(6, plugin = $$props2.plugin);
     if ("view" in $$props2)
       $$invalidate(7, view = $$props2.view);
+    if ("round" in $$props2)
+      $$invalidate(8, round3 = $$props2.round);
     if ("updatingHP" in $$props2)
       $$invalidate(0, updatingHP = $$props2.updatingHP);
     if ("updatingStatus" in $$props2)
@@ -30095,10 +30716,10 @@ function instance12($$self, $$props, $$invalidate) {
       $$invalidate(2, addNewAsync = $$props2.addNewAsync);
   };
   $$self.$$.update = () => {
-    if ($$self.$$.dirty[0] & 3145736) {
+    if ($$self.$$.dirty[0] & 12582920) {
       $: {
         if (!xp) {
-          $$invalidate(8, totalXP = $$invalidate(21, _a = creatures === null || creatures === void 0 ? void 0 : creatures.filter((creature) => creature.xp)) === null || _a === void 0 ? void 0 : _a.reduce((num, cr) => num + cr.xp, 0));
+          $$invalidate(9, totalXP = $$invalidate(23, _a = creatures === null || creatures === void 0 ? void 0 : creatures.filter((creature) => creature.xp)) === null || _a === void 0 ? void 0 : _a.reduce((num, cr) => num + cr.xp, 0));
         }
       }
     }
@@ -30112,8 +30733,10 @@ function instance12($$self, $$props, $$invalidate) {
     state,
     plugin,
     view,
+    round3,
     totalXP,
     addNew,
+    editCreature,
     modal,
     saving,
     loading,
@@ -30130,6 +30753,7 @@ function instance12($$self, $$props, $$invalidate) {
     load_handler,
     hp_handler,
     tag_handler,
+    edit_handler,
     blur_handler,
     focus_handler,
     blur_handler_1,
@@ -30139,26 +30763,27 @@ function instance12($$self, $$props, $$invalidate) {
     save_handler_1
   ];
 }
-var App2 = class extends SvelteComponent {
+var App3 = class extends SvelteComponent {
   constructor(options) {
     super();
-    init(this, options, instance12, create_fragment12, safe_not_equal, {
+    init(this, options, instance15, create_fragment15, safe_not_equal, {
       creatures: 3,
       name: 4,
       state: 5,
-      xp: 20,
+      xp: 22,
       plugin: 6,
       view: 7,
+      round: 8,
       updatingHP: 0,
       updatingStatus: 1,
       addNewAsync: 2
-    }, add_css12, [-1, -1]);
+    }, add_css14, [-1, -1]);
   }
 };
-var App_default = App2;
+var App_default = App3;
 
 // src/view.ts
-var TrackerView = class extends import_obsidian16.ItemView {
+var TrackerView = class extends import_obsidian19.ItemView {
   constructor(leaf, plugin) {
     super(leaf);
     this.leaf = leaf;
@@ -30166,37 +30791,34 @@ var TrackerView = class extends import_obsidian16.ItemView {
     this.creatures = [];
     this.state = false;
     this.condense = this.plugin.data.condense;
+    this.round = 1;
     this._rendered = false;
-    var _a, _b;
-    if ((_b = (_a = this.plugin.data.state) == null ? void 0 : _a.creatures) == null ? void 0 : _b.length) {
+    if (this.plugin.data.state?.creatures?.length) {
       this.newEncounterFromState(this.plugin.data.state);
     } else {
       this.newEncounter();
     }
   }
-  saveEncounter(name) {
-    return __async(this, null, function* () {
-      if (!name) {
-        new import_obsidian16.Notice("An encounter must have a name to be saved.");
-        return;
-      }
-      this.plugin.data.encounters[name] = {
-        creatures: [...this.ordered.map((c) => c.toJSON())],
-        state: this.state,
-        name
-      };
-      yield this.plugin.saveSettings();
-    });
+  async saveEncounter(name) {
+    if (!name) {
+      new import_obsidian19.Notice("An encounter must have a name to be saved.");
+      return;
+    }
+    this.plugin.data.encounters[name] = {
+      creatures: [...this.ordered.map((c) => c.toJSON())],
+      state: this.state,
+      name,
+      round: this.round
+    };
+    await this.plugin.saveSettings();
   }
-  loadEncounter(name) {
-    return __async(this, null, function* () {
-      const state = this.plugin.data.encounters[name];
-      if (!state) {
-        new import_obsidian16.Notice("There was an issue loading the encounter.");
-        return;
-      }
-      this.newEncounterFromState(state);
-    });
+  async loadEncounter(name) {
+    const state = this.plugin.data.encounters[name];
+    if (!state) {
+      new import_obsidian19.Notice("There was an issue loading the encounter.");
+      return;
+    }
+    this.newEncounterFromState(state);
   }
   toggleCondensed() {
     this.condense = !this.condense;
@@ -30206,26 +30828,24 @@ var TrackerView = class extends import_obsidian16.ItemView {
     this.condense = bool;
     this.setAppState({ creatures: this.ordered });
   }
-  openCombatant(creature) {
-    return __async(this, null, function* () {
-      const view = this.plugin.combatant;
-      if (!view) {
-        const leaf = this.app.workspace.getRightLeaf(true);
-        yield leaf.setViewState({
-          type: CREATURE_TRACKER_VIEW
-        });
-      }
-      this.ordered.forEach((c) => c.viewing = false);
-      creature.viewing = true;
-      this.setAppState({ creatures: this.ordered });
-      const ref = this.app.workspace.on("initiative-tracker:stop-viewing", () => {
-        creature.viewing = false;
-        this.setAppState({ creatures: this.ordered });
-        this.app.workspace.offref(ref);
+  async openCombatant(creature) {
+    const view = this.plugin.combatant;
+    if (!view) {
+      const leaf = this.app.workspace.getRightLeaf(true);
+      await leaf.setViewState({
+        type: CREATURE_TRACKER_VIEW
       });
-      this.registerEvent(ref);
-      this.plugin.combatant.render(creature);
+    }
+    this.ordered.forEach((c) => c.viewing = false);
+    creature.viewing = true;
+    this.setAppState({ creatures: this.ordered });
+    const ref = this.app.workspace.on("initiative-tracker:stop-viewing", () => {
+      creature.viewing = false;
+      this.setAppState({ creatures: this.ordered });
+      this.app.workspace.offref(ref);
     });
+    this.registerEvent(ref);
+    this.plugin.combatant.render(creature);
   }
   get pcs() {
     return this.players;
@@ -30246,20 +30866,20 @@ var TrackerView = class extends import_obsidian16.ItemView {
     this.setAppState(this.appState);
   }
   newEncounterFromState(initiativeState) {
-    var _a;
-    if (!initiativeState || !((_a = initiativeState == null ? void 0 : initiativeState.creatures) == null ? void 0 : _a.length)) {
+    if (!initiativeState || !initiativeState?.creatures?.length) {
       this.newEncounter();
     }
-    const { creatures, state, name } = initiativeState;
+    const { creatures, state, name, round: round3 = 1 } = initiativeState;
     this.setCreatures([...creatures.map((c) => Creature.fromJSON(c))]);
     this.name = name;
-    this.setAppState({
-      name: this.name
-    });
+    this.round = round3;
     this.state = state;
     this.trigger("initiative-tracker:new-encounter", this.appState);
     this.setAppState({
-      creatures: this.ordered
+      creatures: this.ordered,
+      state: this.state,
+      round: this.round,
+      name: this.name
     });
   }
   _addCreature(creature) {
@@ -30287,8 +30907,7 @@ var TrackerView = class extends import_obsidian16.ItemView {
     return this.ordered.filter((c) => c.enabled);
   }
   addCreatures(creatures, trigger = true) {
-    var _a;
-    this.setCreatures([...(_a = this.creatures) != null ? _a : [], ...creatures != null ? creatures : []]);
+    this.setCreatures([...this.creatures ?? [], ...creatures ?? []]);
     if (trigger)
       this.trigger("initiative-tracker:creatures-added", creatures);
     this.setAppState({
@@ -30296,6 +30915,13 @@ var TrackerView = class extends import_obsidian16.ItemView {
     });
   }
   removeCreature(...creatures) {
+    if (creatures.some((c) => c.active)) {
+      const active2 = this.creatures.find((c) => c.active);
+      this.goToNext();
+      this.setCreatures(this.creatures.filter((c) => c != active2));
+      this.removeCreature(...creatures.filter((c) => c != active2));
+      return;
+    }
     this.setCreatures(this.creatures.filter((c) => !creatures.includes(c)));
     this.trigger("initiative-tracker:creatures-removed", creatures);
     this.setAppState({
@@ -30312,45 +30938,45 @@ var TrackerView = class extends import_obsidian16.ItemView {
       if (creature.number > 0)
         continue;
       const prior = this.creatures.slice(0, i).filter((c) => c.name == creature.name).map((c) => c.number);
-      creature.number = (prior == null ? void 0 : prior.length) ? Math.max(...prior) + 1 : 1;
+      creature.number = prior?.length ? Math.max(...prior) + 1 : 1;
     }
   }
-  newEncounter() {
-    return __async(this, arguments, function* ({
-      name,
-      players = true,
-      creatures = [],
-      roll = true,
-      xp = null
-    } = {}) {
-      if (players instanceof Array && players.length) {
-        this.creatures = [
-          ...this.players.filter((p) => players.includes(p.name))
-        ];
-      } else if (players === true) {
-        this.creatures = [...this.players];
-      } else {
-        this.creatures = [];
-      }
-      if (creatures)
-        this.setCreatures([...this.creatures, ...creatures]);
-      this.name = name;
-      this.setAppState({
-        name: this.name,
-        xp
-      });
-      for (let creature of this.creatures) {
-        creature.enabled = true;
-      }
-      this.trigger("initiative-tracker:new-encounter", this.appState);
-      if (roll)
-        yield this.rollInitiatives();
-      else {
-        this.setAppState({
-          creatures: this.ordered
-        });
-      }
+  async newEncounter({
+    name,
+    players = true,
+    creatures = [],
+    roll = true,
+    xp = null
+  } = {}) {
+    if (players instanceof Array && players.length) {
+      this.creatures = [
+        ...this.players.filter((p) => players.includes(p.name))
+      ];
+    } else if (players === true) {
+      this.creatures = [...this.players];
+    } else {
+      this.creatures = [];
+    }
+    if (creatures)
+      this.setCreatures([...this.creatures, ...creatures]);
+    this.name = name;
+    this.round = 1;
+    this.setAppState({
+      name: this.name,
+      round: this.round,
+      xp
     });
+    for (let creature of this.creatures) {
+      creature.enabled = true;
+    }
+    this.trigger("initiative-tracker:new-encounter", this.appState);
+    if (roll)
+      await this.rollInitiatives();
+    else {
+      this.setAppState({
+        creatures: this.ordered
+      });
+    }
   }
   resetEncounter() {
     for (let creature of this.ordered) {
@@ -30373,22 +30999,18 @@ var TrackerView = class extends import_obsidian16.ItemView {
       map: v
     });
   }
-  getInitiativeValue(modifier = 0) {
-    return __async(this, null, function* () {
-      return yield this.plugin.getInitiativeValue(modifier);
-    });
+  async getInitiativeValue(modifier = 0) {
+    return await this.plugin.getInitiativeValue(modifier);
   }
-  rollInitiatives() {
-    return __async(this, null, function* () {
-      for (let creature of this.creatures) {
-        creature.initiative = yield this.getInitiativeValue(creature.modifier);
-        creature.active = false;
-      }
-      if (this.ordered.length)
-        this.ordered[0].active = true;
-      this.setAppState({
-        creatures: this.ordered
-      });
+  async rollInitiatives() {
+    for (let creature of this.creatures) {
+      creature.initiative = await this.getInitiativeValue(creature.modifier);
+      creature.active = false;
+    }
+    if (this.ordered.length)
+      this.ordered[0].active = true;
+    this.setAppState({
+      creatures: this.ordered
     });
   }
   get appState() {
@@ -30399,8 +31021,7 @@ var TrackerView = class extends import_obsidian16.ItemView {
       creatures: this.ordered
     };
   }
-  goToNext() {
-    const active2 = this.ordered.findIndex((c) => c.active);
+  goToNext(active2 = this.ordered.findIndex((c) => c.active)) {
     if (active2 == -1)
       return;
     const sliced = [
@@ -30412,14 +31033,16 @@ var TrackerView = class extends import_obsidian16.ItemView {
       this.ordered[active2].active = false;
     if (!next2)
       return;
+    if (active2 > this.ordered.indexOf(next2))
+      this.round++;
     next2.active = true;
     this.trigger("initiative-tracker:active-change", next2);
     this.setAppState({
-      creatures: this.ordered
+      creatures: this.ordered,
+      round: this.round
     });
   }
-  goToPrevious() {
-    const active2 = this.ordered.findIndex((c) => c.active);
+  goToPrevious(active2 = this.ordered.findIndex((c) => c.active)) {
     if (active2 == -1)
       return;
     const previous = [...this.ordered].slice(0, active2).reverse();
@@ -30429,10 +31052,13 @@ var TrackerView = class extends import_obsidian16.ItemView {
       this.ordered[active2].active = false;
     if (!creature)
       return;
+    if (active2 < this.ordered.indexOf(creature))
+      this.round = Math.max(1, this.round - 1);
     creature.active = true;
     this.trigger("initiative-tracker:active-change", creature);
     this.setAppState({
-      creatures: this.ordered
+      creatures: this.ordered,
+      round: this.round
     });
   }
   toggleState() {
@@ -30493,11 +31119,9 @@ var TrackerView = class extends import_obsidian16.ItemView {
       creatures: this.ordered
     });
   }
-  copyInitiativeOrder() {
-    return __async(this, null, function* () {
-      const contents = this.ordered.map((creature) => `${creature.initiative} ${creature.name}`).join("\n");
-      yield navigator.clipboard.writeText(contents);
-    });
+  async copyInitiativeOrder() {
+    const contents = this.ordered.map((creature) => `${creature.initiative} ${creature.name}`).join("\n");
+    await navigator.clipboard.writeText(contents);
   }
   setCreatureState(creature, enabled) {
     if (enabled) {
@@ -30530,27 +31154,24 @@ var TrackerView = class extends import_obsidian16.ItemView {
     this.plugin.data.state = this.toState();
     this.trigger("initiative-tracker:should-save");
   }
-  onOpen() {
-    return __async(this, null, function* () {
-      this._app = new App_default({
-        target: this.contentEl,
-        props: {
-          creatures: this.ordered,
-          state: this.state,
-          xp: null,
-          view: this,
-          plugin: this.plugin
-        }
-      });
-      this._rendered = true;
+  async onOpen() {
+    this._app = new App_default({
+      target: this.contentEl,
+      props: {
+        creatures: this.ordered,
+        state: this.state,
+        xp: null,
+        view: this,
+        plugin: this.plugin,
+        round: this.round
+      }
     });
+    this._rendered = true;
   }
-  onClose() {
-    return __async(this, null, function* () {
-      this._app.$destroy();
-      this._rendered = false;
-      this.trigger("initiative-tracker:closed");
-    });
+  async onClose() {
+    this._app.$destroy();
+    this._rendered = false;
+    this.trigger("initiative-tracker:closed");
   }
   getViewType() {
     return INTIATIVE_TRACKER_VIEW;
@@ -30574,17 +31195,16 @@ var TrackerView = class extends import_obsidian16.ItemView {
     return {
       creatures: [...this.ordered.map((c) => c.toJSON())],
       state: this.state,
-      name: this.name
+      name: this.name,
+      round: this.round
     };
   }
-  onunload() {
-    return __async(this, null, function* () {
-      this.plugin.data.state = this.toState();
-      yield this.plugin.saveSettings();
-    });
+  async onunload() {
+    this.plugin.data.state = this.toState();
+    await this.plugin.saveSettings();
   }
   registerEvents() {
-    this.registerEvent(this.app.workspace.on("initiative-tracker:add-creature-here", (latlng) => __async(this, null, function* () {
+    this.registerEvent(this.app.workspace.on("initiative-tracker:add-creature-here", async (latlng) => {
       this.app.workspace.revealLeaf(this.leaf);
       let addNewAsync = this._app.$on("add-new-async", (evt) => {
         const creature = evt.detail;
@@ -30598,7 +31218,7 @@ var TrackerView = class extends import_obsidian16.ItemView {
         cancel();
       });
       this._app.$set({ addNewAsync: true });
-    })));
+    }));
     this.registerEvent(this.app.workspace.on("initiative-tracker:creature-updated-in-settings", (creature) => {
       const existing = this.creatures.find((c) => c == creature);
       if (existing) {
@@ -30635,7 +31255,7 @@ var TrackerView = class extends import_obsidian16.ItemView {
     }));
   }
 };
-var CreatureView = class extends import_obsidian16.ItemView {
+var CreatureView = class extends import_obsidian19.ItemView {
   constructor(leaf, plugin) {
     super(leaf);
     this.plugin = plugin;
@@ -30645,7 +31265,7 @@ var CreatureView = class extends import_obsidian16.ItemView {
     this.containerEl.addClass("creature-view-container");
   }
   onload() {
-    new import_obsidian16.ExtraButtonComponent(this.buttonEl).setIcon("cross").setTooltip("Close Statblock").onClick(() => {
+    new import_obsidian19.ExtraButtonComponent(this.buttonEl).setIcon("cross").setTooltip("Close Statblock").onClick(() => {
       this.render();
       this.app.workspace.trigger("initiative-tracker:stop-viewing");
     });
@@ -30654,7 +31274,6 @@ var CreatureView = class extends import_obsidian16.ItemView {
     this.app.workspace.trigger("initiative-tracker:stop-viewing");
   }
   render(creature) {
-    var _a;
     this.statblockEl.empty();
     if (!creature) {
       this.statblockEl.createEl("em", {
@@ -30662,7 +31281,7 @@ var CreatureView = class extends import_obsidian16.ItemView {
       });
       return;
     }
-    if (this.plugin.canUseStatBlocks && ((_a = this.plugin.statblockVersion) == null ? void 0 : _a.major) >= 2) {
+    if (this.plugin.canUseStatBlocks && this.plugin.statblockVersion?.major >= 2) {
       const statblock = this.plugin.statblocks.render(creature, this.statblockEl);
       if (statblock) {
         this.addChild(statblock);
@@ -30685,18 +31304,16 @@ var CreatureView = class extends import_obsidian16.ItemView {
 };
 
 // src/main.ts
-var InitiativeTracker = class extends import_obsidian17.Plugin {
+var InitiativeTracker = class extends import_obsidian20.Plugin {
   constructor() {
     super(...arguments);
     this.playerCreatures = /* @__PURE__ */ new Map();
     this.homebrewCreatures = /* @__PURE__ */ new Map();
   }
-  parseDice(text2) {
-    return __async(this, null, function* () {
-      if (!this.canUseDiceRoller)
-        return null;
-      return yield this.app.plugins.getPlugin("obsidian-dice-roller").parseDice(text2, "initiative-tracker");
-    });
+  async parseDice(text2) {
+    if (!this.canUseDiceRoller)
+      return null;
+    return await this.app.plugins.getPlugin("obsidian-dice-roller").parseDice(text2, "initiative-tracker");
   }
   getRoller(str) {
     if (!this.canUseDiceRoller)
@@ -30707,15 +31324,13 @@ var InitiativeTracker = class extends import_obsidian17.Plugin {
   get canUseDiceRoller() {
     return this.app.plugins.getPlugin("obsidian-dice-roller") != null;
   }
-  getInitiativeValue(modifier = 0) {
-    return __async(this, null, function* () {
-      let initiative = Math.floor(Math.random() * 19 + 1) + modifier;
-      if (this.canUseDiceRoller) {
-        const num = yield this.app.plugins.getPlugin("obsidian-dice-roller").parseDice(this.data.initiative.replace(/%mod%/g, `(${modifier})`), "initiative-tracker");
-        initiative = num.result;
-      }
-      return initiative;
-    });
+  async getInitiativeValue(modifier = 0) {
+    let initiative = Math.floor(Math.random() * 19 + 1) + modifier;
+    if (this.canUseDiceRoller) {
+      const num = await this.app.plugins.getPlugin("obsidian-dice-roller").parseDice(this.data.initiative.replace(/%mod%/g, `(${modifier})`), "initiative-tracker");
+      initiative = num.result;
+    }
+    return initiative;
   }
   get canUseStatBlocks() {
     return this.app.plugins.getPlugin("obsidian-5e-statblocks") != null;
@@ -30724,12 +31339,10 @@ var InitiativeTracker = class extends import_obsidian17.Plugin {
     return this.app.plugins.getPlugin("obsidian-5e-statblocks");
   }
   get statblockVersion() {
-    var _a, _b, _c;
-    return (_c = (_b = (_a = this.statblocks) == null ? void 0 : _a.settings) == null ? void 0 : _b.version) != null ? _c : { major: 0 };
+    return this.statblocks?.settings?.version ?? { major: 0 };
   }
   get canUseLeaflet() {
-    var _a, _b;
-    return this.app.plugins.getPlugin("obsidian-leaflet-plugin") != null && Number(((_b = (_a = this.app.plugins.getPlugin("obsidian-leaflet-plugin").data) == null ? void 0 : _a.version) == null ? void 0 : _b.major) >= 4);
+    return this.app.plugins.getPlugin("obsidian-leaflet-plugin") != null && Number(this.app.plugins.getPlugin("obsidian-leaflet-plugin").data?.version?.major >= 4);
   }
   get leaflet() {
     if (this.canUseLeaflet) {
@@ -30737,13 +31350,12 @@ var InitiativeTracker = class extends import_obsidian17.Plugin {
     }
   }
   get statblock_creatures() {
-    var _a, _b;
     if (!this.data.sync)
       return [];
     if (!this.app.plugins.getPlugin("obsidian-5e-statblocks"))
       return [];
     return [
-      ...Array.from((_b = (_a = this.app.plugins.getPlugin("obsidian-5e-statblocks").data) == null ? void 0 : _a.values()) != null ? _b : [])
+      ...Array.from(this.app.plugins.getPlugin("obsidian-5e-statblocks").data?.values() ?? [])
     ];
   }
   get homebrew() {
@@ -30754,33 +31366,61 @@ var InitiativeTracker = class extends import_obsidian17.Plugin {
   }
   get view() {
     const leaves = this.app.workspace.getLeavesOfType(INTIATIVE_TRACKER_VIEW);
-    const leaf = (leaves == null ? void 0 : leaves.length) ? leaves[0] : null;
+    const leaf = leaves?.length ? leaves[0] : null;
     if (leaf && leaf.view && leaf.view instanceof TrackerView)
       return leaf.view;
   }
   get combatant() {
     const leaves = this.app.workspace.getLeavesOfType(CREATURE_TRACKER_VIEW);
-    const leaf = (leaves == null ? void 0 : leaves.length) ? leaves[0] : null;
+    const leaf = leaves?.length ? leaves[0] : null;
     if (leaf && leaf.view && leaf.view instanceof CreatureView)
       return leaf.view;
   }
-  onload() {
-    return __async(this, null, function* () {
-      registerIcons();
-      yield this.loadSettings();
-      this.addSettingTab(new InitiativeTrackerSettings(this));
-      this.registerView(INTIATIVE_TRACKER_VIEW, (leaf) => new TrackerView(leaf, this));
-      this.registerView(CREATURE_TRACKER_VIEW, (leaf) => new CreatureView(leaf, this));
-      this.addCommands();
-      this.registerMarkdownCodeBlockProcessor("encounter", (src, el, ctx) => {
-        const handler = new Encounter2(this, src, el);
-        ctx.addChild(handler);
-      });
-      this.playerCreatures = new Map(this.data.players.map((p) => [p, Creature.from(p)]));
-      this.homebrewCreatures = new Map(this.bestiary.map((p) => [p, Creature.from(p)]));
-      this.app.workspace.onLayoutReady(() => this.addTrackerView());
-      console.log("Initiative Tracker v" + this.manifest.version + " loaded");
+  async onload() {
+    registerIcons();
+    await this.loadSettings();
+    this.addSettingTab(new InitiativeTrackerSettings(this));
+    this.registerView(INTIATIVE_TRACKER_VIEW, (leaf) => new TrackerView(leaf, this));
+    this.registerView(CREATURE_TRACKER_VIEW, (leaf) => new CreatureView(leaf, this));
+    this.addCommands();
+    this.registerMarkdownCodeBlockProcessor("encounter", (src, el, ctx) => {
+      const handler = new EncounterBlock(this, src, el);
+      ctx.addChild(handler);
     });
+    this.registerMarkdownCodeBlockProcessor("encounter-table", (src, el, ctx) => {
+      const handler = new EncounterBlock(this, src, el, true);
+      ctx.addChild(handler);
+    });
+    this.registerMarkdownPostProcessor(async (el, ctx) => {
+      if (!el || !el.firstElementChild)
+        return;
+      const codeEls = el.querySelectorAll("code");
+      if (!codeEls || !codeEls.length)
+        return;
+      const codes = Array.from(codeEls).filter((code) => /^encounter:\s/.test(code.innerText));
+      if (!codes.length)
+        return;
+      for (const code of codes) {
+        const creatures = code.innerText.replace(`encounter:`, "").trim().split(",").map((s) => (0, import_obsidian20.parseYaml)(s.trim()));
+        const parser = new EncounterParser(this);
+        const parsed = await parser.parse({ creatures });
+        if (!parsed || !parsed.creatures || !parsed.creatures.size)
+          continue;
+        const target = createSpan("initiative-tracker-encounter-line");
+        new EncounterLine_default({
+          target,
+          props: {
+            ...parsed,
+            plugin: this
+          }
+        });
+        code.replaceWith(target);
+      }
+    });
+    this.playerCreatures = new Map(this.data.players.map((p) => [p, Creature.from(p)]));
+    this.homebrewCreatures = new Map(this.bestiary.map((p) => [p, Creature.from(p)]));
+    this.app.workspace.onLayoutReady(() => this.addTrackerView());
+    console.log("Initiative Tracker v" + this.manifest.version + " loaded");
   }
   addCommands() {
     this.addCommand({
@@ -30836,157 +31476,128 @@ var InitiativeTracker = class extends import_obsidian17.Plugin {
     });
   }
   addEvents() {
-    this.registerEvent(this.app.workspace.on("initiative-tracker:should-save", () => __async(this, null, function* () {
-      return yield this.saveSettings();
-    })));
-    this.registerEvent(this.app.workspace.on("initiative-tracker:start-encounter", (homebrews) => __async(this, null, function* () {
+    this.registerEvent(this.app.workspace.on("initiative-tracker:should-save", async () => await this.saveSettings()));
+    this.registerEvent(this.app.workspace.on("initiative-tracker:start-encounter", async (homebrews) => {
       try {
         const creatures = homebrews.map((h) => Creature.from(h));
         const view = this.view;
         if (!view) {
-          yield this.addTrackerView();
+          await this.addTrackerView();
         }
         if (view) {
-          view == null ? void 0 : view.newEncounter({
+          view?.newEncounter({
             creatures
           });
           this.app.workspace.revealLeaf(view.leaf);
         } else {
-          new import_obsidian17.Notice("Could not find the Initiative Tracker. Try reloading the note!");
+          new import_obsidian20.Notice("Could not find the Initiative Tracker. Try reloading the note!");
         }
       } catch (e) {
-        new import_obsidian17.Notice("There was an issue launching the encounter.\n\n" + e.message);
+        new import_obsidian20.Notice("There was an issue launching the encounter.\n\n" + e.message);
         console.error(e);
         return;
       }
-    })));
+    }));
   }
-  onunload() {
-    return __async(this, null, function* () {
-      yield this.saveSettings();
-      this.app.workspace.trigger("initiative-tracker:unload");
-      this.app.workspace.getLeavesOfType(INTIATIVE_TRACKER_VIEW).forEach((leaf) => leaf.detach());
-      this.app.workspace.getLeavesOfType(CREATURE_TRACKER_VIEW).forEach((leaf) => leaf.detach());
-      console.log("Initiative Tracker unloaded");
+  async onunload() {
+    await this.saveSettings();
+    this.app.workspace.trigger("initiative-tracker:unload");
+    this.app.workspace.getLeavesOfType(INTIATIVE_TRACKER_VIEW).forEach((leaf) => leaf.detach());
+    this.app.workspace.getLeavesOfType(CREATURE_TRACKER_VIEW).forEach((leaf) => leaf.detach());
+    console.log("Initiative Tracker unloaded");
+  }
+  async addTrackerView() {
+    if (this.app.workspace.getLeavesOfType(INTIATIVE_TRACKER_VIEW)?.length) {
+      return;
+    }
+    await this.app.workspace.getRightLeaf(false).setViewState({
+      type: INTIATIVE_TRACKER_VIEW
     });
   }
-  addTrackerView() {
-    return __async(this, null, function* () {
-      var _a;
-      if ((_a = this.app.workspace.getLeavesOfType(INTIATIVE_TRACKER_VIEW)) == null ? void 0 : _a.length) {
-        return;
-      }
-      yield this.app.workspace.getRightLeaf(false).setViewState({
-        type: INTIATIVE_TRACKER_VIEW
-      });
-    });
-  }
-  saveMonsters(importedMonsters) {
-    return __async(this, null, function* () {
-      this.data.homebrew.push(...importedMonsters);
-      for (let monster of importedMonsters) {
-        this.homebrewCreatures.set(monster, Creature.from(monster));
-      }
-      yield this.saveSettings();
-    });
-  }
-  saveMonster(monster) {
-    return __async(this, null, function* () {
-      this.data.homebrew.push(monster);
+  async saveMonsters(importedMonsters) {
+    this.data.homebrew.push(...importedMonsters);
+    for (let monster of importedMonsters) {
       this.homebrewCreatures.set(monster, Creature.from(monster));
-      yield this.saveSettings();
-    });
+    }
+    await this.saveSettings();
   }
-  updatePlayer(existing, player) {
-    return __async(this, null, function* () {
-      if (!this.playerCreatures.has(existing)) {
-        yield this.savePlayer(player);
-        return;
-      }
-      const creature = this.playerCreatures.get(existing);
-      creature.update(player);
-      this.data.players.splice(this.data.players.indexOf(existing), 1, player);
-      this.playerCreatures.set(player, creature);
-      this.playerCreatures.delete(existing);
-      const view = this.view;
-      if (view) {
-        view.updateState();
-      }
-      yield this.saveSettings();
-    });
+  async saveMonster(monster) {
+    this.data.homebrew.push(monster);
+    this.homebrewCreatures.set(monster, Creature.from(monster));
+    await this.saveSettings();
   }
-  updateMonster(existing, monster) {
-    return __async(this, null, function* () {
-      if (!this.homebrewCreatures.has(existing)) {
-        yield this.saveMonster(monster);
-        return;
-      }
-      const creature = this.homebrewCreatures.get(existing);
-      creature.update(monster);
-      this.data.homebrew.splice(this.data.homebrew.indexOf(existing), 1, monster);
-      this.homebrewCreatures.set(monster, creature);
-      this.homebrewCreatures.delete(existing);
-      const view = this.view;
-      if (view) {
-        view.updateState();
-      }
-      yield this.saveSettings();
-    });
+  async updatePlayer(existing, player) {
+    if (!this.playerCreatures.has(existing)) {
+      await this.savePlayer(player);
+      return;
+    }
+    const creature = this.playerCreatures.get(existing);
+    creature.update(player);
+    this.data.players.splice(this.data.players.indexOf(existing), 1, player);
+    this.playerCreatures.set(player, creature);
+    this.playerCreatures.delete(existing);
+    const view = this.view;
+    if (view) {
+      view.updateState();
+    }
+    await this.saveSettings();
   }
-  deleteMonster(monster) {
-    return __async(this, null, function* () {
-      this.data.homebrew = this.data.homebrew.filter((m) => m != monster);
-      this.homebrewCreatures.delete(monster);
-      yield this.saveSettings();
-    });
+  async updateMonster(existing, monster) {
+    if (!this.homebrewCreatures.has(existing)) {
+      await this.saveMonster(monster);
+      return;
+    }
+    const creature = this.homebrewCreatures.get(existing);
+    creature.update(monster);
+    this.data.homebrew.splice(this.data.homebrew.indexOf(existing), 1, monster);
+    this.homebrewCreatures.set(monster, creature);
+    this.homebrewCreatures.delete(existing);
+    const view = this.view;
+    if (view) {
+      view.updateState();
+    }
+    await this.saveSettings();
   }
-  savePlayer(player) {
-    return __async(this, null, function* () {
-      this.data.players.push(player);
-      this.playerCreatures.set(player, Creature.from(player));
-      yield this.saveSettings();
-    });
+  async deleteMonster(monster) {
+    this.data.homebrew = this.data.homebrew.filter((m) => m != monster);
+    this.homebrewCreatures.delete(monster);
+    await this.saveSettings();
   }
-  savePlayers(...players) {
-    return __async(this, null, function* () {
-      for (let monster of players) {
-        this.data.players.push(monster);
-        this.playerCreatures.set(monster, Creature.from(monster));
-      }
-      yield this.saveSettings();
-    });
+  async savePlayer(player) {
+    this.data.players.push(player);
+    this.playerCreatures.set(player, Creature.from(player));
+    await this.saveSettings();
   }
-  deletePlayer(player) {
-    return __async(this, null, function* () {
-      this.data.players = this.data.players.filter((p) => p != player);
-      this.playerCreatures.delete(player);
-      yield this.saveSettings();
-    });
+  async savePlayers(...players) {
+    for (let monster of players) {
+      this.data.players.push(monster);
+      this.playerCreatures.set(monster, Creature.from(monster));
+    }
+    await this.saveSettings();
   }
-  loadSettings() {
-    return __async(this, null, function* () {
-      const data = Object.assign({}, __spreadValues({}, DEFAULT_SETTINGS), yield this.loadData());
-      this.data = data;
-      if (this.data.leafletIntegration && !this.data.players.every((p) => p.marker)) {
-        this.data.players = this.data.players.map((p) => {
-          var _a;
-          p.marker = (_a = p.marker) != null ? _a : this.data.playerMarker;
-          return p;
-        });
-      }
-    });
+  async deletePlayer(player) {
+    this.data.players = this.data.players.filter((p) => p != player);
+    this.playerCreatures.delete(player);
+    await this.saveSettings();
   }
-  saveSettings() {
-    return __async(this, null, function* () {
-      if (this.data.leafletIntegration && !this.data.players.every((p) => p.marker)) {
-        this.data.players = this.data.players.map((p) => {
-          var _a;
-          p.marker = (_a = p.marker) != null ? _a : this.data.playerMarker;
-          return p;
-        });
-      }
-      yield this.saveData(this.data);
-    });
+  async loadSettings() {
+    const data = Object.assign({}, { ...DEFAULT_SETTINGS }, await this.loadData());
+    this.data = data;
+    if (this.data.leafletIntegration && !this.data.players.every((p) => p.marker)) {
+      this.data.players = this.data.players.map((p) => {
+        p.marker = p.marker ?? this.data.playerMarker;
+        return p;
+      });
+    }
+  }
+  async saveSettings() {
+    if (this.data.leafletIntegration && !this.data.players.every((p) => p.marker)) {
+      this.data.players = this.data.players.map((p) => {
+        p.marker = p.marker ?? this.data.playerMarker;
+        return p;
+      });
+    }
+    await this.saveData(this.data);
   }
 };
 /*! *****************************************************************************

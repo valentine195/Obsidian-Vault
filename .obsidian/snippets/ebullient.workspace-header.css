@@ -1,0 +1,46 @@
+/* .theme-light  */
+.workspace-tab-container-inner {
+    background-color: var(--green-0) !important;
+    border: 1px solid var(--green-1);
+}
+/* .theme-dark .workspace-tab-container-inner {
+    background-color: var(--background) !important;
+    border: 1px solid var(--background-tertiary);
+} */
+.workspace-tab-header-container {
+    height: unset;
+}
+.workspace-tab-container-inner {
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    padding: 3px 1px;
+    margin: 2px 2px 2px 4px;
+}
+.workspace-tab-container-before,
+.workspace-tab-container-after {
+    width: 0px;
+}
+.workspace-tab-header {
+    background-color: transparent;
+    border-radius: 10px !important;
+}
+.workspace-tab-header-inner {
+    padding: 6px 15px;
+}
+.workspace-tab-header-inner-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.theme-light .workspace-tab-header.is-active {
+    box-shadow: 0px 0px 2px var(--green-3);
+    background-color: var(--background-primary);
+    border-radius: 6px;
+}
+
+.view-content .nav-buttons-container {
+    height: auto;
+}

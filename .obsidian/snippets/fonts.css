@@ -1,0 +1,43 @@
+:root {
+    /* Preview font */
+    --text: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    /* Editor font */
+    --text-editor: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    /* Code font */
+    --font-monospace: Menlo, SFMono-Regular, Consolas, "Roboto Mono", monospace;
+
+    /* UI font */
+    --font-ui: "Quicksand", -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    /* Header Font */
+
+    --header-font: "Playfair Display";
+    --font-header: var(--header-font);
+
+    /* Sizes, weights, padding */
+    --font-normal: 16px;
+    --font-small: 13px;
+    --font-smaller: 11px;
+    --font-smallest: 10px;
+
+    --font-title: 1.1em;
+    --font-inputs: 13px;
+    --font-settings: 15px;
+    --font-settings-small: 12px;
+
+    --font-title: 1.1em;
+}
+
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+input[type="number"] {
+    font-family: var(--font-ui);
+    font-size: 1em;
+}

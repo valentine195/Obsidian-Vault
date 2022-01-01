@@ -3,9 +3,8 @@
   border-color: var(--background-modifier-error-hover);
 }
 .initiative-tracker-settings .initiative-tracker-additional-container {
-  border-top: 1px solid var(--background-modifier-border);
   border-bottom: 0px solid var(--background-modifier-border);
-  padding: 18px 0 0 0;
+  padding: 18px 0;
   background-color: inherit;
 }
 .initiative-tracker-additional-container .initiative-tracker-players {
@@ -101,6 +100,9 @@
 .creature-view-container .creature-view-button {
   display: flex;
   justify-content: flex-end;
+}
+.initiative-tracker-encounter-line {
+  display: inline-block;
 }
 
 /* src/styles.css */

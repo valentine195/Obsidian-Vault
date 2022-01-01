@@ -1,0 +1,54 @@
+.admonition.admonition {
+    box-shadow: none;
+}
+.admonition.admonition
+    > .admonition-title.no-title
+    + .admonition-content-holder {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.admonition .admonition .admonition-content-holder {
+    border-right: 1px solid rgba(var(--admonition-color), 0.2);
+    border-bottom: 1px solid rgba(var(--admonition-color), 0.2);
+}
+.admonition
+    .admonition
+    .admonition-title.no-title
+    + .admonition-content-holder {
+    border-top: 1px solid rgba(var(--admonition-color), 0.2);
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+/** Make Admonitions Closer on Mobile */
+body.is-mobile .admonition {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+body.is-mobile .admonition-content,
+body.is-mobile
+    .admonition
+    > .admonition-title.no-title
+    + .admonition-content-holder {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.markdown-preview-view.is-readable-line-width .markdown-preview-sizer {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/** 
+  * Consistent Blockquote & Admonition Padding
+  */
+.markdown-preview-view blockquote {
+    margin-inline-start: 18px;
+}
+
+.admonition {
+    margin-inline-start: 18px !important;
+    margin-inline-end: 30px !important;
+}

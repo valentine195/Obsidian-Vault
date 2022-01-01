@@ -1,0 +1,26 @@
+{
+  "snippets": {
+    "long-match": {
+      "name": "long-match",
+      "type": "simple-task",
+      "clearThemeBackground": false,
+      "taskSettings": [
+        {
+          "data": "a",
+          "taskColorLight": "#0a1375",
+          "taskColorDark": "#fff8ba"
+        },
+        {
+          "data": "b",
+          "taskColorLight": "#890930",
+          "taskColorDark": "#f977cc"
+        },
+        {
+          "data": "e",
+          "taskColorLight": "#c19913",
+          "taskColorDark": "#c7f271"
+        }
+      ]
+    }
+  }
+}

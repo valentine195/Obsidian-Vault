@@ -1,6 +1,31 @@
 {
   "monsters": [],
-  "layouts": [],
+  "layouts": [
+    {
+      "name": "test",
+      "blocks": [
+        {
+          "type": "heading",
+          "id": "896879488b28",
+          "properties": [
+            "name"
+          ],
+          "fallback": "-"
+        },
+        {
+          "type": "text",
+          "id": "887bf87a79b9",
+          "properties": [
+            "stunts"
+          ],
+          "text": null,
+          "fallback": "-",
+          "markdown": true,
+          "dice": false
+        }
+      ]
+    }
+  ],
   "default": "Basic 5e Layout",
   "useDice": true,
   "renderDice": false,
@@ -8,8 +33,9 @@
   "showAdvanced": false,
   "version": {
     "major": 2,
-    "minor": 1,
-    "patch": 0
+    "minor": 11,
+    "patch": 1
   },
-  "statblocks": []
+  "path": "/",
+  "autoParse": false
 }
