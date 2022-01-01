@@ -7,7 +7,7 @@
 [[Race Generator#^common]] -> Race Generator > common ->  **Halfling**
 
 [[Race Generator#^main]] -> Race Generator > main ->  **`dice:[[Race Generator#^rare]]`**
-
+Have 
 **`dice: [[Race Generator#^common]]`**
 
 `dice: 1d6`

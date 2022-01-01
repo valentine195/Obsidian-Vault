@@ -1,0 +1,161 @@
+:root {
+    /* Preview font */
+    --text: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
+        Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    /* Editor font */
+    --text-editor: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    /* Code font */
+    --font-monospace: Menlo, SFMono-Regular, Consolas, "Roboto Mono", monospace;
+
+    /* UI font */
+    --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+
+    /* Sizes, weights, padding */
+    --font-normal: 16px;
+    --font-small: 13px;
+    --font-smaller: 11px;
+    --font-smallest: 10px;
+
+    --font-title: 1.1em;
+}
+
+body,
+input,
+button {
+    font-family: var(--font-ui);
+}
+
+.workspace h1::before,
+.workspace h2::before,
+.workspace h3::before,
+.workspace h4::before,
+.workspace h5::before,
+.workspace h6::before {
+    content: unset;
+}
+
+.markdown-preview-view blockquote:before {
+    content: unset;
+}
+
+.workspace-leaf-header,
+.view-header,
+.workspace-leaf.mod-active .view-header,
+.workspace-split.mod-root
+    > .workspace-leaf:first-of-type:last-of-type
+    .view-header,
+.workspace-split.mod-root
+    > .workspace-leaf:first-of-type:last-of-type.mod-active
+    .view-header,
+.workspace-leaf.mod-active .view-header {
+    color: var(--text-normal);
+    background: var(--background-primary) !important;
+    border-top: none;
+    border-bottom: none;
+}
+
+.workspace-leaf-header *,
+.view-header *,
+.workspace-leaf.mod-active .view-header,
+.workspace-split.mod-root
+    > .workspace-leaf:first-of-type:last-of-type
+    .view-header
+    *,
+.workspace-split.mod-root
+    > .workspace-leaf:first-of-type:last-of-type.mod-active
+    .view-header
+    *,
+.workspace-leaf.mod-active .view-header * {
+    color: var(--text-normal);
+}
+
+.workspace-ribbon.side-dock-ribbon,
+.status-bar,
+.workspace-tabs.workspace-tabs,
+.workspace-split:not(.mod-right-split) .workspace-tabs,
+.workspace-tabs .workspace-leaf {
+    background: transparent;
+}
+
+.workspace-tab-header-container,
+.workspace-tab-header-container
+    .workspace-tab-header.is-before-active
+    .workspace-tab-header-inner,
+.workspace-tab-header-container
+    .workspace-tab-header.is-after-active
+    .workspace-tab-header-inner {
+    background: transparent;
+}
+.workspace-tab-container-before {
+    width: 0;
+}
+.workspace-tab-header-inner {
+    padding: 0 6px;
+}
+
+.workspace-tab-header {
+    background: transparent;
+    color: var(--text-muted);
+    opacity: 0.5;
+    transition: opacity 0.1s ease-in-out;
+
+    line-height: 0;
+}
+
+.nav-action-button.is-active,
+.workspace-leaf-content[data-type="dictionary-view"]
+    .nav-action-button.is-active,
+.workspace-leaf-content[data-type="search"] .nav-action-button.is-active,
+.workspace-leaf-content[data-type="backlink"] .nav-action-button.is-active,
+.workspace-leaf-content[data-type="tag"] .nav-action-button.is-active,
+.workspace-tab-header.is-active,
+.workspace-leaf-content[data-type="search"] .nav-action-button.is-active {
+    /* background: transparent;
+    color: var(--text-muted); */
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
+}
+.nav-action-button.is-active,
+.workspace-tab-header.is-active:hover {
+    color: var(--text-muted);
+}
+.workspace-leaf-content[data-type="search"] .nav-action-button.is-active {
+    background: transparent;
+}
+.graph-controls-button:hover,
+.view-action:hover,
+.view-header-icon:hover,
+.nav-action-button:hover,
+.nav-action-button.is-active:hover,
+.workspace-tab-header:hover,
+.side-dock-ribbon-tab:hover,
+.side-dock-ribbon-action:hover {
+    background-color: var(--side-dock-accent-hover);
+    border-radius: 3px;
+    opacity: 1;
+    transition: opacity 0.1s ease-in-out;
+}
+
+.workspace-leaf-content .view-content {
+    padding: 20px 0;
+}
+
+.nav-file:hover {
+    background-color: unset;
+}
+
+.nav-file-title.is-active:not(.is-folder-note) {
+    font-style: normal;
+}
+
+.side-dock-ribbon-action {
+    padding: 4px 0;
+}
+
+.workspace-ribbon-collapse-btn {
+    padding: 14px 6px;
+}

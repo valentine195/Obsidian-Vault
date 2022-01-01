@@ -1,24 +1,24 @@
 {
   "baseFontSize": 16,
   "theme": "moonstone",
-  "cssTheme": "Minimal",
+  "cssTheme": "Ebullientworks",
   "enabledCssSnippets": [
     "obsidian.auto-fading",
     "obsidian.external-icons",
     "obsidian",
     "obsidian.colored-folders",
-    "obsidian.ebullient",
-    "obsidian.floating-frontmatter",
     "obsidian.fonts",
     "obsidian.garble",
-    "obsidian.headings",
     "obsidian.image-adjustments",
     "obsidian.masthead",
     "obsidian.material-icons",
-    "obsidian.minimal-overrides",
     "obsidian.outliner-overrides",
     "obsidian.portrait",
     "obsidian.subhead",
-    "obsidian.tags"
+    "obsidian.tags",
+    "obsidian.minimal-icons",
+    "obsidian.ebullient-overrides",
+    "obsidian.headings",
+    "obsidian.floating-frontmatter"
   ]
 }

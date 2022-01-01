@@ -4,7 +4,7 @@
     "type": "split",
     "children": [
       {
-        "id": "b8ef5684de8f9842",
+        "id": "c96e94f834746697",
         "type": "leaf",
         "state": {
           "type": "markdown",
@@ -61,8 +61,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "9d02bf5b31a99438",
@@ -119,31 +118,32 @@
             }
           },
           {
-            "id": "513172d71ed12c17",
-            "type": "leaf",
-            "state": {
-              "type": "DICE_ROLLER_VIEW",
-              "state": {}
-            }
-          },
-          {
-            "id": "0a7b9185a05a9171",
+            "id": "babaf13972cf0391",
             "type": "leaf",
             "state": {
               "type": "FANTASY_CALENDAR",
               "state": {}
             }
+          },
+          {
+            "id": "b507e17f9189bfec",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 5
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
-    "width": 293.5
+    "width": 280
   },
-  "active": "b8ef5684de8f9842",
+  "active": "c96e94f834746697",
   "lastOpenFiles": [
     "1. Sessions/21-11-20 - Session 11.md",
+    "Plugin Testing/initiative/Encounter.md",
     "Plugin Testing/calendar/testing.md",
     "Plugin Testing/calendar/abc 123.md",
     "Plugin Testing/Markdown Syntax.md",
@@ -151,7 +151,6 @@
     "Plugin Testing/dice/Dice Roller.md",
     "2. Compendium/NPCs/Rabar.md",
     "Plugin Testing/dice/Dice Variants.md",
-    "Plugin Testing/dice/Race Generator.md",
-    "Plugin Testing/admonition/Admonition Testing.md"
+    "Plugin Testing/dice/Race Generator.md"
   ]
 }

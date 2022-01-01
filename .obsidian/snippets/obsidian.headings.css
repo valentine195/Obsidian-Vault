@@ -8,6 +8,7 @@
     --h5: 1.25rem;
     --h6: 1.125em;
     --header-font: 'Optima, Candara, "iA Writer Quattro S"';
+    --font-header: var(--header-font);
 }
 
 body.is-mobile {
