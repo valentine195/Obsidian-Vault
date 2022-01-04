@@ -218,6 +218,7 @@ svg.any-key,
   svg.wand,
   svg.longform,
   svg.changelog {
+    -webkit-mask-repeat: no-repeat;
     background-color: currentColor;
 }
 

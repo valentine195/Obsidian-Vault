@@ -1,11 +1,7 @@
 {
     "id": "fantasy-calendar",
     "name": "Fantasy Calendar",
-<<<<<<< HEAD
     "version": "2.0.1",
-=======
-    "version": "2.0.0",
->>>>>>> 65959306e6d6d3f1215b3f5292bf47f29351e2d9
     "minAppVersion": "0.12.10",
     "author": "Jeremy Valentine",
     "description": "Fantasy calendars in Obsidian!",

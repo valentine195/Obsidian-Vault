@@ -97,7 +97,10 @@ button {
     padding: 0 6px;
 }
 
-.workspace-tab-header {
+.workspace-tab-header,
+.workspace-tab-header.is-after-active,
+.workspace-tab-header.is-active,
+.workspace-tab-header.is-before-active {
     background: transparent;
     color: var(--text-muted);
     opacity: 0.5;
@@ -134,8 +137,8 @@ button {
 .workspace-tab-header:hover,
 .side-dock-ribbon-tab:hover,
 .side-dock-ribbon-action:hover {
-    background-color: var(--side-dock-accent-hover);
-    border-radius: 3px;
+    /* background-color: var(--side-dock-accent-hover);
+    border-radius: 3px; */
     opacity: 1;
     transition: opacity 0.1s ease-in-out;
 }
