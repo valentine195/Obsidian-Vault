@@ -7,7 +7,7 @@ pre.frontmatter {
     height: 2rem;
     overflow: hidden;
     border: none !important;
-    background-color: transparent;
+    background-color: transparent !important;
 }
 pre.frontmatter .code {
     visibility: hidden;

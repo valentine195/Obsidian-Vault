@@ -1,0 +1,14 @@
+.cm-matched-word,
+.cm-matched-string {
+  text-decoration: underline dashed var(--text-accent);
+}
+
+.cm-current-word,
+.cm-current-string {
+  text-decoration: underline dotted var(--text-accent);
+}
+
+.ignored-words-input {
+  width: 30rem;
+  height: 20em;
+}

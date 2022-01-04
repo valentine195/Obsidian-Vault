@@ -1,5 +1,5 @@
 /*!*********************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./src/settings/settings.css ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./src/settings/settings.css ***!
   \*********************************************************************************************************/
 .fantasy-calendar-confirm-buttons {
     display: flex;
@@ -158,7 +158,7 @@
 }
 
 /*!*************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./src/view/view.css ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./src/view/view.css ***!
   \*************************************************************************************************/
 .fantasy-calendar-picker {
     padding: 5px 15px;
@@ -200,7 +200,7 @@
 }
 
 /*!********************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[3].use[1]!./src/main.css ***!
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./src/main.css ***!
   \********************************************************************************************/
 .fantasy-calendar-date-fields-heading {
     padding-bottom: 0;

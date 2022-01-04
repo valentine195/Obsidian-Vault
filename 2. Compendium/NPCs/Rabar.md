@@ -57,6 +57,7 @@ Use statblock of a [Zakya Rakshasa](https://5e.tools/bestiary.html#zakya%20raksh
 #### Details
 
 #### Relations
+^dice-95ru
 
 
 ### Adventures

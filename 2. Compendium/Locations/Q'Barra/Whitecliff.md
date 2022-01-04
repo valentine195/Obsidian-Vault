@@ -19,5 +19,5 @@ list FROM [[Whitecliff]] AND "Adventure Seeds"
 
 
 ### Map
-![Whitecliff Map](https://i.imgur.com/uxEHEHV.png)
+![Whitecliff Map](https://i.imgur.com/uxEHEHV.png)^dice-hfmb
 

@@ -1,78 +1,24 @@
 {
   "userAdmonitions": {
-    "info": {
-      "type": "info",
-      "color": "99, 99, 99",
+    "dnd": {
+      "type": "dnd",
+      "color": "172, 54, 181",
       "icon": {
-        "type": "font-awesome",
-        "name": "scroll"
-      }
-    },
-    "important": {
-      "type": "important",
-      "color": "210, 86, 86",
-      "icon": {
-        "type": "font-awesome",
-        "name": "exclamation"
-      }
-    },
-    "item": {
-      "type": "item",
-      "color": "32, 177, 37",
-      "icon": {
-        "type": "rpg",
-        "name": "broadsword"
-      },
-      "command": false
-    },
-    "treasure": {
-      "type": "treasure",
-      "color": "96, 11, 224",
-      "icon": {
-        "type": "font-awesome",
-        "name": "gem"
-      }
-    },
-    "battle": {
-      "type": "battle",
-      "color": "229, 52, 52",
-      "icon": {
-        "type": "font-awesome",
-        "name": "skull-crossbones"
-      },
-      "command": true,
-      "title": "Testing"
-    },
-    "test": {
-      "type": "test",
-      "color": "#7d7d7d",
-      "icon": {
-        "name": "windows",
+        "name": "dice-d20",
         "type": "font-awesome"
       },
       "command": false,
-      "title": null
-    },
-    "dnd": {
-      "type": "dnd",
-      "color": "162, 63, 207",
-      "icon": {
-        "type": "font-awesome",
-        "name": "dice-d20"
-      },
-      "command": false,
       "injectColor": true,
-      "noTitle": true,
-      "copy": true
+      "noTitle": true
     }
   },
-  "syntaxHighlight": true,
-  "copyButton": true,
+  "syntaxHighlight": false,
+  "copyButton": false,
   "version": "6.7.2",
   "autoCollapse": false,
-  "defaultCollapseType": "closed",
-  "syncLinks": false,
-  "enableMarkdownProcessor": true,
+  "defaultCollapseType": "open",
+  "syncLinks": true,
+  "enableMarkdownProcessor": false,
   "injectColor": true,
   "parseTitles": true
 }

@@ -11,6 +11,9 @@ var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
+var __commonJS = (cb, mod) => function __require() {
+  return mod || (0, cb[Object.keys(cb)[0]])((mod = { exports: {} }).exports, mod), mod.exports;
+};
 var __export = (target, all) => {
   __markAsModule(target);
   for (var name in all)
@@ -48,14 +51,46 @@ var __async = (__this, __arguments, generator) => {
   });
 };
 
+// node_modules/@aidenlx/obsidian-icon-shortcodes/lib/index.js
+var require_lib = __commonJS({
+  "node_modules/@aidenlx/obsidian-icon-shortcodes/lib/index.js"(exports) {
+    var a = Object.create;
+    var t = Object.defineProperty;
+    var d = Object.getOwnPropertyDescriptor;
+    var p = Object.getOwnPropertyNames;
+    var f = Object.getPrototypeOf;
+    var g = Object.prototype.hasOwnProperty;
+    var o = (n) => t(n, "__esModule", { value: true });
+    var l = (n, e) => {
+      o(n);
+      for (var i in e)
+        t(n, i, { get: e[i], enumerable: true });
+    };
+    var c = (n, e, i) => {
+      if (e && typeof e == "object" || typeof e == "function")
+        for (let r of p(e))
+          !g.call(n, r) && r !== "default" && t(n, r, { get: () => e[r], enumerable: !(i = d(e, r)) || i.enumerable });
+      return n;
+    };
+    var u = (n) => c(o(t(n != null ? a(f(n)) : {}, "default", n && n.__esModule && "default" in n ? { get: () => n.default, enumerable: true } : { value: n, enumerable: true })), n);
+    l(exports, { getApi: () => s, isPluginEnabled: () => P });
+    var v = u(require("obsidian"));
+    var s = (n) => {
+      var e;
+      return n ? (e = n.app.plugins.plugins["obsidian-icon-shortcodes"]) == null ? void 0 : e.api : window.IconSCAPIv0;
+    };
+    var P = (n) => s(n) !== void 0;
+  }
+});
+
 // src/main.ts
 __export(exports, {
   default: () => FaviconPlugin
 });
-var import_obsidian3 = __toModule(require("obsidian"));
+var import_obsidian5 = __toModule(require("obsidian"));
 
 // src/settings.ts
-var import_obsidian2 = __toModule(require("obsidian"));
+var import_obsidian3 = __toModule(require("obsidian"));
 
 // src/provider.ts
 var import_obsidian = __toModule(require("obsidian"));
@@ -79,15 +114,110 @@ var providers = {
   }) }
 };
 
+// src/OverwrittenIconModal.ts
+var import_obsidian2 = __toModule(require("obsidian"));
+var import_obsidian_icon_shortcodes = __toModule(require_lib());
+var OverwrittenIconModal = class extends import_obsidian2.Modal {
+  constructor(plugin, map, name) {
+    super(plugin.app);
+    this.name = "Domain";
+    this.plugin = plugin;
+    if (name) {
+      this.name = name;
+    }
+    if (map) {
+      this.domain = map.domain;
+      this.icon = map.icon;
+    }
+  }
+  displayPreview(contentEl) {
+    return __async(this, null, function* () {
+      if ((0, import_obsidian_icon_shortcodes.isPluginEnabled)(this.plugin) && this.icon) {
+        contentEl.empty();
+        const iconPreview = contentEl.createDiv("preview");
+        iconPreview.addClass("link-favicon-preview");
+        const iconApi = (0, import_obsidian_icon_shortcodes.getApi)(this.plugin);
+        const icon = iconApi.getIcon(this.icon, false);
+        if (icon !== null)
+          iconPreview.append(icon);
+      }
+    });
+  }
+  display() {
+    return __async(this, null, function* () {
+      const { contentEl } = this;
+      contentEl.empty();
+      let previewEL;
+      new import_obsidian2.Setting(contentEl).setName(this.name).addText((text) => {
+        text.setValue(this.domain).onChange((value) => {
+          this.domain = value;
+        });
+      });
+      const api = (0, import_obsidian_icon_shortcodes.getApi)(this.plugin);
+      if (api) {
+        if (api.version.compare(">=", "0.6.1")) {
+          new import_obsidian2.Setting(contentEl).setName("Icon").addButton((button) => {
+            button.setButtonText("Choose").onClick(() => __async(this, null, function* () {
+              const icon = yield api.getIconFromUser();
+              console.log(icon);
+              if (icon) {
+                this.icon = icon.id;
+                if (previewEL) {
+                  yield this.displayPreview(previewEL);
+                }
+              }
+            }));
+          });
+        } else {
+          new import_obsidian2.Setting(contentEl).setName("Icon").addText((text) => {
+            text.setValue(this.icon).onChange((value) => __async(this, null, function* () {
+              this.icon = value;
+              if (previewEL) {
+                yield this.displayPreview(previewEL);
+              }
+            }));
+          });
+        }
+      }
+      previewEL = contentEl.createDiv("preview");
+      yield this.displayPreview(previewEL);
+      const footerEl = contentEl.createDiv();
+      const footerButtons = new import_obsidian2.Setting(footerEl);
+      footerButtons.addButton((b) => {
+        b.setTooltip("Save").setIcon("checkmark").onClick(() => __async(this, null, function* () {
+          this.saved = true;
+          this.close();
+        }));
+        return b;
+      });
+      footerButtons.addExtraButton((b) => {
+        b.setIcon("cross").setTooltip("Cancel").onClick(() => {
+          this.saved = false;
+          this.close();
+        });
+        return b;
+      });
+    });
+  }
+  onOpen() {
+    return __async(this, null, function* () {
+      yield this.display();
+    });
+  }
+};
+
 // src/settings.ts
+var import_obsidian_icon_shortcodes2 = __toModule(require_lib());
 var DEFAULT_SETTINGS = {
   provider: "duckduckgo",
   fallbackProvider: "google",
   providerDomain: "",
   fallbackProviderDomain: "",
-  ignored: ""
+  ignored: "",
+  overwritten: [],
+  protocol: []
 };
-var FaviconSettings = class extends import_obsidian2.PluginSettingTab {
+var FaviconSettings = class extends import_obsidian3.PluginSettingTab {
   constructor(app, plugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -96,7 +226,7 @@ var FaviconSettings = class extends import_obsidian2.PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
     containerEl.createEl("h2", { text: "Link Favicons" });
-    new import_obsidian2.Setting(containerEl).setName("Icon Provider").addDropdown((dropdown) => {
+    new import_obsidian3.Setting(containerEl).setName("Icon Provider").addDropdown((dropdown) => {
       for (const id in providers) {
         if (providers.hasOwnProperty(id)) {
           dropdown.addOption(id, providers[id].name);
@@ -109,12 +239,12 @@ var FaviconSettings = class extends import_obsidian2.PluginSettingTab {
       }));
     });
     if (Array.of("besticon").includes(this.plugin.settings.provider)) {
-      new import_obsidian2.Setting(containerEl).setName("Provider Domain").setDesc("This Provider is be selfhosted, please specify your deployment url. Refer to the readme of the provider for deployment instructions.").addText((text) => text.setValue(this.plugin.settings.providerDomain).onChange((value) => __async(this, null, function* () {
+      new import_obsidian3.Setting(containerEl).setName("Provider Domain").setDesc("This Provider is selfhosted, please specify your deployment url. Refer to the readme of the provider for deployment instructions.").addText((text) => text.setValue(this.plugin.settings.providerDomain).onChange((value) => __async(this, null, function* () {
         this.plugin.settings.providerDomain = value;
         yield this.plugin.saveSettings();
       })));
     }
-    new import_obsidian2.Setting(containerEl).setName("Fallback Icon Provider").addDropdown((dropdown) => {
+    new import_obsidian3.Setting(containerEl).setName("Fallback Icon Provider").addDropdown((dropdown) => {
       for (const id in providers) {
         if (providers.hasOwnProperty(id)) {
           dropdown.addOption(id, providers[id].name);
@@ -127,41 +257,352 @@ var FaviconSettings = class extends import_obsidian2.PluginSettingTab {
       }));
     });
     if (Array.of("besticon").includes(this.plugin.settings.fallbackProvider)) {
-      new import_obsidian2.Setting(containerEl).setName("Fallback Provider Domain").setDesc("This Provider is be selfhosted, please specify your deployment url. Refer to the readme of the provider for deployment instructions.").addText((text) => text.setValue(this.plugin.settings.fallbackProviderDomain).onChange((value) => __async(this, null, function* () {
+      new import_obsidian3.Setting(containerEl).setName("Fallback Provider Domain").setDesc("This Provider is be selfhosted, please specify your deployment url. Refer to the readme of the provider for deployment instructions.").addText((text) => text.setValue(this.plugin.settings.fallbackProviderDomain).onChange((value) => __async(this, null, function* () {
         this.plugin.settings.fallbackProviderDomain = value;
         yield this.plugin.saveSettings();
       })));
     }
-    new import_obsidian2.Setting(containerEl).setName("Ignored Domains").setDesc("Don't show an favicon for these domains(one per line)").addTextArea((text) => {
+    new import_obsidian3.Setting(containerEl).setName("Ignored Domains").setDesc("Don't show an favicon for these domains(one per line)").addTextArea((text) => {
       text.setValue(this.plugin.settings.ignored).onChange((value) => __async(this, null, function* () {
         this.plugin.settings.ignored = value;
         yield this.plugin.saveSettings();
       }));
       text.inputEl.setAttr("rows", 8);
     });
+    if ((0, import_obsidian_icon_shortcodes2.isPluginEnabled)(this.plugin)) {
+      containerEl.createEl("h2", { text: "Custom icons" });
+      containerEl.createEl("h3", { text: "for Domains" });
+      new import_obsidian3.Setting(containerEl).setName("Add New").setDesc("Add custom icon").addButton((button) => {
+        return button.setTooltip("add custom icon").setIcon("plus-with-circle").onClick(() => __async(this, null, function* () {
+          const modal = new OverwrittenIconModal(this.plugin);
+          modal.onClose = () => __async(this, null, function* () {
+            if (modal.saved) {
+              this.plugin.settings.overwritten.push({
+                domain: modal.domain,
+                icon: modal.icon
+              });
+              yield this.plugin.saveSettings();
+              this.display();
+            }
+          });
+          modal.open();
+        }));
+      });
+      const overwrittenContainer = containerEl.createDiv("overwritten");
+      const overwrittenDiv = overwrittenContainer.createDiv("overwritten");
+      for (const overwritten of this.plugin.settings.overwritten) {
+        const setting = new import_obsidian3.Setting(overwrittenDiv);
+        const iconAPI = (0, import_obsidian_icon_shortcodes2.getApi)(this.plugin);
+        const desc = new DocumentFragment();
+        desc.createEl("p", { text: "		" + overwritten.icon }).prepend(iconAPI.getIcon(overwritten.icon));
+        setting.setName(overwritten.domain).setDesc(desc).addExtraButton((b) => {
+          b.setIcon("pencil").setTooltip("Edit").onClick(() => {
+            const modal = new OverwrittenIconModal(this.plugin, overwritten);
+            modal.onClose = () => __async(this, null, function* () {
+              if (modal.saved) {
+                const setting2 = this.plugin.settings.overwritten.filter((overwritten2) => {
+                  return overwritten2.domain !== modal.domain;
+                });
+                setting2.push({ domain: modal.domain, icon: modal.icon });
+                this.plugin.settings.overwritten = setting2;
+                yield this.plugin.saveSettings();
+                this.display();
+              }
+            });
+            modal.open();
+          });
+        }).addExtraButton((b) => {
+          b.setIcon("trash").setTooltip("Delete").onClick(() => __async(this, null, function* () {
+            this.plugin.settings.overwritten = this.plugin.settings.overwritten.filter((tmp) => {
+              return overwritten.domain !== tmp.domain;
+            });
+            yield this.plugin.saveSettings();
+            this.display();
+          }));
+        });
+      }
+      containerEl.createEl("h3", { text: "for URI Schemas" });
+      new import_obsidian3.Setting(containerEl).setName("Add New").setDesc("Add custom icon").addButton((button) => {
+        return button.setTooltip("add custom icon").setIcon("plus-with-circle").onClick(() => __async(this, null, function* () {
+          const modal = new OverwrittenIconModal(this.plugin, null, "URI Schema");
+          modal.onClose = () => __async(this, null, function* () {
+            if (modal.saved) {
+              this.plugin.settings.protocol.push({
+                domain: modal.domain,
+                icon: modal.icon
+              });
+              yield this.plugin.saveSettings();
+              this.display();
+            }
+          });
+          modal.open();
+        }));
+      });
+      const protocolContainer = containerEl.createDiv("overwritten");
+      const voicesDiv = protocolContainer.createDiv("overwritten");
+      for (const protocol of this.plugin.settings.protocol) {
+        const setting = new import_obsidian3.Setting(voicesDiv);
+        const iconAPI = (0, import_obsidian_icon_shortcodes2.getApi)(this.plugin);
+        const desc = new DocumentFragment();
+        desc.createEl("p", { text: "		" + protocol.icon }).prepend(iconAPI.getIcon(protocol.icon));
+        setting.setName(protocol.domain).setDesc(desc).addExtraButton((b) => {
+          b.setIcon("pencil").setTooltip("Edit").onClick(() => {
+            const modal = new OverwrittenIconModal(this.plugin, protocol, "URI Schema");
+            modal.onClose = () => __async(this, null, function* () {
+              if (modal.saved) {
+                const setting2 = this.plugin.settings.protocol.filter((overwritten) => {
+                  return overwritten.domain !== modal.domain;
+                });
+                setting2.push({ domain: modal.domain, icon: modal.icon });
+                this.plugin.settings.protocol = setting2;
+                yield this.plugin.saveSettings();
+                this.display();
+              }
+            });
+            modal.open();
+          });
+        }).addExtraButton((b) => {
+          b.setIcon("trash").setTooltip("Delete").onClick(() => __async(this, null, function* () {
+            this.plugin.settings.protocol = this.plugin.settings.protocol.filter((overwritten) => {
+              return overwritten.domain !== protocol.domain;
+            });
+            yield this.plugin.saveSettings();
+            this.display();
+          }));
+        });
+      }
+    }
   }
 };
 
 // src/main.ts
-var FaviconPlugin = class extends import_obsidian3.Plugin {
+var import_obsidian_icon_shortcodes3 = __toModule(require_lib());
+var import_state2 = __toModule(require("@codemirror/state"));
+
+// src/Decorations.ts
+var import_obsidian4 = __toModule(require("obsidian"));
+var import_view = __toModule(require("@codemirror/view"));
+var import_state = __toModule(require("@codemirror/state"));
+var import_language = __toModule(require("@codemirror/language"));
+var import_stream_parser = __toModule(require("@codemirror/stream-parser"));
+var statefulDecorations = defineStatefulDecoration();
+var StatefulDecorationSet = class {
+  constructor(editor, plugin) {
+    this.decoCache = Object.create(null);
+    this.debouncedUpdate = (0, import_obsidian4.debounce)(this.updateAsyncDecorations, 100, true);
+    this.editor = editor;
+    this.plugin = plugin;
+  }
+  computeAsyncDecorations(tokens) {
+    return __async(this, null, function* () {
+      const decorations = [];
+      for (let token of tokens) {
+        let deco = this.decoCache[token.value];
+        if (!deco) {
+          const provider = providers[this.plugin.settings.provider];
+          const fallbackProvider = providers[this.plugin.settings.fallbackProvider];
+          let url;
+          try {
+            url = new URL(token.value);
+          } catch (e) {
+            console.error("Invalid url: " + token.value);
+            console.error(e);
+          }
+          const icon = yield this.plugin.getIcon(url, provider);
+          const fallbackIcon = yield this.plugin.getIcon(url, fallbackProvider);
+          const domain = url.protocol.contains("http") ? url.hostname : url.protocol;
+          deco = this.decoCache[token.value] = import_view.Decoration.widget({ widget: new IconWidget(this.plugin, icon, fallbackIcon, domain) });
+        }
+        decorations.push(deco.range(token.from, token.from));
+      }
+      return import_view.Decoration.set(decorations, true);
+    });
+  }
+  updateAsyncDecorations(tokens) {
+    return __async(this, null, function* () {
+      const decorations = yield this.computeAsyncDecorations(tokens);
+      if (decorations || this.editor.state.field(statefulDecorations.field).size) {
+        this.editor.dispatch({ effects: statefulDecorations.update.of(decorations || import_view.Decoration.none) });
+      }
+    });
+  }
+};
+function buildViewPlugin(plugin) {
+  return import_view.ViewPlugin.fromClass(class {
+    constructor(view) {
+      this.decoManager = new StatefulDecorationSet(view, plugin);
+      this.buildAsyncDecorations(view);
+    }
+    update(update) {
+      if (update.docChanged || update.viewportChanged) {
+        this.buildAsyncDecorations(update.view);
+      }
+    }
+    destroy() {
+    }
+    buildAsyncDecorations(view) {
+      const targetElements = [];
+      for (let { from, to } of view.visibleRanges) {
+        const tree = (0, import_language.syntaxTree)(view.state);
+        tree.iterate({
+          from,
+          to,
+          enter: (type, from2, to2) => {
+            const tokenProps = type.prop(import_stream_parser.tokenClassNodeProp);
+            if (tokenProps) {
+              const props = new Set(tokenProps.split(" "));
+              const isExternalLink = props.has("url");
+              const linkText = view.state.doc.sliceString(from2, to2);
+              if (isExternalLink && linkText.contains("://")) {
+                const line = view.state.doc.lineAt(from2);
+                const toLine = line.to - to2;
+                const toLineT = line.length - toLine;
+                const fromIndex = line.text.lastIndexOf("[", toLineT);
+                if (fromIndex === -1) {
+                  return;
+                }
+                const fromTarget = line.from + fromIndex;
+                targetElements.push({ from: fromTarget, to: to2, value: linkText });
+              }
+            }
+          }
+        });
+      }
+      this.decoManager.debouncedUpdate(targetElements);
+    }
+  });
+}
+function asyncDecoBuilderExt(plugin) {
+  return [statefulDecorations.field, buildViewPlugin(plugin)];
+}
+function defineStatefulDecoration() {
+  const update = import_state.StateEffect.define();
+  const field = import_state.StateField.define({
+    create() {
+      return import_view.Decoration.none;
+    },
+    update(deco, tr) {
+      return tr.effects.reduce((deco2, effect) => effect.is(update) ? effect.value : deco2, deco.map(tr.changes));
+    },
+    provide: (field2) => import_view.EditorView.decorations.from(field2)
+  });
+  return { update, field };
+}
+var IconWidget = class extends import_view.WidgetType {
+  constructor(plugin, icon, fallbackIcon, domain) {
+    super();
+    this.plugin = plugin;
+    this.icon = icon;
+    this.fallbackIcon = fallbackIcon;
+    this.domain = domain;
+  }
+  eq(other) {
+    return other == this;
+  }
+  toDOM() {
+    if (!this.icon || this.icon === "") {
+      return document.createElement("span");
+    }
+    if (typeof this.icon === "string") {
+      if (!this.icon.startsWith("http")) {
+        const span = document.createElement("span");
+        span.textContent = this.icon;
+        span.className = "link-favicon";
+        return span;
+      }
+      const el = document.createElement("object");
+      el.addClass("link-favicon");
+      el.dataset.host = this.domain;
+      el.data = this.icon;
+      el.data.contains(".ico") ? el.type = "image/x-icon" : el.type = "image/png";
+      el.style.height = "0.8em";
+      el.style.display = "inline-block";
+      if (typeof this.fallbackIcon === "string") {
+        const img = el.createEl("img");
+        img.src = this.fallbackIcon;
+        img.addClass("link-favicon");
+        img.style.height = "0.8em";
+        img.style.display = "block";
+        el.append(img);
+      }
+      return el;
+    } else {
+      return this.icon;
+    }
+  }
+  ignoreEvent() {
+    return false;
+  }
+};
+
+// src/main.ts
+var FaviconPlugin = class extends import_obsidian5.Plugin {
   isDisabled(el) {
     if (el.getAttribute("data-no-favicon"))
       return true;
     if (el.getAttribute("data-favicon"))
       return true;
-    const style = getComputedStyle(el, ":before").getPropertyValue("background-url");
-    console.log(style);
+  }
+  getCustomDomainIcon(domain) {
+    if ((0, import_obsidian_icon_shortcodes3.isPluginEnabled)(this)) {
+      const icons = this.settings.overwritten.filter((value) => value.domain === domain);
+      if (icons.length > 0) {
+        const iconApi = (0, import_obsidian_icon_shortcodes3.getApi)(this);
+        const icon = icons[0].icon;
+        return iconApi.getIcon(icon, false);
+      }
+    }
+  }
+  getCustomSchemeIcon(scheme) {
+    if ((0, import_obsidian_icon_shortcodes3.isPluginEnabled)(this)) {
+      const icons = this.settings.protocol.filter((value) => value.domain === scheme.substr(0, scheme.length - 1));
+      if (icons.length > 0) {
+        const iconApi = (0, import_obsidian_icon_shortcodes3.getApi)(this);
+        const icon = icons[0].icon;
+        return iconApi.getIcon(icon, false);
+      }
+    }
+  }
+  getIcon(domain, provider) {
+    return __async(this, null, function* () {
+      if (!domain.protocol.startsWith("http")) {
+        const customSchemeIcon = this.getCustomSchemeIcon(domain.protocol);
+        if (customSchemeIcon) {
+          if (typeof customSchemeIcon !== "string") {
+            customSchemeIcon.addClass("link-favicon");
+            customSchemeIcon.dataset.host = domain.hostname;
+          }
+          return customSchemeIcon;
+        }
+      }
+      if (this.settings.ignored.split("\n").contains(domain.hostname)) {
+        return "";
+      }
+      const customDomainIcon = this.getCustomDomainIcon(domain.hostname);
+      if (customDomainIcon) {
+        if (typeof customDomainIcon !== "string") {
+          customDomainIcon.addClass("link-favicon");
+          customDomainIcon.dataset.host = domain.hostname;
+        }
+        return customDomainIcon;
+      }
+      return provider.url(domain.hostname, this.settings);
+    });
   }
   onload() {
     return __async(this, null, function* () {
       console.log("enabling plugin: link favicons");
       yield this.loadSettings();
       this.addSettingTab(new FaviconSettings(this.app, this));
-      this.registerMarkdownPostProcessor((element, _) => __async(this, null, function* () {
+      this.registerEditorExtension(import_state2.Prec.lowest(asyncDecoBuilderExt(this)));
+      this.registerMarkdownPostProcessor((element, ctx) => __async(this, null, function* () {
+        if (ctx.sourcePath.contains("no-favicon")) {
+          return;
+        }
         const provider = providers[this.settings.provider];
         const fallbackProvider = providers[this.settings.fallbackProvider];
         if (!provider || !fallbackProvider) {
-          console.log("Link Favicons: misconfigured providers");
+          console.error("Link Favicons: misconfigured providers");
           return;
         }
         const links = element.querySelectorAll("a.external-link:not([data-favicon])");
@@ -169,25 +610,48 @@ var FaviconPlugin = class extends import_obsidian3.Plugin {
           const link = links.item(index);
           if (!this.isDisabled(link)) {
             link.dataset.favicon = "true";
+            let domain;
             try {
-              const domain = new URL(link.href);
-              if (!this.settings.ignored.split("\n").contains(domain.hostname)) {
-                const el = document.createElement("object");
+              domain = new URL(link.href);
+            } catch (e) {
+              console.error("Invalid url: " + link.href);
+              console.error(e);
+            }
+            if (!domain)
+              continue;
+            const icon = yield this.getIcon(domain, provider);
+            const fallbackIcon = yield this.getIcon(domain, fallbackProvider);
+            let el;
+            if (!icon || icon === "") {
+              continue;
+            }
+            if (typeof icon === "string") {
+              if (!icon.startsWith("http")) {
+                el = icon;
+              } else {
+                el = document.createElement("object");
                 el.addClass("link-favicon");
                 el.dataset.host = domain.hostname;
-                el.data = yield provider.url(domain.hostname, this.settings);
+                el.data = icon;
                 el.data.contains(".ico") ? el.type = "image/x-icon" : el.type = "image/png";
                 el.style.height = "0.8em";
                 el.style.display = "inline-block";
-                const img = el.createEl("img");
-                img.src = yield fallbackProvider.url(domain.hostname, this.settings);
-                img.addClass("link-favicon");
-                img.style.height = "0.8em";
-                img.style.display = "block";
-                link.prepend(el);
               }
-            } catch (e) {
-              console.log("Link Favicons: invalid url: " + link.href);
+            } else {
+              el = icon;
+            }
+            if (!el)
+              continue;
+            if (typeof el !== "string" && typeof fallbackIcon === "string") {
+              const img = el.createEl("img");
+              img.src = fallbackIcon;
+              img.addClass("link-favicon");
+              img.style.height = "0.8em";
+              img.style.display = "block";
+              el.append(img);
+            }
+            if (el) {
+              link.prepend(el);
             }
           }
         }

@@ -115,3 +115,12 @@ body:not(.is-mobile) .status-bar {
 .markdown-preview-view .internal-query.is-embed .internal-query-header-title {
     font-size: var(--h5);
 }
+
+.contextual-typography
+    .markdown-preview-view.markdown-preview-view
+    .markdown-preview-sizer
+    > div {
+    width: auto;
+    margin-left: 0;
+    margin-right: 0;
+}

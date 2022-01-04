@@ -1,6 +1,371 @@
 {
-  "monsters": [],
-  "layouts": [],
+  "monsters": [
+    [
+      "Drow Cultist",
+      {
+        "name": "Drow Cultist",
+        "source": "Out of the Abyss",
+        "type": {
+          "type": "humanoid",
+          "tags": [
+            "elf"
+          ]
+        },
+        "subtype": "",
+        "size": "Medium",
+        "alignment": "lawful neutral (law/chaos axis) chaotic neutral (good/evil axis) evil",
+        "hp": 9,
+        "hit_dice": "2d8",
+        "ac": 12,
+        "speed": "30 ft.",
+        "stats": [
+          11,
+          12,
+          10,
+          10,
+          11,
+          10
+        ],
+        "damage_immunities": "",
+        "damage_resistances": "",
+        "damage_vulnerabilities": "",
+        "condition_immunities": "",
+        "saves": [],
+        "skillsaves": {
+          "deception": "2",
+          "religion": "2",
+          "perception": "2"
+        },
+        "senses": "darkvision 120 ft.",
+        "languages": "any one language (usually Common), Elvish",
+        "cr": "1/8",
+        "traits": [
+          {
+            "name": "Dark Devotion",
+            "desc": "The cultist has advantage on saving throws against being charmed or frightened."
+          },
+          {
+            "name": "Fey Ancestry",
+            "desc": "The drow cultist has advantage on saving throws against being charmed, and magic can't put the drow cultist to sleep."
+          },
+          {
+            "name": "Sunlight Sensitivity",
+            "desc": "While in sunlight, the drow cultist has disadvantage on attack rolls, as well as on Wisdom ({@skill Perception}) checks that rely on sight."
+          }
+        ],
+        "actions": [
+          {
+            "name": "Scimitar",
+            "desc": "Melee Weapon Attack +3 to hit, reach 5 ft., one creature. 4 (1d6 + 1) slashing damage."
+          }
+        ],
+        "reactions": [],
+        "legendary_actions": [],
+        "spells": [
+          "The drow cultist's innate spellcasting ability is Charisma (spell save DC 10). The drow cultist can innately cast the following spells, requiring no material components:",
+          {
+            "At will": "dancing lights"
+          },
+          {
+            "Daily (1e)": "darkness, faerie fire"
+          }
+        ]
+      }
+    ]
+  ],
+  "layouts": [
+    {
+      "blocks": [
+        {
+          "type": "inline",
+          "id": "7be96b4ad8bb",
+          "properties": [
+            "name",
+            "size",
+            "type",
+            "subtype",
+            "alignment",
+            "image"
+          ],
+          "nested": [
+            {
+              "type": "group",
+              "id": "79580bbbc80b",
+              "properties": [
+                "name",
+                "size",
+                "type",
+                "subtype",
+                "alignment"
+              ],
+              "nested": [
+                {
+                  "type": "heading",
+                  "id": "6bb929c8894b",
+                  "properties": [
+                    "name"
+                  ],
+                  "conditioned": true
+                },
+                {
+                  "type": "subheading",
+                  "id": "b83ae8e90b69",
+                  "properties": [
+                    "size",
+                    "type",
+                    "subtype",
+                    "alignment"
+                  ],
+                  "conditioned": true
+                }
+              ],
+              "conditioned": true,
+              "hasRule": true
+            },
+            {
+              "type": "image",
+              "id": "3a689b3b59e9",
+              "properties": [
+                "image"
+              ],
+              "conditioned": true
+            }
+          ]
+        },
+        {
+          "type": "group",
+          "id": "d878e888a86b",
+          "properties": [
+            "ac",
+            "hp",
+            "speed"
+          ],
+          "nested": [
+            {
+              "type": "property",
+              "id": "a8e9780a29db",
+              "properties": [
+                "ac"
+              ],
+              "display": "Armor Class",
+              "conditioned": true
+            },
+            {
+              "type": "property",
+              "id": "c9aa7adaf9fb",
+              "properties": [
+                "hp"
+              ],
+              "display": "Hit Points",
+              "dice": true,
+              "diceProperty": "hit_dice",
+              "diceCallback": "return [{ text: monster[\"hit_dice\"] }]",
+              "conditioned": true
+            },
+            {
+              "type": "property",
+              "id": "18eb88faa86a",
+              "display": "Speed",
+              "properties": [
+                "speed"
+              ],
+              "conditioned": true
+            }
+          ],
+          "hasRule": true,
+          "conditioned": true
+        },
+        {
+          "type": "table",
+          "id": "9988889afa1a",
+          "properties": [
+            "stats"
+          ],
+          "headers": [
+            "Str",
+            "Dex",
+            "Con",
+            "Wis",
+            "Int",
+            "Cha"
+          ],
+          "hasRule": true,
+          "conditioned": true
+        },
+        {
+          "type": "group",
+          "id": "8b987acb88b9",
+          "properties": [
+            "saves",
+            "skillsaves",
+            "damage_immunities",
+            "damage_resistances",
+            "damage_vulnerabilities",
+            "condition_immunities",
+            "cr",
+            "languages",
+            "senses"
+          ],
+          "nested": [
+            {
+              "type": "saves",
+              "id": "69e85a9b689b",
+              "display": "Saves",
+              "properties": [
+                "saves"
+              ],
+              "conditioned": true
+            },
+            {
+              "type": "saves",
+              "id": "5a392b3a1b78",
+              "display": "Skills",
+              "properties": [
+                "skillsaves"
+              ],
+              "conditioned": true
+            },
+            {
+              "type": "property",
+              "id": "6bf9b8ba9aa9",
+              "display": "Damage Immunities",
+              "properties": [
+                "damage_immunities"
+              ],
+              "conditioned": true
+            },
+            {
+              "type": "property",
+              "id": "0ab8ea982b59",
+              "display": "Condition Immunities",
+              "properties": [
+                "condition_immunities"
+              ],
+              "conditioned": true
+            },
+            {
+              "type": "property",
+              "id": "2939bba8c9f9",
+              "display": "Resistances",
+              "properties": [
+                "damage_resistances"
+              ],
+              "conditioned": true
+            },
+            {
+              "type": "property",
+              "id": "7909ab4b08a8",
+              "display": "Damage Vulnerabilities",
+              "properties": [
+                "damage_vulnerabilities"
+              ],
+              "conditioned": true
+            },
+            {
+              "type": "property",
+              "id": "9b7b18d9e8f9",
+              "display": "Senses",
+              "properties": [
+                "senses"
+              ],
+              "conditioned": true
+            },
+            {
+              "type": "property",
+              "id": "b8d8daf9cb7a",
+              "display": "Languages",
+              "properties": [
+                "languages"
+              ],
+              "fallback": "-"
+            },
+            {
+              "type": "inline",
+              "id": "386baa8aaba8",
+              "properties": [],
+              "conditioned": true,
+              "nested": [
+                {
+                  "type": "property",
+                  "id": "086b589bab0b",
+                  "display": "Challenge",
+                  "properties": [
+                    "cr"
+                  ],
+                  "callback": "if (\"cr\" in monster && monster.cr in plugin.CR) {\n    return `${plugin.CR[\n        monster.cr\n    ].cr} (${plugin.CR[\n        monster.cr\n    ].xp.toLocaleString()} XP)`;\n}\nreturn \"\";"
+                },
+                {
+                  "type": "property",
+                  "id": "bb0bf888e8c8",
+                  "display": "Proficiency Bonus",
+                  "properties": [
+                    "cr"
+                  ],
+                  "callback": "if (\"cr\" in monster && monster.cr in plugin.CR) {\n    return `+${Math.floor(\n        2 + ((plugin.CR[monster.cr]?.value ?? 0) - 1) / 4\n    )}`;\n}\nreturn \"\";"
+                }
+              ]
+            }
+          ],
+          "conditioned": true,
+          "hasRule": true
+        },
+        {
+          "type": "traits",
+          "id": "696b9ab8bb28",
+          "properties": [
+            "traits"
+          ],
+          "conditioned": true,
+          "dice": true,
+          "diceCallback": "return plugin.parseForDice(property);"
+        },
+        {
+          "type": "spells",
+          "id": "89487a282b08",
+          "properties": [
+            "spells"
+          ],
+          "conditioned": true,
+          "dice": true,
+          "diceCallback": "return plugin.parseForDice(property);"
+        },
+        {
+          "type": "traits",
+          "id": "b8db398a580a",
+          "properties": [
+            "actions"
+          ],
+          "heading": "Actions",
+          "conditioned": true,
+          "dice": true,
+          "diceCallback": "return plugin.parseForDice(property);"
+        },
+        {
+          "type": "traits",
+          "id": "5be929494be8",
+          "properties": [
+            "legendary_actions"
+          ],
+          "heading": "Legendary Actions",
+          "conditioned": true,
+          "dice": true,
+          "diceCallback": "return plugin.parseForDice(property);"
+        },
+        {
+          "type": "traits",
+          "id": "9b38592a0a6b",
+          "properties": [
+            "reactions"
+          ],
+          "heading": "Reactions",
+          "conditioned": true,
+          "dice": true,
+          "diceCallback": "return plugin.parseForDice(property);"
+        }
+      ],
+      "name": "Basic 5e Layout Copy"
+    }
+  ],
   "default": "Basic 5e Layout",
   "useDice": true,
   "renderDice": false,
@@ -9,6 +374,7 @@
   "version": {
     "major": 2,
     "minor": 1,
-    "patch": 0
-  }
+    "patch": 1
+  },
+  "statblocks": []
 }
