@@ -162,3 +162,8 @@ button {
 .workspace-ribbon-collapse-btn {
     padding: 14px 6px;
 }
+
+.workspace-split.mod-left-split > .workspace-leaf-resize-handle,
+.workspace-split.mod-right-split > .workspace-leaf-resize-handle {
+    height: 100%;
+}

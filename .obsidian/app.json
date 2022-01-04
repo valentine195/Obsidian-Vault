@@ -1,1 +1,19 @@
-{}
+{
+  "promptDelete": false,
+  "foldHeading": true,
+  "foldIndent": true,
+  "smartIndentList": false,
+  "showFrontmatter": true,
+  "newFileLocation": "current",
+  "livePreview": false,
+  "showUnsupportedFiles": true,
+  "alwaysUpdateLinks": true,
+  "readableLineLength": false,
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "legacyEditor": false
+}

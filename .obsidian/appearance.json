@@ -1,3 +1,23 @@
 {
-  "baseFontSize": 16
+  "baseFontSize": 16,
+  "cssTheme": "Ebullientworks",
+  "enabledCssSnippets": [
+    "obsidian",
+    "obsidian.auto-fading",
+    "obsidian.colored-folders",
+    "obsidian.ebullient-overrides",
+    "obsidian.external-icons",
+    "obsidian.floating-frontmatter",
+    "obsidian.fonts",
+    "obsidian.garble",
+    "obsidian.headings",
+    "obsidian.image-adjustments",
+    "obsidian.masthead",
+    "obsidian.material-icons",
+    "obsidian.minimal-icons",
+    "obsidian.outliner-overrides",
+    "obsidian.portrait",
+    "obsidian.subhead"
+  ],
+  "theme": "moonstone"
 }
