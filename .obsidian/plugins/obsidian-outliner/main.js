@@ -1343,11 +1343,69 @@ class SelectAllOperation {
         this.stopPropagation = false;
         this.updated = false;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    display() {
+        const { containerEl } = this;
+        containerEl.empty();
+        new obsidian.Setting(containerEl)
+            .setName("Improve the style of your lists")
+            .setDesc("Styles are only compatible with built-in Obsidian themes and may not be compatible with other themes. Styles only work well with tab size 4.")
+            .addToggle((toggle) => {
+            toggle.setValue(this.settings.styleLists).onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.settings.styleLists = value;
+                yield this.settings.save();
+            }));
+        });
+        new obsidian.Setting(containerEl)
+            .setName("Stick the cursor to the content")
+            .setDesc("Don't let the cursor move to the bullet position.")
+            .addToggle((toggle) => {
+            toggle.setValue(this.settings.stickCursor).onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.settings.stickCursor = value;
+                yield this.settings.save();
+            }));
+        });
+        new obsidian.Setting(containerEl)
+            .setName("Enhance the Enter key")
+            .setDesc("Make the Enter key behave the same as other outliners.")
+            .addToggle((toggle) => {
+            toggle.setValue(this.settings.betterEnter).onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.settings.betterEnter = value;
+                yield this.settings.save();
+            }));
+        });
+        new obsidian.Setting(containerEl)
+            .setName("Enhance the Tab key")
+            .setDesc("Make Tab and Shift-Tab behave the same as other outliners.")
+            .addToggle((toggle) => {
+            toggle.setValue(this.settings.betterTab).onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.settings.betterTab = value;
+                yield this.settings.save();
+            }));
+        });
+        new obsidian.Setting(containerEl)
+            .setName("Enhance the Ctrl+A or Cmd+A behavior")
+            .setDesc("Press the hotkey once to select the current list item. Press the hotkey twice to select the entire list.")
+            .addToggle((toggle) => {
+            toggle.setValue(this.settings.selectAll).onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.settings.selectAll = value;
+                yield this.settings.save();
+            }));
+        });
+        new obsidian.Setting(containerEl)
+            .setName("Debug mode")
+            .setDesc("Open DevTools (Command+Option+I or Control+Shift+I) to copy the debug logs.")
+            .addToggle((toggle) => {
+            toggle.setValue(this.settings.debug).onChange((value) => __awaiter(this, void 0, void 0, function* () {
+                this.settings.debug = value;
+                yield this.settings.save();
+            }));
+        });
     }
-    shouldUpdate() {
-        return this.updated;
+}
+class SettingsTabFeature {
+    constructor(plugin, settings) {
+        this.plugin = plugin;
+        this.settings = settings;
     }
     perform() {
         const { root } = this;
@@ -1570,15 +1628,38 @@ class CreateNoteLineOperation {
         this.stopPropagation = false;
         this.updated = false;
     }
-    shouldStopPropagation() {
-        return this.stopPropagation;
+    getCursor() {
+        return this.e.getCursor();
     }
-    shouldUpdate() {
-        return this.updated;
+    getLine(n) {
+        return this.e.getLine(n);
     }
-    perform() {
-        const { root } = this;
-        if (!root.hasSingleCursor()) {
+    lastLine() {
+        return this.e.lastLine();
+    }
+    listSelections() {
+        return this.e.listSelections();
+    }
+    getRange(from, to) {
+        return this.e.getRange(from, to);
+    }
+    replaceRange(replacement, from, to) {
+        return this.e.replaceRange(replacement, from, to);
+    }
+    setSelections(selections) {
+        this.e.setSelections(selections);
+    }
+    setValue(text) {
+        this.e.setValue(text);
+    }
+    getValue() {
+        return this.e.getValue();
+    }
+    fold(n) {
+        const view = this.getEditorView();
+        const l = view.lineBlockAt(view.state.doc.line(n + 1).from);
+        const range = language.foldable(view.state, l.from, l.to);
+        if (!range || range.from === range.to) {
             return;
         }
         const cursor = root.getCursor();
