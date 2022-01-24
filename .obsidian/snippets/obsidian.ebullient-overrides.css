@@ -23,6 +23,39 @@
     --font-title: 1.1em;
 }
 
+/** Workspace Collapse Buttons */
+.workspace-ribbon.mod-left .workspace-ribbon-collapse-btn,
+.workspace-ribbon.mod-right .workspace-ribbon-collapse-btn {
+    opacity: 1;
+    position: fixed;
+    width: 26px;
+    display: flex;
+    align-items: center;
+    top: auto;
+    text-align: center;
+    bottom: 10px;
+    z-index: 9999;
+}
+
+.workspace-ribbon.mod-left .workspace-ribbon-collapse-btn {
+    left: 2px;
+}
+
+.workspace-ribbon.mod-right {
+    right: 4px;
+    bottom: 0;
+    height: 32px;
+    padding-top: 6px;
+    position: absolute;
+    background: transparent;
+    border: 0;
+}
+
+.dropdown {
+    font-size: 0.8em;
+    padding: 6px 14px;
+}
+
 body,
 input,
 button {
@@ -40,6 +73,10 @@ button {
 
 .markdown-preview-view blockquote:before {
     content: unset;
+}
+
+.vertical-tabs-container {
+    background-color: var(--modal-content-bg);
 }
 
 .workspace-leaf-header,
@@ -100,13 +137,23 @@ button {
 .workspace-tab-header,
 .workspace-tab-header.is-after-active,
 .workspace-tab-header.is-active,
-.workspace-tab-header.is-before-active {
+.workspace-tab-header.is-before-active,
+.workspace-tab-container-before.is-before-active,
+.workspace-tab-container-after.is-after-active,
+.workspace-tab-header.is-before-active,
+.workspace-tab-header.is-after-active {
     background: transparent;
     color: var(--text-muted);
     opacity: 0.5;
     transition: opacity 0.1s ease-in-out;
 
     line-height: 0;
+}
+.workspace-tab-container-before.is-before-active .workspace-tab-header-inner,
+.workspace-tab-container-after.is-after-active .workspace-tab-header-inner,
+.workspace-tab-header.is-before-active .workspace-tab-header-inner,
+.workspace-tab-header.is-after-active .workspace-tab-header-inner {
+    background: transparent;
 }
 
 .nav-action-button.is-active,
@@ -166,4 +213,16 @@ button {
 .workspace-split.mod-left-split > .workspace-leaf-resize-handle,
 .workspace-split.mod-right-split > .workspace-leaf-resize-handle {
     height: 100%;
+}
+
+body:not(.ebullientworks-nix-checkbox)
+    .markdown-source-view.mod-cm6
+    input.task-list-item-checkbox:checked::before,
+body:not(.ebullientworks-nix-checkbox)
+    .markdown-preview-view
+    input.task-list-item-checkbox:checked::before {
+    font-size: 10px;
+    left: 0px;
+    right: 0px;
+    top: 0px;
 }

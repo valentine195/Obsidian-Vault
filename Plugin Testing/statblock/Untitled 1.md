@@ -1,0 +1,3 @@
+```statblock
+note: [[YAML Statblock]]
+```

@@ -1,5 +1,5 @@
 {
-  "baseFontSize": 16,
+  "baseFontSize": 14,
   "cssTheme": "Ebullientworks",
   "enabledCssSnippets": [
     "obsidian",
@@ -17,7 +17,8 @@
     "obsidian.minimal-icons",
     "obsidian.outliner-overrides",
     "obsidian.portrait",
-    "obsidian.subhead"
+    "obsidian.subhead",
+    "simple-task-calm-tailor"
   ],
   "theme": "moonstone"
 }

@@ -3,6 +3,57 @@
     --bgZZ: green;
 }
 
+.calendar-talk.markdown-preview-view {
+    padding-left: 0;
+    padding-right: 0;
+}
+.calendar-talk .admonition {
+    margin-left: 0.1rem !important;
+    margin-right: 0.1rem !important;
+}
+.calendar-talk pre.frontmatter {
+    display: none;
+}
+
+@keyframes highlight {
+    from {
+        text-decoration: none;
+    }
+    to {
+        text-decoration: underline dashed var(--text-accent);
+    }
+}
+@keyframes current {
+    from {
+        text-decoration: none;
+    }
+    to {
+        text-decoration: underline dotted var(--text-accent);
+    }
+}
+
+.cm-matched-word {
+    animation: highlight 2s;
+}
+.cm-current-word {
+    animation: current 2s;
+}
+
+/** Fantasy Calendar */
+.fantasy-month .fantasy-day.active {
+    background-color: var(--background-secondary-alt);
+}
+.fantasy-calendar .flag-container .flag.multi:not(.end) {
+    margin-right: -2px;
+}
+.fantasy-calendar .flag-container .flag.multi:not(.start) {
+    margin-left: -2px;
+}
+.fantasy-calendar-event-date .fantasy-calendar-date-fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
 /** Activity History Plugin */
 .block-language-ActivityHistory #SelectYear {
     display: none;

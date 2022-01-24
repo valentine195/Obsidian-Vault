@@ -3,50 +3,96 @@
     {
       "name": "Bob",
       "level": 3,
-      "player": true
+      "player": true,
+      "marker": "player"
     },
     {
-      "name": "Test",
-      "level": 3,
-      "player": true
+      "name": "Jeremiah",
+      "player": true,
+      "marker": "player"
     },
     {
-      "name": "Test2",
-      "level": 3,
-      "player": true
+      "name": "Merigold",
+      "player": true,
+      "marker": "player"
     },
     {
-      "name": "Test4",
-      "level": 4,
-      "player": true
+      "name": "Mim",
+      "player": true,
+      "marker": "player"
     }
   ],
   "homebrew": [],
   "version": null,
   "canUseDiceRoll": false,
   "initiative": "1d20 + %mod%",
+  "modifier": null,
   "sync": true,
-  "leafletIntegration": false,
-  "playerMarker": "default",
-  "monsterMarker": "default",
+  "leafletIntegration": true,
+  "playerMarker": "player",
+  "monsterMarker": "monster",
   "state": {
     "creatures": [
       {
-        "name": "Test4",
-        "initiative": 16,
-        "modifier": 0,
-        "id": "ID_d84bebda38fb",
+        "name": "abc",
+        "initiative": 10,
+        "modifier": -1,
+        "hp": 135,
+        "ac": 17,
+        "id": "ID_3b7a2a4b097b",
+        "marker": "default",
+        "currentHP": 135,
         "status": [],
         "enabled": true,
-        "level": 4,
-        "player": true,
+        "xp": 5900,
         "active": true
       },
       {
+        "name": "Goblin",
+        "initiative": 5,
+        "modifier": 2,
+        "hp": 7,
+        "ac": 15,
+        "id": "ID_fb2bf9c90959",
+        "marker": "default",
+        "currentHP": 7,
+        "status": [],
+        "enabled": true,
+        "xp": 50,
+        "active": false
+      },
+      {
         "name": "Test",
-        "initiative": 15,
+        "initiative": 8,
+        "modifier": -1,
+        "hp": 135,
+        "ac": 17,
+        "id": "ID_3b7a2a4b097b",
+        "marker": "default",
+        "currentHP": 135,
+        "status": [],
+        "enabled": true,
+        "xp": 5900,
+        "active": false
+      },
+      {
+        "name": "Test2",
+        "initiative": 5,
         "modifier": 0,
-        "id": "ID_6b6a2b194a18",
+        "id": "ID_1928fb08490b",
+        "marker": "default",
+        "status": [],
+        "enabled": true,
+        "level": 3,
+        "player": true,
+        "active": false
+      },
+      {
+        "name": "Test",
+        "initiative": 4,
+        "modifier": 0,
+        "id": "ID_3a0b49da999a",
+        "marker": "default",
         "status": [],
         "enabled": true,
         "level": 3,
@@ -55,9 +101,10 @@
       },
       {
         "name": "Bob",
-        "initiative": 6,
+        "initiative": 3,
         "modifier": 0,
-        "id": "ID_d90aa839095b",
+        "id": "ID_6a68c8dbc859",
+        "marker": "default",
         "status": [],
         "enabled": true,
         "level": 3,
@@ -65,21 +112,37 @@
         "active": false
       },
       {
-        "name": "Test2",
-        "initiative": 6,
+        "name": "Test4",
+        "initiative": 3,
         "modifier": 0,
-        "id": "ID_2a78192ae829",
+        "id": "ID_98e97b9bc90a",
+        "marker": "default",
         "status": [],
         "enabled": true,
-        "level": 3,
+        "level": 4,
         "player": true,
+        "active": false
+      },
+      {
+        "name": "Aboleth",
+        "initiative": 2,
+        "modifier": -1,
+        "hp": 135,
+        "ac": 17,
+        "id": "ID_3b7a2a4b097b",
+        "marker": "default",
+        "currentHP": 135,
+        "status": [],
+        "enabled": true,
+        "xp": 5900,
         "active": false
       }
     ],
     "state": true,
-    "name": "Example"
+    "round": 1
   },
   "condense": false,
   "displayDifficulty": true,
-  "encounters": {}
+  "encounters": {},
+  "warnedAboutImports": false
 }

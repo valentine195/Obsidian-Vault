@@ -1,46 +1,33 @@
 {
   "mapMarkers": [
     {
-      "id": "real 2",
-      "lastAccessed": 1633361324906,
+      "id": "leaflet-map",
+      "lastAccessed": 1642960899705,
       "markers": [
         {
-          "id": "ID_7a080b193b89",
+          "id": "ID_4adae95bfb7a",
           "type": "location",
           "loc": [
-            37.408346344485,
-            -82.51799221510602
+            -5.0908203125,
+            7.15625
           ],
-          "link": null,
-          "layer": "real",
+          "layer": "%5B%5Bkhorvaire.png%5D%5D",
           "mutable": true,
           "command": false,
           "percent": null,
           "description": null,
-          "minZoom": 5,
-          "maxZoom": 10,
+          "minZoom": null,
+          "maxZoom": null,
           "tooltip": "hover"
-        }
-      ],
-      "overlays": [],
-      "shapes": [],
-      "files": [
-        "Plugin Testing/map/Map.md"
-      ]
-    },
-    {
-      "id": "tester7",
-      "lastAccessed": 1638752142499,
-      "markers": [
+        },
         {
-          "id": "ID_18ab29d8ea29",
+          "id": "ID_7a6a4bfbb9fa",
           "type": "location",
           "loc": [
-            500.375,
-            1377.3371024734984
+            -2.6533203125,
+            4.8125
           ],
-          "link": null,
-          "layer": "%5B%5Bmiddle-earth-map.jpg%7CMiddle%20Earth%5D%5D",
+          "layer": "%5B%5Bkhorvaire.png%5D%5D",
           "mutable": true,
           "command": false,
           "percent": null,
@@ -52,108 +39,6 @@
       ],
       "overlays": [],
       "shapes": [],
-      "files": [
-        "Plugin Testing/map/Map.md"
-      ]
-    },
-    {
-      "id": "test 3",
-      "lastAccessed": 1639670005793,
-      "markers": [
-        {
-          "id": "ID_98ba18f8ab19",
-          "type": "location",
-          "loc": [
-            35.98183081026476,
-            -21.86341473336338
-          ],
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_990bf8e8aacb",
-          "type": "location",
-          "loc": [
-            33.60025036574813,
-            1.4277047761183417
-          ],
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        }
-      ],
-      "overlays": [],
-      "shapes": [
-        {
-          "type": "polyline",
-          "color": "#3388FF",
-          "vertices": [
-            {
-              "lat": 35.98183081026476,
-              "lng": -21.86341473336338,
-              "id": "ID_29fa281b4a2a",
-              "targets": {
-                "vertexIds": [],
-                "markerId": "ID_98ba18f8ab19"
-              }
-            },
-            {
-              "lat": 33.60025036574813,
-              "lng": 1.4277047761183417,
-              "id": "ID_490a9b0be8c9",
-              "targets": {
-                "vertexIds": [],
-                "markerId": "ID_990bf8e8aacb"
-              }
-            }
-          ],
-          "arrows": false,
-          "reversed": false
-        },
-        {
-          "type": "polyline",
-          "color": "#3388FF",
-          "vertices": [
-            {
-              "lat": -4.3707275390625,
-              "lng": 4.240234375,
-              "id": "ID_88195888fb09",
-              "targets": {
-                "vertexIds": []
-              }
-            },
-            {
-              "lat": -3.7496337890625,
-              "lng": 4.357421875,
-              "id": "ID_2839fa6bbae9",
-              "targets": {
-                "vertexIds": []
-              }
-            },
-            {
-              "lat": -3.7890625,
-              "lng": 4.671875,
-              "id": "ID_291838d8e8b8",
-              "targets": {
-                "vertexIds": []
-              }
-            }
-          ],
-          "arrows": false,
-          "reversed": false
-        }
-      ],
       "files": [
         "Plugin Testing/map/Map.md"
       ]
@@ -173,7 +58,7 @@
     {
       "type": "location",
       "iconName": "circle",
-      "color": "#b80000",
+      "color": "#ff7291",
       "layer": true,
       "transform": {
         "size": 6,
@@ -188,9 +73,9 @@
       "maxZoom": null
     },
     {
-      "type": "event",
-      "iconName": "exclamation",
-      "color": "#668cff",
+      "type": "player",
+      "iconName": "user-shield",
+      "color": "#65bbe7",
       "layer": true,
       "transform": {
         "size": 6,
@@ -198,9 +83,22 @@
         "y": -2
       },
       "isImage": false,
-      "tags": [
-        "event"
-      ],
+      "tags": [],
+      "minZoom": null,
+      "maxZoom": null
+    },
+    {
+      "type": "monster",
+      "iconName": "dragon",
+      "color": "#ef4d4d",
+      "layer": true,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [],
       "minZoom": null,
       "maxZoom": null
     }
@@ -210,10 +108,10 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "4.8.0",
+  "previousVersion": "4.10.0",
   "version": {
     "major": 4,
-    "minor": 8,
+    "minor": 10,
     "patch": 0
   },
   "warnedAboutMapMarker": false,
@@ -222,49 +120,9 @@
   "displayOverlayTooltips": true,
   "configDirectory": null,
   "mapViewEnabled": true,
-  "mapViewParameters": {
-    "darkMode": "false",
-    "defaultZoom": 6.3,
-    "distanceMultiplier": 1,
-    "drawColor": "#3388ff",
-    "geojson": [],
-    "geojsonColor": "#3388ff",
-    "gpx": [],
-    "gpxColor": "#3388ff",
-    "height": "600px",
-    "image": "[[khorvaire.png]]",
-    "imageOverlay": [],
-    "isMapView": false,
-    "layers": [
-      "[[khorvaire.png]]"
-    ],
-    "linksFrom": [],
-    "linksTo": [],
-    "marker": [],
-    "commandMarker": [],
-    "markerFile": [],
-    "markerFolder": [],
-    "markerTag": [
-      [
-        "location"
-      ]
-    ],
-    "maxZoom": 10,
-    "minZoom": 1,
-    "osmLayer": true,
-    "overlay": [],
-    "overlayColor": "blue",
-    "scale": 400,
-    "showAllMarkers": false,
-    "tileServer": [],
-    "verbose": false,
-    "zoomDelta": 0.5,
-    "zoomFeatures": false,
-    "id": "index",
-    "unit": "mi",
-    "preserveAspect": true,
-    "filterTag": []
-  },
+  "mapViewParameters": {},
   "enableDraw": true,
-  "defaultUnitType": "imperial"
+  "defaultUnitType": "imperial",
+  "defaultTile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  "defaultTileDark": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
 }

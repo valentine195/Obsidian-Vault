@@ -10,15 +10,28 @@
       "command": false,
       "injectColor": true,
       "noTitle": true
+    },
+    "calendar": {
+      "type": "calendar",
+      "color": "161, 161, 161",
+      "icon": {
+        "name": "calendar-alt",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
     }
   },
   "syntaxHighlight": false,
   "copyButton": false,
-  "version": "6.7.2",
+  "version": "6.9.6",
   "autoCollapse": false,
   "defaultCollapseType": "open",
   "syncLinks": true,
   "enableMarkdownProcessor": false,
   "injectColor": true,
-  "parseTitles": true
+  "parseTitles": true,
+  "allowMSSyntax": true,
+  "livePreviewMS": true
 }

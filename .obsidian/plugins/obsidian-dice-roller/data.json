@@ -2,16 +2,32 @@
   "returnAllTags": true,
   "rollLinksForTags": false,
   "copyContentButton": true,
-  "customFormulas": [],
+  "customFormulas": [
+    "2d20 + 1d12",
+    "1DF",
+    "1d4!i",
+    "1d4ri"
+  ],
   "displayFormulaForMod": false,
   "displayResultsInline": false,
   "displayLookupRoll": true,
   "formulas": {},
   "persistResults": false,
-  "results": {},
+  "results": {
+    "Plugin Testing/dice/Dice Roller.md": {
+      "34": {
+        "0": {
+          "type": "table",
+          "result": "`dice:[[Race Generator#^rare]]`"
+        }
+      }
+    }
+  },
   "defaultRoll": 1,
   "defaultFace": 100,
-  "renderer": false,
+  "renderer": true,
+  "renderAllDice": false,
+  "renderTime": 2000,
   "diceColor": "#202020",
   "textColor": "#ffffff",
   "showLeafOnStartup": true,
