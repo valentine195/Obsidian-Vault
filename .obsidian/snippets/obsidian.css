@@ -3,40 +3,18 @@
     --bgZZ: green;
 }
 
-.calendar-talk.markdown-preview-view {
-    padding-left: 0;
-    padding-right: 0;
+.theme-light {
+    --background-primary: #f9f7f4; /* hsl(var(--base-h), var(--base-s), 99%); */
 }
-.calendar-talk .admonition {
-    margin-left: 0.1rem !important;
-    margin-right: 0.1rem !important;
-}
-.calendar-talk pre.frontmatter {
-    display: none;
+:root {
+    --cursor: pointer;
+    --normal-weight: 350;
+    --line-width: unset;
+    --max-width: 70em;
 }
 
-@keyframes highlight {
-    from {
-        text-decoration: none;
-    }
-    to {
-        text-decoration: underline dashed var(--text-accent);
-    }
-}
-@keyframes current {
-    from {
-        text-decoration: none;
-    }
-    to {
-        text-decoration: underline dotted var(--text-accent);
-    }
-}
-
-.cm-matched-word {
-    animation: highlight 2s;
-}
-.cm-current-word {
-    animation: current 2s;
+.titlebar {
+    background-color: var(--background-primary);
 }
 
 /** Fantasy Calendar */

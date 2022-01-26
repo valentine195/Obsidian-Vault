@@ -12,7 +12,7 @@ date updated: 2021-10-24 13:55
 
 ## Recap
 
-![[21-9-10]]
+![[1. Sessions/Post Session Logs/2021-9-10]]
 
 ## Characters
 

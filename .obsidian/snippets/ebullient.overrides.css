@@ -23,6 +23,12 @@
     --font-title: 1.1em;
 }
 
+.nav-folder,
+.nav-file {
+    margin: 0;
+    border-left: 0;
+}
+
 /** Workspace Collapse Buttons */
 .workspace-ribbon.mod-left .workspace-ribbon-collapse-btn,
 .workspace-ribbon.mod-right .workspace-ribbon-collapse-btn {

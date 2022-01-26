@@ -1,6 +1,9 @@
 @charset "UTF-8";
 
 /* sass-plugin-0:/home/runner/work/obsidian-snippetor/obsidian-snippetor/src/styles.scss */
+.snippetor-plugin-settings .snippetor-create-snippet select.dropdown {
+  margin-right: 12px;
+}
 .snippetor-plugin-settings .coffee {
   width: 60%;
   color: var(--text-normal);
@@ -30,67 +33,119 @@
   top: 20px;
   display: block;
 }
-#snippetor-checkboxes-modal ul li {
+#snippetor-checkboxes-modal .snippetor-checkboxes {
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+}
+#snippetor-checkboxes-modal ul > li {
   display: flex;
-  align-items: flex-start;
+  align-items: stretch;
   line-height: 2em;
   justify-content: space-between;
-  margin-bottom: 3px;
+  flex-wrap: nowrap;
+  margin-bottom: 5px;
+  position: relative;
 }
-#snippetor-checkboxes-modal ul li button {
+#snippetor-checkboxes-modal ul > li button {
   margin-top: 2px;
 }
-#snippetor-checkboxes-modal ul li .snippetor-heading {
+#snippetor-checkboxes-modal ul > li .snippetor-heading {
   font-weight: bold;
 }
-#snippetor-checkboxes-modal ul li .snippetor-heading.snippetor-settings {
-  margin-top: 4px;
-}
-#snippetor-checkboxes-modal ul li .snippetor-preview {
+#snippetor-checkboxes-modal ul > li .snippetor-preview {
+  padding: 5px 0;
+  align-self: flex-start;
   display: flex;
   align-items: center;
   pointer-events: none;
   border-right: 1px solid var(--interactive-accent);
   border-radius: 4px;
-  margin-right: 6px;
-  margin-top: 4px;
 }
-#snippetor-checkboxes-modal ul li .snippetor-preview .example {
+#snippetor-checkboxes-modal ul > li .snippetor-preview .example {
   display: inline-block;
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100px;
   max-width: 100px;
 }
-#snippetor-checkboxes-modal ul li .snippetor-settings {
-  display: flex;
-  align-items: center;
+#snippetor-checkboxes-modal ul > li .snippetor-settings {
+  padding: 5px;
   flex-grow: 2;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: stretch;
+  justify-content: flex-start;
 }
-#snippetor-checkboxes-modal ul li .snippetor-settings input.snippetor-data-task {
+#snippetor-checkboxes-modal ul > li .snippetor-settings input,
+#snippetor-checkboxes-modal ul > li .snippetor-settings .color-sync {
+  margin-right: 6px;
+}
+#snippetor-checkboxes-modal ul > li .snippetor-settings input.snippetor-data-task {
   font-family: var(--font-monospace);
   padding: 0 8px;
   text-align: center;
-  text-decoration: dashed;
 }
-#snippetor-checkboxes-modal ul li .theme-toggle {
+#snippetor-checkboxes-modal ul > li .snippetor-settings .snippetor-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: var(--background-primary);
+  color: var(--text-normal);
+  border-radius: 2px;
+}
+#snippetor-checkboxes-modal ul > li .snippetor-settings .snippetor-group {
+  display: inline-flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  padding-right: 6px;
+}
+#snippetor-checkboxes-modal ul > li .snippetor-settings .background-heading,
+#snippetor-checkboxes-modal ul > li .snippetor-settings .read-mode-heading {
+  padding: 0 6px;
+}
+#snippetor-checkboxes-modal ul > li .snippetor-li-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: stretch;
+  background-color: var(--background-primary);
+}
+#snippetor-checkboxes-modal ul > li .snippetor-li-actions .snippetor-extra-show svg {
+  transform: rotate(180deg);
+}
+#snippetor-checkboxes-modal ul > li .setting-editor-extra-setting-button.no-padding {
+  color: unset;
+  margin: 0 2px;
+}
+#snippetor-checkboxes-modal ul > li .setting-editor-extra-setting-button:not(.no-padding) {
+  margin-top: 10px;
+}
+#snippetor-checkboxes-modal ul > li .theme-toggle {
   margin-right: 12px;
 }
-#snippetor-checkboxes-modal ul li .theme-toggle:not(.is-enabled)::after {
+#snippetor-checkboxes-modal ul > li .theme-toggle:not(.is-enabled)::after {
   line-height: 15px;
   content: "\1f317";
   font-size: 15px;
   background-color: transparent;
 }
-#snippetor-checkboxes-modal ul li .theme-toggle.is-enabled::after {
+#snippetor-checkboxes-modal ul > li .theme-toggle.is-enabled::after {
   line-height: 15px;
   content: "\1f317";
   font-size: 15px;
   background-color: transparent;
+}
+#snippetor-checkboxes-modal ul > li.header {
+  align-items: center;
+}
+#snippetor-checkboxes-modal ul > li.header .snippetor-li-actions {
+  padding-right: 8px;
 }
 #snippetor-checkboxes-modal .markdown-preview-view ul > li.task-list-item {
   font-weight: normal;
   color: var(--text-normal);
+  padding-left: 3px;
+  text-indent: unset;
 }
 #snippetor-checkboxes-modal .markdown-preview-view input.task-list-item-checkbox {
   -webkit-appearance: none;
@@ -109,16 +164,24 @@
   position: absolute;
   text-align: center;
   font-weight: 500;
-  line-height: 14px;
-  font-size: 14px;
+  line-height: var(--snippetor-font-size);
+  font-size: var(--snippetor-font-size);
   left: 1px;
   right: 1px;
   color: attr(color);
   content: attr(data);
+}
+#snippetor-checkboxes-modal .markdown-preview-view ul > li.task-list-item:not(.live-preview) input[type=checkbox].task-list-item-checkbox {
+  position: absolute;
+  top: 10px;
+  left: -21px;
 }
 #snippetor-checkboxes-modal .markdown-preview-view input.task-list-item-checkbox:checked:hover,
 #snippetor-checkboxes-modal .markdown-preview-view p > input.task-list-item-checkbox:checked:hover {
   color: var(--text-on-accent) !important;
   background-color: var(--interactive-accent-hover);
   border-color: var(--text-on-accent) !important;
+}
+#snippetor-checkboxes-modal ul > li.task-list-item.is-checked {
+  text-decoration: none;
 }

@@ -1,0 +1,517 @@
+/**
+Colored Folders
+by Jeremy Valentine
+*/
+.theme-light,
+.theme-dark {
+    /** Setup Custom Colors */
+    --Folder0: var(--yellow-3);
+    --Folder1: var(--green-3);
+    --Folder2: var(--teal-3);
+    --Folder3: var(--blue-3);
+    --Folder4: var(--purple-3);
+    --Folder5: var(--pink-3);
+
+    --FolderRadius: 5px;
+    --FolderText: var(--background-primary);
+}
+
+.theme-dark {
+    --root-file-color: white;
+    --FolderText: white;
+}
+.theme-light {
+    --root-file-color: var(--text-normal);
+}
+.nav-file-title,
+.nav-folder-title {
+    color: unset;
+}
+
+/** Increase Nav File Spacing for Hover Effect to look good */
+.nav-file {
+    margin-left: 0;
+    padding: 0 4px;
+}
+
+/** Increase top level nested folder pa dding for hover effect to look good */
+.nav-folder.mod-root
+    /* > .nav-folder-children
+    > .nav-folder
+    > */ .nav-folder-children
+    > .nav-folder {
+    padding: 0 2px;
+}
+.nav-folder.mod-root
+    /* > .nav-folder-children
+    > .nav-folder
+    > */ .nav-folder-children
+    > .nav-folder:not(.is-collapsed) > .nav-folder-children {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+/** Remove some padding from file titles to align icons */
+.nav-file-title {
+    padding-left: 8px;
+}
+
+/** Add Padding to First Child of Top Level Folders */
+.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-children
+    > div:first-child {
+    padding-top: 2px;
+}
+
+/** Add Padding to Folder Children to Fix Relationship Line Spacings */
+.nav-folder-children {
+    padding-left: 18px;
+}
+
+/** Remove Top Level Folder Name */
+.nav-folder.mod-root > .nav-folder-title {
+    display: none;
+}
+
+/** Set up explorer container margins */
+.nav-files-container {
+    margin: 0px 6px;
+}
+
+/** Remove top level fold icon */
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title
+    > .nav-folder-collapse-indicator.collapse-icon {
+    display: none;
+}
+
+/** Setup Fold Icon */
+.nav-folder.mod-root .nav-folder-collapse-indicator.collapse-icon {
+    color: transparent;
+}
+.nav-folder.mod-root svg.right-triangle {
+    background-color: currentColor;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    height: 12px;
+    width: 12px;
+    -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="black" stroke-width="2" stroke="currentColor" d="M16 22L6 12l1.4-1.4l8.6 8.6l8.6-8.6L26 12z"></path></svg>');
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 32 32"><path fill="black" stroke-width="2" stroke="currentColor" d="M16 22L6 12l1.4-1.4l8.6 8.6l8.6-8.6L26 12z"></path></svg>');
+}
+.nav-folder.mod-root .svg.right-triangle > path {
+    display: none;
+}
+
+/** Set the background color of folder and file icons */
+.nav-file-title::before {
+    background-color: var(--FolderText) !important;
+}
+.nav-folder .nav-folder-title .nav-folder-title-content::before {
+    background-color: var(--FolderText) !important;
+}
+.nav-folder-collapse-indicator.collapse-icon > svg.right-triangle {
+    background-color: var(--FolderText);
+}
+
+/** Center the Folder and Collapse Icons */
+.nav-file-title::before,
+.nav-folder-title-content::before {
+    display: flex;
+    align-self: center;
+    justify-self: center;
+}
+
+/** Reset background and color when necessary */
+.nav-folder.mod-root > .nav-folder-title > .nav-folder-title-content::before,
+.nav-folder.mod-root > .nav-folder-children > .nav-file .nav-file-title::before,
+.nav-file-title-content.is-being-renamed::before,
+.nav-folder
+    .nav-folder-title
+    .nav-folder-title-content.is-being-renamed::before {
+    background-color: var(--root-file-color) !important;
+}
+.nav-file-title.is-active,
+.nav-folder-title.is-active,
+.nav-file-title-content.is-being-renamed,
+.nav-folder-title-content.is-being-renamed,
+body:not(.is-grabbing) .nav-file-title:hover,
+body:not(.is-grabbing) .nav-folder-title:hover {
+    color: var(--root-file-color) !important;
+}
+.nav-file-title.is-active::before,
+.nav-folder-title.is-active .nav-folder-title-content::before,
+body:not(.is-grabbing) .nav-file-title:hover::before,
+body:not(.is-grabbing)
+    .nav-folder-title:hover
+    .nav-folder-title-content::before {
+    background-color: var(--root-file-color) !important;
+}
+
+/** Make generic folder and file border radiuses square. */
+.nav-file-title {
+    border-radius: 6px;
+}
+.nav-folder-children > .nav-folder-title {
+    border-radius: 0px;
+}
+
+/** Grid */
+.nav-folder.mod-root > .nav-folder-children {
+    display: grid;
+    gap: 7px;
+    grid-auto-rows: max-content;
+    grid-auto-columns: 100%;
+}
+
+/** Top Level Folder Title */
+.nav-folder.mod-root > .nav-folder-children > .nav-folder > .nav-folder-title {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    color: var(--FolderText);
+    padding-left: 3px;
+    border-radius: var(--FolderRadius) var(--FolderRadius) 0px 0px;
+}
+
+/** Rounded borders */
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder.is-collapsed
+    > .nav-folder-title {
+    border-radius: var(--FolderRadius);
+}
+
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-children {
+    border-radius: 0px 0px var(--FolderRadius) var(--FolderRadius);
+}
+
+/** Give the top level folder name a bottom border */
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder:not(.is-collapsed)
+    > .nav-folder-title {
+    border-bottom: var(--FolderText) 1px solid;
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-children {
+    padding-left: 0px;
+    color: var(--FolderText);
+}
+
+/** Generics */
+.nav-folder.mod-root > .nav-folder-children > .nav-folder > .nav-folder-title,
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title
+    + .nav-folder-children {
+    background-color: var(--Folder-background);
+}
+
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title
+    + .nav-folder-children
+    > .nav-file:last-child {
+    border-right: 1px solid var(--Folder-background);
+    border-left: 1px solid var(--Folder-background);
+    border-bottom: 1px solid var(--Folder-background);
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    padding-bottom: 1px;
+}
+
+/** 16 Top level Folders By Starting Digit
+The Folder Name is stored in the `data-path` attribute.
+[data-path^="..."] targets a path that *begins with* the content.
+*/
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="1"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="1"]
+    + .nav-folder-children {
+    --Folder-background: var(--Folder0);
+}
+
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="2"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="2"]
+    + .nav-folder-children {
+    --Folder-background: var(--Folder1);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="3"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="3"]
+    + .nav-folder-children {
+    --Folder-background: var(--Folder2);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="4"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="4"]
+    + .nav-folder-children {
+    --Folder-background: var(--Folder3);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="5"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="5"]
+    + .nav-folder-children {
+    --Folder-background: var(--Folder4);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="6"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="6"]
+    + .nav-folder-children {
+    --Folder-background: var(--Folder5);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="7"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="7"]
+    + .nav-folder-children {
+    --Folder-background: var(--Folder6);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="8"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="8"]
+    + .nav-folder-children {
+    --Folder-background: var(--Folder7);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="9"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="9"]
+    + .nav-folder-children {
+    --Folder-background: var(--Folder8);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="10"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="10"]
+    + .nav-folder-children {
+    --Folder-background: var(--Folder9);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="11"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="11"]
+    + .nav-folder-children {
+    --Folder-background: var(--FolderA);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path="12"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path="12"]
+    + .nav-folder-children {
+    --Folder-background: var(--FolderB);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="13"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="13"]
+    + .nav-folder-children {
+    --Folder-background: var(--FolderC);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path="14"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path="14"]
+    + .nav-folder-children {
+    --Folder-background: var(--FolderD);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="15"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="15"]
+    + .nav-folder-children {
+    --Folder-background: var(--FolderE);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="16"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="16"]
+    + .nav-folder-children {
+    --Folder-background: var(--FolderF);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="17"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="17"]
+    + .nav-folder-children {
+    --Folder-background: var(--FolderF);
+}
+
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path~="Plugin"],
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path~="Archive"] {
+    background-color: transparent;
+    color: var(--text-muted);
+    --FolderText: var(--text-muted);
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="Plugin"]
+    + .nav-folder-children,
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title[data-path^="Archive"]
+    + .nav-folder-children {
+    background-color: transparent;
+    color: var(--text-muted);
+    --FolderText: var(--text-muted);
+}
+
+/** Scrollbars eliminated */
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
+
+/** Relationship lines for 2nd, 3rd, and 4th level folders */
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-children
+    .nav-folder
+    .nav-file {
+    border-left: 2px solid white;
+}
+.nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-children
+    .nav-folder
+    .nav-folder {
+    border-left: 2px solid white;
+}
+
+/** Animations */
+.nav-folder-title {
+    font-weight: bold;
+}
+
+/** Set Active File to Permanent */
+.nav-file.is-active > .nav-file-title,
+.nav-file.is-active > .nav-file-title:hover {
+    background-color: var(--background-primary);
+    font-weight: bold;
+    border-left: 2px solid var(--text-accent);
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+    transition-property: background-color, color;
+}
+
+/** When hovered, transition */
+.nav-file-title.is-active,
+body:not(.is-grabbing) .nav-file-title:hover,
+body:not(.is-grabbing) .nav-folder-title:hover,
+body:not(.is-grabbing)
+    .nav-folder.mod-root
+    > .nav-folder-children
+    > .nav-folder
+    > .nav-folder-title:hover {
+    background-color: var(--background-primary);
+    transition-duration: 0.25s;
+    transition-timing-function: ease;
+    transition-property: background-color, color;
+}
+/** Transition hovered collapse icons */
+.nav-folder-title:hover
+    .nav-folder-collapse-indicator.collapse-icon
+    > svg.right-triangle {
+    background-color: var(--text-normal);
+}
+
+/* .nav-file-tag {
+    background-color: var(--background-secondary-alt);
+    top: -1px;
+} */

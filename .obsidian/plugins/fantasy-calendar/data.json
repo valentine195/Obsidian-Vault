@@ -9540,6 +9540,56 @@
           "description": ""
         },
         {
+          "id": "ID_589bba089ad8",
+          "name": "2022-01-22",
+          "note": "1. Sessions/Post Session Logs/2022-01-22.md",
+          "date": {
+            "month": 5
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_d9e878da1b28",
+          "name": "2021-3-13",
+          "note": "1. Sessions/Post Session Logs/2021-3-13.md",
+          "date": {
+            "month": 4
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_2a69ba1a198a",
+          "name": "2021-2-20",
+          "note": "1. Sessions/Post Session Logs/2021-2-20.md",
+          "date": {
+            "month": 4
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_897b3959a8db",
+          "name": "2021-2-6",
+          "note": "1. Sessions/Post Session Logs/2021-2-6.md",
+          "date": {
+            "month": 4
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_896ba92a18d9",
+          "name": "2021-1-16",
+          "note": "1. Sessions/Post Session Logs/2021-1-16.md",
+          "date": {
+            "month": 4
+          },
+          "end": null,
+          "description": ""
+        },
+        {
           "name": "Work on this version of the Gregorian Calendar started.",
           "description": "On this day, Aecius started to rework the Gregorian Calendar from scratch to make it work with the updates Wasp and Alex implemented since the summer of 2019.",
           "id": "824613",
@@ -9580,7 +9630,7 @@
           "color": "#0288D1"
         }
       ],
-      "date": 1643032060909
+      "date": 1643208939820
     },
     {
       "name": "Calendar of Harptos",

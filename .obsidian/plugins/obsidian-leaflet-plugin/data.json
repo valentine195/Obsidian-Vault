@@ -2,38 +2,52 @@
   "mapMarkers": [
     {
       "id": "leaflet-map",
-      "lastAccessed": 1642960899705,
+      "lastAccessed": 1643168597168,
       "markers": [
         {
           "id": "ID_4adae95bfb7a",
           "type": "location",
           "loc": [
-            -5.0908203125,
-            7.15625
+            -3,
+            2.03125
           ],
           "layer": "%5B%5Bkhorvaire.png%5D%5D",
           "mutable": true,
           "command": false,
-          "percent": null,
+          "percent": [
+            0.2273224043715847,
+            0.4762790697674419
+          ],
           "description": null,
           "minZoom": null,
           "maxZoom": null,
           "tooltip": "hover"
-        },
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
+    },
+    {
+      "id": "stress",
+      "lastAccessed": 1643168597169,
+      "markers": [
         {
-          "id": "ID_7a6a4bfbb9fa",
+          "id": "ID_69e87a39c8c9",
           "type": "location",
           "loc": [
-            -2.6533203125,
-            4.8125
+            904.375,
+            1328
           ],
-          "layer": "%5B%5Bkhorvaire.png%5D%5D",
+          "layer": "https%3A%2F%2Fi.imgur.com%2FFqZ5r3E.jpeg",
           "mutable": true,
           "command": false,
           "percent": null,
           "description": null,
-          "minZoom": null,
-          "maxZoom": null,
+          "minZoom": 0,
+          "maxZoom": 5,
           "tooltip": "hover"
         }
       ],
@@ -108,11 +122,11 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "4.10.0",
+  "previousVersion": "4.12.1",
   "version": {
     "major": 4,
-    "minor": 10,
-    "patch": 0
+    "minor": 12,
+    "patch": 1
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": false,

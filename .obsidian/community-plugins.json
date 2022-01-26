@@ -6,14 +6,12 @@
   "customjs",
   "cycle-through-panes",
   "dataview",
-  "obsidian-dice-roller",
   "hot-reload",
   "hotkeysplus-obsidian",
   "image-window",
   "initiative-tracker",
   "obsidian-linter",
   "markdown-attributes",
-  "obsidian-leaflet-plugin",
   "obsidian42-brat",
   "obsidian-prominent-starred-files",
   "templater-obsidian",
@@ -24,8 +22,11 @@
   "plugin-changelogs",
   "hotkey-helper",
   "emoji-shortcodes",
-  "obsidian-5e-statblocks",
   "obsidian-snippetor",
   "obsidian-icon-swapper",
-  "obsidian-timelines"
+  "obsidian-timelines",
+  "obsidian-leaflet-plugin",
+  "obsidian-dice-roller",
+  "obsidian-5e-statblocks",
+  "obsidian-style-settings"
 ]

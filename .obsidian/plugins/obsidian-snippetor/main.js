@@ -1175,15 +1175,12 @@ __export(exports, {
 var import_obsidian4 = __toModule(require("obsidian"));
 
 // src/snippetor-Defaults.ts
-var MAGIC_WAND = '<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="magic" class="svg-inline--fa fa-magic fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M224 96l16-32 32-16-32-16-16-32-16 32-32 16 32 16 16 32zM80 160l26.66-53.33L160 80l-53.34-26.67L80 0 53.34 53.33 0 80l53.34 26.67L80 160zm352 128l-26.66 53.33L352 368l53.34 26.67L432 448l26.66-53.33L512 368l-53.34-26.67L432 288zm70.62-193.77L417.77 9.38C411.53 3.12 403.34 0 395.15 0c-8.19 0-16.38 3.12-22.63 9.38L9.38 372.52c-12.5 12.5-12.5 32.76 0 45.25l84.85 84.85c6.25 6.25 14.44 9.37 22.62 9.37 8.19 0 16.38-3.12 22.63-9.37l363.14-363.15c12.5-12.48 12.5-32.75 0-45.24zM359.45 203.46l-50.91-50.91 86.6-86.6 50.91 50.91-86.6 86.6z"></path></svg>';
-var MAKE_IT_SO = "snippetor-gen";
 var DEFAULT_SETTINGS = {
   snippets: {}
 };
 var DEFAULT_TASK_SNIPPET_SETTINGS = {
   name: "",
   type: "simple-task",
-  clearThemeBackground: false,
   taskSettings: []
 };
 
@@ -1198,6 +1195,7 @@ function openCreateCheckboxModal(app, taskSnippetCfg, snippetor) {
   return new Promise((resolve2) => {
     const modal = new CreateCheckboxesModal(app, taskSnippetCfg, snippetor);
     modal.onClose = () => {
+      modal.cfg.taskSettings.filter((ts) => ts.cache).forEach((ts) => delete ts.cache);
       if (!modal.cfg.name) {
         modal.cfg.name = (0, import_random_word_slugs.generateSlug)(2);
       }
@@ -1212,14 +1210,7 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
     this.snippetor = snippetor;
     this.containerEl.id = "snippetor-checkboxes-modal";
     this.cfg = taskSnippetCfg || snippetor.createNewTaskSnippetCfg();
-    this.cfg.taskSettings.forEach((t) => {
-      if (t.taskColorDark && !t.taskColorLight) {
-        t.taskColorLight = t.taskColorDark;
-      } else if (t.taskColorLight && !t.taskColorDark) {
-        t.taskColorDark = t.taskColorLight;
-      }
-    });
-    this.orig = this.cfg;
+    this.orig = JSON.parse(JSON.stringify(this.cfg));
     this.id = 0;
     this.elements = {
       tasks: [],
@@ -1233,25 +1224,25 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
   onOpen() {
     this.titleEl.createSpan({ text: "Snippetor: Tasks" });
     const content = this.contentEl.createDiv("snippetor-checkboxes markdown-preview-view");
+    this.elements.defaultColorSource = content;
+    this.elements.canvas = content.createEl("canvas", {
+      attr: {
+        style: "display: none"
+      }
+    });
     new import_obsidian.Setting(content).setName("Name of generated snippet (filename)").addText((text) => {
       text.setPlaceholder("trigger").setValue(this.cfg.name).onChange((value) => {
         this.cfg.name = value;
       });
-    }).addButton((button) => button.setIcon(MAKE_IT_SO).setClass("generate-css").setTooltip("Generate CSS Snippet").onClick(() => __async(this, null, function* () {
+    }).addButton((button) => button.setIcon("wand-glyph").setClass("generate-css").setTooltip("Generate CSS Snippet").onClick(() => __async(this, null, function* () {
       button.buttonEl.addClass("is-active");
       button.disabled = true;
       yield this.snippetor.generateCss(this.cfg);
       button.buttonEl.removeClass("is-active");
       button.disabled = false;
     })));
-    const h3 = content.createEl("h3", {
-      cls: "snippetor-reset",
+    content.createEl("h3", {
       text: "Custom Task Values"
-    });
-    const reset = h3.createSpan("setting-item-control");
-    new import_obsidian.ButtonComponent(reset).setIcon("reset").onClick(() => {
-      this.cfg = JSON.parse(JSON.stringify(this.snapshot));
-      this.showTaskRows();
     });
     this.elements.list = content.createEl("ul");
     this.showTaskRows();
@@ -1269,6 +1260,15 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
         this.elements.tasks.forEach((t2) => this.applyCommonSettingsToCheckbox(t2));
       });
     });
+    new import_obsidian.Setting(content).setName("Hide the color picker").setDesc("If you prefer working with the raw values (Hex, RGB, CSS variables, etc), enable this to hide the color picker and show a text box instead.").addToggle((t) => {
+      t.setValue(this.cfg.hideColorPicker).onChange((v) => {
+        const redraw = v != this.cfg.hideColorPicker;
+        this.cfg.hideColorPicker = v;
+        if (redraw) {
+          this.showTaskRows();
+        }
+      });
+    });
   }
   onClose() {
     this.contentEl.empty();
@@ -1280,20 +1280,24 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
     this.elements.list.empty();
     this.createHeaderRow(() => this.showTaskRows());
     this.cfg.taskSettings.forEach((ts) => {
+      if (ts.cache === void 0) {
+        ts.cache = {};
+      }
       this.createTaskRow(ts);
     });
   }
   createHeaderRow(callback) {
     const heading = this.elements.list.createEl("li", {
-      cls: "task-list-item"
+      cls: "task-list-item header"
     });
     const preview = heading.createSpan("snippetor-preview");
-    preview.createEl("input", {
+    const checkbox = preview.createEl("input", {
       cls: "task-list-item-checkbox",
       attr: {
         type: "checkbox"
       }
     });
+    this.elements.defaultFontSize = Math.ceil(Number(getComputedStyle(checkbox).fontSize.replace("px", "")));
     preview.createSpan({
       text: "Preview",
       cls: "example snippetor-heading"
@@ -1312,6 +1316,11 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
       }
       return callback();
     })).toggleEl.addClass("theme-toggle");
+    const actions = heading.createSpan("snippetor-li-actions");
+    new import_obsidian.ExtraButtonComponent(actions).setIcon("reset").onClick(() => {
+      this.cfg = JSON.parse(JSON.stringify(this.snapshot));
+      this.showTaskRows();
+    }).extraSettingsEl.addClass("no-padding");
   }
   createTaskRow(taskSettings) {
     const li = this.elements.list.createEl("li");
@@ -1328,16 +1337,35 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
     this.applyCommonSettingsToCheckbox(checkbox);
     this.elements.tasks.push(checkbox);
     preview.createSpan({ text: "example", cls: "example" });
-    const settings = li.createSpan("snippetor-settings");
-    this.showBasicSettings(taskSettings, li, checkbox, settings);
-    new import_obsidian.ButtonComponent(li).setIcon("trash").setTooltip("Delete this Task").onClick(() => __async(this, null, function* () {
+    const settings = li.createDiv("snippetor-settings");
+    this.showSettings(taskSettings, li, preview, checkbox, settings);
+    const actions = li.createSpan("snippetor-li-actions");
+    const extra = new import_obsidian.ExtraButtonComponent(actions).setIcon("down-chevron-glyph").setTooltip("Show additional options").onClick(() => {
+      taskSettings.cache.expanded = taskSettings.cache.expanded === void 0 ? true : !taskSettings.cache.expanded;
+      this.showSettings(taskSettings, li, preview, checkbox, settings);
+      if (taskSettings.cache.expanded) {
+        extra.extraSettingsEl.addClass("snippetor-extra-show");
+      } else {
+        extra.extraSettingsEl.removeClass("snippetor-extra-show");
+      }
+    });
+    new import_obsidian.ExtraButtonComponent(actions).setIcon("trash").setTooltip("Delete this Task").onClick(() => __async(this, null, function* () {
       console.log("Delete %o", li);
       this.cfg.taskSettings.remove(taskSettings);
       this.showTaskRows();
     }));
   }
-  showBasicSettings(taskSettings, li, checkbox, settings) {
+  showSettings(taskSettings, li, previewSpan, checkbox, settings) {
     const i = this.id++;
+    settings.empty();
+    this.showBasicSettings(taskSettings, li, previewSpan, checkbox, settings, i);
+    if (taskSettings.cache.expanded) {
+      this.showBackgroundSettings(taskSettings, li, checkbox, settings, i);
+      this.showReaderValueSettings(taskSettings, li, checkbox, settings, i);
+    }
+  }
+  showBasicSettings(taskSettings, li, previewSpan, checkbox, parent, i) {
+    const settings = parent.createSpan("snippetor-row");
     const dataTask = settings.createEl("input", {
       cls: "snippetor-data-task",
       attr: {
@@ -1345,7 +1373,7 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
         name: "task-" + i,
         size: "1",
         value: taskSettings.data,
-        title: "Task value"
+        title: "Task data"
       }
     });
     this.elements.data.push(dataTask);
@@ -1356,21 +1384,30 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
       this.applySettingsToCheckbox(taskSettings, checkbox);
       this.verifyDataValue(dataTask);
     }, false);
-    const taskColor = settings.createEl("input", {
-      cls: "snippetor-data-color",
+    const initial = this.getThemeColor(taskSettings);
+    const colorGroup = settings.createSpan("snippetor-group");
+    const taskColor = colorGroup.createEl("input", {
+      cls: "snippetor-data-color-txt",
       attr: {
-        name: "color-" + i,
-        type: "color",
-        value: this.getThemeColor(taskSettings),
-        title: "Foreground color for the task"
+        name: "color-fg-" + i,
+        value: initial,
+        title: "Foreground color for the task: " + initial
       }
     });
+    if (this.cfg.hideColorPicker) {
+      taskColor.setAttribute("type", "text");
+      taskColor.setAttribute("size", "8");
+    } else {
+      taskColor.setAttribute("type", "color");
+    }
     taskColor.addEventListener("input", () => {
       this.setThemeColor(taskSettings, taskColor.value);
       this.applyColor(taskSettings, li, checkbox);
+      taskColor.title = "Foreground color for the task: " + taskColor.value;
     }, false);
-    const colorSync = settings.createSpan({
+    const colorSync = colorGroup.createSpan({
       text: "\u{1F317}",
+      cls: "color-sync",
       attr: {
         name: "color-sync-" + i,
         "aria-label": `Copy value from ${this.isLightMode() ? "dark" : "light"} mode`,
@@ -1379,14 +1416,26 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
     });
     colorSync.addEventListener("click", () => {
       if (this.isLightMode()) {
-        taskColor.value = taskSettings.taskColorDark;
-      } else {
         taskColor.value = taskSettings.taskColorLight;
+      } else {
+        taskColor.value = taskSettings.taskColorDark;
       }
       this.setThemeColor(taskSettings, taskColor.value);
       this.applyColor(taskSettings, li, checkbox);
     }, false);
-    const colorText = settings.createEl("input", {
+    new import_obsidian.ExtraButtonComponent(colorGroup).setIcon("reset").setTooltip("Reset foreground color to default").onClick(() => __async(this, null, function* () {
+      if (!this.cfg.hideColorPicker) {
+        taskColor.value = this.getForegroundColor();
+      }
+      if (this.isLightMode()) {
+        delete taskSettings.taskColorLight;
+      } else {
+        delete taskSettings.taskColorDark;
+      }
+      this.applyColor(taskSettings, li, checkbox);
+    })).extraSettingsEl.addClass("no-padding");
+    const colorTextGroup = settings.createSpan("snippetor-group");
+    const colorText = colorTextGroup.createEl("input", {
       attr: {
         name: "text-color-" + i,
         type: "checkbox",
@@ -1400,27 +1449,165 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
       taskSettings.applyTextColor = colorText.checked;
       this.applyColor(taskSettings, li, checkbox);
     }, false);
-    settings.createEl("label", {
-      text: "apply color to text",
+    colorTextGroup.createEl("label", {
+      text: "color text",
       attr: { for: "text-color-" + i }
     });
-    const strikethrough = settings.createEl("input", {
+    const strikethroughGroup = settings.createSpan("snippetor-group");
+    const strikethrough = strikethroughGroup.createEl("input", {
       attr: {
         name: "strikethrough-" + i,
         type: "checkbox"
       }
     });
-    if (taskSettings.strkethrough) {
+    if (taskSettings.strikethrough) {
       strikethrough.setAttribute("checked", "");
     }
     strikethrough.addEventListener("click", () => {
-      taskSettings.strkethrough = strikethrough.checked;
-      this.applySettingsToListItem(taskSettings, li);
+      taskSettings.strikethrough = strikethrough.checked;
+      this.applyStrikethrough(taskSettings, previewSpan);
     }, false);
-    settings.createEl("label", {
+    strikethroughGroup.createEl("label", {
       text: "strikethrough",
       attr: { for: "strikethrough-" + i }
     });
+    this.applyStrikethrough(taskSettings, previewSpan);
+    const borderGroup = settings.createSpan("snippetor-group");
+    const hideBorder = borderGroup.createEl("input", {
+      attr: {
+        name: "border-" + i,
+        type: "checkbox"
+      }
+    });
+    if (taskSettings.hideBorder) {
+      hideBorder.setAttribute("checked", "");
+    }
+    hideBorder.addEventListener("click", () => {
+      taskSettings.hideBorder = hideBorder.checked;
+      this.applySettingsToCheckbox(taskSettings, checkbox);
+    }, false);
+    borderGroup.createEl("label", {
+      text: "hide border",
+      attr: { for: "border-" + i }
+    });
+  }
+  showBackgroundSettings(taskSettings, li, checkbox, parent, i) {
+    const settings = parent.createSpan("snippetor-row");
+    const colorGroup = settings.createSpan("snippetor-group");
+    colorGroup.createDiv({
+      text: "Background: ",
+      cls: "background-heading"
+    });
+    const initial = this.getThemeBackgroundColor(taskSettings);
+    const taskColor = colorGroup.createEl("input", {
+      cls: "snippetor-data-color-txt",
+      attr: {
+        name: "color-bg-" + i,
+        value: initial,
+        title: "Background color for the task: " + initial
+      }
+    });
+    if (this.cfg.hideColorPicker) {
+      taskColor.setAttribute("type", "text");
+      taskColor.setAttribute("size", "8");
+    } else {
+      taskColor.setAttribute("type", "color");
+    }
+    taskColor.addEventListener("input", () => {
+      this.setThemeBackgroundColor(taskSettings, taskColor.value);
+      this.applyColor(taskSettings, li, checkbox);
+      taskColor.title = "Background color for the task: " + taskColor.value;
+    }, false);
+    const colorSync = colorGroup.createSpan({
+      text: "\u{1F317}",
+      cls: "color-sync",
+      attr: {
+        name: "color-bg-sync-" + i,
+        "aria-label": `Copy background color value from ${this.isLightMode() ? "dark" : "light"} mode`,
+        style: "cursor: pointer"
+      }
+    });
+    colorSync.addEventListener("click", () => {
+      if (this.isLightMode()) {
+        if (taskSettings.bgColorDark) {
+          taskColor.value = taskSettings.bgColorDark;
+        }
+      } else {
+        if (taskSettings.bgColorLight) {
+          taskColor.value = taskSettings.bgColorLight;
+        }
+      }
+      this.setThemeBackgroundColor(taskSettings, taskColor.value);
+      this.applyColor(taskSettings, li, checkbox);
+    }, false);
+    new import_obsidian.ExtraButtonComponent(colorGroup).setIcon("reset").setTooltip("Reset background color to default").onClick(() => __async(this, null, function* () {
+      if (!this.cfg.hideColorPicker) {
+        taskColor.value = this.getBackgroundColor();
+      }
+      if (this.isLightMode()) {
+        delete taskSettings.bgColorLight;
+      } else {
+        delete taskSettings.bgColorDark;
+      }
+      this.applyColor(taskSettings, li, checkbox);
+    })).extraSettingsEl.addClass("no-padding");
+    const colorTextGroup = settings.createSpan("snippetor-group");
+    const colorText = colorTextGroup.createEl("input", {
+      attr: {
+        name: "text-color-" + i,
+        type: "checkbox",
+        value: taskSettings.applyTextBgColor
+      }
+    });
+    if (taskSettings.applyTextBgColor) {
+      colorText.setAttribute("checked", "");
+    }
+    colorText.addEventListener("click", () => {
+      taskSettings.applyTextBgColor = colorText.checked;
+      this.applyColor(taskSettings, li, checkbox);
+    }, false);
+    colorTextGroup.createEl("label", {
+      text: "apply background to text",
+      attr: { for: "text-color-" + i }
+    });
+  }
+  showReaderValueSettings(taskSettings, li, checkbox, parent, i) {
+    const settings = parent.createSpan("snippetor-row reader");
+    settings.createDiv({
+      text: "Rendered as ",
+      cls: "read-mode-heading"
+    });
+    const readerTask = settings.createEl("input", {
+      cls: "snippetor-data-task",
+      attr: {
+        type: "text",
+        name: "task-reader-" + i,
+        size: "1",
+        value: taskSettings.reader === void 0 ? taskSettings.data : taskSettings.reader,
+        title: "Display character for preview / reading mode"
+      }
+    });
+    readerTask.addEventListener("input", () => {
+      taskSettings.reader = readerTask.value;
+      this.applySettingsToListItem(taskSettings, li);
+      this.applySettingsToCheckbox(taskSettings, checkbox);
+    }, false);
+    const sizeGroup = settings.createSpan("snippetor-group");
+    sizeGroup.createEl("label", {
+      text: "size: ",
+      attr: { for: "size-" + i }
+    });
+    const fontSize = new import_obsidian.SliderComponent(sizeGroup).setValue(taskSettings.fontSize === void 0 ? this.elements.defaultFontSize : taskSettings.fontSize).setLimits(6, 30, 1).setDynamicTooltip().onChange((v) => {
+      console.log(v);
+      taskSettings.fontSize = v;
+      this.applySettingsToCheckbox(taskSettings, checkbox);
+    });
+    fontSize.sliderEl.id = "size-" + i;
+    new import_obsidian.ExtraButtonComponent(sizeGroup).setIcon("reset").setTooltip("Reset font size to default").onClick(() => __async(this, null, function* () {
+      fontSize.setValue(this.elements.defaultFontSize);
+      delete taskSettings.fontSize;
+      this.applySettingsToCheckbox(taskSettings, checkbox);
+    })).extraSettingsEl.addClass("no-padding");
   }
   applyColor(taskSettings, li, checkbox) {
     this.applySettingsToCheckbox(taskSettings, checkbox);
@@ -1429,25 +1616,29 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
   applySettingsToListItem(taskSettings, li) {
     li.setAttr("data-task", taskSettings.data);
     li.className = "task-list-item" + (taskSettings.data == " " ? "" : " is-checked");
-    if (taskSettings.strkethrough) {
-      li.style.textDecoration = "line-through";
+    this.setListItemColors(taskSettings, li);
+  }
+  applyStrikethrough(taskSettings, preview) {
+    if (taskSettings.strikethrough) {
+      preview.style.textDecoration = "line-through";
     } else {
-      li.style.textDecoration = "none";
-    }
-    if (taskSettings.applyTextColor) {
-      this.setColor(taskSettings, li);
-    } else {
-      li.style.removeProperty("color");
+      preview.style.textDecoration = "none";
     }
   }
   applySettingsToCheckbox(taskSettings, checkbox) {
+    checkbox.removeAttribute("data");
+    checkbox.style.removeProperty("--snippetor-font-size");
     if (taskSettings.data !== " ") {
+      const data = taskSettings.reader ? taskSettings.reader : taskSettings.data;
       checkbox.setAttribute("checked", "");
-      checkbox.setAttribute("data", taskSettings.data);
-    } else {
-      checkbox.removeAttribute("data");
+      checkbox.setAttribute("data", data);
     }
-    this.setColorAttributes(taskSettings, checkbox);
+    if (taskSettings.fontSize) {
+      checkbox.style.setProperty("--snippetor-font-size", taskSettings.fontSize + "px");
+    } else {
+      checkbox.style.setProperty("--snippetor-font-size", this.elements.defaultFontSize + "px");
+    }
+    this.setCheckboxColors(taskSettings, checkbox);
   }
   applyCommonSettingsToCheckbox(checkbox) {
     checkbox.style.removeProperty("background-color");
@@ -1458,6 +1649,16 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
   }
   isLightMode() {
     return this.containerEl.hasClass("theme-light") || !this.containerEl.hasClass("theme-dark") && document.body.hasClass("theme-light");
+  }
+  getForegroundColor() {
+    const ctx = this.elements.canvas.getContext("2d");
+    ctx.fillStyle = getComputedStyle(this.elements.defaultColorSource).color;
+    return ctx.fillStyle;
+  }
+  getBackgroundColor() {
+    const ctx = this.elements.canvas.getContext("2d");
+    ctx.fillStyle = getComputedStyle(this.elements.defaultColorSource).backgroundColor;
+    return ctx.fillStyle;
   }
   getThemeColor(taskSettings) {
     if (this.isLightMode()) {
@@ -1473,24 +1674,52 @@ var CreateCheckboxesModal = class extends import_obsidian.Modal {
       taskSettings.taskColorDark = color;
     }
   }
-  setColor(taskSettings, element) {
-    const taskColor = this.getThemeColor(taskSettings);
-    if (taskColor && taskColor.length > 0) {
-      element.style.color = taskColor;
+  getThemeBackgroundColor(taskSettings) {
+    if (this.isLightMode()) {
+      return taskSettings.bgColorLight === void 0 ? this.getBackgroundColor() : taskSettings.bgColorLight;
+    }
+    return taskSettings.bgColorDark === void 0 ? this.getBackgroundColor() : taskSettings.bgColorDark;
+  }
+  setThemeBackgroundColor(taskSettings, color) {
+    if (this.isLightMode()) {
+      taskSettings.bgColorLight = color;
     } else {
-      element.style.removeProperty("color");
+      taskSettings.bgColorDark = color;
     }
   }
-  setColorAttributes(taskSettings, element) {
+  setListItemColors(taskSettings, li) {
     const taskColor = this.getThemeColor(taskSettings);
-    if (taskColor && taskColor.length > 0) {
-      element.style.borderColor = taskColor;
-      element.style.color = taskColor;
-      element.setAttribute("color", taskColor);
+    const bgColor = this.getThemeBackgroundColor(taskSettings);
+    if (taskSettings.applyTextColor && taskColor && taskColor.length > 0) {
+      li.style.color = taskColor;
     } else {
-      element.style.removeProperty("border-color");
-      element.style.removeProperty("color");
-      element.removeAttribute("color");
+      li.style.removeProperty("color");
+    }
+    if (taskSettings.applyTextBgColor && bgColor && bgColor.length > 0) {
+      li.style.backgroundColor = bgColor;
+    } else {
+      li.style.removeProperty("background-color");
+    }
+  }
+  setCheckboxColors(taskSettings, checkbox) {
+    const fgColor = this.getThemeColor(taskSettings);
+    const bgColor = this.getThemeBackgroundColor(taskSettings);
+    if (fgColor && fgColor.length > 0) {
+      checkbox.style.borderColor = fgColor;
+      checkbox.style.color = fgColor;
+      checkbox.setAttribute("color", fgColor);
+    } else {
+      checkbox.style.removeProperty("border-color");
+      checkbox.style.removeProperty("color");
+      checkbox.removeAttribute("color");
+    }
+    if (bgColor && bgColor.length > 0) {
+      checkbox.style.backgroundColor = bgColor;
+    } else {
+      checkbox.style.removeProperty("background-color");
+    }
+    if (taskSettings.hideBorder) {
+      checkbox.style.borderColor = "transparent";
     }
   }
   verifyDataValue(input) {
@@ -1553,7 +1782,7 @@ var SnippetorSettingsTab = class extends import_obsidian2.PluginSettingTab {
       d.onChange((v) => {
         selector.type = v;
       });
-    }).addButton((button) => button.setTooltip("Create a Snippet").setButtonText("+").onClick(() => __async(this, null, function* () {
+    }).addButton((button) => button.setTooltip("Create a Snippet").setIcon("plus-with-circle").onClick(() => __async(this, null, function* () {
       yield this.openModal(selector.type, null);
     })));
   }
@@ -1561,14 +1790,14 @@ var SnippetorSettingsTab = class extends import_obsidian2.PluginSettingTab {
     this.existingEl.empty();
     for (const snippet of this.plugin.allSnippets) {
       console.log(snippet);
-      new import_obsidian2.Setting(this.existingEl).setName(snippet.name).setDesc(this.getDescription(snippet.type)).addButton((b) => b.setIcon("pencil").setTooltip("Edit this Snippet").onClick(() => __async(this, null, function* () {
+      new import_obsidian2.Setting(this.existingEl).setName(snippet.name).setDesc(this.getDescription(snippet.type)).addExtraButton((b) => b.setIcon("pencil").setTooltip("Edit this Snippet").onClick(() => __async(this, null, function* () {
         yield this.openModal(snippet.type, snippet);
-      }))).addButton((b) => b.setIcon("duplicate-glyph").setTooltip("Copy this Snippet").onClick(() => __async(this, null, function* () {
+      }))).addExtraButton((b) => b.setIcon("duplicate-glyph").setTooltip("Copy this Snippet").onClick(() => __async(this, null, function* () {
         const copy = JSON.parse(JSON.stringify(snippet));
         copy.name = (0, import_random_word_slugs2.generateSlug)(2);
         new import_obsidian2.Notice(`Copied snippet '${snippet.name}' to '${copy.name}'`);
         yield this.openModal(snippet.type, copy);
-      }))).addButton((b) => b.setIcon("trash").setTooltip("Delete this Snippet").onClick(() => __async(this, null, function* () {
+      }))).addExtraButton((b) => b.setIcon("trash").setTooltip("Delete this Snippet").onClick(() => __async(this, null, function* () {
         yield this.plugin.removeSnippet(snippet);
         this.listExistingSnippets();
       })));
@@ -2117,8 +2346,15 @@ input[type=checkbox]:checked {
     filter: none;
     border: 1px solid var(--text-normal);
     border-radius: 2px;
+    position:relative;
+}
+.markdown-preview-view input.task-list-item-checkbox {
     margin-top: 2px;
-    margin-bottom: 2px;
+    margin-bottom: 1px;
+}
+.markdown-source-view.mod-cm6 input.task-list-item-checkbox {
+    margin-top: 3px;
+    margin-bottom: 3px;
 }
 .markdown-source-view.mod-cm6 input.task-list-item-checkbox:checked::before,
 .markdown-preview-view input.task-list-item-checkbox:checked::before {
@@ -2158,38 +2394,46 @@ input[type=checkbox]:checked {
    let ts = it.cfg.taskSettings[i]; %>
 /* '<%~ ts.data %>' for completed task ('- [<%~ ts.data %>]') */
 .theme-dark {
-    --snippetor-checkbox-<%= i %>: <%= ts.taskColorDark %>;
+    --snippetor-checkbox-<%= i %>: <% tR += ts.taskColorDark ? ts.taskColorDark : "inherit" %>;
+    --snippetor-checkbox-bg-<%= i %>: <% tR += ts.bgColorDark ? ts.bgColorDark : "transparent" %>;
 }
 .theme-dark .print,
 .theme-light {
-    --snippetor-checkbox-<%= i %>: <%= ts.taskColorLight %>;
+    --snippetor-checkbox-<%= i %>: <% tR += ts.taskColorLight ? ts.taskColorLight : "inherit" %>;
+    --snippetor-checkbox-bg-<%= i %>: <% tR += ts.bgColorLight ? ts.bgColorLight : "transparent" %>;
 }
 .markdown-source-view.mod-cm6 input.task-list-item-checkbox[data-task="<%~ ts.data %>"]::before,
 .markdown-preview-view ul > li[data-task="<%~ ts.data %>"] > input.task-list-item-checkbox:checked::before,
 .markdown-preview-view ul > li[data-task="<%~ ts.data %>"] > p > input.task-list-item-checkbox:checked::before {
-<% if (ts.reader) { %>
-    content: "<%= ts.reader %>";
-<% } else { %>
-    content: "<%~ ts.data %>";
-<% } %>
+    content: '<% tR += ts.reader ? ts.reader : ts.data %>';
     color: var(--snippetor-checkbox-<%= i %>);
 }
 .markdown-source-view.mod-cm6 input.task-list-item-checkbox[data-task="<%~ ts.data %>"],
 .markdown-preview-view ul > li[data-task="<%~ ts.data %>"] > input.task-list-item-checkbox,
 .markdown-preview-view ul > li[data-task="<%~ ts.data %>"] > p > input.task-list-item-checkbox {
-    border-color: var(--snippetor-checkbox-<%= i %>);
     color: var(--snippetor-checkbox-<%= i %>);
+<% if (ts.hideBorder) { %>
+    border-color: transparent;
+<% } else { %>
+    border-color: var(--snippetor-checkbox-<%= i %>);
+<% } %>
+<% if (ts.applyTextBgColor) { %>
+    background-color: var(--snippetor-checkbox-bg-<%= i %>);
+<% } %>
 }
-<% if (ts.strkethrough || ts.applyTextColor) { %>
+<% if (ts.strkethrough || ts.applyTextColor || ts.applyTextBgColor) { %>
 .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="<%~ ts.data %>"],
 .markdown-source-view.mod-cm6 input.task-list-item-checkbox[data-task="<%~ ts.data %>"] + span,
 .markdown-source-view.mod-cm6 input.task-list-item-checkbox[data-task="<%~ ts.data %>"] + span + span,
 .markdown-preview-view ul > li[data-task="<%~ ts.data %>"].task-list-item.is-checked {
-<% if (ts.strkethrough) { %>
+<% if (ts.strikethrough) { %>
     text-decoration: line-through;
 <% } %>
 <% if (ts.applyTextColor) { %>
     color: var(--snippetor-checkbox-<%= i %>);
+<% } %>
+<% if (ts.applyTextBgColor) { %>
+    background-color: var(--snippetor-checkbox-bg-<%= i %>);
 <% } %>
 }
 <% } %>
@@ -2222,16 +2466,14 @@ var Snippetor = class {
     });
   }
   get canUseTaskCollector() {
-    return this.app.plugins.enabledPlugins.has("obsidian-task-collector");
+    return this.app.plugins.plugins["obsidian-task-collector"] !== void 0;
   }
   get taskValues() {
     let values = this.app.plugins.plugins["obsidian-task-collector"].taskCollector.settings.incompleteTaskValues;
     if (this.app.plugins.plugins["obsidian-task-collector"].taskCollector.settings.supportCanceledTasks) {
       values += "-";
     }
-    const tasks = (values + "xX").replace(" ", "").split("");
-    tasks.sort();
-    return new Set(tasks);
+    return new Set((values + "xX").replace(" ", "").split(""));
   }
   createNewTaskSnippetCfg() {
     const result = Object.assign({}, DEFAULT_TASK_SNIPPET_SETTINGS, {
@@ -2255,7 +2497,10 @@ var Snippetor = class {
       }),
       taskColorDark: (0, import_randomcolor.default)({
         luminosity: "light"
-      })
+      }),
+      cache: {
+        expanded: false
+      }
     };
   }
   generateCss(cfg) {
@@ -2280,23 +2525,33 @@ var Snippetor = class {
     let update;
     if (this.app.customCss.snippets.includes(fileName)) {
       update = this.app.vault.adapter.write(path, snippet).then(() => {
-        new import_obsidian3.Notice("Snippet created successfully.");
+        new import_obsidian3.Notice(`Updated ${fileName}`);
       }, (reason) => {
-        new import_obsidian3.Notice("Snippet creation failed. Check console for details.");
-        console.error("Snippet creation failed: %o", reason);
+        new import_obsidian3.Notice("Snippet modification failed. Check console for details.");
+        console.error("Snippet modification failed: %o", reason);
       });
     } else {
       update = this.app.vault.create(path, snippet).then(() => {
-        new import_obsidian3.Notice("Snippet created successfully.");
+        new import_obsidian3.Notice(`Created ${fileName}`);
       }, (reason) => {
         new import_obsidian3.Notice("Snippet creation failed. Check console for details.");
         console.error("Snippet creation failed: %o", reason);
       });
     }
-    return update;
+    return update.then(() => this.app.customCss.readCssFolders());
   }
   isTaskSnippetConfig(cfg) {
     return cfg.type === DEFAULT_TASK_SNIPPET_SETTINGS.type;
+  }
+  deleteSnippet(cfg) {
+    const fileName = cfg.type + "-" + cfg.name;
+    const path = this.app.customCss.getSnippetPath(fileName);
+    return this.app.vault.adapter.remove(path).then(() => {
+      new import_obsidian3.Notice(`Deleted ${fileName}`);
+    }, (reason) => {
+      new import_obsidian3.Notice("Snippet deletion failed. Check console for details.");
+      console.error("Snippet creation failed: %o", reason);
+    });
   }
 };
 
@@ -2307,7 +2562,6 @@ var SnippetorPlugin = class extends import_obsidian4.Plugin {
       this.snippetor = new Snippetor(this.app);
       yield this.loadSettings();
       console.debug("loaded Snippetor %s: %o", this.manifest.version, this.settings);
-      (0, import_obsidian4.addIcon)(MAKE_IT_SO, MAGIC_WAND);
       this.addSettingTab(new SnippetorSettingsTab(this.app, this));
     });
   }
@@ -2330,7 +2584,7 @@ var SnippetorPlugin = class extends import_obsidian4.Plugin {
     return __async(this, null, function* () {
       console.log("Removing %o", snippetCfg);
       delete this.settings.snippets[snippetCfg.name];
-      return this.saveSettings();
+      return this.saveSettings().then(() => this.snippetor.deleteSnippet(snippetCfg));
     });
   }
   setSnippet(snippetCfg) {

@@ -1,6 +1,10 @@
+
 %%
 ```leaflet
 id: test
+tileOverlay:
+  - http://{s}.tiles.openrailwaymap.org/standard/{z}/{x}/{y}.png|rails|on
+geojson: [[geo-usa-columbus.json]]||[[This File]]
 ```
 %%
 
@@ -14,9 +18,10 @@ maxZoom: 18
 defaultZoom: -2
 zoomDelta: 0.5
 coordinates: [911, 1409]
+recenter: true
+noScrollZoom: true
 ```
 
-%%
 ```leaflet
 id: leaflet-map
 image: [[khorvaire.png]]
@@ -28,5 +33,8 @@ maxZoom: 10
 defaultZoom: 5
 unit: meters
 scale: 1
-marker: default, 39.983334, -82.983330, [[Note]]
+marker: location,-3.6875,4.6873387096774195
+lock: true
 ```
+
+
