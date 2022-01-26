@@ -1,6 +1,6 @@
 {
   "baseFontSize": 14,
-  "cssTheme": "",
+  "cssTheme": "Ebullientworks",
   "enabledCssSnippets": [
     "obsidian.auto-fading",
     "obsidian.colored-folders",
@@ -30,7 +30,8 @@
     "icons.external",
     "icons.material",
     "colors.folders",
-    "colors.ebullient"
+    "colors.ebullient",
+    "ebullient.colors.folders.overrides"
   ],
   "theme": "moonstone"
 }
