@@ -21,6 +21,17 @@
       "command": false,
       "injectColor": true,
       "noTitle": false
+    },
+    "aloud": {
+      "type": "aloud",
+      "color": "169, 190, 174",
+      "icon": {
+        "name": "book-reader",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": true
     }
   },
   "syntaxHighlight": false,

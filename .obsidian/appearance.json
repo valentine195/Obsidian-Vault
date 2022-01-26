@@ -32,7 +32,11 @@
     "colors.folders",
     "colors.ebullient",
     "ebullient.colors.folders.overrides",
-    "ebullient.overrides"
+    "ebullient.overrides",
+    "minimal.settings",
+    "admonitions",
+    "fonts.faces",
+    "ebullient.workspace-header"
   ],
   "theme": "moonstone"
 }

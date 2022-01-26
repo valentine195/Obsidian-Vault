@@ -1,32 +1,81 @@
-:root {
-    /* Preview font */
-    --text: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans,
-        Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-
-    /* Editor font */
-    --text-editor: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-
-    /* Code font */
-    --font-monospace: Menlo, SFMono-Regular, Consolas, "Roboto Mono", monospace;
-
-    /* UI font */
-    --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-        Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-
-    /* Sizes, weights, padding */
-    --font-normal: 16px;
-    --font-small: 13px;
-    --font-smaller: 11px;
-    --font-smallest: 10px;
-
-    --font-title: 1.1em;
-}
-
 .nav-folder,
 .nav-file {
     margin: 0;
     border-left: 0;
+}
+
+/** Modal Background Colors */
+.modal .prompt,
+.modal .vertical-tab-header,
+.modal .vertical-tab-nav-item,
+.modal .community-plugin-search,
+.modal.mod-settings .prompt,
+.modal.mod-settings .vertical-tab-header,
+.modal.mod-settings .vertical-tab-nav-item,
+.modal.mod-settings .community-plugin-search {
+    background-color: inherit;
+}
+
+.modal .horizontal-tab-nav-item:hover,
+.modal .vertical-tab-nav-item:hover,
+.modal .vertical-tab-nav-item.is-active,
+.modal.mod-settings .community-plugin-item:hover,
+.modal.mod-settings .horizontal-tab-nav-item:hover,
+.modal.mod-settings .vertical-tab-nav-item:hover,
+.modal.mod-settings .vertical-tab-nav-item.is-active {
+    border-radius: 6px;
+}
+.modal.mod-settings .vertical-tab-nav-item:not(:last-child) {
+    margin-bottom: 2px;
+}
+
+/** Admonitions */
+.rendered-widget .admonition-content-holder .admonition-content,
+.markdown-preview-section .admonition-content-holder .admonition-content {
+    margin-top: 0;
+}
+
+.admonition-warning {
+    --admonition-color: var(--admonition-warning) !important;
+}
+.admonition-success {
+    --admonition-color: var(--admonition-success) !important;
+}
+.admonition-note {
+    --admonition-color: var(--admonition-note) !important;
+}
+.admonition-info {
+    --admonition-color: var(--admonition-info) !important;
+}
+.admonition-quote {
+    --admonition-color: var(--admonition-quote) !important;
+}
+.admonition-tip {
+    --admonition-color: var(--admonition-tip) !important;
+}
+.admonition-question {
+    --admonition-color: var(--admonition-question) !important;
+}
+.admonition-abstract {
+    --admonition-color: var(--admonition-abstract) !important;
+}
+.admonition-bug {
+    --admonition-color: var(--admonition-bug) !important;
+}
+.admonition-example {
+    --admonition-color: var(--admonition-example) !important;
+}
+.admonition-failure {
+    --admonition-color: var(--admonition-failure) !important;
+}
+.admonition-danger {
+    --admonition-color: var(--admonition-danger) !important;
+}
+.admonition-reference {
+    --admonition-color: var(--admonition-reference) !important;
+}
+.admonition-toc {
+    --admonition-color: var(--admonition-toc) !important;
 }
 
 /** Workspace Collapse Buttons */
@@ -152,9 +201,15 @@ button {
     color: var(--text-muted);
     opacity: 0.5;
     transition: opacity 0.1s ease-in-out;
-
     line-height: 0;
 }
+.workspace-tab-header:hover,
+.side-dock-ribbon-tab:hover,
+.side-dock-ribbon-action:hover,
+.workspace-ribbon-collapse-btn:hover {
+    color: var(--text-muted);
+}
+
 .workspace-tab-container-before.is-before-active .workspace-tab-header-inner,
 .workspace-tab-container-after.is-after-active .workspace-tab-header-inner,
 .workspace-tab-header.is-before-active .workspace-tab-header-inner,
@@ -190,8 +245,6 @@ button {
 .workspace-tab-header:hover,
 .side-dock-ribbon-tab:hover,
 .side-dock-ribbon-action:hover {
-    /* background-color: var(--side-dock-accent-hover);
-    border-radius: 3px; */
     opacity: 1;
     transition: opacity 0.1s ease-in-out;
 }
