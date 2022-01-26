@@ -2,7 +2,20 @@
 Colored Folders
 by Jeremy Valentine
 */
-.theme-light,
+.theme-light {
+    /** Setup Custom Colors */
+    --Folder0: var(--yellow-3);
+    --Folder1: var(--green-3);
+    --Folder2: var(--teal-3);
+    --Folder3: var(--blue-3);
+    --Folder4: var(--purple-3);
+    --Folder5: var(--pink-3);
+
+    --FolderRadius: 5px;
+    --FolderText: var(--background-primary);
+    --root-file-color: var(--text-normal);
+}
+
 .theme-dark {
     /** Setup Custom Colors */
     --Folder0: var(--yellow-3);
@@ -14,14 +27,7 @@ by Jeremy Valentine
 
     --FolderRadius: 5px;
     --FolderText: var(--background-primary);
-}
-
-.theme-dark {
     --root-file-color: white;
-    --FolderText: white;
-}
-.theme-light {
-    --root-file-color: var(--text-normal);
 }
 .nav-file-title,
 .nav-folder-title {

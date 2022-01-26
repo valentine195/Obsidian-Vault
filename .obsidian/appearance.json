@@ -31,7 +31,8 @@
     "icons.material",
     "colors.folders",
     "colors.ebullient",
-    "ebullient.colors.folders.overrides"
+    "ebullient.colors.folders.overrides",
+    "ebullient.overrides"
   ],
   "theme": "moonstone"
 }
