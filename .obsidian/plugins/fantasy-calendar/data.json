@@ -182,7 +182,7 @@
         "offset": 2
       },
       "current": {
-        "day": 26,
+        "day": 29,
         "month": 0,
         "year": 2022
       },
@@ -368,7 +368,7 @@
         {
           "id": "ID_b909886bea28",
           "name": "21-11-20 - Session 11",
-          "note": "1. Sessions/21-11-20 - Session 11.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -408,7 +408,7 @@
         {
           "id": "ID_f8bb4a890a68",
           "name": "21-1-16",
-          "note": "1. Sessions/Post Session Logs/21-1-16.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -418,7 +418,7 @@
         {
           "id": "ID_f9bbdb5b4a3a",
           "name": "21-1-2",
-          "note": "1. Sessions/Post Session Logs/21-1-2.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -428,7 +428,7 @@
         {
           "id": "ID_28881a1a082a",
           "name": "21-10-02",
-          "note": "1. Sessions/Post Session Logs/21-10-02.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -438,7 +438,7 @@
         {
           "id": "ID_489b79191aca",
           "name": "21-10-30",
-          "note": "1. Sessions/Post Session Logs/21-10-30.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -448,7 +448,7 @@
         {
           "id": "ID_5a891978ca38",
           "name": "21-2-20",
-          "note": "1. Sessions/Post Session Logs/21-2-20.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -458,7 +458,7 @@
         {
           "id": "ID_282b7848c9fb",
           "name": "21-2-6",
-          "note": "1. Sessions/Post Session Logs/21-2-6.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -468,7 +468,7 @@
         {
           "id": "ID_3b9aab48f849",
           "name": "21-3-13",
-          "note": "1. Sessions/Post Session Logs/21-3-13.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -478,7 +478,7 @@
         {
           "id": "ID_3ae85889ca39",
           "name": "21-4-10",
-          "note": "1. Sessions/Post Session Logs/21-4-10.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -488,7 +488,7 @@
         {
           "id": "ID_fb089a292958",
           "name": "21-5-15",
-          "note": "1. Sessions/Post Session Logs/21-5-15.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -498,7 +498,7 @@
         {
           "id": "ID_a8f8f80929ab",
           "name": "21-9-10",
-          "note": "1. Sessions/Post Session Logs/21-9-10.md",
+          "note": null,
           "date": {
             "month": 8
           },
@@ -4453,7 +4453,7 @@
         {
           "id": "ID_db88d8a9eac9",
           "name": "21-11-20 - Session 11",
-          "note": "1. Sessions/21-11-20 - Session 11.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 10,
@@ -4505,7 +4505,7 @@
         {
           "id": "ID_980afafab818",
           "name": "21-1-16",
-          "note": "1. Sessions/Post Session Logs/21-1-16.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 0,
@@ -4518,7 +4518,7 @@
         {
           "id": "ID_28fa7acaba68",
           "name": "21-1-2",
-          "note": "1. Sessions/Post Session Logs/21-1-2.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 0,
@@ -4531,7 +4531,7 @@
         {
           "id": "ID_ea8bca384a49",
           "name": "21-10-02",
-          "note": "1. Sessions/Post Session Logs/21-10-02.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 9,
@@ -4544,7 +4544,7 @@
         {
           "id": "ID_aa5bcbb928ab",
           "name": "21-10-30",
-          "note": "1. Sessions/Post Session Logs/21-10-30.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 9,
@@ -4557,7 +4557,7 @@
         {
           "id": "ID_49787afaea1a",
           "name": "21-2-20",
-          "note": "1. Sessions/Post Session Logs/21-2-20.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 1,
@@ -4570,7 +4570,7 @@
         {
           "id": "ID_8828599b4878",
           "name": "21-2-6",
-          "note": "1. Sessions/Post Session Logs/21-2-6.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 1,
@@ -4583,7 +4583,7 @@
         {
           "id": "ID_f8d8aa5a59c8",
           "name": "21-3-13",
-          "note": "1. Sessions/Post Session Logs/21-3-13.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 2,
@@ -4596,7 +4596,7 @@
         {
           "id": "ID_c958fb4b5bf9",
           "name": "21-4-10",
-          "note": "1. Sessions/Post Session Logs/21-4-10.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 3,
@@ -4609,7 +4609,7 @@
         {
           "id": "ID_4a2bf8abca88",
           "name": "21-5-15",
-          "note": "1. Sessions/Post Session Logs/21-5-15.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 4,
@@ -4622,7 +4622,7 @@
         {
           "id": "ID_faf96b2809ba",
           "name": "21-9-10",
-          "note": "1. Sessions/Post Session Logs/21-9-10.md",
+          "note": null,
           "date": {
             "year": 21,
             "month": 8,
@@ -9540,7 +9540,7 @@
           "description": ""
         },
         {
-          "id": "ID_589bba089ad8",
+          "id": "ID_eb5b690a182b",
           "name": "2022-01-22",
           "note": "1. Sessions/Post Session Logs/2022-01-22.md",
           "date": {
@@ -9550,7 +9550,57 @@
           "description": ""
         },
         {
-          "id": "ID_d9e878da1b28",
+          "id": "ID_98ca282a7a0a",
+          "name": "2021-10-30",
+          "note": "1. Sessions/Post Session Logs/2021-10-30.md",
+          "date": {
+            "month": 4
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_8a39b8eb5a78",
+          "name": "2021-10-02",
+          "note": "1. Sessions/Post Session Logs/2021-10-02.md",
+          "date": {
+            "month": 4
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_e88a8abb490b",
+          "name": "2021-9-10",
+          "note": "1. Sessions/Post Session Logs/2021-9-10.md",
+          "date": {
+            "month": 4
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_aa4939eb799a",
+          "name": "2021-5-15",
+          "note": "1. Sessions/Post Session Logs/2021-5-15.md",
+          "date": {
+            "month": 4
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_a80a58fa7aa9",
+          "name": "2021-4-10",
+          "note": "1. Sessions/Post Session Logs/2021-4-10.md",
+          "date": {
+            "month": 4
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_99e8fb29d808",
           "name": "2021-3-13",
           "note": "1. Sessions/Post Session Logs/2021-3-13.md",
           "date": {
@@ -9560,7 +9610,7 @@
           "description": ""
         },
         {
-          "id": "ID_2a69ba1a198a",
+          "id": "ID_2ac9ab1a292b",
           "name": "2021-2-20",
           "note": "1. Sessions/Post Session Logs/2021-2-20.md",
           "date": {
@@ -9570,7 +9620,7 @@
           "description": ""
         },
         {
-          "id": "ID_897b3959a8db",
+          "id": "ID_4bb9599ada99",
           "name": "2021-2-6",
           "note": "1. Sessions/Post Session Logs/2021-2-6.md",
           "date": {
@@ -9580,7 +9630,7 @@
           "description": ""
         },
         {
-          "id": "ID_896ba92a18d9",
+          "id": "ID_1ad83ac9d91b",
           "name": "2021-1-16",
           "note": "1. Sessions/Post Session Logs/2021-1-16.md",
           "date": {
@@ -9590,7 +9640,17 @@
           "description": ""
         },
         {
-          "id": "ID_eaea8af8f809",
+          "id": "ID_6bda18c8ca1a",
+          "name": "2021-1-2",
+          "note": "1. Sessions/Post Session Logs/2021-1-2.md",
+          "date": {
+            "month": 4
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_5b1b3af94bc9",
           "name": "21-11-20 - Session 11",
           "note": "1. Sessions/Old Session Planning/21-11-20 - Session 11.md",
           "date": {
@@ -9640,7 +9700,7 @@
           "color": "#0288D1"
         }
       ],
-      "date": 1643208939820
+      "date": 1643380290925
     },
     {
       "name": "Calendar of Harptos",

@@ -1,3 +1,13 @@
+```statblock
+layout: test
+stunts: "
+  - Test\n
+  - Test 2\n
+  - [[Statblock Testing]]"
+name: Test
+```
+
+%%
 
 ```statblock
 layout: Basic 5e Layout Copy

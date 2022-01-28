@@ -35,3 +35,8 @@
 .body.is-mobile .setting-item-description {
     word-break: break-word;
 }
+
+.dropdown {
+    min-width: 100px;
+    padding: 0.6em 1.9em 0.5em 0.8em
+}
