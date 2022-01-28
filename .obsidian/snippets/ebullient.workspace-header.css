@@ -40,3 +40,7 @@
     background-color: var(--background-primary);
     border-radius: 6px;
 }
+
+.view-content .nav-buttons-container {
+    height: auto;
+}
