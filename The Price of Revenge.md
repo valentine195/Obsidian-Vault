@@ -9,7 +9,7 @@ obsidianUIMode: preview
 ```
 
 ### Map
-![[1. Location Index#^khorvaire-map]]
+![[2. Compendium/Index#^khorvaire-map]]
 
 ### Characters
 

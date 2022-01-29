@@ -17,6 +17,7 @@ zoomDelta: 0.05
 unit: mi
 scale: 400
 ```
+^khorvaire-map
 
 ## Locations
 ```dataviewjs

@@ -26,6 +26,7 @@ title: Yoss
 I have been instructed by my master to see to your needs. The full clanhold is at your disposal, but I must warn you - the other clans have begun arriving, and blood fueds may be settled this night. Beware the Gray Ash. Please let me know if you require anything.
 ```
 
+> [!info: ]
 > As you take in the house, you hear a deep, distant, rolling rumble that goes on for several seconds. The servant walks to the balcony  and stares out, where you can see the volcano surrounded by massive dark storm clouds.
 > ```ad-quote
 > title: Yoss
