@@ -32,14 +32,25 @@
       "command": false,
       "injectColor": true,
       "noTitle": true
+    },
+    "toc": {
+      "type": "toc",
+      "color": "182, 169, 255",
+      "icon": {
+        "name": "book",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": true
     }
   },
-  "syntaxHighlight": false,
+  "syntaxHighlight": true,
   "copyButton": false,
   "version": "6.9.7",
   "autoCollapse": false,
   "defaultCollapseType": "open",
-  "syncLinks": true,
+  "syncLinks": false,
   "enableMarkdownProcessor": false,
   "injectColor": true,
   "parseTitles": true,

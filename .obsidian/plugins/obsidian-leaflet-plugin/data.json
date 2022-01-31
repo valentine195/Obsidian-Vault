@@ -56,6 +56,49 @@
       "files": [
         "Plugin Testing/map/Map.md"
       ]
+    },
+    {
+      "id": "azgaar",
+      "lastAccessed": 1643646903291,
+      "markers": [
+        {
+          "id": "ID_a869bb7928aa",
+          "type": "location",
+          "loc": [
+            1399.09375,
+            1642
+          ],
+          "layer": "%5B%5BVerraine%202022-01-31-09-52.svg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_7a98cab8ca08",
+          "type": "location",
+          "loc": [
+            1220.09375,
+            1508
+          ],
+          "layer": "%5B%5BVerraine%202022-01-31-09-52.svg%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "Plugin Testing/map/Map.md"
+      ]
     }
   ],
   "defaultMarker": {
@@ -129,7 +172,7 @@
     "patch": 1
   },
   "warnedAboutMapMarker": false,
-  "copyOnClick": false,
+  "copyOnClick": true,
   "displayMarkerTooltips": "hover",
   "displayOverlayTooltips": true,
   "configDirectory": null,

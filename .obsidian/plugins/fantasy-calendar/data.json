@@ -182,8 +182,8 @@
         "offset": 2
       },
       "current": {
-        "day": 29,
-        "month": 0,
+        "day": 4,
+        "month": 1,
         "year": 2022
       },
       "events": [
@@ -9660,6 +9660,26 @@
           "description": ""
         },
         {
+          "id": "ID_f948f84948d8",
+          "name": "2022-02-05",
+          "note": null,
+          "date": {
+            "month": 5
+          },
+          "end": null,
+          "description": ""
+        },
+        {
+          "id": "ID_6b385a5ab969",
+          "name": "2022-02-05 - Session 12",
+          "note": "1. Sessions/Post Session Logs/2022-02-05 - Session 12.md",
+          "date": {
+            "month": 5
+          },
+          "end": null,
+          "description": ""
+        },
+        {
           "name": "Work on this version of the Gregorian Calendar started.",
           "description": "On this day, Aecius started to rework the Gregorian Calendar from scratch to make it work with the updates Wasp and Alex implemented since the summer of 2019.",
           "id": "824613",
@@ -9700,7 +9720,7 @@
           "color": "#0288D1"
         }
       ],
-      "date": 1643380290925
+      "date": 1643640883215
     },
     {
       "name": "Calendar of Harptos",
@@ -10060,6 +10080,6 @@
   "autoParse": true,
   "settingsToggleState": {
     "calendars": true,
-    "events": true
+    "events": false
   }
 }
