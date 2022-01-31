@@ -1,11 +1,9 @@
 [
-  "obsidian-activity-history",
   "table-editor-obsidian",
   "obsidian-character-sheet",
   "obsidian-collapse-all-plugin",
   "customjs",
   "cycle-through-panes",
-  "dataview",
   "hot-reload",
   "hotkeysplus-obsidian",
   "image-window",
@@ -17,7 +15,6 @@
   "templater-obsidian",
   "fantasy-calendar",
   "obsidian-charts",
-  "obsidian-admonition",
   "obsidian-task-collector",
   "plugin-changelogs",
   "hotkey-helper",
@@ -27,5 +24,8 @@
   "obsidian-timelines",
   "obsidian-leaflet-plugin",
   "obsidian-dice-roller",
-  "obsidian-5e-statblocks"
+  "obsidian-5e-statblocks",
+  "obsidian-activity-history",
+  "obsidian-admonition",
+  "dataview"
 ]

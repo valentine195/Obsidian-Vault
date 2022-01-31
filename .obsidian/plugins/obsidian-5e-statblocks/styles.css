@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*!*********************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./src/settings/settings.css ***!
   \*********************************************************************************************************/
@@ -125,3 +126,132 @@
     height: 30px;
 }
 
+=======
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./src/settings/settings.css ***!
+  \*********************************************************************************************************/
+.statblock-filter-container .search-input-container {
+    margin-bottom: 0;
+}
+
+.no-border-top {
+    border-top: 0;
+}
+
+.statblock-edit-block
+    .statblock-additional-container
+    > .additional
+    > .setting-item
+    .setting-item-name {
+    font-size: small;
+    font-style: italic;
+}
+.statblock-edit-block
+    .statblock-additional-container
+    > .additional
+    > .setting-item {
+    color: var(--text-muted);
+}
+.statblock-edit-block .statblock-additional-container > :not(.additional) {
+    padding-bottom: 0;
+}
+
+.statblock-edit-block .setting-item {
+    border: 0;
+
+    padding-top: 0rem;
+}
+
+.statblock-edit-block textarea {
+    width: 100%;
+    resize: vertical;
+    overflow: hidden;
+}
+
+.statblock-additional-container.statblock-monsters button {
+    margin-right: 0;
+}
+
+.statblock-additional-container.statblock-monsters button {
+    margin-right: 0;
+}
+
+/*!********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./src/main.css ***!
+  \********************************************************************************************/
+:root {
+    --statblock-primary-color: #7a200d;
+    --statblock-rule-color: #922610;
+    --statblock-bar-color: #e69a28;
+    --statblock-background-color: #fdf1dc;
+}
+
+/** Settings */
+.statblock-file-upload > input[type="file"] {
+    display: none;
+}
+
+.statblock-additional-container {
+    border-top: 1px solid var(--background-modifier-border);
+    border-bottom: 0px solid var(--background-modifier-border);
+    padding: 18px 0 0 0;
+    background-color: inherit;
+}
+
+.statblock-additional-container details {
+    padding: 18px 0 18px 0;
+}
+
+.statblock-additional-container .clickable-icon {
+    margin: 0 6px;
+}
+
+.statblock-additional-container .task-list-inline {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 3em;
+    padding-bottom: 0px;
+    margin: 0px;
+}
+
+.statblock-monster-filter {
+    position: sticky;
+    top: -5px;
+    padding-top: 5px;
+    background-color: inherit;
+    z-index: 99999;
+}
+
+.statblock-additional-container > .setting-item-heading:only-child {
+    padding-bottom: 18px;
+}
+
+.statblock-additional-container > .additional {
+    margin: 6px 12px;
+}
+.statblock-additional-container > .additional > .setting-item {
+    border-top: 0;
+    padding-top: 9px;
+}
+.statblock-additional-container
+    > .additional
+    > .setting-item
+    > .setting-item-control
+    > *:first-child {
+    margin: 0 6px;
+}
+
+.statblock-settings div {
+    background-color: inherit;
+}
+.statblock-settings .coffee {
+    width: 60%;
+    color: var(--text-faint);
+    margin: 1rem auto;
+    text-align: center;
+}
+.statblock-settings .coffee img {
+    height: 30px;
+}
+
+>>>>>>> 719afffb7c1ef305aa5bd0fdc6d50dfc01537cb6
