@@ -32,9 +32,9 @@
     "icons.external",
     "icons.material",
     "icons.minimal",
-    "minimal.settings",
     "admonitions",
-    "fonts"
+    "fonts",
+    "minimal.settings"
   ],
-  "theme": "obsidian"
+  "theme": "moonstone"
 }

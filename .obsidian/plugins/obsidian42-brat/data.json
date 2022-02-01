@@ -1,5 +1,6 @@
 {
   "pluginList": [
+    "nothingislost/obsidian-bartender",
     "KjellConnelly/obsidian-dev-tools",
     "ebullient/obsidian-snippetor"
   ],

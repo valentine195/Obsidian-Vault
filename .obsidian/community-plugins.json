@@ -7,7 +7,6 @@
   "hot-reload",
   "hotkeysplus-obsidian",
   "image-window",
-  "initiative-tracker",
   "obsidian-linter",
   "markdown-attributes",
   "obsidian42-brat",
@@ -24,8 +23,8 @@
   "obsidian-timelines",
   "obsidian-leaflet-plugin",
   "obsidian-dice-roller",
-  "obsidian-5e-statblocks",
   "obsidian-activity-history",
   "obsidian-admonition",
-  "dataview"
+  "dataview",
+  "obsidian-bartender"
 ]

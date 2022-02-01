@@ -79,7 +79,7 @@
 }
 
 /** Workspace Collapse Buttons */
-.workspace-ribbon.mod-left .workspace-ribbon-collapse-btn,
+/* .workspace-ribbon.mod-left .workspace-ribbon-collapse-btn,
 .workspace-ribbon.mod-right .workspace-ribbon-collapse-btn {
     opacity: 1;
     position: fixed;
@@ -104,7 +104,9 @@
     position: absolute;
     background: transparent;
     border: 0;
-}
+} */
+
+
 
 .dropdown {
     font-size: 0.8em;
