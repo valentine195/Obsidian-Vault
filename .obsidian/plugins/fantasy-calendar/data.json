@@ -182,7 +182,7 @@
         "offset": 2
       },
       "current": {
-        "day": 1,
+        "day": 2,
         "month": 1,
         "year": 2022
       },
@@ -9770,7 +9770,7 @@
           "color": "#0288D1"
         }
       ],
-      "date": 1643721439141
+      "date": 1643808149496
     },
     {
       "name": "Calendar of Harptos",
