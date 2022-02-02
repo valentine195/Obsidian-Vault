@@ -10131,5 +10131,6 @@
   "settingsToggleState": {
     "calendars": true,
     "events": false
-  }
+  },
+  "exitWithoutSaving": false
 }

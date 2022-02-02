@@ -55,5 +55,6 @@
   "injectColor": true,
   "parseTitles": true,
   "allowMSSyntax": true,
-  "livePreviewMS": true
+  "livePreviewMS": true,
+  "dropShadow": false
 }
