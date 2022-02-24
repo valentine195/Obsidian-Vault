@@ -99,6 +99,67 @@
       "files": [
         "Plugin Testing/map/Map.md"
       ]
+    },
+    {
+      "id": "newthrone",
+      "lastAccessed": 1645721967373,
+      "markers": [
+        {
+          "id": "ID_0ab9ab385a99",
+          "type": "location",
+          "loc": [
+            -0.67633056640625,
+            0.703125
+          ],
+          "link": "Gray Tide",
+          "layer": "%5B%5Bkintargo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_bb8879a8d999",
+          "type": "location",
+          "loc": [
+            -0.375,
+            0.6542916081460672
+          ],
+          "link": "House Tharashk",
+          "layer": "%5B%5Bkintargo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_0a1abae9d889",
+          "type": "player",
+          "loc": [
+            -0.59375,
+            0.999743679775281
+          ],
+          "layer": "%5B%5Bkintargo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "2. Compendium/Locations/Q'Barra/Newthrone.md"
+      ]
     }
   ],
   "defaultMarker": {
