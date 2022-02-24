@@ -4,8 +4,7 @@ sub-type: town
 location: [-4.26, 6.72]
 mapmarker: location
 tags:
-  - location/q'barra/whitecliff
-
+  - location/qbarra/whitecliff
 ---
 
 ## Whitecliff

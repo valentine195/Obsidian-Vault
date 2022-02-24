@@ -4,9 +4,8 @@ sub-type: mine
 location: [-4.31, 6.69]
 mapmarker: location
 tags:
-  - location/q'barra/whitecliff
+  - location/qbarra/whitecliff
 date updated: '2021-04-23T15:26:29-04:00'
-
 ---
 
 ## Mine of Whitecliff

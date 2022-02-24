@@ -10,7 +10,7 @@ tags:
 ---
  # Gauntlets of Deliverance
  _Wondrous item, uncommon (requires attunement by a paladin)_
-Held by:
+Held by: [[Jeremiah Pumpernickle|Jeremiah]]
 
  _The Plaguebearer stood over the adventurers. His laughter echoed through the cavernous sewers as they lay there, drained by the virulent poisons coursing through their blood._
 

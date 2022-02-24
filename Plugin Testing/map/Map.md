@@ -8,5 +8,3 @@ defaultZoom: 0
 coordinates: [[Voldshee]]
 markerFile: [[Voldshee]]
 ```
-
-

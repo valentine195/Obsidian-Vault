@@ -1,7 +1,0 @@
-1. [[1. Sessions/Post Session Logs/2021-1-2]]
-2. [[1. Sessions/Post Session Logs/2021-1-16]]
-3. [[1. Sessions/Post Session Logs/2021-2-6]]
-4. [[1. Sessions/Post Session Logs/2021-2-20]]
-5. [[1. Sessions/Post Session Logs/2021-3-13]]
-6. [[1. Sessions/Post Session Logs/2021-4-10]]
-7. [[1. Sessions/Post Session Logs/2021-5-15]]

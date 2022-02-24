@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*
-Ebullientworks 0.3.9 by @ebullient
+Ebullientworks 0.3.13 by @ebullient
 
 This is a dark and light theme for Obsidian.
 
@@ -54,9 +54,9 @@ settings:
     type: class-toggle
     default: false
   -
-    id: ebullientworks-table-width
-    title: Prevent table content from extending beyond the width of the page
-    description: If true, tables will have a maximum width set. Cell content will be wrapped (mid-word if necessary).
+    id: ebullientworks-hover-collapsed-sidebars
+    title: Show collapsed sidebars on hover
+    description: If true, collapsed side-bars will be shown when you hover over the ribbon.
     type: class-toggle
     default: false
   -
@@ -407,12 +407,12 @@ settings:
   --text-muted: var(--gray);
   --text-muted-rgb: 153, 153, 153;
   --text-faint: var(--gray-dark-1);
-  --text-error: var(--pink-5);
-  --text-error-hover: var(--pink-5);
+  --text-error: var(--pink-3);
+  --text-error-hover: var(--pink-2);
   --text-highlight-fg: var(--gray-dark-7);
-  --text-highlight-bg: rgba(252, 232, 131, 0.9);
-  --text-highlight-bg-active: rgba(252, 232, 131, 0.7);
-  --text-selection: rgba(var(--secondary-accent-1-rgb), 0.2);
+  --text-highlight-bg: var(--primary-accent-2);
+  --text-highlight-bg-active: rgba(255, 216, 99, 0.664);
+  --text-selection: var(--secondary-accent-2);
   /** Text on accent should work as foreground for all interactive elements */
   --text-on-accent: white;
   --interactive-normal: var(--secondary-accent-4);
@@ -451,10 +451,10 @@ settings:
   --text-faint: var(--gray-dark-1);
   --text-error: var(--pink-5);
   --text-error-hover: var(--pink-4);
-  --text-highlight-fg: var(--text-normal);
-  --text-highlight-bg: rgba(252, 232, 131, 0.9);
-  --text-highlight-bg-active: rgba(252, 232, 131, 0.4);
-  --text-selection: rgba(var(--secondary-accent-1-rgb), 0.4);
+  --text-highlight-fg: var(--text-dark-2);
+  --text-highlight-bg: var(--primary-accent-0);
+  --text-highlight-bg-active: rgba(252, 232, 131, 0.6);
+  --text-selection: var(--secondary-accent-0);
   /** Text on accent should work as foreground for all interactive elements */
   --text-on-accent: var(--gray-dark-7);
   --interactive-normal: var(--secondary-accent-2);
@@ -478,10 +478,10 @@ settings:
 }
 
 .theme-dark {
-  --side-dock-text-on-accent: var(--gray-light-4);
+  --side-dock-text-on-accent: var(--gray-light-2);
   --side-dock-text-on-accent-hover: var(--yellow-1);
   --side-dock-accent: var(--primary-accent-5);
-  --side-dock-accent-hover: var(--secondary-accent-4);
+  --side-dock-accent-hover: var(--secondary-accent-5);
 }
 
 .theme-dark .print,
@@ -530,11 +530,13 @@ settings:
 
 .workspace-ribbon-collapse-btn {
   margin-top: 0px;
+  margin-bottom: 0px;
   padding-top: 8px;
+  padding-bottom: 8px;
 }
 
 .side-dock-settings {
-  margin-bottom: 8px;
+  margin-bottom: 0px;
 }
 
 .workspace-tabs .collapse-icon svg {
@@ -834,12 +836,6 @@ body:not(.is-mobile) .workspace-tab-container-before,
 body:not(.is-mobile) .workspace-tab-container-after {
   transition: none;
 }
-body:not(.is-mobile) .workspace-tabs .collapse-icon svg {
-  transition: transform 100ms ease-in-out;
-}
-body:not(.is-mobile) .collapse-icon {
-  margin-top: -0.1em;
-}
 body:not(.is-mobile) .view-header {
   height: var(--leaf-header-width);
   align-items: center;
@@ -912,6 +908,53 @@ body.plugin-sliding-panes-rotate-header .horizontal-main-container > .workspace 
   background: var(--rotated-active-leaf-bg);
   border-right: none;
   border-left: none;
+}
+
+body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-left-split.is-collapsed:not(.is-floating) {
+  display: flex !important;
+  position: absolute;
+  left: 30px;
+  top: 0;
+  bottom: 0;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1;
+  transition: visibility 0.2s 0 ease;
+}
+body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .side-dock-ribbon.mod-left:hover + .mod-left-split.is-collapsed:not(.is-floating),
+body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-left-split.is-collapsed:not(.is-floating):hover {
+  transition: visibility 0.2s 0.7s ease;
+  visibility: visible;
+  opacity: 1;
+}
+body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-collapsed:not(.is-floating) {
+  display: flex !important;
+  width: 400px !important;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  visibility: hidden;
+}
+body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-collapsed:not(.is-floating)::before {
+  content: "✧ ・ ✦ ・ ✧";
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  font-size: 18px;
+  color: var(--primary-accent-3);
+  position: fixed;
+  line-height: 18px;
+  width: 32px;
+  top: 40%;
+  right: 5px;
+  z-index: 30;
+  visibility: visible;
+}
+body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-collapsed:not(.is-floating):hover {
+  width: 400px !important;
+  opacity: 1;
+  height: 100%;
+  padding-right: 30px;
+  visibility: visible;
 }
 
 .theme-dark {
@@ -1372,12 +1415,22 @@ body.plugin-sliding-panes-rotate-header .horizontal-main-container > .workspace 
 .markdown-preview-view mark,
 .search-result-file-matched-text,
 .cm-s-obsidian span.obsidian-search-match-highlight,
-.cm-s-obsidian span.cm-highlight {
+.cm-s-obsidian span.cm-highlight,
+.is-flashing * {
   color: var(--text-highlight-fg);
 }
 
 div.CodeMirror.cm-s-obsidian span.cm-highlight.CodeMirror-selectedtext {
   --text-selection: var(--text-highlight-bg-active);
+}
+
+::selection {
+  color: var(--text-highlight-fg);
+  background-color: var(--text-selection);
+}
+
+.is-flashing * ::selection {
+  background-color: var(--text-highlight-bg-active);
 }
 
 .CodeMirror-cursor,
@@ -1477,8 +1530,13 @@ body:not(.ebullientworks-default-list-indent) .markdown-preview-view ul {
   margin-inline-end: 0px;
   padding-inline-start: 20px;
 }
+body:not(.ebullientworks-default-list-indent) .markdown-preview-view td > ol > li,
+body:not(.ebullientworks-default-list-indent) .markdown-preview-view td > ul > li {
+  margin-left: 16px;
+}
 
 body:not(.ebullientworks-nix-checkbox) {
+  /** Use style settings to disable custom checkboxes in the theme */
   /* '✓' for completed task ('- [x]') */
   /* '-' for cancelled task ('- [-]') */
   /* '>' for deferred task ('- [>]') */
@@ -1498,21 +1556,31 @@ body:not(.ebullientworks-nix-checkbox) {
   /* 'X' for task ('- [X]') */
   /* Consistent hover colors */
 }
-body:not(.ebullientworks-nix-checkbox) .theme-dark {
-  --snippetor-checkbox-0: var(--checkbox-in-progress);
-  --snippetor-checkbox-bg-0: "transparent";
-  --snippetor-li-0: "inherit";
-  --snippetor-li-bg-0: "transparent";
+body:not(.ebullientworks-nix-checkbox) body.ebullientworks-nix-checkbox .markdown-preview-view .task-list-item-checkbox {
+  margin-top: 2px;
+  margin-bottom: 1px;
 }
-body:not(.ebullientworks-nix-checkbox) .theme-dark .print,
-body:not(.ebullientworks-nix-checkbox) .theme-light {
-  --snippetor-checkbox-0: var(--checkbox-in-progress);
-  --snippetor-checkbox-bg-0: "transparent";
-  --snippetor-li-0: "inherit";
-  --snippetor-li-bg-0: "transparent";
+body:not(.ebullientworks-nix-checkbox) .markdown-preview-view .task-list-item-checkbox,
+body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task] input[type=checkbox].task-list-item-checkbox {
+  border-radius: 3px;
+}
+body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=" "] input[type=checkbox][data-task=" "].task-list-item-checkbox:not(:checked),
+body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li.task-list-item input[type=checkbox].task-list-item-checkbox:not(:checked),
+body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task=""].task-list-item input[type=checkbox].task-list-item-checkbox:not(:checked) {
+  position: relative;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  background-color: transparent !important;
+  /* override theme */
+  filter: none;
+  background: unset !important;
+  color: var(--text-normal);
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--text-normal) !important;
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="/"] input[type=checkbox][data-task="/"].task-list-item-checkbox:checked::before,
-body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task="/"].task-list-item input[type=checkbox].task-list-item-checkbox:checked::before {
+body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list li[data-task="/"].task-list-item input[type=checkbox].task-list-item-checkbox:checked::before {
   font-family: var(--font-monospace);
   background: none;
   position: absolute;
@@ -1523,21 +1591,21 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   top: 0;
   left: 1px;
   right: 1px;
-  color: var(--snippetor-checkbox-0);
+  color: var(--checkbox-in-progress);
   content: " ";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="/"] input[type=checkbox][data-task="/"].task-list-item-checkbox:checked,
-body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task="/"].task-list-item input[type=checkbox].task-list-item-checkbox:checked {
+body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list li[data-task="/"].task-list-item input[type=checkbox].task-list-item-checkbox:checked {
   position: relative;
   -webkit-appearance: none;
   box-sizing: border-box;
-  background: linear-gradient(135deg, transparent 50%, var(--snippetor-checkbox-0) 50%);
+  background: linear-gradient(135deg, transparent 50%, var(--checkbox-in-progress) 50%);
   filter: none;
-  color: var(--snippetor-checkbox-0);
+  color: var(--checkbox-in-progress);
   font-family: var(--font-monospace);
   border-width: 1px;
   border-style: solid;
-  border-color: var(--snippetor-checkbox-0) !important;
+  border-color: var(--checkbox-in-progress) !important;
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="/"],
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="/"] input[type=checkbox].task-list-item-checkbox[data-task="/"] + span,
@@ -1547,21 +1615,6 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   /* override theme */
   font-weight: 500;
   font-style: normal;
-  color: var(--snippetor-li-0);
-  background-color: var(--snippetor-li-bg-0);
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark {
-  --snippetor-checkbox-1: var(--checkbox-deferred);
-  --snippetor-checkbox-bg-1: "transparent";
-  --snippetor-li-1: "inherit";
-  --snippetor-li-bg-1: "transparent";
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark .print,
-body:not(.ebullientworks-nix-checkbox) .theme-light {
-  --snippetor-checkbox-1: var(--checkbox-deferred);
-  --snippetor-checkbox-bg-1: "transparent";
-  --snippetor-li-1: "inherit";
-  --snippetor-li-bg-1: "transparent";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=">"] input[type=checkbox][data-task=">"].task-list-item-checkbox:checked::before,
 body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task=">"].task-list-item input[type=checkbox].task-list-item-checkbox:checked::before {
@@ -1575,7 +1628,7 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   top: 0;
   left: 1px;
   right: 1px;
-  color: var(--snippetor-checkbox-1);
+  color: var(--checkbox-deferred);
   content: ">";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=">"] input[type=checkbox][data-task=">"].task-list-item-checkbox:checked,
@@ -1584,14 +1637,14 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   -webkit-appearance: none;
   box-sizing: border-box;
   background: unset !important;
-  background-color: var(--snippetor-checkbox-bg-1) !important;
+  background-color: transparent !important;
   /* override theme */
   filter: none;
-  color: var(--snippetor-checkbox-1);
+  color: var(--checkbox-deferred);
   font-family: var(--font-monospace);
   border-width: 1px;
   border-style: solid;
-  border-color: var(--snippetor-checkbox-1) !important;
+  border-color: var(--checkbox-deferred) !important;
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=">"],
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=">"] input[type=checkbox].task-list-item-checkbox[data-task=">"] + span,
@@ -1601,21 +1654,6 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   /* override theme */
   font-weight: 500;
   font-style: normal;
-  color: var(--snippetor-li-1);
-  background-color: var(--snippetor-li-bg-1);
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark {
-  --snippetor-checkbox-2: var(--checkbox-review);
-  --snippetor-checkbox-bg-2: "transparent";
-  --snippetor-li-2: "inherit";
-  --snippetor-li-bg-2: "transparent";
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark .print,
-body:not(.ebullientworks-nix-checkbox) .theme-light {
-  --snippetor-checkbox-2: var(--checkbox-review);
-  --snippetor-checkbox-bg-2: "transparent";
-  --snippetor-li-2: "inherit";
-  --snippetor-li-bg-2: "transparent";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=R] input[type=checkbox][data-task=R].task-list-item-checkbox:checked::before,
 body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task=R].task-list-item input[type=checkbox].task-list-item-checkbox:checked::before {
@@ -1627,9 +1665,9 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   font-size: 14px;
   line-height: 14px;
   top: 0;
-  left: 1px;
+  left: 0px;
   right: 1px;
-  color: var(--snippetor-checkbox-2);
+  color: var(--checkbox-review);
   content: "👀";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=R] input[type=checkbox][data-task=R].task-list-item-checkbox:checked,
@@ -1638,14 +1676,14 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   -webkit-appearance: none;
   box-sizing: border-box;
   background: unset !important;
-  background-color: var(--snippetor-checkbox-bg-2) !important;
+  background-color: transparent !important;
   /* override theme */
   filter: none;
-  color: var(--snippetor-checkbox-2);
+  color: var(--checkbox-review);
   font-family: var(--font-monospace);
   border-width: 1px;
   border-style: solid;
-  border-color: var(--snippetor-checkbox-2) !important;
+  border-color: var(--checkbox-review) !important;
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=R],
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=R] input[type=checkbox].task-list-item-checkbox[data-task=R] + span,
@@ -1655,21 +1693,6 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   /* override theme */
   font-weight: 500;
   font-style: normal;
-  color: var(--snippetor-li-2);
-  background-color: var(--snippetor-li-bg-2);
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark {
-  --snippetor-checkbox-3: var(--checkbox-question);
-  --snippetor-checkbox-bg-3: "transparent";
-  --snippetor-li-3: "inherit";
-  --snippetor-li-bg-3: "transparent";
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark .print,
-body:not(.ebullientworks-nix-checkbox) .theme-light {
-  --snippetor-checkbox-3: var(--checkbox-question);
-  --snippetor-checkbox-bg-3: "transparent";
-  --snippetor-li-3: "inherit";
-  --snippetor-li-bg-3: "transparent";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="?"] input[type=checkbox][data-task="?"].task-list-item-checkbox:checked::before,
 body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task="?"].task-list-item input[type=checkbox].task-list-item-checkbox:checked::before {
@@ -1683,7 +1706,7 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   top: 0;
   left: 1px;
   right: 1px;
-  color: var(--snippetor-checkbox-3);
+  color: var(--checkbox-question);
   content: "?";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="?"] input[type=checkbox][data-task="?"].task-list-item-checkbox:checked,
@@ -1692,14 +1715,14 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   -webkit-appearance: none;
   box-sizing: border-box;
   background: unset !important;
-  background-color: var(--snippetor-checkbox-bg-3) !important;
+  background-color: transparent !important;
   /* override theme */
   filter: none;
-  color: var(--snippetor-checkbox-3);
+  color: var(--checkbox-question);
   font-family: var(--font-monospace);
   border-width: 1px;
   border-style: solid;
-  border-color: var(--snippetor-checkbox-3) !important;
+  border-color: var(--checkbox-question) !important;
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="?"],
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="?"] input[type=checkbox].task-list-item-checkbox[data-task="?"] + span,
@@ -1709,21 +1732,6 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   /* override theme */
   font-weight: 500;
   font-style: normal;
-  color: var(--snippetor-li-3);
-  background-color: var(--snippetor-li-bg-3);
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark {
-  --snippetor-checkbox-4: var(--checkbox-important);
-  --snippetor-checkbox-bg-4: "transparent";
-  --snippetor-li-4: var(--checkbox-important);
-  --snippetor-li-bg-4: "transparent";
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark .print,
-body:not(.ebullientworks-nix-checkbox) .theme-light {
-  --snippetor-checkbox-4: var(--checkbox-important);
-  --snippetor-checkbox-bg-4: "transparent";
-  --snippetor-li-4: var(--checkbox-important);
-  --snippetor-li-bg-4: "transparent";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="!"] input[type=checkbox][data-task="!"].task-list-item-checkbox:checked::before,
 body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task="!"].task-list-item input[type=checkbox].task-list-item-checkbox:checked::before {
@@ -1737,7 +1745,7 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   top: 0;
   left: 1px;
   right: 1px;
-  color: var(--snippetor-checkbox-4);
+  color: var(--checkbox-important);
   content: "!";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="!"] input[type=checkbox][data-task="!"].task-list-item-checkbox:checked,
@@ -1746,14 +1754,14 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   -webkit-appearance: none;
   box-sizing: border-box;
   background: unset !important;
-  background-color: var(--snippetor-checkbox-bg-4) !important;
+  background-color: transparent !important;
   /* override theme */
   filter: none;
-  color: var(--snippetor-checkbox-4);
+  color: var(--checkbox-important);
   font-family: var(--font-monospace);
   border-width: 1px;
   border-style: solid;
-  border-color: var(--snippetor-checkbox-4) !important;
+  border-color: var(--checkbox-important) !important;
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="!"],
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="!"] input[type=checkbox].task-list-item-checkbox[data-task="!"] + span,
@@ -1763,21 +1771,7 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   /* override theme */
   font-weight: 700;
   font-style: normal;
-  color: var(--snippetor-li-4);
-  background-color: var(--snippetor-li-bg-4);
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark {
-  --snippetor-checkbox-5: var(--checkbox-cancelled);
-  --snippetor-checkbox-bg-5: "transparent";
-  --snippetor-li-5: var(--checkbox-cancelled);
-  --snippetor-li-bg-5: "transparent";
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark .print,
-body:not(.ebullientworks-nix-checkbox) .theme-light {
-  --snippetor-checkbox-5: var(--checkbox-cancelled);
-  --snippetor-checkbox-bg-5: "transparent";
-  --snippetor-li-5: var(--checkbox-cancelled);
-  --snippetor-li-bg-5: "transparent";
+  color: var(--checkbox-important);
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="-"] input[type=checkbox][data-task="-"].task-list-item-checkbox:checked::before,
 body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task="-"].task-list-item input[type=checkbox].task-list-item-checkbox:checked::before {
@@ -1791,7 +1785,7 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   top: 0;
   left: 1px;
   right: 1px;
-  color: var(--snippetor-checkbox-5);
+  color: var(--checkbox-cancelled);
   content: "-";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="-"] input[type=checkbox][data-task="-"].task-list-item-checkbox:checked,
@@ -1800,14 +1794,14 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   -webkit-appearance: none;
   box-sizing: border-box;
   background: unset !important;
-  background-color: var(--snippetor-checkbox-bg-5) !important;
+  background-color: transparent !important;
   /* override theme */
   filter: none;
-  color: var(--snippetor-checkbox-5);
+  color: var(--checkbox-cancelled);
   font-family: var(--font-monospace);
   border-width: 1px;
   border-style: solid;
-  border-color: var(--snippetor-checkbox-5) !important;
+  border-color: var(--checkbox-cancelled) !important;
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="-"],
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="-"] input[type=checkbox].task-list-item-checkbox[data-task="-"] + span,
@@ -1817,21 +1811,7 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   /* override theme */
   font-weight: 500;
   font-style: normal;
-  color: var(--snippetor-li-5);
-  background-color: var(--snippetor-li-bg-5);
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark {
-  --snippetor-checkbox-6: var(--checkbox-checked);
-  --snippetor-checkbox-bg-6: "transparent";
-  --snippetor-li-6: "inherit";
-  --snippetor-li-bg-6: "transparent";
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark .print,
-body:not(.ebullientworks-nix-checkbox) .theme-light {
-  --snippetor-checkbox-6: var(--checkbox-checked);
-  --snippetor-checkbox-bg-6: "transparent";
-  --snippetor-li-6: "inherit";
-  --snippetor-li-bg-6: "transparent";
+  color: var(--checkbox-cancelled);
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=x] input[type=checkbox][data-task=x].task-list-item-checkbox:checked::before,
 body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task=x].task-list-item input[type=checkbox].task-list-item-checkbox:checked::before {
@@ -1845,7 +1825,7 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   top: 0;
   left: 1px;
   right: 1px;
-  color: var(--snippetor-checkbox-6);
+  color: var(--checkbox-checked);
   content: "✓";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=x] input[type=checkbox][data-task=x].task-list-item-checkbox:checked,
@@ -1854,14 +1834,14 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   -webkit-appearance: none;
   box-sizing: border-box;
   background: unset !important;
-  background-color: var(--snippetor-checkbox-bg-6) !important;
+  background-color: transparent !important;
   /* override theme */
   filter: none;
-  color: var(--snippetor-checkbox-6);
+  color: var(--checkbox-checked);
   font-family: var(--font-monospace);
   border-width: 1px;
   border-style: solid;
-  border-color: var(--snippetor-checkbox-6) !important;
+  border-color: var(--checkbox-checked) !important;
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=x],
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=x] input[type=checkbox].task-list-item-checkbox[data-task=x] + span,
@@ -1871,21 +1851,6 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   /* override theme */
   font-weight: 500;
   font-style: normal;
-  color: var(--snippetor-li-6);
-  background-color: var(--snippetor-li-bg-6);
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark {
-  --snippetor-checkbox-7: var(--checkbox-checked);
-  --snippetor-checkbox-bg-7: "transparent";
-  --snippetor-li-7: "inherit";
-  --snippetor-li-bg-7: "transparent";
-}
-body:not(.ebullientworks-nix-checkbox) .theme-dark .print,
-body:not(.ebullientworks-nix-checkbox) .theme-light {
-  --snippetor-checkbox-7: var(--checkbox-checked);
-  --snippetor-checkbox-bg-7: "transparent";
-  --snippetor-li-7: "inherit";
-  --snippetor-li-bg-7: "transparent";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=X] input[type=checkbox][data-task=X].task-list-item-checkbox:checked::before,
 body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task=X].task-list-item input[type=checkbox].task-list-item-checkbox:checked::before {
@@ -1899,7 +1864,7 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   top: 0;
   left: 1px;
   right: 1px;
-  color: var(--snippetor-checkbox-7);
+  color: var(--checkbox-checked);
   content: "X";
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=X] input[type=checkbox][data-task=X].task-list-item-checkbox:checked,
@@ -1908,14 +1873,14 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   -webkit-appearance: none;
   box-sizing: border-box;
   background: unset !important;
-  background-color: var(--snippetor-checkbox-bg-7) !important;
+  background-color: transparent !important;
   /* override theme */
   filter: none;
-  color: var(--snippetor-checkbox-7);
+  color: var(--checkbox-checked);
   font-family: var(--font-monospace);
   border-width: 1px;
   border-style: solid;
-  border-color: var(--snippetor-checkbox-7) !important;
+  border-color: var(--checkbox-checked) !important;
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=X],
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=X] input[type=checkbox].task-list-item-checkbox[data-task=X] + span,
@@ -1925,8 +1890,6 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   /* override theme */
   font-weight: 500;
   font-style: normal;
-  color: var(--snippetor-li-7);
-  background-color: var(--snippetor-li-bg-7);
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task="/"] input[type=checkbox][data-task="/"].task-list-item-checkbox:checked:hover, body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task="/"].task-list-item input[type=checkbox].task-list-item-checkbox:checked:hover,
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task=">"] input[type=checkbox][data-task=">"].task-list-item-checkbox:checked:hover, body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-list > li[data-task=">"].task-list-item input[type=checkbox].task-list-item-checkbox:checked:hover,
@@ -2609,40 +2572,100 @@ div[src$="#portrait"] {
   --table-alt-alpha: .05;
 }
 
+.markdown-source-view.mod-cm6 table .table-view-table > thead > tr > th,
+.markdown-source-view.mod-cm6 table thead > tr > th,
 .markdown-preview-view table .table-view-table > thead > tr > th,
 .markdown-preview-view table thead > tr > th {
   background-color: var(--interactive-hover);
   color: var(--text-on-accent);
-  border: 1px solid var(--background-modifier-border);
+  border: 0px;
+  border-left: 1px solid var(--background-modifier-border);
 }
+.markdown-source-view.mod-cm6 table .table-view-table > thead > tr > th:last-child,
+.markdown-source-view.mod-cm6 table thead > tr > th:last-child,
+.markdown-preview-view table .table-view-table > thead > tr > th:last-child,
+.markdown-preview-view table thead > tr > th:last-child {
+  border-right: 1px solid var(--background-modifier-border);
+}
+.markdown-source-view.mod-cm6 table .table-view-table > tbody > tr:nth-child(even),
+.markdown-source-view.mod-cm6 table tbody > tr:nth-child(even),
 .markdown-preview-view table .table-view-table > tbody > tr:nth-child(even),
 .markdown-preview-view table tbody > tr:nth-child(even) {
   background-color: rgba(0, 0, 0, var(--table-alt-alpha));
 }
+.markdown-source-view.mod-cm6 table .table-view-table > tbody > tr:last-child,
+.markdown-source-view.mod-cm6 table tbody > tr:last-child,
+.markdown-preview-view table .table-view-table > tbody > tr:last-child,
+.markdown-preview-view table tbody > tr:last-child {
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.markdown-source-view.mod-cm6 table .table-view-table > tbody > tr:hover,
+.markdown-source-view.mod-cm6 table tbody > tr:hover,
 .markdown-preview-view table .table-view-table > tbody > tr:hover,
 .markdown-preview-view table tbody > tr:hover {
   background: var(--background-secondary);
 }
+.markdown-source-view.mod-cm6 table .table-view-table > tbody > tr > td,
+.markdown-source-view.mod-cm6 table tbody > tr > td,
 .markdown-preview-view table .table-view-table > tbody > tr > td,
 .markdown-preview-view table tbody > tr > td {
-  border: 1px solid var(--background-modifier-border);
+  border: 0px;
   vertical-align: top;
+  border-left: 1px solid var(--background-modifier-border);
+}
+.markdown-source-view.mod-cm6 table .table-view-table > tbody > tr > td:last-child,
+.markdown-source-view.mod-cm6 table tbody > tr > td:last-child,
+.markdown-preview-view table .table-view-table > tbody > tr > td:last-child,
+.markdown-preview-view table tbody > tr > td:last-child {
+  border-right: 1px solid var(--background-modifier-border);
 }
 
-.ebullientworks-table-width table {
+.markdown-source-view.mod-cm6.wrap-table table,
+.markdown-source-view.mod-cm6.wrap-table table.table-view-table,
+.markdown-preview-view.wrap-table table,
+.markdown-preview-view.wrap-table table.table-view-table {
   max-width: 100%;
 }
-.ebullientworks-table-width table .table-view-table > thead,
-.ebullientworks-table-width table thead {
+.markdown-source-view.mod-cm6.wrap-table table .table-view-table > thead,
+.markdown-source-view.mod-cm6.wrap-table table thead,
+.markdown-source-view.mod-cm6.wrap-table table.table-view-table .table-view-table > thead,
+.markdown-source-view.mod-cm6.wrap-table table.table-view-table thead,
+.markdown-preview-view.wrap-table table .table-view-table > thead,
+.markdown-preview-view.wrap-table table thead,
+.markdown-preview-view.wrap-table table.table-view-table .table-view-table > thead,
+.markdown-preview-view.wrap-table table.table-view-table thead {
   max-width: 100%;
 }
-.ebullientworks-table-width table .table-view-table > tbody,
-.ebullientworks-table-width table tbody {
+.markdown-source-view.mod-cm6.wrap-table table .table-view-table > tbody,
+.markdown-source-view.mod-cm6.wrap-table table tbody,
+.markdown-source-view.mod-cm6.wrap-table table.table-view-table .table-view-table > tbody,
+.markdown-source-view.mod-cm6.wrap-table table.table-view-table tbody,
+.markdown-preview-view.wrap-table table .table-view-table > tbody,
+.markdown-preview-view.wrap-table table tbody,
+.markdown-preview-view.wrap-table table.table-view-table .table-view-table > tbody,
+.markdown-preview-view.wrap-table table.table-view-table tbody {
   max-width: 100%;
 }
-.ebullientworks-table-width table .table-view-table > tbody > tr > td,
-.ebullientworks-table-width table tbody > tr > td {
+.markdown-source-view.mod-cm6.wrap-table table .table-view-table > tbody > tr > td,
+.markdown-source-view.mod-cm6.wrap-table table tbody > tr > td,
+.markdown-source-view.mod-cm6.wrap-table table.table-view-table .table-view-table > tbody > tr > td,
+.markdown-source-view.mod-cm6.wrap-table table.table-view-table tbody > tr > td,
+.markdown-preview-view.wrap-table table .table-view-table > tbody > tr > td,
+.markdown-preview-view.wrap-table table tbody > tr > td,
+.markdown-preview-view.wrap-table table.table-view-table .table-view-table > tbody > tr > td,
+.markdown-preview-view.wrap-table table.table-view-table tbody > tr > td {
   word-break: break-all;
+}
+
+.markdown-source-view.mod-cm6.wrap-table-src .cm-line.HyperMD-table-row {
+  min-width: unset;
+}
+
+.markdown-source-view.mod-cm6.wrap-table-src .cm-line.HyperMD-table-row,
+.cm-s-obsidian .HyperMD-table-row {
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 body.ebullientworks-hide-inactive-collapse-indicators {

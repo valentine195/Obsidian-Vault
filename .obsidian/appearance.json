@@ -1,8 +1,7 @@
 {
-  "baseFontSize": 14,
+  "baseFontSize": 13,
   "cssTheme": "Ebullientworks",
   "enabledCssSnippets": [
-    "obsidian",
     "obsidian.auto-fading",
     "obsidian.colored-folders",
     "obsidian.ebullient-overrides",
@@ -19,21 +18,25 @@
     "obsidian.portrait",
     "obsidian.subhead",
     "simple-task-calm-tailor",
-    "colors.ebullient",
+    "folder-mushy-policeman",
+    "admonitions.recite",
+    "supercharged-links-gen",
+    "admonitions",
     "colors.folders",
-    "ebullient.color-vars",
+    "dataview.metadata",
     "ebullient.colors.folders.overrides",
     "ebullient.overrides",
     "ebullient.workspace-header",
     "fading",
+    "fonts",
     "fonts.faces",
-    "frontmatter.floating",
     "headings",
     "icons.external",
     "icons.material",
     "icons.minimal",
-    "fonts",
-    "minimal.settings"
+    "minimal.settings",
+    "obsidian",
+    "frontmatter.floating"
   ],
-  "theme": "moonstone"
+  "theme": "obsidian"
 }

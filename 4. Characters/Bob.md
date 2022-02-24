@@ -1,9 +1,10 @@
 ---
 date updated: '2021-06-16T10:01:34-04:00'
 type: pc
-hp: 23
+hp: 24
 ac: 17
 modifier: 2
+level: 5
 tag:
   - pc/alive
 ---

@@ -3,6 +3,7 @@ name: Example 1
 creatures:
  - Hobgoblin
  - 3: Goblin
+party: Other
 
 ---
 
@@ -37,6 +38,7 @@ creatures:
 ---
 
 name: Example 4
+party: Other
 creatures:
  - 1d5: Hobgoblin
  - 5d5: Goblin

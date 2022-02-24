@@ -10,10 +10,14 @@
     "YAML Timestamp": {
       "Keep track of the date the file was last edited in the YAML front matter. Gets dates from file metadata.": true,
       "Date Created": true,
-      "Date Created Key": "date created",
+      "Date Created Key": "created",
       "Date Modified": true,
-      "Date Modified Key": "date modified",
+      "Date Modified Key": "modified",
       "Format": "dddd, MMMM Do YYYY, h:mm:ss a"
+    },
+    "YAML Title": {
+      "Inserts the title of the file into the YAML frontmatter. Gets the title from the first H1 or filename.": false,
+      "Title Key": "title"
     },
     "Header Increment": {
       "Heading levels should only increment by one level at a time": false
@@ -22,7 +26,7 @@
       "Inserts the file name as a H1 heading if no H1 heading exists.": false
     },
     "Capitalize Headings": {
-      "Headings should be formatted with capitalization": true,
+      "Headings should be formatted with capitalization": false,
       "Style": "Title Case",
       "Ignore Cased Words": true,
       "Ignore Words": "macOS, iOS, iPhone, iPad, JavaScript, TypeScript, AppleScript",
@@ -46,11 +50,14 @@
     "Remove Consecutive List Markers": {
       "Removes consecutive list markers. Useful when copy-pasting list items.": false
     },
+    "Remove Empty List Markers": {
+      "Removes empty list markers, i.e. list items without content.": false
+    },
     "Proper Ellipsis": {
       "Replaces three consecutive dots with an ellipsis.": false
     },
     "Trailing spaces": {
-      "Removes extra spaces after every line.": false,
+      "Removes extra spaces after every line.": true,
       "Two Space Linebreak": false
     },
     "Heading blank lines": {

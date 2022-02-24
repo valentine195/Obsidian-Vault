@@ -427,8 +427,10 @@ var TaskMarkModal = class extends import_obsidian3.Modal {
     const selector = this.contentEl.createDiv("taskcollector-selector markdown-preview-view");
     const completedTasks = this.taskCollector.settings.supportCanceledTasks ? "xX-" : "xX";
     const completedList = selector.createEl("ul");
+    completedList.addClass("contains-task-list");
     this.addTaskValues(completedList, completedTasks, true);
     const list = selector.createEl("ul");
+    list.addClass("contains-task-list");
     this.addTaskValues(list, this.taskCollector.settings.incompleteTaskValues, false);
     const footer = selector.createEl("nav");
     const esc = footer.createSpan();
@@ -449,7 +451,7 @@ var TaskMarkModal = class extends import_obsidian3.Modal {
     const self = this;
     for (const character of choices) {
       const li = list.createEl("li", {
-        cls: "task-list-item" + (character == " " ? "" : " is-checked"),
+        cls: "task-list-item " + (character == " " ? "" : " is-checked"),
         attr: {
           "data-task": character
         }

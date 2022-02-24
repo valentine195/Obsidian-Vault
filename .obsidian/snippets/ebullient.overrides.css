@@ -4,6 +4,11 @@
     border-left: 0;
 }
 
+/** Fantasy Calendar */
+.fantasy-month .fantasy-day.active.active {
+    background-color: var(--background-secondary);
+}
+
 /** Modal Background Colors */
 .modal .prompt,
 .modal .vertical-tab-header,
@@ -106,11 +111,13 @@
     border: 0;
 } */
 
-
-
 .dropdown {
     font-size: 0.8em;
     padding: 6px 14px;
+}
+
+.search-input-clear-button {
+    top: 0px;
 }
 
 body,

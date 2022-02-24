@@ -1,22 +1,11 @@
-/* .theme-light  */
-.theme-light .workspace-tab-container-inner {
-    /* background-color: var(--green-0) !important; */
-    /* border: 1px solid var(--green-1); */
-}
-.theme-dark .workspace-tab-container-inner {
-    /* background-color: var(--green-4) !important; */
-    /* border: 1px solid var(--green-3); */
-}
-/* .theme-dark .workspace-tab-container-inner {
-    background-color: var(--background) !important;
-    border: 1px solid var(--background-tertiary);
-} */
+
 .workspace-tab-header-container {
     height: unset;
 }
 .workspace-tab-container-inner {
     border-radius: 10px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     width: 100%;

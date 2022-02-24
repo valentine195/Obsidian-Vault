@@ -1,26 +1,3 @@
-.admonition.admonition {
-    box-shadow: none;
-}
-.admonition.admonition
-    > .admonition-title.no-title
-    + .admonition-content-holder {
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
-.admonition .admonition .admonition-content-holder {
-    border-right: 1px solid rgba(var(--admonition-color), 0.2);
-    border-bottom: 1px solid rgba(var(--admonition-color), 0.2);
-}
-.admonition
-    .admonition
-    .admonition-title.no-title
-    + .admonition-content-holder {
-    border-top: 1px solid rgba(var(--admonition-color), 0.2);
-    margin-top: 0;
-    margin-bottom: 0;
-}
-
 /** Make Admonitions Closer on Mobile */
 body.is-mobile .admonition {
     margin-top: 0.5rem;

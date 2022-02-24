@@ -1,5 +1,7 @@
 {
   "pluginList": [
+    "valentine195/obsidian-discordrpc",
+    "valentine195/obsidian-image-window",
     "nothingislost/obsidian-bartender",
     "KjellConnelly/obsidian-dev-tools",
     "ebullient/obsidian-snippetor"

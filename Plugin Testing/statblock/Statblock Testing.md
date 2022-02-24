@@ -1,13 +1,5 @@
-```statblock
-layout: test
-stunts: "
-  - Test\n
-  - Test 2\n
-  - [[Statblock Testing]]"
-name: Test
-```
 
-%%
+
 
 ```statblock
 layout: Basic 5e Layout Copy
@@ -20,7 +12,7 @@ ac: 22
 hp: 367
 hit_dice: 21d20
 speed: 40 ft., fly 80 ft., swim 40 ft.
-stats: [27, 14, 25, 16, 15, 19]
+fage_stats: [27, 14, 25, 16, 15, 19, 23, 12, 18]
 saves:
     - dexterity: 9
     - constitution: 14

@@ -3,7 +3,7 @@ type: npc
 tags:
  - npc/rakshasa
  - factions/lords-of-dust/member
- - location/q'barra/q'barran-jungle/npc
+ - location/qbarra/jungle/npc
 ---
 
 ## Rabar

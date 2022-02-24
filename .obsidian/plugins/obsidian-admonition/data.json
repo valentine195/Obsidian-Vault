@@ -1,16 +1,5 @@
 {
   "userAdmonitions": {
-    "dnd": {
-      "type": "dnd",
-      "color": "172, 54, 181",
-      "icon": {
-        "name": "dice-d20",
-        "type": "font-awesome"
-      },
-      "command": false,
-      "injectColor": true,
-      "noTitle": true
-    },
     "calendar": {
       "type": "calendar",
       "color": "161, 161, 161",
@@ -22,17 +11,6 @@
       "injectColor": true,
       "noTitle": false
     },
-    "aloud": {
-      "type": "aloud",
-      "color": "169, 190, 174",
-      "icon": {
-        "name": "book-reader",
-        "type": "font-awesome"
-      },
-      "command": false,
-      "injectColor": true,
-      "noTitle": true
-    },
     "toc": {
       "type": "toc",
       "color": "182, 169, 255",
@@ -43,11 +21,74 @@
       "command": false,
       "injectColor": true,
       "noTitle": true
+    },
+    "recite": {
+      "type": "recite",
+      "color": "169, 190, 174",
+      "icon": {
+        "name": "book-reader",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": true,
+      "copy": false
+    },
+    "flame": {
+      "type": "flame",
+      "color": "255, 255, 255",
+      "icon": {
+        "name": "flame-symbol",
+        "type": "rpg"
+      },
+      "command": false,
+      "title": "Church of the Silver Flame",
+      "injectColor": true,
+      "noTitle": false,
+      "copy": false
+    },
+    "acid": {
+      "type": "acid",
+      "color": "#7d7d7d",
+      "icon": {
+        "name": "acid",
+        "type": "rpg"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
+    },
+    "dnd": {
+      "type": "dnd",
+      "color": "172, 54, 181",
+      "icon": {
+        "name": "dice-d20",
+        "type": "font-awesome"
+      },
+      "command": true,
+      "title": "Definition:",
+      "injectColor": true,
+      "noTitle": true,
+      "copy": false
+    },
+    "map": {
+      "type": "map",
+      "color": "0, 0, 0",
+      "icon": {
+        "name": "map",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": "Map",
+      "injectColor": false,
+      "noTitle": false,
+      "copy": false
     }
   },
   "syntaxHighlight": true,
   "copyButton": false,
-  "version": "6.9.7",
+  "version": "6.12.1",
+  "warnedAboutNC": true,
   "autoCollapse": false,
   "defaultCollapseType": "open",
   "syncLinks": false,
@@ -55,6 +96,8 @@
   "injectColor": true,
   "parseTitles": true,
   "allowMSSyntax": true,
+  "msSyntaxIndented": true,
   "livePreviewMS": true,
-  "dropShadow": false
+  "dropShadow": false,
+  "hideEmpty": true
 }

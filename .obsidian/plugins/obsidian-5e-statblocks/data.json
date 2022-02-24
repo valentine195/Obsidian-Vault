@@ -1,60 +1,6 @@
 {
   "monsters": [
     [
-      "Aarakocra",
-      {
-        "image": null,
-        "name": "Aarakocra",
-        "size": "medium",
-        "type": "humanoid (aarakocra), monster manual",
-        "alignment": "neutral good",
-        "ac": 12,
-        "hp": 13,
-        "hit_dice": "3d8",
-        "speed": "20 ft., fly 50 ft.",
-        "stats": [
-          10,
-          14,
-          10,
-          11,
-          12,
-          11
-        ],
-        "saves": [],
-        "skillsaves": [
-          {
-            "Perception": 5
-          }
-        ],
-        "languages": "Auran, Aarakocra",
-        "cr": "1/4",
-        "traits": [
-          {
-            "name": "Dive Attack",
-            "desc": "If the aarakocra is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 3 (1d6) damage to the target."
-          }
-        ],
-        "spells": [],
-        "actions": [
-          {
-            "name": "Talon",
-            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage."
-          },
-          {
-            "name": "Javelin",
-            "desc": "Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
-          },
-          {
-            "name": "Summon Air Elemental",
-            "desc": "Five aarakocra within 30 feet of each other can magically summon an air elemental. Each of the five must use its action and movement on three consecutive turns to perform an aerial dance and must maintain concentration while doing so (as if concentrating on a spell). When all five have finished their third turn of the dance, the elemental appears in an unoccupied space within 60 feet of them. It is friendly toward them and obeys their spoken commands. It remains for 1 hour, until it or all its summoners die, or until any of its summoners dismisses it as a bonus action. A summoner can't perform the dance again until it finishes a short rest. When the elemental returns to the Elemental Plane of Air, any aarakocra within 5 feet of it can return with it."
-          }
-        ],
-        "legendary_actions": [],
-        "reactions": [],
-        "source": "Monster Manual"
-      }
-    ],
-    [
       "Aboleth",
       {
         "image": null,
@@ -361,109 +307,6 @@
           {
             "name": "Wing Attack (Costs 2 Actions)",
             "desc": "The dragon beats its wings. Each creature within 10 ft. of the dragon must succeed on a DC 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed."
-          }
-        ],
-        "reactions": [],
-        "source": "Monster Manual"
-      }
-    ],
-    [
-      "Adult Blue Dracolich",
-      {
-        "image": null,
-        "name": "Adult Blue Dracolich",
-        "size": "huge",
-        "type": "undead, monster manual",
-        "alignment": "lawful evil",
-        "ac": 19,
-        "hp": 225,
-        "hit_dice": "18d12+108",
-        "speed": "40 ft., burrow 30 ft., fly 80 ft.",
-        "stats": [
-          25,
-          10,
-          23,
-          16,
-          15,
-          19
-        ],
-        "saves": [
-          {
-            "dexterity": 5
-          },
-          {
-            "constitution": 11
-          },
-          {
-            "wisdom": 7
-          },
-          {
-            "charisma": 9
-          }
-        ],
-        "skillsaves": [
-          {
-            "Perception": 12
-          },
-          {
-            "Stealth": 5
-          }
-        ],
-        "damage_resistances": "necrotic",
-        "damage_immunities": "lightning, poison",
-        "condition_immunities": "charmed, exhaustion, frightened, paralyzed, poisoned",
-        "senses": "blindsight 60 ft., darkvision 120 ft.",
-        "languages": "Common, Draconic",
-        "cr": "17",
-        "traits": [
-          {
-            "name": "Legendary Resistance (3/Day)",
-            "desc": "If the dracolich fails a saving throw, it can choose to succeed instead."
-          },
-          {
-            "name": "Magic Resistance",
-            "desc": "The dracolich has advantage on saving throws against spells and other magical effects."
-          }
-        ],
-        "spells": [],
-        "actions": [
-          {
-            "name": "Multiattack",
-            "desc": "The dracolich can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws."
-          },
-          {
-            "name": "Bite",
-            "desc": "Melee Weapon Attack: +12 to hit, reach 10 ft., one target. Hit: 18 (2d10 + 7) piercing damage plus 5 (1d10) lightning damage."
-          },
-          {
-            "name": "Claw",
-            "desc": "Melee Weapon Attack: +12 to hit, reach 5 ft., one target. Hit: 14 (2d6 + 7) slashing damage."
-          },
-          {
-            "name": "Tail",
-            "desc": "Melee Weapon Attack: +12 to hit, reach 15 ft., one target. Hit: 16 (2d8 + 7) bludgeoning damage."
-          },
-          {
-            "name": "Frightful Presence",
-            "desc": "Each creature of the dracolich's choice that is within 120 feet of the dracolich and aware of it must succeed on a DC 18 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dracolich's Frightful Presence for the next 24 hours."
-          },
-          {
-            "name": "Lightning Breath (Recharge 5-6)",
-            "desc": "The dracolich exhales lightning in a 90-foot line that is 5 feet wide. Each creature in that line must make a DC 20 Dexterity saving throw, taking 66 (12d10) lightning damage on a failed save, or half as much damage on a successful one."
-          }
-        ],
-        "legendary_actions": [
-          {
-            "name": "Detect",
-            "desc": "The dracolich makes a Wisdom (Perception) check."
-          },
-          {
-            "name": "Tail Attack",
-            "desc": "The dracolich makes a tail attack."
-          },
-          {
-            "name": "Wing Attack (Costs 2 Actions)",
-            "desc": "The dracolich beats its tattered wings. Each creature within 10 ft. of the dracolich must succeed on a DC 21 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. After beating its wings this way, the dracolich can fly up to half its flying speed."
           }
         ],
         "reactions": [],
@@ -2875,76 +2718,6 @@
           {
             "name": "Variant: Summon Yugoloth (1/Day)",
             "desc": "The yugoloth attempts a magical summoning. An arcanaloth has a 40 percent chance of summoning one arcanaloth. A summoned yugoloth appears in an unoccupied space within 60 feet of its summoner, does as it pleases, and can't summon other yugoloths. The summoned yugoloth remains for 1 minute, until it or its summoner dies, or until its summoner takes a bonus action to dismiss it."
-          }
-        ],
-        "legendary_actions": [],
-        "reactions": [],
-        "source": "Monster Manual"
-      }
-    ],
-    [
-      "Archmage",
-      {
-        "image": null,
-        "name": "Archmage",
-        "size": "medium",
-        "type": "humanoid (any race), monster manual",
-        "alignment": "any alignment",
-        "ac": 12,
-        "hp": 99,
-        "hit_dice": "18d8+18",
-        "speed": "30 ft.",
-        "stats": [
-          10,
-          14,
-          12,
-          20,
-          15,
-          16
-        ],
-        "saves": [
-          {
-            "intelligence": 9
-          },
-          {
-            "wisdom": 6
-          }
-        ],
-        "skillsaves": [
-          {
-            "Arcana": 13
-          },
-          {
-            "History": 13
-          }
-        ],
-        "damage_resistances": "damage from spells; non magical bludgeoning, piercing, and slashing (from stoneskin)",
-        "languages": "any six languages",
-        "cr": "12",
-        "traits": [
-          {
-            "name": "Magic Resistance",
-            "desc": "The archmage has advantage on saving throws against spells and other magical effects."
-          }
-        ],
-        "spells": [
-          "The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The archmage can cast disguise self and invisibility at will and has the following wizard spells prepared:",
-          "Cantrips (at will): fire bolt, light, mage hand, prestidigitation, shocking grasp",
-          "1st level (4 slots): detect magic, identify, mage armor*, magic missile",
-          "2nd level (3 slots): detect thoughts, mirror image, misty step",
-          "3rd level (3 slots): counterspell,fly, lightning bolt",
-          "4th level (3 slots): banishment, fire shield, stoneskin*",
-          "5th level (3 slots): cone of cold, scrying, wall of force",
-          "6th level (1 slot): globe of invulnerability",
-          "7th level (1 slot): teleport",
-          "8th level (1 slot): mind blank*",
-          "9th level (1 slot): time stop",
-          "* The archmage casts these spells on itself before combat."
-        ],
-        "actions": [
-          {
-            "name": "Dagger",
-            "desc": "Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
           }
         ],
         "legendary_actions": [],
@@ -28415,23 +28188,241 @@
         "reactions": [],
         "source": "Monster Manual"
       }
+    ],
+    [
+      "Aarakocra",
+      {
+        "image": null,
+        "name": "Aarakocra",
+        "size": "medium",
+        "type": "humanoid (aarakocra), monster manual",
+        "alignment": "neutral good",
+        "ac": 12,
+        "hp": 13,
+        "hit_dice": "3d8",
+        "speed": "20 ft., fly 50 ft.",
+        "stats": [
+          10,
+          14,
+          10,
+          11,
+          12,
+          11
+        ],
+        "saves": [],
+        "skillsaves": [
+          {
+            "Perception": 6
+          }
+        ],
+        "languages": "Auran, Aarakocra",
+        "cr": "1/4",
+        "traits": [
+          {
+            "name": "Dive Attack",
+            "desc": "If the aarakocra is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 3 (1d6) damage to the target."
+          }
+        ],
+        "spells": [],
+        "actions": [
+          {
+            "name": "Talon",
+            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage."
+          },
+          {
+            "name": "Javelin",
+            "desc": "Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
+          },
+          {
+            "name": "Summon Air Elemental",
+            "desc": "Five aarakocra within 30 feet of each other can magically summon an air elemental. Each of the five must use its action and movement on three consecutive turns to perform an aerial dance and must maintain concentration while doing so (as if concentrating on a spell). When all five have finished their third turn of the dance, the elemental appears in an unoccupied space within 60 feet of them. It is friendly toward them and obeys their spoken commands. It remains for 1 hour, until it or all its summoners die, or until any of its summoners dismisses it as a bonus action. A summoner can't perform the dance again until it finishes a short rest. When the elemental returns to the Elemental Plane of Air, any aarakocra within 5 feet of it can return with it."
+          }
+        ],
+        "legendary_actions": [],
+        "reactions": [],
+        "source": "Monster Manual"
+      }
+    ],
+    [
+      "Archmage",
+      {
+        "image": null,
+        "name": "Archmage",
+        "size": "medium",
+        "type": "humanoid (any race), monster manual",
+        "alignment": "any alignment",
+        "ac": 12,
+        "hp": 99,
+        "hit_dice": "18d8+18",
+        "speed": "30 ft.",
+        "stats": [
+          10,
+          14,
+          12,
+          20,
+          15,
+          16
+        ],
+        "saves": [
+          {
+            "intelligence": 9
+          },
+          {
+            "wisdom": 6
+          }
+        ],
+        "skillsaves": [
+          {
+            "Arcana": 13
+          },
+          {
+            "History": 13
+          }
+        ],
+        "damage_resistances": "damage from spells; non magical bludgeoning, piercing, and slashing (from stoneskin)",
+        "languages": "any six languages",
+        "cr": "12",
+        "traits": [
+          {
+            "name": "Magic Resistance",
+            "desc": "The archmage has advantage on saving throws against spells and other magical effects."
+          }
+        ],
+        "spells": [
+          "The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The archmage can cast disguise self and invisibility at will and has the following wizard spells prepared:",
+          "Cantrips (at will): fire bolt, light, mage hand, prestidigitation, shocking grasp",
+          "1st level (4 slots): detect magic, identify, mage armor*, magic missile",
+          "2nd level (3 slots): detect thoughts, mirror image, misty step",
+          "3rd level (3 slots): counterspell,fly, lightning bolt",
+          "4th level (3 slots): banishment, fire shield, stoneskin*",
+          "5th level (3 slots): cone of cold, scrying, wall of force",
+          "6th level (1 slot): globe of invulnerability",
+          "7th level (1 slot): teleport",
+          "8th level (1 slot): mind blank*",
+          "9th level (1 slot): time stop",
+          "* The archmage casts these spells on itself before combat."
+        ],
+        "actions": [
+          {
+            "name": "Dagger",
+            "desc": "Melee or Ranged Weapon Attack: +6 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage."
+          }
+        ],
+        "legendary_actions": [],
+        "reactions": [],
+        "source": "Monster Manual"
+      }
+    ],
+    [
+      "Adult Blue Dracolich",
+      {
+        "image": null,
+        "name": "Adult Blue Dracolich",
+        "size": "huge",
+        "type": "undead, monster manual",
+        "alignment": "lawful evil",
+        "ac": 19,
+        "hp": 225,
+        "hit_dice": "18d12+108",
+        "speed": "40 ft., burrow 30 ft., fly 80 ft.",
+        "stats": [
+          25,
+          10,
+          23,
+          16,
+          15,
+          19
+        ],
+        "saves": [
+          {
+            "dexterity": 5
+          },
+          {
+            "constitution": 11
+          },
+          {
+            "wisdom": 7
+          },
+          {
+            "charisma": 9
+          }
+        ],
+        "skillsaves": [
+          {
+            "Perception": 12
+          },
+          {
+            "Stealth": 5
+          }
+        ],
+        "damage_resistances": "necrotic",
+        "damage_immunities": "lightning, poison",
+        "condition_immunities": "charmed, exhaustion, frightened, paralyzed, poisoned",
+        "senses": "blindsight 60 ft., darkvision 120 ft.",
+        "languages": "Common, Draconic",
+        "cr": "17",
+        "traits": [
+          {
+            "name": "Legendary Resistance (3/Day)",
+            "desc": "If the dracolich fails a saving throw, it can choose to succeed instead."
+          },
+          {
+            "name": "Magic Resistance",
+            "desc": "The dracolich has advantage on saving throws against spells and other magical effects."
+          }
+        ],
+        "spells": [],
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The dracolich can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws."
+          },
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +12 to hit, reach 10 ft., one target. Hit: 18 (2d10 + 7) piercing damage plus 5 (1d10) lightning damage."
+          },
+          {
+            "name": "Claw",
+            "desc": "Melee Weapon Attack: +12 to hit, reach 5 ft., one target. Hit: 14 (2d6 + 7) slashing damage."
+          },
+          {
+            "name": "Tail",
+            "desc": "Melee Weapon Attack: +12 to hit, reach 15 ft., one target. Hit: 16 (2d8 + 7) bludgeoning damage."
+          },
+          {
+            "name": "Frightful Presence",
+            "desc": "Each creature of the dracolich's choice that is within 120 feet of the dracolich and aware of it must succeed on a DC 18 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dracolich's Frightful Presence for the next 24 hours."
+          },
+          {
+            "name": "Lightning Breath (Recharge 5-6)",
+            "desc": "The dracolich exhales lightning in a 90-foot line that is 5 feet wide. Each creature in that line must make a DC 20 Dexterity saving throw, taking 66 (12d10) lightning damage on a failed save, or half as much damage on a successful one."
+          }
+        ],
+        "legendary_actions": [
+          {
+            "name": "Detect",
+            "desc": "The dracolich makes a Wisdom (Perception) check."
+          },
+          {
+            "name": "Tail Attack",
+            "desc": "The dracolich makes a tail attack."
+          },
+          {
+            "name": "Wing Attack (Costs 2 Actions)",
+            "desc": "The dracolich beats its tattered wings. Each creature within 10 ft. of the dracolich must succeed on a DC 21 Dexterity saving throw or take 14 (2d6 + 7) bludgeoning damage and be knocked prone. After beating its wings this way, the dracolich can fly up to half its flying speed."
+          }
+        ],
+        "reactions": [],
+        "source": "Monster Manual"
+      }
     ]
   ],
   "layouts": [
     {
-      "name": "test",
       "blocks": [
         {
-          "type": "heading",
-          "id": "896879488b28",
-          "properties": [
-            "name"
-          ],
-          "fallback": "-"
-        },
-        {
           "type": "text",
-          "id": "887bf87a79b9",
+          "id": "d9f9785b7939",
           "properties": [
             "stunts"
           ],
@@ -28440,17 +28431,18 @@
           "markdown": true,
           "dice": false
         }
-      ]
+      ],
+      "name": "test"
     }
   ],
   "default": "Basic 5e Layout",
-  "useDice": true,
+  "useDice": false,
   "renderDice": false,
   "export": true,
   "showAdvanced": false,
   "version": {
     "major": 2,
-    "minor": 11,
+    "minor": 12,
     "patch": 1
   },
   "path": "/",

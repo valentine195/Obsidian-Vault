@@ -3,9 +3,8 @@ type: location
 location: [-4.41, 6.89]
 #mapmarker: location
 tags:
- - location/q'barra/q'barran-jungle
+ - location/qbarra/jungle
  - factions/cold-sun/crazy-fist
-
 ---
 
 ## Crazy Fist Clanhold
