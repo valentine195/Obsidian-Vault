@@ -12,6 +12,6 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
-      - run: pip install -r ./publish/requirements.txt
+      - run: pip install -r ./docs/requirements.txt
       - run: pip install git+git://github.com/Mara-Li/mkdocs-tooltipster-links-plugin
       - run: mkdocs gh-deploy --force
