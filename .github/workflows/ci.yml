@@ -1,20 +1,28 @@
 name: ci
 on:
-  push:
-    branches:
-      - master
-      - main
+    push:
+        branches:
+            - master
+            - main
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
-      - name: Build  
-        working-directory: ./.publish
-        run: |
-          pip install -r requirements.txt
-          pip install git+git://github.com/Mara-Li/mkdocs-tooltipster-links-plugin
-          mkdocs gh-deploy --force
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Copy
+              uses: andstor/copycat-action@v3
+              with:
+                personal_token: ${{ secrets.PERSONAL_TOKEN }}
+                src_path: /1. Sessions/Post Session Logs
+                dst_path: /.publish/docs/Post Session Logs
+                dst_owner: andstor
+                dst_repo_name: copycat-action
+            - uses: actions/checkout@v2
+            - uses: actions/setup-python@v2
+              with:
+                  python-version: 3.x
+            - name: Build
+              working-directory: ./.publish
+              run: |
+                  pip install mkdocs-material
+                  pip install mkdocs-roamlinks-plugin
+                  mkdocs gh-deploy --force

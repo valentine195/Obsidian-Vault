@@ -34,5 +34,6 @@
   "obsidian-dynamic-highlights",
   "obsidian-frontmatter-tag-suggest",
   "obsidian-prettier",
-  "obsidian-pandoc"
+  "obsidian-pandoc",
+  "vault-picker"
 ]
