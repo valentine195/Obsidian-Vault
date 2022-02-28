@@ -481,20 +481,6 @@
           "auto": true
         },
         {
-          "id": "ID_bb0af81b7a3a",
-          "name": "2021-1-2",
-          "note": "1. Sessions/Post Session Logs/2021-1-2.md",
-          "date": {
-            "year": 2021,
-            "month": 0,
-            "day": 2
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
           "id": "ID_b99b0a78787b",
           "name": "2021-1-2",
           "note": "Plugin Testing/calendar/event notes/2021-1-2.md",
@@ -684,20 +670,6 @@
             "year": 2021,
             "month": 0,
             "day": 15
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_7af9cb8a3b68",
-          "name": "2021-1-16",
-          "note": "1. Sessions/Post Session Logs/2021-1-16.md",
-          "date": {
-            "year": 2021,
-            "month": 0,
-            "day": 16
           },
           "end": null,
           "category": "ID_aa591ae829b9",
@@ -999,20 +971,6 @@
           "auto": true
         },
         {
-          "id": "ID_68c9695ae868",
-          "name": "2021-2-6",
-          "note": "1. Sessions/Post Session Logs/2021-2-6.md",
-          "date": {
-            "year": 2021,
-            "month": 1,
-            "day": 6
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
           "id": "ID_db69492ac8ea",
           "name": "2021-2-6",
           "note": "Plugin Testing/calendar/event notes/2021-2-6.md",
@@ -1202,20 +1160,6 @@
             "year": 2021,
             "month": 1,
             "day": 19
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_2ac9dbd83ba8",
-          "name": "2021-2-20",
-          "note": "1. Sessions/Post Session Logs/2021-2-20.md",
-          "date": {
-            "year": 2021,
-            "month": 1,
-            "day": 20
           },
           "end": null,
           "category": "ID_aa591ae829b9",
@@ -1510,20 +1454,6 @@
             "year": 2021,
             "month": 2,
             "day": 12
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_fa6a080b2baa",
-          "name": "2021-3-13",
-          "note": "1. Sessions/Post Session Logs/2021-3-13.md",
-          "date": {
-            "year": 2021,
-            "month": 2,
-            "day": 13
           },
           "end": null,
           "category": "ID_aa591ae829b9",
@@ -1916,20 +1846,6 @@
             "year": 2021,
             "month": 3,
             "day": 9
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_9809cafa6b49",
-          "name": "2021-4-10",
-          "note": "1. Sessions/Post Session Logs/2021-4-10.md",
-          "date": {
-            "year": 2021,
-            "month": 3,
-            "day": 10
           },
           "end": null,
           "category": "ID_aa591ae829b9",
@@ -2420,20 +2336,6 @@
             "year": 2021,
             "month": 4,
             "day": 14
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_6a38c9cbdb1b",
-          "name": "2021-5-15",
-          "note": "1. Sessions/Post Session Logs/2021-5-15.md",
-          "date": {
-            "year": 2021,
-            "month": 4,
-            "day": 15
           },
           "end": null,
           "category": "ID_aa591ae829b9",
@@ -4100,20 +4002,6 @@
             "year": 2021,
             "month": 8,
             "day": 9
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_aa78191a6888",
-          "name": "2021-9-10",
-          "note": "1. Sessions/Post Session Logs/2021-9-10.md",
-          "date": {
-            "year": 2021,
-            "month": 8,
-            "day": 10
           },
           "end": null,
           "category": "ID_aa591ae829b9",
@@ -5928,6 +5816,132 @@
           "category": "ID_aa591ae829b9",
           "description": "",
           "auto": true
+        },
+        {
+          "id": "ID_5aaad9891a9a",
+          "name": "2022-02-26",
+          "note": "1. Sessions/Post Session Logs/2022-02-26.md",
+          "date": {
+            "year": 2022,
+            "month": 1,
+            "day": 26
+          },
+          "end": null,
+          "category": "ID_aa591ae829b9",
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_8b2808cb7838",
+          "name": "2021-01-16",
+          "note": "1. Sessions/Post Session Logs/2021-01-16.md",
+          "date": {
+            "year": 2021,
+            "month": 0,
+            "day": 16
+          },
+          "end": null,
+          "category": "ID_aa591ae829b9",
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_1a881a98a87b",
+          "name": "2021-02-20",
+          "note": "1. Sessions/Post Session Logs/2021-02-20.md",
+          "date": {
+            "year": 2021,
+            "month": 1,
+            "day": 20
+          },
+          "end": null,
+          "category": "ID_aa591ae829b9",
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_389adaa95b39",
+          "name": "2021-03-13",
+          "note": "1. Sessions/Post Session Logs/2021-03-13.md",
+          "date": {
+            "year": 2021,
+            "month": 2,
+            "day": 13
+          },
+          "end": null,
+          "category": "ID_aa591ae829b9",
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_a9a96b898bba",
+          "name": "2021-04-10",
+          "note": "1. Sessions/Post Session Logs/2021-04-10.md",
+          "date": {
+            "year": 2021,
+            "month": 3,
+            "day": 10
+          },
+          "end": null,
+          "category": "ID_aa591ae829b9",
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_588a38db3bf9",
+          "name": "2021-05-15",
+          "note": "1. Sessions/Post Session Logs/2021-05-15.md",
+          "date": {
+            "year": 2021,
+            "month": 4,
+            "day": 15
+          },
+          "end": null,
+          "category": "ID_aa591ae829b9",
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_48e9d9fbd929",
+          "name": "2021-09-10",
+          "note": "1. Sessions/Post Session Logs/2021-09-10.md",
+          "date": {
+            "year": 2021,
+            "month": 8,
+            "day": 10
+          },
+          "end": null,
+          "category": "ID_aa591ae829b9",
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_caca68f8ba7b",
+          "name": "2021-01-02",
+          "note": "1. Sessions/Post Session Logs/2021-01-02.md",
+          "date": {
+            "year": 2021,
+            "month": 0,
+            "day": 2
+          },
+          "end": null,
+          "category": "ID_aa591ae829b9",
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_6988a888a86a",
+          "name": "2021-02-06",
+          "note": "1. Sessions/Post Session Logs/2021-02-06.md",
+          "date": {
+            "year": 2021,
+            "month": 1,
+            "day": 6
+          },
+          "end": null,
+          "category": "ID_aa591ae829b9",
+          "description": "",
+          "auto": true
         }
       ],
       "id": "ID_a80a58893b9a",
@@ -5964,7 +5978,7 @@
       ],
       "autoParse": true,
       "path": "/",
-      "date": 1645944660363,
+      "date": 1645945024225,
       "timelineTag": "#timeline"
     },
     {
