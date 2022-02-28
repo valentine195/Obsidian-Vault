@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: 3.x
       - name: Build  
-        working-directory: ./app
+        working-directory: ./docs
         run: |
           cd docs && pip install -r requirements.txt
           pip install git+git://github.com/Mara-Li/mkdocs-tooltipster-links-plugin
