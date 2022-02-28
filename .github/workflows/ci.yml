@@ -12,7 +12,9 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
-      - run: cd docs
-      - run: pip install -r requirements.txt
-      - run: pip install git+git://github.com/Mara-Li/mkdocs-tooltipster-links-plugin
-      - run: mkdocs gh-deploy --force
+      - name: Build  
+        working-directory: ./app
+        run: |
+          cd docs && pip install -r requirements.txt
+          pip install git+git://github.com/Mara-Li/mkdocs-tooltipster-links-plugin
+          mkdocs gh-deploy --force
