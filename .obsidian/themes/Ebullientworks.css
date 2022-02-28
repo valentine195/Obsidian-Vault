@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*
-Ebullientworks 0.3.13 by @ebullient
+Ebullientworks 0.3.18 by @ebullient
 
 This is a dark and light theme for Obsidian.
 
@@ -910,7 +910,7 @@ body.plugin-sliding-panes-rotate-header .horizontal-main-container > .workspace 
   border-left: none;
 }
 
-body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-left-split.is-collapsed:not(.is-floating) {
+body:not(.is-mobile).ebullientworks-hover-collapsed-sidebars .mod-left-split.is-collapsed:not(.is-floating) {
   display: flex !important;
   position: absolute;
   left: 30px;
@@ -919,15 +919,17 @@ body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-left-split.is-c
   visibility: hidden;
   opacity: 0;
   z-index: 1;
+  width: 350px !important;
   transition: visibility 0.2s 0 ease;
 }
-body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .side-dock-ribbon.mod-left:hover + .mod-left-split.is-collapsed:not(.is-floating),
-body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-left-split.is-collapsed:not(.is-floating):hover {
+body:not(.is-mobile).ebullientworks-hover-collapsed-sidebars .side-dock-ribbon.mod-left:hover + .mod-left-split.is-collapsed:not(.is-floating),
+body:not(.is-mobile).ebullientworks-hover-collapsed-sidebars .mod-left-split.is-collapsed:not(.is-floating):hover {
   transition: visibility 0.2s 0.7s ease;
   visibility: visible;
+  width: 350px !important;
   opacity: 1;
 }
-body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-collapsed:not(.is-floating) {
+body:not(.is-mobile).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-collapsed:not(.is-floating) {
   display: flex !important;
   width: 400px !important;
   position: absolute;
@@ -935,7 +937,7 @@ body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-
   right: 0;
   visibility: hidden;
 }
-body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-collapsed:not(.is-floating)::before {
+body:not(.is-mobile).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-collapsed:not(.is-floating)::before {
   content: "✧ ・ ✦ ・ ✧";
   writing-mode: vertical-rl;
   text-orientation: upright;
@@ -949,7 +951,7 @@ body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-
   z-index: 30;
   visibility: visible;
 }
-body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-collapsed:not(.is-floating):hover {
+body:not(.is-mobile).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-collapsed:not(.is-floating):hover {
   width: 400px !important;
   opacity: 1;
   height: 100%;
@@ -967,6 +969,9 @@ body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-
 }
 .theme-dark .document-search-container {
   background-color: var(--background-secondary);
+}
+.theme-dark .document-search-container .document-search-button {
+  color: var(--gray-light-7);
 }
 .theme-dark .community-theme {
   background-color: var(--gray-dark-75);
@@ -1129,35 +1134,35 @@ body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-
 }
 
 .theme-dark {
-  --graph-fill: var(--purple-4);
-  --graph-line: var(--green-6);
-  --graph-highlight-fill: var(--purple-3);
-  --graph-highlight-line: var(--green-3);
-  --graph-fill-tag: var(--green-4);
-  --graph-fill-attachment: var(--teal-4);
+  --graph-fill: var(--primary-accent-4);
+  --graph-line: var(--gray-dark-5);
+  --graph-highlight-fill: var(--primary-accent-3);
+  --graph-highlight-line: var(--gray-dark-3);
+  --graph-fill-tag: var(--secondary-accent-3);
+  --graph-fill-attachment: var(--secondary-accent-2);
   --graph-fill-focused: var(--yellow-1);
-  --graph-fill-1: var(--yellow-3);
-  --graph-fill-2: var(--green-5);
-  --graph-fill-3: var(--teal-5);
-  --graph-fill-4: var(--blue-5);
-  --graph-fill-5: var(--purple-5);
-  --graph-fill-6: var(--pink-5);
+  --graph-fill-1: #8ba791;
+  --graph-fill-2: #8ba1a7;
+  --graph-fill-3: #918ba7;
+  --graph-fill-4: #a78ba1;
+  --graph-fill-5: #a7918b;
+  --graph-fill-6: #a1a78b;
 }
 
 .theme-light {
-  --graph-fill: var(--purple-2);
-  --graph-line: var(--gray-light-2);
-  --graph-highlight-fill: var(--purple-3);
-  --graph-highlight-line: var(--green-3);
-  --graph-fill-tag: var(--green-2);
-  --graph-fill-attachment: var(--teal-2);
+  --graph-fill: var(--primary-accent-2);
+  --graph-line: var(--gray-light-1);
+  --graph-highlight-fill: var(--primary-accent-3);
+  --graph-highlight-line: var(--gray-dark-1);
+  --graph-fill-tag: var(--secondary-accent-3);
+  --graph-fill-attachment: var(--secondary-accent-2);
   --graph-fill-focused: var(--yellow-1);
-  --graph-fill-1: var(--yellow-2);
-  --graph-fill-2: var(--teal-2);
-  --graph-fill-3: var(--blue-2);
-  --graph-fill-4: var(--pink-2);
-  --graph-fill-5: var(--purple-1);
-  --graph-fill-6: var(--green-1);
+  --graph-fill-1: #5c7a63;
+  --graph-fill-2: #5c737a;
+  --graph-fill-3: #635c7a;
+  --graph-fill-4: #7a5c73;
+  --graph-fill-5: #7a635c;
+  --graph-fill-6: #737a5c;
 }
 
 .graph-view.color-line {
@@ -1394,21 +1399,26 @@ body:not(.is-modal).ebullientworks-hover-collapsed-sidebars .mod-right-split.is-
 }
 
 .cm-s-obsidian .cm-strong.cm-quote,
+.cm-s-obsidian .cm-strong.cm-link,
 .cm-s-obsidian .cm-strong,
-.view-content strong {
+.view-content strong,
+.view-content strong a.internal-link {
   color: var(--strong);
   font-weight: 600;
 }
 
 .cm-s-obsidian .cm-em.cm-quote,
 .cm-s-obsidian .cm-em,
-.view-content em {
+.view-content em,
+.view-content em a.internal-link {
   color: var(--em);
 }
 
-.cm-s-obsidian .cm-quote.cm-strong.cm-em,
+.cm-s-obsidian .cm-quote.cm-em.cm-strong,
+.cm-s-obsidian .cm-link.cm-em.cm-strong,
 .cm-s-obsidian .cm-em.cm-strong,
-.view-content strong em {
+.view-content strong em,
+.view-content strong em a.internal-link {
   color: var(--strong-em);
 }
 
@@ -1424,6 +1434,7 @@ div.CodeMirror.cm-s-obsidian span.cm-highlight.CodeMirror-selectedtext {
   --text-selection: var(--text-highlight-bg-active);
 }
 
+.markdown-source-view.mod-cm6 .cm-selection,
 ::selection {
   color: var(--text-highlight-fg);
   background-color: var(--text-selection);
@@ -1473,6 +1484,36 @@ a,
 
 .markdown-preview-view .internal-link.is-unresolved::after {
   content: " ✎";
+  color: var(--link-underline);
+}
+
+.markdown-embed-link,
+.file-embed-link {
+  top: 0px;
+  right: 0px;
+  height: 18px;
+  width: 18px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.markdown-embed-link svg {
+  color: var(--link-underline);
+  height: 14px;
+  width: 14px;
+}
+
+.is-mobile .markdown-preview-view .internal-link:not(.is-unresolved) {
+  border-bottom: 1px solid var(--link-underline);
+}
+.is-mobile .markdown-preview-view .internal-link.is-unresolved {
+  border-bottom: 1px dotted var(--link-underline);
+}
+
+body:not(.is-mobile) .markdown-preview-view .task-list-item a[data-href][aria-label-position].internal-link,
+body.is-mobile .markdown-preview-view .task-list-item a[data-href][aria-label-position].internal-link {
+  border-bottom: none;
+  text-decoration: none;
   color: var(--link-underline);
 }
 
@@ -1556,9 +1597,13 @@ body:not(.ebullientworks-nix-checkbox) {
   /* 'X' for task ('- [X]') */
   /* Consistent hover colors */
 }
-body:not(.ebullientworks-nix-checkbox) body.ebullientworks-nix-checkbox .markdown-preview-view .task-list-item-checkbox {
+body:not(.ebullientworks-nix-checkbox) body:not(.is-mobile) .markdown-preview-view .task-list-item-checkbox {
   margin-top: 2px;
   margin-bottom: 1px;
+}
+body:not(.ebullientworks-nix-checkbox) body.is-mobile .markdown-preview-view .task-list-item-checkbox {
+  margin-top: 1px;
+  margin-bottom: 0;
 }
 body:not(.ebullientworks-nix-checkbox) .markdown-preview-view .task-list-item-checkbox,
 body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-task-line[data-task] input[type=checkbox].task-list-item-checkbox {
@@ -1666,7 +1711,7 @@ body:not(.ebullientworks-nix-checkbox) .markdown-preview-view ul.contains-task-l
   line-height: 14px;
   top: 0;
   left: 0px;
-  right: 1px;
+  right: 2px;
   color: var(--checkbox-review);
   content: "👀";
 }
@@ -2048,6 +2093,7 @@ body:not(.ebullientworks-nix-checkbox) .markdown-source-view.mod-cm6 .HyperMD-ta
 .theme-light .cm-s-obsidian .HyperMD-codeblock span.cm-inline-code {
   /* Inherited display is not safely inline */
   display: inline;
+  padding: unset;
 }
 
 img[alt~=float-right],
@@ -2068,6 +2114,12 @@ div[src$="#portrait"] {
   margin-left: 5px;
   width: 200px;
 }
+img[src$="#callout"],
+div[src$="#callout"] {
+  float: right;
+  margin-left: 5px;
+  width: 50%;
+}
 
 .markdown-embed-title {
   display: none;
@@ -2082,13 +2134,42 @@ div[src$="#portrait"] {
 .markdown-preview-view .markdown-embed .markdown-embed-content > .markdown-preview-view {
   max-height: unset;
   background-color: var(--background-primary-alt);
+  padding: 5px;
 }
 .markdown-preview-view .markdown-embed .markdown-embed-content > :first-child {
   margin-top: 0;
 }
 .markdown-preview-view .markdown-embed .markdown-embed-content > :last-child {
   margin-bottom: 0;
-  padding-bottom: 1em;
+  padding-bottom: 0.5em;
+}
+.markdown-preview-view .markdown-embed .markdown-embed-link,
+.markdown-preview-view .markdown-embed .file-embed-link {
+  border-radius: none;
+  border-bottom-left-radius: 3px;
+  background-color: var(--background-primary);
+}
+
+.markdown-source-view .markdown-embed,
+.markdown-source-view .file-embed {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.markdown-source-view .markdown-embed .markdown-embed-content,
+.markdown-source-view .markdown-embed .markdown-embed-content > .markdown-preview-view,
+.markdown-source-view .file-embed .markdown-embed-content,
+.markdown-source-view .file-embed .markdown-embed-content > .markdown-preview-view {
+  background-color: var(--background-primary-alt);
+  padding: 5px;
+}
+.markdown-source-view .markdown-embed .markdown-embed-link,
+.markdown-source-view .markdown-embed .file-embed-link,
+.markdown-source-view .file-embed .markdown-embed-link,
+.markdown-source-view .file-embed .file-embed-link {
+  border-radius: none;
+  border-bottom-left-radius: 3px;
+  background-color: var(--background-primary);
 }
 
 .print.print-preview > .markdown-preview-view .markdown-embed-content,
@@ -2098,7 +2179,6 @@ div[src$="#portrait"] {
 }
 
 .popover.hover-popover .markdown-embed {
-  height: auto;
   max-height: 500px;
   overflow: auto;
 }
@@ -2373,6 +2453,10 @@ div[src$="#portrait"] {
   padding-inline-start: 30px;
 }
 
+div.popover .admonition.admonition-toc {
+  display: none;
+}
+
 .theme-dark {
   --calendar-year: var(--primary-accent-3);
   --calendar-month: var(--secondary-accent-3);
@@ -2498,8 +2582,8 @@ div[src$="#portrait"] {
 .ebullientworks-floating-frontmatter pre.frontmatter {
   float: right;
   position: absolute;
-  right: 0;
-  top: 0.6rem;
+  right: 0.15em;
+  top: 0.65rem;
   width: 2rem;
   height: 2rem;
   overflow: hidden;
@@ -2522,11 +2606,21 @@ div[src$="#portrait"] {
   border: 1px solid var(--background-modifier-border);
   background-color: var(--background-secondary);
   filter: drop-shadow(-0.1rem 0.1rem 0.1rem var(--background-secondary-alt));
-  width: unset;
+  width: 60%;
+  min-width: 200px;
   height: unset;
   z-index: 3;
 }
 .ebullientworks-floating-frontmatter pre.frontmatter:hover .code {
+  visibility: visible;
+}
+.ebullientworks-floating-frontmatter pre.frontmatter.mod-failed {
+  position: absolute;
+}
+.ebullientworks-floating-frontmatter pre.frontmatter.mod-failed .mod-error {
+  visibility: hidden;
+}
+.ebullientworks-floating-frontmatter pre.frontmatter.mod-failed:hover .mod-error {
   visibility: visible;
 }
 .ebullientworks-floating-frontmatter .frontmatter-container {
@@ -2620,41 +2714,63 @@ div[src$="#portrait"] {
   border-right: 1px solid var(--background-modifier-border);
 }
 
-.markdown-source-view.mod-cm6.wrap-table table,
-.markdown-source-view.mod-cm6.wrap-table table.table-view-table,
-.markdown-preview-view.wrap-table table,
-.markdown-preview-view.wrap-table table.table-view-table {
+.markdown-source-view.mod-cm6.force-wrap table,
+.markdown-source-view.mod-cm6.force-wrap table.table-view-table,
+.markdown-preview-view.force-wrap table,
+.markdown-preview-view.force-wrap table.table-view-table {
   max-width: 100%;
 }
-.markdown-source-view.mod-cm6.wrap-table table .table-view-table > thead,
-.markdown-source-view.mod-cm6.wrap-table table thead,
-.markdown-source-view.mod-cm6.wrap-table table.table-view-table .table-view-table > thead,
-.markdown-source-view.mod-cm6.wrap-table table.table-view-table thead,
-.markdown-preview-view.wrap-table table .table-view-table > thead,
-.markdown-preview-view.wrap-table table thead,
-.markdown-preview-view.wrap-table table.table-view-table .table-view-table > thead,
-.markdown-preview-view.wrap-table table.table-view-table thead {
+.markdown-source-view.mod-cm6.force-wrap table .table-view-table > thead,
+.markdown-source-view.mod-cm6.force-wrap table thead,
+.markdown-source-view.mod-cm6.force-wrap table.table-view-table .table-view-table > thead,
+.markdown-source-view.mod-cm6.force-wrap table.table-view-table thead,
+.markdown-preview-view.force-wrap table .table-view-table > thead,
+.markdown-preview-view.force-wrap table thead,
+.markdown-preview-view.force-wrap table.table-view-table .table-view-table > thead,
+.markdown-preview-view.force-wrap table.table-view-table thead {
   max-width: 100%;
 }
-.markdown-source-view.mod-cm6.wrap-table table .table-view-table > tbody,
-.markdown-source-view.mod-cm6.wrap-table table tbody,
-.markdown-source-view.mod-cm6.wrap-table table.table-view-table .table-view-table > tbody,
-.markdown-source-view.mod-cm6.wrap-table table.table-view-table tbody,
-.markdown-preview-view.wrap-table table .table-view-table > tbody,
-.markdown-preview-view.wrap-table table tbody,
-.markdown-preview-view.wrap-table table.table-view-table .table-view-table > tbody,
-.markdown-preview-view.wrap-table table.table-view-table tbody {
+.markdown-source-view.mod-cm6.force-wrap table .table-view-table > tbody,
+.markdown-source-view.mod-cm6.force-wrap table tbody,
+.markdown-source-view.mod-cm6.force-wrap table.table-view-table .table-view-table > tbody,
+.markdown-source-view.mod-cm6.force-wrap table.table-view-table tbody,
+.markdown-preview-view.force-wrap table .table-view-table > tbody,
+.markdown-preview-view.force-wrap table tbody,
+.markdown-preview-view.force-wrap table.table-view-table .table-view-table > tbody,
+.markdown-preview-view.force-wrap table.table-view-table tbody {
   max-width: 100%;
 }
-.markdown-source-view.mod-cm6.wrap-table table .table-view-table > tbody > tr > td,
-.markdown-source-view.mod-cm6.wrap-table table tbody > tr > td,
-.markdown-source-view.mod-cm6.wrap-table table.table-view-table .table-view-table > tbody > tr > td,
-.markdown-source-view.mod-cm6.wrap-table table.table-view-table tbody > tr > td,
-.markdown-preview-view.wrap-table table .table-view-table > tbody > tr > td,
-.markdown-preview-view.wrap-table table tbody > tr > td,
-.markdown-preview-view.wrap-table table.table-view-table .table-view-table > tbody > tr > td,
-.markdown-preview-view.wrap-table table.table-view-table tbody > tr > td {
+.markdown-source-view.mod-cm6.force-wrap table .table-view-table > tbody > tr > td,
+.markdown-source-view.mod-cm6.force-wrap table tbody > tr > td,
+.markdown-source-view.mod-cm6.force-wrap table.table-view-table .table-view-table > tbody > tr > td,
+.markdown-source-view.mod-cm6.force-wrap table.table-view-table tbody > tr > td,
+.markdown-preview-view.force-wrap table .table-view-table > tbody > tr > td,
+.markdown-preview-view.force-wrap table tbody > tr > td,
+.markdown-preview-view.force-wrap table.table-view-table .table-view-table > tbody > tr > td,
+.markdown-preview-view.force-wrap table.table-view-table tbody > tr > td {
   word-break: break-all;
+}
+
+.markdown-source-view.mod-cm6.word-wrap table .table-view-table > thead > tr > th,
+.markdown-source-view.mod-cm6.word-wrap table thead > th,
+.markdown-source-view.mod-cm6.word-wrap table.table-view-table .table-view-table > thead > tr > th,
+.markdown-source-view.mod-cm6.word-wrap table.table-view-table thead > th,
+.markdown-preview-view.word-wrap table .table-view-table > thead > tr > th,
+.markdown-preview-view.word-wrap table thead > th,
+.markdown-preview-view.word-wrap table.table-view-table .table-view-table > thead > tr > th,
+.markdown-preview-view.word-wrap table.table-view-table thead > th {
+  white-space: pre;
+}
+.markdown-source-view.mod-cm6.word-wrap table .table-view-table > tbody > tr > td,
+.markdown-source-view.mod-cm6.word-wrap table tbody > tr > td,
+.markdown-source-view.mod-cm6.word-wrap table.table-view-table .table-view-table > tbody > tr > td,
+.markdown-source-view.mod-cm6.word-wrap table.table-view-table tbody > tr > td,
+.markdown-preview-view.word-wrap table .table-view-table > tbody > tr > td,
+.markdown-preview-view.word-wrap table tbody > tr > td,
+.markdown-preview-view.word-wrap table.table-view-table .table-view-table > tbody > tr > td,
+.markdown-preview-view.word-wrap table.table-view-table tbody > tr > td {
+  word-wrap: normal;
+  word-break: normal;
 }
 
 .markdown-source-view.mod-cm6.wrap-table-src .cm-line.HyperMD-table-row {

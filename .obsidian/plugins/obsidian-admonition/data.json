@@ -83,21 +83,44 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false
+    },
+    "law": {
+      "type": "law",
+      "color": "158, 31, 31",
+      "icon": {
+        "type": "octicons",
+        "name": "law"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
     }
   },
   "syntaxHighlight": true,
   "copyButton": false,
-  "version": "6.12.1",
-  "warnedAboutNC": true,
+  "version": "7.0.1",
   "autoCollapse": false,
   "defaultCollapseType": "open",
   "syncLinks": false,
-  "enableMarkdownProcessor": false,
   "injectColor": true,
   "parseTitles": true,
   "allowMSSyntax": true,
   "msSyntaxIndented": true,
   "livePreviewMS": true,
   "dropShadow": false,
-  "hideEmpty": true
+  "hideEmpty": false,
+  "open": {
+    "admonitions": true,
+    "icons": true,
+    "other": true,
+    "advanced": true
+  },
+  "icons": [
+    "octicons",
+    "rpg"
+  ],
+  "useFontAwesome": true,
+  "rpgDownloadedOnce": true,
+  "warnedAboutNC": true,
+  "enableMarkdownProcessor": false
 }

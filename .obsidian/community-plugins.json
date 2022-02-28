@@ -33,5 +33,6 @@
   "obsidian-kanban",
   "obsidian-dynamic-highlights",
   "obsidian-frontmatter-tag-suggest",
-  "obsidian-prettier"
+  "obsidian-prettier",
+  "obsidian-pandoc"
 ]

@@ -25,7 +25,7 @@ body.is-mobile
     margin-inline-start: 18px;
 }
 
-.admonition {
+.admonition, blockquote {
     margin-inline-start: 18px !important;
-    margin-inline-end: 30px !important;
+    margin-inline-end: 18px !important;
 }
