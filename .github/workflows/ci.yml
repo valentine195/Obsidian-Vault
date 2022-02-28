@@ -14,4 +14,4 @@ jobs:
           python-version: 3.x
       - run: pip install -r ./docs/requirements.txt
       - run: pip install git+git://github.com/Mara-Li/mkdocs-tooltipster-links-plugin
-      - run: mkdocs -f ./docs/mkdocs.yml gh-deploy --force
+      - run: mkdocs --config-file ./docs/mkdocs.yml gh-deploy --force
