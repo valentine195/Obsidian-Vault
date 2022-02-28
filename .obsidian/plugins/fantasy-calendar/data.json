@@ -185,7 +185,7 @@
       "current": {
         "year": 2022,
         "month": 2,
-        "day": 7
+        "day": 9
       },
       "events": [
         {
@@ -343,20 +343,6 @@
             "month": 11
           },
           "category": "christian-holidays"
-        },
-        {
-          "id": "ID_395bd8ab0a0b",
-          "name": "4.0.0",
-          "note": "Plugin Testing/map/4.0.0.md",
-          "date": {
-            "year": 4,
-            "month": 0,
-            "day": 0
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
         },
         {
           "name": "Introduction of the Gregorian Calendar",
@@ -5944,167 +5930,13 @@
           "auto": true
         },
         {
-          "id": "ID_f999a82a0acb",
-          "name": "2021-01-02",
-          "note": "docs/docs/notes/2021-01-02.md",
-          "date": {
-            "year": 2021,
-            "month": 0,
-            "day": 2
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_6b4b883a2ac8",
-          "name": "2021-01-16",
-          "note": "docs/docs/notes/2021-01-16.md",
-          "date": {
-            "year": 2021,
-            "month": 0,
-            "day": 16
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_f8fb195b2b1b",
-          "name": "2021-02-06",
-          "note": "docs/docs/notes/2021-02-06.md",
-          "date": {
-            "year": 2021,
-            "month": 1,
-            "day": 6
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_c85b0b595a09",
-          "name": "2021-02-20",
-          "note": "docs/docs/notes/2021-02-20.md",
-          "date": {
-            "year": 2021,
-            "month": 1,
-            "day": 20
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_cb79397a7b5b",
-          "name": "2021-03-13",
-          "note": "docs/docs/notes/2021-03-13.md",
-          "date": {
-            "year": 2021,
-            "month": 2,
-            "day": 13
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_9b89d8d8a8ba",
-          "name": "2021-04-10",
-          "note": "docs/docs/notes/2021-04-10.md",
-          "date": {
-            "year": 2021,
-            "month": 3,
-            "day": 10
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_39caf9493b7a",
-          "name": "2021-05-15",
-          "note": "docs/docs/notes/2021-05-15.md",
-          "date": {
-            "year": 2021,
-            "month": 4,
-            "day": 15
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_291b587afbab",
-          "name": "2021-09-10",
-          "note": "docs/docs/notes/2021-09-10.md",
-          "date": {
-            "year": 2021,
-            "month": 8,
-            "day": 10
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_1bba8b791858",
-          "name": "2021-10-02",
-          "note": "docs/docs/notes/2021-10-02.md",
-          "date": {
-            "year": 2021,
-            "month": 9,
-            "day": 2
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_4ba9b82a9a2b",
-          "name": "2022-01-22",
-          "note": "docs/docs/notes/2022-01-22.md",
-          "date": {
-            "year": 2022,
-            "month": 0,
-            "day": 22
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_caa96ad83aa8",
-          "name": "2022-02-12",
-          "note": "docs/docs/notes/2022-02-12.md",
+          "id": "ID_6938ba28a8a8",
+          "name": "Screen Shot 2022-02-25 at 9.38.26 PM",
+          "note": "2. Compendium/Items/Cards/Screen Shot 2022-02-25 at 9.38.26 PM.png",
           "date": {
             "year": 2022,
             "month": 1,
-            "day": 12
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_6bdab88b0b5a",
-          "name": "2022-02-26",
-          "note": "docs/docs/notes/2022-02-26.md",
-          "date": {
-            "year": 2022,
-            "month": 1,
-            "day": 26
+            "day": 25
           },
           "end": null,
           "category": "ID_aa591ae829b9",
@@ -6146,7 +5978,7 @@
       ],
       "autoParse": true,
       "path": "/",
-      "date": 1645945024225,
+      "date": 1646053505996,
       "timelineTag": "#timeline"
     },
     {
