@@ -37,7 +37,7 @@ from reddit
 id: newthrone
 image: [[kintargo.png]]
 defaultZoom: 8
-marker: location,-0.7252197265625,0.48046875,[[Map|Test]],"Air Dock"
+marker: location,-0.7252197265625,0.48046875,,"Air Dock"
 marker: location,-0.751617431640625,0.9331745749385953,,"Dockbridge"
 marker: location,-0.26158905029296875,0.9798603108507866,,"Bleakbridge"
 marker: location,-0.1182861328125,0.52734375,,"Silver Gate"

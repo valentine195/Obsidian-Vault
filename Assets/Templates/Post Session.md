@@ -16,7 +16,6 @@ function getNextSessionNumber() {
 
 const YAML =`---
 share: true
-share: true
 type: recap
 date: 
 session: ${getNextSessionNumber()}
