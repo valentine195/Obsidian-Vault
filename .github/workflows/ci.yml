@@ -26,6 +26,7 @@ jobs:
           echo share=share >> /opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
           echo index_key="" >> /opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
           echo default_blog="notes" >> /opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+          cat /opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
       - name: Deploy
         run: |
           obs2mk
