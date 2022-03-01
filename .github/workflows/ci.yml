@@ -20,7 +20,7 @@ jobs:
           pip install git+git://github.com/Mara-Li/mkdocs-tooltipster-links-plugin
       - name: Create file
         run: |
-          echo VAULT="../" > ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+          echo vault="../" > ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
           echo blog_path="./docs" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
           echo blog="https://valentine195.github.io/Obsidian-Vault/" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
           echo share="share" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
