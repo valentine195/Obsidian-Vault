@@ -1,3 +1,6 @@
+/*!*********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./src/settings/settings.css ***!
+  \*********************************************************************************************************/
 .statblock-filter-container .search-input-container {
     margin-bottom: 0;
 }
@@ -40,13 +43,6 @@
     margin-right: 0;
 }
 
-:root {
-    --statblock-primary-color: #7a200d;
-    --statblock-rule-color: #922610;
-    --statblock-bar-color: #e69a28;
-    --statblock-background-color: #fdf1dc;
-}
-
 /** Settings */
 .statblock-file-upload > input[type="file"] {
     display: none;
@@ -77,9 +73,8 @@
 
 .statblock-monster-filter {
     position: sticky;
-    top: -5px;
-    padding-top: 5px;
-    background-color: inherit;
+    top: calc(-1 * var(--statblock-filter-offset));
+    background-color: var(--statblock-filter-bg);
     z-index: 99999;
 }
 
@@ -101,10 +96,6 @@
     > *:first-child {
     margin: 0 6px;
 }
-
-.statblock-settings div {
-    background-color: inherit;
-}
 .statblock-settings .coffee {
     width: 60%;
     color: var(--text-faint);
@@ -114,4 +105,15 @@
 .statblock-settings .coffee img {
     height: 30px;
 }
+
+/*!********************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./src/main.css ***!
+  \********************************************************************************************/
+:root {
+    --statblock-primary-color: #7a200d;
+    --statblock-rule-color: #922610;
+    --statblock-bar-color: #e69a28;
+    --statblock-background-color: #fdf1dc;
+}
+
 

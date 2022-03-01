@@ -5942,6 +5942,20 @@
           "category": "ID_aa591ae829b9",
           "description": "",
           "auto": true
+        },
+        {
+          "id": "ID_f879f8d84879",
+          "name": "Screen Shot 2022-02-25 at 9.38.26 PM",
+          "note": "2. Compendium/Items/Cards/Screen Shot 2022-02-25 at 9.38.26 PM.png",
+          "date": {
+            "year": 2022,
+            "month": 1,
+            "day": 25
+          },
+          "end": null,
+          "category": "ID_aa591ae829b9",
+          "description": "",
+          "auto": true
         }
       ],
       "id": "ID_a80a58893b9a",
