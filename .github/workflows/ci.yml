@@ -14,12 +14,13 @@ jobs:
           python-version: 3.x
       - name: Create file
         run: |
-          echo vault=../ > .mkdocs_obsidian
-          echo blog_path=./docs >> .mkdocs_obsidian
-          echo blog=https://valentine195.github.io/Obsidian-Vault/ >> .mkdocs_obsidian
-          echo share=share >> .mkdocs_obsidian
-          echo index_key="" >> .mkdocs_obsidian
-          echo default_blog="notes" >> .mkdocs_obsidian
+          echo vault=../ > /opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+          echo blog_path=./docs >> /opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+          echo blog=https://valentine195.github.io/Obsidian-Vault/ >> /opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+          echo share=share >> /opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+          echo index_key="" >> /opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+          echo default_blog="notes" >> /opt/hostedtoolcache/Python/3.10.2/x64/lib/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+          echo 
       - name: Build
         working-directory: ./.publish
         run: |
