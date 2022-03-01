@@ -17,4 +17,6 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip install git+git://github.com/Mara-Li/mkdocs-tooltipster-links-plugin
+          pip install obs2mk --upgrade
+          obs2mk
           mkdocs gh-deploy --force
