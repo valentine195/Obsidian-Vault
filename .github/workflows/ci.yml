@@ -28,5 +28,5 @@ jobs:
       - name: Deploy
         working-directory: ./.publish
         run: |
-          obs2mk --git
+          obs2mk
           mkdocs gh-deploy --force
