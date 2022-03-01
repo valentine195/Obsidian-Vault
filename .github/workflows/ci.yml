@@ -4,6 +4,7 @@ on:
     branches:
       - master
       - main
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -21,7 +22,7 @@ jobs:
       - name: Create file
         run: |
           echo vault="../" > ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-          echo blog_path="./docs" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+          echo blog_path="./" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
           echo blog="https://valentine195.github.io/Obsidian-Vault/" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
           cat ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
       - name: Deploy
