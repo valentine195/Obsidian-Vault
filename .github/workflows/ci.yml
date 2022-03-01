@@ -26,5 +26,5 @@ jobs:
           cat ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
       - name: Deploy
         run: |
-          obs2mk
+          obs2mk --git
           mkdocs gh-deploy --force
