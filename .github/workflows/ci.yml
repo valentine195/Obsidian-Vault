@@ -12,14 +12,15 @@ jobs:
       - uses: actions/setup-python@v2
         with:
           python-version: 3.x
+      - name: Create file
+        run: |
+          echo vault=../ > .mkdocs_obsidian
+          echo blog_path=./docs >> .mkdocs_obsidian
+          echo blog=https://valentine195.github.io/Obsidian-Vault/ >> .mkdocs_obsidian
+          echo share=share >> .mkdocs_obsidian
+          echo index_key="" >> .mkdocs_obsidian
+          echo default_blog="notes" >> .mkdocs_obsidian
       - name: Build
-        env:
-          vault: ../
-          blog_path: https://valentine195.github.io/Obsidian-Vault/
-          blog: https://valentine195.github.io/Obsidian-Vault/
-          share: share
-          index_key: ""
-          default_blog: "notes"
         working-directory: ./.publish
         run: |
           pip install -r requirements.txt
