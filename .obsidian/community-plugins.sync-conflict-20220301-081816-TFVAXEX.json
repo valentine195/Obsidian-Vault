@@ -1,6 +1,7 @@
 [
   "hot-reload",
   "obsidian-divide-and-conquer",
+  "obsidian-activity-history",
   "obsidian-admonition",
   "obsidian-bartender",
   "obsidian-collapse-all-plugin",
@@ -33,6 +34,5 @@
   "obsidian-dynamic-highlights",
   "obsidian-frontmatter-tag-suggest",
   "obsidian-prettier",
-  "obsidian-pandoc",
-  "vault-picker"
+  "obsidian-pandoc"
 ]
