@@ -1,14 +1,11 @@
 ---
-type: item
-rarity: uncommon
-tier: major
-share: true
-category: Items
-
-tags:
-    - item/major/uncommon
+type: "item"
+rarity: "uncommon"
+tier: "major"
+share: True
+category: "Items"
+tags: ['item/major/uncommon']
 ---
-
 ## Longsword of Verdict
 
 Held by: [[Jeremiah Pumpernickle|Jeremiah]]

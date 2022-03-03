@@ -1,15 +1,11 @@
 ---
-type: item
-rarity: uncommon
-tier: major
-share: true
-category: Items
-tags:
-    - item/major/uncommon
-    - item/wondrous/gauntlet
-    - item/attunement
+type: "item"
+rarity: "uncommon"
+tier: "major"
+share: True
+category: "Items"
+tags: ['item/major/uncommon', 'item/wondrous/gauntlet', 'item/attunement']
 ---
-
 # Gauntlets of Deliverance
 
 _Wondrous item, uncommon (requires attunement by a paladin)_
@@ -26,7 +22,7 @@ _His eyes flicked open and shut, focusing on the sensation, before eventually co
 _"It's...beautiful."_
 
 ### Description
-Simple leather gauntlets covered with silver plate. Sigils have been inlayed on the plate in gold.
+
 ![float-right|250](https://i.redd.it/zek4gmshrya41.png)
 
 ### Use
