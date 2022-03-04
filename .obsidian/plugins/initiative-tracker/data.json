@@ -46,6 +46,13 @@
         "Jeremiah",
         "Merigold"
       ]
+    },
+    {
+      "name": "Party + Ship",
+      "players": [
+        "Jeremiah",
+        "Merigold"
+      ]
     }
   ],
   "defaultParty": "Heroes of Whitecliff",

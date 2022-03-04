@@ -1,9 +1,8 @@
 ---
 share: true
-category: Post Session Logs/
-title: index
+category: Post Session Logs
+title: Post Session Logs
 ---
-## Post Session Logs
 
 - [[2021-01-02]]
 - [[2021-01-16]]

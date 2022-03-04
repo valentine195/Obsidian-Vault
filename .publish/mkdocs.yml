@@ -32,7 +32,6 @@ theme:
         name: Switch to light mode
     features:
         - navigation.indexes
-        - navigation.expand
 # Extensions
 markdown_extensions:
   - footnotes

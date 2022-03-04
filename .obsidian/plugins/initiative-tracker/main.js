@@ -5206,7 +5206,7 @@ function instance($$self, $$props, $$invalidate) {
         return [creature];
       return [...Array(number).keys()].map((v) => Creature.from(creature));
     }).flat();
-    view === null || view === void 0 ? void 0 : view.newEncounter({ name, players, creatures: creatures2, xp });
+    view === null || view === void 0 ? void 0 : view.newEncounter({ party, name, players, creatures: creatures2, xp });
     plugin.app.workspace.revealLeaf(view.leaf);
   });
   const addButton = (node) => {
@@ -31153,7 +31153,6 @@ function instance15($$self, $$props, $$invalidate) {
   };
   const save_handler_1 = (evt) => {
     const creature = evt.detail;
-    console.log(creature.display);
     const newCreature = new Creature({
       name: creature.name,
       display: creature.display,
@@ -31454,11 +31453,15 @@ var TrackerView = class extends import_obsidian19.ItemView {
   }
   async newEncounter({
     name,
+    party = this.party,
     players = true,
     creatures = [],
     roll = true,
     xp = null
   } = {}) {
+    if (party && party != this.party) {
+      this.party = party;
+    }
     if (players instanceof Array && players.length) {
       this.creatures = [
         ...this.players.filter((p) => players.includes(p.name))
@@ -31473,6 +31476,7 @@ var TrackerView = class extends import_obsidian19.ItemView {
     this.name = name;
     this.round = 1;
     this.setAppState({
+      party: this.party,
       name: this.name,
       round: this.round,
       xp
