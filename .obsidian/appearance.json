@@ -21,12 +21,9 @@
     "folder-mushy-policeman",
     "admonitions.recite",
     "supercharged-links-gen",
-    "admonitions",
     "colors.folders",
     "dataview.metadata",
     "ebullient.colors.folders.overrides",
-    "ebullient.overrides",
-    "ebullient.workspace-header",
     "fading",
     "fonts",
     "fonts.faces",
@@ -36,7 +33,10 @@
     "icons.minimal",
     "minimal.settings",
     "obsidian",
-    "frontmatter.floating"
+    "frontmatter.floating",
+    "ebullient.workspace-header",
+    "admonitions",
+    "ebullient.overrides"
   ],
   "theme": "obsidian"
 }

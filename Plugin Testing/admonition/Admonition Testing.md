@@ -2,6 +2,9 @@
 	- test
 ```ad-quote
 title: test
+collapse: true
+
+test
 
 ```
 

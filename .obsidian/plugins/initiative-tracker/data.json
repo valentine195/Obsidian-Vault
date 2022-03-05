@@ -46,13 +46,6 @@
         "Jeremiah",
         "Merigold"
       ]
-    },
-    {
-      "name": "Party + Ship",
-      "players": [
-        "Jeremiah",
-        "Merigold"
-      ]
     }
   ],
   "defaultParty": "Heroes of Whitecliff",
@@ -128,7 +121,7 @@
   "initiative": "1d20 + %mod%",
   "modifier": null,
   "sync": false,
-  "leafletIntegration": true,
+  "leafletIntegration": false,
   "playerMarker": "player",
   "monsterMarker": "monster",
   "state": null,
