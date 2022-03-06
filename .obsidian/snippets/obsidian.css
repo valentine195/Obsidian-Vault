@@ -2,9 +2,15 @@
     --default-font: "iA Writer Quattro" !important;
     --bgZZ: green;
 }
-
+details.admonition:not([open]) .admonition-title-markdown {
+    opacity: 0;
+}
+details.admonition .admonition-title-markdown {
+    transition: opacity 0.15s;
+}
 /** Remove scrollbars */
-body:not(.native-scrollbars) ::-webkit-scrollbar, ::-webkit-scrollbar {
+body:not(.native-scrollbars) ::-webkit-scrollbar,
+::-webkit-scrollbar {
     width: 0px;
     height: 0px;
 }

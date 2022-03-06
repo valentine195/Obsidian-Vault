@@ -1,13 +1,11 @@
 [
   "hot-reload",
   "obsidian-divide-and-conquer",
-  "obsidian-admonition",
   "obsidian-bartender",
   "obsidian-collapse-all-plugin",
   "customjs",
   "cycle-through-panes",
   "dataview",
-  "obsidian-dice-roller",
   "fantasy-calendar",
   "hotkey-helper",
   "table-editor-obsidian",
@@ -32,5 +30,10 @@
   "obsidian-kanban",
   "obsidian-dynamic-highlights",
   "obsidian-frontmatter-tag-suggest",
-  "obsidian-prettier"
+  "obsidian-prettier",
+  "obsidian-pandoc",
+  "vault-picker",
+  "obsidian-admonition",
+  "obsidian-dice-roller",
+  "obsidian-query-control"
 ]
