@@ -22,3 +22,5 @@ test
 
 >  [!quote]
 > [[Waning Crescent#Waning Crescent|🌘 Waning Crescent]] ･ :ril_percent::rif_lightbulb: <progress value="0.04" max="1"></progress> (moon_illuminated::4)%
+
+> [!]

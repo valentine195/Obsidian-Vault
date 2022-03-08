@@ -1,4 +1,4 @@
-
+	
 > [!dnd]
 > This callout has no title by default
 
@@ -19,3 +19,7 @@
 > [!INFO]-  Core Callout
 > Contents hidden until expanded
 
+> [!dnd]
+> abc
+
+> [!abstract] abc 
