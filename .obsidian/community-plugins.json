@@ -33,7 +33,7 @@
   "obsidian-prettier",
   "obsidian-pandoc",
   "vault-picker",
+  "obsidian-admonition",
   "obsidian-dice-roller",
-  "obsidian-query-control",
-  "obsidian-admonition"
+  "obsidian-query-control"
 ]
