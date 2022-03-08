@@ -58,19 +58,6 @@
       "injectColor": true,
       "noTitle": false
     },
-    "dnd": {
-      "type": "dnd",
-      "color": "172, 54, 181",
-      "icon": {
-        "name": "dice-d20",
-        "type": "font-awesome"
-      },
-      "command": true,
-      "title": "Definition:",
-      "injectColor": true,
-      "noTitle": true,
-      "copy": false
-    },
     "map": {
       "type": "map",
       "color": "0, 0, 0",
@@ -84,6 +71,19 @@
       "noTitle": false,
       "copy": false
     },
+    "dnd": {
+      "type": "dnd",
+      "color": "172, 54, 181",
+      "icon": {
+        "name": "dice-d20",
+        "type": "font-awesome"
+      },
+      "command": true,
+      "title": null,
+      "injectColor": true,
+      "noTitle": true,
+      "copy": false
+    },
     "law": {
       "type": "law",
       "color": "158, 31, 31",
@@ -92,16 +92,17 @@
         "name": "law"
       },
       "command": false,
+      "title": "Definition",
       "injectColor": true,
-      "noTitle": false
+      "noTitle": false,
+      "copy": false
     }
   },
   "syntaxHighlight": true,
   "copyButton": false,
   "version": "7.0.4",
-  "autoCollapse": false,
-  "defaultCollapseType": "open",
-  "syncLinks": false,
+  "autoCollapse": true,
+  "defaultCollapseType": "closed",
   "injectColor": true,
   "parseTitles": true,
   "allowMSSyntax": true,
@@ -111,7 +112,7 @@
   "hideEmpty": false,
   "open": {
     "admonitions": true,
-    "icons": true,
+    "icons": false,
     "other": true,
     "advanced": true
   },
@@ -121,6 +122,7 @@
   ],
   "useFontAwesome": true,
   "rpgDownloadedOnce": true,
+  "syncLinks": false,
   "warnedAboutNC": true,
   "enableMarkdownProcessor": false
 }
