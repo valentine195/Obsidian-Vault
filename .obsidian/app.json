@@ -2,7 +2,7 @@
   "promptDelete": false,
   "foldHeading": true,
   "foldIndent": true,
-  "smartIndentList": false,
+  "smartIndentList": true,
   "showFrontmatter": true,
   "newFileLocation": "current",
   "livePreview": false,
@@ -17,5 +17,6 @@
   },
   "legacyEditor": false,
   "showLineNumber": false,
-  "useMarkdownLinks": false
+  "useMarkdownLinks": false,
+  "spellcheck": true
 }

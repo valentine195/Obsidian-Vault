@@ -96,19 +96,26 @@
       "injectColor": true,
       "noTitle": false,
       "copy": false
+    },
+    "note": {
+      "type": "note",
+      "color": "68, 138, 255",
+      "icon": {
+        "type": "octicons",
+        "name": "pencil"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
     }
   },
   "syntaxHighlight": true,
   "copyButton": false,
   "version": "7.0.3",
   "autoCollapse": false,
-  "defaultCollapseType": "open",
-  "syncLinks": false,
+  "defaultCollapseType": "closed",
   "injectColor": true,
   "parseTitles": true,
-  "allowMSSyntax": true,
-  "msSyntaxIndented": true,
-  "livePreviewMS": true,
   "dropShadow": false,
   "hideEmpty": false,
   "open": {
@@ -123,7 +130,11 @@
   ],
   "useFontAwesome": true,
   "rpgDownloadedOnce": true,
+  "msDocConverted": true,
   "syncLinks": false,
+  "allowMSSyntax": true,
+  "msSyntaxIndented": true,
+  "livePreviewMS": true,
   "warnedAboutNC": true,
   "enableMarkdownProcessor": false
 }

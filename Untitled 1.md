@@ -1,0 +1,5 @@
+First, it was wonderful meeting you as well! Thank you for taking the time to chat with me and tell me more about the position. I spent some time reading through the Apigee documentation - seems like a great way to build a robust, flexible API without having to manage the interfacing internally. The API proxy-based approach makes a lot of sense, and I really appreciate that they have a full-fledged VS Code development environment.
+ 
+I wanted to let you know that I submitted my application. Thank you again for the opportunity to speak with you to discuss your team's focus and learn how i could support your goals. I believe that my 3 years focused on software development at Abrasive Technology and my passion for programming would be a perfect fit with the team. As Misty can tell you, I love to learn and continuously seek out new opportunities to gain knowledge.
+
+I appreciate the opportunity to apply to this position. I look forward to hearing from you and the team soon.

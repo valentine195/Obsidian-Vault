@@ -1,3 +1,7 @@
+> [!note] test
+> Test
+
+%%
 - test
 	- test
 ```ad-quote
@@ -8,7 +12,7 @@ test
 
 ```
 
-> [!bug: Nested Admonition ]
+> [!bug] Nested Admonition 
 > Link to an **existing** file -> [[2022-02-28#2022-02-28|yesterday]]
 > > [!note]
 > > [[Winter#Winter|☃️ Winter]] ･ <progress value="0.7978" max="1"></progress> 79.78% ⦗+71d ⦘  ⪼  🌿 Spring ⦗-19d ⦘
@@ -22,3 +26,11 @@ test
 
 >  [!quote]
 > [[Waning Crescent#Waning Crescent|🌘 Waning Crescent]] ･ :ril_percent::rif_lightbulb: <progress value="0.04" max="1"></progress> (moon_illuminated::4)%
+> test
+> test
+> test
+
+
+%%
+
+
