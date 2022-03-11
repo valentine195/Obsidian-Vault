@@ -1,11 +1,3 @@
-`dice: 4d20/4`
+`dice: 4d20|form`
 
-- 1
-- 2
-- 3
-- 4
-- 5
-	
-^lookup-test
-
-`dice: [[Dice Scratchpad^lookup-test]]`
+`dice: test`

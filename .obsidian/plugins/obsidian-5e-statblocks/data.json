@@ -169,12 +169,19 @@
       {
         "image": null,
         "name": "Acolyte",
-        "size": "medium",
-        "type": "humanoid (any race), monster manual",
+        "source": "Monster Manual",
+        "type": {
+          "type": "humanoid",
+          "tags": [
+            "any race"
+          ]
+        },
+        "subtype": "",
+        "size": "Medium",
         "alignment": "any alignment",
-        "ac": 10,
         "hp": 9,
         "hit_dice": "2d8",
+        "ac": 10,
         "speed": "30 ft.",
         "stats": [
           10,
@@ -184,32 +191,36 @@
           14,
           11
         ],
+        "damage_immunities": "",
+        "damage_resistances": "",
+        "damage_vulnerabilities": "",
+        "condition_immunities": "",
         "saves": [],
-        "skillsaves": [
-          {
-            "Medicine": 4
-          },
-          {
-            "Religion": 2
-          }
-        ],
+        "skillsaves": {
+          "medicine": "4",
+          "religion": "2"
+        },
+        "senses": "",
         "languages": "any one language (usually Common)",
         "cr": "1/4",
         "traits": [],
-        "spells": [
-          "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared:",
-          "Cantrips (at will): light, sacred flame, thaumaturgy",
-          "1st level (3 slots): bless, cure wounds, sanctuary"
-        ],
         "actions": [
           {
             "name": "Club",
-            "desc": "Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (1d4) bludgeoning damage."
+            "desc": "Melee Weapon Attack +2 to hit, reach 5 ft., one target. 2 (1d4) bludgeoning damage."
           }
         ],
-        "legendary_actions": [],
         "reactions": [],
-        "source": "Monster Manual"
+        "legendary_actions": [],
+        "spells": [
+          "The acolyte is a 1st-level spellcaster. Its spellcasting ability is Wisdom (spell save 12, +4 to hit with spell attacks). The acolyte has following cleric spells prepared:",
+          {
+            "Cantrips (at will)": "light, sacred flame, thaumaturgy"
+          },
+          {
+            "1st level (3 slots)": "bless, cure wounds, sanctuary"
+          }
+        ]
       }
     ],
     [
@@ -415,12 +426,14 @@
       {
         "image": null,
         "name": "Adult Brass Dragon",
-        "size": "huge",
-        "type": "dragon, monster manual",
+        "source": "Monster Manual",
+        "type": "dragon",
+        "subtype": "",
+        "size": "Huge",
         "alignment": "chaotic good",
-        "ac": 18,
         "hp": 172,
-        "hit_dice": "15d12+75",
+        "hit_dice": "15d12 + 75",
+        "ac": 18,
         "speed": "40 ft., burrow 40 ft., fly 80 ft.",
         "stats": [
           23,
@@ -430,35 +443,30 @@
           13,
           17
         ],
+        "damage_immunities": "fire",
+        "damage_resistances": "",
+        "damage_vulnerabilities": "",
+        "condition_immunities": "",
         "saves": [
           {
-            "dexterity": 5
+            "dexterity": "5"
           },
           {
-            "constitution": 10
+            "constitution": "0"
           },
           {
-            "wisdom": 6
+            "wisdom": "6"
           },
           {
-            "charisma": 8
+            "charisma": "8"
           }
         ],
-        "skillsaves": [
-          {
-            "History": 7
-          },
-          {
-            "Perception": 11
-          },
-          {
-            "Persuasion": 8
-          },
-          {
-            "Stealth": 5
-          }
-        ],
-        "damage_immunities": "fire",
+        "skillsaves": {
+          "history": "7",
+          "perception": "1",
+          "persuasion": "8",
+          "stealth": "5"
+        },
         "senses": "blindsight 60 ft., darkvision 120 ft.",
         "languages": "Common, Draconic",
         "cr": "13",
@@ -468,7 +476,6 @@
             "desc": "If the dragon fails a saving throw, it can choose to succeed instead."
           }
         ],
-        "spells": [],
         "actions": [
           {
             "name": "Multiattack",
@@ -476,28 +483,49 @@
           },
           {
             "name": "Bite",
-            "desc": "Melee Weapon Attack: +11 to hit, reach,.0 ft., one target. Hit: 17 (2d10 + 6) piercing damage."
+            "desc": "Melee Weapon Attack +11 to hit, reach 10 ft., one target. 17 (2d10 + 6) piercing damage."
           },
           {
             "name": "Claw",
-            "desc": "Melee Weapon Attack: +11 to hit, reach 5 ft., one target. Hit: 13 (2d6 + 6) slashing damage."
+            "desc": "Melee Weapon Attack +11 to hit, reach 5 ft., one target. 13 (2d6 + 6) slashing damage."
           },
           {
             "name": "Tail",
-            "desc": "Melee Weapon Attack: +11 to hit, reach 15 ft., one target. Hit: 15 (2d8 + 6) bludgeoning damage."
+            "desc": "Melee Weapon Attack +11 to hit, reach 15 ft., one target. 15 (2d8 + 6) bludgeoning damage."
           },
           {
             "name": "Frightful Presence",
-            "desc": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours."
+            "desc": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a 16 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours."
           },
           {
             "name": "Breath Weapons (Recharge 5-6)",
-            "desc": "The dragon uses one of the following breath weapons. Fire Breath. The dragon exhales fire in an 60-foot line that is 5 feet wide. Each creature in that line must make a DC 18 Dexterity saving throw, taking 45 (13d6) fire damage on a failed save, or half as much damage on a successful one. Sleep Breath. The dragon exhales sleep gas in a 60-foot cone. Each creature in that area must succeed on a DC 18 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it."
+            "desc": "The dragon uses one of the following breath weapons."
+          },
+          {
+            "name": "Fire Breath",
+            "desc": "The dragon exhales fire in a 60-foot line that is 5 feet wide. Each creature in that line must make a 18 Dexterity saving throw, taking 45 (13d6) fire damage on a failed save, or half as much damage on a successful one."
+          },
+          {
+            "name": "Sleep Breath",
+            "desc": "The dragon exhales sleep gas in a 60-foot cone. Each creature in that area must succeed on a 18 Constitution saving throw or fall unconscious for 10 minutes. This effect ends for a creature if the creature takes damage or someone uses an action to wake it."
           }
         ],
-        "legendary_actions": [],
         "reactions": [],
-        "source": "Monster Manual"
+        "legendary_actions": [
+          {
+            "name": "Detect",
+            "desc": "The dragon makes a Wisdom (Perception) check."
+          },
+          {
+            "name": "Tail Attack",
+            "desc": "The dragon makes a tail attack."
+          },
+          {
+            "name": "Wing Attack (Costs 2 Actions)",
+            "desc": "The dragon beats its wings. Each creature within 10 feet of the dragon must succeed on a 19 Dexterity saving throw or take 13 (2d6 + 6) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed."
+          }
+        ],
+        "spells": []
       }
     ],
     [
@@ -28211,60 +28239,6 @@
       }
     ],
     [
-      "Aarakocra",
-      {
-        "image": null,
-        "name": "Aarakocra",
-        "size": "medium",
-        "type": "humanoid (aarakocra), monster manual",
-        "alignment": "neutral good",
-        "ac": 12,
-        "hp": 13,
-        "hit_dice": "3d8",
-        "speed": "20 ft., fly 50 ft.",
-        "stats": [
-          10,
-          14,
-          10,
-          11,
-          12,
-          11
-        ],
-        "saves": [],
-        "skillsaves": [
-          {
-            "Perception": 6
-          }
-        ],
-        "languages": "Auran, Aarakocra",
-        "cr": "1/4",
-        "traits": [
-          {
-            "name": "Dive Attack",
-            "desc": "If the aarakocra is flying and dives at least 30 ft. straight toward a target and then hits it with a melee weapon attack, the attack deals an extra 3 (1d6) damage to the target."
-          }
-        ],
-        "spells": [],
-        "actions": [
-          {
-            "name": "Talon",
-            "desc": "Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) slashing damage."
-          },
-          {
-            "name": "Javelin",
-            "desc": "Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 5 (1d6 + 2) piercing damage."
-          },
-          {
-            "name": "Summon Air Elemental",
-            "desc": "Five aarakocra within 30 feet of each other can magically summon an air elemental. Each of the five must use its action and movement on three consecutive turns to perform an aerial dance and must maintain concentration while doing so (as if concentrating on a spell). When all five have finished their third turn of the dance, the elemental appears in an unoccupied space within 60 feet of them. It is friendly toward them and obeys their spoken commands. It remains for 1 hour, until it or all its summoners die, or until any of its summoners dismisses it as a bonus action. A summoner can't perform the dance again until it finishes a short rest. When the elemental returns to the Elemental Plane of Air, any aarakocra within 5 feet of it can return with it."
-          }
-        ],
-        "legendary_actions": [],
-        "reactions": [],
-        "source": "Monster Manual"
-      }
-    ],
-    [
       "Archmage",
       {
         "image": null,
@@ -46525,21 +46499,328 @@
         "legendary_actions": [],
         "image": null
       }
+    ],
+    [
+      "test23",
+      {
+        "statblock": true,
+        "name": "test23",
+        "size": "Gargantuan",
+        "type": "dragon",
+        "subtype": "abc3",
+        "alignment": "chaotic evil",
+        "ac": 22,
+        "hp": 367,
+        "hit_dice": "21d20",
+        "speed": "40 ft., fly 80 ft., swim 40 ft.",
+        "stats": [
+          27,
+          14,
+          25,
+          16,
+          15,
+          19
+        ],
+        "saves": [
+          {
+            "dexterity": 9
+          },
+          {
+            "constitution": 14
+          },
+          {
+            "wisdom": 9
+          },
+          {
+            "charisma": 11
+          }
+        ],
+        "skillsaves": [
+          {
+            "perception": 16
+          },
+          {
+            "stealth": 9
+          }
+        ],
+        "senses": "blindsight 60 ft., darkvision 120 ft., passive Perception 26",
+        "languages": "Common, Draconic",
+        "cr": 21,
+        "traits": [
+          {
+            "name": "Amphibious",
+            "desc": "The dragon can breathe air and water"
+          },
+          {
+            "name": "Legendary Resistance (3/Day)",
+            "desc": "If the dragon fails a saving throw, it can choose to succeed instead."
+          }
+        ],
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws."
+          },
+          {
+            "name": "Bite",
+            "desc": "Melee Weapon Attack: +15 to hit, reach 15 ft., one target. Hit: 19 (2d10 + 8) piercing damage plus 9 (2d8) acid damage."
+          },
+          {
+            "name": "Claw",
+            "desc": "Melee Weapon Attack: +15 to hit, reach 10 ft., one target. Hit: 15 (2d6 + 8) slashing damage."
+          },
+          {
+            "name": "Tail",
+            "desc": "Melee Weapon Attack: +15 to hit, reach 20 ft ., one target. Hit: 17 (2d8 + 8) bludgeoning damage."
+          },
+          {
+            "name": "Frightful Presence",
+            "desc": "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours."
+          },
+          {
+            "name": "Acid Breath (Recharge 5-6)",
+            "desc": "The dragon exhales acid in a 90-foot line that is 10 feet wide. Each creature in that line must make a DC 22 Dexterity saving throw, taking 67 (15d8) acid damage on a failed save, or half as much damage on a successful one."
+          }
+        ],
+        "reactions": [
+          {
+            "name": "Amphibious",
+            "desc": "The dragon can breathe air and water."
+          },
+          {
+            "name": "Legendary Resistance (3/Day)",
+            "desc": "If the dragon fails a saving throw, it can choose to succeed instead."
+          }
+        ],
+        "legendary_actions": [
+          {
+            "name": "Detect",
+            "desc": "The dragon makes a Wisdom (Perception) check."
+          },
+          {
+            "name": "Tail Attack",
+            "desc": "The dragon makes a tail attack."
+          },
+          {
+            "name": "Wing Attack (Costs 2 Actions),",
+            "desc": "The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed."
+          }
+        ],
+        "spells": [
+          "The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The archmage can cast disguise self and invisibility at will and has the following wizard spells prepared",
+          {
+            "Cantrips (at will)": "fire bolt, light, mage hand, prestidigitation, shocking grasp"
+          },
+          {
+            "1st level (4 slots)": "detect magic, identify, mage armor*, magic missile"
+          },
+          {
+            "2nd level (3 slots)": "detect thoughts, mirror image, misty step"
+          },
+          {
+            "3rd level (3 slots)": "counterspell, fly, lightning bolt"
+          },
+          {
+            "4th level (3 slots)": "banishment, fire shield, stoneskin*"
+          },
+          {
+            "5th level (3 slots)": "cone of cold, scrying, wall of force"
+          },
+          {
+            "6th level (1 slot)": "globe of invulnerability"
+          },
+          {
+            "7th level (1 slot)": "teleport"
+          },
+          {
+            "8th level (1 slot)": "mind blank*"
+          },
+          {
+            "9th level (1 slot)": "time stop"
+          },
+          "* The archmage casts these spells on itself before combat."
+        ],
+        "position": {
+          "start": {
+            "line": 0,
+            "col": 0,
+            "offset": 0
+          },
+          "end": {
+            "line": 66,
+            "col": 3,
+            "offset": 3440
+          }
+        },
+        "note": "Plugin Testing/statblock/YAML Statblock.md",
+        "mtime": 1646935537709
+      }
+    ],
+    [
+      "Adherer",
+      {
+        "image": null,
+        "name": "Adherer",
+        "source": "5e.tools",
+        "type": "aberration",
+        "subtype": "",
+        "size": "Medium",
+        "alignment": "lawful evil",
+        "hp": 45,
+        "hit_dice": "7d8 + 14",
+        "ac": 13,
+        "speed": "30 ft.",
+        "stats": [
+          14,
+          12,
+          14,
+          4,
+          11,
+          8
+        ],
+        "damage_immunities": "",
+        "damage_resistances": "",
+        "damage_vulnerabilities": "fire",
+        "condition_immunities": "",
+        "saves": [],
+        "skillsaves": {
+          "stealth": "3"
+        },
+        "senses": "darkvision 60 ft.",
+        "languages": "Common (understands but can't speak)",
+        "cr": "2",
+        "traits": [
+          {
+            "name": "Adhesive",
+            "desc": "An adherer exudes a sour smelling, gluelike substance that is a powerful adhesive. Any creatures or items that touch it, except for items made of stone, become stuck to the adherer. The adherer automatically grapples and restrains any creature it hits with its slam attack. It can grapple up to two opponents at one time. Gtrappling does not reduce the adherer's number of attacks. Creatures grappled this way can break free with a successful 15 Strength saving throw. A weapon that strikes an adherer is stuck to the creature unless the wielder succeeds on a 12 Dexterity saving throw. Pulling a stuck weapon free requires a successful 12 Strength saving throw. Boiling water thrown on the adherer deals 3 (1d6) points of damage to it and to any creature grappled by the adherer. It also grants tactical advantage on Dexterity saving throw and Strength saving throw to free a weapon or to escape from the adherer's grapple; this bonus lasts for one round. Inflicting fire damage on the adherer also weakens the adhesive, granting tactical advantage on Dexterity saving throw and Strength check for 1d3 rounds. Universal solvent dissolves the adhesive instantly. An adherer can dissolve its adhesive at will, and the substance breaks down naturally one hour after the creature dies."
+          }
+        ],
+        "actions": [
+          {
+            "name": "Multiattack",
+            "desc": "The adherer slams twice."
+          },
+          {
+            "name": "Slam",
+            "desc": "Melee Weapon Attack {@hit +4} to hit, reach 5 ft., one creature. 6 (1d8 + 2) bludgeoning damage. And the target creature is grappled and restrained (see Adhesive)."
+          }
+        ],
+        "reactions": [],
+        "legendary_actions": [],
+        "spells": []
+      }
+    ],
+    [
+      "Nezznar the Black Spider",
+      {
+        "image": null,
+        "name": "Nezznar the Black Spider",
+        "source": "Lost Mine of Phandelver",
+        "type": {
+          "type": "humanoid",
+          "tags": [
+            "elf"
+          ]
+        },
+        "subtype": "",
+        "size": "Medium",
+        "alignment": "neutral evil",
+        "hp": 27,
+        "hit_dice": "6d8",
+        "ac": 11,
+        "speed": "30 ft.",
+        "stats": [
+          9,
+          13,
+          10,
+          16,
+          14,
+          13
+        ],
+        "damage_immunities": "",
+        "damage_resistances": "",
+        "damage_vulnerabilities": "",
+        "condition_immunities": "",
+        "saves": [
+          {
+            "intelligence": "5"
+          },
+          {
+            "wisdom": "4"
+          }
+        ],
+        "skillsaves": {
+          "arcana": "5",
+          "perception": "4",
+          "stealth": "3"
+        },
+        "senses": "darkvision 120 ft.",
+        "languages": "Elvish, Undercommon",
+        "cr": "2",
+        "traits": [
+          {
+            "name": "Special Equipment",
+            "desc": "Nezznar has a spider staff|lmop."
+          },
+          {
+            "name": "Fey Ancestry",
+            "desc": "Nezznar has advantage on saving throws against being charmed, and magic can't put him to sleep."
+          },
+          {
+            "name": "Sunlight Sensitivity",
+            "desc": "Nezznar has disadvantage on attack rolls when he or his target is in sunlight."
+          }
+        ],
+        "actions": [
+          {
+            "name": "Spider Staff",
+            "desc": "Melee Weapon Attack +1 to hit, reach 5 ft., one target. 2 (1d6 - 1) bludgeoning damage plus 3 (1d6) poison damage."
+          }
+        ],
+        "reactions": [],
+        "legendary_actions": [],
+        "spells": [
+          "Nezznar can innately cast the following spells, requiring no material components:",
+          {
+            "At will": "dancing lights"
+          },
+          {
+            "Daily (1e)": "darkness, faerie fire (save 12)"
+          },
+          "Nezznar is a 4th-level spellcaster that uses Intelligence as his spellcasting ability (spell save 13; +5 to hit with spell attacks). Nezznar has the following spells prepared from the wizard's spell list:",
+          {
+            "Cantrips (at will)": "mage hand, ray of frost, shocking grasp"
+          },
+          {
+            "1st level (4 slots)": "mage armor, magic missile, shield"
+          },
+          {
+            "2nd level (3 slots)": "invisibility, suggestion"
+          }
+        ]
+      }
     ]
   ],
   "layouts": [
     {
       "blocks": [
         {
-          "type": "text",
-          "id": "d9f9785b7939",
-          "properties": [
-            "stunts"
-          ],
-          "text": null,
-          "fallback": "-",
-          "markdown": true,
-          "dice": false
+          "type": "inline",
+          "id": "6bd8e818d859",
+          "properties": [],
+          "nested": [
+            {
+              "type": "text",
+              "id": "d9f9785b7939",
+              "properties": [
+                "stunts"
+              ],
+              "text": null,
+              "fallback": "-",
+              "markdown": true,
+              "dice": false
+            }
+          ]
         }
       ],
       "name": "test"
@@ -46552,9 +46833,9 @@
   "showAdvanced": false,
   "version": {
     "major": 2,
-    "minor": 12,
-    "patch": 2
+    "minor": 14,
+    "patch": 0
   },
   "path": "/",
-  "autoParse": false
+  "autoParse": true
 }

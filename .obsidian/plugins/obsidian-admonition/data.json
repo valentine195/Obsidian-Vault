@@ -131,10 +131,10 @@
   "useFontAwesome": true,
   "rpgDownloadedOnce": true,
   "msDocConverted": true,
-  "syncLinks": false,
   "allowMSSyntax": true,
   "msSyntaxIndented": true,
   "livePreviewMS": true,
+  "syncLinks": false,
   "warnedAboutNC": true,
   "enableMarkdownProcessor": false
 }

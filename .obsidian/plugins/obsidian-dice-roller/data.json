@@ -11,7 +11,9 @@
   "displayFormulaForMod": false,
   "displayResultsInline": false,
   "displayLookupRoll": true,
-  "formulas": {},
+  "formulas": {
+    "test": "#location|link"
+  },
   "persistResults": false,
   "results": {
     "Plugin Testing/dice/Dice Roller.md": {
@@ -32,6 +34,7 @@
   "textColor": "#ffffff",
   "showLeafOnStartup": true,
   "showDice": true,
+  "round": "None",
   "useRandomOrg": true,
   "randomOrgKey": "024fb447-3683-4e1a-a6f3-a4b9581ee228"
 }

@@ -1,9 +1,14 @@
+```statblock
+monster: Nezznar the Black Spider
+```
 
-
+```statblock
+monster: Archmage
+```
 
 ```statblock
 layout: Basic 5e Layout Copy
-name: Ancient Black Dragon
+name: "Ancient Black Dragon #3"
 size: Gargantuan
 type: dragon
 subtype:

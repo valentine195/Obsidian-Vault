@@ -1,0 +1,1 @@
+- How often do you work collaboratively vs setting a path forward and working independently?
