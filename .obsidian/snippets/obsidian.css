@@ -3,6 +3,10 @@
     --bgZZ: green;
 }
 
+.callout {
+    background-color: blue !important;
+}
+
 /** Remove scrollbars */
 body:not(.native-scrollbars) ::-webkit-scrollbar, ::-webkit-scrollbar {
     width: 0px;
