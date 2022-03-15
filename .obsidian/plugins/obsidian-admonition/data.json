@@ -58,6 +58,19 @@
       "injectColor": true,
       "noTitle": false
     },
+    "dnd": {
+      "type": "dnd",
+      "color": "172, 54, 181",
+      "icon": {
+        "name": "dice-d20",
+        "type": "font-awesome"
+      },
+      "command": true,
+      "title": "Definition:",
+      "injectColor": true,
+      "noTitle": true,
+      "copy": false
+    },
     "map": {
       "type": "map",
       "color": "0, 0, 0",
@@ -71,19 +84,6 @@
       "noTitle": false,
       "copy": false
     },
-    "dnd": {
-      "type": "dnd",
-      "color": "172, 54, 181",
-      "icon": {
-        "name": "dice-d20",
-        "type": "font-awesome"
-      },
-      "command": true,
-      "title": null,
-      "injectColor": true,
-      "noTitle": true,
-      "copy": false
-    },
     "law": {
       "type": "law",
       "color": "158, 31, 31",
@@ -92,7 +92,17 @@
         "name": "law"
       },
       "command": false,
-      "title": "Definition",
+      "injectColor": true,
+      "noTitle": false
+    },
+    "idea": {
+      "type": "idea",
+      "color": "145, 182, 43",
+      "icon": {
+        "name": "lightbulb",
+        "type": "font-awesome"
+      },
+      "command": false,
       "injectColor": true,
       "noTitle": false,
       "copy": false
@@ -100,20 +110,16 @@
   },
   "syntaxHighlight": true,
   "copyButton": false,
-  "version": "7.0.3",
+  "version": "8.1.0",
   "autoCollapse": false,
   "defaultCollapseType": "open",
-  "syncLinks": false,
   "injectColor": true,
   "parseTitles": true,
-  "allowMSSyntax": true,
-  "msSyntaxIndented": true,
-  "livePreviewMS": true,
   "dropShadow": false,
   "hideEmpty": false,
   "open": {
     "admonitions": true,
-    "icons": false,
+    "icons": true,
     "other": true,
     "advanced": true
   },
@@ -123,6 +129,10 @@
   ],
   "useFontAwesome": true,
   "rpgDownloadedOnce": true,
+  "msDocConverted": false,
+  "allowMSSyntax": true,
+  "msSyntaxIndented": true,
+  "livePreviewMS": true,
   "syncLinks": false,
   "warnedAboutNC": true,
   "enableMarkdownProcessor": false

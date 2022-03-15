@@ -208,7 +208,7 @@
     },
     {
       "id": "azgaar",
-      "lastAccessed": 1646316018287,
+      "lastAccessed": 1647288494562,
       "markers": [
         {
           "id": "ID_a869bb7928aa",
@@ -314,10 +314,10 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "4.14.0",
+  "previousVersion": "5.0.0",
   "version": {
-    "major": 4,
-    "minor": 14,
+    "major": 5,
+    "minor": 0,
     "patch": 0
   },
   "warnedAboutMapMarker": false,
@@ -329,6 +329,7 @@
   "mapViewParameters": {},
   "enableDraw": true,
   "defaultUnitType": "imperial",
-  "defaultTile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-  "defaultTileDark": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  "defaultTile": "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+  "defaultTileDark": "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+  "defaultAttribution": "Map tiles by <a href=\"http://stamen.com\">Stamen Design</a>, under <a href=\"http://creativecommons.org/licenses/by/3.0\">CC BY 3.0</a>. Data by <a href=\"http://openstreetmap.org\">OpenStreetMap</a>, under <a href=\"http://www.openstreetmap.org/copyright\">ODbL</a>."
 }

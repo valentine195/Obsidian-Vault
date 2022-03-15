@@ -1,80 +1,19 @@
-### Party Testing
 ```encounter
-
-# Default Party (all players)
-
-name: Partial Party with Players
+name: Example 1
 creatures:
  - Hobgoblin
  - 3: Goblin
+party: Other
 
 ---
 
-name: Partial Party
-party: Party + Ship
-creatures:
- - Hobgoblin
- - 3: Goblin
-
----
-
-name: Partial Party with Players
-creatures:
- - Hobgoblin
- - 3: Goblin
-party: Party + Ship
-players: 
- - Bob
-
----
-
-name: No Party & No Players
+name: Example 2
 creatures:
  - 3: Hobgoblin
  - Goblin
-
----
-
-name: Just Players
-party: false
-players: 
- - Bob
- - Mim
-creatures:
- - Hobgoblin
- - 3: Goblin
-
----
-
-name: Players = true
-party: false
-players: true
-creatures:
- - 3: Hobgoblin
- - Goblin
- 
----
-
-name: Players = false
-party: false
-players: false
-creatures:
- - 3: Hobgoblin
- - 1d5: Goblin
-
----
-
-name: Players = none
-players: none
-creatures:
- - 3: Hobgoblin
- - 1d5: Goblin
-
-
  
 ```
 
-%%
 ## **Table:**
 ```encounter-table
 name: Example 1
@@ -117,6 +56,34 @@ creatures:
 
 `dice: [[Encounter#^test-encounter]]`
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%
 ```encounter
 hide: players
 players: 

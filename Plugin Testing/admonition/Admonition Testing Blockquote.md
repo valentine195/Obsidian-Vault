@@ -4,7 +4,7 @@
 
 a
 
-> [!law: a]+
+> [!law]+ a
 > > [!note]
 > > test
 > 
@@ -15,7 +15,7 @@ a
 abc
 
 
-> [!note: Testing!]
+> [!note] Testing!
 > abc
 > def
 - a

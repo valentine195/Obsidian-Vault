@@ -1,6 +1,5 @@
 {
   "pluginList": [
-    "nothingislost/obsidian-query-control",
     "valentine195/obsidian-discordrpc",
     "valentine195/obsidian-image-window",
     "nothingislost/obsidian-bartender",
@@ -14,6 +13,5 @@
   "loggingEnabled": false,
   "loggingPath": "BRAT-log",
   "loggingVerboseEnabled": false,
-  "debuggingMode": true,
-  "notificationsEnabled": true
+  "debuggingMode": true
 }

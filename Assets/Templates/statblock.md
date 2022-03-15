@@ -3,7 +3,6 @@ type: statblock
 xtags:
   - statblock
 date updated: '2021-05-18T13:31:43-04:00'
-
 ---
 
 <span class='nav'>[History](#History) [Notes](#Notes)</span>

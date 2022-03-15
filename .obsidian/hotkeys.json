@@ -2,7 +2,7 @@
   "app:toggle-right-sidebar": [
     {
       "modifiers": [
-        "Alt"
+        "Mod"
       ],
       "key": "ArrowRight"
     }
@@ -10,7 +10,7 @@
   "app:toggle-left-sidebar": [
     {
       "modifiers": [
-        "Alt"
+        "Mod"
       ],
       "key": "ArrowLeft"
     }
