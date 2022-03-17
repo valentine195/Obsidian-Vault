@@ -6381,8 +6381,8 @@
           "auto": true
         },
         {
-          "id": "ID_b9b9aa2b08bb",
-          "name": "Teega joins Backes at the Wayside Inn",
+          "id": "ID_ca88c8281a99",
+          "name": "Backes gets a job at the Wayside Inn",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6433,8 +6433,8 @@
           "auto": true
         },
         {
-          "id": "ID_b87b0bc8988a",
-          "name": "Xanth arrives at Edermath Orchard",
+          "id": "ID_0bf98b99bbd9",
+          "name": "Anchorites of Talos summon Gorthok",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6446,8 +6446,8 @@
           "auto": true
         },
         {
-          "id": "ID_78bb2ad97ae9",
-          "name": "Orcs (Splinter-6) attack Phandalin; mostly destroyed (orc-hero)",
+          "id": "ID_7b5aeb7b298a",
+          "name": "Mabina travels to Triboar",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6459,8 +6459,8 @@
           "auto": true
         },
         {
-          "id": "ID_982a0b0bdb98",
-          "name": "Mabina travels to Thornhold",
+          "id": "ID_7acb395959ca",
+          "name": "Cryovain destroyed",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6472,8 +6472,8 @@
           "auto": true
         },
         {
-          "id": "ID_2858394b38da",
-          "name": "Sildar Hallwinter / Jeremiah Mundu and a wagon of supplies leave Neverwinter bound for Phandalin",
+          "id": "ID_e9296a58989a",
+          "name": "Orcs (Splinter-2) are destroyed",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6498,8 +6498,8 @@
           "auto": true
         },
         {
-          "id": "ID_1a4ad8d88afa",
-          "name": "Xanth rejoins party",
+          "id": "ID_68abbaca0a59",
+          "name": "Orcs (Splinter-7) and Gorthok attack Falcon's Lodge",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6507,12 +6507,12 @@
             "day": 13
           },
           "timestamp": 1498091300,
-          "description": "",
+          "description": "Gorthok knocks down the palisade at Falcon's Lodge. Orc(Splinter-7) destroyed except for orc-hero and 3 friends.",
           "auto": true
         },
         {
-          "id": "ID_cbeb3988ba1a",
-          "name": "Reidoth joins the party at Circle of Thunder",
+          "id": "ID_c95bdaa87a49",
+          "name": "Flenz, Narux, Circle of Thunder destroyed",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6537,8 +6537,8 @@
           "auto": true
         },
         {
-          "id": "ID_391b684b1b0b",
-          "name": "Mabina travels to Leilon",
+          "id": "ID_2b5bbaab3a7b",
+          "name": "Fheralai expects reports from Yargath and Grannoc",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6602,8 +6602,8 @@
           "auto": true
         },
         {
-          "id": "ID_d9db9a5bc86a",
-          "name": "Mabina arrives in Silverymoon",
+          "id": "ID_2aca78faaa69",
+          "name": "Venomfang destroyed",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6693,8 +6693,8 @@
           "auto": true
         },
         {
-          "id": "ID_0aeb881a08a9",
-          "name": "Copperhorn dwarves gather additional supplies in Neverwinter",
+          "id": "ID_3bca1b9829db",
+          "name": "Mabina trades the Bauble",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6706,8 +6706,8 @@
           "auto": true
         },
         {
-          "id": "ID_e82b694bbbb9",
-          "name": "Miners arrive with supplies for Mountain's Toe",
+          "id": "ID_0bfab8bba87b",
+          "name": "Dazzlyn and Norbus try to claim Axeholm",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6715,12 +6715,12 @@
             "day": 28
           },
           "timestamp": 1498082800,
-          "description": "",
+          "description": "Enterprising business partners didn't know that dwarven claim already established via Lords' Alliance.",
           "auto": true
         },
         {
-          "id": "ID_0938e89aebeb",
-          "name": "Copperhorn dwarves arrive in Phandalin",
+          "id": "ID_c93bb9990a98",
+          "name": "Mabina in Yartar",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6797,8 +6797,8 @@
           "auto": true
         },
         {
-          "id": "ID_dafa2bb81b1b",
-          "name": "Zoolte in disbelief",
+          "id": "ID_782aeb991ada",
+          "name": "Mabina travels to Neverwinter",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6836,8 +6836,8 @@
           "auto": true
         },
         {
-          "id": "ID_58b80a8889a8",
-          "name": "Lionshield Coster wagon is ambushed. Sildar and Jeremiah captured",
+          "id": "ID_4a0bb929985b",
+          "name": "Mabina travels to Triboar",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6914,8 +6914,8 @@
           "auto": true
         },
         {
-          "id": "ID_38c8d9fb08f8",
-          "name": "Orcs (Splinter-4) attack near Dwarven Excavation; destroyed",
+          "id": "ID_093a8b1a3b89",
+          "name": "Zoolte finds the killers",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6927,8 +6927,8 @@
           "auto": true
         },
         {
-          "id": "ID_78e8fadb1939",
-          "name": "Xanth leaves forest",
+          "id": "ID_08e8aa987b8a",
+          "name": "Zoolte finds the killers",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6966,8 +6966,8 @@
           "auto": true
         },
         {
-          "id": "ID_4a9bca1a783b",
-          "name": "Orcs (Splinter-2) find Grannoc at Woodland Manse",
+          "id": "ID_7928bb8a797a",
+          "name": "Orcs (Splinter-1) settle at Shrine of Savras; Whiskered Gang flees",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -7122,8 +7122,8 @@
           "auto": true
         },
         {
-          "id": "ID_ca49ba79585b",
-          "name": "Mining supplies for Dazlyn and Norbus leave Neverwinter",
+          "id": "ID_b88879c868db",
+          "name": "Xanth leads party to Falcon's Lodge",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -7161,8 +7161,8 @@
           "auto": true
         },
         {
-          "id": "ID_49f9b8ab6a89",
-          "name": "Harbin receives response from Lords' Alliance",
+          "id": "ID_aa4b79682b58",
+          "name": "Dwarves leave Gauntlgrym",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -7170,7 +7170,7 @@
             "day": 25
           },
           "timestamp": 1498082500,
-          "description": "Notifies Halia of claim to Axeholm by Copperhorn dwarves",
+          "description": "",
           "auto": true
         },
         {
