@@ -108,6 +108,8 @@
   "useFontAwesome": true,
   "rpgDownloadedOnce": true,
   "msDocConverted": false,
+  "useSnippet": false,
+  "snippetPath": "custom-admonitions.133203",
   "allowMSSyntax": true,
   "msSyntaxIndented": true,
   "livePreviewMS": true,
