@@ -61,11 +61,34 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false
+    },
+    "law": {
+      "type": "law",
+      "color": "158, 31, 31",
+      "icon": {
+        "type": "octicons",
+        "name": "law"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
+    },
+    "idea": {
+      "type": "idea",
+      "color": "145, 182, 43",
+      "icon": {
+        "name": "lightbulb",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false,
+      "copy": false
     }
   },
   "syntaxHighlight": true,
   "copyButton": false,
-  "version": "8.2.1",
+  "version": "8.1.0",
   "autoCollapse": false,
   "defaultCollapseType": "open",
   "injectColor": true,
@@ -85,12 +108,10 @@
   "useFontAwesome": true,
   "rpgDownloadedOnce": true,
   "msDocConverted": false,
-  "useSnippet": true,
-  "snippetPath": "custom-admonitions.8163f9",
-  "syncLinks": false,
   "allowMSSyntax": true,
   "msSyntaxIndented": true,
   "livePreviewMS": true,
+  "syncLinks": false,
   "warnedAboutNC": true,
   "enableMarkdownProcessor": false
 }

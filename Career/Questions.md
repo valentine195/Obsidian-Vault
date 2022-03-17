@@ -6,4 +6,3 @@
 - company culture - I’ve seen that several people I’ve met with have been with the company for 10+ years
 - What would you like to see _from me_ in the first few months of starting in this role?
 - I saw there was a [Nationwide Hackathon](https://www.hackerearth.com/challenges/hackathon/nationwide-hackathon/) using the API - can you tell me more about it?
-- How much is the team growing?

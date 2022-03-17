@@ -1,0 +1,5 @@
+/* src/assets/callout.scss */
+.callout:not(.admonition) .no-title {
+  display: none;
+}
+/*# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vLi4vR2l0SHViL1BlcnNvbmFsL29ic2lkaWFuLWFkbW9uaXRpb24vc3JjL2Fzc2V0cy9jYWxsb3V0LnNjc3MiXSwKICAic291cmNlc0NvbnRlbnQiOiBbbnVsbF0sCiAgIm1hcHBpbmdzIjogIjtBQUNJO0FBQ0k7OyIsCiAgIm5hbWVzIjogW10KfQo= */

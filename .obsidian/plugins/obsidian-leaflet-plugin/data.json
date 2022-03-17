@@ -208,7 +208,7 @@
     },
     {
       "id": "azgaar",
-      "lastAccessed": 1647390892360,
+      "lastAccessed": 1647288494562,
       "markers": [
         {
           "id": "ID_a869bb7928aa",
@@ -314,11 +314,11 @@
   "long": -82.98333,
   "notePreview": false,
   "layerMarkers": true,
-  "previousVersion": "5.0.1",
+  "previousVersion": "5.0.0",
   "version": {
     "major": 5,
     "minor": 0,
-    "patch": 1
+    "patch": 0
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": true,
