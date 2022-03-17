@@ -1,5 +1,5 @@
 {
-  "baseFontSize": 13,
+  "baseFontSize": 16,
   "cssTheme": "Ebullientworks",
   "enabledCssSnippets": [
     "obsidian.auto-fading",
@@ -22,10 +22,7 @@
     "admonitions.recite",
     "supercharged-links-gen",
     "admonitions",
-    "colors.folders",
     "dataview.metadata",
-    "ebullient.colors.folders.overrides",
-    "ebullient.overrides",
     "ebullient.workspace-header",
     "fading",
     "fonts",
@@ -36,7 +33,12 @@
     "icons.minimal",
     "minimal.settings",
     "obsidian",
-    "frontmatter.floating"
+    "frontmatter.floating",
+    "custom-admonitions.8163f9",
+    "colors.ebullient",
+    "colors.folders",
+    "ebullient.overrides",
+    "ebullient.colors.folders.overrides"
   ],
-  "theme": "obsidian"
+  "theme": "moonstone"
 }

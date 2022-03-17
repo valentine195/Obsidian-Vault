@@ -11,20 +11,9 @@
       "injectColor": true,
       "noTitle": false
     },
-    "toc": {
-      "type": "toc",
-      "color": "182, 169, 255",
-      "icon": {
-        "name": "book",
-        "type": "font-awesome"
-      },
-      "command": false,
-      "injectColor": true,
-      "noTitle": true
-    },
     "recite": {
       "type": "recite",
-      "color": "169, 190, 174",
+      "color": "15, 163, 65",
       "icon": {
         "name": "book-reader",
         "type": "font-awesome"
@@ -36,7 +25,7 @@
     },
     "flame": {
       "type": "flame",
-      "color": "255, 255, 255",
+      "color": "158, 158, 158",
       "icon": {
         "name": "flame-symbol",
         "type": "rpg"
@@ -47,20 +36,9 @@
       "noTitle": false,
       "copy": false
     },
-    "acid": {
-      "type": "acid",
-      "color": "#7d7d7d",
-      "icon": {
-        "name": "acid",
-        "type": "rpg"
-      },
-      "command": false,
-      "injectColor": true,
-      "noTitle": false
-    },
     "dnd": {
       "type": "dnd",
-      "color": "172, 54, 181",
+      "color": "168, 45, 180",
       "icon": {
         "name": "dice-d20",
         "type": "font-awesome"
@@ -83,35 +61,20 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false
-    },
-    "law": {
-      "type": "law",
-      "color": "158, 31, 31",
-      "icon": {
-        "type": "octicons",
-        "name": "law"
-      },
-      "command": false,
-      "injectColor": true,
-      "noTitle": false
     }
   },
   "syntaxHighlight": true,
   "copyButton": false,
-  "version": "7.0.1",
+  "version": "8.2.1",
   "autoCollapse": false,
   "defaultCollapseType": "open",
-  "syncLinks": false,
   "injectColor": true,
   "parseTitles": true,
-  "allowMSSyntax": true,
-  "msSyntaxIndented": true,
-  "livePreviewMS": true,
   "dropShadow": false,
   "hideEmpty": false,
   "open": {
     "admonitions": true,
-    "icons": true,
+    "icons": false,
     "other": true,
     "advanced": true
   },
@@ -121,6 +84,13 @@
   ],
   "useFontAwesome": true,
   "rpgDownloadedOnce": true,
+  "msDocConverted": false,
+  "useSnippet": true,
+  "snippetPath": "custom-admonitions.8163f9",
+  "syncLinks": false,
+  "allowMSSyntax": true,
+  "msSyntaxIndented": true,
+  "livePreviewMS": true,
   "warnedAboutNC": true,
   "enableMarkdownProcessor": false
 }

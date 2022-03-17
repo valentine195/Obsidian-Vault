@@ -3,6 +3,15 @@
     --bgZZ: green;
 }
 
+.callout[data-callout="note"] {
+    --callout-color: 255, 0, 0 !important;
+    color: rgb(255, 0, 0) !important;
+}
+.callout[data-callout="alsatian-dog"] {
+    --callout-color: 255, 0, 0 !important;
+    color: rgb(255, 0, 0) !important;
+}
+
 /** Remove scrollbars */
 body:not(.native-scrollbars) ::-webkit-scrollbar, ::-webkit-scrollbar {
     width: 0px;

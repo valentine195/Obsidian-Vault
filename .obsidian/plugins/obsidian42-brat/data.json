@@ -1,10 +1,8 @@
 {
   "pluginList": [
-    "valentine195/obsidian-discordrpc",
-    "valentine195/obsidian-image-window",
+    "nothingislost/obsidian-hover-editor",
     "nothingislost/obsidian-bartender",
-    "KjellConnelly/obsidian-dev-tools",
-    "ebullient/obsidian-snippetor"
+    "KjellConnelly/obsidian-dev-tools"
   ],
   "themesList": [],
   "updateAtStartup": false,
@@ -13,5 +11,6 @@
   "loggingEnabled": false,
   "loggingPath": "BRAT-log",
   "loggingVerboseEnabled": false,
-  "debuggingMode": true
+  "debuggingMode": true,
+  "notificationsEnabled": true
 }

@@ -121,7 +121,7 @@
   "initiative": "1d20 + %mod%",
   "modifier": null,
   "sync": false,
-  "leafletIntegration": true,
+  "leafletIntegration": false,
   "playerMarker": "player",
   "monsterMarker": "monster",
   "state": null,

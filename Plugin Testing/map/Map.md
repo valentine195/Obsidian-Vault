@@ -1,10 +1,11 @@
 ```leaflet
 id: azgaar
-bounds: [[0,0], [2135,4271]]
-image: [[Verraine 2022-01-31-09-52.svg]]
-height: 100%
-minZoom: -5
-defaultZoom: 0
-coordinates: [[Voldshee]]
-markerFile: [[Voldshee]]
+gpx: 
+ - [[route_2020-04-20_4.43pm.gpx]]
+ - [[route_2020-04-10_4.55pm.gpx]]
+ - [[route_2020-04-18_11.38am.gpx]]
+unit: meters
+minZoom: -10
+maxZoom: 20
+zoomFeatures: true
 ```

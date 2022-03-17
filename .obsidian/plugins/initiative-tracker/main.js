@@ -5170,7 +5170,7 @@ function instance($$self, $$props, $$invalidate) {
   let { plugin } = $$props;
   let { name = "Encounter" } = $$props;
   let { creatures } = $$props;
-  let { players = true } = $$props;
+  let { players } = $$props;
   let { party = null } = $$props;
   let { hide: hide2 = [] } = $$props;
   let { xp } = $$props;
@@ -5206,7 +5206,7 @@ function instance($$self, $$props, $$invalidate) {
         return [creature];
       return [...Array(number).keys()].map((v) => Creature.from(creature));
     }).flat();
-    view === null || view === void 0 ? void 0 : view.newEncounter({ name, players, creatures: creatures2, xp });
+    view === null || view === void 0 ? void 0 : view.newEncounter({ party, name, players, creatures: creatures2, xp });
     plugin.app.workspace.revealLeaf(view.leaf);
   });
   const addButton = (node) => {
@@ -6304,24 +6304,24 @@ var EncounterParser = class {
     return [];
   }
   parsePlayers(params) {
-    let partyName = params.party ?? this.plugin.data.defaultParty;
-    let players = params.players;
+    const partyName = params.party ?? this.plugin.data.defaultParty;
+    const playersToReturn = [];
+    const players = params.players;
     if (partyName && this.plugin.data.parties.find((p) => p.name.toLowerCase() == partyName.toLowerCase())) {
       const party = this.plugin.data.parties.find((p) => p.name.toLowerCase() == partyName.toLowerCase());
-      players = party.players;
+      playersToReturn.push(...party.players);
     }
     if (players == "none" || players == false) {
-      return [];
+      playersToReturn.splice(0, playersToReturn.length);
+    } else if (players == true) {
+      playersToReturn.push(...this.plugin.data.players.map((p) => p.name));
+    } else if (!players && !params.party) {
+    } else if (typeof players == "string") {
+      playersToReturn.push(players);
+    } else if (Array.isArray(players)) {
+      playersToReturn.push(...(this.plugin.data.players ?? []).map((p) => p.name).filter((p) => players.map((n) => n.toLowerCase()).includes(p.toLowerCase())));
     }
-    if (!players || players == true) {
-      return [...this.plugin.data.players.map((p) => p.name)];
-    }
-    if (typeof players == "string") {
-      return [players];
-    }
-    if (Array.isArray(players)) {
-      return (this.plugin.data.players ?? []).filter((p) => players.map((n) => n.toLowerCase()).includes(p.name.toLowerCase())).map((p) => p.name);
-    }
+    return Array.from(new Set(playersToReturn));
   }
   async parseRawCreatures(rawMonsters) {
     const creatureMap = /* @__PURE__ */ new Map();
@@ -26076,9 +26076,10 @@ function instance5($$self, $$props, $$invalidate) {
         const partyMenu = new import_obsidian10.Menu(plugin.app).setNoIcon();
         for (const party of plugin.data.parties) {
           partyMenu.addItem((item2) => {
+            var _a;
             item2.setTitle(party.name).onClick(() => {
               view.switchParty(party.name);
-            }).setDisabled(view.party == party.name);
+            }).setDisabled(((_a = view.party) === null || _a === void 0 ? void 0 : _a.name) == party.name);
           });
         }
         partyMenu.showAtMouseEvent(evt);
@@ -28354,18 +28355,18 @@ function create_else_block5(ctx) {
   };
 }
 function create_if_block_14(ctx) {
-  let span;
+  let strong;
   let t_value = ctx[0].name + "";
   let t;
   return {
     c() {
-      span = element("span");
+      strong = element("strong");
       t = text(t_value);
-      attr(span, "class", "name svelte-cnqzyh");
+      attr(strong, "class", "name player svelte-cnqzyh");
     },
     m(target, anchor) {
-      insert(target, span, anchor);
-      append(span, t);
+      insert(target, strong, anchor);
+      append(strong, t);
     },
     p(ctx2, dirty) {
       if (dirty & 1 && t_value !== (t_value = ctx2[0].name + ""))
@@ -28373,7 +28374,7 @@ function create_if_block_14(ctx) {
     },
     d(detaching) {
       if (detaching)
-        detach(span);
+        detach(strong);
     }
   };
 }
@@ -30333,7 +30334,6 @@ var LoadEncounter = class extends SvelteComponent {
 var LoadEncounter_default = LoadEncounter;
 
 // src/svelte/App.svelte
-var import_console = __toModule(require("console"));
 function add_css14(target) {
   append_styles(target, "svelte-rp16qm", ".obsidian-initiative-tracker.svelte-rp16qm{margin:0.5rem;min-width:180px}.initiative-tracker-round-container.svelte-rp16qm,.initiave-tracker-party.svelte-rp16qm{padding:0 0.5rem}.add-creature-container.svelte-rp16qm{display:flex;flex-flow:column nowrap;justify-content:flex-start;margin-right:0.5rem}.context-container.svelte-rp16qm{display:flex;flex-flow:row nowrap;justify-content:space-between}.copy-button.svelte-rp16qm{width:min-content;opacity:0.25}.copy-button.svelte-rp16qm:hover{opacity:1}.add-button.svelte-rp16qm{width:min-content}.add-button.svelte-rp16qm .clickable-icon{margin:0}.initiative-tracker-name-container.svelte-rp16qm{display:flex;justify-content:space-between;align-items:center;padding:0 0.5rem}.initiative-tracker-name.svelte-rp16qm{margin:0}");
 }
@@ -30397,7 +30397,7 @@ function create_if_block_62(ctx) {
   let h2;
   let t0;
   let t1;
-  let if_block = ctx[10] > 0 && create_if_block_72(ctx);
+  let if_block = ctx[11] > 0 && create_if_block_72(ctx);
   return {
     c() {
       div = element("div");
@@ -30420,7 +30420,7 @@ function create_if_block_62(ctx) {
     p(ctx2, dirty) {
       if (dirty[0] & 16)
         set_data(t0, ctx2[4]);
-      if (ctx2[10] > 0) {
+      if (ctx2[11] > 0) {
         if (if_block) {
           if_block.p(ctx2, dirty);
         } else {
@@ -30448,7 +30448,7 @@ function create_if_block_72(ctx) {
   return {
     c() {
       span = element("span");
-      t0 = text(ctx[10]);
+      t0 = text(ctx[11]);
       t1 = text(" XP");
       attr(span, "class", "initiative-tracker-xp encounter-xp");
     },
@@ -30458,8 +30458,8 @@ function create_if_block_72(ctx) {
       append(span, t1);
     },
     p(ctx2, dirty) {
-      if (dirty[0] & 1024)
-        set_data(t0, ctx2[10]);
+      if (dirty[0] & 2048)
+        set_data(t0, ctx2[11]);
     },
     d(detaching) {
       if (detaching)
@@ -30510,7 +30510,7 @@ function create_else_block7(ctx) {
   const if_block_creators = [create_if_block_43, create_else_block_12];
   const if_blocks = [];
   function select_block_type_1(ctx2, dirty) {
-    if (ctx2[12] || ctx2[11] || ctx2[2])
+    if (ctx2[13] || ctx2[12] || ctx2[2])
       return 0;
     return 1;
   }
@@ -30764,13 +30764,13 @@ function create_if_block_43(ctx) {
   let current;
   create = new Create_default({
     props: {
-      editing: ctx[12] != null,
-      name: ctx[12]?.name,
-      display: ctx[12]?.display,
-      hp: `${ctx[12]?.hp}`,
-      initiative: ctx[12]?.initiative,
-      modifier: ctx[12]?.modifier,
-      ac: `${ctx[12]?.ac}`
+      editing: ctx[13] != null,
+      name: ctx[13]?.name,
+      display: ctx[13]?.display,
+      hp: `${ctx[13]?.hp}`,
+      initiative: ctx[13]?.initiative,
+      modifier: ctx[13]?.modifier,
+      ac: `${ctx[13]?.ac}`
     }
   });
   create.$on("cancel", ctx[35]);
@@ -30785,20 +30785,20 @@ function create_if_block_43(ctx) {
     },
     p(ctx2, dirty) {
       const create_changes = {};
-      if (dirty[0] & 4096)
-        create_changes.editing = ctx2[12] != null;
-      if (dirty[0] & 4096)
-        create_changes.name = ctx2[12]?.name;
-      if (dirty[0] & 4096)
-        create_changes.display = ctx2[12]?.display;
-      if (dirty[0] & 4096)
-        create_changes.hp = `${ctx2[12]?.hp}`;
-      if (dirty[0] & 4096)
-        create_changes.initiative = ctx2[12]?.initiative;
-      if (dirty[0] & 4096)
-        create_changes.modifier = ctx2[12]?.modifier;
-      if (dirty[0] & 4096)
-        create_changes.ac = `${ctx2[12]?.ac}`;
+      if (dirty[0] & 8192)
+        create_changes.editing = ctx2[13] != null;
+      if (dirty[0] & 8192)
+        create_changes.name = ctx2[13]?.name;
+      if (dirty[0] & 8192)
+        create_changes.display = ctx2[13]?.display;
+      if (dirty[0] & 8192)
+        create_changes.hp = `${ctx2[13]?.hp}`;
+      if (dirty[0] & 8192)
+        create_changes.initiative = ctx2[13]?.initiative;
+      if (dirty[0] & 8192)
+        create_changes.modifier = ctx2[13]?.modifier;
+      if (dirty[0] & 8192)
+        create_changes.ac = `${ctx2[13]?.ac}`;
       create.$set(create_changes);
     },
     i(local) {
@@ -30833,7 +30833,7 @@ function create_fragment15(ctx) {
   controls = new Controls_default({
     props: {
       state: ctx[5],
-      map: ctx[17]
+      map: ctx[10]
     }
   });
   controls.$on("save", ctx[25]);
@@ -30863,9 +30863,9 @@ function create_fragment15(ctx) {
       return 0;
     if (ctx2[1])
       return 1;
-    if (ctx2[14])
-      return 2;
     if (ctx2[15])
+      return 2;
+    if (ctx2[16])
       return 3;
     return 4;
   }
@@ -30930,6 +30930,8 @@ function create_fragment15(ctx) {
       const controls_changes = {};
       if (dirty[0] & 32)
         controls_changes.state = ctx2[5];
+      if (dirty[0] & 1024)
+        controls_changes.map = ctx2[10];
       controls.$set(controls_changes);
       if (ctx2[5]) {
         if (if_block1) {
@@ -31081,7 +31083,7 @@ function instance15($$self, $$props, $$invalidate) {
   let { view } = $$props;
   let { round: round3 } = $$props;
   let { party = null } = $$props;
-  let map = plugin.data.leafletIntegration;
+  let { map = plugin.data.leafletIntegration } = $$props;
   setContext("plugin", plugin);
   setContext("view", view);
   let totalXP = xp;
@@ -31100,7 +31102,7 @@ function instance15($$self, $$props, $$invalidate) {
   let editCreature = null;
   const addButton = (node) => {
     new import_obsidian18.ExtraButtonComponent(node).setTooltip("Add Creature").setIcon(ADD).onClick(() => {
-      $$invalidate(11, addNew = true);
+      $$invalidate(12, addNew = true);
     });
   };
   const copyButton = (node) => {
@@ -31111,16 +31113,16 @@ function instance15($$self, $$props, $$invalidate) {
   };
   let modal;
   const suggestConditions = (node) => {
-    $$invalidate(13, modal = new ConditionSuggestionModal(view.plugin, node));
-    $$invalidate(13, modal.onClose = () => {
+    $$invalidate(14, modal = new ConditionSuggestionModal(view.plugin, node));
+    $$invalidate(14, modal.onClose = () => {
       node.blur();
     }, modal);
     modal.open();
   };
   let saving = false;
   let loading = false;
-  const save_handler = () => $$invalidate(14, saving = true);
-  const load_handler = () => $$invalidate(15, loading = true);
+  const save_handler = () => $$invalidate(15, saving = true);
+  const load_handler = () => $$invalidate(16, loading = true);
   const hp_handler = (evt) => {
     $$invalidate(0, updatingHP = evt.detail);
   };
@@ -31128,7 +31130,7 @@ function instance15($$self, $$props, $$invalidate) {
     $$invalidate(1, updatingStatus = evt.detail);
   };
   const edit_handler = (evt) => {
-    $$invalidate(12, editCreature = evt.detail);
+    $$invalidate(13, editCreature = evt.detail);
   };
   const blur_handler = function(evt) {
     updateHP(Number(this.value));
@@ -31143,17 +31145,16 @@ function instance15($$self, $$props, $$invalidate) {
     }
     addStatus(modal.condition);
   };
-  const cancel_handler = () => $$invalidate(14, saving = false);
-  const cancel_handler_1 = () => $$invalidate(15, loading = false);
+  const cancel_handler = () => $$invalidate(15, saving = false);
+  const cancel_handler_1 = () => $$invalidate(16, loading = false);
   const cancel_handler_2 = () => {
-    $$invalidate(11, addNew = false);
+    $$invalidate(12, addNew = false);
     $$invalidate(2, addNewAsync = false);
-    $$invalidate(12, editCreature = null);
+    $$invalidate(13, editCreature = null);
     dispatch("cancel-add-new-async");
   };
   const save_handler_1 = (evt) => {
     const creature = evt.detail;
-    console.log(creature.display);
     const newCreature = new Creature({
       name: creature.name,
       display: creature.display,
@@ -31168,19 +31169,19 @@ function instance15($$self, $$props, $$invalidate) {
     if (addNewAsync) {
       dispatch("add-new-async", newCreature);
     } else if (editCreature) {
-      $$invalidate(12, editCreature.name = creature.name, editCreature);
-      $$invalidate(12, editCreature.ac = creature.ac, editCreature);
-      $$invalidate(12, editCreature.display = creature.display, editCreature);
-      $$invalidate(12, editCreature.initiative = creature.initiative, editCreature);
-      $$invalidate(12, editCreature.modifier = creature.modifier, editCreature);
+      $$invalidate(13, editCreature.name = creature.name, editCreature);
+      $$invalidate(13, editCreature.ac = creature.ac, editCreature);
+      $$invalidate(13, editCreature.display = creature.display, editCreature);
+      $$invalidate(13, editCreature.initiative = creature.initiative, editCreature);
+      $$invalidate(13, editCreature.modifier = creature.modifier, editCreature);
       view.updateCreature(editCreature, { name: creature.name });
     } else {
       const number = Math.max(isNaN(creature.number) ? 1 : creature.number, 1);
       view.addCreatures([...Array(number).keys()].map((k) => Creature.new(newCreature)));
     }
-    $$invalidate(11, addNew = false);
+    $$invalidate(12, addNew = false);
     $$invalidate(2, addNewAsync = false);
-    $$invalidate(12, editCreature = null);
+    $$invalidate(13, editCreature = null);
   };
   $$self.$$set = ($$props2) => {
     if ("creatures" in $$props2)
@@ -31199,6 +31200,8 @@ function instance15($$self, $$props, $$invalidate) {
       $$invalidate(8, round3 = $$props2.round);
     if ("party" in $$props2)
       $$invalidate(9, party = $$props2.party);
+    if ("map" in $$props2)
+      $$invalidate(10, map = $$props2.map);
     if ("updatingHP" in $$props2)
       $$invalidate(0, updatingHP = $$props2.updatingHP);
     if ("updatingStatus" in $$props2)
@@ -31210,7 +31213,7 @@ function instance15($$self, $$props, $$invalidate) {
     if ($$self.$$.dirty[0] & 25165832) {
       $: {
         if (!xp) {
-          $$invalidate(10, totalXP = $$invalidate(24, _a = creatures === null || creatures === void 0 ? void 0 : creatures.filter((creature) => creature.xp)) === null || _a === void 0 ? void 0 : _a.reduce((num, cr) => num + cr.xp, 0));
+          $$invalidate(11, totalXP = $$invalidate(24, _a = creatures === null || creatures === void 0 ? void 0 : creatures.filter((creature) => creature.xp)) === null || _a === void 0 ? void 0 : _a.reduce((num, cr) => num + cr.xp, 0));
         }
       }
     }
@@ -31226,6 +31229,7 @@ function instance15($$self, $$props, $$invalidate) {
     view,
     round3,
     party,
+    map,
     totalXP,
     addNew,
     editCreature,
@@ -31233,7 +31237,6 @@ function instance15($$self, $$props, $$invalidate) {
     saving,
     loading,
     dispatch,
-    map,
     updateHP,
     addStatus,
     addButton,
@@ -31267,6 +31270,7 @@ var App3 = class extends SvelteComponent {
       view: 7,
       round: 8,
       party: 9,
+      map: 10,
       updatingHP: 0,
       updatingStatus: 1,
       addNewAsync: 2
@@ -31286,7 +31290,8 @@ var TrackerView = class extends import_obsidian19.ItemView {
     this.condense = this.plugin.data.condense;
     this.round = 1;
     this._rendered = false;
-    this.party = this.plugin.data.defaultParty;
+    this.party = this.plugin.defaultParty;
+    this.playerNames = [];
     if (this.plugin.data.state?.creatures?.length) {
       this.newEncounterFromState(this.plugin.data.state);
     } else {
@@ -31350,8 +31355,8 @@ var TrackerView = class extends import_obsidian19.ItemView {
   async switchParty(party) {
     if (!this.plugin.data.parties.find((p) => p.name == party))
       return;
-    this.party = party;
-    this.setAppState({ party: this.party });
+    this.party = this.plugin.data.parties.find((p) => p.name == party);
+    this.setAppState({ party: this.party.name });
     this.creatures = this.creatures.filter((p) => !p.player);
     for (const player of this.players) {
       player.initiative = await this.getInitiativeValue(player.modifier);
@@ -31360,7 +31365,7 @@ var TrackerView = class extends import_obsidian19.ItemView {
   }
   get players() {
     if (this.party) {
-      let players = this.plugin.data.parties.find((p) => p.name == this.party)?.players;
+      let players = this.party.players;
       if (players) {
         return Array.from(this.plugin.playerCreatures.values()).filter((p) => players.includes(p.name));
       }
@@ -31454,25 +31459,31 @@ var TrackerView = class extends import_obsidian19.ItemView {
   }
   async newEncounter({
     name,
-    players = true,
+    party = this.party?.name,
+    players = [...this.plugin.data.players.map((p) => p.name)],
     creatures = [],
     roll = true,
     xp = null
   } = {}) {
-    if (players instanceof Array && players.length) {
-      this.creatures = [
-        ...this.players.filter((p) => players.includes(p.name))
-      ];
-    } else if (players === true) {
-      this.creatures = [...this.players];
-    } else {
-      this.creatures = [];
+    this.creatures = [];
+    const playerNames = new Set(players ?? []);
+    if (party && party != this.party?.name) {
+      this.party = this.plugin.data.parties.find((p) => p.name == party);
+      for (const player of this.players) {
+        playerNames.add(player.name);
+      }
+    }
+    for (const player of playerNames) {
+      if (!this.plugin.playerCreatures.has(player))
+        continue;
+      this.creatures.push(this.plugin.playerCreatures.get(player));
     }
     if (creatures)
       this.setCreatures([...this.creatures, ...creatures]);
     this.name = name;
     this.round = 1;
     this.setAppState({
+      party: this.party?.name,
       name: this.name,
       round: this.round,
       xp
@@ -31676,7 +31687,7 @@ var TrackerView = class extends import_obsidian19.ItemView {
     this._app = new App_default({
       target: this.contentEl,
       props: {
-        party: this.party,
+        party: this.party?.name,
         creatures: this.ordered,
         state: this.state,
         xp: null,
@@ -31895,6 +31906,9 @@ var InitiativeTracker = class extends import_obsidian20.Plugin {
     const leaf = leaves?.length ? leaves[0] : null;
     if (leaf && leaf.view && leaf.view instanceof CreatureView)
       return leaf.view;
+  }
+  get defaultParty() {
+    return this.data.parties.find((p) => p.name == this.data.defaultParty);
   }
   async onload() {
     registerIcons();

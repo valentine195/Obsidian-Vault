@@ -1,7 +1,6 @@
 [
   "hot-reload",
   "obsidian-divide-and-conquer",
-  "obsidian-admonition",
   "obsidian-bartender",
   "obsidian-collapse-all-plugin",
   "customjs",
@@ -24,15 +23,19 @@
   "plugin-changelogs",
   "obsidian-prominent-starred-files",
   "settings-search",
-  "obsidian-snippetor",
   "obsidian-style-settings",
   "supercharged-links-obsidian",
   "templater-obsidian",
-  "obsidian-5e-statblocks",
   "obsidian-kanban",
   "obsidian-dynamic-highlights",
   "obsidian-frontmatter-tag-suggest",
   "obsidian-prettier",
   "obsidian-pandoc",
-  "vault-picker"
+  "vault-picker",
+  "obsidian-5e-statblocks",
+  "obsidian-excalidraw-plugin",
+  "obsidian-hover-editor",
+  "obsidian-admonition",
+  "obsidian-snippetor",
+  "obsidian-icon-shortcodes"
 ]
