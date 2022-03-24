@@ -1,1 +1,1 @@
-![[2021-7-4 - Session 8 Planning]]
+[[2021-7-4 - Session 8 Planning]]

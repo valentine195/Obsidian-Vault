@@ -4484,13 +4484,13 @@ function get_each_context_1(ctx, list, i) {
   child_ctx[22] = list[i];
   return child_ctx;
 }
-function create_if_block_5(ctx) {
+function create_if_block_6(ctx) {
   let if_block_anchor;
   function select_block_type(ctx2, dirty) {
     if (ctx2[3] instanceof Array && ctx2[3].length)
-      return create_if_block_6;
-    if (!ctx2[3])
       return create_if_block_7;
+    if (!ctx2[3])
+      return create_if_block_8;
   }
   let current_block_type = select_block_type(ctx, -1);
   let if_block = current_block_type && current_block_type(ctx);
@@ -4527,7 +4527,7 @@ function create_if_block_5(ctx) {
     }
   };
 }
-function create_if_block_7(ctx) {
+function create_if_block_8(ctx) {
   let div;
   return {
     c() {
@@ -4545,7 +4545,7 @@ function create_if_block_7(ctx) {
     }
   };
 }
-function create_if_block_6(ctx) {
+function create_if_block_7(ctx) {
   let div;
   let h4;
   let t0_value = (ctx[4] ? ctx[4] : "Players") + "";
@@ -4646,7 +4646,7 @@ function create_if_block_2(ctx) {
   function select_block_type_1(ctx2, dirty) {
     if (ctx2[2].size)
       return create_if_block_3;
-    return create_else_block;
+    return create_else_block_1;
   }
   let current_block_type = select_block_type_1(ctx, -1);
   let if_block = current_block_type(ctx);
@@ -4688,7 +4688,7 @@ function create_if_block_2(ctx) {
     }
   };
 }
-function create_else_block(ctx) {
+function create_else_block_1(ctx) {
   let strong;
   return {
     c() {
@@ -4750,6 +4750,90 @@ function create_if_block_3(ctx) {
       if (detaching)
         detach(ul);
       destroy_each(each_blocks, detaching);
+    }
+  };
+}
+function create_else_block(ctx) {
+  let t0;
+  let t1_value = ctx[18].name + "";
+  let t1;
+  let t2_value = (ctx[19] == 1 ? "" : "s") + "";
+  let t2;
+  return {
+    c() {
+      t0 = text("\xA0");
+      t1 = text(t1_value);
+      t2 = text(t2_value);
+    },
+    m(target, anchor) {
+      insert(target, t0, anchor);
+      insert(target, t1, anchor);
+      insert(target, t2, anchor);
+    },
+    p(ctx2, dirty) {
+      if (dirty & 4 && t1_value !== (t1_value = ctx2[18].name + ""))
+        set_data(t1, t1_value);
+      if (dirty & 4 && t2_value !== (t2_value = (ctx2[19] == 1 ? "" : "s") + ""))
+        set_data(t2, t2_value);
+    },
+    d(detaching) {
+      if (detaching)
+        detach(t0);
+      if (detaching)
+        detach(t1);
+      if (detaching)
+        detach(t2);
+    }
+  };
+}
+function create_if_block_5(ctx) {
+  let t0;
+  let t1_value = ctx[18].display + "";
+  let t1;
+  let t2_value = (ctx[19] == 1 ? "" : "s") + "";
+  let t2;
+  let t3;
+  let t4_value = ctx[18].name + "";
+  let t4;
+  let t5;
+  return {
+    c() {
+      t0 = text("\xA0");
+      t1 = text(t1_value);
+      t2 = text(t2_value);
+      t3 = text(" (");
+      t4 = text(t4_value);
+      t5 = text(")");
+    },
+    m(target, anchor) {
+      insert(target, t0, anchor);
+      insert(target, t1, anchor);
+      insert(target, t2, anchor);
+      insert(target, t3, anchor);
+      insert(target, t4, anchor);
+      insert(target, t5, anchor);
+    },
+    p(ctx2, dirty) {
+      if (dirty & 4 && t1_value !== (t1_value = ctx2[18].display + ""))
+        set_data(t1, t1_value);
+      if (dirty & 4 && t2_value !== (t2_value = (ctx2[19] == 1 ? "" : "s") + ""))
+        set_data(t2, t2_value);
+      if (dirty & 4 && t4_value !== (t4_value = ctx2[18].name + ""))
+        set_data(t4, t4_value);
+    },
+    d(detaching) {
+      if (detaching)
+        detach(t0);
+      if (detaching)
+        detach(t1);
+      if (detaching)
+        detach(t2);
+      if (detaching)
+        detach(t3);
+      if (detaching)
+        detach(t4);
+      if (detaching)
+        detach(t5);
     }
   };
 }
@@ -4816,30 +4900,30 @@ function create_each_block(ctx) {
   let t0;
   let span;
   let t1;
-  let t2_value = ctx[18].name + "";
-  let t2;
-  let t3_value = (ctx[19] == 1 ? "" : "s") + "";
-  let t3;
-  let t4;
   let show_if = ctx[18].xp && ctx[8].has(ctx[18]);
-  let t5;
+  let t2;
   let li_aria_label_value;
   let mounted;
   let dispose;
-  let if_block = show_if && create_if_block_4(ctx);
+  function select_block_type_2(ctx2, dirty) {
+    if (ctx2[18].display && ctx2[18].display != ctx2[18].name)
+      return create_if_block_5;
+    return create_else_block;
+  }
+  let current_block_type = select_block_type_2(ctx, -1);
+  let if_block0 = current_block_type(ctx);
+  let if_block1 = show_if && create_if_block_4(ctx);
   return {
     c() {
       li = element("li");
       strong = element("strong");
       t0 = space();
       span = element("span");
-      t1 = text("\xA0");
-      t2 = text(t2_value);
-      t3 = text(t3_value);
-      t4 = space();
-      if (if_block)
-        if_block.c();
-      t5 = space();
+      if_block0.c();
+      t1 = space();
+      if (if_block1)
+        if_block1.c();
+      t2 = space();
       attr(li, "aria-label", li_aria_label_value = ctx[14](ctx[18]));
       attr(li, "class", "creature-li svelte-2rbje");
     },
@@ -4848,13 +4932,11 @@ function create_each_block(ctx) {
       append(li, strong);
       append(li, t0);
       append(li, span);
-      append(span, t1);
-      append(span, t2);
-      append(span, t3);
-      append(li, t4);
-      if (if_block)
-        if_block.m(li, null);
-      append(li, t5);
+      if_block0.m(span, null);
+      append(li, t1);
+      if (if_block1)
+        if_block1.m(li, null);
+      append(li, t2);
       if (!mounted) {
         dispose = action_destroyer(rollerEl_action = ctx[13].call(null, strong, ctx[18]));
         mounted = true;
@@ -4864,23 +4946,29 @@ function create_each_block(ctx) {
       ctx = new_ctx;
       if (rollerEl_action && is_function(rollerEl_action.update) && dirty & 4)
         rollerEl_action.update.call(null, ctx[18]);
-      if (dirty & 4 && t2_value !== (t2_value = ctx[18].name + ""))
-        set_data(t2, t2_value);
-      if (dirty & 4 && t3_value !== (t3_value = (ctx[19] == 1 ? "" : "s") + ""))
-        set_data(t3, t3_value);
+      if (current_block_type === (current_block_type = select_block_type_2(ctx, dirty)) && if_block0) {
+        if_block0.p(ctx, dirty);
+      } else {
+        if_block0.d(1);
+        if_block0 = current_block_type(ctx);
+        if (if_block0) {
+          if_block0.c();
+          if_block0.m(span, null);
+        }
+      }
       if (dirty & 4)
         show_if = ctx[18].xp && ctx[8].has(ctx[18]);
       if (show_if) {
-        if (if_block) {
-          if_block.p(ctx, dirty);
+        if (if_block1) {
+          if_block1.p(ctx, dirty);
         } else {
-          if_block = create_if_block_4(ctx);
-          if_block.c();
-          if_block.m(li, t5);
+          if_block1 = create_if_block_4(ctx);
+          if_block1.c();
+          if_block1.m(li, t2);
         }
-      } else if (if_block) {
-        if_block.d(1);
-        if_block = null;
+      } else if (if_block1) {
+        if_block1.d(1);
+        if_block1 = null;
       }
       if (dirty & 4 && li_aria_label_value !== (li_aria_label_value = ctx[14](ctx[18]))) {
         attr(li, "aria-label", li_aria_label_value);
@@ -4889,8 +4977,9 @@ function create_each_block(ctx) {
     d(detaching) {
       if (detaching)
         detach(li);
-      if (if_block)
-        if_block.d();
+      if_block0.d();
+      if (if_block1)
+        if_block1.d();
       mounted = false;
       dispose();
     }
@@ -5035,7 +5124,7 @@ function create_fragment(ctx) {
   let t5;
   let mounted;
   let dispose;
-  let if_block0 = show_if_1 && create_if_block_5(ctx);
+  let if_block0 = show_if_1 && create_if_block_6(ctx);
   let if_block1 = show_if && create_if_block_2(ctx);
   let if_block2 = ctx[0].data.displayDifficulty && create_if_block(ctx);
   return {
@@ -5115,7 +5204,7 @@ function create_fragment(ctx) {
         if (if_block0) {
           if_block0.p(ctx2, dirty);
         } else {
-          if_block0 = create_if_block_5(ctx2);
+          if_block0 = create_if_block_6(ctx2);
           if_block0.c();
           if_block0.m(div5, t4);
         }
@@ -5314,23 +5403,22 @@ var Encounter_default = Encounter;
 // src/encounter/ui/EncounterRow.svelte
 var import_obsidian6 = __toModule(require("obsidian"));
 function add_css2(target) {
-  append_styles(target, "svelte-is5m16", ".deadly.svelte-is5m16 .difficulty-label.svelte-is5m16{color:red}.hard.svelte-is5m16 .difficulty-label.svelte-is5m16{color:orange}.medium.svelte-is5m16 .difficulty-label.svelte-is5m16{color:yellow}.easy.svelte-is5m16 .difficulty-label.svelte-is5m16{color:green}.icons.svelte-is5m16.svelte-is5m16{display:flex}.icons.svelte-is5m16>div.svelte-is5m16:first-child .clickable-icon{margin-right:0}");
+  append_styles(target, "svelte-bf6d6a", ".deadly.svelte-bf6d6a .difficulty-label.svelte-bf6d6a{color:red}.hard.svelte-bf6d6a .difficulty-label.svelte-bf6d6a{color:orange}.medium.svelte-bf6d6a .difficulty-label.svelte-bf6d6a{color:yellow}.easy.svelte-bf6d6a .difficulty-label.svelte-bf6d6a{color:green}.icons.svelte-bf6d6a.svelte-bf6d6a{display:flex}.icons.svelte-bf6d6a>div.svelte-bf6d6a:first-child .clickable-icon{margin-right:0}ul.svelte-bf6d6a.svelte-bf6d6a{margin:0}");
 }
 function get_each_context2(ctx, list, i) {
   const child_ctx = ctx.slice();
   child_ctx[18] = list[i];
-  child_ctx[20] = i;
   return child_ctx;
 }
 function get_each_context_12(ctx, list, i) {
   const child_ctx = ctx.slice();
   child_ctx[21] = list[i][0];
   child_ctx[22] = list[i][1];
-  child_ctx[20] = i;
   return child_ctx;
 }
 function create_if_block_42(ctx) {
   let td;
+  let ul;
   let show_if;
   function select_block_type(ctx2, dirty) {
     if (show_if == null || dirty & 10)
@@ -5344,11 +5432,14 @@ function create_if_block_42(ctx) {
   return {
     c() {
       td = element("td");
+      ul = element("ul");
       if_block.c();
+      attr(ul, "class", "encounter-creatures encounter-list svelte-bf6d6a");
     },
     m(target, anchor) {
       insert(target, td, anchor);
-      if_block.m(td, null);
+      append(td, ul);
+      if_block.m(ul, null);
     },
     p(ctx2, dirty) {
       if (current_block_type === (current_block_type = select_block_type(ctx2, dirty)) && if_block) {
@@ -5358,7 +5449,7 @@ function create_if_block_42(ctx) {
         if_block = current_block_type(ctx2);
         if (if_block) {
           if_block.c();
-          if_block.m(td, null);
+          if_block.m(ul, null);
         }
       }
     },
@@ -5406,7 +5497,7 @@ function create_if_block_52(ctx) {
       insert(target, each_1_anchor, anchor);
     },
     p(ctx2, dirty) {
-      if (dirty & 12290) {
+      if (dirty & 4098) {
         each_value_1 = [...ctx2[1]];
         let i;
         for (i = 0; i < each_value_1.length; i += 1) {
@@ -5433,42 +5524,35 @@ function create_if_block_52(ctx) {
   };
 }
 function create_each_block_12(ctx) {
-  let span;
-  let t0_value = ctx[12](ctx[20], ctx[1].size) + "";
-  let t0;
-  let t1;
+  let li;
   let strong;
   let rollerEl_action;
+  let t0;
+  let t1_value = ctx[21].name + "";
+  let t1;
+  let t2_value = (ctx[22] == 1 ? "" : "s") + "";
   let t2;
-  let t3_value = ctx[21].name + "";
   let t3;
-  let t4_value = (ctx[22] == 1 ? "" : "s") + "";
-  let t4;
-  let t5;
-  let span_aria_label_value;
+  let li_aria_label_value;
   let mounted;
   let dispose;
   return {
     c() {
-      span = element("span");
-      t0 = text(t0_value);
-      t1 = space();
+      li = element("li");
       strong = element("strong");
-      t2 = text("\xA0");
-      t3 = text(t3_value);
-      t4 = text(t4_value);
-      t5 = space();
-      attr(span, "aria-label", span_aria_label_value = ctx[13](ctx[21]));
+      t0 = text("\xA0");
+      t1 = text(t1_value);
+      t2 = text(t2_value);
+      t3 = space();
+      attr(li, "aria-label", li_aria_label_value = ctx[12](ctx[21]));
     },
     m(target, anchor) {
-      insert(target, span, anchor);
-      append(span, t0);
-      append(span, t1);
-      append(span, strong);
-      append(span, t2);
-      append(span, t3);
-      append(span, t4);
-      append(span, t5);
+      insert(target, li, anchor);
+      append(li, strong);
+      append(li, t0);
+      append(li, t1);
+      append(li, t2);
+      append(li, t3);
       if (!mounted) {
         dispose = action_destroyer(rollerEl_action = ctx[11].call(null, strong, ctx[21]));
         mounted = true;
@@ -5476,21 +5560,19 @@ function create_each_block_12(ctx) {
     },
     p(new_ctx, dirty) {
       ctx = new_ctx;
-      if (dirty & 2 && t0_value !== (t0_value = ctx[12](ctx[20], ctx[1].size) + ""))
-        set_data(t0, t0_value);
       if (rollerEl_action && is_function(rollerEl_action.update) && dirty & 2)
         rollerEl_action.update.call(null, ctx[21]);
-      if (dirty & 2 && t3_value !== (t3_value = ctx[21].name + ""))
-        set_data(t3, t3_value);
-      if (dirty & 2 && t4_value !== (t4_value = (ctx[22] == 1 ? "" : "s") + ""))
-        set_data(t4, t4_value);
-      if (dirty & 2 && span_aria_label_value !== (span_aria_label_value = ctx[13](ctx[21]))) {
-        attr(span, "aria-label", span_aria_label_value);
+      if (dirty & 2 && t1_value !== (t1_value = ctx[21].name + ""))
+        set_data(t1, t1_value);
+      if (dirty & 2 && t2_value !== (t2_value = (ctx[22] == 1 ? "" : "s") + ""))
+        set_data(t2, t2_value);
+      if (dirty & 2 && li_aria_label_value !== (li_aria_label_value = ctx[12](ctx[21]))) {
+        attr(li, "aria-label", li_aria_label_value);
       }
     },
     d(detaching) {
       if (detaching)
-        detach(span);
+        detach(li);
       mounted = false;
       dispose();
     }
@@ -5498,24 +5580,28 @@ function create_each_block_12(ctx) {
 }
 function create_if_block_22(ctx) {
   let td;
+  let ul;
   let show_if;
   function select_block_type_1(ctx2, dirty) {
     if (show_if == null || dirty & 12)
       show_if = !!(!ctx2[3].includes("players") && ctx2[2] instanceof Array && ctx2[2].length);
     if (show_if)
       return create_if_block_32;
-    return create_else_block_1;
+    return create_else_block_12;
   }
   let current_block_type = select_block_type_1(ctx, -1);
   let if_block = current_block_type(ctx);
   return {
     c() {
       td = element("td");
+      ul = element("ul");
       if_block.c();
+      attr(ul, "class", "encounter-players encounter-list svelte-bf6d6a");
     },
     m(target, anchor) {
       insert(target, td, anchor);
-      if_block.m(td, null);
+      append(td, ul);
+      if_block.m(ul, null);
     },
     p(ctx2, dirty) {
       if (current_block_type === (current_block_type = select_block_type_1(ctx2, dirty)) && if_block) {
@@ -5525,7 +5611,7 @@ function create_if_block_22(ctx) {
         if_block = current_block_type(ctx2);
         if (if_block) {
           if_block.c();
-          if_block.m(td, null);
+          if_block.m(ul, null);
         }
       }
     },
@@ -5536,7 +5622,7 @@ function create_if_block_22(ctx) {
     }
   };
 }
-function create_else_block_1(ctx) {
+function create_else_block_12(ctx) {
   let t;
   return {
     c() {
@@ -5573,7 +5659,7 @@ function create_if_block_32(ctx) {
       insert(target, each_1_anchor, anchor);
     },
     p(ctx2, dirty) {
-      if (dirty & 4100) {
+      if (dirty & 4) {
         each_value = ctx2[2];
         let i;
         for (i = 0; i < each_value.length; i += 1) {
@@ -5600,30 +5686,28 @@ function create_if_block_32(ctx) {
   };
 }
 function create_each_block2(ctx) {
-  let t0_value = ctx[12](ctx[20], ctx[2].length) + "";
+  let li;
+  let t0_value = ctx[18] + "";
   let t0;
-  let t1_value = ctx[18] + "";
   let t1;
   return {
     c() {
+      li = element("li");
       t0 = text(t0_value);
-      t1 = text(t1_value);
+      t1 = space();
     },
     m(target, anchor) {
-      insert(target, t0, anchor);
-      insert(target, t1, anchor);
+      insert(target, li, anchor);
+      append(li, t0);
+      append(li, t1);
     },
     p(ctx2, dirty) {
-      if (dirty & 4 && t0_value !== (t0_value = ctx2[12](ctx2[20], ctx2[2].length) + ""))
+      if (dirty & 4 && t0_value !== (t0_value = ctx2[18] + ""))
         set_data(t0, t0_value);
-      if (dirty & 4 && t1_value !== (t1_value = ctx2[18] + ""))
-        set_data(t1, t1_value);
     },
     d(detaching) {
       if (detaching)
-        detach(t0);
-      if (detaching)
-        detach(t1);
+        detach(li);
     }
   };
 }
@@ -5696,9 +5780,9 @@ function create_if_block_12(ctx) {
       span = element("span");
       strong = element("strong");
       t = text(t_value);
-      attr(strong, "class", "difficulty-label svelte-is5m16");
+      attr(strong, "class", "difficulty-label svelte-bf6d6a");
       attr(span, "aria-label", span_aria_label_value = formatDifficultyReport(ctx[7]));
-      attr(span, "class", span_class_value = "" + (null_to_empty(ctx[7].difficulty.toLowerCase()) + " svelte-is5m16"));
+      attr(span, "class", span_class_value = "" + (null_to_empty(ctx[7].difficulty.toLowerCase()) + " svelte-bf6d6a"));
     },
     m(target, anchor) {
       insert(target, span, anchor);
@@ -5711,7 +5795,7 @@ function create_if_block_12(ctx) {
       if (dirty & 128 && span_aria_label_value !== (span_aria_label_value = formatDifficultyReport(ctx2[7]))) {
         attr(span, "aria-label", span_aria_label_value);
       }
-      if (dirty & 128 && span_class_value !== (span_class_value = "" + (null_to_empty(ctx2[7].difficulty.toLowerCase()) + " svelte-is5m16"))) {
+      if (dirty & 128 && span_class_value !== (span_class_value = "" + (null_to_empty(ctx2[7].difficulty.toLowerCase()) + " svelte-bf6d6a"))) {
         attr(span, "class", span_class_value);
       }
     },
@@ -5763,10 +5847,10 @@ function create_fragment2(ctx) {
       div0 = element("div");
       t5 = space();
       div1 = element("div");
-      attr(div0, "class", "svelte-is5m16");
+      attr(div0, "class", "svelte-bf6d6a");
       attr(div1, "aria-label", "Add to Encounter");
-      attr(div1, "class", "svelte-is5m16");
-      attr(div2, "class", "icons svelte-is5m16");
+      attr(div1, "class", "svelte-bf6d6a");
+      attr(div2, "class", "icons svelte-bf6d6a");
       attr(tr, "class", "encounter-row");
     },
     m(target, anchor) {
@@ -5860,7 +5944,7 @@ function create_fragment2(ctx) {
 function instance2($$self, $$props, $$invalidate) {
   let { name = "Encounter" } = $$props;
   let { creatures } = $$props;
-  let { players = true } = $$props;
+  let { players } = $$props;
   let { hide: hide2 = [] } = $$props;
   let { xp } = $$props;
   let { playerLevels } = $$props;
@@ -5955,16 +6039,16 @@ function instance2($$self, $$props, $$invalidate) {
     if ("hide" in $$props2)
       $$invalidate(3, hide2 = $$props2.hide);
     if ("xp" in $$props2)
-      $$invalidate(14, xp = $$props2.xp);
+      $$invalidate(13, xp = $$props2.xp);
     if ("playerLevels" in $$props2)
-      $$invalidate(15, playerLevels = $$props2.playerLevels);
+      $$invalidate(14, playerLevels = $$props2.playerLevels);
     if ("plugin" in $$props2)
       $$invalidate(4, plugin = $$props2.plugin);
     if ("headers" in $$props2)
       $$invalidate(5, headers = $$props2.headers);
   };
   $$self.$$.update = () => {
-    if ($$self.$$.dirty & 32834) {
+    if ($$self.$$.dirty & 16450) {
       $: {
         if (!isNaN(totalXP)) {
           $$invalidate(7, difficulty = encounterDifficulty(playerLevels, [...creatures].map((creature) => creature[0].xp)));
@@ -5985,7 +6069,6 @@ function instance2($$self, $$props, $$invalidate) {
     addButton,
     add,
     rollerEl,
-    joiner,
     label,
     xp,
     playerLevels
@@ -5999,8 +6082,8 @@ var EncounterRow = class extends SvelteComponent {
       creatures: 1,
       players: 2,
       hide: 3,
-      xp: 14,
-      playerLevels: 15,
+      xp: 13,
+      playerLevels: 14,
       plugin: 4,
       headers: 5
     }, add_css2);
@@ -6269,7 +6352,7 @@ var EncounterTable_default = EncounterTable;
 
 // src/encounter/index.ts
 var equivalent = (creature, existing) => {
-  return creature.name == existing.name && creature.ac == existing.ac && creature.hp == existing.hp && creature.modifier == existing.modifier && creature.xp == existing.xp;
+  return creature.name == existing.name && creature.display == existing.display && creature.ac == existing.ac && creature.hp == existing.hp && creature.modifier == existing.modifier && creature.xp == existing.xp;
 };
 var EncounterParser = class {
   constructor(plugin) {
@@ -6332,6 +6415,7 @@ var EncounterParser = class {
           continue;
         const stats = {
           name: creature.name,
+          display: creature.display,
           ac: creature.ac,
           hp: creature.hp,
           modifier: creature.modifier,
@@ -6358,7 +6442,7 @@ var EncounterParser = class {
       return {};
     let monster, number = 1;
     if (typeof raw == "string") {
-      const match = raw.match(/(\d+)?:?\s?(.+)/);
+      const match = raw.match(/(\d+)?:?\s?(.+)/) ?? [];
       number = isNaN(Number(match[1] ?? null)) ? number : Number(match[1]);
       monster = match[2];
     } else if (typeof raw == "object") {
@@ -6375,12 +6459,27 @@ var EncounterParser = class {
       number = Number(number);
     if (!number || typeof number == "number" && number < 1)
       number = 1;
-    let name = monster.split(/,\s?/)[0];
-    let [hp, ac, mod, xp] = monster.split(/,\s?/).slice(1).map((v) => isNaN(Number(v)) ? null : Number(v));
-    if (!name)
+    let name, display, hp, ac, mod, xp;
+    if (typeof monster == "string") {
+      name = monster.split(/,\s?/)[0];
+      [hp, ac, mod, xp] = monster.split(/,\s?/).slice(1).map((v) => isNaN(Number(v)) ? null : Number(v));
+    } else if (Array.isArray(monster)) {
+      if (typeof monster[0] == "string") {
+        name = monster[0];
+        display = monster[1];
+      } else if (Array.isArray(monster[0])) {
+        name = monster[0][0];
+        display = monster[0][1];
+      }
+      [hp, ac, mod, xp] = monster.slice(1).map((v) => isNaN(Number(v)) ? null : Number(v));
+    } else if (typeof monster == "object") {
+      ({ creature: name, name: display, hp, ac, mod, xp } = monster);
+    }
+    if (!name || typeof name != "string")
       return {};
     let existing = this.plugin.bestiary.find((c) => c.name == name);
     let creature = existing ? Creature.from(existing) : new Creature({ name });
+    creature.display = display ?? creature.name;
     creature.hp = hp ?? creature.hp;
     creature.ac = ac ?? creature.ac;
     creature.modifier = mod ?? creature.modifier;
@@ -30360,7 +30459,7 @@ function create_if_block_9(ctx) {
     }
   };
 }
-function create_if_block_8(ctx) {
+function create_if_block_82(ctx) {
   let div;
   let small;
   let em;
@@ -30507,7 +30606,7 @@ function create_else_block7(ctx) {
   let current_block_type_index;
   let if_block;
   let current;
-  const if_block_creators = [create_if_block_43, create_else_block_12];
+  const if_block_creators = [create_if_block_43, create_else_block_13];
   const if_blocks = [];
   function select_block_type_1(ctx2, dirty) {
     if (ctx2[13] || ctx2[12] || ctx2[2])
@@ -30716,7 +30815,7 @@ function create_if_block12(ctx) {
     }
   };
 }
-function create_else_block_12(ctx) {
+function create_else_block_13(ctx) {
   let div2;
   let div0;
   let copyButton_action;
@@ -30838,7 +30937,7 @@ function create_fragment15(ctx) {
   });
   controls.$on("save", ctx[25]);
   controls.$on("load", ctx[26]);
-  let if_block1 = ctx[5] && create_if_block_8(ctx);
+  let if_block1 = ctx[5] && create_if_block_82(ctx);
   let if_block2 = ctx[4] && ctx[4].length && create_if_block_62(ctx);
   table = new Table_default({
     props: {
@@ -30937,7 +31036,7 @@ function create_fragment15(ctx) {
         if (if_block1) {
           if_block1.p(ctx2, dirty);
         } else {
-          if_block1 = create_if_block_8(ctx2);
+          if_block1 = create_if_block_82(ctx2);
           if_block1.c();
           if_block1.m(div, t2);
         }

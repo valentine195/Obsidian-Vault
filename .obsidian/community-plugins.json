@@ -22,19 +22,20 @@
   "obsidian-paprika",
   "plugin-changelogs",
   "obsidian-prominent-starred-files",
-  "settings-search",
   "obsidian-style-settings",
   "supercharged-links-obsidian",
   "templater-obsidian",
   "obsidian-kanban",
   "obsidian-dynamic-highlights",
   "obsidian-frontmatter-tag-suggest",
-  "obsidian-prettier",
   "obsidian-pandoc",
   "vault-picker",
   "obsidian-5e-statblocks",
   "obsidian-excalidraw-plugin",
   "obsidian-hover-editor",
+  "obsidian-snippetor",
+  "obsidian-prettier",
   "obsidian-admonition",
-  "obsidian-snippetor"
+  "obsidian-icon-shortcodes",
+  "settings-search"
 ]

@@ -62,17 +62,6 @@
       "noTitle": false,
       "copy": false
     },
-    "law": {
-      "type": "law",
-      "color": "158, 31, 31",
-      "icon": {
-        "type": "octicons",
-        "name": "law"
-      },
-      "command": false,
-      "injectColor": true,
-      "noTitle": false
-    },
     "idea": {
       "type": "idea",
       "color": "145, 182, 43",
@@ -80,7 +69,20 @@
         "name": "lightbulb",
         "type": "font-awesome"
       },
+      "command": true,
+      "injectColor": true,
+      "noTitle": false,
+      "copy": false
+    },
+    "chat": {
+      "type": "chat",
+      "color": "196, 33, 33",
+      "icon": {
+        "name": "comment",
+        "type": "font-awesome"
+      },
       "command": false,
+      "title": null,
       "injectColor": true,
       "noTitle": false,
       "copy": false
@@ -88,12 +90,12 @@
   },
   "syntaxHighlight": true,
   "copyButton": false,
-  "version": "8.1.0",
+  "version": "8.2.4",
   "autoCollapse": false,
   "defaultCollapseType": "open",
   "injectColor": true,
   "parseTitles": true,
-  "dropShadow": false,
+  "dropShadow": true,
   "hideEmpty": false,
   "open": {
     "admonitions": true,

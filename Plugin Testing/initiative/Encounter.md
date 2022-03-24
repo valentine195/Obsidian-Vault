@@ -1,19 +1,31 @@
 ```encounter
-name: Example 1
 creatures:
- - Hobgoblin
- - 3: Goblin
-party: Other
-
----
-
-name: Example 2
-creatures:
- - 3: Hobgoblin
- - Goblin
- 
+  - Hobgoblin
+  - 3d5: Hobgoblin
+  - [[Hobgoblin, Bob], 12]
+  -
+    - [Hobgoblin, Jim]
+    - 12
+    - 13
+    - 2
+    - 25
+  - 2:                          # 2 Hobgoblins named Jeff with 12 HP and 13 AC.
+    - [Hobgoblin, Jeff]
+    - 12
+    - 13
+  - 5:                          # 5 Hobgoblins named Ted with 12 HP and 13 AC.
+      creature: Hobgoblin
+      name: Ted
+      hp: 12
+      ac: 13
+  - 1d5:                        # 1d5 Hobgoblins named Sarah with 12 HP and 13 AC.
+      creature: Hobgoblin
+      name: Sarah
+      hp: 12
+      ac: 13
 ```
 
+%%
 ## **Table:**
 ```encounter-table
 name: Example 1
@@ -52,10 +64,7 @@ creatures:
 | 2   | `encounter: 2 Hobgoblin`                       |
 | 3   | `encounter: 2d5: Hobglin, 5d5: Goblin`                                               |
 ^test-encounter
-
-
-`dice: [[Encounter#^test-encounter]]`
-
+%%
 
 
 

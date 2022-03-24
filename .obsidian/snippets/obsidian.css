@@ -8,6 +8,10 @@ body:not(.native-scrollbars) ::-webkit-scrollbar, ::-webkit-scrollbar {
     height: 0px;
 }
 
+.callout[data-callout-metadata='x'] .callout-title {
+    display: none;
+}
+
 .theme-light {
     --background-primary: #f9f7f4 !important; /* hsl(var(--base-h), var(--base-s), 99%); */
 }
