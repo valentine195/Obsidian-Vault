@@ -1,29 +1,3 @@
-
-
-> [!chat]
-> test
-> **[[statblock]]** { .title }
-{.test}
-
-# Markdown Attributes for Obsidian.md
-
-Allows the use of `{ .class id='id' data=value }` Pandoc-style markdown attributes inside Obsidian.md.
-
-This plugin is currently proof of concept; however, no loss of data should occur. It is possible that rendering errors may happen. If so, please create an issue including the source text that caused the issue.
-
-> [!idea]
-> ## Using the Plugin
-> 
-> Add your attributes inside a curly bracket with a colon, like this:
-> 
-> `{ .class }`
-> 
-> See below for usage with specific elements.
-> 
-> ### IDs
-
-Currently, the ID attribute must be set using `id=value` due to Obsidian's tags. This may change in a future release.
-
 ### Inline Text Elements
 
 Inline text elements such as italics, bold, highlight, etc. should have their attributes placed _inside_ the symbol:
@@ -34,10 +8,10 @@ I'm normal text, but *I'm italic { class='italics' }*, **I'm bold { .bol
 
 
 ### Paragraphs
-
+abc
 Paragraph attributes should be placed after the last line of the block.
 
-abc
+abc def
 This is a paragraph.
 This is another line of the paragraph.
 This is the last line. def

@@ -16,6 +16,14 @@ abc
 ab
 `abc`
 
-```ad-warning
+```ad-note
+icon: hydra
 
+test
+```
+
+```ad-note
+icon: reddit-alien
+
+test
 ```
