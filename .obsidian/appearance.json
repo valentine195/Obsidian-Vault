@@ -38,7 +38,8 @@
     "colors.ebullient",
     "colors.folders",
     "ebullient.overrides",
-    "ebullient.colors.folders.overrides"
+    "ebullient.colors.folders.overrides",
+    "callouts"
   ],
   "theme": "moonstone"
 }

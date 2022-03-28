@@ -1,12 +1,11 @@
 
-> [!quote]  ## Testing testing **abc**
+> [!quote|x]  ## Testing testing **abc**
 > ab
 > 123
 
 
-> [!quote]+ Title
-> ab
-> 123
+> [!INFO]+ Bloop
+> Test
 
 
 > [!quote]- Title
@@ -14,7 +13,7 @@
 > 123
 
 
-> [!quote] 
+> [!test] 
 > ab
 > 123
 

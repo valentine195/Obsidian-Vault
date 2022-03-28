@@ -16,14 +16,12 @@ abc
 ab
 `abc`
 
-```ad-note
-icon: hydra
+> [!note]
+> icon: hydra
+> 
+> test
 
-test
-```
-
-```ad-note
-icon: reddit-alien
-
-test
-```
+> [!note]
+> icon: reddit-alien
+> 
+> test

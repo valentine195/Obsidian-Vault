@@ -8,8 +8,7 @@ fc-date: 2022-02-07
 - [ ] in-note calendar widget
 - [ ] Event formulas
 
-```ad-recite
-
-test
-
-```
+> [!recite]
+> 
+> test
+> 

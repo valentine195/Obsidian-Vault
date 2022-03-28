@@ -208,7 +208,7 @@
     },
     {
       "id": "azgaar",
-      "lastAccessed": 1647288494562,
+      "lastAccessed": 1648484513197,
       "markers": [
         {
           "id": "ID_a869bb7928aa",
@@ -241,12 +241,28 @@
           "minZoom": null,
           "maxZoom": null,
           "tooltip": "hover"
+        },
+        {
+          "id": "ID_19485948f8d9",
+          "type": "location",
+          "loc": [
+            40.10331053188987,
+            -83.06076049804689
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
         }
       ],
       "overlays": [],
       "shapes": [],
       "files": [
-        "Plugin Testing/map/Map.md"
+        "99 Plugin Testing/map/Map.md"
       ]
     }
   ],
