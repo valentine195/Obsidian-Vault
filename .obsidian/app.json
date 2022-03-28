@@ -5,7 +5,7 @@
   "smartIndentList": false,
   "showFrontmatter": true,
   "newFileLocation": "current",
-  "livePreview": true,
+  "livePreview": false,
   "showUnsupportedFiles": true,
   "alwaysUpdateLinks": true,
   "readableLineLength": false,

@@ -15410,7 +15410,6 @@ ${editor.getDoc().getSelection()}
       return;
     }
     try {
-      const sourcePath = typeof ctx == "string" ? ctx : ctx?.sourcePath ?? this.app.workspace.getActiveFile()?.path ?? "";
       let { title, collapse, content, icon: icon2, color } = getParametersFromSource(type, src, this.admonitions[type]);
       if (this.data.autoCollapse && !collapse) {
         collapse = this.data.defaultCollapseType ?? "open";
@@ -15418,8 +15417,9 @@ ${editor.getDoc().getSelection()}
         collapse = "";
       }
       const admonition = this.admonitions[type];
-      let admonitionElement = this.getAdmonitionElement(type, title, this.iconManager.iconDefinitions.find(({ name }) => icon2 === name) ?? admonition.icon, color ?? (admonition.injectColor ?? this.data.injectColor ? admonition.color : null), collapse);
-      this.renderAdmonitionContent(admonitionElement, type, content, ctx, sourcePath, src);
+      const admonitionIcon = this.iconManager.iconDefinitions.find(({ name }) => icon2 === name) ?? admonition.icon;
+      const admonitionColor = color ?? (admonition.injectColor ?? this.data.injectColor ? admonition.color : null);
+      let admonitionElement = this.getAdmonitionElement(type, title, admonitionIcon, admonitionColor, content, collapse, ctx, src);
       const parent = el.parentElement;
       if (parent) {
         parent.addClass("admonition-parent", `admonition-${type}-parent`);
@@ -15439,31 +15439,14 @@ ${editor.getDoc().getSelection()}
       el.replaceWith(pre);
     }
   }
-  getAdmonitionElement(type, title, icon2, color, collapse) {
-    let admonition, titleEl;
-    let attrs = color ? {
-      style: `--admonition-color: ${color};`
-    } : {};
-    if (collapse && collapse != "none") {
-      if (collapse === "open") {
-        attrs.open = "open";
-      }
-      admonition = createEl("details", {
-        cls: `admonition admonition-${type} admonition-plugin ${!title?.trim().length ? "no-title" : ""}`,
-        attr: attrs
-      });
-      titleEl = admonition.createEl("summary", {
-        cls: `admonition-title ${!title?.trim().length ? "no-title" : ""}`
-      });
-    } else {
-      admonition = createDiv({
-        cls: `admonition admonition-${type} admonition-plugin ${!title?.trim().length ? "no-title" : ""}`,
-        attr: attrs
-      });
-      titleEl = admonition.createDiv({
-        cls: `admonition-title ${!title?.trim().length ? "no-title" : ""}`
-      });
-    }
+  getAdmonitionElement(type, title, icon2, color, content, collapse, ctx, src) {
+    const admonition = createDiv({
+      cls: `callout admonition admonition-${type} admonition-plugin ${!title?.trim().length ? "no-title" : ""}`,
+      attr: { style: `--admonition-color: ${color};` }
+    });
+    const titleEl = admonition.createDiv({
+      cls: `callout-title admonition-title ${!title?.trim().length ? "no-title" : ""}`
+    });
     if (title && title.trim().length) {
       const markdownHolder = createDiv();
       import_obsidian11.MarkdownRenderer.renderMarkdown(title, markdownHolder, "", null);
@@ -15475,17 +15458,33 @@ ${editor.getDoc().getSelection()}
       if (icon2 && icon2.name && icon2.type) {
         iconEl.appendChild(this.iconManager.getIconNode(icon2) ?? createDiv());
       }
-      const admonitionTitleMarkdown = admonitionTitleContent.createDiv("admonition-title-markdown");
-      for (let i = 0; i < markdownElements.length; i++) {
-        admonitionTitleMarkdown.appendChild(markdownElements[i]);
+      const admonitionTitleMarkdown = titleEl.createDiv("callout-title-inner admonition-title-markdown");
+      import_obsidian11.MarkdownRenderer.renderMarkdown(title, admonitionTitleMarkdown, "", null);
+      if (admonitionTitleMarkdown.firstElementChild instanceof HTMLParagraphElement) {
+        const child = admonitionTitleMarkdown.firstElementChild;
+        admonitionTitleMarkdown.append(child.firstChild);
+        admonitionTitleMarkdown.firstElementChild.detach();
       }
-      titleEl.appendChild(admonitionTitleContent || createDiv());
-    }
-    if (collapse) {
-      titleEl.createDiv("collapser").createDiv("handle");
     }
     if (!this.data.dropShadow) {
       admonition.addClass("no-drop");
+    }
+    const contentEl = this.renderAdmonitionContent(admonition, type, content, ctx, src);
+    if (collapse) {
+      (0, import_obsidian11.setIcon)(titleEl.createDiv("collapser callout-fold"), "chevron-down");
+      switch (collapse) {
+        case "open": {
+          admonition.dataset.calloutFold = "+";
+          admonition.addClass("is-collapsible");
+          break;
+        }
+        case "closed": {
+          admonition.dataset.calloutFold = "-";
+          admonition.addClasses(["is-collapsible", "is-collapsed"]);
+          break;
+        }
+      }
+      this.calloutManager.registerCollapsibleElement(admonition, contentEl, titleEl);
     }
     return admonition;
   }
@@ -15497,6 +15496,7 @@ ${editor.getDoc().getSelection()}
     }
     if (content && content?.trim().length) {
       const contentEl = this.getAdmonitionContentElement(type, admonitionElement, content);
+      const sourcePath = typeof ctx == "string" ? ctx : ctx?.sourcePath ?? this.app.workspace.getActiveFile()?.path ?? "";
       if (/^`{3,}mermaid/m.test(content)) {
         const wasCollapsed = !admonitionElement.hasAttribute("open");
         if (admonitionElement instanceof HTMLDetailsElement) {
@@ -15525,11 +15525,11 @@ ${editor.getDoc().getSelection()}
           slicer = line + slicer + 1;
         });
       }
+      return contentEl;
     }
   }
   getAdmonitionContentElement(type, admonitionElement, content) {
-    const contentHolder = admonitionElement.createDiv("admonition-content-holder");
-    const contentEl = contentHolder.createDiv("admonition-content");
+    const contentEl = admonitionElement.createDiv("admonition-content callout-content");
     if (this.admonitions[type].copy ?? this.data.copyButton) {
       let copy = contentHolder.createDiv("admonition-content-copy");
       (0, import_obsidian11.setIcon)(copy, COPY_ICON_NAME);

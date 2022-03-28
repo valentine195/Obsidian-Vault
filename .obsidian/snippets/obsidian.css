@@ -2,13 +2,16 @@
     --default-font: "iA Writer Quattro" !important;
     --bgZZ: green;
 }
+
+
 /** Remove scrollbars */
-body:not(.native-scrollbars) ::-webkit-scrollbar, ::-webkit-scrollbar {
+body:not(.native-scrollbars) ::-webkit-scrollbar,
+::-webkit-scrollbar {
     width: 0px;
     height: 0px;
 }
 
-.callout[data-callout-metadata='x'] .callout-title {
+.callout[data-callout-metadata="x"] .callout-title {
     display: none;
 }
 

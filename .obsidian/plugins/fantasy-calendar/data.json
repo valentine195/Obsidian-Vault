@@ -185,7 +185,7 @@
       "current": {
         "year": 2022,
         "month": 3,
-        "day": 14
+        "day": 19
       },
       "events": [
         {
@@ -432,20 +432,6 @@
             "year": 2020,
             "month": 3,
             "day": 20
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_fbd9196b18b8",
-          "name": "2020-04-24-161243-Running-Jeremy’s Apple Watch",
-          "note": "Plugin Testing/map/gpx/2020-04-24-161243-Running-Jeremy’s Apple Watch.gpx",
-          "date": {
-            "year": 2020,
-            "month": 3,
-            "day": 24
           },
           "end": null,
           "category": "ID_aa591ae829b9",
@@ -3393,20 +3379,6 @@
           "auto": true
         },
         {
-          "id": "ID_38faca28b95b",
-          "name": "20210729 1859 2021-07-29 Oberegger Stausee mit M&M",
-          "note": "Plugin Testing/map/gpx/20210729 1859 2021-07-29 Oberegger Stausee mit M&M.gpx",
-          "date": {
-            "year": 2021,
-            "month": 6,
-            "day": 29
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
           "id": "ID_d809f9581a18",
           "name": "2021-7-30",
           "note": "Plugin Testing/calendar/event notes/2021-7-30.md",
@@ -5734,48 +5706,6 @@
           "auto": true
         },
         {
-          "id": "ID_48daa80a2a28",
-          "name": "2021-10-30 - Session 10 Planning",
-          "note": "1. Sessions/Old Session Planning/2021-10-30 - Session 10 Planning.md",
-          "date": {
-            "year": 2021,
-            "month": 9,
-            "day": 30
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_499a88294868",
-          "name": "2021-10-2 - Session 9 Planning 1",
-          "note": "1. Sessions/Old Session Planning/2021-10-2 - Session 9 Planning 1.md",
-          "date": {
-            "year": 2021,
-            "month": 9,
-            "day": 2
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_88aa28482beb",
-          "name": "2021-7-4 - Session 8 Planning",
-          "note": "1. Sessions/Old Session Planning/2021-7-4 - Session 8 Planning.md",
-          "date": {
-            "year": 2021,
-            "month": 6,
-            "day": 4
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
           "id": "ID_d938cbda2baa",
           "name": "2022-02-26 ISSUE",
           "note": "3. Planning/Newthrone Gazette/Issues/2022-02-26 ISSUE.pdf",
@@ -5783,20 +5713,6 @@
             "year": 2022,
             "month": 1,
             "day": 26
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
-          "id": "ID_792b799b59eb",
-          "name": "2-25-998 Newthrone Gazette",
-          "note": "3. Planning/Newthrone Gazette/Issues/2-25-998 Newthrone Gazette.png",
-          "date": {
-            "year": 2,
-            "month": 0,
-            "day": 998
           },
           "end": null,
           "category": "ID_aa591ae829b9",
@@ -5944,20 +5860,6 @@
           "auto": true
         },
         {
-          "id": "ID_7a081bfbe9e8",
-          "name": "Screen Shot 2022-02-25 at 9.38.26 PM",
-          "note": "2. Compendium/Items/Cards/Screen Shot 2022-02-25 at 9.38.26 PM.png",
-          "date": {
-            "year": 2022,
-            "month": 1,
-            "day": 25
-          },
-          "end": null,
-          "category": "ID_aa591ae829b9",
-          "description": "",
-          "auto": true
-        },
-        {
           "id": "ID_8ac8fa981a3a",
           "name": "Drawing 2022-03-19 10.57.15.excalidraw",
           "note": "Excalidraw/Drawing 2022-03-19 10.57.15.excalidraw.md",
@@ -6006,7 +5908,7 @@
       ],
       "autoParse": true,
       "path": "/",
-      "date": 1648130795894,
+      "date": 1648469713798,
       "timelineTag": "#timeline"
     },
     {
@@ -6395,8 +6297,8 @@
           "auto": true
         },
         {
-          "id": "ID_98bbbbe889ba",
-          "name": "Backes gets a job at the Wayside Inn",
+          "id": "ID_79eafb4a686b",
+          "name": "Teega joins Backes at the Wayside Inn",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6447,8 +6349,8 @@
           "auto": true
         },
         {
-          "id": "ID_692b2a788a68",
-          "name": "Anchorites of Talos summon Gorthok",
+          "id": "ID_c869d8e8993a",
+          "name": "Xanth arrives at Edermath Orchard",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6460,8 +6362,8 @@
           "auto": true
         },
         {
-          "id": "ID_8879a89a8af8",
-          "name": "Mabina travels to Triboar",
+          "id": "ID_d839b828990a",
+          "name": "Orcs (Splinter-6) attack Phandalin; mostly destroyed (orc-hero)",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6473,8 +6375,8 @@
           "auto": true
         },
         {
-          "id": "ID_281ab928e959",
-          "name": "Cryovain destroyed",
+          "id": "ID_1879c909d939",
+          "name": "Mabina travels to Thornhold",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6486,8 +6388,8 @@
           "auto": true
         },
         {
-          "id": "ID_883829b9eb0b",
-          "name": "Orcs (Splinter-2) are destroyed",
+          "id": "ID_7839da6b7a8b",
+          "name": "Sildar Hallwinter / Jeremiah Mundu and a wagon of supplies leave Neverwinter bound for Phandalin",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6512,8 +6414,8 @@
           "auto": true
         },
         {
-          "id": "ID_9b4ada8a9a79",
-          "name": "Orcs (Splinter-7) and Gorthok attack Falcon's Lodge",
+          "id": "ID_ba28c9daf868",
+          "name": "Xanth rejoins party",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6521,12 +6423,12 @@
             "day": 13
           },
           "timestamp": 1498091300,
-          "description": "Gorthok knocks down the palisade at Falcon's Lodge. Orc(Splinter-7) destroyed except for orc-hero and 3 friends.",
+          "description": "",
           "auto": true
         },
         {
-          "id": "ID_194989ea9af9",
-          "name": "Flenz, Narux, Circle of Thunder destroyed",
+          "id": "ID_a94b68aba95a",
+          "name": "Reidoth joins the party at Circle of Thunder",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6551,8 +6453,8 @@
           "auto": true
         },
         {
-          "id": "ID_4b29e898393b",
-          "name": "Fheralai expects reports from Yargath and Grannoc",
+          "id": "ID_eba92a6aba7a",
+          "name": "Mabina travels to Leilon",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6616,8 +6518,8 @@
           "auto": true
         },
         {
-          "id": "ID_299a3b28185b",
-          "name": "Venomfang destroyed",
+          "id": "ID_ca0b1bd88819",
+          "name": "Mabina arrives in Silverymoon",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6707,8 +6609,8 @@
           "auto": true
         },
         {
-          "id": "ID_2b99389bcb2b",
-          "name": "Mabina trades the Bauble",
+          "id": "ID_9b784a98384b",
+          "name": "Copperhorn dwarves gather additional supplies in Neverwinter",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6720,8 +6622,8 @@
           "auto": true
         },
         {
-          "id": "ID_4bfacae9db59",
-          "name": "Dazzlyn and Norbus try to claim Axeholm",
+          "id": "ID_c90ae9e948db",
+          "name": "Miners arrive with supplies for Mountain's Toe",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6729,12 +6631,12 @@
             "day": 28
           },
           "timestamp": 1498082800,
-          "description": "Enterprising business partners didn't know that dwarven claim already established via Lords' Alliance.",
+          "description": "",
           "auto": true
         },
         {
-          "id": "ID_c92848488979",
-          "name": "Mabina in Yartar",
+          "id": "ID_0bc8c9a83949",
+          "name": "Copperhorn dwarves arrive in Phandalin",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6811,8 +6713,8 @@
           "auto": true
         },
         {
-          "id": "ID_eb58e88a1aa8",
-          "name": "Mabina travels to Neverwinter",
+          "id": "ID_293848a80819",
+          "name": "Zoolte in disbelief",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6850,8 +6752,8 @@
           "auto": true
         },
         {
-          "id": "ID_594aa9dadb39",
-          "name": "Mabina travels to Triboar",
+          "id": "ID_ebd9ea9aa8aa",
+          "name": "Lionshield Coster wagon is ambushed. Sildar and Jeremiah captured",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6928,8 +6830,8 @@
           "auto": true
         },
         {
-          "id": "ID_39c8fb3b98bb",
-          "name": "Zoolte finds the killers",
+          "id": "ID_fa5bf8c849fb",
+          "name": "Orcs (Splinter-4) attack near Dwarven Excavation; destroyed",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6941,8 +6843,8 @@
           "auto": true
         },
         {
-          "id": "ID_69d8ba283bcb",
-          "name": "Zoolte finds the killers",
+          "id": "ID_aadab8a8b9eb",
+          "name": "Xanth leaves forest",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -6980,8 +6882,8 @@
           "auto": true
         },
         {
-          "id": "ID_2bea58b89b2b",
-          "name": "Orcs (Splinter-1) settle at Shrine of Savras; Whiskered Gang flees",
+          "id": "ID_8aebfa49f88a",
+          "name": "Orcs (Splinter-2) find Grannoc at Woodland Manse",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -7136,8 +7038,8 @@
           "auto": true
         },
         {
-          "id": "ID_798ac90afa9b",
-          "name": "Xanth leads party to Falcon's Lodge",
+          "id": "ID_b8ba798a4b08",
+          "name": "Mining supplies for Dazlyn and Norbus leave Neverwinter",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -7175,8 +7077,8 @@
           "auto": true
         },
         {
-          "id": "ID_b80ac949ead9",
-          "name": "Dwarves leave Gauntlgrym",
+          "id": "ID_0aeb4929296b",
+          "name": "Harbin receives response from Lords' Alliance",
           "note": "Plugin Testing/calendar/npc-events.md",
           "date": {
             "year": 1498,
@@ -7184,7 +7086,7 @@
             "day": 25
           },
           "timestamp": 1498082500,
-          "description": "",
+          "description": "Notifies Halia of claim to Axeholm by Copperhorn dwarves",
           "auto": true
         },
         {
