@@ -1,7 +1,5 @@
 mkdocs
-mkdocs_obsidian
 mkdocs-material
-mkdocs-mermaid2-plugin
 mkdocs-ezlinked-plugin
 mkdocs-awesome-pages-plugin
 mdx_breakless_lists

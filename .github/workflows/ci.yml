@@ -5,8 +5,6 @@ on:
             - master
             - main
 
-
-
 jobs:
     build:
         runs-on: ubuntu-latest
@@ -15,7 +13,7 @@ jobs:
             - uses: actions/setup-node@v3
               with:
                   node-version: 16
-                
+
             - run: npx obsidian-mkdocs
     deploy:
         needs: build
@@ -26,6 +24,10 @@ jobs:
               with:
                   python-version: 3.x
 
+            - name: Install
+              working-directory: ./.publish
+              run: |
+                  pip install -r requirements.txt
             - name: Deploy
               working-directory: ./.publish
               run: |
