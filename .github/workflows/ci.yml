@@ -5,34 +5,23 @@ on:
             - master
             - main
 
+
+
 jobs:
-    deploy:
+    build:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-python@v2
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
               with:
-                  python-version: 3.x
-
-            - name: Install
-              working-directory: ./.publish
-              run: |
-                  pip install -r requirements.txt
-
-            - uses: jannekem/run-python-script-action@v1
-              with:
-                  script: |
-                      import mkdocs_obsidian as obs
-                      os.environ['BASEDIR'] = obs.__path__[0]
-
-            - name: Create file
-              run: |
-                  echo vault="../" > ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-                  echo blog_path="./" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-                  echo blog="https://valentine195.github.io/Obsidian-Vault/" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-                  cat ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-
-            - uses: actions/checkout@v2
+                  node-version: 16
+                
+            - run: npx obsidian-mkdocs
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
             - uses: actions/setup-python@v2
               with:
                   python-version: 3.x
@@ -40,5 +29,4 @@ jobs:
             - name: Deploy
               working-directory: ./.publish
               run: |
-                  obs2mk --git
                   mkdocs gh-deploy --force

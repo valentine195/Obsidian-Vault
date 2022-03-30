@@ -39,7 +39,8 @@
     "colors.folders",
     "ebullient.overrides",
     "ebullient.colors.folders.overrides",
-    "callouts"
+    "callouts",
+    "custom-admonitions.133203"
   ],
   "theme": "moonstone"
 }

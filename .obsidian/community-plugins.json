@@ -31,7 +31,7 @@
   "obsidian-hover-editor",
   "obsidian-snippetor",
   "obsidian-prettier",
-  "obsidian-admonition",
   "obsidian-icon-shortcodes",
-  "settings-search"
+  "settings-search",
+  "obsidian-admonition"
 ]
