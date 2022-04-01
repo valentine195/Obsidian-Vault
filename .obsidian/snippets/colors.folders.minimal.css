@@ -1,0 +1,13 @@
+body:not(.is-translucent):not(.is-mobile) .mod-left-split .nav-files-container {
+    background: transparent;
+}
+
+.nav-folder-title {
+    margin: 0;
+    min-width: unset;
+    width: auto;
+}
+
+.nav-folder.mod-root > .nav-folder-children > .nav-folder > .nav-folder-children {
+    margin-left: 0;
+}

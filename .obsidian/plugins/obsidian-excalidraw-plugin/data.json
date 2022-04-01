@@ -5,7 +5,7 @@
   "scriptFolderPath": "Excalidraw/Scripts",
   "compress": false,
   "autosave": true,
-  "autosaveInterval": 15000,
+  "autosaveInterval": 10000,
   "drawingFilenamePrefix": "Drawing ",
   "drawingEmbedPrefixWithFilename": true,
   "drawingFilnameEmbedPostfix": " ",
@@ -19,6 +19,7 @@
   "matchThemeAlways": false,
   "matchThemeTrigger": false,
   "defaultMode": "normal",
+  "defaultPenMode": "never",
   "zoomToFitOnResize": true,
   "zoomToFitMaxLevel": 2,
   "linkPrefix": "📍",
@@ -67,6 +68,6 @@
   "mdCSS": "",
   "scriptEngineSettings": {},
   "defaultTrayMode": false,
-  "previousRelease": "1.6.20",
+  "previousRelease": "1.6.22",
   "showReleaseNotes": true
 }

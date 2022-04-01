@@ -1,6 +1,6 @@
 {
   "pluginList": [
-    "nothingislost/obsidian-hover-editor",
+    "valentine195/obsidian-notifier",
     "nothingislost/obsidian-bartender",
     "KjellConnelly/obsidian-dev-tools"
   ],
