@@ -11,20 +11,9 @@
       "injectColor": true,
       "noTitle": false
     },
-    "toc": {
-      "type": "toc",
-      "color": "182, 169, 255",
-      "icon": {
-        "name": "book",
-        "type": "font-awesome"
-      },
-      "command": false,
-      "injectColor": true,
-      "noTitle": true
-    },
     "recite": {
       "type": "recite",
-      "color": "169, 190, 174",
+      "color": "15, 163, 65",
       "icon": {
         "name": "book-reader",
         "type": "font-awesome"
@@ -36,7 +25,7 @@
     },
     "flame": {
       "type": "flame",
-      "color": "255, 255, 255",
+      "color": "158, 158, 158",
       "icon": {
         "name": "flame-symbol",
         "type": "rpg"
@@ -47,16 +36,18 @@
       "noTitle": false,
       "copy": false
     },
-    "acid": {
-      "type": "acid",
-      "color": "#7d7d7d",
+    "dnd": {
+      "type": "dnd",
+      "color": "168, 45, 180",
       "icon": {
-        "name": "acid",
-        "type": "rpg"
+        "name": "dice-d20",
+        "type": "font-awesome"
       },
-      "command": false,
+      "command": true,
+      "title": "Definition:",
       "injectColor": true,
-      "noTitle": false
+      "noTitle": true,
+      "copy": false
     },
     "map": {
       "type": "map",
@@ -71,38 +62,48 @@
       "noTitle": false,
       "copy": false
     },
-    "dnd": {
-      "type": "dnd",
-      "color": "172, 54, 181",
+    "idea": {
+      "type": "idea",
+      "color": "145, 182, 43",
       "icon": {
-        "name": "dice-d20",
+        "name": "lightbulb",
         "type": "font-awesome"
       },
       "command": true,
-      "title": null,
-      "injectColor": true,
-      "noTitle": true,
-      "copy": false
-    },
-    "law": {
-      "type": "law",
-      "color": "158, 31, 31",
-      "icon": {
-        "type": "octicons",
-        "name": "law"
-      },
-      "command": false,
-      "title": "Definition",
       "injectColor": true,
       "noTitle": false,
       "copy": false
     },
-    "note": {
-      "type": "note",
-      "color": "68, 138, 255",
+    "chat": {
+      "type": "chat",
+      "color": "196, 33, 33",
       "icon": {
-        "type": "octicons",
-        "name": "pencil"
+        "name": "comment",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": null,
+      "injectColor": true,
+      "noTitle": false,
+      "copy": false
+    },
+    "encounter": {
+      "type": "encounter",
+      "color": "252, 146, 146",
+      "icon": {
+        "type": "rpg",
+        "name": "crossed-swords"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
+    },
+    "creature": {
+      "type": "creature",
+      "color": "87, 244, 142",
+      "icon": {
+        "name": "dragon",
+        "type": "font-awesome"
       },
       "command": false,
       "injectColor": true,
@@ -110,13 +111,13 @@
     }
   },
   "syntaxHighlight": true,
-  "copyButton": false,
-  "version": "7.0.3",
+  "copyButton": true,
+  "version": "9.0.5",
   "autoCollapse": false,
-  "defaultCollapseType": "closed",
+  "defaultCollapseType": "open",
   "injectColor": true,
   "parseTitles": true,
-  "dropShadow": false,
+  "dropShadow": true,
   "hideEmpty": false,
   "open": {
     "admonitions": true,
@@ -131,6 +132,8 @@
   "useFontAwesome": true,
   "rpgDownloadedOnce": true,
   "msDocConverted": true,
+  "useSnippet": false,
+  "snippetPath": "custom-admonitions.133203",
   "allowMSSyntax": true,
   "msSyntaxIndented": true,
   "livePreviewMS": true,

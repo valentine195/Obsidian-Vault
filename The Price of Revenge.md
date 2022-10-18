@@ -9,7 +9,7 @@ obsidianUIMode: preview
 ```
 
 ### Map
-![[2. Compendium/Index#^khorvaire-map]]
+![[20 Roleplaying/22 Compendium/Index#^khorvaire-map]]
 
 ### Characters
 

@@ -1,0 +1,169 @@
+{
+  "main": {
+    "id": "4b849776909b00fe",
+    "type": "split",
+    "children": [
+      {
+        "id": "aa6a33cba72ee2a7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "47e6bbedff066eb3",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "eea6bd7f00d18c62",
+    "type": "split",
+    "children": [
+      {
+        "id": "41eb604ff7c0f966",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "54301029145cf071",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "32ec3cf4d514e13d",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "36a5ad898721462c",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 289.5
+  },
+  "right": {
+    "id": "5e7f37323b9cb36c",
+    "type": "split",
+    "children": [
+      {
+        "id": "8d75668f8d12f8f3",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d03abc6c241cbc69",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1834fe061f88e71b",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "eddfdf9ce16daa3c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          },
+          {
+            "id": "08273f5b6effa0df",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "1fdc0477758b340f",
+            "type": "leaf",
+            "state": {
+              "type": "FANTASY_CALENDAR",
+              "state": {}
+            }
+          },
+          {
+            "id": "e4203eb2f726fd41",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {}
+            }
+          },
+          {
+            "id": "8fd96c8489a679aa",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 6
+      }
+    ],
+    "direction": "horizontal",
+    "width": 389.5
+  },
+  "active": "47e6bbedff066eb3",
+  "lastOpenFiles": [
+    "20 Sessions/2022-09-17 - Session 14.md",
+    "40 Items/1. Item Index.md",
+    "80 Players/Merigold.md",
+    "80 Players/Emily.md",
+    "99 Assets/27.01 Item Cards/Rapier of Legacy.png",
+    "99 Assets/27.01 Item Cards/Mysterious Mask.png",
+    "20 Sessions/Test.md",
+    "20 Sessions/adult-emerald-dragon.md",
+    "60 NPCs/Astrid Longhorn.md",
+    "20 Sessions/20.02 Post Session Logs/2022-02-26.md"
+  ]
+}

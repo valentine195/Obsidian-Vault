@@ -58,157 +58,8 @@
       ]
     },
     {
-      "id": "newthrone",
-      "lastAccessed": 1645840093556,
-      "markers": [
-        {
-          "id": "ID_0ab9ab385a99",
-          "type": "location",
-          "loc": [
-            -0.67633056640625,
-            0.703125
-          ],
-          "link": "Gray Tide",
-          "layer": "%5B%5Bkintargo.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_bb8879a8d999",
-          "type": "location",
-          "loc": [
-            -0.375,
-            0.6542916081460672
-          ],
-          "link": "House Tharashk",
-          "layer": "%5B%5Bkintargo.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_0a1abae9d889",
-          "type": "player",
-          "loc": [
-            -0.05572509765625,
-            1.3619627544871051
-          ],
-          "layer": "%5B%5Bkintargo.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.6666586331715084,
-            0.03876528532608696
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_5a7aaaeac98b",
-          "type": "location",
-          "loc": [
-            -0.9213638305664062,
-            1.3255506627355877
-          ],
-          "link": "Newthrone Gazette",
-          "layer": "%5B%5Bkintargo.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.6488355060426586,
-            0.6409487516983695
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_caf97b2a187b",
-          "type": "location",
-          "loc": [
-            -0.550933837890625,
-            0.623809814453125
-          ],
-          "link": "Newthrone#Bazaar",
-          "layer": "%5B%5Bkintargo.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.3053447657743786,
-            0.38325832201086957
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_bbe9b8b9686b",
-          "type": "location",
-          "loc": [
-            -0.7302932739257812,
-            0.6207122802734375
-          ],
-          "link": "Newthrone#**Tavern: Raymond's Respite**",
-          "layer": "%5B%5Bkintargo.png%5D%5D",
-          "mutable": true,
-          "command": false,
-          "percent": [
-            0.30382857313575523,
-            0.5080301036005435
-          ],
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        }
-      ],
-      "overlays": [],
-      "shapes": [
-        {
-          "type": "polyline",
-          "color": "#fff3d1",
-          "vertices": [
-            {
-              "lat": -0.6378936767578125,
-              "lng": 0.7700199040085219,
-              "id": "ID_c9d878aa1a3b",
-              "targets": {
-                "vertexIds": []
-              }
-            },
-            {
-              "lat": -0.8292999267578125,
-              "lng": 1.078777538103052,
-              "id": "ID_faaa695aea88",
-              "targets": {
-                "vertexIds": []
-              }
-            }
-          ],
-          "arrows": false,
-          "reversed": false
-        }
-      ],
-      "files": [
-        "2. Compendium/Locations/Q'Barra/Newthrone.md"
-      ]
-    },
-    {
       "id": "azgaar",
-      "lastAccessed": 1646316018287,
+      "lastAccessed": 1648655210050,
       "markers": [
         {
           "id": "ID_a869bb7928aa",
@@ -241,12 +92,315 @@
           "minZoom": null,
           "maxZoom": null,
           "tooltip": "hover"
+        },
+        {
+          "id": "ID_19485948f8d9",
+          "type": "location",
+          "loc": [
+            40.116546033468396,
+            -83.06831359863283
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
         }
       ],
       "overlays": [],
       "shapes": [],
       "files": [
-        "Plugin Testing/map/Map.md"
+        "99 Plugin Testing/map/Map.md"
+      ]
+    },
+    {
+      "id": "test",
+      "lastAccessed": 1648655258948,
+      "markers": [
+        {
+          "id": "ID_3b3ba82adbbb",
+          "type": "location",
+          "loc": [
+            40.08122374895389,
+            -80.37597656250001
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "99 Plugin Testing/map/Map.md"
+      ]
+    },
+    {
+      "id": "test-new-real",
+      "lastAccessed": 1648660743915,
+      "markers": [
+        {
+          "id": "ID_caca9879f9da",
+          "type": "location",
+          "loc": [
+            41.96051129429779,
+            -82.08984375000001
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "99 Plugin Testing/map/Khorvaire.md"
+      ]
+    },
+    {
+      "id": "az",
+      "lastAccessed": 1649084086941,
+      "markers": [
+        {
+          "id": "ID_8bb8a959899b",
+          "type": "location",
+          "loc": [
+            40.282668644462895,
+            -82.88085937500001
+          ],
+          "link": "The Price of Revenge",
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "99 Plugin Testing/map/Map.md"
+      ]
+    },
+    {
+      "id": "testing",
+      "lastAccessed": 1663382902249,
+      "markers": [
+        {
+          "id": "ID_1999c80bf92b",
+          "type": "location",
+          "loc": [
+            37.418708616699824,
+            -89.9560546875
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_38b8fa4ae8a8",
+          "type": "location",
+          "loc": [
+            41.02601739368269,
+            -73.74023437500001
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_bb88293bbaba",
+          "type": "test",
+          "loc": [
+            37.791337175930714,
+            -90.615234375
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_9a08baa89958",
+          "type": "test",
+          "loc": [
+            41.11221012233372,
+            -86.8239212036133
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "999 Plugin Testing/map/Map.md"
+      ]
+    },
+    {
+      "id": "newthrone",
+      "lastAccessed": 1665883049640,
+      "markers": [
+        {
+          "id": "ID_0ab9ab385a99",
+          "type": "location",
+          "loc": [
+            -0.7772216796875,
+            0.5809577926800884
+          ],
+          "link": "Gray Tide",
+          "layer": "%5B%5Bkintargo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.6171795268023482,
+            0.9324048913043478
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_bb8879a8d999",
+          "type": "location",
+          "loc": [
+            -0.367584228515625,
+            0.6573951908530199
+          ],
+          "link": "House Tharashk",
+          "layer": "%5B%5Bkintargo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            1.0240570405280696,
+            0.27445652173913043
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_5a7aaaeac98b",
+          "type": "location",
+          "loc": [
+            -0.951324462890625,
+            1.225926444489701
+          ],
+          "link": "Newthrone Gazette",
+          "layer": "%5B%5Bkintargo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.8057389433185839,
+            0.8198029891304348
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_caf97b2a187b",
+          "type": "location",
+          "loc": [
+            -0.657958984375,
+            1.618211874446886
+          ],
+          "link": "Newthrone#Bazaar",
+          "layer": "%5B%5Bkintargo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.7920884127311718,
+            0.457710597826087
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_bbe9b8b9686b",
+          "type": "location",
+          "loc": [
+            -0.6444740295410156,
+            0.6499184081773446
+          ],
+          "link": "Newthrone#**Tavern: Raymond's Respite**",
+          "layer": "%5B%5Bkintargo.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.318124498075335,
+            0.44832975968070654
+          ],
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_7b8b996b49eb",
+          "type": "player",
+          "loc": [
+            -0.72222900390625,
+            0.6488373530780869
+          ],
+          "layer": "%5B%5Bnewthrone.png%5D%5D",
+          "mutable": true,
+          "command": false,
+          "percent": [
+            0.4188158328469387,
+            0.9662873641304348
+          ],
+          "description": "Players",
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "50 Locations/Q'Barra/Newthrone.md"
       ]
     }
   ],
@@ -307,18 +461,33 @@
       "tags": [],
       "minZoom": null,
       "maxZoom": null
+    },
+    {
+      "type": "test",
+      "iconName": "ad",
+      "color": "#dddddd",
+      "layer": false,
+      "transform": {
+        "size": 6,
+        "x": 0,
+        "y": -2
+      },
+      "isImage": false,
+      "tags": [],
+      "minZoom": null,
+      "maxZoom": null
     }
   ],
   "color": "#dddddd",
   "lat": 39.983334,
   "long": -82.98333,
-  "notePreview": false,
+  "notePreview": true,
   "layerMarkers": true,
-  "previousVersion": "4.14.0",
+  "previousVersion": "5.0.4",
   "version": {
-    "major": 4,
-    "minor": 14,
-    "patch": 0
+    "major": 5,
+    "minor": 0,
+    "patch": 4
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": true,
@@ -326,9 +495,46 @@
   "displayOverlayTooltips": true,
   "configDirectory": null,
   "mapViewEnabled": true,
-  "mapViewParameters": {},
+  "mapViewParameters": {
+    "darkMode": "false",
+    "defaultZoom": 5,
+    "distanceMultiplier": 1,
+    "drawColor": "#3388ff",
+    "geojson": [],
+    "geojsonColor": "#3388ff",
+    "gpx": [],
+    "gpxColor": "#3388ff",
+    "height": "500px",
+    "image": "[[newthrone.png]]",
+    "imageOverlay": [],
+    "isMapView": false,
+    "layers": [
+      "[[newthrone.png]]"
+    ],
+    "linksFrom": [],
+    "linksTo": [],
+    "marker": [],
+    "commandMarker": [],
+    "markerFile": [],
+    "markerFolder": [],
+    "markerTag": [],
+    "maxZoom": 10,
+    "minZoom": 1,
+    "osmLayer": true,
+    "overlay": [],
+    "overlayColor": "blue",
+    "scale": 1,
+    "showAllMarkers": false,
+    "tileServer": [],
+    "verbose": false,
+    "zoomDelta": 1,
+    "zoomFeatures": false,
+    "id": "newthrone",
+    "filterTag": []
+  },
   "enableDraw": true,
   "defaultUnitType": "imperial",
-  "defaultTile": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-  "defaultTileDark": "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+  "defaultTile": "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+  "defaultTileDark": "https://stamen-tiles.a.ssl.fastly.net/terrain/{z}/{x}/{y}.jpg",
+  "defaultAttribution": "Map tiles by <a href=\"http://stamen.com\">Stamen Design</a>, under <a href=\"http://creativecommons.org/licenses/by/3.0\">CC BY 3.0</a>. Data by <a href=\"http://openstreetmap.org\">OpenStreetMap</a>, under <a href=\"http://www.openstreetmap.org/copyright\">ODbL</a>."
 }

@@ -1,110 +1,16 @@
 {
   "snippets": {
-    "substantial-grumpy-beard-#d727dd": {
-      "type": "folder",
-      "folders": [
-        {
-          "lightMode": {
-            "foreground": "#ffffff",
-            "background": "#b57373"
-          },
-          "darkMode": {
-            "foreground": "#cf9af9",
-            "background": "#00ff08"
-          },
-          "target": "1. Sessions"
-        },
-        {
-          "lightMode": {
-            "foreground": "#ffffff",
-            "background": "#1499ff"
-          },
-          "darkMode": {
-            "foreground": "#fcd4bd",
-            "background": "#949494"
-          },
-          "target": "4. Characters"
-        },
-        {
-          "lightMode": {
-            "foreground": "#2c2926",
-            "background": "#a9daad"
-          },
-          "darkMode": {
-            "foreground": "#fc9d88"
-          },
-          "target": "2. Compendium"
-        },
-        {
-          "lightMode": {
-            "foreground": "#778704",
-            "background": "#a883ec"
-          },
-          "darkMode": {
-            "foreground": "#a7f291"
-          },
-          "target": "3. Planning"
-        },
-        {
-          "lightMode": {
-            "foreground": "#2d8c08"
-          },
-          "darkMode": {
-            "foreground": "#91d3f2"
-          },
-          "target": "5. Players"
-        },
-        {
-          "lightMode": {
-            "foreground": "#088e52"
-          },
-          "darkMode": {
-            "foreground": "#d5ff7c"
-          },
-          "target": "6. References"
-        },
-        {
-          "lightMode": {
-            "foreground": "#0faa6c"
-          },
-          "darkMode": {
-            "foreground": "#fcabc7"
-          },
-          "target": "Archive"
-        }
-      ],
-      "default": {
-        "target": "",
-        "lightMode": {
-          "foreground": "#ffffff",
-          "background": "#a001e9"
-        },
-        "darkMode": {
-          "foreground": "#00bfff",
-          "background": "#1b4122"
-        }
-      },
-      "id": "substantial-grumpy-beard-#d727dd",
-      "name": "savory-eggplant",
-      "version": "0.1.8",
-      "folderIcon": true,
-      "hideTypes": false,
-      "hideScrollbar": true,
-      "hideCollapse": false,
-      "hoverDecoration": true,
-      "borderRadius": 6
-    },
-    "rancid-swift-library-#e5b634": {
+    "broken-flabby-motherboard-#64c126": {
       "type": "simple-task",
       "taskSettings": [
         {
           "data": "x",
           "checkbox": {
             "lightMode": {
-              "foreground": "#088962"
+              "foreground": "#b78f0c"
             },
             "darkMode": {
-              "foreground": "#f9df90"
+              "foreground": "#aee7f9"
             }
           },
           "li": {
@@ -116,10 +22,10 @@
           "data": "-",
           "checkbox": {
             "lightMode": {
-              "foreground": "#098954"
+              "foreground": "#e212ab"
             },
             "darkMode": {
-              "foreground": "#affc85"
+              "foreground": "#faffa8"
             }
           },
           "li": {
@@ -128,13 +34,13 @@
           }
         },
         {
-          "data": ">",
+          "data": "-",
           "checkbox": {
             "lightMode": {
-              "foreground": "#0e9370"
+              "foreground": "#b50341"
             },
             "darkMode": {
-              "foreground": "#7573ef"
+              "foreground": "#ddccff"
             }
           },
           "li": {
@@ -143,65 +49,10 @@
           }
         }
       ],
-      "id": "rancid-swift-library-#e5b634",
-      "name": "wet-yottabyte",
+      "id": "broken-flabby-motherboard-#64c126",
+      "name": "strong-market",
       "baseFontSize": 14,
       "version": "0.1.8"
-    },
-    "burly-billowy-football-#48ea8e": {
-      "type": "simple-task",
-      "taskSettings": [
-        {
-          "data": "f",
-          "checkbox": {
-            "lightMode": {
-              "foreground": "#269900"
-            },
-            "darkMode": {
-              "foreground": "#aebbf2"
-            }
-          },
-          "li": {
-            "lightMode": {},
-            "darkMode": {}
-          }
-        },
-        {
-          "data": "-",
-          "checkbox": {
-            "lightMode": {
-              "foreground": "#dd4f02"
-            },
-            "darkMode": {
-              "foreground": "#f97acf"
-            }
-          },
-          "li": {
-            "lightMode": {},
-            "darkMode": {}
-          }
-        },
-        {
-          "data": ">",
-          "checkbox": {
-            "lightMode": {
-              "foreground": "#01537c"
-            },
-            "darkMode": {
-              "foreground": "#d986f9"
-            }
-          },
-          "li": {
-            "lightMode": {},
-            "darkMode": {}
-          }
-        }
-      ],
-      "id": "burly-billowy-football-#48ea8e",
-      "name": "better-toddler",
-      "baseFontSize": 14,
-      "version": "0.1.8",
-      "borderRadius": 38
     }
   }
 }

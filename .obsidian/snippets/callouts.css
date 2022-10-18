@@ -1,0 +1,7 @@
+.callout[data-callout-metadata="x"] .callout-title {
+    display: none;
+}
+
+.callout[data-callout="test"] {
+    --callout-icon: "<svg><text x='50%' y='50%' text-anchor='middle' height=10 width=10 >👀</text></svg>";
+}

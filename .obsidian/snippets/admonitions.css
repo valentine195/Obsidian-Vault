@@ -3,6 +3,15 @@ body.is-mobile .admonition {
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
+.callout[data-callout-metadata="x"] .callout-title {
+    display: none;
+}
+.admonition-calendar .admonition-title-content {
+    display: flex;
+}
+.admonition-calendar .admonition-title-content > .internal-link:first-child {
+    margin-right: auto;
+}
 
 body.is-mobile .admonition-content,
 body.is-mobile
@@ -25,7 +34,8 @@ body.is-mobile
     margin-inline-start: 18px;
 }
 
-.admonition, blockquote {
+.admonition,
+blockquote {
     margin-inline-start: 18px !important;
     margin-inline-end: 18px !important;
 }

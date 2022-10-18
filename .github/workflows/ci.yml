@@ -1,32 +1,31 @@
 name: ci
 on:
-  push:
-    branches:
-      - master
-      - main
+    push:
+        branches:
+            - master
+            - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            - uses: actions/setup-python@v2
+              with:
+                  python-version: 3.x
 
-      - name: Install
-        working-directory: ./.publish
-        run: |
-          pip install -r requirements.txt
-          pip install git+git://github.com/Mara-Li/mkdocs-tooltipster-links-plugin
-      - name: Create file
-        run: |
-          echo vault="../" > ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-          echo blog_path="./" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-          echo blog="https://valentine195.github.io/Obsidian-Vault/" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-          cat ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-      - name: Deploy
-        working-directory: ./.publish
-        run: |
-          obs2mk --git
-          mkdocs gh-deploy --force
+            - name: Install
+              working-directory: ./.publish
+              run: |
+                  pip install -r requirements.txt
+            - name: Create file
+              run: |
+                  cat ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+                  echo vault="../" > ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+                  echo blog_path="./" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+                  echo blog="https://valentine195.github.io/Obsidian-Vault/" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+            - name: Deploy
+              working-directory: ./.publish
+              run: |
+                  obs2mk --git
+                  mkdocs gh-deploy --force

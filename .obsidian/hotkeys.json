@@ -1,18 +1,18 @@
 {
-  "app:toggle-right-sidebar": [
+  "editor:swap-line-down": [
     {
       "modifiers": [
         "Alt"
       ],
-      "key": "ArrowRight"
+      "key": "ArrowDown"
     }
   ],
-  "app:toggle-left-sidebar": [
+  "editor:swap-line-up": [
     {
       "modifiers": [
         "Alt"
       ],
-      "key": "ArrowLeft"
+      "key": "ArrowUp"
     }
   ]
 }

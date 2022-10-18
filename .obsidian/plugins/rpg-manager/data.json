@@ -1,0 +1,327 @@
+{
+  "campaignTag": "rpgm/outline/campaign",
+  "adventureTag": "rpgm/outline/adventure",
+  "actTag": "rpgm/outline/act",
+  "sessionTag": "rpgm/outline/session",
+  "sceneTag": "rpgm/outline/scene",
+  "subplotTag": "rpgm/subplot",
+  "npcTag": "rpgm/element/character/npc",
+  "pcTag": "rpgm/element/character/pc",
+  "locationTag": "rpgm/element/location",
+  "factionTag": "rpgm/element/faction",
+  "eventTag": "rpgm/element/event",
+  "clueTag": "rpgm/element/clue",
+  "musicTag": "rpgm/element/music",
+  "automaticMove": true,
+  "templateFolder": "",
+  "YouTubeKey": "",
+  "previousVersion": "2.0",
+  "advanced": {
+    "Agnostic": {
+      "ActList": {
+        "title": "Acts",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 0,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      },
+      "AdventureList": {
+        "title": "Adventures",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 0,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      },
+      "CharacterList": {
+        "title": "Player Characters",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 1,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 3,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      },
+      "ClueList": {
+        "title": "Clues",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 1,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 5,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      },
+      "EventList": {
+        "title": "Events",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 1,
+            "checked": false,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 6,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      },
+      "FactionList": {
+        "title": "Factions",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 1,
+            "checked": false,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      },
+      "LocationList": {
+        "title": "Locations",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 1,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      },
+      "MusicList": {
+        "title": "Musics",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 1,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 7,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      },
+      "NonPlayerCharacterList": {
+        "title": "Non Player Characters",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 1,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 3,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      },
+      "SceneList": {
+        "title": "Scenes",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 0,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 8,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 6,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 9,
+            "checked": false,
+            "required": false
+          },
+          {
+            "field": 10,
+            "checked": false,
+            "required": false
+          },
+          {
+            "field": 11,
+            "checked": false,
+            "required": false
+          }
+        ]
+      },
+      "SessionList": {
+        "title": "Sessions",
+        "defaultVisible": true,
+        "fields": [
+          {
+            "field": 0,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 6,
+            "checked": true,
+            "required": false
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      },
+      "SubplotList": {
+        "title": "Subplots",
+        "defaultVisible": false,
+        "fields": [
+          {
+            "field": 2,
+            "checked": true,
+            "required": true
+          },
+          {
+            "field": 4,
+            "checked": true,
+            "required": false
+          }
+        ]
+      }
+    }
+  },
+  "timelineTag": "rpgm/element/timeline",
+  "noteTag": "rpgm/outline/note"
+}

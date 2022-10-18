@@ -1,40 +1,48 @@
 {
   "players": [
     {
-      "name": "Bob",
-      "player": true,
-      "marker": "player",
       "note": "Bob",
-      "path": "4. Characters/Bob.md",
+      "path": "80 Players/Bob.md",
+      "name": "Bob",
       "ac": 17,
       "hp": 24,
       "modifier": 2,
-      "level": 5
+      "level": 5,
+      "player": true,
+      "marker": "default"
     },
     {
-      "name": "Jeremiah",
-      "player": true,
-      "marker": "player",
       "note": "Jeremiah Pumpernickle",
-      "path": "4. Characters/Jeremiah Pumpernickle.md",
-      "level": 5
+      "path": "80 Players/Jeremiah Pumpernickle.md",
+      "name": "Jeremiah Pumpernickle",
+      "level": 5,
+      "player": true,
+      "marker": "default"
     },
     {
-      "name": "Merigold",
-      "player": true,
-      "marker": "player",
-      "note": "Merigold",
-      "path": "4. Characters/Merigold.md",
-      "level": 5
-    },
-    {
-      "name": "Mim",
-      "player": true,
-      "marker": "player",
       "note": "Mim",
-      "path": "4. Characters/Mim.md",
+      "path": "80 Players/Mim.md",
+      "name": "Mim",
       "hp": 20,
-      "level": 5
+      "level": 5,
+      "player": true,
+      "marker": "default"
+    },
+    {
+      "note": "Merigold",
+      "path": "80 Players/Merigold.md",
+      "name": "Merigold",
+      "level": 5,
+      "player": true,
+      "marker": "default"
+    },
+    {
+      "note": "Mysterious Paladin Man",
+      "path": "80 Players/Mysterious Paladin Man.md",
+      "name": "Mysterious Paladin Man",
+      "level": 5,
+      "player": true,
+      "marker": "default"
     }
   ],
   "parties": [
@@ -42,15 +50,34 @@
       "name": "Heroes of Whitecliff",
       "players": [
         "Bob",
+        "Jeremiah Pumpernickle",
         "Mim",
-        "Jeremiah",
-        "Merigold"
+        "Merigold",
+        "Mysterious Paladin Man"
       ]
+    },
+    {
+      "name": "Test",
+      "players": [
+        "Bob"
+      ]
+    },
+    {
+      "name": "abc",
+      "players": []
     }
   ],
   "defaultParty": "Heroes of Whitecliff",
   "homebrew": [],
   "statuses": [
+    {
+      "name": "Blinded",
+      "description": "A blinded creature can’t see and automatically fails any ability check that requires sight.\nAttack rolls against the creature have advantage, and the creature’s Attack rolls have disadvantage."
+    },
+    {
+      "name": "Charmed",
+      "description": "A charmed creature can’t Attack the charmer or target the charmer with harmful Abilities or magical Effects.\nThe charmer has advantage on any ability check to interact socially with the creature."
+    },
     {
       "name": "Concentrating",
       "description": "Some spells require you to maintain concentration in order to keep their magic active. If you lose concentration, such a spell ends.\nA creature loses concentration when: it casts another spell that requires concentration, is incapacitated, or dies.\nWhen a creature takes damage, it must make a constitution saving throw with a DC of 10 or half the damage it took, whichever is higher. On a failure, concentration is lost."
@@ -58,6 +85,10 @@
     {
       "name": "Deafened",
       "description": "A deafened creature can’t hear and automatically fails any ability check that requires hearing."
+    },
+    {
+      "name": "Frightened",
+      "description": "A frightened creature has disadvantage on Ability Checks and Attack rolls while the source of its fear is within Line of Sight.\nThe creature can’t willingly move closer to the source of its fear."
     },
     {
       "name": "Grappled",
@@ -102,42 +133,603 @@
     {
       "name": "Unconscious",
       "description": "An unconscious creature is incapacitated, can’t move or speak, and is unaware of its surroundings.\nThe creature drops whatever it’s holding and falls prone.\nThe creature automatically fails Strength and Dexterity Saving Throws.\nAttack rolls against the creature have advantage.\nAny Attack that hits the creature is a critical hit if the attacker is within 5 feet of the creature."
-    },
-    {
-      "name": "Charmed",
-      "description": "A charmed creature can’t Attack the charmer or target the charmer with harmful Abilities or magical Effects.\nThe charmer has advantage on any ability check to interact socially with the creature."
-    },
-    {
-      "name": "Test",
-      "description": "Test"
-    },
-    {
-      "name": "Frightened",
-      "description": "A frightened creature has disadvantage on Ability Checks and Attack rolls while the source of its fear is within Line of Sight.\nThe creature can’t willingly move closer to the source of its fear."
     }
   ],
   "version": null,
   "canUseDiceRoll": false,
   "initiative": "1d20 + %mod%",
   "modifier": null,
-  "sync": false,
-  "leafletIntegration": false,
-  "playerMarker": "player",
-  "monsterMarker": "monster",
-  "state": null,
+  "sync": true,
+  "leafletIntegration": true,
+  "playerMarker": "default",
+  "monsterMarker": "default",
+  "state": {
+    "creatures": [
+      {
+        "name": "Merigold",
+        "initiative": 22,
+        "modifier": 0,
+        "note": "Merigold",
+        "id": "ID_387b5a08ca5a",
+        "marker": "default",
+        "tempHP": 0,
+        "status": [],
+        "enabled": true,
+        "level": 5,
+        "player": true,
+        "active": true,
+        "hidden": false
+      },
+      {
+        "name": "Mysterious Paladin Man",
+        "initiative": 20,
+        "modifier": 0,
+        "note": "Mysterious Paladin Man",
+        "id": "ID_e9baea4b1a78",
+        "tempHP": 0,
+        "status": [],
+        "enabled": true,
+        "level": 5,
+        "player": true,
+        "active": false,
+        "hidden": false
+      },
+      {
+        "name": "Mim",
+        "initiative": 19,
+        "modifier": 0,
+        "hp": 20,
+        "note": "Mim",
+        "id": "ID_ea6b5abb69db",
+        "marker": "default",
+        "currentHP": 20,
+        "tempHP": 0,
+        "status": [],
+        "enabled": true,
+        "level": 5,
+        "player": true,
+        "active": false,
+        "hidden": false
+      },
+      {
+        "name": "Jeremiah Pumpernickle",
+        "initiative": 12,
+        "modifier": 0,
+        "note": "Jeremiah Pumpernickle",
+        "id": "ID_48eb6838ea6a",
+        "marker": "default",
+        "tempHP": 0,
+        "status": [],
+        "enabled": true,
+        "level": 5,
+        "player": true,
+        "active": false,
+        "hidden": false
+      },
+      {
+        "name": "Commoner",
+        "initiative": 12,
+        "modifier": 0,
+        "hp": 4,
+        "ac": 10,
+        "id": "ID_aa7ad91a1bfb",
+        "marker": "default",
+        "currentHP": 4,
+        "tempHP": 0,
+        "status": [],
+        "enabled": true,
+        "xp": 0,
+        "active": false,
+        "hidden": false
+      },
+      {
+        "name": "Bob",
+        "initiative": 9,
+        "modifier": 2,
+        "hp": 24,
+        "ac": 17,
+        "note": "Bob",
+        "id": "ID_e90bc8d87a68",
+        "marker": "default",
+        "currentHP": 24,
+        "tempHP": 0,
+        "status": [],
+        "enabled": true,
+        "level": 5,
+        "player": true,
+        "active": false,
+        "hidden": false
+      }
+    ],
+    "state": true,
+    "name": "Encounter",
+    "round": 5,
+    "logFile": "1664565123462 - Test Name.md"
+  },
   "condense": false,
+  "clamp": true,
+  "autoStatus": true,
+  "beginnerTips": true,
   "displayDifficulty": true,
-  "encounters": {},
+  "encounters": {
+    "In_progress_test": {
+      "creatures": [
+        {
+          "name": "Inspired Warrior",
+          "initiative": 15,
+          "modifier": 0,
+          "id": "ID_39eaa9fb6848",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "xp": 700,
+          "active": false,
+          "hidden": false
+        },
+        {
+          "name": "Inspired Warrior",
+          "initiative": 15,
+          "modifier": 0,
+          "id": "ID_39eaa9fb6848",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "xp": 700,
+          "active": false,
+          "hidden": false
+        },
+        {
+          "name": "Bob",
+          "initiative": 11,
+          "modifier": 2,
+          "hp": 24,
+          "ac": 17,
+          "note": "Bob",
+          "id": "ID_cb79cae84999",
+          "currentHP": 11,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": true,
+          "hidden": false
+        },
+        {
+          "name": "Mim",
+          "initiative": 13,
+          "modifier": 0,
+          "hp": 20,
+          "note": "Mim",
+          "id": "ID_089a0a4978cb",
+          "currentHP": 20,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false
+        },
+        {
+          "name": "Inspired Warrior",
+          "initiative": 9,
+          "modifier": 0,
+          "id": "ID_39eaa9fb6848",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "xp": 700,
+          "active": false,
+          "hidden": false
+        },
+        {
+          "name": "Merigold",
+          "initiative": 8,
+          "modifier": 0,
+          "note": "Merigold",
+          "id": "ID_0ada38592999",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false
+        },
+        {
+          "name": "Jeremiah Pumpernickle",
+          "initiative": 7,
+          "modifier": 0,
+          "note": "Jeremiah Pumpernickle",
+          "id": "ID_5b78d85b6b48",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false
+        }
+      ],
+      "state": true,
+      "name": "In_progress_test",
+      "round": 1,
+      "logFile": null
+    },
+    "test2": {
+      "creatures": [
+        {
+          "name": "Merigold",
+          "initiative": 17,
+          "modifier": 0,
+          "note": "Merigold",
+          "id": "ID_0ada38592999",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false
+        },
+        {
+          "name": "Inspired Warrior",
+          "initiative": 15,
+          "modifier": 0,
+          "id": "ID_39eaa9fb6848",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "xp": 700,
+          "active": false,
+          "hidden": false
+        },
+        {
+          "name": "Inspired Warrior",
+          "initiative": 13,
+          "modifier": 0,
+          "id": "ID_39eaa9fb6848",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "xp": 700,
+          "active": false,
+          "hidden": false
+        },
+        {
+          "name": "Inspired Warrior",
+          "initiative": 9,
+          "modifier": 0,
+          "id": "ID_39eaa9fb6848",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "xp": 700,
+          "active": true,
+          "hidden": false
+        },
+        {
+          "name": "Bob",
+          "initiative": 6,
+          "modifier": 2,
+          "hp": 24,
+          "ac": 17,
+          "note": "Bob",
+          "id": "ID_cb79cae84999",
+          "currentHP": 11,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false
+        },
+        {
+          "name": "Mim",
+          "initiative": 5,
+          "modifier": 0,
+          "hp": 20,
+          "note": "Mim",
+          "id": "ID_089a0a4978cb",
+          "currentHP": 20,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false
+        },
+        {
+          "name": "Jeremiah Pumpernickle",
+          "initiative": 1,
+          "modifier": 0,
+          "note": "Jeremiah Pumpernickle",
+          "id": "ID_5b78d85b6b48",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false
+        }
+      ],
+      "state": true,
+      "name": "test2",
+      "round": 1,
+      "logFile": "//1663009625326 - Encounter.md"
+    },
+    "saved": {
+      "creatures": [
+        {
+          "name": "Jeremiah Pumpernickle",
+          "initiative": 20,
+          "modifier": 0,
+          "note": "Jeremiah Pumpernickle",
+          "id": "ID_5b78d85b6b48",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": true,
+          "hidden": false,
+          "friendly": false
+        },
+        {
+          "name": "Inspired Warrior",
+          "initiative": 15,
+          "modifier": 0,
+          "id": "ID_39eaa9fb6848",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "xp": 700,
+          "hidden": false,
+          "friendly": false
+        },
+        {
+          "name": "Inspired Warrior",
+          "initiative": 15,
+          "modifier": 0,
+          "id": "ID_39eaa9fb6848",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "xp": 700,
+          "hidden": false,
+          "friendly": false
+        },
+        {
+          "name": "Merigold",
+          "initiative": 13,
+          "modifier": 0,
+          "note": "Merigold",
+          "id": "ID_0ada38592999",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "hidden": false,
+          "friendly": false
+        },
+        {
+          "name": "Bob",
+          "initiative": 10,
+          "modifier": 2,
+          "hp": 24,
+          "ac": 17,
+          "note": "Bob",
+          "id": "ID_cb79cae84999",
+          "currentHP": 24,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "hidden": false,
+          "friendly": false
+        },
+        {
+          "name": "Inspired Warrior",
+          "initiative": 9,
+          "modifier": 0,
+          "id": "ID_39eaa9fb6848",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "xp": 700,
+          "hidden": false,
+          "friendly": false
+        },
+        {
+          "name": "Mim",
+          "initiative": 3,
+          "modifier": 0,
+          "hp": 20,
+          "note": "Mim",
+          "id": "ID_089a0a4978cb",
+          "currentHP": 20,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "hidden": false,
+          "friendly": false
+        }
+      ],
+      "state": false,
+      "name": "saved",
+      "round": 1,
+      "logFile": "//1663009703784 - Encounter.md"
+    },
+    "Testing": {
+      "creatures": [
+        {
+          "name": "Bob",
+          "initiative": 0,
+          "modifier": 2,
+          "hp": 24,
+          "ac": 17,
+          "note": "Bob",
+          "id": "ID_9b0ac88abb68",
+          "currentHP": 24,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "hidden": false
+        },
+        {
+          "name": "Jeremiah Pumpernickle",
+          "initiative": 0,
+          "modifier": 0,
+          "note": "Jeremiah Pumpernickle",
+          "id": "ID_a8582a0a2958",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "hidden": false
+        },
+        {
+          "name": "Mim",
+          "initiative": 0,
+          "modifier": 0,
+          "hp": 20,
+          "note": "Mim",
+          "id": "ID_0bdbf81b1988",
+          "currentHP": 20,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "hidden": false
+        },
+        {
+          "name": "Merigold",
+          "initiative": 0,
+          "modifier": 0,
+          "note": "Merigold",
+          "id": "ID_1a5899c8cb3b",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "hidden": false
+        },
+        {
+          "name": "\"The Demogorgon\"",
+          "initiative": 8,
+          "modifier": -1,
+          "hp": 123,
+          "ac": 15,
+          "id": "ID_9aea583b0878",
+          "currentHP": 123,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "xp": 3900,
+          "hidden": false
+        }
+      ],
+      "state": false,
+      "name": "Testing",
+      "round": 1,
+      "logFile": null
+    },
+    "abc123": {
+      "creatures": [
+        {
+          "name": "Bob",
+          "initiative": 16,
+          "modifier": 2,
+          "hp": 24,
+          "ac": 17,
+          "note": "Bob",
+          "id": "ID_6b7bc98bebf8",
+          "currentHP": 24,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false,
+          "friendly": false
+        },
+        {
+          "name": "Jeremiah Pumpernickle",
+          "initiative": 14,
+          "modifier": 0,
+          "note": "Jeremiah Pumpernickle",
+          "id": "ID_3b5b68ead8a9",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false,
+          "friendly": false
+        },
+        {
+          "name": "Mim",
+          "initiative": 11,
+          "modifier": 0,
+          "hp": 20,
+          "note": "Mim",
+          "id": "ID_b9d8bb3a9b49",
+          "currentHP": 20,
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false,
+          "friendly": false
+        },
+        {
+          "name": "Merigold",
+          "initiative": 4,
+          "modifier": 0,
+          "note": "Merigold",
+          "id": "ID_08e8e84a3899",
+          "tempHP": 0,
+          "status": [],
+          "enabled": true,
+          "level": 5,
+          "player": true,
+          "active": false,
+          "hidden": false,
+          "friendly": false
+        }
+      ],
+      "state": false,
+      "name": "abc123",
+      "round": 1
+    }
+  },
   "warnedAboutImports": false,
   "openState": {
+    "battle": true,
     "party": true,
-    "status": false,
+    "status": true,
     "plugin": true,
     "player": true
   },
-  "collapseState": {
-    "party": false,
-    "status": false,
-    "plugin": false
-  }
+  "hpOverflow": "ignore",
+  "additiveTemp": false,
+  "logging": true,
+  "logFolder": "/"
 }

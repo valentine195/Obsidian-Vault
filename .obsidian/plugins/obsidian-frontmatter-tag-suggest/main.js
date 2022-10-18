@@ -118,7 +118,7 @@ var TagSuggest = class extends import_obsidian.EditorSuggest {
   selectSuggestion(suggestion) {
     if (this.context) {
       if (this.inline) {
-        suggestion = `${suggestion},`;
+        suggestion = `${suggestion}`;
       } else {
         suggestion = `${suggestion}
  -`;

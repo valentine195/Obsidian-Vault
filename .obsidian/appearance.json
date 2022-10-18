@@ -1,6 +1,6 @@
 {
-  "baseFontSize": 13,
-  "cssTheme": "Ebullientworks",
+  "baseFontSize": 16,
+  "cssTheme": "",
   "enabledCssSnippets": [
     "obsidian.auto-fading",
     "obsidian.colored-folders",
@@ -20,23 +20,17 @@
     "simple-task-calm-tailor",
     "folder-mushy-policeman",
     "admonitions.recite",
-    "supercharged-links-gen",
-    "colors.folders",
-    "dataview.metadata",
-    "ebullient.colors.folders.overrides",
-    "fading",
-    "fonts",
-    "fonts.faces",
-    "headings",
-    "icons.external",
-    "icons.material",
-    "icons.minimal",
-    "minimal.settings",
-    "obsidian",
     "frontmatter.floating",
-    "ebullient.workspace-header",
-    "admonitions",
-    "ebullient.overrides"
+    "custom-admonitions.8163f9",
+    "ebullient.colors.folders.overrides",
+    "float.ribbon",
+    "fonts",
+    "fonts.faces"
   ],
-  "theme": "obsidian"
+  "theme": "obsidian",
+  "interfaceFontFamily": "Quicksand",
+  "textFontFamily": "Quicksand",
+  "monospaceFontFamily": "Roboto Mono",
+  "accentColor": "#499191",
+  "nativeMenus": true
 }

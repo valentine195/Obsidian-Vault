@@ -2,7 +2,7 @@
   "promptDelete": false,
   "foldHeading": true,
   "foldIndent": true,
-  "smartIndentList": true,
+  "smartIndentList": false,
   "showFrontmatter": true,
   "newFileLocation": "current",
   "livePreview": false,
@@ -18,5 +18,7 @@
   "legacyEditor": false,
   "showLineNumber": false,
   "useMarkdownLinks": false,
-  "spellcheck": true
+  "spellcheck": true,
+  "showInlineTitle": false,
+  "communityThemeSortOrder": "download"
 }

@@ -1,11 +1,8 @@
 {
   "pluginList": [
-    "nothingislost/obsidian-query-control",
-    "valentine195/obsidian-discordrpc",
-    "valentine195/obsidian-image-window",
+    "valentine195/obsidian-notifier",
     "nothingislost/obsidian-bartender",
-    "KjellConnelly/obsidian-dev-tools",
-    "ebullient/obsidian-snippetor"
+    "KjellConnelly/obsidian-dev-tools"
   ],
   "themesList": [],
   "updateAtStartup": false,

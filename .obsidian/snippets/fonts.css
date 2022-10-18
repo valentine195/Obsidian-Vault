@@ -21,7 +21,6 @@
 
     /* Sizes, weights, padding */
     --font-normal: 16px;
-    --editor-font-size: var(--font-normal);
     --font-small: 13px;
     --font-smaller: 11px;
     --font-smallest: 10px;

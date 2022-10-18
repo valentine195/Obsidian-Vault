@@ -3,38 +3,22 @@
   "rollLinksForTags": false,
   "copyContentButton": true,
   "customFormulas": [
-    "2d20 + 1d12",
-    "1DF",
-    "1d4!i",
-    "1d4ri"
+    "1d4"
   ],
-  "displayFormulaForMod": false,
+  "displayFormulaForMod": true,
   "displayResultsInline": false,
   "displayLookupRoll": true,
-  "formulas": {
-    "test": "#location|link"
-  },
+  "formulas": {},
   "persistResults": false,
-  "results": {
-    "Plugin Testing/dice/Dice Roller.md": {
-      "34": {
-        "0": {
-          "type": "table",
-          "result": "`dice:[[Race Generator#^rare]]`"
-        }
-      }
-    }
-  },
+  "results": {},
   "defaultRoll": 1,
   "defaultFace": 100,
   "renderer": true,
   "renderAllDice": false,
-  "renderTime": 2000,
+  "renderTime": 0,
   "diceColor": "#202020",
   "textColor": "#ffffff",
   "showLeafOnStartup": true,
   "showDice": true,
-  "round": "None",
-  "useRandomOrg": true,
-  "randomOrgKey": "024fb447-3683-4e1a-a6f3-a4b9581ee228"
+  "round": "None"
 }
