@@ -9,23 +9,18 @@ jobs:
     deploy:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-            - uses: actions/setup-python@v2
+            - uses: actions/checkout@v3
+            - uses: actions/setup-node@v3
               with:
-                  python-version: 3.x
+                  node-version: 16
 
             - name: Install
-              working-directory: ./.publish
+              working-directory: ./
               run: |
-                  pip install -r requirements.txt
+                  npm i obsidian-mkdocs
             - name: Create file
-              run: |
-                  cat ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-                  echo vault="../" > ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-                  echo blog_path="./" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
-                  echo blog="https://valentine195.github.io/Obsidian-Vault/" >> ${{env.LD_LIBRARY_PATH}}/python3.10/site-packages/mkdocs_obsidian/.mkdocs_obsidian
+              run: obsidian-mkdocs
             - name: Deploy
               working-directory: ./.publish
               run: |
-                  obs2mk --git
                   mkdocs gh-deploy --force
