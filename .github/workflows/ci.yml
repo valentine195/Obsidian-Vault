@@ -21,6 +21,7 @@ jobs:
             - name: Create file
               run: obsidian-mkdocs
     mkdocs:
+        needs: deploy
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
