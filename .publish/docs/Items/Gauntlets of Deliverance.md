@@ -1,11 +1,17 @@
 ---
-type: "item"
-rarity: "uncommon"
-tier: "major"
-share: True
-category: "Items"
-tags: ['item/major/uncommon', 'item/wondrous/gauntlet', 'item/attunement']
+type: item
+rarity: uncommon
+tier: major
+share: true
+category: Items/
+tags:
+  - item/major/uncommon
+  - item/wondrous/gauntlet
+  - item/attunement
+created: Wednesday, November 24th 2021, 8:49:58 am
+modified: Wednesday, March 30th 2022, 2:34:23 pm
 ---
+
 # Gauntlets of Deliverance
 
 _Wondrous item, uncommon (requires attunement by a paladin)_
