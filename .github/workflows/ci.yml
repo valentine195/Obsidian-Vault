@@ -20,7 +20,19 @@ jobs:
                   npm i obsidian-mkdocs
             - name: Create file
               run: obsidian-mkdocs
-            - name: Deploy
+    mkdocs:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
+            - uses: actions/setup-python@v4
+              with:
+                  python-version: "3.10"
+                  cache: "pip"
+            - name: Install Python dependencies
               working-directory: ./.publish
-              run: |
-                  mkdocs gh-deploy --force
+              run: pip install -r requirements.txt
+            - name: MkDocs
+              working-directory: ./.publish
+              run: mkdocs gh-deploy --force --clean
