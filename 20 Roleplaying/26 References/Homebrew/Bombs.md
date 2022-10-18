@@ -1,1 +1,0 @@
-https://phaeselis.fandom.com/wiki/Alchemist_(D%26D_5th_edition)#The_Bomber

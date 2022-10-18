@@ -1,11 +1,11 @@
-site_name: your_site_name
-site_description: A cool description
+site_name: The Price of Revenge
+site_description: Landing page for The Price of Revenge campaign
 site_url: https://change_me.io/
 
 theme:
     name: 'material'
-    logo: assets/meta/favicons.png
-    favicon: assets/meta/favicons.png
+    logo: assets/meta/favicons.svg
+    favicon: assets/meta/favicons.svg
     custom_dir: overrides
     font:
         text: Ubuntu
