@@ -1,11 +1,11 @@
 site_name: The Price of Revenge
 site_description: Landing page for The Price of Revenge campaign
-site_url: https://valentine195.github.io/.
+site_url: https://valentine195.github.io/
 
 theme:
     name: 'material'
-    logo: assets/meta/favicons.png
-    favicon: assets/meta/favicons.png
+    logo: assets/meta/d20.png
+    favicon: assets/meta/d20.png
     custom_dir: overrides
     font:
         text: Ubuntu

@@ -11,11 +11,28 @@
             "id": "47e6bbedff066eb3",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "40 Items/Hunt-Mask.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "e6beaa9ca4623b67",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "80 Players/Merigold.md",
+                "mode": "source",
+                "source": true
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -61,8 +78,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "horizontal",
@@ -82,6 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "80 Players/Merigold.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +125,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "80 Players/Merigold.md"
+              }
             }
           },
           {
@@ -117,6 +136,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "80 Players/Merigold.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -147,14 +167,15 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 1
       }
     ],
     "direction": "horizontal",
     "width": 389.5
   },
-  "active": "47e6bbedff066eb3",
+  "active": "e6beaa9ca4623b67",
   "lastOpenFiles": [
+    "40 Items/Hunt-Mask.md",
     "20 Sessions/2022-09-17 - Session 14.md",
     "40 Items/1. Item Index.md",
     "80 Players/Merigold.md",
@@ -163,7 +184,6 @@
     "99 Assets/27.01 Item Cards/Mysterious Mask.png",
     "20 Sessions/Test.md",
     "20 Sessions/adult-emerald-dragon.md",
-    "60 NPCs/Astrid Longhorn.md",
-    "20 Sessions/20.02 Post Session Logs/2022-02-26.md"
+    "60 NPCs/Astrid Longhorn.md"
   ]
 }
