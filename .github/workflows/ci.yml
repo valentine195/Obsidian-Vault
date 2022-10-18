@@ -17,7 +17,7 @@ jobs:
             - name: Install
               working-directory: ./
               run: |
-                  npm i obsidian-mkdocs
+                  npm i -g obsidian-mkdocs
             - name: Create file
               run: obsidian-mkdocs
     mkdocs:
