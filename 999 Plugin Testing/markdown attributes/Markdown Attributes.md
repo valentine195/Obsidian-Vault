@@ -3,7 +3,7 @@
 Inline text elements such as italics, bold, highlight, etc. should have their attributes placed _inside_ the symbol:
 
 
-I'm normal text, but *I'm italic { class='italics' }*, **I'm bold { .bold }** and ==I'm highlighted { id=highlight }==.
+I'm normal text, but *I'm italic { class='italics' }*, **I'm bold { .abc }** and ==I'm highlighted { id=jabberwockylovessomehockey }==.
 
 
 
@@ -15,7 +15,7 @@ abc def
 This is a paragraph.
 This is another line of the paragraph.
 This is the last line. def
-{ id=my_paragraph .class }
+{ id=my .class }
 
 
 ### Headers
@@ -32,7 +32,7 @@ Attributes can be added to the `<table>` element by placing the attribute on the
 | header1 | header2 |
 | ------- | ------- |
 | column1 | column2 |
-{ .table-class }
+{ .table }
 
 
 Attributes can be added to individual table cells like so:
@@ -40,7 +40,7 @@ Attributes can be added to individual table cells like so:
 
 | header1 { .class} | header2                |
 | ------------------ | ---------------------- |
-| column1            | column2 { .class-two} |
+| column1            | column2 { .two} |
 
 
 It is not currently possible to add attributes to `<tr>` or `<thead>` elements.

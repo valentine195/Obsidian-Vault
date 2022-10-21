@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "aa6a33cba72ee2a7",
+        "id": "bcca0e74a4917536",
         "type": "tabs",
         "children": [
           {
-            "id": "47e6bbedff066eb3",
+            "id": "3930c12724295ad9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "40 Items/Hunt-Mask.md",
+                "file": "999 Plugin Testing/markdown attributes/Markdown Attributes.md",
                 "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "e6beaa9ca4623b67",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "80 Players/Merigold.md",
-                "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "80 Players/Merigold.md",
+                "file": "999 Plugin Testing/markdown attributes/Markdown Attributes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -126,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "80 Players/Merigold.md"
+                "file": "999 Plugin Testing/markdown attributes/Markdown Attributes.md"
               }
             }
           },
@@ -136,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "80 Players/Merigold.md",
+                "file": "999 Plugin Testing/markdown attributes/Markdown Attributes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -171,19 +158,20 @@
       }
     ],
     "direction": "horizontal",
-    "width": 389.5
+    "width": 389.5,
+    "collapsed": true
   },
-  "active": "e6beaa9ca4623b67",
+  "active": "3930c12724295ad9",
   "lastOpenFiles": [
+    "999 Plugin Testing/markdown attributes/Markdown Attributes.md",
+    "999 Plugin Testing/markdown attributes/Untitled.md",
+    "999 Plugin Testing/dataview/Rat.md",
+    "999 Plugin Testing/dataview/dataview.md",
+    "999 Plugin Testing/markdown attributes/Untitled 1.md",
+    "80 Players/Merigold.md",
     "40 Items/Hunt-Mask.md",
     "20 Sessions/2022-09-17 - Session 14.md",
     "40 Items/1. Item Index.md",
-    "80 Players/Merigold.md",
-    "80 Players/Emily.md",
-    "99 Assets/27.01 Item Cards/Rapier of Legacy.png",
-    "99 Assets/27.01 Item Cards/Mysterious Mask.png",
-    "20 Sessions/Test.md",
-    "20 Sessions/adult-emerald-dragon.md",
-    "60 NPCs/Astrid Longhorn.md"
+    "80 Players/Emily.md"
   ]
 }
