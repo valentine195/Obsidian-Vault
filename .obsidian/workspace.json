@@ -123,14 +123,6 @@
             }
           },
           {
-            "id": "04910c8efd54e965",
-            "type": "leaf",
-            "state": {
-              "type": "FANTASY_CALENDAR",
-              "state": {}
-            }
-          },
-          {
             "id": "89579d1a5280d07d",
             "type": "leaf",
             "state": {
@@ -139,7 +131,15 @@
             }
           },
           {
-            "id": "3ee46239ba6f51dc",
+            "id": "74450778dc1e1717",
+            "type": "leaf",
+            "state": {
+              "type": "FANTASY_CALENDAR",
+              "state": {}
+            }
+          },
+          {
+            "id": "5732fb32da427585",
             "type": "leaf",
             "state": {
               "type": "DICE_ROLLER_VIEW",
