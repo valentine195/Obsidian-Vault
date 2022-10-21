@@ -4,7 +4,9 @@ if you want to view the source, please visit the github repository of this plugi
 */
 
 var __defProp = Object.defineProperty;
+var __defProps = Object.defineProperties;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
+var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
 var __getProtoOf = Object.getPrototypeOf;
@@ -22,6 +24,19 @@ var __spreadValues = (a, b) => {
         __defNormalProp(a, prop, b[prop]);
     }
   return a;
+};
+var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
+var __objRest = (source, exclude) => {
+  var target = {};
+  for (var prop in source)
+    if (__hasOwnProp.call(source, prop) && exclude.indexOf(prop) < 0)
+      target[prop] = source[prop];
+  if (source != null && __getOwnPropSymbols)
+    for (var prop of __getOwnPropSymbols(source)) {
+      if (exclude.indexOf(prop) < 0 && __propIsEnum.call(source, prop))
+        target[prop] = source[prop];
+    }
+  return target;
 };
 var __export = (target, all) => {
   for (var name in all)
@@ -64,7 +79,7 @@ __export(main_exports, {
   default: () => RpgManager
 });
 module.exports = __toCommonJS(main_exports);
-var import_obsidian39 = require("obsidian");
+var import_obsidian42 = require("obsidian");
 
 // src/controller/Controller.ts
 var import_obsidian2 = require("obsidian");
@@ -102,61 +117,61 @@ var AbstractRpgManagerMarkdownRenderChild = class extends import_obsidian.Markdo
 
 // src/controller/Controller.ts
 var Controller = class extends AbstractRpgManagerMarkdownRenderChild {
-  constructor(app2, container, source, component, sourcePath) {
+  constructor(app2, container, _source, _component, _sourcePath) {
     super(app2, container);
-    this.source = source;
-    this.component = component;
-    this.sourcePath = sourcePath;
-    this.isActive = false;
-    this.models = [];
+    this._source = _source;
+    this._component = _component;
+    this._sourcePath = _sourcePath;
+    this._isActive = false;
+    this._models = [];
     this.componentVersion = void 0;
-    this.registerEvent(this.app.vault.on("rename", (file, oldPath) => this.onRename(file, oldPath)));
+    this.registerEvent(this.app.vault.on("rename", (file, oldPath) => this._onRename(file, oldPath)));
     this.registerEvent(this.app.workspace.on("rpgmanager:refresh-views", this._render.bind(this)));
     this.registerEvent(this.app.workspace.on("rpgmanager:force-refresh-views", (() => {
       this._render(true);
     }).bind(this)));
   }
-  onRename(file, oldPath) {
+  _onRename(file, oldPath) {
     return __async(this, null, function* () {
-      if (this.sourcePath === oldPath)
-        this.sourcePath = file.path;
+      if (this._sourcePath === oldPath)
+        this._sourcePath = file.path;
       this._render();
     });
   }
   _generateModels() {
-    this.models = [];
+    this._models = [];
     try {
-      const configurations = (0, import_obsidian2.parseYaml)(this.source);
+      const configurations = (0, import_obsidian2.parseYaml)(this._source);
       if (configurations.models.header !== void 0) {
-        this.models.push(this._generateModel("Header"));
+        this._models.push(this._generateModel("Header"));
       }
       if (configurations.models.lists !== void 0) {
-        this.models.push(this._generateModel("List", configurations.models.lists));
+        this._models.push(this._generateModel("List", configurations.models.lists));
       }
     } catch (e) {
     }
   }
   _generateModel(modelName, sourceMeta = void 0) {
-    return this.factories.models.create(this.currentComponent.campaignSettings, modelName, this.currentComponent, this.source, this.sourcePath, sourceMeta);
+    return this.factories.models.create(this._currentComponent.campaignSettings, modelName, this._currentComponent, this._source, this._sourcePath, sourceMeta);
   }
   _initialise() {
     return __async(this, null, function* () {
       var _a;
-      if (this.componentVersion !== void 0 && this.currentComponent.version === this.componentVersion) {
+      if (this.componentVersion !== void 0 && this._currentComponent.version === this.componentVersion) {
         return false;
       }
-      this.componentVersion = (_a = this.currentComponent.version) != null ? _a : 0 + 0;
+      this.componentVersion = (_a = this._currentComponent.version) != null ? _a : 0 + 0;
       this._generateModels();
       return true;
     });
   }
-  waitForComponentToBeReady() {
+  _waitForComponentToBeReady() {
     return __async(this, null, function* () {
       const poll = (resolve) => {
-        if (this.database.isReady && this.currentComponent.version !== void 0) {
+        if (this.database.isReady && this._currentComponent.version !== void 0) {
           resolve();
         } else {
-          setTimeout((_) => poll(resolve), 100);
+          setTimeout((callback) => poll(resolve), 100);
         }
       };
       return new Promise(poll);
@@ -170,21 +185,21 @@ var Controller = class extends AbstractRpgManagerMarkdownRenderChild {
     return __async(this, null, function* () {
       if (this.database === void 0)
         return;
-      if (this.currentComponent === void 0) {
-        const rpgmComponent = this.app.plugins.getPlugin("rpg-manager").database.readByPath(this.sourcePath);
+      if (this._currentComponent === void 0) {
+        const rpgmComponent = this.app.plugins.getPlugin("rpg-manager").database.readByPath(this._sourcePath);
         if (rpgmComponent === void 0)
           return;
-        this.currentComponent = rpgmComponent;
+        this._currentComponent = rpgmComponent;
       }
-      yield this.waitForComponentToBeReady();
+      yield this._waitForComponentToBeReady();
       if (forceRefresh)
         this.componentVersion = void 0;
       if (yield this._initialise()) {
         this.container.empty();
-        for (let modelCounter = 0; modelCounter < this.models.length; modelCounter++) {
-          yield this.models[modelCounter].generateData().then((data) => {
+        for (let modelCounter = 0; modelCounter < this._models.length; modelCounter++) {
+          yield this._models[modelCounter].generateData().then((data) => {
             data.elements.forEach((element) => {
-              const view = this.factories.views.create(this.currentComponent.campaignSettings, element.responseType, this.sourcePath);
+              const view = this.factories.views.create(this._currentComponent.campaignSettings, element.responseType, this._sourcePath);
               view.render(this.container, element);
             });
           });
@@ -193,12 +208,12 @@ var Controller = class extends AbstractRpgManagerMarkdownRenderChild {
       }
     });
   }
-  isComponentVisible() {
+  _isComponentVisible() {
     return __async(this, null, function* () {
-      if (this.currentComponent === void 0) {
+      if (this._currentComponent === void 0) {
         return false;
       }
-      if (this.currentComponent.file === void 0) {
+      if (this._currentComponent.file === void 0) {
         return false;
       }
       yield this.app.workspace.iterateAllLeaves((leaf) => {
@@ -206,7 +221,7 @@ var Controller = class extends AbstractRpgManagerMarkdownRenderChild {
         if (leaf.view instanceof import_obsidian2.MarkdownView) {
           const file = (_a = leaf.view) == null ? void 0 : _a.file;
           if (file !== void 0) {
-            if (file.path === this.currentComponent.file.path)
+            if (file.path === this._currentComponent.file.path)
               return true;
           }
         }
@@ -354,7 +369,7 @@ var ImageContent = class extends AbstractContent {
   fillContent(container, sourcePath) {
     if (container === void 0)
       return;
-    if (this.content != null) {
+    if (this.content != null && this.content.length > 0) {
       const image = new Image(75, 75);
       image.onerror = (evt) => {
         container.textContent = "";
@@ -365,7 +380,7 @@ var ImageContent = class extends AbstractContent {
         container.append(image);
         container.style.width = image.style.width;
       };
-      image.src = this.content;
+      image.src = this.content[0].src;
     } else {
       container.textContent = "";
     }
@@ -453,7 +468,13 @@ var path = require("path");
 var FileFactory = class extends AbstractFactory {
   create(settings, type, create, templateName, name, campaignId, adventureId = void 0, actId = void 0, sceneId = void 0, sessionId = void 0, additionalInformation = null) {
     return __async(this, null, function* () {
-      let folder = path.sep;
+      let pathSeparator = "";
+      try {
+        pathSeparator = path.sep;
+      } catch (e) {
+        pathSeparator = "/";
+      }
+      let folder = pathSeparator;
       try {
         const campaign = this.app.plugins.getPlugin("rpg-manager").database.readSingle(1 /* Campaign */, campaignId);
         settings = campaign.campaignSettings;
@@ -461,17 +482,17 @@ var FileFactory = class extends AbstractFactory {
       } catch (e) {
       }
       const template = this.app.plugins.getPlugin("rpg-manager").factories.templates.create(settings, type, templateName, name, campaignId.id, adventureId == null ? void 0 : adventureId.id, actId == null ? void 0 : actId.id, sceneId == null ? void 0 : sceneId.id, sessionId == null ? void 0 : sessionId.id, additionalInformation);
-      const fileName = yield this.generateFilePath(type, folder, name);
+      const fileName = yield this._generateFilePath(type, folder, name, pathSeparator);
       template.generateData().then((data) => {
         if (create) {
-          this.createNewFile(data, fileName);
+          this._createNewFile(data, fileName);
         } else {
-          this.editExistingFile(data, fileName);
+          this._editExistingFile(data, fileName);
         }
       });
     });
   }
-  createNewFile(data, fileName) {
+  _createNewFile(data, fileName) {
     return __async(this, null, function* () {
       const newFile = yield app.vault.create(fileName, data);
       const currentLeaf = app.workspace.getActiveViewOfType(import_obsidian8.MarkdownView);
@@ -479,7 +500,7 @@ var FileFactory = class extends AbstractFactory {
       yield leaf.openFile(newFile);
     });
   }
-  editExistingFile(data, fileName) {
+  _editExistingFile(data, fileName) {
     return __async(this, null, function* () {
       const activeView = app.workspace.getActiveViewOfType(import_obsidian8.MarkdownView);
       if (activeView != null) {
@@ -510,26 +531,26 @@ var FileFactory = class extends AbstractFactory {
         folder = campaign.folder;
       }
       const template = this.app.plugins.getPlugin("rpg-manager").factories.templates.create(settings, type, "internal" + ComponentType[type], name, campaignId, adventureId, actId, sceneId, sessionId, additionalInformation);
-      const fileName = yield this.generateFilePath(type, folder, name);
+      const fileName = yield this._generateFilePath(type, folder, name, "/");
       const data = yield template.generateData();
       const newFile = yield app.vault.create(fileName, data);
       const leaf = app.workspace.getLeaf(true);
       yield leaf.openFile(newFile);
     });
   }
-  generateFilePath(type, folder, name) {
+  _generateFilePath(type, folder, name, pathSeparator) {
     return __async(this, null, function* () {
-      if (folder.startsWith(path.sep))
-        folder = folder.substring(path.sep.length);
-      if (folder.endsWith(path.sep))
-        folder = folder.substring(0, folder.length - path.sep.length);
+      if (folder.startsWith(pathSeparator))
+        folder = folder.substring(pathSeparator.length);
+      if (folder.endsWith(pathSeparator))
+        folder = folder.substring(0, folder.length - pathSeparator.length);
       let response = name + ".md";
       if (this.settings.automaticMove) {
         let fullPath;
         if (type !== 1 /* Campaign */) {
-          fullPath = folder + path.sep + ComponentType[type] + "s";
-          if (fullPath.startsWith(path.sep))
-            fullPath = fullPath.substring(path.sep.length);
+          fullPath = folder + pathSeparator + ComponentType[type] + "s";
+          if (fullPath.startsWith(pathSeparator))
+            fullPath = fullPath.substring(pathSeparator.length);
           const fileOrFolder = yield this.app.vault.getAbstractFileByPath(fullPath);
           if (fileOrFolder == null) {
             try {
@@ -539,10 +560,10 @@ var FileFactory = class extends AbstractFactory {
           }
         } else {
           fullPath = folder;
-          if (fullPath.startsWith(path.sep))
+          if (fullPath.startsWith(pathSeparator))
             fullPath = fullPath.substring(1);
         }
-        response = fullPath + path.sep + response;
+        response = fullPath + pathSeparator + response;
       }
       return response;
     });
@@ -570,24 +591,24 @@ var AbstractModalPart = class extends AbstractRpgManager {
 var CampaignModalPart = class extends AbstractModalPart {
   constructor(app2, modal) {
     super(app2, modal);
-    this.campaigns = this.database.readList(1 /* Campaign */, void 0);
+    this._campaigns = this.database.readList(1 /* Campaign */, void 0);
   }
   addElement(contentEl) {
     return __async(this, null, function* () {
       const campaignEl = contentEl.createDiv({ cls: "campaignContainer" });
       if (this.modal.type === 1 /* Campaign */) {
         this.addAdditionalElements();
-        this.addNewCampaignElements(campaignEl);
+        this._addNewCampaignElements(campaignEl);
       } else {
-        if (this.campaigns.length === 0) {
+        if (this._campaigns.length === 0) {
           const mainContent = this.modal.getContentEl();
           mainContent.empty();
           mainContent.createEl("h2", { cls: "rpgm-modal-title", text: "Main campaign missing" });
           mainContent.createSpan({ cls: "", text: "This Obsidian Vault does not contain a Rpg Manager campaign yet. Before creating a " + ComponentType[this.modal.type] + ", please initialise your first campaign." });
         } else {
-          this.childEl = contentEl.createDiv({ cls: "child" });
-          this.childEl.id = "CampaignChild";
-          this.selectCampaignElements(campaignEl);
+          this._childEl = contentEl.createDiv({ cls: "child" });
+          this._childEl.id = "CampaignChild";
+          this._selectCampaignElements(campaignEl);
         }
       }
       if (this.modal.type === 1 /* Campaign */) {
@@ -614,19 +635,19 @@ var CampaignModalPart = class extends AbstractModalPart {
   validate() {
     return true;
   }
-  addNewCampaignElements(containerEl) {
+  _addNewCampaignElements(containerEl) {
     if (this.modal.campaignId === void 0) {
       this.modal.campaignId = this.factories.id.create(1 /* Campaign */, 1);
     }
-    this.campaigns.forEach((campaign) => {
+    this._campaigns.forEach((campaign) => {
       if (this.modal.campaignId !== void 0 && campaign.id.campaignId >= this.modal.campaignId.id) {
         this.modal.campaignId.id = campaign.id.campaignId + 1;
       }
     });
     containerEl.createEl("label", { text: "Select Campaign Settings" });
-    this.campaignSettingsEl = containerEl.createEl("select");
+    this._campaignSettingsEl = containerEl.createEl("select");
     Object.keys(CampaignSetting).filter((v) => isNaN(Number(v))).forEach((setting) => {
-      const campaignSettingOption = this.campaignSettingsEl.createEl("option", {
+      const campaignSettingOption = this._campaignSettingsEl.createEl("option", {
         text: setting,
         value: setting
       });
@@ -634,47 +655,47 @@ var CampaignModalPart = class extends AbstractModalPart {
         campaignSettingOption.selected = true;
       }
     });
-    this.selectSetting();
-    this.campaignSettingsEl.addEventListener("change", (e) => {
-      this.selectSetting();
+    this._selectSetting();
+    this._campaignSettingsEl.addEventListener("change", (e) => {
+      this._selectSetting();
     });
   }
-  selectCampaignElements(containerEl) {
+  _selectCampaignElements(containerEl) {
     const groupElement = containerEl.createDiv({ cls: "group" });
     groupElement.createDiv({ cls: "title", text: "Campaign" });
     const selectionContainerEl = groupElement.createDiv({ cls: "container" });
     groupElement.createDiv({ cls: "clear" });
-    this.campaignEl = selectionContainerEl.createEl("select");
-    if (this.campaigns.length > 1) {
-      this.campaignEl.createEl("option", {
+    this._campaignEl = selectionContainerEl.createEl("select");
+    if (this._campaigns.length > 1) {
+      this._campaignEl.createEl("option", {
         text: "",
         value: ""
       }).selected = true;
     }
-    this.campaigns.forEach((campaign) => {
-      const campaignOptionEl = this.campaignEl.createEl("option", {
+    this._campaigns.forEach((campaign) => {
+      const campaignOptionEl = this._campaignEl.createEl("option", {
         text: campaign.file.basename,
         value: campaign.id.campaignId.toString()
       });
-      if (this.campaigns.length === 1) {
+      if (this._campaigns.length === 1) {
         campaignOptionEl.selected = true;
-        this.selectCampaign();
+        this._selectCampaign();
       }
     });
-    this.campaignEl.addEventListener("change", (e) => {
-      this.selectCampaign();
+    this._campaignEl.addEventListener("change", (e) => {
+      this._selectCampaign();
     });
-    this.campaignErrorEl = containerEl.createEl("p", { cls: "error" });
+    this._campaignErrorEl = containerEl.createEl("p", { cls: "error" });
   }
-  selectSetting() {
-    this.modal.campaignSetting = CampaignSetting[this.campaignSettingsEl.value];
+  _selectSetting() {
+    this.modal.campaignSetting = CampaignSetting[this._campaignSettingsEl.value];
   }
-  selectCampaign() {
-    const campaignId = this.factories.id.create(1 /* Campaign */, this.campaignEl.value);
+  _selectCampaign() {
+    const campaignId = this.factories.id.create(1 /* Campaign */, this._campaignEl.value);
     if (campaignId !== void 0)
       this.modal.campaignId = campaignId;
-    this.childEl.empty();
-    this.loadChild(this.childEl);
+    this._childEl.empty();
+    this.loadChild(this._childEl);
   }
   addAdditionalElements() {
     return __async(this, null, function* () {
@@ -685,13 +706,13 @@ var CampaignModalPart = class extends AbstractModalPart {
           text: "Additional Information for the " + ComponentType[this.modal.type]
         });
         this.modal.additionalInformationEl.createEl("label", { text: "Current Date" });
-        this.currentDateEl = this.modal.additionalInformationEl.createEl("input", { type: "text" });
+        this._currentDateEl = this.modal.additionalInformationEl.createEl("input", { type: "text" });
       }
     });
   }
   prepareAdditionalInformation() {
     return {
-      current: this.currentDateEl.value
+      current: this._currentDateEl.value
     };
   }
 };
@@ -704,24 +725,24 @@ var AdventureModalPart = class extends AbstractModalPart {
       this.modal.adventureId = this.factories.id.create(2 /* Adventure */, this.modal.campaignId.id);
       this.modal.adventureId.id = 0;
     }
-    this.adventures = this.database.readList(2 /* Adventure */, this.modal.campaignId);
+    this._adventures = this.database.readList(2 /* Adventure */, this.modal.campaignId);
   }
   addElement(contentEl) {
     return __async(this, null, function* () {
       const adventureEl = contentEl.createDiv({ cls: "adventureContainer" });
       if (this.modal.type === 2 /* Adventure */) {
         this.addAdditionalElements();
-        this.addNewAdventureElements(adventureEl);
+        this._addNewAdventureElements(adventureEl);
       } else {
-        if (this.adventures.length === 0) {
+        if (this._adventures.length === 0) {
           const mainContent = this.modal.getContentEl();
           mainContent.empty();
           mainContent.createEl("h2", { cls: "rpgm-modal-title", text: "Adventures missing" });
           mainContent.createSpan({ cls: "", text: "This Obsidian Vault does not contain a Rpg Manager Adventure for the selected campaign. Before creating a " + ComponentType[this.modal.type] + ", please initialise your first adventure for the campaign." });
         } else {
-          this.childEl = contentEl.createDiv({ cls: "child" });
-          this.childEl.id = "AdventureChild";
-          this.selectAdventureElements(adventureEl);
+          this._childEl = contentEl.createDiv({ cls: "child" });
+          this._childEl.id = "AdventureChild";
+          this._selectAdventureElements(adventureEl);
         }
       }
       if (this.modal.type === 2 /* Adventure */) {
@@ -742,48 +763,48 @@ var AdventureModalPart = class extends AbstractModalPart {
       this.modal.adventureId.id = 1;
     return true;
   }
-  addNewAdventureElements(containerEl) {
-    this.adventures.forEach((adventure) => {
+  _addNewAdventureElements(containerEl) {
+    this._adventures.forEach((adventure) => {
       var _a, _b, _c;
       if (this.modal.adventureId !== void 0 && ((_a = adventure.id.adventureId) != null ? _a : 0) >= ((_b = this.modal.adventureId.id) != null ? _b : 0)) {
         this.modal.adventureId.id = ((_c = adventure.id.adventureId) != null ? _c : 0) + 1;
       }
     });
   }
-  selectAdventureElements(containerEl) {
+  _selectAdventureElements(containerEl) {
     const groupElement = containerEl.createDiv({ cls: "group" });
     groupElement.createDiv({ cls: "title", text: "Adventure" });
     const selectionContainerEl = groupElement.createDiv({ cls: "container" });
     groupElement.createDiv({ cls: "clear" });
-    this.adventureEl = selectionContainerEl.createEl("select");
-    if (this.adventures.length > 1) {
-      this.adventureEl.createEl("option", {
+    this._adventureEl = selectionContainerEl.createEl("select");
+    if (this._adventures.length > 1) {
+      this._adventureEl.createEl("option", {
         text: "",
         value: ""
       }).selected = true;
     }
-    this.adventures.forEach((adventure) => {
+    this._adventures.forEach((adventure) => {
       var _a, _b;
-      const adventureOptionEl = this.adventureEl.createEl("option", {
+      const adventureOptionEl = this._adventureEl.createEl("option", {
         text: adventure.file.basename,
         value: (_a = adventure.id.adventureId) == null ? void 0 : _a.toString()
       });
-      if (this.adventures.length === 1 || ((_b = this.modal.adventureId) == null ? void 0 : _b.id) === adventure.id.adventureId) {
+      if (this._adventures.length === 1 || ((_b = this.modal.adventureId) == null ? void 0 : _b.id) === adventure.id.adventureId) {
         adventureOptionEl.selected = true;
-        this.selectAdventure();
+        this._selectAdventure();
       }
     });
-    this.adventureEl.addEventListener("change", (e) => {
-      this.selectAdventure();
+    this._adventureEl.addEventListener("change", (e) => {
+      this._selectAdventure();
     });
-    this.adventureErrorEl = containerEl.createEl("p", { cls: "error" });
+    this._adventureErrorEl = containerEl.createEl("p", { cls: "error" });
   }
-  selectAdventure() {
+  _selectAdventure() {
     if (this.modal.adventureId !== void 0) {
-      this.modal.adventureId.id = +this.adventureEl.value;
+      this.modal.adventureId.id = +this._adventureEl.value;
     }
-    this.childEl.empty();
-    this.loadChild(this.childEl);
+    this._childEl.empty();
+    this.loadChild(this._childEl);
   }
   addAdditionalElements() {
     return __async(this, null, function* () {
@@ -800,8 +821,8 @@ var ActModalPart = class extends AbstractModalPart {
       this.modal.actId = this.factories.id.create(4 /* Act */, this.modal.campaignId.id, (_a = this.modal.adventureId) == null ? void 0 : _a.id);
       this.modal.actId.id = 0;
     }
-    this.allAct = this.database.read((component) => component.id.type === 4 /* Act */ && component.id.campaignId === this.modal.campaignId.id);
-    this.acts = this.database.read((component) => {
+    this._allAct = this.database.read((component) => component.id.type === 4 /* Act */ && component.id.campaignId === this.modal.campaignId.id);
+    this._acts = this.database.read((component) => {
       var _a2;
       return component.id.type === 4 /* Act */ && component.id.campaignId === this.modal.campaignId.id && component.id.adventureId === ((_a2 = this.modal.adventureId) == null ? void 0 : _a2.id);
     });
@@ -810,17 +831,17 @@ var ActModalPart = class extends AbstractModalPart {
     return __async(this, null, function* () {
       const actEl = contentEl.createDiv({ cls: "actContainer" });
       if (this.modal.type === 4 /* Act */) {
-        this.addNewActElements(actEl);
+        this._addNewActElements(actEl);
       } else {
-        if (this.acts.length === 0) {
+        if (this._acts.length === 0) {
           const mainContent = this.modal.getContentEl();
           mainContent.empty();
           mainContent.createEl("h2", { cls: "rpgm-modal-title", text: "Acts missing" });
           mainContent.createSpan({ cls: "", text: "This Obsidian Vault does not contain a Rpg Manager Act for the selected adventure. Before creating a " + ComponentType[this.modal.type] + ", please initialise your first act for the adventure." });
         } else {
-          this.childEl = contentEl.createDiv({ cls: "child" });
-          this.childEl.id = "ActChild";
-          this.selectActElements(actEl);
+          this._childEl = contentEl.createDiv({ cls: "child" });
+          this._childEl.id = "ActChild";
+          this._selectActElements(actEl);
         }
       }
       if (this.modal.type === 4 /* Act */) {
@@ -841,52 +862,52 @@ var ActModalPart = class extends AbstractModalPart {
       this.modal.actId.id = 1;
     return true;
   }
-  addNewActElements(containerEl) {
-    this.allAct.forEach((component) => {
+  _addNewActElements(containerEl) {
+    this._allAct.forEach((component) => {
       var _a, _b, _c;
       if (this.modal.actId !== void 0 && ((_a = component.id.actId) != null ? _a : 0) >= ((_b = this.modal.actId.id) != null ? _b : 0)) {
         this.modal.actId.id = ((_c = component.id.actId) != null ? _c : 0) + 1;
       }
     });
   }
-  selectActElements(containerEl) {
+  _selectActElements(containerEl) {
     const groupElement = containerEl.createDiv({ cls: "group" });
     groupElement.createDiv({ cls: "title", text: "Act" });
     const selectionContainerEl = groupElement.createDiv({ cls: "container" });
     groupElement.createDiv({ cls: "clear" });
-    this.actEl = selectionContainerEl.createEl("select");
-    if (this.acts.length > 1) {
-      this.actEl.createEl("option", {
+    this._actEl = selectionContainerEl.createEl("select");
+    if (this._acts.length > 1) {
+      this._actEl.createEl("option", {
         text: "",
         value: ""
       }).selected = true;
     }
-    this.acts.forEach((act) => {
+    this._acts.forEach((act) => {
       var _a, _b;
-      const actOptionEl = this.actEl.createEl("option", {
+      const actOptionEl = this._actEl.createEl("option", {
         text: act.file.basename,
         value: (_a = act.id.actId) == null ? void 0 : _a.toString()
       });
-      if (this.acts.length === 1 || ((_b = this.modal.actId) == null ? void 0 : _b.id) === act.id.actId) {
+      if (this._acts.length === 1 || ((_b = this.modal.actId) == null ? void 0 : _b.id) === act.id.actId) {
         actOptionEl.selected = true;
-        this.selectAct();
+        this._selectAct();
       }
     });
-    this.actEl.addEventListener("change", (e) => {
-      this.selectAct();
+    this._actEl.addEventListener("change", (e) => {
+      this._selectAct();
     });
-    this.actErrorEl = containerEl.createEl("p", { cls: "error" });
+    this._actErrorEl = containerEl.createEl("p", { cls: "error" });
   }
-  selectAct() {
+  _selectAct() {
     var _a;
     if (this.modal.actId === void 0) {
       this.modal.actId = this.factories.id.create(2 /* Adventure */, this.modal.campaignId.id, (_a = this.modal.adventureId) == null ? void 0 : _a.id);
     }
     if (this.modal.actId !== void 0) {
-      this.modal.actId.id = +this.actEl.value;
+      this.modal.actId.id = +this._actEl.value;
     }
-    this.childEl.empty();
-    this.loadChild(this.childEl);
+    this._childEl.empty();
+    this.loadChild(this._childEl);
   }
   addAdditionalElements() {
     return __async(this, null, function* () {
@@ -902,15 +923,15 @@ var SceneModalPart = class extends AbstractModalPart {
     this.modal.sceneId = this.factories.id.create(8 /* Scene */, this.modal.campaignId.id, (_a = this.modal.adventureId) == null ? void 0 : _a.id, (_b = this.modal.actId) == null ? void 0 : _b.id);
     this.modal.sceneId.id = 0;
     if (this.modal.adventureId != null && this.modal.actId != null) {
-      this.scenes = this.database.readList(8 /* Scene */, this.modal.actId);
+      this._scenes = this.database.readList(8 /* Scene */, this.modal.actId);
     } else {
-      this.scenes = [];
+      this._scenes = [];
     }
   }
   addElement(contentEl) {
     return __async(this, null, function* () {
       contentEl.createDiv({ cls: "sceneContainer" });
-      this.scenes.forEach((scene) => {
+      this._scenes.forEach((scene) => {
         var _a, _b, _c;
         if (this.modal.sceneId !== void 0 && ((_a = scene.id.sceneId) != null ? _a : 0) >= ((_b = this.modal.sceneId.id) != null ? _b : 0)) {
           this.modal.sceneId.id = ((_c = scene.id.sceneId) != null ? _c : 0) + 1;
@@ -1096,13 +1117,13 @@ var SessionModalPart = class extends AbstractModalPart {
     super(app2, modal);
     this.modal.sessionId = this.factories.id.create(16 /* Session */, this.modal.campaignId.id);
     this.modal.sessionId.id = 0;
-    this.sessions = this.database.readList(16 /* Session */, this.modal.campaignId);
+    this._sessions = this.database.readList(16 /* Session */, this.modal.campaignId);
   }
   addElement(contentEl) {
     return __async(this, null, function* () {
       const sessionEl = contentEl.createDiv({ cls: "sessionContainer" });
       this.addAdditionalElements();
-      this.addNewAdventureElements(sessionEl);
+      this._addNewAdventureElements(sessionEl);
       this.modal.saver = this;
       this.modal.enableButton();
     });
@@ -1117,20 +1138,20 @@ var SessionModalPart = class extends AbstractModalPart {
       this.modal.sessionId.id = 1;
     return true;
   }
-  addNewAdventureElements(containerEl) {
-    this.sessions.forEach((session) => {
+  _addNewAdventureElements(containerEl) {
+    this._sessions.forEach((session) => {
       var _a, _b, _c;
       if (this.modal.sessionId !== void 0 && ((_a = session.id.sessionId) != null ? _a : 0) >= ((_b = this.modal.sessionId.id) != null ? _b : 0)) {
         this.modal.sessionId.id = ((_c = session.id.sessionId) != null ? _c : 0) + 1;
       }
     });
   }
-  selectSession() {
+  _selectSession() {
     if (this.modal.sessionId !== void 0) {
-      this.modal.sessionId.id = +this.sessionEl.value;
+      this.modal.sessionId.id = +this._sessionEl.value;
     }
-    this.childEl.empty();
-    this.loadChild(this.childEl);
+    this._childEl.empty();
+    this.loadChild(this._childEl);
   }
   addAdditionalElements() {
     return __async(this, null, function* () {
@@ -1164,29 +1185,29 @@ var SubplotModalPart = class extends AbstractModalPart {
 var ModalFactory = class extends AbstractFactory {
   constructor(app2) {
     super(app2);
-    this.modalTypeMap = /* @__PURE__ */ new Map();
-    this.modalTypeMap.set("AgnosticCampaign", CampaignModalPart);
-    this.modalTypeMap.set("AgnosticAdventure", AdventureModalPart);
-    this.modalTypeMap.set("AgnosticAct", ActModalPart);
-    this.modalTypeMap.set("AgnosticScene", SceneModalPart);
-    this.modalTypeMap.set("AgnosticCharacter", CharacterModalPart);
-    this.modalTypeMap.set("AgnosticClue", ClueModalPart);
-    this.modalTypeMap.set("AgnosticEvent", EventModalPart);
-    this.modalTypeMap.set("AgnosticFaction", FactionModalPart);
-    this.modalTypeMap.set("AgnosticLocation", LocationModalPart);
-    this.modalTypeMap.set("AgnosticNonPlayerCharacter", NonPlayerCharacterModalPart);
-    this.modalTypeMap.set("AgnosticMusic", MusicModalPart);
-    this.modalTypeMap.set("AgnosticSession", SessionModalPart);
-    this.modalTypeMap.set("AgnosticSubplot", SubplotModalPart);
-    this.modalTypeMap.set("AgnosticSceneTypeDescription", SubplotModalPart);
+    this._modalTypeMap = /* @__PURE__ */ new Map();
+    this._modalTypeMap.set("AgnosticCampaign", CampaignModalPart);
+    this._modalTypeMap.set("AgnosticAdventure", AdventureModalPart);
+    this._modalTypeMap.set("AgnosticAct", ActModalPart);
+    this._modalTypeMap.set("AgnosticScene", SceneModalPart);
+    this._modalTypeMap.set("AgnosticCharacter", CharacterModalPart);
+    this._modalTypeMap.set("AgnosticClue", ClueModalPart);
+    this._modalTypeMap.set("AgnosticEvent", EventModalPart);
+    this._modalTypeMap.set("AgnosticFaction", FactionModalPart);
+    this._modalTypeMap.set("AgnosticLocation", LocationModalPart);
+    this._modalTypeMap.set("AgnosticNonPlayerCharacter", NonPlayerCharacterModalPart);
+    this._modalTypeMap.set("AgnosticMusic", MusicModalPart);
+    this._modalTypeMap.set("AgnosticSession", SessionModalPart);
+    this._modalTypeMap.set("AgnosticSubplot", SubplotModalPart);
+    this._modalTypeMap.set("AgnosticSceneTypeDescription", SubplotModalPart);
   }
   create(settings, type, modal) {
     let modalKey = CampaignSetting[settings] + ComponentType[type];
-    if (!this.modalTypeMap.has(modalKey))
+    if (!this._modalTypeMap.has(modalKey))
       modalKey = CampaignSetting[0 /* Agnostic */] + ComponentType[type];
-    if (!this.modalTypeMap.has(modalKey))
+    if (!this._modalTypeMap.has(modalKey))
       throw new Error("Type of modal " + CampaignSetting[settings] + ComponentType[type] + " cannot be found");
-    return new (this.modalTypeMap.get(modalKey))(this.app, modal);
+    return new (this._modalTypeMap.get(modalKey))(this.app, modal);
   }
 };
 
@@ -1238,6 +1259,7 @@ var ResponseHeader = class extends AbstractResponse {
     super(app2, currentComponent);
     this.responseType = 2 /* Header */;
     this.elements = [];
+    this.images = [];
   }
   addElement(element) {
     this.elements.push(element);
@@ -1278,11 +1300,7 @@ var AbstractHeaderSubModel = class extends AbstractSubModel {
     });
   }
   completeData(response) {
-    if (this.data.image !== null) {
-      response.imgSrc = this.data.image;
-      response.imgWidth = 300;
-      response.imgHeight = 300;
-    }
+    response.images = this.data.images;
     return response;
   }
 };
@@ -1295,237 +1313,6 @@ var AbtStage = /* @__PURE__ */ ((AbtStage2) => {
   AbtStage2[AbtStage2["Therefore"] = 3] = "Therefore";
   return AbtStage2;
 })(AbtStage || {});
-
-// src/databases/SorterComparisonElement.ts
-var SorterComparisonElement = class {
-  constructor(comparisonElement, sortType = 0 /* Ascending */) {
-    this.comparisonElement = comparisonElement;
-    this.sortType = sortType;
-  }
-};
-
-// src/analyser/SceneAnalyser.ts
-var SceneAnalyser = class extends AbstractRpgManager {
-  constructor(app2, abtStage, parentId) {
-    super(app2);
-    this.abtStage = abtStage;
-    this.parentId = parentId;
-    this.excitmentPercentage = void 0;
-    this.activityPercentage = void 0;
-    this.activeScenes = 0;
-    this.expectedRunningTime = 0;
-    this.actualRunningTime = 0;
-    this.isSingleScene = false;
-    this.expectedExcitementDuration = 0;
-    this.sceneTypesUsed = /* @__PURE__ */ new Map();
-    this.repetitiveScenes = 0;
-    this.scenesCount = 0;
-    this.targetDuration = void 0;
-    this.abtStageExcitementThreshold = /* @__PURE__ */ new Map([
-      [0 /* Need */, 35],
-      [1 /* And */, 35],
-      [2 /* But */, 75],
-      [3 /* Therefore */, 50]
-    ]);
-    this.abtStageActivityThreshold = /* @__PURE__ */ new Map([
-      [0 /* Need */, 35],
-      [1 /* And */, 75],
-      [2 /* But */, 50],
-      [3 /* Therefore */, 75]
-    ]);
-    this.parentType = this.parentId.type;
-    const scenes = this.scenes;
-    this.scenesCount = scenes.length;
-    if (scenes.length > 0) {
-      let previousType = void 0;
-      scenes.forEach((scene) => {
-        var _a;
-        this.actualRunningTime += scene.currentDuration;
-        if (scene.isExciting)
-          this.expectedExcitementDuration += scene.expectedDuration;
-        if (scene.isActive)
-          this.activeScenes++;
-        if (scene.sceneType !== void 0) {
-          this.sceneTypesUsed.set(scene.sceneType, ((_a = this.sceneTypesUsed.get(scene.sceneType)) != null ? _a : 0) + 1);
-          if (previousType === scene.sceneType) {
-            this.repetitiveScenes++;
-          } else {
-            previousType = scene.sceneType;
-          }
-        }
-        this.expectedRunningTime += scene.expectedDuration;
-      });
-      this.excitmentPercentage = this.expectedExcitementDuration * 100 / this.expectedRunningTime;
-      this.activityPercentage = this.activeScenes * 100 / scenes.length;
-    }
-  }
-  get scenes() {
-    if (this.parentId.type === 16 /* Session */) {
-      try {
-        const session = this.database.readSingle(16 /* Session */, this.parentId);
-        if (session.targetDuration != void 0)
-          this.targetDuration = session.targetDuration;
-      } catch (e) {
-      }
-      return this.database.read((scene) => {
-        var _a;
-        return scene.id.type === 8 /* Scene */ && scene.id.campaignId === this.parentId.campaignId && ((_a = scene.session) == null ? void 0 : _a.id.sessionId) === this.parentId.sessionId;
-      }).sort(this.factories.sorter.create([
-        new SorterComparisonElement((scene) => scene.id.campaignId),
-        new SorterComparisonElement((scene) => scene.id.adventureId),
-        new SorterComparisonElement((scene) => scene.id.actId),
-        new SorterComparisonElement((scene) => scene.id.sceneId)
-      ]));
-    }
-    if (this.parentId.type === 8 /* Scene */) {
-      this.isSingleScene = true;
-      return [this.database.readSingle(8 /* Scene */, this.parentId)];
-    }
-    return this.database.readList(8 /* Scene */, this.parentId).sort(this.factories.sorter.create([
-      new SorterComparisonElement((scene) => scene.id.campaignId),
-      new SorterComparisonElement((scene) => scene.id.adventureId),
-      new SorterComparisonElement((scene) => scene.id.actId),
-      new SorterComparisonElement((scene) => scene.id.sceneId)
-    ]));
-  }
-  get excitementLevel() {
-    let expectedThreshold = void 0;
-    if (this.abtStage === void 0) {
-      expectedThreshold = 50;
-    } else {
-      expectedThreshold = this.abtStageExcitementThreshold.get(this.abtStage);
-    }
-    if (expectedThreshold === void 0 || this.excitmentPercentage === void 0)
-      return 0 /* NotAnalysable */;
-    if (this.excitmentPercentage > expectedThreshold + 25)
-      return 1 /* CriticallyHigh */;
-    if (this.excitmentPercentage > expectedThreshold + 10)
-      return 2 /* High */;
-    if (this.excitmentPercentage < expectedThreshold - 25)
-      return 5 /* CriticallyLow */;
-    if (this.excitmentPercentage < expectedThreshold - 10)
-      return 4 /* Low */;
-    return 3 /* Correct */;
-  }
-  get activityLevel() {
-    let expectedThreshold = void 0;
-    if (this.abtStage === void 0) {
-      expectedThreshold = 50;
-    } else {
-      expectedThreshold = this.abtStageActivityThreshold.get(this.abtStage);
-    }
-    if (expectedThreshold === void 0 || this.activityPercentage === void 0)
-      return 0 /* NotAnalysable */;
-    if (this.activityPercentage > expectedThreshold + 25)
-      return 1 /* CriticallyHigh */;
-    if (this.activityPercentage > expectedThreshold + 10)
-      return 2 /* High */;
-    if (this.activityPercentage < expectedThreshold - 25)
-      return 5 /* CriticallyLow */;
-    if (this.activityPercentage < expectedThreshold - 10)
-      return 4 /* Low */;
-    return 3 /* Correct */;
-  }
-  get excitingScenePercentage() {
-    if (this.excitmentPercentage === void 0)
-      return 0;
-    return Math.trunc(this.excitmentPercentage);
-  }
-  get activeScenePercentage() {
-    if (this.activityPercentage === void 0)
-      return 0;
-    return Math.trunc(this.activityPercentage);
-  }
-  get targetExcitingScenePercentage() {
-    let response = void 0;
-    if (this.abtStage === void 0) {
-      response = 50;
-    } else {
-      response = this.abtStageExcitementThreshold.get(this.abtStage);
-    }
-    return response != null ? response : 0;
-  }
-  get targetActiveScenePercentage() {
-    let response = void 0;
-    if (this.abtStage === void 0) {
-      response = 50;
-    } else {
-      response = this.abtStageActivityThreshold.get(this.abtStage);
-    }
-    return response != null ? response : 0;
-  }
-  get varietyLevel() {
-    if (this.sceneTypesUsed.size < 4)
-      return 5 /* CriticallyLow */;
-    if (this.sceneTypesUsed.size < 6)
-      return 4 /* Low */;
-    return 3 /* Correct */;
-  }
-  get varietyCount() {
-    return this.sceneTypesUsed.size;
-  }
-  get boredomLevel() {
-    if (this.repetitiveScenes >= this.scenesCount / 2)
-      return 1 /* CriticallyHigh */;
-    if (this.repetitiveScenes >= this.scenesCount / 3)
-      return 2 /* High */;
-    return 3 /* Correct */;
-  }
-  get targetDurationLevel() {
-    if (this.targetDuration === void 0 || this.expectedRunningTime == void 0)
-      return 0 /* NotAnalysable */;
-    const differenceStep = this.targetDuration / 10;
-    const expectedRunningTime = Math.floor(this.expectedRunningTime / 60);
-    if (expectedRunningTime > this.targetDuration + differenceStep * 3)
-      return 1 /* CriticallyHigh */;
-    if (expectedRunningTime > this.targetDuration + differenceStep * 1)
-      return 2 /* High */;
-    if (expectedRunningTime < this.targetDuration - differenceStep * 3)
-      return 5 /* CriticallyLow */;
-    if (expectedRunningTime < this.targetDuration - differenceStep * 1)
-      return 4 /* Low */;
-    return 3 /* Correct */;
-  }
-  get durationScenePercentage() {
-    if (this.targetDuration === void 0 || this.expectedRunningTime == void 0)
-      return 0;
-    const expectedRunningTime = Math.floor(this.expectedRunningTime / 60);
-    const difference = Math.abs(this.targetDuration - expectedRunningTime);
-    return Math.trunc(difference / this.targetDuration * 100);
-  }
-  get boredomAmount() {
-    return this.repetitiveScenes;
-  }
-  get boredomReference() {
-    return this.scenesCount;
-  }
-  calculateScore() {
-    let response = 0;
-    let maxLevel = 100;
-    if (this.targetDuration !== void 0) {
-      maxLevel += 25;
-      response += this._calculateThresholdScore(this.targetDurationLevel);
-    }
-    response += this._calculateThresholdScore(this.activityLevel);
-    response += this._calculateThresholdScore(this.excitementLevel);
-    response += this._calculateThresholdScore(this.varietyLevel);
-    response += this._calculateThresholdScore(this.boredomLevel);
-    return Math.floor(response * 100 / maxLevel);
-  }
-  _calculateThresholdScore(threshold) {
-    switch (threshold) {
-      case 3 /* Correct */:
-        return 25;
-      case 1 /* CriticallyHigh */:
-      case 5 /* CriticallyLow */:
-        return 5;
-      case 2 /* High */:
-      case 4 /* Low */:
-        return 15;
-    }
-    return 0;
-  }
-};
 
 // src/components/components/act/models/ActHeaderSubModel.ts
 var ActHeaderSubModel = class extends AbstractHeaderSubModel {
@@ -1545,7 +1332,7 @@ var ActHeaderSubModel = class extends AbstractHeaderSubModel {
         }));
       }
       if (this.settings.useSceneAnalyser) {
-        const analyser = new SceneAnalyser(this.app, this.data.abtStage, this.data.id);
+        const analyser = this.factories.analyser.createAct(this.data, this.data.abtStage);
         if (analyser.scenesCount > 0) {
           response.addElement(new ResponseHeaderElement(this.app, this.currentComponent, "Scene Analyser", this.data.abtStage !== void 0 ? AbtStage[this.data.abtStage] : "", 11 /* SceneAnalyser */, {
             id: this.data.id,
@@ -1586,15 +1373,34 @@ var _AbstractComponentData = class extends AbstractRpgManager {
       return this;
     return this.database.readSingle(1 /* Campaign */, this.id);
   }
+  get alias() {
+    var _a;
+    const response = [];
+    const metadata = this.app.metadataCache.getFileCache(this.file);
+    if (metadata == null)
+      return response;
+    if (((_a = metadata.frontmatter) == null ? void 0 : _a.alias) != void 0) {
+      metadata.frontmatter.alias.forEach((alias) => {
+        response.push(alias);
+      });
+    }
+    return response;
+  }
   get synopsis() {
     var _a, _b;
     return (_b = (_a = this.metadata) == null ? void 0 : _a.data) == null ? void 0 : _b.synopsis;
   }
-  get image() {
+  get images() {
     var _a, _b, _c, _d;
-    if (((_b = (_a = this.metadata) == null ? void 0 : _a.data) == null ? void 0 : _b.image) != void 0 && ((_d = (_c = this.metadata) == null ? void 0 : _c.data) == null ? void 0 : _d.image) !== "")
-      return this.metadata.data.image;
-    return this._getImage(this.file.basename);
+    const response = [];
+    if (((_b = (_a = this.metadata) == null ? void 0 : _a.data) == null ? void 0 : _b.images) != void 0 && Array.isArray((_d = (_c = this.metadata) == null ? void 0 : _c.data) == null ? void 0 : _d.images)) {
+      this.metadata.data.images.forEach((imageMetadata) => {
+        const image = this.factories.image.create(imageMetadata.path, imageMetadata.caption);
+        if (image !== void 0)
+          response.push(image);
+      });
+    }
+    return response;
   }
   get isComplete() {
     var _a, _b;
@@ -1613,7 +1419,7 @@ var _AbstractComponentData = class extends AbstractRpgManager {
     return _AbstractComponentData.root + response;
   }
   _getImageFromFolder(basename, folder) {
-    const filesInFolder = this.app.vault.getFiles().filter((file) => file.parent === folder && file.basename.toLowerCase() === basename.toLowerCase() && _AbstractComponentData._imageExtensions.includes(file.extension));
+    const filesInFolder = this.app.vault.getFiles().filter((file) => file.parent === folder && file.basename.toLowerCase() === basename.toLowerCase() && _AbstractComponentData.imageExtensions.includes(file.extension));
     if (filesInFolder.length !== 0)
       return filesInFolder[0].path;
     const subFolders = folder.children.filter((file) => file instanceof import_obsidian9.TFolder);
@@ -1629,73 +1435,73 @@ var _AbstractComponentData = class extends AbstractRpgManager {
   }
 };
 var AbstractComponentData = _AbstractComponentData;
-AbstractComponentData._imageExtensions = ["jpeg", "jpg", "png", "webp"];
+AbstractComponentData.imageExtensions = ["jpeg", "jpg", "png", "webp"];
 
 // src/plots/AbtPlot.ts
 var AbtPlot = class {
-  constructor(metadata) {
-    this.metadata = metadata;
+  constructor(_metadata) {
+    this._metadata = _metadata;
   }
   get and() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.abt) == null ? void 0 : _b.and) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.abt) == null ? void 0 : _b.and) != null ? _c : "";
   }
   get but() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.abt) == null ? void 0 : _b.but) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.abt) == null ? void 0 : _b.but) != null ? _c : "";
   }
   get isEmpty() {
     return this.need === "" && this.and === "" && this.but === "" && this.therefore === "";
   }
   get need() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.abt) == null ? void 0 : _b.need) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.abt) == null ? void 0 : _b.need) != null ? _c : "";
   }
   get therefore() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.abt) == null ? void 0 : _b.therefore) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.abt) == null ? void 0 : _b.therefore) != null ? _c : "";
   }
 };
 
 // src/plots/StoryCirclePlot.ts
 var StoryCirclePlot = class {
-  constructor(metadata) {
-    this.metadata = metadata;
+  constructor(_metadata) {
+    this._metadata = _metadata;
   }
   get change() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.change) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.change) != null ? _c : "";
   }
   get find() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.find) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.find) != null ? _c : "";
   }
   get go() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.go) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.go) != null ? _c : "";
   }
   get isEmpty() {
     return this.you === "" && this.need === "" && this.go === "" && this.search === "" && this.find === "" && this.take === "" && this.return === "" && this.change === "";
   }
   get need() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.need) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.need) != null ? _c : "";
   }
   get return() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.return) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.return) != null ? _c : "";
   }
   get search() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.search) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.search) != null ? _c : "";
   }
   get take() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.take) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.take) != null ? _c : "";
   }
   get you() {
     var _a, _b, _c;
-    return (_c = (_b = (_a = this.metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.you) != null ? _c : "";
+    return (_c = (_b = (_a = this._metadata.plot) == null ? void 0 : _a.storycircle) == null ? void 0 : _b.you) != null ? _c : "";
   }
 };
 
@@ -1731,18 +1537,18 @@ var Md5 = class {
   static _hex(x) {
     const hc = Md5.hexChars;
     const ho = Md5.hexOut;
-    let n;
-    let offset;
+    let n2;
+    let offset2;
     let j;
     let i;
     for (i = 0; i < 4; i += 1) {
-      offset = i * 8;
-      n = x[i];
+      offset2 = i * 8;
+      n2 = x[i];
       for (j = 0; j < 8; j += 2) {
-        ho[offset + 1 + j] = hc.charAt(n & 15);
-        n >>>= 4;
-        ho[offset + 0 + j] = hc.charAt(n & 15);
-        n >>>= 4;
+        ho[offset2 + 1 + j] = hc.charAt(n2 & 15);
+        n2 >>>= 4;
+        ho[offset2 + 0 + j] = hc.charAt(n2 & 15);
+        n2 >>>= 4;
       }
     }
     return ho.join("");
@@ -1971,25 +1777,25 @@ var Md5 = class {
     return this;
   }
   getState() {
-    const s = this._state;
+    const s2 = this._state;
     return {
       buffer: String.fromCharCode.apply(null, Array.from(this._buffer8)),
       buflen: this._bufferLength,
       length: this._dataLength,
-      state: [s[0], s[1], s[2], s[3]]
+      state: [s2[0], s2[1], s2[2], s2[3]]
     };
   }
   setState(state) {
     const buf = state.buffer;
     const x = state.state;
-    const s = this._state;
+    const s2 = this._state;
     let i;
     this._dataLength = state.length;
     this._bufferLength = state.buflen;
-    s[0] = x[0];
-    s[1] = x[1];
-    s[2] = x[2];
-    s[3] = x[3];
+    s2[0] = x[0];
+    s2[1] = x[1];
+    s2[2] = x[2];
+    s2[3] = x[3];
     for (i = 0; i < buf.length; i += 1) {
       this._buffer8[i] = buf.charCodeAt(i);
     }
@@ -2165,7 +1971,7 @@ var ComponentNotFoundError = class extends AbstractRpgManagerError {
 var AbstractComponent = class extends AbstractComponentData {
   constructor() {
     super(...arguments);
-    this.relationships = new RelationshipList();
+    this._relationships = new RelationshipList();
   }
   readMetadata() {
     return __async(this, null, function* () {
@@ -2202,7 +2008,7 @@ var AbstractComponent = class extends AbstractComponentData {
       if (this.metadata.relationships !== void 0) {
         yield this.metadata.relationships.forEach((relationshipMetadata) => {
           if (relationshipMetadata.path !== this.file.path) {
-            this.relationships.add(this.factories.relationship.createFromMetadata(relationshipMetadata), false);
+            this._relationships.add(this.factories.relationship.createFromMetadata(relationshipMetadata), false);
           }
         });
       }
@@ -2212,7 +2018,7 @@ var AbstractComponent = class extends AbstractComponentData {
     return "[[" + this.file.basename + "]]";
   }
   getRelationships(database = void 0) {
-    this.relationships.filter((relationship) => relationship.component === void 0).forEach((relationship) => {
+    this._relationships.filter((relationship) => relationship.component === void 0).forEach((relationship) => {
       if (relationship.component === void 0) {
         const path2 = relationship.path;
         if (relationship.type !== 64 /* Undefined */) {
@@ -2227,7 +2033,7 @@ var AbstractComponent = class extends AbstractComponentData {
         }
       }
     });
-    return this.relationships;
+    return this._relationships;
   }
   get hasStoryCirclePlot() {
     var _a, _b;
@@ -2247,11 +2053,11 @@ var AbstractComponent = class extends AbstractComponentData {
     const md5 = new Md5();
     md5.appendStr(JSON.stringify(this.metadata));
     const metadataMd5 = md5.end();
-    const relationshipsMd5 = this.relationships.md5();
-    if (this.previousMetadata !== metadataMd5 || this.previousRelationships !== relationshipsMd5) {
-      this.previousMetadata = metadataMd5;
-      this.previousRelationships = relationshipsMd5;
-      this.previousRelationshipsStringified = structuredClone(this.relationships.stringified);
+    const relationshipsMd5 = this._relationships.md5();
+    if (this._previousMetadata !== metadataMd5 || this._previousRelationships !== relationshipsMd5) {
+      this._previousMetadata = metadataMd5;
+      this._previousRelationships = relationshipsMd5;
+      this._previousRelationshipsStringified = structuredClone(this._relationships.stringified);
       if (this.version === void 0)
         this.version = 0;
       this.version++;
@@ -2414,7 +2220,7 @@ var AbstractTableSubModel = class extends AbstractSubModel {
       case 2 /* Name */:
         return this.factories.contents.create(component.link, 2 /* Link */);
       case 1 /* Image */:
-        return this.factories.contents.create(component.image, 5 /* Image */, true);
+        return this.factories.contents.create(component.images, 5 /* Image */, true);
       case 4 /* Synopsis */:
         return this.factories.contents.create(relationship.description !== "" && relationship.description != void 0 ? relationship.description : component.synopsis, 4 /* Markdown */, false, void 0, true);
     }
@@ -2645,7 +2451,7 @@ var SceneTableSubModel = class extends AbstractTableSubModel {
     }
     return super.generateContentElement(index, fieldType, component, relationship);
   }
-  formatTime(date) {
+  _formatTime(date) {
     if (date == null)
       return "";
     const hours = date.getHours();
@@ -2672,6 +2478,14 @@ var SessionTableSubModel = class extends AbstractTableSubModel {
         break;
     }
     return super.generateContentElement(index, fieldType, component, relationship);
+  }
+};
+
+// src/databases/SorterComparisonElement.ts
+var SorterComparisonElement = class {
+  constructor(comparisonElement, sortType = 0 /* Ascending */) {
+    this.comparisonElement = comparisonElement;
+    this.sortType = sortType;
   }
 };
 
@@ -2766,15 +2580,15 @@ var AbstractModel = class extends AbstractRpgManager {
       if (sortByLatestUsage) {
         data;
       }
-      return yield this.add(type, void 0, data, void 0, sortByLatestUsage);
+      return yield this._add(type, void 0, data, void 0, sortByLatestUsage);
     });
   }
   addRelationships(type, requiredRelationshipType = void 0, title = void 0, sortByLatestUsage = false) {
     return __async(this, null, function* () {
-      return yield this.add(type, requiredRelationshipType, void 0, title, sortByLatestUsage);
+      return yield this._add(type, requiredRelationshipType, void 0, title, sortByLatestUsage);
     });
   }
-  add(type, requiredRelationshipType, component = void 0, title = void 0, sortByLatestUsage) {
+  _add(type, requiredRelationshipType, component = void 0, title = void 0, sortByLatestUsage) {
     return __async(this, null, function* () {
       var _a;
       if (requiredRelationshipType === void 0)
@@ -2972,7 +2786,7 @@ var SceneHeaderSubModel = class extends AbstractHeaderSubModel {
         if (stage !== void 0) {
           if (additionalInformation == null)
             additionalInformation = {};
-          additionalInformation.analyser = new SceneAnalyser(this.app, stage, this.data.id);
+          additionalInformation.analyser = this.factories.analyser.createScene(this.data, stage);
         }
       }
       response.metadata = { actId: this.data.id, sourceMeta: additionalInformation };
@@ -3015,7 +2829,7 @@ var SessionHeaderSubModel = class extends AbstractHeaderSubModel {
         ]));
       }
       if (this.settings.useSceneAnalyser) {
-        const analyser = new SceneAnalyser(this.app, this.data.abtStage, this.data.id);
+        const analyser = this.factories.analyser.createSession(this.data, this.data.abtStage);
         if (analyser.scenesCount > 0) {
           response.addElement(new ResponseHeaderElement(this.app, this.currentComponent, "Scene Analyser", this.data.abtStage !== void 0 ? AbtStage[this.data.abtStage] : "", 11 /* SceneAnalyser */, {
             id: this.data.id,
@@ -3188,10 +3002,10 @@ var MusicHeaderSubModel = class extends AbstractHeaderSubModel {
         response = new ResponseHeader(this.app, this.currentComponent);
       response.type = 2048 /* Music */;
       response.responseType = 14 /* MusicHeader */;
-      if (this.data.image === void 0) {
+      if (this.data.images.length === 0) {
         response.imgSrc = yield this.data.getThumbnail();
-      } else if (this.data.image !== null) {
-        response.imgSrc = this.data.image;
+      } else if (this.data.images.length > 0) {
+        response.imgSrc = this.data.images[0].src;
       }
       if (this.data.url !== void 0)
         response.addElement(new ResponseHeaderElement(this.app, this.currentComponent, "link", this.data.url, 1 /* Long */, { editableField: "data.url" }));
@@ -3283,7 +3097,7 @@ var ListModel = class extends AbstractModel {
   generateData() {
     return __async(this, null, function* () {
       if (this.currentComponent.id.type === 16 /* Session */)
-        this.updateRelationshipsList();
+        this._updateRelationshipsList();
       for (let listCounter = 0; listCounter < Object.keys(this.sourceMeta).length; listCounter++) {
         const name = Object.keys(this.sourceMeta)[listCounter];
         const componentType = this.factories.componentType.createComponentType(name.slice(0, -1));
@@ -3300,7 +3114,7 @@ var ListModel = class extends AbstractModel {
           if (element !== void 0) {
             const relationshipType = element.relationship != null ? this.factories.relationshipType.createRelationshipType(element.relationship) : void 0;
             if (relationshipType === 32 /* Hierarchy */ && (this.currentComponent.id.type !== 16 /* Session */ || componentType === 8 /* Scene */)) {
-              yield this.addList(componentType, this.generateComponentList(componentType));
+              yield this.addList(componentType, this._generateComponentList(componentType));
             } else {
               yield this.addRelationships(componentType, relationshipType, element.title === "" ? void 0 : element.title);
             }
@@ -3310,7 +3124,7 @@ var ListModel = class extends AbstractModel {
       return this.response;
     });
   }
-  generateComponentList(type) {
+  _generateComponentList(type) {
     if (this.currentComponent.id.type !== 16 /* Session */)
       return this.database.readList(type, this.currentComponent.id);
     return this.database.read((scene) => {
@@ -3322,7 +3136,7 @@ var ListModel = class extends AbstractModel {
       new SorterComparisonElement((scene) => scene.id.sceneId)
     ]));
   }
-  updateRelationshipsList() {
+  _updateRelationshipsList() {
     if (this.currentComponent.id.type === 16 /* Session */) {
       const scenes = this.database.read((scene) => {
         var _a;
@@ -3347,7 +3161,7 @@ var ListModel = class extends AbstractModel {
 var ModelFactory = class extends AbstractFactory {
   constructor(app2) {
     super(app2);
-    this.subModels = /* @__PURE__ */ new Map([
+    this._subModels = /* @__PURE__ */ new Map([
       [this._createSubModelIdentifier(0 /* Agnostic */, 1 /* Campaign */, "Header"), CampaignHeaderSubModel],
       [this._createSubModelIdentifier(0 /* Agnostic */, 2 /* Adventure */, "Header"), AdventureHeaderSubModel],
       [this._createSubModelIdentifier(0 /* Agnostic */, 4 /* Act */, "Header"), ActHeaderSubModel],
@@ -3364,24 +3178,24 @@ var ModelFactory = class extends AbstractFactory {
       [this._createSubModelIdentifier(void 0, void 0, "AbtPlot"), AbtPlotSubModel],
       [this._createSubModelIdentifier(void 0, void 0, "StoryCirclePlot"), StoryCirclePlotSubModel]
     ]);
-    this.modelTypeMap = /* @__PURE__ */ new Map([
+    this._modelTypeMap = /* @__PURE__ */ new Map([
       ["AgnosticHeader", HeaderModel],
       ["AgnosticList", ListModel]
     ]);
   }
   create(settings, modelName, currentComponent, source, sourcePath, sourceMeta) {
     let modelKey = CampaignSetting[settings] + modelName;
-    if (!this.modelTypeMap.has(modelKey))
+    if (!this._modelTypeMap.has(modelKey))
       modelKey = CampaignSetting[0 /* Agnostic */] + modelName;
-    if (!this.modelTypeMap.has(modelKey))
+    if (!this._modelTypeMap.has(modelKey))
       throw new Error("Type of interfaces " + CampaignSetting[settings] + modelName + " cannot be found");
-    return new (this.modelTypeMap.get(modelKey))(this.app, currentComponent, source, sourcePath, sourceMeta);
+    return new (this._modelTypeMap.get(modelKey))(this.app, currentComponent, source, sourcePath, sourceMeta);
   }
   createSubModel(settings, type, subModelName) {
-    if (this.subModels.has(this._createSubModelIdentifier(settings, type, subModelName))) {
-      return this.subModels.get(this._createSubModelIdentifier(settings, type, subModelName));
+    if (this._subModels.has(this._createSubModelIdentifier(settings, type, subModelName))) {
+      return this._subModels.get(this._createSubModelIdentifier(settings, type, subModelName));
     } else {
-      return this.subModels.get(this._createSubModelIdentifier(0 /* Agnostic */, type, subModelName));
+      return this._subModels.get(this._createSubModelIdentifier(0 /* Agnostic */, type, subModelName));
     }
   }
   _createSubModelIdentifier(settings, type, subModelName) {
@@ -3449,20 +3263,17 @@ var PronounFactory = class extends AbstractFactory {
   }
 };
 
-// src/templates/abstracts/AbstractComponentTemplateFactory.ts
-var import_obsidian11 = require("obsidian");
-
 // src/helpers/FileContentManager.ts
 var import_obsidian10 = require("obsidian");
 var FileContentManager = class {
-  constructor(app2, templateFileName) {
-    this.app = app2;
-    this.templateFileName = templateFileName;
+  constructor(_app, _templateFileName) {
+    this._app = _app;
+    this._templateFileName = _templateFileName;
   }
   parse() {
     return __async(this, null, function* () {
-      const templateFile = this.app.vault.getAbstractFileByPath(this.templateFileName);
-      const content = yield this.app.vault.read(templateFile);
+      const templateFile = this._app.vault.getAbstractFileByPath(this._templateFileName);
+      const content = yield this._app.vault.read(templateFile);
       const templateContentLines = content.split("\n").map(String);
       let frontmatterContent = "";
       let frontMatterStarted = false;
@@ -3595,14 +3406,14 @@ var SessionNotesTemplateFactory = class extends AbstractTemplate {
     });
     possibleRecappers = possibleRecappers.substring(0, possibleRecappers.length - 1);
     let response = "---\n### Session Notes\n\nPrevious Session Recap: " + possibleRecappers + "\n\n### Storyteller Diary\n-\n\n### End of Session Feedbacks\n";
-    response += this.generateFeedback("Storyteller");
+    response += this._generateFeedback("Storyteller");
     (characters || []).forEach((character) => {
-      response += this.generateFeedback(character.link);
+      response += this._generateFeedback(character.link);
     });
     response += "---\n";
     return response;
   }
-  generateFeedback(characterName) {
+  _generateFeedback(characterName) {
     return characterName + "\n- **Notes**: \n- **Wish**: \n- **Rose**: \n\n";
   }
 };
@@ -3611,6 +3422,94 @@ var SessionNotesTemplateFactory = class extends AbstractTemplate {
 var SubplotNotesTemplateFactory = class extends AbstractTemplate {
   getContent() {
     return "---\n### Subplot Notes\n - \n\n---\n";
+  }
+};
+
+// src/helpers/YamlHelper.ts
+var YamlHelper = class {
+  static stringify(yaml) {
+    let response = "";
+    response = this._stringify(yaml, 0).join("\n") + "\n";
+    return response;
+  }
+  static _stringify(yaml, indent, isArray = false) {
+    const response = [];
+    if (isArray) {
+      for (let index = 0; index < yaml.length; index++) {
+        const value = yaml[index];
+        if (value == null) {
+          response.push("");
+        } else {
+          switch (typeof value) {
+            case "object":
+              response.push(...this._stringify(value, indent + 1));
+              break;
+            case "number":
+            case "boolean":
+              response.push(value.toString());
+              break;
+            case "undefined":
+              break;
+            default:
+              response.push('"' + value + '"');
+              break;
+          }
+        }
+      }
+    } else {
+      Object.entries(yaml).forEach(([key, value], index) => {
+        const yamlKey = "  ".repeat(indent) + key + ": ";
+        if (value == null) {
+          response.push(yamlKey);
+        } else if (Array.isArray(value)) {
+          const yamlDataType = this._dataType(value);
+          switch (yamlDataType) {
+            case 0 /* Basic */:
+              response.push(yamlKey + "[" + this._stringify(value, 0, true).join(",") + "]");
+              break;
+            case 2 /* Object */:
+              response.push(yamlKey);
+              for (let index2 = 0; index2 < value.length; index2++) {
+                const arrayReponse = this._stringify(value[index2], 0, false);
+                for (let responseIndex = 0; responseIndex < arrayReponse.length; responseIndex++) {
+                  if (responseIndex === 0) {
+                    arrayReponse[responseIndex] = "  ".repeat(indent + 1) + "- " + arrayReponse[responseIndex];
+                  } else {
+                    arrayReponse[responseIndex] = "  ".repeat(indent + 2) + arrayReponse[responseIndex];
+                  }
+                }
+                response.push(...arrayReponse);
+              }
+              break;
+          }
+        } else {
+          switch (typeof value) {
+            case "object":
+              response.push(yamlKey);
+              response.push(...this._stringify(value, indent + 1));
+              break;
+            case "number":
+            case "boolean":
+              response.push(yamlKey + value);
+              break;
+            default:
+              response.push(yamlKey + '"' + value + '"');
+              break;
+          }
+        }
+      });
+    }
+    return response;
+  }
+  static _dataType(values) {
+    for (let index = 0; index < values.length; index++) {
+      if (typeof values[index] === "object") {
+        if (Array.isArray(values[index]))
+          return 1 /* Array */;
+        return 2 /* Object */;
+      }
+    }
+    return 0 /* Basic */;
   }
 };
 
@@ -3683,7 +3582,7 @@ var AbstractComponentTemplateFactory = class extends AbstractRpgManager {
         tags: []
       };
       this.addFrontmatterData(frontmatter);
-      this.mergeFrontmatters(frontmatter, templateFrontmatter);
+      this._mergeFrontmatters(frontmatter, templateFrontmatter);
       const dataCodeblock = this.generateDataCodeBlock();
       const initialCodeblock = this.generateInitialCodeBlock();
       const lastCodeblock = this.generateLastCodeBlock();
@@ -3691,12 +3590,12 @@ var AbstractComponentTemplateFactory = class extends AbstractRpgManager {
         templateContent = this.internalTemplate.getContent();
       }
       const idCodeBlock = this.generateRpgManagerIDCodeBlock(this.generateID());
-      return this.generateResponse(frontmatter, dataCodeblock, initialCodeblock, templateContent, lastCodeblock, idCodeBlock);
+      return this._generateResponse(frontmatter, dataCodeblock, initialCodeblock, templateContent, lastCodeblock, idCodeBlock);
     });
   }
-  generateResponse(frontmatter, dataCodebBlock, initialCodeBlock, mainContent, lastCodeBlock, idCodeBlock) {
+  _generateResponse(frontmatter, dataCodebBlock, initialCodeBlock, mainContent, lastCodeBlock, idCodeBlock) {
     let response;
-    const frontmatterString = (0, import_obsidian11.stringifyYaml)(frontmatter);
+    const frontmatterString = YamlHelper.stringify(frontmatter);
     const frontmatterParsedString = frontmatterString.replaceAll("{}", "");
     response = "---\n" + frontmatterParsedString + "---\n";
     response += dataCodebBlock;
@@ -3707,16 +3606,16 @@ var AbstractComponentTemplateFactory = class extends AbstractRpgManager {
     response += idCodeBlock;
     return response;
   }
-  mergeFrontmatters(frontmatter, additionalFrontMatter) {
+  _mergeFrontmatters(frontmatter, additionalFrontMatter) {
     if (additionalFrontMatter != null) {
       Object.entries(frontmatter).forEach(([frontmatterElementName, frontmatterElementValue]) => {
         if (typeof frontmatterElementValue !== "object") {
           if (additionalFrontMatter[frontmatterElementName] != null)
             frontmatter[frontmatterElementName] = additionalFrontMatter[frontmatterElementName];
         } else {
-          if (this.isArray(frontmatterElementValue)) {
+          if (this._isArray(frontmatterElementValue)) {
             if (additionalFrontMatter[frontmatterElementName] != null) {
-              if (this.isArray(additionalFrontMatter[frontmatterElementName])) {
+              if (this._isArray(additionalFrontMatter[frontmatterElementName])) {
                 Object.entries(additionalFrontMatter[frontmatterElementName]).forEach(([additionalFrontmatterElementName, additionalFrontmatterElementValue]) => {
                   let index;
                   Object.entries(frontmatterElementValue).forEach(([frontmatterSubElementName, frontmatterSubElementValue]) => {
@@ -3730,11 +3629,11 @@ var AbstractComponentTemplateFactory = class extends AbstractRpgManager {
                   }
                 });
               } else {
-                this.mergeFrontmatters(frontmatterElementValue, additionalFrontMatter[frontmatterElementName]);
+                this._mergeFrontmatters(frontmatterElementValue, additionalFrontMatter[frontmatterElementName]);
               }
             }
           } else {
-            this.mergeFrontmatters(frontmatterElementValue, additionalFrontMatter[frontmatterElementName]);
+            this._mergeFrontmatters(frontmatterElementValue, additionalFrontMatter[frontmatterElementName]);
           }
         }
         if (typeof frontmatter[frontmatterElementValue] === "object" && additionalFrontMatter[frontmatterElementName] != null) {
@@ -3753,7 +3652,7 @@ var AbstractComponentTemplateFactory = class extends AbstractRpgManager {
       });
     }
   }
-  isArray(list) {
+  _isArray(list) {
     let response = false;
     Object.entries(list).forEach(([index, value]) => {
       if (!isNaN(+index)) {
@@ -3778,24 +3677,24 @@ var AbstractComponentTemplateFactory = class extends AbstractRpgManager {
   }
   generateRpgManagerDataCodeBlock(metadata) {
     let response = "```RpgManagerData\n";
-    response += (0, import_obsidian11.stringifyYaml)(metadata);
+    response += YamlHelper.stringify(metadata);
     response += "```\n";
     return response.replaceAll("''", "").replaceAll('""', "").replaceAll("{}", "");
   }
   generateRpgManagerCodeBlock(metadata) {
     let response = "```RpgManager\n";
-    response += (0, import_obsidian11.stringifyYaml)(metadata);
+    response += YamlHelper.stringify(metadata);
     response += "```\n";
     return response.replaceAll("''", "").replaceAll('""', "").replaceAll("{}", "");
   }
-  generateRpgManagerIDCodeBlock(ID) {
+  generateRpgManagerIDCodeBlock(id) {
     const metadata = {
-      id: ID,
-      checksum: Md5.hashStr(ID)
+      id,
+      checksum: Md5.hashStr(id)
     };
     let response = "```RpgManagerID\n";
     response += "### DO NOT EDIT MANUALLY IF NOT INSTRUCTED TO DO SO ###\n";
-    response += (0, import_obsidian11.stringifyYaml)(metadata);
+    response += YamlHelper.stringify(metadata);
     response += "```\n";
     return response;
   }
@@ -3826,7 +3725,6 @@ var CampaignTemplateFactory = class extends AbstractComponentTemplateFactory {
       data: {
         date: "",
         synopsis: "",
-        image: "",
         complete: false,
         currentAdventureId: "",
         currentActId: "",
@@ -3956,7 +3854,6 @@ var ActTemplateFactory = class extends AbstractComponentTemplateFactory {
       },
       data: {
         synopsis: "",
-        image: "",
         complete: false,
         abtStage: ""
       }
@@ -4009,7 +3906,6 @@ var SceneTemplateFactory = class extends AbstractComponentTemplateFactory {
     const metadata = {
       data: {
         synopsis: "",
-        image: "",
         complete: false,
         sessionId: 0,
         action: "",
@@ -4073,7 +3969,6 @@ var CharacterTemplateFactory = class extends AbstractComponentTemplateFactory {
     const metadata = {
       data: {
         synopsis: "",
-        image: "",
         complete: false,
         dob: "",
         death: "",
@@ -4112,7 +4007,6 @@ var NonPlayerCharacterTemplateFactory = class extends AbstractComponentTemplateF
     const metadata = {
       data: {
         synopsis: "",
-        image: "",
         death: "",
         dob: "",
         goals: "",
@@ -4154,7 +4048,6 @@ var LocationTemplateFactory = class extends AbstractComponentTemplateFactory {
     const metadata = {
       data: {
         synopsis: "",
-        image: "",
         complete: false,
         address: ""
       }
@@ -4196,7 +4089,6 @@ var EventTemplateFactory = class extends AbstractComponentTemplateFactory {
     const metadata = {
       data: {
         synopsis: "",
-        image: "",
         complete: false,
         date: ""
       }
@@ -4229,7 +4121,6 @@ var ClueTemplateFactory = class extends AbstractComponentTemplateFactory {
     const metadata = {
       data: {
         synopsis: "",
-        image: "",
         complete: false,
         found: ""
       }
@@ -4263,7 +4154,6 @@ var FactionTemplateFactory = class extends AbstractComponentTemplateFactory {
     const metadata = {
       data: {
         synopsis: "",
-        image: "",
         complete: false
       }
     };
@@ -4294,7 +4184,6 @@ var MusicTemplateFactory = class extends AbstractComponentTemplateFactory {
     const metadata = {
       data: {
         synopsis: "",
-        image: "",
         complete: false,
         url: ""
       }
@@ -4332,7 +4221,6 @@ var SessionTemplateFactory = class extends AbstractComponentTemplateFactory {
     const metadata = {
       data: {
         synopsis: "",
-        image: "",
         complete: false,
         irl: void 0,
         abtStage: void 0
@@ -4415,7 +4303,6 @@ var SubplotTemplateFactory = class extends AbstractComponentTemplateFactory {
       },
       data: {
         synopsis: "",
-        image: "",
         complete: false
       }
     };
@@ -4445,37 +4332,37 @@ var SubplotTemplateFactory = class extends AbstractComponentTemplateFactory {
 var TemplateFactory = class extends AbstractFactory {
   constructor(app2) {
     super(app2);
-    this.templateTypeMap = /* @__PURE__ */ new Map();
-    this.templateTypeMap.set("AgnosticCampaign", CampaignTemplateFactory);
-    this.templateTypeMap.set("AgnosticAdventure", AdventureTemplateFactory);
-    this.templateTypeMap.set("AgnosticAct", ActTemplateFactory);
-    this.templateTypeMap.set("AgnosticScene", SceneTemplateFactory);
-    this.templateTypeMap.set("AgnosticSession", SessionTemplateFactory);
-    this.templateTypeMap.set("AgnosticCharacter", CharacterTemplateFactory);
-    this.templateTypeMap.set("AgnosticNonPlayerCharacter", NonPlayerCharacterTemplateFactory);
-    this.templateTypeMap.set("AgnosticLocation", LocationTemplateFactory);
-    this.templateTypeMap.set("AgnosticEvent", EventTemplateFactory);
-    this.templateTypeMap.set("AgnosticClue", ClueTemplateFactory);
-    this.templateTypeMap.set("AgnosticFaction", FactionTemplateFactory);
-    this.templateTypeMap.set("AgnosticMusic", MusicTemplateFactory);
-    this.templateTypeMap.set("AgnosticSubplot", SubplotTemplateFactory);
+    this._templateTypeMap = /* @__PURE__ */ new Map();
+    this._templateTypeMap.set("AgnosticCampaign", CampaignTemplateFactory);
+    this._templateTypeMap.set("AgnosticAdventure", AdventureTemplateFactory);
+    this._templateTypeMap.set("AgnosticAct", ActTemplateFactory);
+    this._templateTypeMap.set("AgnosticScene", SceneTemplateFactory);
+    this._templateTypeMap.set("AgnosticSession", SessionTemplateFactory);
+    this._templateTypeMap.set("AgnosticCharacter", CharacterTemplateFactory);
+    this._templateTypeMap.set("AgnosticNonPlayerCharacter", NonPlayerCharacterTemplateFactory);
+    this._templateTypeMap.set("AgnosticLocation", LocationTemplateFactory);
+    this._templateTypeMap.set("AgnosticEvent", EventTemplateFactory);
+    this._templateTypeMap.set("AgnosticClue", ClueTemplateFactory);
+    this._templateTypeMap.set("AgnosticFaction", FactionTemplateFactory);
+    this._templateTypeMap.set("AgnosticMusic", MusicTemplateFactory);
+    this._templateTypeMap.set("AgnosticSubplot", SubplotTemplateFactory);
   }
   create(settings, type, templateName, name, campaignId, adventureId, actId, sceneId, sessionId, additionalInformation = null) {
     let templateKey = CampaignSetting[settings] + ComponentType[type];
-    if (!this.templateTypeMap.has(templateKey))
+    if (!this._templateTypeMap.has(templateKey))
       templateKey = CampaignSetting[0 /* Agnostic */] + ComponentType[type];
-    if (!this.templateTypeMap.has(templateKey))
+    if (!this._templateTypeMap.has(templateKey))
       throw new Error("Type of template " + CampaignSetting[settings] + ComponentType[type] + " cannot be found");
-    return new (this.templateTypeMap.get(templateKey))(this.app, templateName, name, campaignId, adventureId, actId, sceneId, sessionId, additionalInformation);
+    return new (this._templateTypeMap.get(templateKey))(this.app, templateName, name, campaignId, adventureId, actId, sceneId, sessionId, additionalInformation);
   }
 };
 
 // src/helpers/EditorSelector.ts
-var import_obsidian12 = require("obsidian");
+var import_obsidian11 = require("obsidian");
 var EditorSelector = class {
   static focusOnDataKey(app2, currentComponent, dataId = void 0) {
     var _a;
-    const activeView = app2.workspace.getActiveViewOfType(import_obsidian12.MarkdownView);
+    const activeView = app2.workspace.getActiveViewOfType(import_obsidian11.MarkdownView);
     if (activeView == null)
       return;
     const metadata = app2.metadataCache.getFileCache(currentComponent.file);
@@ -4504,7 +4391,7 @@ var EditorSelector = class {
   }
   static focusOnDataRelationshipDescription(app2, currentComponent, path2) {
     var _a;
-    const activeView = app2.workspace.getActiveViewOfType(import_obsidian12.MarkdownView);
+    const activeView = app2.workspace.getActiveViewOfType(import_obsidian11.MarkdownView);
     if (activeView == null)
       return;
     const metadata = app2.metadataCache.getFileCache(currentComponent.file);
@@ -4630,7 +4517,7 @@ var AbstractSubModelView = class extends AbstractRpgManager {
 };
 
 // src/views/subViews/TableView.ts
-var import_obsidian13 = require("obsidian");
+var import_obsidian12 = require("obsidian");
 var TableView = class extends AbstractSubModelView {
   render(container, data) {
     const divContainer = container.createDiv();
@@ -4638,18 +4525,18 @@ var TableView = class extends AbstractSubModelView {
       const headerEl = divContainer.createEl("h3", { cls: "rpgm-table-header" });
       const arrowEl = headerEl.createSpan();
       arrowEl.style.marginRight = "10px";
-      (0, import_obsidian13.setIcon)(arrowEl, "openClose");
+      (0, import_obsidian12.setIcon)(arrowEl, "openClose");
       const arrowIconEl = arrowEl.children[0];
       if (data.open) {
         arrowIconEl.style.transform = "rotate(90deg)";
       }
       headerEl.createSpan({ text: data.title });
       headerEl.addEventListener("click", () => {
-        if (this.tableEl.style.display === "none") {
-          this.tableEl.style.display = "";
+        if (this._tableEl.style.display === "none") {
+          this._tableEl.style.display = "";
           arrowIconEl.style.transform = "rotate(90deg)";
         } else {
-          this.tableEl.style.display = "none";
+          this._tableEl.style.display = "none";
           arrowIconEl.style.transform = "rotate(0deg)";
         }
       });
@@ -4696,14 +4583,14 @@ var TableView = class extends AbstractSubModelView {
           break;
       }
     }
-    this.tableEl = divContainer.createEl("table");
-    this.tableEl.addClass("rpgm-table");
-    this.tableEl.style.display = data.open ? "" : "none";
+    this._tableEl = divContainer.createEl("table");
+    this._tableEl.addClass("rpgm-table");
+    this._tableEl.style.display = data.open ? "" : "none";
     if (data.class != null) {
-      this.tableEl.addClass(data.class);
+      this._tableEl.addClass(data.class);
     }
     if (data.headers != null && data.headers.length > 0) {
-      const header = this.tableEl.createEl("tr");
+      const header = this._tableEl.createEl("tr");
       data.headers.forEach((content) => {
         const cell = header.createEl("th");
         content.fillContent(cell, this.sourcePath);
@@ -4712,7 +4599,7 @@ var TableView = class extends AbstractSubModelView {
         }
       });
     }
-    const tableBodyElement = this.tableEl.createTBody();
+    const tableBodyElement = this._tableEl.createTBody();
     data.content.forEach((element) => {
       const row = tableBodyElement.insertRow();
       row.addClass("hoverable");
@@ -4739,11 +4626,11 @@ var TableView = class extends AbstractSubModelView {
 };
 
 // src/views/subViews/BreadcrumbView.ts
-var import_obsidian18 = require("obsidian");
+var import_obsidian17 = require("obsidian");
 
 // src/abstracts/AbstractRpgManagerModal.ts
-var import_obsidian14 = require("obsidian");
-var AbstractRpgManagerModal = class extends import_obsidian14.Modal {
+var import_obsidian13 = require("obsidian");
+var AbstractRpgManagerModal = class extends import_obsidian13.Modal {
   constructor(app2) {
     super(app2);
     this.app = app2;
@@ -4771,13 +4658,13 @@ var AbstractRpgManagerModal = class extends import_obsidian14.Modal {
   }
 };
 
-// src/modals/RelationshipsSelectionModal.ts
-var import_obsidian15 = require("obsidian");
+// src/relationships/modals/RelationshipsSelectionModal.ts
+var import_obsidian14 = require("obsidian");
 var RelationshipsSelectionModal = class extends AbstractRpgManagerModal {
-  constructor(app2, currentComponent) {
+  constructor(app2, _currentComponent) {
     super(app2);
-    this.currentComponent = currentComponent;
-    this.availableRelationships = /* @__PURE__ */ new Map([
+    this._currentComponent = _currentComponent;
+    this._availableRelationships = /* @__PURE__ */ new Map([
       [1 /* Campaign */, []],
       [2 /* Adventure */, [64 /* NonPlayerCharacter */, 1024 /* Faction */, 128 /* Location */, 512 /* Clue */, 256 /* Event */, 32 /* Character */]],
       [4 /* Act */, [64 /* NonPlayerCharacter */, 1024 /* Faction */, 128 /* Location */, 512 /* Clue */, 256 /* Event */, 32 /* Character */]],
@@ -4792,7 +4679,7 @@ var RelationshipsSelectionModal = class extends AbstractRpgManagerModal {
       [128 /* Location */, [128 /* Location */, 1024 /* Faction */, 32 /* Character */, 64 /* NonPlayerCharacter */, 512 /* Clue */, 256 /* Event */]],
       [2048 /* Music */, [2048 /* Music */]]
     ]);
-    this.relationshipTypeAllowedChildren = /* @__PURE__ */ new Map([
+    this._relationshipTypeAllowedChildren = /* @__PURE__ */ new Map([
       [512 /* Clue */, true],
       [256 /* Event */, true],
       [1024 /* Faction */, true],
@@ -4807,51 +4694,57 @@ var RelationshipsSelectionModal = class extends AbstractRpgManagerModal {
     this.modalEl.style.width = "var(--modal-max-width)";
     const relationshipsModalEl = contentEl.createDiv({ cls: "rpgm-modal-relationships" });
     relationshipsModalEl.createEl("h2", { text: "Relationship Selector" });
-    relationshipsModalEl.createDiv({ text: "Select the type of component" });
-    this.requiredRelationshipType(relationshipsModalEl);
-    this.relationshipsEl = relationshipsModalEl.createDiv({ cls: "relationships", text: "" });
-    this.addElementsToList();
+    const relationshipShortlistenersContainerEl = relationshipsModalEl.createDiv({ cls: "clearfix" });
+    this._requiredRelationshipType(relationshipShortlistenersContainerEl);
+    this._componentSearcher(relationshipShortlistenersContainerEl);
+    this._relationshipsEl = relationshipsModalEl.createDiv({ cls: "relationships", text: "" });
+    this._addElementsToList();
   }
-  requiredRelationshipType(contentEl) {
-    const relationshipTypeSelectorEl = contentEl.createEl("select");
-    relationshipTypeSelectorEl.createEl("option", {
+  _requiredRelationshipType(contentEl) {
+    const relationshipSelectorEl = contentEl.createDiv({ cls: "relationship-select" });
+    relationshipSelectorEl.createDiv().createEl("label", { text: "Select the type of component" });
+    this._relationshipTypeSelectorEl = relationshipSelectorEl.createEl("select");
+    this._relationshipTypeSelectorEl.createEl("option", {
       text: "Existing Relationships",
       value: ""
     });
-    const availableRelationships = this.availableRelationships.get(this.currentComponent.id.type);
+    const availableRelationships = this._availableRelationships.get(this._currentComponent.id.type);
     if (availableRelationships !== void 0 && availableRelationships.length > 0) {
       availableRelationships.forEach((type) => {
-        relationshipTypeSelectorEl.createEl("option", {
+        this._relationshipTypeSelectorEl.createEl("option", {
           text: ComponentType[type] + "s",
           value: type.toString()
         });
       });
-      relationshipTypeSelectorEl.addEventListener("change", () => {
-        this.relationshipsEl.empty();
+      this._relationshipTypeSelectorEl.addEventListener("change", () => {
+        this._relationshipsEl.empty();
         let value = void 0;
-        if (relationshipTypeSelectorEl.value !== "")
-          value = +relationshipTypeSelectorEl.value;
-        this.addElementsToList(value);
+        if (this._relationshipTypeSelectorEl.value !== "")
+          value = +this._relationshipTypeSelectorEl.value;
+        this._addElementsToList(value);
       });
     }
   }
-  addElementsToList(type = void 0) {
-    const relationshipsTableEl = this.relationshipsEl.createEl("table").createTBody();
-    let components = [];
-    if (type !== void 0) {
-      components = this.database.readList(type, this.currentComponent.id).sort(this.factories.sorter.create([
-        new SorterComparisonElement((component) => this.currentComponent.getRelationships().existsAlready(component), 1 /* Descending */),
-        new SorterComparisonElement((component) => component.file.stat.mtime, 1 /* Descending */)
-      ]));
-    } else {
-      components = this.database.recordset.filter((component) => this.currentComponent.getRelationships().existsAlready(component)).sort(this.factories.sorter.create([
-        new SorterComparisonElement((component) => component.file.stat.mtime, 1 /* Descending */)
-      ]));
-    }
+  _componentSearcher(contentEl) {
+    const componentSearchContainerEl = contentEl.createDiv({ cls: "relationship-select" });
+    const searchTitle = this._relationshipTypeSelectorEl.value === "" ? "Search a specific Component" : "Search a specific " + ComponentType[this._relationshipTypeSelectorEl.value];
+    componentSearchContainerEl.createDiv().createEl("label", { text: searchTitle });
+    const searchTermEl = componentSearchContainerEl.createEl("input", { type: "text" });
+    searchTermEl.addEventListener("keyup", () => {
+      this._relationshipsEl.empty();
+      let value = void 0;
+      if (this._relationshipTypeSelectorEl.value !== "")
+        value = +this._relationshipTypeSelectorEl.value;
+      this._addElementsToList(value, searchTermEl.value);
+    });
+  }
+  _addElementsToList(type, searchTerm) {
+    const relationshipsTableEl = this._relationshipsEl.createEl("table").createTBody();
+    const components = this.search(type, searchTerm);
     components.forEach((component) => {
       var _a, _b;
-      if (component.id !== this.currentComponent.id) {
-        const relationships = this.currentComponent.getRelationships().filter((relationship2) => {
+      if (component.id !== this._currentComponent.id) {
+        const relationships = this._currentComponent.getRelationships().filter((relationship2) => {
           var _a2;
           return ((_a2 = relationship2.component) == null ? void 0 : _a2.file.basename) === component.file.basename;
         });
@@ -4868,18 +4761,14 @@ var RelationshipsSelectionModal = class extends AbstractRpgManagerModal {
         }
         if (relationship !== void 0)
           checkboxEl.checked = true;
-        if (component.image != null) {
+        const imageCellEl = rowEl.insertCell();
+        if (component.images.length > 0) {
           const img = new Image(40, 40);
-          img.onerror = (evt) => {
-            rowEl.insertCell();
-          };
           img.onload = (evt) => {
             img.style.objectFit = "cover";
-            rowEl.insertCell().append(img);
+            imageCellEl.append(img);
           };
-          img.src = component.image;
-        } else {
-          rowEl.insertCell();
+          img.src = component.images[0].src;
         }
         const relationshipTypeSelectorEl = this._addRelationshipTypeSelector(component, relationship, rowEl.insertCell(), checkboxEl);
         const titleCell = rowEl.insertCell();
@@ -4900,7 +4789,7 @@ var RelationshipsSelectionModal = class extends AbstractRpgManagerModal {
         }
         const synopsisEl = rowEl.insertCell();
         synopsisEl.addClass("description");
-        import_obsidian15.MarkdownRenderer.renderMarkdown(relationship !== void 0 && relationship.description != void 0 && relationship.description !== "" ? relationship.description : (_b = component.synopsis) != null ? _b : "", synopsisEl, "", null);
+        import_obsidian14.MarkdownRenderer.renderMarkdown(relationship !== void 0 && relationship.description != void 0 && relationship.description !== "" ? relationship.description : (_b = component.synopsis) != null ? _b : "", synopsisEl, "", null);
         checkboxEl.addEventListener("change", () => {
           this._addOrRemoveElementRelationship(checkboxEl, relationshipTypeSelectorEl, component, relationship);
         });
@@ -4910,10 +4799,10 @@ var RelationshipsSelectionModal = class extends AbstractRpgManagerModal {
   _addRelationshipTypeSelector(component, relationship, containerEl, checkboxEl) {
     containerEl.addClass("selector");
     const availableRelationshipsType = /* @__PURE__ */ new Map();
-    if (this.currentComponent.id.type !== component.id.type)
+    if (this._currentComponent.id.type !== component.id.type)
       availableRelationshipsType.set(2 /* Bidirectional */, this.factories.relationshipType.createReadableRelationshipType(2 /* Bidirectional */));
     availableRelationshipsType.set(4 /* Unidirectional */, this.factories.relationshipType.createReadableRelationshipType(4 /* Unidirectional */));
-    if (this.currentComponent.id.type === component.id.type && this.relationshipTypeAllowedChildren.has(component.id.type))
+    if (this._currentComponent.id.type === component.id.type && this._relationshipTypeAllowedChildren.has(component.id.type))
       availableRelationshipsType.set(16 /* Child */, this.factories.relationshipType.createReadableRelationshipType(16 /* Child */));
     const relationshipTypeSelectorEl = containerEl.createEl("select");
     if (availableRelationshipsType.size === 1) {
@@ -4954,7 +4843,7 @@ var RelationshipsSelectionModal = class extends AbstractRpgManagerModal {
   _addOrRemoveElementRelationship(checkboxEl, relationshipTypeSelectorEl, relatedComponent, existingRelationship) {
     if (checkboxEl.checked) {
       const relationshipType = relationshipTypeSelectorEl.value === "" ? 2 /* Bidirectional */ : this.factories.relationshipType.createRelationshipType(relationshipTypeSelectorEl.value);
-      const newRelationship = this.factories.relationship.create(relationshipType, relatedComponent.file.path, existingRelationship == null ? void 0 : existingRelationship.description, relatedComponent, false, this.currentComponent.getRelationships());
+      const newRelationship = this.factories.relationship.create(relationshipType, relatedComponent.file.path, existingRelationship == null ? void 0 : existingRelationship.description, relatedComponent, false, this._currentComponent.getRelationships());
       this.manipulators.codeblock.addOrUpdateRelationship(newRelationship);
     } else {
       this.manipulators.codeblock.removeRelationship(relatedComponent.file.path);
@@ -4962,6 +4851,62 @@ var RelationshipsSelectionModal = class extends AbstractRpgManagerModal {
   }
   onClose() {
     super.onClose();
+  }
+  search(type, term) {
+    let components = [];
+    if (type !== void 0) {
+      components = this.database.readList(type, this._currentComponent.id).sort(this.factories.sorter.create([
+        new SorterComparisonElement((component) => this._currentComponent.getRelationships().existsAlready(component), 1 /* Descending */),
+        new SorterComparisonElement((component) => component.file.stat.mtime, 1 /* Descending */)
+      ]));
+    } else {
+      components = this.database.recordset.filter((component) => this._currentComponent.getRelationships().existsAlready(component)).sort(this.factories.sorter.create([
+        new SorterComparisonElement((component) => component.file.stat.mtime, 1 /* Descending */)
+      ]));
+    }
+    if (term === void 0)
+      return components;
+    const matches = /* @__PURE__ */ new Map();
+    const query = (0, import_obsidian14.prepareQuery)(term);
+    components.forEach((component) => {
+      component.alias.forEach((alias) => {
+        if (alias.toLowerCase().startsWith(term.toLowerCase()))
+          matches.set(component.id, { component });
+      });
+      if (!matches.has(component.id)) {
+        const fuzzySearchResult = (0, import_obsidian14.fuzzySearch)(query, component.file.basename + " " + component.synopsis);
+        if (fuzzySearchResult != null && fuzzySearchResult.matches !== null)
+          matches.set(component.id, { component, result: fuzzySearchResult });
+      }
+    });
+    if (matches.size === 0)
+      return [];
+    const resultArray = [];
+    matches.forEach((value) => {
+      resultArray.push(value);
+    });
+    resultArray.sort((a, b) => {
+      var _a, _b, _c, _d;
+      if (a.result === void 0 && b.result !== void 0)
+        return -1;
+      if (a.result !== void 0 && b.result === void 0)
+        return 1;
+      if (a.result === void 0 && b.result === void 0)
+        return 0;
+      if (a.result !== void 0 && b.result !== void 0) {
+        if (((_a = a.result) == null ? void 0 : _a.score) !== void 0 && ((_b = b.result) == null ? void 0 : _b.score) === void 0)
+          return -1;
+        if (((_c = a.result) == null ? void 0 : _c.score) === void 0 && ((_d = b.result) == null ? void 0 : _d.score) !== void 0)
+          return 1;
+        return b.result.score - a.result.score;
+      }
+      return 0;
+    });
+    const response = [];
+    resultArray.forEach((value) => {
+      response.push(value.component);
+    });
+    return response;
   }
 };
 
@@ -4986,39 +4931,39 @@ var AbstractModal = class extends AbstractRpgManagerModal {
 };
 
 // src/databases/DatabaseInitialiser.ts
-var import_obsidian17 = require("obsidian");
+var import_obsidian16 = require("obsidian");
 
 // src/modals/DatabaseErrorModal.ts
-var import_obsidian16 = require("obsidian");
+var import_obsidian15 = require("obsidian");
 var DatabaseErrorModal = class extends AbstractRpgManagerModal {
-  constructor(app2, misconfiguredTags, singleError = void 0, singleErrorFile = void 0) {
+  constructor(app2, _misconfiguredTags, _singleError = void 0, _singleErrorFile = void 0) {
     super(app2);
-    this.misconfiguredTags = misconfiguredTags;
-    this.singleError = singleError;
-    this.singleErrorFile = singleErrorFile;
+    this._misconfiguredTags = _misconfiguredTags;
+    this._singleError = _singleError;
+    this._singleErrorFile = _singleErrorFile;
   }
   onOpen() {
     super.onOpen();
     const { contentEl } = this;
     contentEl.empty();
     contentEl.createEl("h1", { cls: "error", text: "RPG Manager Error" });
-    if (this.singleError !== void 0 && this.singleErrorFile !== void 0 && this.misconfiguredTags === void 0) {
-      this.misconfiguredTags = /* @__PURE__ */ new Map();
-      this.misconfiguredTags.set(this.singleErrorFile, this.singleError);
+    if (this._singleError !== void 0 && this._singleErrorFile !== void 0 && this._misconfiguredTags === void 0) {
+      this._misconfiguredTags = /* @__PURE__ */ new Map();
+      this._misconfiguredTags.set(this._singleErrorFile, this._singleError);
     }
-    if (this.misconfiguredTags === void 0)
-      this.misconfiguredTags = /* @__PURE__ */ new Map();
+    if (this._misconfiguredTags === void 0)
+      this._misconfiguredTags = /* @__PURE__ */ new Map();
     contentEl.createEl("p", { text: "One or more of the tags that define an outline or an element are not correctly configured and can't be read!" });
     contentEl.createEl("p", { text: "Please double check the errors and correct them." });
-    this.misconfiguredTags.forEach((error, file) => {
+    this._misconfiguredTags.forEach((error, file) => {
       var _a;
       const errorEl = contentEl.createEl("div");
       const title = (_a = error.getErrorTitle()) != null ? _a : file.basename;
-      import_obsidian16.MarkdownRenderer.renderMarkdown("**" + title + "**\n" + error.showErrorMessage(), errorEl, file.path, null);
+      import_obsidian15.MarkdownRenderer.renderMarkdown("**" + title + "**\n" + error.showErrorMessage(), errorEl, file.path, null);
     });
     const viewErrorsButtonEl = contentEl.createEl("button", { text: "Fix errors" });
     viewErrorsButtonEl.addEventListener("click", () => {
-      this.app.plugins.getPlugin("rpg-manager").factories.views.showObsidianView("rpgm-error-view" /* Errors */, [this.misconfiguredTags]);
+      this.app.plugins.getPlugin("rpg-manager").factories.views.showObsidianView("rpgm-error-view" /* Errors */, [this._misconfiguredTags]);
       this.close();
     });
   }
@@ -5063,10 +5008,10 @@ var TagMisconfiguredError = class extends AbstractRpgManagerError {
 
 // src/errors/ComponentDuplicatedError.ts
 var ComponentDuplicatedError = class extends AbstractRpgManagerError {
-  constructor(app2, idMap, duplication, duplicated = void 0) {
+  constructor(app2, idMap, _duplication, _duplicated = void 0) {
     super(app2, idMap);
-    this.duplication = duplication;
-    this.duplicated = duplicated;
+    this._duplication = _duplication;
+    this._duplicated = _duplicated;
   }
   getErrorTitle() {
     return "Duplicated outline id";
@@ -5074,12 +5019,12 @@ var ComponentDuplicatedError = class extends AbstractRpgManagerError {
   showErrorMessage() {
     var _a;
     let response = "";
-    if (this.duplication.length > 1) {
-      this.duplication.forEach((component) => {
+    if (this._duplication.length > 1) {
+      this._duplication.forEach((component) => {
         response += " - " + component.file.basename + "\n";
       });
-    } else if (this.duplicated !== void 0) {
-      response += " - " + this.duplication[0].file.basename + "\n - " + ((_a = this.duplicated) == null ? void 0 : _a.file.basename) + "\n";
+    } else if (this._duplicated !== void 0) {
+      response += " - " + this._duplication[0].file.basename + "\n - " + ((_a = this._duplicated) == null ? void 0 : _a.file.basename) + "\n";
     }
     return response;
   }
@@ -5090,13 +5035,13 @@ var ComponentDuplicatedError = class extends AbstractRpgManagerError {
   getErrorLinks() {
     var _a;
     const response = [];
-    if (this.duplication.length > 1) {
-      this.duplication.forEach((component) => {
+    if (this._duplication.length > 1) {
+      this._duplication.forEach((component) => {
         response.push(component.file.path);
       });
-    } else if (this.duplicated !== void 0) {
-      response.push(this.duplication[0].file.path);
-      response.push((_a = this.duplicated) == null ? void 0 : _a.file.path);
+    } else if (this._duplicated !== void 0) {
+      response.push(this._duplication[0].file.path);
+      response.push((_a = this._duplicated) == null ? void 0 : _a.file.path);
     }
     return response;
   }
@@ -5132,13 +5077,13 @@ var InvalidIdChecksumError = class extends AbstractRpgManagerError {
 var DatabaseInitialiser = class {
   static initialise(app2) {
     return __async(this, null, function* () {
-      this.app = app2;
-      this.misconfiguredTags = yield /* @__PURE__ */ new Map();
-      this.factories = this.app.plugins.getPlugin("rpg-manager").factories;
-      this.tagHelper = this.app.plugins.getPlugin("rpg-manager").tagHelper;
-      const group = this.factories.logger.createGroup();
-      const response = yield this.factories.database.create();
-      group.add(this.factories.logger.createInfo(4 /* DatabaseInitialisation */, "Database Initialised"));
+      this._app = app2;
+      this._misconfiguredTags = yield /* @__PURE__ */ new Map();
+      this._factories = this._app.plugins.getPlugin("rpg-manager").factories;
+      this._tagHelper = this._app.plugins.getPlugin("rpg-manager").tagHelper;
+      const group = this._factories.logger.createGroup();
+      const response = yield this._factories.database.create();
+      group.add(this._factories.logger.createInfo(4 /* DatabaseInitialisation */, "Database Initialised"));
       const components = [];
       const markdownFiles = app2.vault.getMarkdownFiles();
       let componentCounter = 0;
@@ -5151,7 +5096,7 @@ var DatabaseInitialiser = class {
               let error = void 0;
               try {
                 const duplicate = response.readSingle(component.id.type, component.id);
-                error = new ComponentDuplicatedError(this.app, component.id, [duplicate], component);
+                error = new ComponentDuplicatedError(this._app, component.id, [duplicate], component);
               } catch (e) {
               }
               if (error !== void 0)
@@ -5162,30 +5107,30 @@ var DatabaseInitialiser = class {
             componentCounter++;
           });
         } catch (e) {
-          this.misconfiguredTags.set(markdownFiles[index], e);
+          this._misconfiguredTags.set(markdownFiles[index], e);
         }
       }
-      group.add(this.factories.logger.createInfo(4 /* DatabaseInitialisation */, componentCounter + " Components created"));
+      group.add(this._factories.logger.createInfo(4 /* DatabaseInitialisation */, componentCounter + " Components created"));
       yield Promise.all(components);
       const metadata = [];
       yield components.forEach((component) => {
         try {
           metadata.push(component.readMetadata());
         } catch (e) {
-          this.misconfiguredTags.set(component.file, e);
+          this._misconfiguredTags.set(component.file, e);
         }
       });
       Promise.all(metadata).then(() => {
-        group.add(this.factories.logger.createInfo(4 /* DatabaseInitialisation */, "Data read for " + metadata.length + " Components"));
+        group.add(this._factories.logger.createInfo(4 /* DatabaseInitialisation */, "Data read for " + metadata.length + " Components"));
         this._initialiseRelationships(response).then(() => {
-          group.add(this.factories.logger.createInfo(4 /* DatabaseInitialisation */, "Relationships created"));
+          group.add(this._factories.logger.createInfo(4 /* DatabaseInitialisation */, "Relationships created"));
           this._validateComponents(response).then(() => {
-            group.add(this.factories.logger.createInfo(4 /* DatabaseInitialisation */, "Components Validated"));
+            group.add(this._factories.logger.createInfo(4 /* DatabaseInitialisation */, "Components Validated"));
             response.ready();
-            if (this.misconfiguredTags.size > 0) {
-              new DatabaseErrorModal(this.app, this.misconfiguredTags).open();
+            if (this._misconfiguredTags.size > 0) {
+              new DatabaseErrorModal(this._app, this._misconfiguredTags).open();
             }
-            this.factories.logger.group(group);
+            this._factories.logger.group(group);
           });
         });
       });
@@ -5199,28 +5144,28 @@ var DatabaseInitialiser = class {
           component.validateHierarchy();
         } catch (e) {
           database.delete(component);
-          this.misconfiguredTags.set(component.file, e);
+          this._misconfiguredTags.set(component.file, e);
         }
       });
     });
   }
   static readID(file) {
     return __async(this, null, function* () {
-      const metadata = this.app.metadataCache.getFileCache(file);
+      const metadata = this._app.metadataCache.getFileCache(file);
       if (metadata == void 0)
         return void 0;
       if (metadata.sections == void 0 || metadata.sections.length === 0)
         return void 0;
-      const content = yield this.app.vault.read(file);
+      const content = yield this._app.vault.read(file);
       const contentArray = content.split("\n");
       for (let sectionIndex = 0; sectionIndex < metadata.sections.length; sectionIndex++) {
         const section = metadata.sections[sectionIndex];
         if (section.type === "code" && contentArray[section.position.start.line] === "```RpgManagerID") {
-          const RpgManagerIdContent = contentArray.slice(section.position.start.line + 1, section.position.end.line);
-          const RpgManagerID = (0, import_obsidian17.parseYaml)(RpgManagerIdContent.join("\n"));
-          const response = this.factories.id.createFromID(RpgManagerID.id);
-          if (Md5.hashStr(RpgManagerID.id) !== RpgManagerID.checksum)
-            throw new InvalidIdChecksumError(this.app, response);
+          const rpgManagerIdContent = contentArray.slice(section.position.start.line + 1, section.position.end.line);
+          const rpgManagerID = (0, import_obsidian16.parseYaml)(rpgManagerIdContent.join("\n"));
+          const response = this._factories.id.createFromID(rpgManagerID.id);
+          if (Md5.hashStr(rpgManagerID.id) !== rpgManagerID.checksum)
+            throw new InvalidIdChecksumError(this._app, response);
           return response;
         }
       }
@@ -5233,8 +5178,8 @@ var DatabaseInitialiser = class {
       if (id === void 0)
         return void 0;
       if (!id.isValid)
-        throw new TagMisconfiguredError(this.app, id);
-      return yield this.factories.component.create(id.campaignSettings, file, id);
+        throw new TagMisconfiguredError(this._app, id);
+      return yield this._factories.component.create(id.campaignSettings, file, id);
     });
   }
   static _initialiseRelationships(database) {
@@ -5248,7 +5193,7 @@ var DatabaseInitialiser = class {
           const relationships = database.recordset[index].getRelationships(database).relationships;
           for (let relationshipIndex = 0; relationshipIndex < relationships.length; relationshipIndex++) {
             if (relationships[relationshipIndex].component !== void 0) {
-              this.factories.relationship.createFromReverse(database.recordset[index], relationships[relationshipIndex]);
+              this._factories.relationship.createFromReverse(database.recordset[index], relationships[relationshipIndex]);
             }
           }
         }
@@ -5266,7 +5211,7 @@ var DatabaseInitialiser = class {
         if (component.touch()) {
           relationships.forEach((relationship) => {
             if (relationship.component === void 0)
-              this.factories.relationship.createFromReverse(component, relationship);
+              this._factories.relationship.createFromReverse(component, relationship);
           });
           database.recordset.forEach((component2) => {
             component2.getRelationships(database);
@@ -5278,13 +5223,13 @@ var DatabaseInitialiser = class {
     });
   }
 };
-DatabaseInitialiser.misconfiguredTags = /* @__PURE__ */ new Map();
+DatabaseInitialiser._misconfiguredTags = /* @__PURE__ */ new Map();
 
 // src/modals/IdSwitcherModal.ts
 var IdSwitcherModal = class extends AbstractModal {
-  constructor(app2, file) {
+  constructor(app2, _file) {
     super(app2);
-    this.file = file;
+    this._file = _file;
     this.title = "Component ID Updater";
   }
   onClose() {
@@ -5293,7 +5238,7 @@ var IdSwitcherModal = class extends AbstractModal {
   }
   onOpen() {
     super.onOpen();
-    DatabaseInitialiser.readID(this.file).then((id) => {
+    DatabaseInitialiser.readID(this._file).then((id) => {
       this._processId(id);
     }).catch((e) => {
       if (e.id !== void 0)
@@ -5302,19 +5247,19 @@ var IdSwitcherModal = class extends AbstractModal {
   }
   _processId(id) {
     return __async(this, null, function* () {
-      this.id = id;
+      this._id = id;
       const descriptorEl = this.rpgmContainerEl.createDiv();
-      descriptorEl.textContent = "Use this form to change the position of the " + ComponentType[this.id.type] + ' "' + this.file.basename + '" in the Campaign hierarchy';
+      descriptorEl.textContent = "Use this form to change the position of the " + ComponentType[this._id.type] + ' "' + this._file.basename + '" in the Campaign hierarchy';
       const formEl = this.rpgmContainerEl.createDiv();
       const buttonContainerEl = this.rpgmContainerEl.createDiv();
-      this.updateButtonEl = buttonContainerEl.createEl("button", { text: "Update the identifier" });
-      this.updateButtonEl.disabled = true;
-      this.updateButtonEl.addEventListener("click", this.save.bind(this));
-      if (this.id.type === 1 /* Campaign */) {
+      this._updateButtonEl = buttonContainerEl.createEl("button", { text: "Update the identifier" });
+      this._updateButtonEl.disabled = true;
+      this._updateButtonEl.addEventListener("click", this._save.bind(this));
+      if (this._id.type === 1 /* Campaign */) {
         const newCampaignId = this._proposeNewId(1 /* Campaign */);
-        this.newId = this.factories.id.create(1 /* Campaign */, newCampaignId, void 0, void 0, void 0, void 0, void 0, this.id.campaignSettings);
+        this._newId = this.factories.id.create(1 /* Campaign */, newCampaignId, void 0, void 0, void 0, void 0, void 0, this._id.campaignSettings);
         this._addIdSelector(formEl, newCampaignId.toString());
-        this.updateButtonEl.disabled = false;
+        this._updateButtonEl.disabled = false;
       } else {
         this._addSelector(formEl, 1 /* Campaign */);
       }
@@ -5323,44 +5268,44 @@ var IdSwitcherModal = class extends AbstractModal {
   _addIdSelector(containerId, newId) {
     containerId.createDiv({ cls: "input-title", text: "New ID" });
     containerId.createEl("div", { text: "The proposed new ID is " + newId + " but you can change it if you want" });
-    this.newIdEl = containerId.createEl("input", { type: "text" });
-    this.errorIdEl = containerId.createSpan({ text: "The selected ID is already in use. Please select a different one" });
-    this.errorIdEl.style.display = "none";
-    this.newIdEl.value = newId;
-    this.newIdEl.addEventListener("keyup", this._validateNewId.bind(this));
+    this._newIdEl = containerId.createEl("input", { type: "text" });
+    this._errorIdEl = containerId.createSpan({ text: "The selected ID is already in use. Please select a different one" });
+    this._errorIdEl.style.display = "none";
+    this._newIdEl.value = newId;
+    this._newIdEl.addEventListener("keyup", this._validateNewId.bind(this));
   }
   _validateNewId() {
-    switch (this.newId.type) {
+    switch (this._newId.type) {
       case 1 /* Campaign */:
-        this.newId = this.factories.id.create(1 /* Campaign */, +this.newIdEl.value, void 0, void 0, void 0, void 0, void 0, this.id.campaignSettings);
+        this._newId = this.factories.id.create(1 /* Campaign */, +this._newIdEl.value, void 0, void 0, void 0, void 0, void 0, this._id.campaignSettings);
         break;
       case 2 /* Adventure */:
-        this.newId = this.factories.id.create(2 /* Adventure */, this.newId.campaignId, +this.newIdEl.value, void 0, void 0, void 0, void 0, this.id.campaignSettings);
+        this._newId = this.factories.id.create(2 /* Adventure */, this._newId.campaignId, +this._newIdEl.value, void 0, void 0, void 0, void 0, this._id.campaignSettings);
         break;
       case 4 /* Act */:
-        this.newId = this.factories.id.create(4 /* Act */, this.newId.campaignId, this.newId.adventureId, +this.newIdEl.value, void 0, void 0, void 0, this.id.campaignSettings);
+        this._newId = this.factories.id.create(4 /* Act */, this._newId.campaignId, this._newId.adventureId, +this._newIdEl.value, void 0, void 0, void 0, this._id.campaignSettings);
         break;
       case 8 /* Scene */:
-        this.newId = this.factories.id.create(8 /* Scene */, this.newId.campaignId, this.newId.adventureId, this.newId.actId, +this.newIdEl.value, void 0, void 0, this.id.campaignSettings);
+        this._newId = this.factories.id.create(8 /* Scene */, this._newId.campaignId, this._newId.adventureId, this._newId.actId, +this._newIdEl.value, void 0, void 0, this._id.campaignSettings);
         break;
       case 16 /* Session */:
-        this.newId = this.factories.id.create(16 /* Session */, +this.newIdEl.value, void 0, void 0, void 0, +this.newIdEl.value, void 0, this.id.campaignSettings);
+        this._newId = this.factories.id.create(16 /* Session */, +this._newIdEl.value, void 0, void 0, void 0, +this._newIdEl.value, void 0, this._id.campaignSettings);
         break;
       default:
         return;
     }
     try {
-      this.database.readSingle(this.newId.type, this.newId);
-      this.updateButtonEl.disabled = true;
-      this.errorIdEl.style.display = "";
+      this.database.readSingle(this._newId.type, this._newId);
+      this._updateButtonEl.disabled = true;
+      this._errorIdEl.style.display = "";
     } catch (e) {
-      this.updateButtonEl.disabled = false;
-      this.errorIdEl.style.display = "none";
+      this._updateButtonEl.disabled = false;
+      this._errorIdEl.style.display = "none";
     }
   }
-  save() {
+  _save() {
     return __async(this, null, function* () {
-      this.manipulators.codeblock.replaceID(this.file, this.newId.stringID);
+      this.manipulators.codeblock.replaceID(this._file, this._newId.stringID);
       this.close();
     });
   }
@@ -5368,7 +5313,7 @@ var IdSwitcherModal = class extends AbstractModal {
     const selectorContainerEl = containerEl.createDiv();
     selectorContainerEl.createDiv({
       cls: "input-title",
-      text: "Select the " + ComponentType[type] + " the " + ComponentType[this.id.type] + " belongs to"
+      text: "Select the " + ComponentType[type] + " the " + ComponentType[this._id.type] + " belongs to"
     });
     const typeSelectorEl = selectorContainerEl.createDiv().createEl("select");
     typeSelectorEl.createEl("option", { value: "", text: "" }).selected;
@@ -5389,50 +5334,50 @@ var IdSwitcherModal = class extends AbstractModal {
         let idValues = void 0;
         switch (type) {
           case 1 /* Campaign */:
-            if (this.id.type === 2 /* Adventure */) {
+            if (this._id.type === 2 /* Adventure */) {
               try {
-                idValues = { type: 2 /* Adventure */, campaignId: +selectorEl.value, adventureId: this.id.adventureId };
+                idValues = { type: 2 /* Adventure */, campaignId: +selectorEl.value, adventureId: this._id.adventureId };
                 if (!this._isExistingIdValid(2 /* Adventure */, +selectorEl.value))
                   hasMissingValidId = true;
               } catch (e) {
                 idValues = { type: 2 /* Adventure */, campaignId: +selectorEl.value };
                 hasMissingValidId = true;
               }
-            } else if (this.id.type === 16 /* Session */) {
+            } else if (this._id.type === 16 /* Session */) {
               try {
-                idValues = { type: 2 /* Adventure */, campaignId: +selectorEl.value, sessionId: this.id.sessionId };
+                idValues = { type: 2 /* Adventure */, campaignId: +selectorEl.value, sessionId: this._id.sessionId };
                 if (!this._isExistingIdValid(16 /* Session */, +selectorEl.value))
                   hasMissingValidId = true;
               } catch (e) {
                 idValues = { type: 2 /* Adventure */, campaignId: +selectorEl.value };
                 hasMissingValidId = true;
               }
-            } else if (this.id.type === 4 /* Act */ || this.id.type === 8 /* Scene */) {
+            } else if (this._id.type === 4 /* Act */ || this._id.type === 8 /* Scene */) {
               hasLoadedSomethingElse = true;
               this._addSelector(subContainerEl, 2 /* Adventure */, +selectorEl.value);
             } else {
-              idValues = { type: this.id.type, campaignId: +selectorEl.value };
+              idValues = { type: this._id.type, campaignId: +selectorEl.value };
             }
             break;
           case 2 /* Adventure */:
-            if (this.id.type === 4 /* Act */) {
+            if (this._id.type === 4 /* Act */) {
               try {
-                idValues = { type: 4 /* Act */, campaignId: campaignId != null ? campaignId : 0, adventureId: +selectorEl.value, actId: this.id.actId };
+                idValues = { type: 4 /* Act */, campaignId: campaignId != null ? campaignId : 0, adventureId: +selectorEl.value, actId: this._id.actId };
                 if (!this._isExistingIdValid(4 /* Act */, campaignId, +selectorEl.value))
                   hasMissingValidId = true;
               } catch (e) {
                 idValues = { type: 4 /* Act */, campaignId: campaignId != null ? campaignId : 0, adventureId: +selectorEl.value };
                 hasMissingValidId = true;
               }
-            } else if (this.id.type === 8 /* Scene */) {
+            } else if (this._id.type === 8 /* Scene */) {
               hasLoadedSomethingElse = true;
               this._addSelector(subContainerEl, 4 /* Act */, campaignId, +selectorEl.value);
             }
             break;
           case 4 /* Act */:
-            if (this.id.type === 8 /* Scene */) {
+            if (this._id.type === 8 /* Scene */) {
               try {
-                idValues = { type: 8 /* Scene */, campaignId: campaignId != null ? campaignId : 0, adventureId, actId: +selectorEl.value, sceneId: this.id.sceneId };
+                idValues = { type: 8 /* Scene */, campaignId: campaignId != null ? campaignId : 0, adventureId, actId: +selectorEl.value, sceneId: this._id.sceneId };
                 if (!this._isExistingIdValid(8 /* Scene */, campaignId, adventureId, +selectorEl.value))
                   hasMissingValidId = true;
               } catch (e) {
@@ -5489,8 +5434,8 @@ var IdSwitcherModal = class extends AbstractModal {
               if (newId !== void 0)
                 this._addIdSelector(subContainerEl, newId.toString());
             }
-            this.newId = this.factories.id.create(idValues.type, idValues.campaignId, idValues.adventureId, idValues.actId, idValues.sceneId, idValues.sessionId, void 0, this.id.campaignSettings);
-            this.updateButtonEl.disabled = false;
+            this._newId = this.factories.id.create(idValues.type, idValues.campaignId, idValues.adventureId, idValues.actId, idValues.sceneId, idValues.sessionId, void 0, this._id.campaignSettings);
+            this._updateButtonEl.disabled = false;
           }
         }
       });
@@ -5512,11 +5457,31 @@ var IdSwitcherModal = class extends AbstractModal {
   }
   _isExistingIdValid(type, campaignId = void 0, adventureId = void 0, actId = void 0) {
     const components = this._loadPossibleChildren(type, campaignId, adventureId, actId);
-    const match = components.filter((component) => this.id.id === component.id.id);
-    return match.length === 0;
+    const match2 = components.filter((component) => this._id.id === component.id.id);
+    return match2.length === 0;
   }
   _loadPossibleChildren(type, campaignId = void 0, adventureId = void 0, actId = void 0) {
     return this.database.read((component) => component.id.type === type && (campaignId !== void 0 ? component.id.campaignId === campaignId : true) && (adventureId !== void 0 ? component.id.adventureId === adventureId : true) && (actId !== void 0 ? component.id.actId === actId : true));
+  }
+};
+
+// src/galleries/modals/GalleryManagementModal.ts
+var GalleryManagementModal = class extends AbstractModal {
+  constructor(app2, _component) {
+    super(app2);
+    this._component = _component;
+    this.title = "Gallery Manager";
+  }
+  onClose() {
+    super.onClose();
+    this.rpgmContainerEl.empty();
+  }
+  onOpen() {
+    super.onOpen();
+    this.modalEl.style.width = "var(--modal-max-width)";
+    this._containerEl = this.rpgmContainerEl.createDiv({ cls: "gallery" });
+    const view = this.factories.imageView.create(1 /* ModalNavigation */, this._component);
+    view.render(this._containerEl);
   }
 };
 
@@ -5525,33 +5490,38 @@ var BreadcrumbView = class extends AbstractSubModelView {
   render(container, data) {
     if (data.component === void 0)
       return;
-    this.currentComponent = data.component;
+    this._currentComponent = data.component;
     const breadcrumbContainer = container.createDiv({ cls: "rpgm-breadcrumb" });
     breadcrumbContainer.createEl("h2").textContent = data.mainTitle;
     const breadcrumbLine = breadcrumbContainer.createDiv({ cls: "line" });
-    this.renderBreadcrumb(breadcrumbContainer, breadcrumbLine, data);
+    this._renderBreadcrumb(breadcrumbContainer, breadcrumbLine, data);
     breadcrumbContainer.createDiv({ cls: "reset" });
     const relationshipAdderContainerEl = breadcrumbContainer.createDiv({ cls: "line spaced-line" });
-    const crumb = relationshipAdderContainerEl.createDiv({ cls: "crumb" });
-    crumb.createDiv({ cls: "title", text: "Relationships" });
-    const value = crumb.createDiv({ cls: "value" });
-    const relationshipsAdderEl = value.createEl("span", { cls: "rpgm-edit-icon", text: "Manage Relationship" });
-    relationshipsAdderEl.addEventListener("click", () => {
-      new RelationshipsSelectionModal(this.app, this.currentComponent).open();
+    this._addFunctionality(relationshipAdderContainerEl, "Relationships", "Manage Relationship").addEventListener("click", () => {
+      new RelationshipsSelectionModal(this.app, this._currentComponent).open();
     });
-    const separator = relationshipAdderContainerEl.createDiv({ cls: "separator" });
+    this._addSeparator(relationshipAdderContainerEl);
+    this._addFunctionality(relationshipAdderContainerEl, "Move", "Move your " + ComponentType[this._currentComponent.id.type]).addEventListener("click", () => {
+      new IdSwitcherModal(this.app, this._currentComponent.file).open();
+    });
+    this._addSeparator(relationshipAdderContainerEl);
+    this._addFunctionality(relationshipAdderContainerEl, "Images", "Gallery Manager").addEventListener("click", () => {
+      new GalleryManagementModal(this.app, this._currentComponent).open();
+    });
+  }
+  _addFunctionality(containerEl, title, description) {
+    const crumb = containerEl.createDiv({ cls: "crumb" });
+    crumb.createDiv({ cls: "title", text: title });
+    const value = crumb.createDiv({ cls: "value" });
+    return value.createSpan({ cls: "rpgm-edit-icon", text: description });
+  }
+  _addSeparator(containerEl) {
+    const separator = containerEl.createDiv({ cls: "separator" });
     separator.createDiv({ cls: "title", text: " " });
     const separatorText = separator.createDiv({ cls: "value" });
     separatorText.createEl("p").textContent = "|";
-    const idChangerCrumbEl = relationshipAdderContainerEl.createDiv({ cls: "crumb" });
-    idChangerCrumbEl.createDiv({ cls: "title", text: "Move" });
-    const idChangerValueEl = idChangerCrumbEl.createDiv({ cls: "value" });
-    const idChangerAdderEl = idChangerValueEl.createEl("span", { cls: "rpgm-edit-icon", text: "Move your " + ComponentType[this.currentComponent.id.type] });
-    idChangerAdderEl.addEventListener("click", () => {
-      new IdSwitcherModal(this.app, this.currentComponent.file).open();
-    });
   }
-  renderBreadcrumb(breadcrumb, line, data, isFirstLine = true) {
+  _renderBreadcrumb(breadcrumb, line, data, isFirstLine = true) {
     let lineToUse = line;
     if (data.isInNewLine) {
       breadcrumb.createDiv({ cls: "reset" });
@@ -5580,7 +5550,7 @@ var BreadcrumbView = class extends AbstractSubModelView {
           link = link.substring(0, link.indexOf("]]")) + "|" + data.linkText + "]]";
         }
       }
-      import_obsidian18.MarkdownRenderer.renderMarkdown(link, value, this.sourcePath, null);
+      import_obsidian17.MarkdownRenderer.renderMarkdown(link, value, this.sourcePath, null);
     }
     if (data.nextBreadcrumb != null) {
       if (data.nextBreadcrumb.isInNewLine === false) {
@@ -5589,7 +5559,7 @@ var BreadcrumbView = class extends AbstractSubModelView {
         const separatorText = separator.createDiv({ cls: "value" });
         separatorText.createEl("p").textContent = isFirstLine ? ">" : "|";
       }
-      this.renderBreadcrumb(breadcrumb, lineToUse, data.nextBreadcrumb, isFirstLine);
+      this._renderBreadcrumb(breadcrumb, lineToUse, data.nextBreadcrumb, isFirstLine);
     } else {
       breadcrumb.createDiv({ cls: "reset" });
     }
@@ -5726,10 +5696,10 @@ var english = {
   daysInMonth: [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31],
   firstDayOfWeek: 0,
   ordinal: function(nth) {
-    var s = nth % 100;
-    if (s > 3 && s < 21)
+    var s2 = nth % 100;
+    if (s2 > 3 && s2 < 21)
       return "th";
-    switch (s % 10) {
+    switch (s2 % 10) {
       case 1:
         return "st";
       case 2:
@@ -6047,11 +6017,11 @@ var createDateParser = function(_a) {
           var escaped = format[i - 1] === "\\" || isBackSlash;
           if (tokenRegex[token] && !escaped) {
             regexStr += tokenRegex[token];
-            var match = new RegExp(regexStr).exec(date);
-            if (match && (matched = true)) {
+            var match2 = new RegExp(regexStr).exec(date);
+            if (match2 && (matched = true)) {
               ops[token !== "Y" ? "push" : "unshift"]({
                 fn: revFormat[token],
-                val: match[++matchIndex]
+                val: match2[++matchIndex]
               });
             }
           } else if (!isBackSlash)
@@ -6153,20 +6123,20 @@ if (typeof Object.assign !== "function") {
 // node_modules/flatpickr/dist/esm/index.js
 var __assign = function() {
   __assign = Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-      s = arguments[i];
-      for (var p in s)
-        if (Object.prototype.hasOwnProperty.call(s, p))
-          t[p] = s[p];
+    for (var s2, i = 1, n2 = arguments.length; i < n2; i++) {
+      s2 = arguments[i];
+      for (var p in s2)
+        if (Object.prototype.hasOwnProperty.call(s2, p))
+          t[p] = s2[p];
     }
     return t;
   };
   return __assign.apply(this, arguments);
 };
 var __spreadArrays = function() {
-  for (var s = 0, i = 0, il = arguments.length; i < il; i++)
-    s += arguments[i].length;
-  for (var r = Array(s), k = 0, i = 0; i < il; i++)
+  for (var s2 = 0, i = 0, il = arguments.length; i < il; i++)
+    s2 += arguments[i].length;
+  for (var r = Array(s2), k = 0, i = 0; i < il; i++)
     for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
       r[k] = a[j];
   return r;
@@ -6601,31 +6571,31 @@ function FlatpickrInstance(element, instanceConfig) {
     focusOnDay(getFirstAvailableDay(loopDelta), 0);
     return void 0;
   }
-  function focusOnDay(current, offset) {
+  function focusOnDay(current, offset2) {
     var activeElement = getClosestActiveElement();
     var dayFocused = isInView(activeElement || document.body);
-    var startElem = current !== void 0 ? current : dayFocused ? activeElement : self.selectedDateElem !== void 0 && isInView(self.selectedDateElem) ? self.selectedDateElem : self.todayDateElem !== void 0 && isInView(self.todayDateElem) ? self.todayDateElem : getFirstAvailableDay(offset > 0 ? 1 : -1);
+    var startElem = current !== void 0 ? current : dayFocused ? activeElement : self.selectedDateElem !== void 0 && isInView(self.selectedDateElem) ? self.selectedDateElem : self.todayDateElem !== void 0 && isInView(self.todayDateElem) ? self.todayDateElem : getFirstAvailableDay(offset2 > 0 ? 1 : -1);
     if (startElem === void 0) {
       self._input.focus();
     } else if (!dayFocused) {
       focusOnDayElem(startElem);
     } else {
-      getNextAvailableDay(startElem, offset);
+      getNextAvailableDay(startElem, offset2);
     }
   }
   function buildMonthDays(year, month) {
     var firstOfMonth = (new Date(year, month, 1).getDay() - self.l10n.firstDayOfWeek + 7) % 7;
     var prevMonthDays = self.utils.getDaysInMonth((month - 1 + 12) % 12, year);
-    var daysInMonth = self.utils.getDaysInMonth(month, year), days = window.document.createDocumentFragment(), isMultiMonth = self.config.showMonths > 1, prevMonthDayClass = isMultiMonth ? "prevMonthDay hidden" : "prevMonthDay", nextMonthDayClass = isMultiMonth ? "nextMonthDay hidden" : "nextMonthDay";
+    var daysInMonth2 = self.utils.getDaysInMonth(month, year), days = window.document.createDocumentFragment(), isMultiMonth = self.config.showMonths > 1, prevMonthDayClass = isMultiMonth ? "prevMonthDay hidden" : "prevMonthDay", nextMonthDayClass = isMultiMonth ? "nextMonthDay hidden" : "nextMonthDay";
     var dayNumber = prevMonthDays + 1 - firstOfMonth, dayIndex = 0;
     for (; dayNumber <= prevMonthDays; dayNumber++, dayIndex++) {
       days.appendChild(createDay("flatpickr-day " + prevMonthDayClass, new Date(year, month - 1, dayNumber), dayNumber, dayIndex));
     }
-    for (dayNumber = 1; dayNumber <= daysInMonth; dayNumber++, dayIndex++) {
+    for (dayNumber = 1; dayNumber <= daysInMonth2; dayNumber++, dayIndex++) {
       days.appendChild(createDay("flatpickr-day", new Date(year, month, dayNumber), dayNumber, dayIndex));
     }
-    for (var dayNum = daysInMonth + 1; dayNum <= 42 - firstOfMonth && (self.config.showMonths === 1 || dayIndex % 7 !== 0); dayNum++, dayIndex++) {
-      days.appendChild(createDay("flatpickr-day " + nextMonthDayClass, new Date(year, month + 1, dayNum % daysInMonth), dayNum, dayIndex));
+    for (var dayNum = daysInMonth2 + 1; dayNum <= 42 - firstOfMonth && (self.config.showMonths === 1 || dayIndex % 7 !== 0); dayNum++, dayIndex++) {
+      days.appendChild(createDay("flatpickr-day " + nextMonthDayClass, new Date(year, month + 1, dayNum % daysInMonth2), dayNum, dayIndex));
     }
     var dayContainer = createElement("div", "dayContainer");
     dayContainer.appendChild(days);
@@ -6832,12 +6802,12 @@ function FlatpickrInstance(element, instanceConfig) {
       return;
     }
     var firstDayOfWeek = self.l10n.firstDayOfWeek;
-    var weekdays = __spreadArrays(self.l10n.weekdays.shorthand);
-    if (firstDayOfWeek > 0 && firstDayOfWeek < weekdays.length) {
-      weekdays = __spreadArrays(weekdays.splice(firstDayOfWeek, weekdays.length), weekdays.splice(0, firstDayOfWeek));
+    var weekdays2 = __spreadArrays(self.l10n.weekdays.shorthand);
+    if (firstDayOfWeek > 0 && firstDayOfWeek < weekdays2.length) {
+      weekdays2 = __spreadArrays(weekdays2.splice(firstDayOfWeek, weekdays2.length), weekdays2.splice(0, firstDayOfWeek));
     }
     for (var i = self.config.showMonths; i--; ) {
-      self.weekdayContainer.children[i].innerHTML = "\n      <span class='flatpickr-weekday'>\n        " + weekdays.join("</span><span class='flatpickr-weekday'>") + "\n      </span>\n      ";
+      self.weekdayContainer.children[i].innerHTML = "\n      <span class='flatpickr-weekday'>\n        " + weekdays2.join("</span><span class='flatpickr-weekday'>") + "\n      </span>\n      ";
     }
   }
   function buildWeeks() {
@@ -7938,20 +7908,92 @@ if (typeof window !== "undefined") {
 }
 var esm_default = flatpickr;
 
+// src/galleries/views/GalleryCarouselView.ts
+var import_obsidian18 = require("obsidian");
+var GalleryCarouselView = class extends AbstractRpgManager {
+  constructor(app2, _images) {
+    super(app2);
+    this._images = _images;
+    this._currentImage = 0;
+    this._imagesCount = this._images.length;
+    this._imageGroups = [];
+  }
+  render(containerEl) {
+    const carouselContainerEl = containerEl.createDiv({ cls: "rpgm-image-carousel" });
+    this._addImageNavigator(carouselContainerEl);
+    const imagesContainerEl = carouselContainerEl.createDiv({ cls: "images" });
+    this._images.forEach((image, index) => {
+      this._addImageGroup(image, imagesContainerEl);
+    });
+    this._imageGroups[0].removeClass("invisible");
+    this._imageCounterEl.textContent = "1/" + this._imagesCount.toString();
+  }
+  _addImageGroup(image, containerEl) {
+    const imageGroupEl = containerEl.createDiv({ cls: "group invisible" });
+    const imageContainerEl = imageGroupEl.createDiv({ cls: "container" });
+    const imageEl = new Image();
+    imageEl.onload = (evt) => {
+      if (image.src.startsWith("http")) {
+        const crsImageLink = imageContainerEl.createEl("a", { href: image.src });
+        crsImageLink.append(imageEl);
+      } else {
+        imageContainerEl.append(imageEl);
+      }
+    };
+    imageEl.src = image.src;
+    const imageCaptionEl = imageGroupEl.createDiv({ cls: "container" });
+    if (image.caption !== "") {
+      import_obsidian18.MarkdownRenderer.renderMarkdown(image.caption, imageCaptionEl, "", null);
+    }
+    this._imageGroups.push(imageGroupEl);
+  }
+  _addImageNavigator(containerEl) {
+    const imageNavigatorContainerEl = containerEl.createDiv({ cls: "navigator" });
+    if (this._images.length > 0) {
+      const previousImageNavigatorEl = imageNavigatorContainerEl.createDiv({ cls: "previous", text: "<<" });
+      previousImageNavigatorEl.addEventListener("click", this._movePrevious.bind(this));
+      const nextImageNavigatorEl = imageNavigatorContainerEl.createDiv({ cls: "next", text: ">>" });
+      nextImageNavigatorEl.addEventListener("click", this._moveNext.bind(this));
+      this._imageCounterEl = imageNavigatorContainerEl.createDiv({ cls: "counter" });
+    }
+    imageNavigatorContainerEl.createDiv({ cls: "reset" });
+  }
+  _movePrevious() {
+    this._imageGroups[this._currentImage].addClass("invisible");
+    if (this._currentImage === 0) {
+      this._currentImage = this._imagesCount - 1;
+    } else {
+      this._currentImage--;
+    }
+    this._imageGroups[this._currentImage].removeClass("invisible");
+    this._imageCounterEl.textContent = (this._currentImage + 1).toString() + "/" + this._imagesCount.toString();
+  }
+  _moveNext() {
+    this._imageGroups[this._currentImage].addClass("invisible");
+    if (this._currentImage === this._imagesCount - 1) {
+      this._currentImage = 0;
+    } else {
+      this._currentImage++;
+    }
+    this._imageGroups[this._currentImage].removeClass("invisible");
+    this._imageCounterEl.textContent = (this._currentImage + 1).toString() + "/" + this._imagesCount.toString();
+  }
+};
+
 // src/views/abstracts/AbstractHeaderView.ts
 var AbstractHeaderView = class extends AbstractSubModelView {
   constructor() {
     super(...arguments);
-    this.isInternalRender = false;
+    this._isInternalRender = false;
   }
   internalRender(container, data) {
-    this.isInternalRender = true;
-    this.executeRender(container, data);
+    this._isInternalRender = true;
+    this._executeRender(container, data);
   }
   render(container, data) {
-    this.executeRender(container, data);
+    this._executeRender(container, data);
   }
-  executeRender(container, data) {
+  _executeRender(container, data) {
     this.currentComponent = data.currentComponent;
     const crs = container.createDiv({ cls: "rpgm-header-info" });
     this.headerTitleEl = crs.createDiv({ cls: "title" });
@@ -7966,22 +8008,12 @@ var AbstractHeaderView = class extends AbstractSubModelView {
     this.headerContainerEl = crs.createDiv({ cls: "container" });
     this.headerInfoEl = this.headerContainerEl.createDiv({ cls: "info" });
     this.infoTableEl = this.headerInfoEl.createEl("table", { cls: "rpgm-headless-table" }).createTBody();
-    if (data.imgSrc == null) {
-      this.headerInfoEl.addClass("info-large");
+    if (data.images.length > 0) {
+      new GalleryCarouselView(this.app, data.images).render(this.headerContainerEl);
     } else {
-      this.imageContainterEl = this.headerContainerEl.createDiv({ cls: "image" });
-      const image = new Image();
-      image.src = data.imgSrc;
-      image.onload = (evt) => {
-        if (image.src.startsWith("http")) {
-          const crsImageLink = this.imageContainterEl.createEl("a", { href: image.src });
-          crsImageLink.append(image);
-        } else {
-          this.imageContainterEl.append(image);
-        }
-      };
+      this.headerInfoEl.addClass("info-large");
     }
-    if (!this.isInternalRender) {
+    if (!this._isInternalRender) {
       data.elements.forEach((element) => {
         const containerEl = this.createContainerEl(element);
         element.value.fillContent(containerEl, this.sourcePath);
@@ -8118,192 +8150,6 @@ var AbstractPlotHeaderView = class extends AbstractStoryCircleStageSelectorView 
     this._addPlotElement("return", plot.return, tableEl, "plot.storycircle.return");
     this._addPlotElement("change", plot.change, tableEl, "plot.storycircle.change");
   }
-  addSceneAnalyser(analyser) {
-    if (analyser.boredomReference === 0)
-      return;
-    const analyserEl = this.headerContainerEl.createDiv({ cls: "rpgm-analyser" });
-    if (analyser.actualRunningTime !== 0) {
-      const actualHoursDuration = Math.floor(analyser.actualRunningTime / (60 * 60));
-      const actualMinutesDuration = Math.floor((analyser.actualRunningTime - actualHoursDuration * (60 * 60)) / 60);
-      const actualDuration = (actualHoursDuration < 10 ? "0" + actualHoursDuration.toString() : actualHoursDuration.toString()) + ":" + (actualMinutesDuration < 10 ? "0" + actualMinutesDuration.toString() : actualMinutesDuration.toString());
-      analyserEl.createDiv().createSpan({ cls: "header", text: "Actual " + ComponentType[analyser.parentType] + " duration: " + actualDuration });
-    }
-    if (analyser.expectedRunningTime !== 0) {
-      const expectedHoursDuration = Math.floor(analyser.expectedRunningTime / (60 * 60));
-      const expectedMinutesDuration = Math.floor((analyser.expectedRunningTime - expectedHoursDuration * (60 * 60)) / 60);
-      let expectedDuration = (expectedHoursDuration < 10 ? "0" + expectedHoursDuration.toString() : expectedHoursDuration.toString()) + ":" + (expectedMinutesDuration < 10 ? "0" + expectedMinutesDuration.toString() : expectedMinutesDuration.toString());
-      expectedDuration = "Expected " + ComponentType[analyser.parentType] + " duration: " + expectedDuration;
-      if (analyser.targetDuration !== void 0) {
-        const targetHours = Math.floor(analyser.targetDuration / 60);
-        const targetMinutes = analyser.targetDuration % 60;
-        expectedDuration += " (Your target is " + targetHours.toString() + ":" + (targetMinutes < 10 ? "0" : "") + targetMinutes.toString() + ")";
-      }
-      analyserEl.createDiv().createSpan({ cls: "header", text: expectedDuration });
-    }
-    if (!analyser.isSingleScene) {
-      const analyserHeadlineEl = analyserEl.createSpan({ cls: "header" });
-      if (analyser.excitementLevel === 3 /* Correct */ && analyser.activityLevel === 3 /* Correct */ && analyser.varietyLevel === 3 /* Correct */ && analyser.boredomLevel === 3 /* Correct */ && (analyser.targetDurationLevel === 3 /* Correct */ || analyser.targetDurationLevel === 0 /* NotAnalysable */)) {
-        analyserHeadlineEl.textContent = "The " + ComponentType[analyser.parentType] + " is perfect! Analysis Score: 100%";
-        analyserHeadlineEl.addClass("perfect");
-      } else {
-        const analyserListEl = analyserEl.createEl("ul");
-        const analyserTargetDurationElementEl = analyserListEl.createEl("li");
-        const analyserTargetDurationDescriptionEl = analyserTargetDurationElementEl.createSpan({ cls: "description" });
-        const analyserActivityElementEl = analyserListEl.createEl("li");
-        const analyserActivityDescriptionEl = analyserActivityElementEl.createSpan({ cls: "description" });
-        const analyserExcitementElementEl = analyserListEl.createEl("li");
-        const analyserExcitementDescriptionEl = analyserExcitementElementEl.createSpan({ cls: "description" });
-        const analyserVarietyElementEl = analyserListEl.createEl("li");
-        const analyserVarietyDescriptionEl = analyserExcitementElementEl.createSpan({ cls: "description" });
-        const analyserBoredomElementEl = analyserListEl.createEl("li");
-        const analyserBoredomDescriptionEl = analyserExcitementElementEl.createSpan({ cls: "description" });
-        let warningErrorClass = "";
-        if (analyser.expectedRunningTime !== 0 && analyser.targetDuration !== void 0) {
-          switch (analyser.targetDurationLevel) {
-            case 3 /* Correct */:
-              analyserTargetDurationElementEl.textContent = "The expected duration is in line with your target session duration";
-              break;
-            case 1 /* CriticallyHigh */:
-              warningErrorClass = "error";
-              analyserTargetDurationElementEl.textContent = "The session is going to be too long: ";
-              analyserTargetDurationDescriptionEl.textContent = "(" + analyser.durationScenePercentage + "% longer than your target)";
-              break;
-            case 2 /* High */:
-              warningErrorClass = "warning";
-              analyserTargetDurationElementEl.textContent = "The session might be too long: ";
-              analyserTargetDurationDescriptionEl.textContent = "(" + analyser.durationScenePercentage + "% longer than your target)";
-              break;
-            case 4 /* Low */:
-              warningErrorClass = "warning";
-              analyserTargetDurationElementEl.textContent = "The session might be short: ";
-              analyserTargetDurationDescriptionEl.textContent = "(" + analyser.durationScenePercentage + "% shorter than your target)";
-              break;
-            case 5 /* CriticallyLow */:
-              warningErrorClass = "error";
-              analyserTargetDurationElementEl.textContent = "The session is too short: ";
-              analyserTargetDurationDescriptionEl.textContent = "(" + analyser.durationScenePercentage + "% shorter than your target)";
-              break;
-          }
-          if (analyser.targetDurationLevel !== 3 /* Correct */) {
-            analyserTargetDurationElementEl.appendChild(analyserTargetDurationDescriptionEl);
-            analyserTargetDurationElementEl.addClass(warningErrorClass);
-          }
-        }
-        switch (analyser.activityLevel) {
-          case 3 /* Correct */:
-            analyserActivityElementEl.textContent = "The amount of active scenes is balanced";
-            break;
-          case 1 /* CriticallyHigh */:
-            warningErrorClass = "error";
-            analyserActivityElementEl.textContent = "Too many active scenes: ";
-            analyserActivityDescriptionEl.textContent = "(";
-            break;
-          case 2 /* High */:
-            warningErrorClass = "warning";
-            analyserActivityElementEl.textContent = "Maybe too many active scenes: ";
-            analyserActivityDescriptionEl.textContent = "(";
-            break;
-          case 4 /* Low */:
-            warningErrorClass = "warning";
-            analyserActivityElementEl.textContent = "Maybe not enough active scenes: ";
-            analyserActivityDescriptionEl.textContent = "(only ";
-            break;
-          case 5 /* CriticallyLow */:
-            warningErrorClass = "error";
-            analyserActivityElementEl.textContent = "Not enough active scenes: ";
-            analyserActivityDescriptionEl.textContent = "(just ";
-            break;
-        }
-        if (analyser.activityLevel !== 3 /* Correct */) {
-          analyserActivityElementEl.appendChild(analyserActivityDescriptionEl);
-          analyserActivityElementEl.addClass(warningErrorClass);
-          analyserActivityDescriptionEl.textContent += analyser.activeScenePercentage + "% out of " + analyser.targetActiveScenePercentage + "% are active)";
-        }
-        switch (analyser.excitementLevel) {
-          case 3 /* Correct */:
-            analyserExcitementElementEl.textContent = "The amount of exciting time is balanced";
-            break;
-          case 1 /* CriticallyHigh */:
-            warningErrorClass = "error";
-            analyserExcitementElementEl.textContent = "Too much excitement: ";
-            analyserExcitementDescriptionEl.textContent = "(";
-            break;
-          case 2 /* High */:
-            warningErrorClass = "warning";
-            analyserExcitementElementEl.textContent = "Maybe too much excitement: ";
-            analyserExcitementDescriptionEl.textContent = "(";
-            break;
-          case 4 /* Low */:
-            warningErrorClass = "warning";
-            analyserExcitementElementEl.textContent = "Maybe not enough excitement: ";
-            analyserExcitementDescriptionEl.textContent = "(only ";
-            break;
-          case 5 /* CriticallyLow */:
-            warningErrorClass = "error";
-            analyserExcitementElementEl.textContent = "Not enough excitement: ";
-            analyserExcitementDescriptionEl.textContent = "(just ";
-            break;
-        }
-        if (analyser.excitementLevel !== 3 /* Correct */) {
-          analyserExcitementElementEl.appendChild(analyserExcitementDescriptionEl);
-          analyserExcitementElementEl.addClass(warningErrorClass);
-          analyserExcitementDescriptionEl.textContent += analyser.excitingScenePercentage + "% of the running time out of " + analyser.targetExcitingScenePercentage + "% is exciting)";
-        }
-        switch (analyser.varietyLevel) {
-          case 3 /* Correct */:
-            analyserVarietyElementEl.textContent = "The variety of scene types is balanced";
-            break;
-          case 4 /* Low */:
-            warningErrorClass = "warning";
-            analyserVarietyElementEl.textContent = "Maybe not enough variety: ";
-            analyserVarietyDescriptionEl.textContent = "(only ";
-            break;
-          case 5 /* CriticallyLow */:
-            warningErrorClass = "error";
-            analyserVarietyElementEl.textContent = "Not enough variety: ";
-            analyserVarietyDescriptionEl.textContent = "(just ";
-            break;
-        }
-        if (analyser.varietyLevel !== 3 /* Correct */) {
-          analyserVarietyElementEl.appendChild(analyserVarietyDescriptionEl);
-          analyserVarietyElementEl.addClass(warningErrorClass);
-          analyserVarietyDescriptionEl.textContent += analyser.varietyCount + "  out of " + Object.keys(SceneType).length / 2 + " available types are used)";
-        }
-        switch (analyser.boredomLevel) {
-          case 3 /* Correct */:
-            analyserBoredomElementEl.textContent = "The scenes are not repetitive";
-            break;
-          case 2 /* High */:
-            warningErrorClass = "warning";
-            analyserBoredomElementEl.textContent = "Maybe a bit repetitive: ";
-            analyserBoredomDescriptionEl.textContent = "(";
-            break;
-          case 1 /* CriticallyHigh */:
-            warningErrorClass = "error";
-            analyserBoredomElementEl.textContent = "Repetitive: ";
-            analyserBoredomDescriptionEl.textContent = "(really, ";
-            break;
-        }
-        if (analyser.boredomLevel !== 3 /* Correct */) {
-          analyserBoredomElementEl.appendChild(analyserBoredomDescriptionEl);
-          analyserBoredomElementEl.addClass(warningErrorClass);
-          analyserBoredomDescriptionEl.textContent += analyser.boredomAmount + " scene types repeated  in " + analyser.boredomReference + " scenes)";
-        }
-        const score = analyser.calculateScore();
-        if (score < 50) {
-          analyserHeadlineEl.textContent = "The " + ComponentType[analyser.parentType] + " is not balanced!";
-          analyserHeadlineEl.addClass("error");
-        } else if (score < 75) {
-          analyserHeadlineEl.textContent = "The " + ComponentType[analyser.parentType] + " still requires some work to be balanced!";
-          analyserHeadlineEl.addClass("warning");
-        } else {
-          analyserHeadlineEl.textContent = "The " + ComponentType[analyser.parentType] + " is balanced!";
-          analyserHeadlineEl.addClass("balanced");
-        }
-        analyserHeadlineEl.textContent += " Analysis Score: " + score + "%";
-      }
-    }
-  }
   addAbtStageSelector(contentEl, data) {
     var _a;
     if (((_a = data.additionalInformation) == null ? void 0 : _a.id) !== void 0) {
@@ -8332,9 +8178,9 @@ var AbstractPlotHeaderView = class extends AbstractStoryCircleStageSelectorView 
 
 // src/views/HeadlessTableView.ts
 var HeadlessTableView = class extends AbstractRpgManager {
-  constructor(app2, sourcePath) {
+  constructor(app2, _sourcePath) {
     super(app2);
-    this.sourcePath = sourcePath;
+    this._sourcePath = _sourcePath;
     this.tableEl = document.createElement("table");
     this.tableEl.addClass("rpgm-headless-table");
   }
@@ -8359,7 +8205,7 @@ var HeadlessTableView = class extends AbstractRpgManager {
           subContent(subRowContentEl, ...additionalParams);
         }
       } else {
-        subContent.fillContent(subRowContentEl, this.sourcePath);
+        subContent.fillContent(subRowContentEl, this._sourcePath);
       }
     }
   }
@@ -8369,7 +8215,6 @@ var HeadlessTableView = class extends AbstractRpgManager {
 var ActHeaderView = class extends AbstractPlotHeaderView {
   render(container, data) {
     super.internalRender(container, data);
-    let analyser = void 0;
     const headlessTable = new HeadlessTableView(this.app, this.sourcePath);
     data.elements.forEach((element) => {
       switch (element.type) {
@@ -8379,11 +8224,11 @@ var ActHeaderView = class extends AbstractPlotHeaderView {
         case 6 /* AbtSelector */:
           headlessTable.addRow(element, this.addAbtStageSelector.bind(this));
           if (this.currentComponent.abtStage !== void 0) {
-            analyser = element.additionalInformation.sceneAnalyser;
+            this._analyser = element.additionalInformation.sceneAnalyser;
           }
           break;
         case 11 /* SceneAnalyser */:
-          analyser = element.additionalInformation.sceneAnalyser;
+          this._analyser = element.additionalInformation.sceneAnalyser;
           break;
         default:
           element.value.fillContent(this.createContainerEl(element), this.sourcePath);
@@ -8391,8 +8236,8 @@ var ActHeaderView = class extends AbstractPlotHeaderView {
       }
     });
     this.headerContainerEl.appendChild(headlessTable.tableEl);
-    if (analyser !== void 0) {
-      this.addSceneAnalyser(analyser);
+    if (this._analyser !== void 0) {
+      this._analyser.render(0 /* Extended */, this.headerContainerEl);
     }
     if (this.settings.usePlotStructures && data.currentComponent.hasAbtPlot && !data.currentComponent.abt.isEmpty) {
       this.addAbtPlot(data.currentComponent.abt);
@@ -8422,12 +8267,13 @@ var CampaignHeaderView = class extends AbstractPlotHeaderView {
   render(container, data) {
     var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m;
     super.internalRender(container, data);
-    if (this.currentComponent.image != null) {
+    if (this.currentComponent.images.length > 0) {
       this.headerTitleEl.empty();
       this.headerTitleEl.addClass("rpgm-header");
       this.headerInfoEl.addClass("info-large");
-      this.headerContainerEl.removeChild(this.imageContainterEl);
-      this.headerTitleEl.style.backgroundImage = "url('" + this.currentComponent.image + "')";
+      if (this.imageContainterEl !== void 0)
+        this.headerContainerEl.removeChild(this.imageContainterEl);
+      this.headerTitleEl.style.backgroundImage = "url('" + this.currentComponent.images[0].src + "')";
       const overlay = this.headerTitleEl.createDiv({ cls: "rpgm-header-overlay" });
       overlay.createDiv({ cls: "rpgm-header-title", text: this.currentComponent.file.basename });
       overlay.createDiv({ cls: "rpgm-current-date", text: this.currentComponent.date !== null ? (_a = this.currentComponent.date) == null ? void 0 : _a.toDateString() : "" });
@@ -8449,13 +8295,13 @@ var CampaignHeaderView = class extends AbstractPlotHeaderView {
       }
     });
     if (((_c = (_b = data.metadata) == null ? void 0 : _b.sourceMeta) == null ? void 0 : _c.adventures) !== void 0) {
-      headlessTable.addRow("Current Adventure", this.addCurrentComponentSelector.bind(this), ["adventure", this.currentComponent.currentAdventureId, (_e = (_d = data.metadata) == null ? void 0 : _d.sourceMeta) == null ? void 0 : _e.adventures]);
+      headlessTable.addRow("Current Adventure", this._addCurrentComponentSelector.bind(this), ["adventure", this.currentComponent.currentAdventureId, (_e = (_d = data.metadata) == null ? void 0 : _d.sourceMeta) == null ? void 0 : _e.adventures]);
     }
     if (((_g = (_f = data.metadata) == null ? void 0 : _f.sourceMeta) == null ? void 0 : _g.acts) !== void 0) {
-      headlessTable.addRow("Current Act", this.addCurrentComponentSelector.bind(this), ["act", this.currentComponent.currentActId, (_i = (_h = data.metadata) == null ? void 0 : _h.sourceMeta) == null ? void 0 : _i.acts]);
+      headlessTable.addRow("Current Act", this._addCurrentComponentSelector.bind(this), ["act", this.currentComponent.currentActId, (_i = (_h = data.metadata) == null ? void 0 : _h.sourceMeta) == null ? void 0 : _i.acts]);
     }
     if (((_k = (_j = data.metadata) == null ? void 0 : _j.sourceMeta) == null ? void 0 : _k.sessions) !== void 0) {
-      headlessTable.addRow("Current Session", this.addCurrentComponentSelector.bind(this), ["session", this.currentComponent.currentSessionId, (_m = (_l = data.metadata) == null ? void 0 : _l.sourceMeta) == null ? void 0 : _m.sessions]);
+      headlessTable.addRow("Current Session", this._addCurrentComponentSelector.bind(this), ["session", this.currentComponent.currentSessionId, (_m = (_l = data.metadata) == null ? void 0 : _l.sourceMeta) == null ? void 0 : _m.sessions]);
     }
     this.headerInfoEl.appendChild(headlessTable.tableEl);
     if (this.settings.usePlotStructures && data.currentComponent.hasAbtPlot && !data.currentComponent.abt.isEmpty) {
@@ -8465,7 +8311,7 @@ var CampaignHeaderView = class extends AbstractPlotHeaderView {
       this.addStoryCirclePlot(data.currentComponent.storyCircle);
     }
   }
-  addCurrentComponentSelector(contentEl, type, currentComponent, components) {
+  _addCurrentComponentSelector(contentEl, type, currentComponent, components) {
     const componentSelectorEl = contentEl.createEl("select");
     componentSelectorEl.id = type;
     componentSelectorEl.style.width = "100%";
@@ -8514,7 +8360,7 @@ var CharacterHeaderView = class extends AbstractHeaderView {
           this.createContainerEl(element, this.addDateSelector.bind(this));
           break;
         case 12 /* Pronoun */:
-          headlessTable.addRow(element, this.addPronoun.bind(this));
+          headlessTable.addRow(element, this._addPronoun.bind(this));
           break;
         default:
           element.value.fillContent(this.createContainerEl(element), this.sourcePath);
@@ -8523,7 +8369,7 @@ var CharacterHeaderView = class extends AbstractHeaderView {
     });
     this.headerContainerEl.appendChild(headlessTable.tableEl);
   }
-  addPronoun(contentEl, data) {
+  _addPronoun(contentEl, data) {
     const pronounSelectorEl = contentEl.createEl("select");
     pronounSelectorEl.createEl("option", {
       text: "",
@@ -8657,14 +8503,14 @@ var SceneTypeDescriptionModal = class extends AbstractRpgManagerModal {
     const { contentEl } = this;
     contentEl.empty();
     contentEl.addClass("rpgm-modal");
-    this.sceneTypeDescriptionsEl = contentEl.createDiv({ cls: "rpgm-modal-scene-descriptions" });
-    this.sceneTypeDescriptionsEl.createEl("h1", { text: "Scene Types" });
+    this._sceneTypeDescriptionsEl = contentEl.createDiv({ cls: "rpgm-modal-scene-descriptions" });
+    this._sceneTypeDescriptionsEl.createEl("h1", { text: "Scene Types" });
     sceneTypeDescription2.forEach((sceneTypeInformation) => {
-      this.displaySceneTypeInformation(sceneTypeInformation);
+      this._displaySceneTypeInformation(sceneTypeInformation);
     });
   }
-  displaySceneTypeInformation(sceneTypeInformation) {
-    const descriptionContainerEl = this.sceneTypeDescriptionsEl.createDiv("description-container");
+  _displaySceneTypeInformation(sceneTypeInformation) {
+    const descriptionContainerEl = this._sceneTypeDescriptionsEl.createDiv("description-container");
     descriptionContainerEl.createEl("h2", { text: sceneTypeInformation.title });
     const descriptionEl = descriptionContainerEl.createDiv();
     descriptionContainerEl.createSpan({ text: "This is " + (sceneTypeInformation.isActive ? "" : "NOT ") + 'an "active" type of scene' });
@@ -8687,22 +8533,22 @@ var SceneHeaderView = class extends AbstractPlotHeaderView {
           headlessTable.addRow(element, this.addStoryCircleStageSelector.bind(this));
           break;
         case 4 /* SessionSelection */:
-          headlessTable.addRow(element, this.addSessionSelector.bind(this));
+          headlessTable.addRow(element, this._addSessionSelector.bind(this));
           break;
         case 7 /* SceneTypeSelector */:
-          headlessTable.addRow(element, this.addSceneTypeSelector.bind(this));
+          headlessTable.addRow(element, this._addSceneTypeSelector.bind(this));
           break;
         case 8 /* SceneExcitment */:
           headlessTable.addRow(element, this.addSceneExcitmentSelector.bind(this));
           break;
         case 9 /* SceneRun */:
-          headlessTable.addRow(element, this.runScene.bind(this));
+          headlessTable.addRow(element, this._runScene.bind(this));
           break;
         case 10 /* SceneRunTime */:
-          headlessTable.addRow(element, this.sceneRunTime.bind(this));
+          headlessTable.addRow(element, this._sceneRunTime.bind(this));
           break;
         case 13 /* DateSelector */:
-          headlessTable.addRow(element, this.addSceneDateSelector.bind(this));
+          headlessTable.addRow(element, this._addSceneDateSelector.bind(this));
           break;
         default:
           element.value.fillContent(this.createContainerEl(element), this.sourcePath);
@@ -8711,10 +8557,10 @@ var SceneHeaderView = class extends AbstractPlotHeaderView {
     });
     this.headerContainerEl.appendChild(headlessTable.tableEl);
     if (((_b = (_a = data.metadata) == null ? void 0 : _a.sourceMeta) == null ? void 0 : _b.analyser) !== void 0) {
-      this.addSceneAnalyser(data.metadata.sourceMeta.analyser);
+      data.metadata.sourceMeta.analyser.render(2 /* Scene */, this.headerContainerEl);
     }
   }
-  addSceneDateSelector(contentEl, data) {
+  _addSceneDateSelector(contentEl, data) {
     const options = {
       allowInput: true,
       dateFormat: "Y-m-d",
@@ -8730,15 +8576,15 @@ var SceneHeaderView = class extends AbstractPlotHeaderView {
     flatpickrEl.readOnly = true;
     esm_default(flatpickrEl, options);
   }
-  sceneRunTime(contentEl, data) {
-    const durationEl = contentEl.createSpan({ text: this.countOngoingDuration() });
+  _sceneRunTime(contentEl, data) {
+    const durationEl = contentEl.createSpan({ text: this._countOngoingDuration() });
     if (this.currentComponent.isCurrentlyRunning) {
       setInterval(() => {
-        durationEl.textContent = this.countOngoingDuration();
+        durationEl.textContent = this._countOngoingDuration();
       }, 1e3);
     }
   }
-  countOngoingDuration() {
+  _countOngoingDuration() {
     var _a;
     let duration2 = (_a = this.currentComponent.currentDuration) != null ? _a : 0;
     if (this.currentComponent.lastStart !== void 0 && this.currentComponent.lastStart !== 0) {
@@ -8748,7 +8594,7 @@ var SceneHeaderView = class extends AbstractPlotHeaderView {
     const expectedMinutesDuration = Math.floor(duration2 - expectedHoursDuration * 60);
     return (expectedHoursDuration < 10 ? "0" + expectedHoursDuration.toString() : expectedHoursDuration.toString()) + ":" + (expectedMinutesDuration < 10 ? "0" + expectedMinutesDuration.toString() : expectedMinutesDuration.toString());
   }
-  runScene(contentEl, data) {
+  _runScene(contentEl, data) {
     const startStopEl = contentEl.createEl("a", { href: "#", text: this.currentComponent.isCurrentlyRunning ? "stop" : "start" });
     startStopEl.addEventListener("click", (e) => {
       const editorPositions = /* @__PURE__ */ new Map();
@@ -8762,19 +8608,19 @@ var SceneHeaderView = class extends AbstractPlotHeaderView {
       if (this.currentComponent.isCurrentlyRunning) {
         this.factories.runningTimeManager.stopScene(this.currentComponent).then(() => {
           setTimeout(() => {
-            this.refreshEditorsPosition(editorPositions);
+            this._refreshEditorsPosition(editorPositions);
           }, 0);
         });
       } else {
         this.factories.runningTimeManager.startScene(this.currentComponent).then(() => {
           setTimeout(() => {
-            this.refreshEditorsPosition(editorPositions);
+            this._refreshEditorsPosition(editorPositions);
           }, 0);
         });
       }
     });
   }
-  refreshEditorsPosition(editorsPosition) {
+  _refreshEditorsPosition(editorsPosition) {
     return __async(this, null, function* () {
       editorsPosition.forEach((position, editor) => {
         if (editor.getScrollInfo().top !== position) {
@@ -8799,7 +8645,7 @@ var SceneHeaderView = class extends AbstractPlotHeaderView {
     }
     return void 0;
   }
-  addSceneTypeSelector(contentEl, data) {
+  _addSceneTypeSelector(contentEl, data) {
     var _a;
     if (((_a = data.additionalInformation) == null ? void 0 : _a.sceneId) !== void 0) {
       const sceneTypeSelectorEl = contentEl.createEl("select");
@@ -8828,7 +8674,7 @@ var SceneHeaderView = class extends AbstractPlotHeaderView {
     }
     return void 0;
   }
-  addCurrentSessionLink(contentEl, data) {
+  _addCurrentSessionLink(contentEl, data) {
     var _a;
     const sceneId = (_a = data.additionalInformation) == null ? void 0 : _a.sceneId;
     if (sceneId !== void 0) {
@@ -8841,7 +8687,7 @@ var SceneHeaderView = class extends AbstractPlotHeaderView {
       });
     }
   }
-  addSessionSelector(contentEl, data) {
+  _addSessionSelector(contentEl, data) {
     var _a;
     const sceneId = (_a = data.additionalInformation) == null ? void 0 : _a.sceneId;
     if (sceneId !== void 0) {
@@ -8886,10 +8732,10 @@ var SceneHeaderView = class extends AbstractPlotHeaderView {
 // src/modals/SceneSelectionModal.ts
 var import_obsidian23 = require("obsidian");
 var SceneSelectionModal = class extends AbstractRpgManagerModal {
-  constructor(app2, session) {
+  constructor(app2, _session) {
     super(app2);
-    this.session = session;
-    this.scenesEls = /* @__PURE__ */ new Map();
+    this._session = _session;
+    this._scenesEls = /* @__PURE__ */ new Map();
     this._loadAvailableScenes();
   }
   onOpen() {
@@ -8898,36 +8744,36 @@ var SceneSelectionModal = class extends AbstractRpgManagerModal {
     contentEl.empty();
     contentEl.addClass("rpgm-modal");
     contentEl.createEl("h2", { text: "Scene Selector" });
-    contentEl.createEl("p", { text: 'Select the scenes to add to the session "' + this.session.file.basename + '"' });
+    contentEl.createEl("p", { text: 'Select the scenes to add to the session "' + this._session.file.basename + '"' });
     const actSelectorContainerEl = contentEl.createDiv("selector");
     actSelectorContainerEl.createDiv({ text: "Limit scenes to a specific act" });
-    this.actSelectorEl = actSelectorContainerEl.createEl("select");
-    this.actSelectorEl.createEl("option", {
+    this._actSelectorEl = actSelectorContainerEl.createEl("select");
+    this._actSelectorEl.createEl("option", {
       text: "",
       value: ""
     });
-    const acts = this.database.read((act) => act.id.type === 4 /* Act */ && act.id.campaignId === this.session.id.campaignId).sort(this.factories.sorter.create([
+    const acts = this.database.read((act) => act.id.type === 4 /* Act */ && act.id.campaignId === this._session.id.campaignId).sort(this.factories.sorter.create([
       new SorterComparisonElement((act) => act.file.stat.mtime, 1 /* Descending */)
     ]));
     acts.forEach((act) => {
-      this.actSelectorEl.createEl("option", { text: act.file.basename, value: act.file.path });
+      this._actSelectorEl.createEl("option", { text: act.file.basename, value: act.file.path });
     });
-    this.actSelectorEl.addEventListener("change", () => {
-      if (this.actSelectorEl.value !== "") {
-        this.selectedAct = this.database.readByPath(this.actSelectorEl.value);
+    this._actSelectorEl.addEventListener("change", () => {
+      if (this._actSelectorEl.value !== "") {
+        this._selectedAct = this.database.readByPath(this._actSelectorEl.value);
       } else {
-        this.selectedAct = void 0;
+        this._selectedAct = void 0;
       }
       this._loadAvailableScenes();
       this._populateAvailableScenes();
     });
-    this.sessionContainerEl = contentEl.createDiv();
+    this._sessionContainerEl = contentEl.createDiv();
     this._populateAvailableScenes();
-    const scenesSelectionButtonEl = contentEl.createEl("button", { text: 'Add selected scenes to session "' + this.session.file.basename + '"' });
+    const scenesSelectionButtonEl = contentEl.createEl("button", { text: 'Add selected scenes to session "' + this._session.file.basename + '"' });
     scenesSelectionButtonEl.addEventListener("click", () => {
       return this._addScenes().then(() => {
-        this.session.readMetadata().then(() => {
-          DatabaseInitialiser.reinitialiseRelationships(this.session, this.database);
+        this._session.readMetadata().then(() => {
+          DatabaseInitialiser.reinitialiseRelationships(this._session, this.database);
         });
         return;
       }).then(() => {
@@ -8943,9 +8789,9 @@ var SceneSelectionModal = class extends AbstractRpgManagerModal {
     super.onClose();
   }
   _loadAvailableScenes() {
-    this.availableScenes = this.database.read((scene) => {
+    this._availableScenes = this.database.read((scene) => {
       var _a;
-      return scene.id.type === 8 /* Scene */ && scene.id.campaignId === this.session.id.campaignId && (this.selectedAct !== void 0 ? scene.id.actId === this.selectedAct.id.actId : true) && (scene.session === void 0 || ((_a = scene.session) == null ? void 0 : _a.id.sessionId) === this.session.id.sessionId);
+      return scene.id.type === 8 /* Scene */ && scene.id.campaignId === this._session.id.campaignId && (this._selectedAct !== void 0 ? scene.id.actId === this._selectedAct.id.actId : true) && (scene.session === void 0 || ((_a = scene.session) == null ? void 0 : _a.id.sessionId) === this._session.id.sessionId);
     }).sort(this.factories.sorter.create([
       new SorterComparisonElement((scene) => scene.id.adventureId),
       new SorterComparisonElement((scene) => scene.id.actId),
@@ -8954,39 +8800,39 @@ var SceneSelectionModal = class extends AbstractRpgManagerModal {
   }
   _populateAvailableScenes() {
     let populateInitialScenes = false;
-    if (this.initialScenesEls === void 0) {
-      this.initialScenesEls = /* @__PURE__ */ new Map();
+    if (this._initialScenesEls === void 0) {
+      this._initialScenesEls = /* @__PURE__ */ new Map();
       populateInitialScenes = true;
     }
-    if (this.sessionContainerEl.childNodes.length > 0) {
+    if (this._sessionContainerEl.childNodes.length > 0) {
       const keysToRemove = [];
-      this.sessionContainerEl.childNodes.forEach((value, key, parent) => {
+      this._sessionContainerEl.childNodes.forEach((value, key, parent) => {
         const option = value.childNodes[0];
         if (!option.checked) {
           keysToRemove.push(key);
         }
       });
       keysToRemove.sort((n1, n2) => n2 - n1).forEach((key) => {
-        this.sessionContainerEl.childNodes[key].remove();
+        this._sessionContainerEl.childNodes[key].remove();
       });
     }
-    this.availableScenes.forEach((scene) => {
+    this._availableScenes.forEach((scene) => {
       var _a;
-      if (!this.scenesEls.has(scene.file.path)) {
-        const checkboxDiv = this.sessionContainerEl.createDiv();
+      if (!this._scenesEls.has(scene.file.path)) {
+        const checkboxDiv = this._sessionContainerEl.createDiv();
         const checkbox = checkboxDiv.createEl("input");
         checkbox.type = "checkbox";
         checkbox.value = scene.file.path;
         checkbox.id = scene.file.basename;
-        if (((_a = scene.session) == null ? void 0 : _a.id.sessionId) === this.session.id.sessionId) {
+        if (((_a = scene.session) == null ? void 0 : _a.id.sessionId) === this._session.id.sessionId) {
           checkbox.checked = true;
-          this.scenesEls.set(scene.file.path, checkbox);
+          this._scenesEls.set(scene.file.path, checkbox);
           if (populateInitialScenes)
-            this.initialScenesEls.set(scene.file.path, checkbox.checked);
+            this._initialScenesEls.set(scene.file.path, checkbox.checked);
         }
         checkbox.addEventListener("change", () => {
           if (checkbox.checked) {
-            this.scenesEls.set(scene.file.path, checkbox);
+            this._scenesEls.set(scene.file.path, checkbox);
           }
         });
         const checkboxLabel = checkboxDiv.createEl("label", { text: scene.file.basename });
@@ -8996,13 +8842,13 @@ var SceneSelectionModal = class extends AbstractRpgManagerModal {
   }
   _addScenes() {
     return __async(this, null, function* () {
-      this.scenesEls.forEach((sceneEl, path2) => {
+      this._scenesEls.forEach((sceneEl, path2) => {
         var _a;
-        const initialSceneCheked = this.initialScenesEls.get(path2);
+        const initialSceneCheked = this._initialScenesEls.get(path2);
         if (initialSceneCheked === void 0 || sceneEl.checked !== initialSceneCheked) {
           const file = this.app.vault.getAbstractFileByPath(path2);
           if (file != null && file instanceof import_obsidian23.TFile) {
-            this.manipulators.codeblock.updateInFile(file, "data.sessionId", sceneEl.checked === true ? (_a = this.session.id.sessionId) != null ? _a : "" : "");
+            this.manipulators.codeblock.updateInFile(file, "data.sessionId", sceneEl.checked === true ? (_a = this._session.id.sessionId) != null ? _a : "" : "");
           }
         }
       });
@@ -9015,7 +8861,6 @@ var SceneSelectionModal = class extends AbstractRpgManagerModal {
 var SessionHeaderView = class extends AbstractPlotHeaderView {
   render(container, data) {
     super.internalRender(container, data);
-    let analyser = void 0;
     const headlessTable = new HeadlessTableView(this.app, this.sourcePath);
     data.elements.forEach((element) => {
       switch (element.type) {
@@ -9025,11 +8870,11 @@ var SessionHeaderView = class extends AbstractPlotHeaderView {
         case 6 /* AbtSelector */:
           headlessTable.addRow(element, this.addAbtStageSelector.bind(this));
           if (this.currentComponent.abtStage !== void 0) {
-            analyser = element.additionalInformation.sceneAnalyser;
+            this._analyser = element.additionalInformation.sceneAnalyser;
           }
           break;
         case 11 /* SceneAnalyser */:
-          analyser = element.additionalInformation.sceneAnalyser;
+          this._analyser = element.additionalInformation.sceneAnalyser;
           break;
         case 13 /* DateSelector */:
           headlessTable.addRow(element, this.addIrlDateSelector.bind(this));
@@ -9058,8 +8903,9 @@ var SessionHeaderView = class extends AbstractPlotHeaderView {
         this.currentComponent.replaceSceneNoteList(content);
       });
     }
-    if (analyser !== void 0) {
-      this.addSceneAnalyser(analyser);
+    if (this._analyser !== void 0) {
+      this._analyser.render(1 /* Minimal */, this.headerContainerEl);
+      this._analyser.render(0 /* Extended */, this.headerContainerEl);
     }
   }
   addTargetDurationSelector(contentEl, data) {
@@ -9133,39 +8979,39 @@ var SubplotHeaderView = class extends AbstractPlotHeaderView {
 var ViewFactory = class extends AbstractFactory {
   constructor(app2) {
     super(app2);
-    this.viewTypeMap = /* @__PURE__ */ new Map();
-    this.viewTypeMap.set("AgnosticTable", TableView);
-    this.viewTypeMap.set("AgnosticBreadcrumb", BreadcrumbView);
-    this.viewTypeMap.set("AgnosticActHeader", ActHeaderView);
-    this.viewTypeMap.set("AgnosticAdventureHeader", AdventureHeaderView);
-    this.viewTypeMap.set("AgnosticCampaignHeader", CampaignHeaderView);
-    this.viewTypeMap.set("AgnosticCharacterHeader", CharacterHeaderView);
-    this.viewTypeMap.set("AgnosticClueHeader", ClueHeaderView);
-    this.viewTypeMap.set("AgnosticEventHeader", EventHeaderView);
-    this.viewTypeMap.set("AgnosticFactionHeader", FactionHeaderView);
-    this.viewTypeMap.set("AgnosticLocationHeader", LocationHeaderView);
-    this.viewTypeMap.set("AgnosticMusicHeader", MusicHeaderView);
-    this.viewTypeMap.set("AgnosticSceneHeader", SceneHeaderView);
-    this.viewTypeMap.set("AgnosticSessionHeader", SessionHeaderView);
-    this.viewTypeMap.set("AgnosticSubplotHeader", SubplotHeaderView);
-    this.showInRightLeaf = /* @__PURE__ */ new Map();
-    this.showInRightLeaf.set("rpgm-creator-view" /* RPGManager */, true);
-    this.showInRightLeaf.set("rpgm-error-view" /* Errors */, true);
-    this.showInRightLeaf.set("rpgm-release-note-view" /* ReleaseNote */, false);
-    this.showInRightLeaf.set("rpgm-timeline-view" /* Timeline */, false);
+    this._viewTypeMap = /* @__PURE__ */ new Map();
+    this._viewTypeMap.set("AgnosticTable", TableView);
+    this._viewTypeMap.set("AgnosticBreadcrumb", BreadcrumbView);
+    this._viewTypeMap.set("AgnosticActHeader", ActHeaderView);
+    this._viewTypeMap.set("AgnosticAdventureHeader", AdventureHeaderView);
+    this._viewTypeMap.set("AgnosticCampaignHeader", CampaignHeaderView);
+    this._viewTypeMap.set("AgnosticCharacterHeader", CharacterHeaderView);
+    this._viewTypeMap.set("AgnosticClueHeader", ClueHeaderView);
+    this._viewTypeMap.set("AgnosticEventHeader", EventHeaderView);
+    this._viewTypeMap.set("AgnosticFactionHeader", FactionHeaderView);
+    this._viewTypeMap.set("AgnosticLocationHeader", LocationHeaderView);
+    this._viewTypeMap.set("AgnosticMusicHeader", MusicHeaderView);
+    this._viewTypeMap.set("AgnosticSceneHeader", SceneHeaderView);
+    this._viewTypeMap.set("AgnosticSessionHeader", SessionHeaderView);
+    this._viewTypeMap.set("AgnosticSubplotHeader", SubplotHeaderView);
+    this._showInRightLeaf = /* @__PURE__ */ new Map();
+    this._showInRightLeaf.set("rpgm-creator-view" /* RPGManager */, true);
+    this._showInRightLeaf.set("rpgm-error-view" /* Errors */, true);
+    this._showInRightLeaf.set("rpgm-release-note-view" /* ReleaseNote */, false);
+    this._showInRightLeaf.set("rpgm-timeline-view" /* Timeline */, false);
   }
   create(settings, type, sourcePath) {
     let viewKey = CampaignSetting[settings] + ResponseType[type];
-    if (!this.viewTypeMap.has(viewKey))
+    if (!this._viewTypeMap.has(viewKey))
       viewKey = CampaignSetting[0 /* Agnostic */] + ResponseType[type];
-    if (!this.viewTypeMap.has(viewKey))
+    if (!this._viewTypeMap.has(viewKey))
       throw new Error("Type of modal " + CampaignSetting[settings] + ComponentType[type] + " cannot be found");
-    return new (this.viewTypeMap.get(viewKey))(this.app, sourcePath);
+    return new (this._viewTypeMap.get(viewKey))(this.app, sourcePath);
   }
   showObsidianView(_0) {
     return __async(this, arguments, function* (viewType, params = []) {
       this.app.workspace.detachLeavesOfType(viewType.toString());
-      const showInRightLeaf = this.showInRightLeaf.get(viewType);
+      const showInRightLeaf = this._showInRightLeaf.get(viewType);
       if (showInRightLeaf === true || showInRightLeaf === void 0) {
         yield this.app.workspace.getRightLeaf(false).setViewState({
           type: viewType.toString(),
@@ -9197,17 +9043,17 @@ var FetcherFactory = class extends AbstractFactory {
 
 // src/id/Id.ts
 var Id = class extends AbstractRpgManager {
-  constructor(app2, type, campaignId, adventureId, actId, sceneId, sessionId, existingTag) {
+  constructor(app2, type, campaignId, adventureId, actId, sceneId, sessionId, _existingTag) {
     super(app2);
     this.type = type;
-    this.existingTag = existingTag;
+    this._existingTag = _existingTag;
     this.campaignSettings = 0 /* Agnostic */;
     this.tagMap = /* @__PURE__ */ new Map();
-    this.generateTagValue(1 /* Campaign */, campaignId);
-    this.generateTagValue(2 /* Adventure */, adventureId);
-    this.generateTagValue(4 /* Act */, actId);
-    this.generateTagValue(8 /* Scene */, sceneId);
-    this.generateTagValue(16 /* Session */, sessionId);
+    this._generateTagValue(1 /* Campaign */, campaignId);
+    this._generateTagValue(2 /* Adventure */, adventureId);
+    this._generateTagValue(4 /* Act */, actId);
+    this._generateTagValue(8 /* Scene */, sceneId);
+    this._generateTagValue(16 /* Session */, sessionId);
   }
   get stringID() {
     let response = this.type + "-" + this.campaignSettings + "-" + this.campaignId;
@@ -9240,8 +9086,8 @@ var Id = class extends AbstractRpgManager {
   }
   get tag() {
     var _a, _b, _c, _d;
-    if (this.existingTag !== void 0)
-      return this.existingTag;
+    if (this._existingTag !== void 0)
+      return this._existingTag;
     const tag = this.tagHelper.dataSettings.get(this.type);
     if (tag === void 0)
       throw new Error("");
@@ -9305,7 +9151,7 @@ var Id = class extends AbstractRpgManager {
     response = this.type + "/" + ((_j = (_i = this.tagMap.get(1 /* Campaign */)) == null ? void 0 : _i.value) != null ? _j : "") + response;
     return response;
   }
-  generateTagValue(type, value) {
+  _generateTagValue(type, value) {
     let status;
     let numericValue;
     if (value === "" || value === void 0) {
@@ -9379,7 +9225,7 @@ var Id = class extends AbstractRpgManager {
 // src/id/factories/IdFactory.ts
 var IdFactory = class extends AbstractFactory {
   create(type, campaignId, adventureId = void 0, actId = void 0, sceneId = void 0, sessionId = void 0, existingTag = void 0, campaignSettings = void 0) {
-    const response = new Id(this.app, type, this.convertIdElement(campaignId), this.convertIdElement(adventureId), this.convertIdElement(actId), this.convertIdElement(sceneId), this.convertIdElement(sessionId), existingTag);
+    const response = new Id(this.app, type, this._convertIdElement(campaignId), this._convertIdElement(adventureId), this._convertIdElement(actId), this._convertIdElement(sceneId), this._convertIdElement(sessionId), existingTag);
     if (campaignSettings !== void 0)
       response.campaignSettings = campaignSettings;
     return response;
@@ -9404,15 +9250,15 @@ var IdFactory = class extends AbstractFactory {
       throw new Error("");
     return this.createFromTag(tag);
   }
-  convertIdElement(id) {
+  _convertIdElement(id) {
     if (id === void 0)
       return void 0;
     if (typeof id === "number")
       return id.toString();
     return id;
   }
-  createFromID(ID, checksum) {
-    const [typeString, campaignSettings, ids] = ID.split("-");
+  createFromID(id, checksum) {
+    const [typeString, campaignSettings, ids] = id.split("-");
     const [campaignId, adventureIdOrSessionId, actId, sceneId] = ids.split("/");
     const type = +typeString;
     const adventureId = adventureIdOrSessionId !== void 0 && type !== 16 /* Session */ ? adventureIdOrSessionId : void 0;
@@ -9447,31 +9293,31 @@ var BreadcrumbFactory = class extends AbstractFactory {
     };
   }
   create(component) {
-    const response = this.generateElementBreadcrumb(null, 1 /* Campaign */, component.campaign);
+    const response = this._generateElementBreadcrumb(null, 1 /* Campaign */, component.campaign);
     if (component.id.type !== 1 /* Campaign */) {
       response.mainTitle = ComponentType[component.id.type];
       switch (component.id.type) {
         case 2 /* Adventure */:
-          this.generateAventureBreadcrumb(response, component);
+          this._generateAventureBreadcrumb(response, component);
           break;
         case 16 /* Session */:
-          this.generateSessionBreadcrumb(response, component);
+          this._generateSessionBreadcrumb(response, component);
           break;
         case 4 /* Act */:
-          this.generateActBreadcrumb(response, component);
+          this._generateActBreadcrumb(response, component);
           break;
         case 8 /* Scene */:
-          this.generateSceneBreadcrumb(response, component);
+          this._generateSceneBreadcrumb(response, component);
           break;
         default:
-          this.generateElementBreadcrumb(response, component.id.type, component);
+          this._generateElementBreadcrumb(response, component.id.type, component);
           break;
       }
     }
     response.component = component;
     return response;
   }
-  generateElementBreadcrumb(parent, type, data, linkText = null, isNewLine = false) {
+  _generateElementBreadcrumb(parent, type, data, linkText = null, isNewLine = false) {
     const response = new ResponseBreadcrumb(this.app, data);
     response.link = data.link;
     response.title = ComponentType[type];
@@ -9483,9 +9329,9 @@ var BreadcrumbFactory = class extends AbstractFactory {
       parent.nextBreadcrumb = response;
     return response;
   }
-  generateAventureBreadcrumb(parent, adventure) {
+  _generateAventureBreadcrumb(parent, adventure) {
     var _a, _b;
-    const adventureBreadcrumb = this.generateElementBreadcrumb(parent, 2 /* Adventure */, adventure);
+    const adventureBreadcrumb = this._generateElementBreadcrumb(parent, 2 /* Adventure */, adventure);
     let previousAdventure;
     let nextAdventure;
     try {
@@ -9499,10 +9345,10 @@ var BreadcrumbFactory = class extends AbstractFactory {
     let previousBreadcrumb = void 0;
     let nextBreadcrumb = void 0;
     if (previousAdventure !== void 0) {
-      previousBreadcrumb = this.generateElementBreadcrumb(adventureBreadcrumb, 2 /* Adventure */, previousAdventure, "<< prev adventure", true);
+      previousBreadcrumb = this._generateElementBreadcrumb(adventureBreadcrumb, 2 /* Adventure */, previousAdventure, "<< prev adventure", true);
     }
     if (nextAdventure !== void 0) {
-      nextBreadcrumb = this.generateElementBreadcrumb(previousBreadcrumb != null ? previousBreadcrumb : adventureBreadcrumb, 2 /* Adventure */, nextAdventure, "next adventure >>", previousAdventure === void 0);
+      nextBreadcrumb = this._generateElementBreadcrumb(previousBreadcrumb != null ? previousBreadcrumb : adventureBreadcrumb, 2 /* Adventure */, nextAdventure, "next adventure >>", previousAdventure === void 0);
     }
     if (nextBreadcrumb !== void 0) {
       return nextBreadcrumb;
@@ -9512,9 +9358,9 @@ var BreadcrumbFactory = class extends AbstractFactory {
       return adventureBreadcrumb;
     }
   }
-  generateSessionBreadcrumb(parent, session) {
+  _generateSessionBreadcrumb(parent, session) {
     var _a, _b;
-    const sessionBreadcrumb = this.generateElementBreadcrumb(parent, 16 /* Session */, session);
+    const sessionBreadcrumb = this._generateElementBreadcrumb(parent, 16 /* Session */, session);
     let previousSession;
     let nextSession;
     try {
@@ -9528,10 +9374,10 @@ var BreadcrumbFactory = class extends AbstractFactory {
     let previousBreadcrumb = void 0;
     let nextBreadcrumb = void 0;
     if (previousSession !== void 0) {
-      previousBreadcrumb = this.generateElementBreadcrumb(sessionBreadcrumb, 16 /* Session */, previousSession, "<< prev session", true);
+      previousBreadcrumb = this._generateElementBreadcrumb(sessionBreadcrumb, 16 /* Session */, previousSession, "<< prev session", true);
     }
     if (nextSession !== void 0) {
-      nextBreadcrumb = this.generateElementBreadcrumb(previousBreadcrumb != null ? previousBreadcrumb : sessionBreadcrumb, 16 /* Session */, nextSession, "next session >>", previousSession === void 0);
+      nextBreadcrumb = this._generateElementBreadcrumb(previousBreadcrumb != null ? previousBreadcrumb : sessionBreadcrumb, 16 /* Session */, nextSession, "next session >>", previousSession === void 0);
     }
     if (nextBreadcrumb !== void 0) {
       return nextBreadcrumb;
@@ -9541,27 +9387,27 @@ var BreadcrumbFactory = class extends AbstractFactory {
       return sessionBreadcrumb;
     }
   }
-  generateActBreadcrumb(parent, act) {
-    const adventureBreadcrumb = this.generateElementBreadcrumb(parent, 2 /* Adventure */, act.adventure);
-    const actBreadcrumb = this.generateElementBreadcrumb(adventureBreadcrumb, 4 /* Act */, act);
+  _generateActBreadcrumb(parent, act) {
+    const adventureBreadcrumb = this._generateElementBreadcrumb(parent, 2 /* Adventure */, act.adventure);
+    const actBreadcrumb = this._generateElementBreadcrumb(adventureBreadcrumb, 4 /* Act */, act);
     let previousBreadcrumb = null;
     if (act.previousAct != null)
-      previousBreadcrumb = this.generateElementBreadcrumb(actBreadcrumb, 4 /* Act */, act.previousAct, "<< prev act", true);
+      previousBreadcrumb = this._generateElementBreadcrumb(actBreadcrumb, 4 /* Act */, act.previousAct, "<< prev act", true);
     let nextBreadcrumb = null;
     if (act.nextAct != null)
-      nextBreadcrumb = this.generateElementBreadcrumb(previousBreadcrumb != null ? previousBreadcrumb : actBreadcrumb, 4 /* Act */, act.nextAct, "next act >>", previousBreadcrumb == null);
+      nextBreadcrumb = this._generateElementBreadcrumb(previousBreadcrumb != null ? previousBreadcrumb : actBreadcrumb, 4 /* Act */, act.nextAct, "next act >>", previousBreadcrumb == null);
     return nextBreadcrumb != null ? nextBreadcrumb : previousBreadcrumb != null ? previousBreadcrumb : actBreadcrumb;
   }
-  generateSceneBreadcrumb(parent, scene) {
-    const adventureBreadcrumb = this.generateElementBreadcrumb(parent, 2 /* Adventure */, scene.adventure);
-    const actBreadcrumb = this.generateElementBreadcrumb(adventureBreadcrumb, 4 /* Act */, scene.act);
-    const sceneBreadcrumb = this.generateElementBreadcrumb(actBreadcrumb, 8 /* Scene */, scene);
+  _generateSceneBreadcrumb(parent, scene) {
+    const adventureBreadcrumb = this._generateElementBreadcrumb(parent, 2 /* Adventure */, scene.adventure);
+    const actBreadcrumb = this._generateElementBreadcrumb(adventureBreadcrumb, 4 /* Act */, scene.act);
+    const sceneBreadcrumb = this._generateElementBreadcrumb(actBreadcrumb, 8 /* Scene */, scene);
     let previousBreadcrumb = null;
     if (scene.previousScene != null)
-      previousBreadcrumb = this.generateElementBreadcrumb(sceneBreadcrumb, 8 /* Scene */, scene.previousScene, "<< prev scene", true);
+      previousBreadcrumb = this._generateElementBreadcrumb(sceneBreadcrumb, 8 /* Scene */, scene.previousScene, "<< prev scene", true);
     let nextBreadcrumb = null;
     if (scene.nextScene != null) {
-      nextBreadcrumb = this.generateElementBreadcrumb(previousBreadcrumb != null ? previousBreadcrumb : sceneBreadcrumb, 8 /* Scene */, scene.nextScene, "next scene >>", previousBreadcrumb == null);
+      nextBreadcrumb = this._generateElementBreadcrumb(previousBreadcrumb != null ? previousBreadcrumb : sceneBreadcrumb, 8 /* Scene */, scene.nextScene, "next scene >>", previousBreadcrumb == null);
     } else {
       const newSceneBreadcrumb = new ResponseBreadcrumb(this.app, scene);
       newSceneBreadcrumb.link = "";
@@ -9739,21 +9585,21 @@ var Database = class extends AbstractRpgManagerComponent {
   constructor(app2) {
     super(app2);
     this.recordset = [];
-    this.isDatabaseReady = false;
-    this.basenameIndex = /* @__PURE__ */ new Map();
+    this._isDatabaseReady = false;
+    this._basenameIndex = /* @__PURE__ */ new Map();
   }
   ready() {
     return __async(this, null, function* () {
-      this.isDatabaseReady = true;
+      this._isDatabaseReady = true;
       this.registerEvent(this.app.metadataCache.on("resolve", (file) => this.onSave(file)));
-      this.registerEvent(this.app.vault.on("rename", (file, oldPath) => this.onRename(file, oldPath)));
-      this.registerEvent(this.app.vault.on("delete", (file) => this.onDelete(file)));
+      this.registerEvent(this.app.vault.on("rename", (file, oldPath) => this._onRename(file, oldPath)));
+      this.registerEvent(this.app.vault.on("delete", (file) => this._onDelete(file)));
       this.app.workspace.trigger("rpgmanager:index-complete");
       this.app.workspace.trigger("rpgmanager:refresh-views");
     });
   }
   get isReady() {
-    return this.isDatabaseReady;
+    return this._isDatabaseReady;
   }
   create(component) {
     let isNew = true;
@@ -9765,7 +9611,7 @@ var Database = class extends AbstractRpgManagerComponent {
     }
     if (isNew) {
       this.recordset.push(component);
-      this.basenameIndex.set(component.file.path, component.file.basename);
+      this._basenameIndex.set(component.file.path, component.file.basename);
     }
   }
   read(query) {
@@ -9785,7 +9631,7 @@ var Database = class extends AbstractRpgManagerComponent {
     }
     if (index !== void 0) {
       this.recordset.splice(index, 1);
-      this.basenameIndex.delete(key);
+      this._basenameIndex.delete(key);
     }
     return index !== void 0;
   }
@@ -9798,15 +9644,15 @@ var Database = class extends AbstractRpgManagerComponent {
     return response.length === 1 ? response[0] : void 0;
   }
   readSingle(type, id, overloadId = void 0) {
-    const result = this.read(this.generateQuery(type, id, false, overloadId));
+    const result = this.read(this._generateQuery(type, id, false, overloadId));
     if (result.length === 0)
       throw new ComponentNotFoundError(this.app, id);
     return result[0];
   }
   readList(type, id, overloadId = void 0) {
-    return this.read(this.generateQuery(type, id, true, overloadId));
+    return this.read(this._generateQuery(type, id, true, overloadId));
   }
-  generateQuery(type, id, isList, overloadId = void 0) {
+  _generateQuery(type, id, isList, overloadId = void 0) {
     let campaignId = id == null ? void 0 : id.campaignId;
     let adventureId = id == null ? void 0 : id.adventureId;
     let actId = id == null ? void 0 : id.actId;
@@ -9845,7 +9691,7 @@ var Database = class extends AbstractRpgManagerComponent {
         break;
     }
   }
-  replaceFileContent(file, oldBaseName, newBaseName) {
+  _replaceFileContent(file, oldBaseName, newBaseName) {
     return __async(this, null, function* () {
       const content = yield this.app.vault.read(file);
       const newFileContent = content.replaceAll("[[" + oldBaseName + "]]", "[[" + newBaseName + "]]").replaceAll("[[" + oldBaseName + "|", "[[" + newBaseName + "|");
@@ -9856,24 +9702,29 @@ var Database = class extends AbstractRpgManagerComponent {
       }
     });
   }
-  onDelete(file) {
+  _onDelete(file) {
     return __async(this, null, function* () {
       if (this.delete(file.path)) {
         this.app.workspace.trigger("rpgmanager:refresh-views");
       }
     });
   }
-  onRename(file, oldPath) {
+  _onRename(file, oldPath) {
     return __async(this, null, function* () {
-      const oldBaseName = this.basenameIndex.get(oldPath);
+      const oldBaseName = this._basenameIndex.get(oldPath);
       const newBaseName = file.path;
       const metadata = this.app.metadataCache.getFileCache(file);
       const component = this.readByPath(file.path);
-      yield this.basenameIndex.delete(oldPath);
+      yield this._basenameIndex.delete(oldPath);
       if (component !== void 0)
-        yield this.basenameIndex.set(file.path, file.basename);
+        yield this._basenameIndex.set(file.path, file.basename);
+      if (AbstractComponentData.imageExtensions.contains(file.extension)) {
+        this.manipulators.allComponents.updateImagePath(oldPath, file.path);
+      } else {
+        this.manipulators.allComponents.updateRelationshipPath(oldPath, file.path);
+      }
       if (oldBaseName !== void 0 && component !== void 0 && metadata != null) {
-        yield this.replaceFileContent(file, oldBaseName, newBaseName);
+        yield this._replaceFileContent(file, oldBaseName, newBaseName);
         yield component.readMetadata();
         DatabaseInitialiser.reinitialiseRelationships(component, this).then(() => {
           var _a, _b;
@@ -9938,11 +9789,3970 @@ var PlotsAbtOnly = class extends AbstractComponent {
   }
 };
 
+// node_modules/luxon/src/errors.js
+var LuxonError = class extends Error {
+};
+var InvalidDateTimeError = class extends LuxonError {
+  constructor(reason) {
+    super(`Invalid DateTime: ${reason.toMessage()}`);
+  }
+};
+var InvalidIntervalError = class extends LuxonError {
+  constructor(reason) {
+    super(`Invalid Interval: ${reason.toMessage()}`);
+  }
+};
+var InvalidDurationError = class extends LuxonError {
+  constructor(reason) {
+    super(`Invalid Duration: ${reason.toMessage()}`);
+  }
+};
+var ConflictingSpecificationError = class extends LuxonError {
+};
+var InvalidUnitError = class extends LuxonError {
+  constructor(unit) {
+    super(`Invalid unit ${unit}`);
+  }
+};
+var InvalidArgumentError = class extends LuxonError {
+};
+var ZoneIsAbstractError = class extends LuxonError {
+  constructor() {
+    super("Zone is an abstract class");
+  }
+};
+
+// node_modules/luxon/src/impl/formats.js
+var n = "numeric";
+var s = "short";
+var l = "long";
+var DATE_SHORT = {
+  year: n,
+  month: n,
+  day: n
+};
+var DATE_MED = {
+  year: n,
+  month: s,
+  day: n
+};
+var DATE_MED_WITH_WEEKDAY = {
+  year: n,
+  month: s,
+  day: n,
+  weekday: s
+};
+var DATE_FULL = {
+  year: n,
+  month: l,
+  day: n
+};
+var DATE_HUGE = {
+  year: n,
+  month: l,
+  day: n,
+  weekday: l
+};
+var TIME_SIMPLE = {
+  hour: n,
+  minute: n
+};
+var TIME_WITH_SECONDS = {
+  hour: n,
+  minute: n,
+  second: n
+};
+var TIME_WITH_SHORT_OFFSET = {
+  hour: n,
+  minute: n,
+  second: n,
+  timeZoneName: s
+};
+var TIME_WITH_LONG_OFFSET = {
+  hour: n,
+  minute: n,
+  second: n,
+  timeZoneName: l
+};
+var TIME_24_SIMPLE = {
+  hour: n,
+  minute: n,
+  hourCycle: "h23"
+};
+var TIME_24_WITH_SECONDS = {
+  hour: n,
+  minute: n,
+  second: n,
+  hourCycle: "h23"
+};
+var TIME_24_WITH_SHORT_OFFSET = {
+  hour: n,
+  minute: n,
+  second: n,
+  hourCycle: "h23",
+  timeZoneName: s
+};
+var TIME_24_WITH_LONG_OFFSET = {
+  hour: n,
+  minute: n,
+  second: n,
+  hourCycle: "h23",
+  timeZoneName: l
+};
+var DATETIME_SHORT = {
+  year: n,
+  month: n,
+  day: n,
+  hour: n,
+  minute: n
+};
+var DATETIME_SHORT_WITH_SECONDS = {
+  year: n,
+  month: n,
+  day: n,
+  hour: n,
+  minute: n,
+  second: n
+};
+var DATETIME_MED = {
+  year: n,
+  month: s,
+  day: n,
+  hour: n,
+  minute: n
+};
+var DATETIME_MED_WITH_SECONDS = {
+  year: n,
+  month: s,
+  day: n,
+  hour: n,
+  minute: n,
+  second: n
+};
+var DATETIME_MED_WITH_WEEKDAY = {
+  year: n,
+  month: s,
+  day: n,
+  weekday: s,
+  hour: n,
+  minute: n
+};
+var DATETIME_FULL = {
+  year: n,
+  month: l,
+  day: n,
+  hour: n,
+  minute: n,
+  timeZoneName: s
+};
+var DATETIME_FULL_WITH_SECONDS = {
+  year: n,
+  month: l,
+  day: n,
+  hour: n,
+  minute: n,
+  second: n,
+  timeZoneName: s
+};
+var DATETIME_HUGE = {
+  year: n,
+  month: l,
+  day: n,
+  weekday: l,
+  hour: n,
+  minute: n,
+  timeZoneName: l
+};
+var DATETIME_HUGE_WITH_SECONDS = {
+  year: n,
+  month: l,
+  day: n,
+  weekday: l,
+  hour: n,
+  minute: n,
+  second: n,
+  timeZoneName: l
+};
+
+// node_modules/luxon/src/impl/util.js
+function isUndefined(o) {
+  return typeof o === "undefined";
+}
+function isNumber(o) {
+  return typeof o === "number";
+}
+function isInteger(o) {
+  return typeof o === "number" && o % 1 === 0;
+}
+function isString(o) {
+  return typeof o === "string";
+}
+function isDate(o) {
+  return Object.prototype.toString.call(o) === "[object Date]";
+}
+function hasRelative() {
+  try {
+    return typeof Intl !== "undefined" && !!Intl.RelativeTimeFormat;
+  } catch (e) {
+    return false;
+  }
+}
+function maybeArray(thing) {
+  return Array.isArray(thing) ? thing : [thing];
+}
+function bestBy(arr, by, compare) {
+  if (arr.length === 0) {
+    return void 0;
+  }
+  return arr.reduce((best, next) => {
+    const pair = [by(next), next];
+    if (!best) {
+      return pair;
+    } else if (compare(best[0], pair[0]) === best[0]) {
+      return best;
+    } else {
+      return pair;
+    }
+  }, null)[1];
+}
+function pick(obj, keys) {
+  return keys.reduce((a, k) => {
+    a[k] = obj[k];
+    return a;
+  }, {});
+}
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+function integerBetween(thing, bottom, top) {
+  return isInteger(thing) && thing >= bottom && thing <= top;
+}
+function floorMod(x, n2) {
+  return x - n2 * Math.floor(x / n2);
+}
+function padStart(input, n2 = 2) {
+  const isNeg = input < 0;
+  let padded;
+  if (isNeg) {
+    padded = "-" + ("" + -input).padStart(n2, "0");
+  } else {
+    padded = ("" + input).padStart(n2, "0");
+  }
+  return padded;
+}
+function parseInteger(string) {
+  if (isUndefined(string) || string === null || string === "") {
+    return void 0;
+  } else {
+    return parseInt(string, 10);
+  }
+}
+function parseFloating(string) {
+  if (isUndefined(string) || string === null || string === "") {
+    return void 0;
+  } else {
+    return parseFloat(string);
+  }
+}
+function parseMillis(fraction) {
+  if (isUndefined(fraction) || fraction === null || fraction === "") {
+    return void 0;
+  } else {
+    const f = parseFloat("0." + fraction) * 1e3;
+    return Math.floor(f);
+  }
+}
+function roundTo(number, digits, towardZero = false) {
+  const factor = 10 ** digits, rounder = towardZero ? Math.trunc : Math.round;
+  return rounder(number * factor) / factor;
+}
+function isLeapYear(year) {
+  return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
+}
+function daysInYear(year) {
+  return isLeapYear(year) ? 366 : 365;
+}
+function daysInMonth(year, month) {
+  const modMonth = floorMod(month - 1, 12) + 1, modYear = year + (month - modMonth) / 12;
+  if (modMonth === 2) {
+    return isLeapYear(modYear) ? 29 : 28;
+  } else {
+    return [31, null, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][modMonth - 1];
+  }
+}
+function objToLocalTS(obj) {
+  let d = Date.UTC(obj.year, obj.month - 1, obj.day, obj.hour, obj.minute, obj.second, obj.millisecond);
+  if (obj.year < 100 && obj.year >= 0) {
+    d = new Date(d);
+    d.setUTCFullYear(d.getUTCFullYear() - 1900);
+  }
+  return +d;
+}
+function weeksInWeekYear(weekYear) {
+  const p1 = (weekYear + Math.floor(weekYear / 4) - Math.floor(weekYear / 100) + Math.floor(weekYear / 400)) % 7, last = weekYear - 1, p2 = (last + Math.floor(last / 4) - Math.floor(last / 100) + Math.floor(last / 400)) % 7;
+  return p1 === 4 || p2 === 3 ? 53 : 52;
+}
+function untruncateYear(year) {
+  if (year > 99) {
+    return year;
+  } else
+    return year > 60 ? 1900 + year : 2e3 + year;
+}
+function parseZoneInfo(ts, offsetFormat, locale, timeZone = null) {
+  const date = new Date(ts), intlOpts = {
+    hourCycle: "h23",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+  };
+  if (timeZone) {
+    intlOpts.timeZone = timeZone;
+  }
+  const modified = __spreadValues({ timeZoneName: offsetFormat }, intlOpts);
+  const parsed = new Intl.DateTimeFormat(locale, modified).formatToParts(date).find((m) => m.type.toLowerCase() === "timezonename");
+  return parsed ? parsed.value : null;
+}
+function signedOffset(offHourStr, offMinuteStr) {
+  let offHour = parseInt(offHourStr, 10);
+  if (Number.isNaN(offHour)) {
+    offHour = 0;
+  }
+  const offMin = parseInt(offMinuteStr, 10) || 0, offMinSigned = offHour < 0 || Object.is(offHour, -0) ? -offMin : offMin;
+  return offHour * 60 + offMinSigned;
+}
+function asNumber(value) {
+  const numericValue = Number(value);
+  if (typeof value === "boolean" || value === "" || Number.isNaN(numericValue))
+    throw new InvalidArgumentError(`Invalid unit value ${value}`);
+  return numericValue;
+}
+function normalizeObject(obj, normalizer) {
+  const normalized = {};
+  for (const u in obj) {
+    if (hasOwnProperty(obj, u)) {
+      const v = obj[u];
+      if (v === void 0 || v === null)
+        continue;
+      normalized[normalizer(u)] = asNumber(v);
+    }
+  }
+  return normalized;
+}
+function formatOffset(offset2, format) {
+  const hours = Math.trunc(Math.abs(offset2 / 60)), minutes = Math.trunc(Math.abs(offset2 % 60)), sign = offset2 >= 0 ? "+" : "-";
+  switch (format) {
+    case "short":
+      return `${sign}${padStart(hours, 2)}:${padStart(minutes, 2)}`;
+    case "narrow":
+      return `${sign}${hours}${minutes > 0 ? `:${minutes}` : ""}`;
+    case "techie":
+      return `${sign}${padStart(hours, 2)}${padStart(minutes, 2)}`;
+    default:
+      throw new RangeError(`Value format ${format} is out of range for property format`);
+  }
+}
+function timeObject(obj) {
+  return pick(obj, ["hour", "minute", "second", "millisecond"]);
+}
+var ianaRegex = /[A-Za-z_+-]{1,256}(?::?\/[A-Za-z0-9_+-]{1,256}(?:\/[A-Za-z0-9_+-]{1,256})?)?/;
+
+// node_modules/luxon/src/impl/english.js
+var monthsLong = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+var monthsShort = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "Apr",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sep",
+  "Oct",
+  "Nov",
+  "Dec"
+];
+var monthsNarrow = ["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"];
+function months(length) {
+  switch (length) {
+    case "narrow":
+      return [...monthsNarrow];
+    case "short":
+      return [...monthsShort];
+    case "long":
+      return [...monthsLong];
+    case "numeric":
+      return ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
+    case "2-digit":
+      return ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
+    default:
+      return null;
+  }
+}
+var weekdaysLong = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday"
+];
+var weekdaysShort = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+var weekdaysNarrow = ["M", "T", "W", "T", "F", "S", "S"];
+function weekdays(length) {
+  switch (length) {
+    case "narrow":
+      return [...weekdaysNarrow];
+    case "short":
+      return [...weekdaysShort];
+    case "long":
+      return [...weekdaysLong];
+    case "numeric":
+      return ["1", "2", "3", "4", "5", "6", "7"];
+    default:
+      return null;
+  }
+}
+var meridiems = ["AM", "PM"];
+var erasLong = ["Before Christ", "Anno Domini"];
+var erasShort = ["BC", "AD"];
+var erasNarrow = ["B", "A"];
+function eras(length) {
+  switch (length) {
+    case "narrow":
+      return [...erasNarrow];
+    case "short":
+      return [...erasShort];
+    case "long":
+      return [...erasLong];
+    default:
+      return null;
+  }
+}
+function meridiemForDateTime(dt) {
+  return meridiems[dt.hour < 12 ? 0 : 1];
+}
+function weekdayForDateTime(dt, length) {
+  return weekdays(length)[dt.weekday - 1];
+}
+function monthForDateTime(dt, length) {
+  return months(length)[dt.month - 1];
+}
+function eraForDateTime(dt, length) {
+  return eras(length)[dt.year < 0 ? 0 : 1];
+}
+function formatRelativeTime(unit, count, numeric = "always", narrow = false) {
+  const units = {
+    years: ["year", "yr."],
+    quarters: ["quarter", "qtr."],
+    months: ["month", "mo."],
+    weeks: ["week", "wk."],
+    days: ["day", "day", "days"],
+    hours: ["hour", "hr."],
+    minutes: ["minute", "min."],
+    seconds: ["second", "sec."]
+  };
+  const lastable = ["hours", "minutes", "seconds"].indexOf(unit) === -1;
+  if (numeric === "auto" && lastable) {
+    const isDay = unit === "days";
+    switch (count) {
+      case 1:
+        return isDay ? "tomorrow" : `next ${units[unit][0]}`;
+      case -1:
+        return isDay ? "yesterday" : `last ${units[unit][0]}`;
+      case 0:
+        return isDay ? "today" : `this ${units[unit][0]}`;
+      default:
+    }
+  }
+  const isInPast = Object.is(count, -0) || count < 0, fmtValue = Math.abs(count), singular = fmtValue === 1, lilUnits = units[unit], fmtUnit = narrow ? singular ? lilUnits[1] : lilUnits[2] || lilUnits[1] : singular ? units[unit][0] : unit;
+  return isInPast ? `${fmtValue} ${fmtUnit} ago` : `in ${fmtValue} ${fmtUnit}`;
+}
+
+// node_modules/luxon/src/impl/formatter.js
+function stringifyTokens(splits, tokenToString) {
+  let s2 = "";
+  for (const token of splits) {
+    if (token.literal) {
+      s2 += token.val;
+    } else {
+      s2 += tokenToString(token.val);
+    }
+  }
+  return s2;
+}
+var macroTokenToFormatOpts = {
+  D: DATE_SHORT,
+  DD: DATE_MED,
+  DDD: DATE_FULL,
+  DDDD: DATE_HUGE,
+  t: TIME_SIMPLE,
+  tt: TIME_WITH_SECONDS,
+  ttt: TIME_WITH_SHORT_OFFSET,
+  tttt: TIME_WITH_LONG_OFFSET,
+  T: TIME_24_SIMPLE,
+  TT: TIME_24_WITH_SECONDS,
+  TTT: TIME_24_WITH_SHORT_OFFSET,
+  TTTT: TIME_24_WITH_LONG_OFFSET,
+  f: DATETIME_SHORT,
+  ff: DATETIME_MED,
+  fff: DATETIME_FULL,
+  ffff: DATETIME_HUGE,
+  F: DATETIME_SHORT_WITH_SECONDS,
+  FF: DATETIME_MED_WITH_SECONDS,
+  FFF: DATETIME_FULL_WITH_SECONDS,
+  FFFF: DATETIME_HUGE_WITH_SECONDS
+};
+var Formatter = class {
+  static create(locale, opts = {}) {
+    return new Formatter(locale, opts);
+  }
+  static parseFormat(fmt) {
+    let current = null, currentFull = "", bracketed = false;
+    const splits = [];
+    for (let i = 0; i < fmt.length; i++) {
+      const c = fmt.charAt(i);
+      if (c === "'") {
+        if (currentFull.length > 0) {
+          splits.push({ literal: bracketed, val: currentFull });
+        }
+        current = null;
+        currentFull = "";
+        bracketed = !bracketed;
+      } else if (bracketed) {
+        currentFull += c;
+      } else if (c === current) {
+        currentFull += c;
+      } else {
+        if (currentFull.length > 0) {
+          splits.push({ literal: false, val: currentFull });
+        }
+        currentFull = c;
+        current = c;
+      }
+    }
+    if (currentFull.length > 0) {
+      splits.push({ literal: bracketed, val: currentFull });
+    }
+    return splits;
+  }
+  static macroTokenToFormatOpts(token) {
+    return macroTokenToFormatOpts[token];
+  }
+  constructor(locale, formatOpts) {
+    this.opts = formatOpts;
+    this.loc = locale;
+    this.systemLoc = null;
+  }
+  formatWithSystemDefault(dt, opts) {
+    if (this.systemLoc === null) {
+      this.systemLoc = this.loc.redefaultToSystem();
+    }
+    const df = this.systemLoc.dtFormatter(dt, __spreadValues(__spreadValues({}, this.opts), opts));
+    return df.format();
+  }
+  formatDateTime(dt, opts = {}) {
+    const df = this.loc.dtFormatter(dt, __spreadValues(__spreadValues({}, this.opts), opts));
+    return df.format();
+  }
+  formatDateTimeParts(dt, opts = {}) {
+    const df = this.loc.dtFormatter(dt, __spreadValues(__spreadValues({}, this.opts), opts));
+    return df.formatToParts();
+  }
+  resolvedOptions(dt, opts = {}) {
+    const df = this.loc.dtFormatter(dt, __spreadValues(__spreadValues({}, this.opts), opts));
+    return df.resolvedOptions();
+  }
+  num(n2, p = 0) {
+    if (this.opts.forceSimple) {
+      return padStart(n2, p);
+    }
+    const opts = __spreadValues({}, this.opts);
+    if (p > 0) {
+      opts.padTo = p;
+    }
+    return this.loc.numberFormatter(opts).format(n2);
+  }
+  formatDateTimeFromString(dt, fmt) {
+    const knownEnglish = this.loc.listingMode() === "en", useDateTimeFormatter = this.loc.outputCalendar && this.loc.outputCalendar !== "gregory", string = (opts, extract) => this.loc.extract(dt, opts, extract), formatOffset2 = (opts) => {
+      if (dt.isOffsetFixed && dt.offset === 0 && opts.allowZ) {
+        return "Z";
+      }
+      return dt.isValid ? dt.zone.formatOffset(dt.ts, opts.format) : "";
+    }, meridiem = () => knownEnglish ? meridiemForDateTime(dt) : string({ hour: "numeric", hourCycle: "h12" }, "dayperiod"), month = (length, standalone) => knownEnglish ? monthForDateTime(dt, length) : string(standalone ? { month: length } : { month: length, day: "numeric" }, "month"), weekday = (length, standalone) => knownEnglish ? weekdayForDateTime(dt, length) : string(standalone ? { weekday: length } : { weekday: length, month: "long", day: "numeric" }, "weekday"), maybeMacro = (token) => {
+      const formatOpts = Formatter.macroTokenToFormatOpts(token);
+      if (formatOpts) {
+        return this.formatWithSystemDefault(dt, formatOpts);
+      } else {
+        return token;
+      }
+    }, era = (length) => knownEnglish ? eraForDateTime(dt, length) : string({ era: length }, "era"), tokenToString = (token) => {
+      switch (token) {
+        case "S":
+          return this.num(dt.millisecond);
+        case "u":
+        case "SSS":
+          return this.num(dt.millisecond, 3);
+        case "s":
+          return this.num(dt.second);
+        case "ss":
+          return this.num(dt.second, 2);
+        case "uu":
+          return this.num(Math.floor(dt.millisecond / 10), 2);
+        case "uuu":
+          return this.num(Math.floor(dt.millisecond / 100));
+        case "m":
+          return this.num(dt.minute);
+        case "mm":
+          return this.num(dt.minute, 2);
+        case "h":
+          return this.num(dt.hour % 12 === 0 ? 12 : dt.hour % 12);
+        case "hh":
+          return this.num(dt.hour % 12 === 0 ? 12 : dt.hour % 12, 2);
+        case "H":
+          return this.num(dt.hour);
+        case "HH":
+          return this.num(dt.hour, 2);
+        case "Z":
+          return formatOffset2({ format: "narrow", allowZ: this.opts.allowZ });
+        case "ZZ":
+          return formatOffset2({ format: "short", allowZ: this.opts.allowZ });
+        case "ZZZ":
+          return formatOffset2({ format: "techie", allowZ: this.opts.allowZ });
+        case "ZZZZ":
+          return dt.zone.offsetName(dt.ts, { format: "short", locale: this.loc.locale });
+        case "ZZZZZ":
+          return dt.zone.offsetName(dt.ts, { format: "long", locale: this.loc.locale });
+        case "z":
+          return dt.zoneName;
+        case "a":
+          return meridiem();
+        case "d":
+          return useDateTimeFormatter ? string({ day: "numeric" }, "day") : this.num(dt.day);
+        case "dd":
+          return useDateTimeFormatter ? string({ day: "2-digit" }, "day") : this.num(dt.day, 2);
+        case "c":
+          return this.num(dt.weekday);
+        case "ccc":
+          return weekday("short", true);
+        case "cccc":
+          return weekday("long", true);
+        case "ccccc":
+          return weekday("narrow", true);
+        case "E":
+          return this.num(dt.weekday);
+        case "EEE":
+          return weekday("short", false);
+        case "EEEE":
+          return weekday("long", false);
+        case "EEEEE":
+          return weekday("narrow", false);
+        case "L":
+          return useDateTimeFormatter ? string({ month: "numeric", day: "numeric" }, "month") : this.num(dt.month);
+        case "LL":
+          return useDateTimeFormatter ? string({ month: "2-digit", day: "numeric" }, "month") : this.num(dt.month, 2);
+        case "LLL":
+          return month("short", true);
+        case "LLLL":
+          return month("long", true);
+        case "LLLLL":
+          return month("narrow", true);
+        case "M":
+          return useDateTimeFormatter ? string({ month: "numeric" }, "month") : this.num(dt.month);
+        case "MM":
+          return useDateTimeFormatter ? string({ month: "2-digit" }, "month") : this.num(dt.month, 2);
+        case "MMM":
+          return month("short", false);
+        case "MMMM":
+          return month("long", false);
+        case "MMMMM":
+          return month("narrow", false);
+        case "y":
+          return useDateTimeFormatter ? string({ year: "numeric" }, "year") : this.num(dt.year);
+        case "yy":
+          return useDateTimeFormatter ? string({ year: "2-digit" }, "year") : this.num(dt.year.toString().slice(-2), 2);
+        case "yyyy":
+          return useDateTimeFormatter ? string({ year: "numeric" }, "year") : this.num(dt.year, 4);
+        case "yyyyyy":
+          return useDateTimeFormatter ? string({ year: "numeric" }, "year") : this.num(dt.year, 6);
+        case "G":
+          return era("short");
+        case "GG":
+          return era("long");
+        case "GGGGG":
+          return era("narrow");
+        case "kk":
+          return this.num(dt.weekYear.toString().slice(-2), 2);
+        case "kkkk":
+          return this.num(dt.weekYear, 4);
+        case "W":
+          return this.num(dt.weekNumber);
+        case "WW":
+          return this.num(dt.weekNumber, 2);
+        case "o":
+          return this.num(dt.ordinal);
+        case "ooo":
+          return this.num(dt.ordinal, 3);
+        case "q":
+          return this.num(dt.quarter);
+        case "qq":
+          return this.num(dt.quarter, 2);
+        case "X":
+          return this.num(Math.floor(dt.ts / 1e3));
+        case "x":
+          return this.num(dt.ts);
+        default:
+          return maybeMacro(token);
+      }
+    };
+    return stringifyTokens(Formatter.parseFormat(fmt), tokenToString);
+  }
+  formatDurationFromString(dur, fmt) {
+    const tokenToField = (token) => {
+      switch (token[0]) {
+        case "S":
+          return "millisecond";
+        case "s":
+          return "second";
+        case "m":
+          return "minute";
+        case "h":
+          return "hour";
+        case "d":
+          return "day";
+        case "w":
+          return "week";
+        case "M":
+          return "month";
+        case "y":
+          return "year";
+        default:
+          return null;
+      }
+    }, tokenToString = (lildur) => (token) => {
+      const mapped = tokenToField(token);
+      if (mapped) {
+        return this.num(lildur.get(mapped), token.length);
+      } else {
+        return token;
+      }
+    }, tokens = Formatter.parseFormat(fmt), realTokens = tokens.reduce((found, { literal, val }) => literal ? found : found.concat(val), []), collapsed = dur.shiftTo(...realTokens.map(tokenToField).filter((t) => t));
+    return stringifyTokens(tokens, tokenToString(collapsed));
+  }
+};
+
+// node_modules/luxon/src/impl/invalid.js
+var Invalid = class {
+  constructor(reason, explanation) {
+    this.reason = reason;
+    this.explanation = explanation;
+  }
+  toMessage() {
+    if (this.explanation) {
+      return `${this.reason}: ${this.explanation}`;
+    } else {
+      return this.reason;
+    }
+  }
+};
+
+// node_modules/luxon/src/zone.js
+var Zone = class {
+  get type() {
+    throw new ZoneIsAbstractError();
+  }
+  get name() {
+    throw new ZoneIsAbstractError();
+  }
+  get ianaName() {
+    return this.name;
+  }
+  get isUniversal() {
+    throw new ZoneIsAbstractError();
+  }
+  offsetName(ts, opts) {
+    throw new ZoneIsAbstractError();
+  }
+  formatOffset(ts, format) {
+    throw new ZoneIsAbstractError();
+  }
+  offset(ts) {
+    throw new ZoneIsAbstractError();
+  }
+  equals(otherZone) {
+    throw new ZoneIsAbstractError();
+  }
+  get isValid() {
+    throw new ZoneIsAbstractError();
+  }
+};
+
+// node_modules/luxon/src/zones/systemZone.js
+var singleton = null;
+var SystemZone = class extends Zone {
+  static get instance() {
+    if (singleton === null) {
+      singleton = new SystemZone();
+    }
+    return singleton;
+  }
+  get type() {
+    return "system";
+  }
+  get name() {
+    return new Intl.DateTimeFormat().resolvedOptions().timeZone;
+  }
+  get isUniversal() {
+    return false;
+  }
+  offsetName(ts, { format, locale }) {
+    return parseZoneInfo(ts, format, locale);
+  }
+  formatOffset(ts, format) {
+    return formatOffset(this.offset(ts), format);
+  }
+  offset(ts) {
+    return -new Date(ts).getTimezoneOffset();
+  }
+  equals(otherZone) {
+    return otherZone.type === "system";
+  }
+  get isValid() {
+    return true;
+  }
+};
+
+// node_modules/luxon/src/zones/IANAZone.js
+var dtfCache = {};
+function makeDTF(zone) {
+  if (!dtfCache[zone]) {
+    dtfCache[zone] = new Intl.DateTimeFormat("en-US", {
+      hour12: false,
+      timeZone: zone,
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      era: "short"
+    });
+  }
+  return dtfCache[zone];
+}
+var typeToPos = {
+  year: 0,
+  month: 1,
+  day: 2,
+  era: 3,
+  hour: 4,
+  minute: 5,
+  second: 6
+};
+function hackyOffset(dtf, date) {
+  const formatted = dtf.format(date).replace(/\u200E/g, ""), parsed = /(\d+)\/(\d+)\/(\d+) (AD|BC),? (\d+):(\d+):(\d+)/.exec(formatted), [, fMonth, fDay, fYear, fadOrBc, fHour, fMinute, fSecond] = parsed;
+  return [fYear, fMonth, fDay, fadOrBc, fHour, fMinute, fSecond];
+}
+function partsOffset(dtf, date) {
+  const formatted = dtf.formatToParts(date);
+  const filled = [];
+  for (let i = 0; i < formatted.length; i++) {
+    const { type, value } = formatted[i];
+    const pos = typeToPos[type];
+    if (type === "era") {
+      filled[pos] = value;
+    } else if (!isUndefined(pos)) {
+      filled[pos] = parseInt(value, 10);
+    }
+  }
+  return filled;
+}
+var ianaZoneCache = {};
+var IANAZone = class extends Zone {
+  static create(name) {
+    if (!ianaZoneCache[name]) {
+      ianaZoneCache[name] = new IANAZone(name);
+    }
+    return ianaZoneCache[name];
+  }
+  static resetCache() {
+    ianaZoneCache = {};
+    dtfCache = {};
+  }
+  static isValidSpecifier(s2) {
+    return this.isValidZone(s2);
+  }
+  static isValidZone(zone) {
+    if (!zone) {
+      return false;
+    }
+    try {
+      new Intl.DateTimeFormat("en-US", { timeZone: zone }).format();
+      return true;
+    } catch (e) {
+      return false;
+    }
+  }
+  constructor(name) {
+    super();
+    this.zoneName = name;
+    this.valid = IANAZone.isValidZone(name);
+  }
+  get type() {
+    return "iana";
+  }
+  get name() {
+    return this.zoneName;
+  }
+  get isUniversal() {
+    return false;
+  }
+  offsetName(ts, { format, locale }) {
+    return parseZoneInfo(ts, format, locale, this.name);
+  }
+  formatOffset(ts, format) {
+    return formatOffset(this.offset(ts), format);
+  }
+  offset(ts) {
+    const date = new Date(ts);
+    if (isNaN(date))
+      return NaN;
+    const dtf = makeDTF(this.name);
+    let [year, month, day, adOrBc, hour, minute, second] = dtf.formatToParts ? partsOffset(dtf, date) : hackyOffset(dtf, date);
+    if (adOrBc === "BC") {
+      year = -Math.abs(year) + 1;
+    }
+    const adjustedHour = hour === 24 ? 0 : hour;
+    const asUTC = objToLocalTS({
+      year,
+      month,
+      day,
+      hour: adjustedHour,
+      minute,
+      second,
+      millisecond: 0
+    });
+    let asTS = +date;
+    const over = asTS % 1e3;
+    asTS -= over >= 0 ? over : 1e3 + over;
+    return (asUTC - asTS) / (60 * 1e3);
+  }
+  equals(otherZone) {
+    return otherZone.type === "iana" && otherZone.name === this.name;
+  }
+  get isValid() {
+    return this.valid;
+  }
+};
+
+// node_modules/luxon/src/zones/fixedOffsetZone.js
+var singleton2 = null;
+var FixedOffsetZone = class extends Zone {
+  static get utcInstance() {
+    if (singleton2 === null) {
+      singleton2 = new FixedOffsetZone(0);
+    }
+    return singleton2;
+  }
+  static instance(offset2) {
+    return offset2 === 0 ? FixedOffsetZone.utcInstance : new FixedOffsetZone(offset2);
+  }
+  static parseSpecifier(s2) {
+    if (s2) {
+      const r = s2.match(/^utc(?:([+-]\d{1,2})(?::(\d{2}))?)?$/i);
+      if (r) {
+        return new FixedOffsetZone(signedOffset(r[1], r[2]));
+      }
+    }
+    return null;
+  }
+  constructor(offset2) {
+    super();
+    this.fixed = offset2;
+  }
+  get type() {
+    return "fixed";
+  }
+  get name() {
+    return this.fixed === 0 ? "UTC" : `UTC${formatOffset(this.fixed, "narrow")}`;
+  }
+  get ianaName() {
+    if (this.fixed === 0) {
+      return "Etc/UTC";
+    } else {
+      return `Etc/GMT${formatOffset(-this.fixed, "narrow")}`;
+    }
+  }
+  offsetName() {
+    return this.name;
+  }
+  formatOffset(ts, format) {
+    return formatOffset(this.fixed, format);
+  }
+  get isUniversal() {
+    return true;
+  }
+  offset() {
+    return this.fixed;
+  }
+  equals(otherZone) {
+    return otherZone.type === "fixed" && otherZone.fixed === this.fixed;
+  }
+  get isValid() {
+    return true;
+  }
+};
+
+// node_modules/luxon/src/zones/invalidZone.js
+var InvalidZone = class extends Zone {
+  constructor(zoneName) {
+    super();
+    this.zoneName = zoneName;
+  }
+  get type() {
+    return "invalid";
+  }
+  get name() {
+    return this.zoneName;
+  }
+  get isUniversal() {
+    return false;
+  }
+  offsetName() {
+    return null;
+  }
+  formatOffset() {
+    return "";
+  }
+  offset() {
+    return NaN;
+  }
+  equals() {
+    return false;
+  }
+  get isValid() {
+    return false;
+  }
+};
+
+// node_modules/luxon/src/impl/zoneUtil.js
+function normalizeZone(input, defaultZone2) {
+  let offset2;
+  if (isUndefined(input) || input === null) {
+    return defaultZone2;
+  } else if (input instanceof Zone) {
+    return input;
+  } else if (isString(input)) {
+    const lowered = input.toLowerCase();
+    if (lowered === "default")
+      return defaultZone2;
+    else if (lowered === "local" || lowered === "system")
+      return SystemZone.instance;
+    else if (lowered === "utc" || lowered === "gmt")
+      return FixedOffsetZone.utcInstance;
+    else
+      return FixedOffsetZone.parseSpecifier(lowered) || IANAZone.create(input);
+  } else if (isNumber(input)) {
+    return FixedOffsetZone.instance(input);
+  } else if (typeof input === "object" && input.offset && typeof input.offset === "number") {
+    return input;
+  } else {
+    return new InvalidZone(input);
+  }
+}
+
+// node_modules/luxon/src/settings.js
+var now = () => Date.now();
+var defaultZone = "system";
+var defaultLocale = null;
+var defaultNumberingSystem = null;
+var defaultOutputCalendar = null;
+var throwOnInvalid;
+var Settings = class {
+  static get now() {
+    return now;
+  }
+  static set now(n2) {
+    now = n2;
+  }
+  static set defaultZone(zone) {
+    defaultZone = zone;
+  }
+  static get defaultZone() {
+    return normalizeZone(defaultZone, SystemZone.instance);
+  }
+  static get defaultLocale() {
+    return defaultLocale;
+  }
+  static set defaultLocale(locale) {
+    defaultLocale = locale;
+  }
+  static get defaultNumberingSystem() {
+    return defaultNumberingSystem;
+  }
+  static set defaultNumberingSystem(numberingSystem) {
+    defaultNumberingSystem = numberingSystem;
+  }
+  static get defaultOutputCalendar() {
+    return defaultOutputCalendar;
+  }
+  static set defaultOutputCalendar(outputCalendar) {
+    defaultOutputCalendar = outputCalendar;
+  }
+  static get throwOnInvalid() {
+    return throwOnInvalid;
+  }
+  static set throwOnInvalid(t) {
+    throwOnInvalid = t;
+  }
+  static resetCaches() {
+    Locale.resetCache();
+    IANAZone.resetCache();
+  }
+};
+
+// node_modules/luxon/src/impl/locale.js
+var intlLFCache = {};
+function getCachedLF(locString, opts = {}) {
+  const key = JSON.stringify([locString, opts]);
+  let dtf = intlLFCache[key];
+  if (!dtf) {
+    dtf = new Intl.ListFormat(locString, opts);
+    intlLFCache[key] = dtf;
+  }
+  return dtf;
+}
+var intlDTCache = {};
+function getCachedDTF(locString, opts = {}) {
+  const key = JSON.stringify([locString, opts]);
+  let dtf = intlDTCache[key];
+  if (!dtf) {
+    dtf = new Intl.DateTimeFormat(locString, opts);
+    intlDTCache[key] = dtf;
+  }
+  return dtf;
+}
+var intlNumCache = {};
+function getCachedINF(locString, opts = {}) {
+  const key = JSON.stringify([locString, opts]);
+  let inf = intlNumCache[key];
+  if (!inf) {
+    inf = new Intl.NumberFormat(locString, opts);
+    intlNumCache[key] = inf;
+  }
+  return inf;
+}
+var intlRelCache = {};
+function getCachedRTF(locString, opts = {}) {
+  const _a = opts, { base: base2 } = _a, cacheKeyOpts = __objRest(_a, ["base"]);
+  const key = JSON.stringify([locString, cacheKeyOpts]);
+  let inf = intlRelCache[key];
+  if (!inf) {
+    inf = new Intl.RelativeTimeFormat(locString, opts);
+    intlRelCache[key] = inf;
+  }
+  return inf;
+}
+var sysLocaleCache = null;
+function systemLocale() {
+  if (sysLocaleCache) {
+    return sysLocaleCache;
+  } else {
+    sysLocaleCache = new Intl.DateTimeFormat().resolvedOptions().locale;
+    return sysLocaleCache;
+  }
+}
+function parseLocaleString(localeStr) {
+  const uIndex = localeStr.indexOf("-u-");
+  if (uIndex === -1) {
+    return [localeStr];
+  } else {
+    let options;
+    const smaller = localeStr.substring(0, uIndex);
+    try {
+      options = getCachedDTF(localeStr).resolvedOptions();
+    } catch (e) {
+      options = getCachedDTF(smaller).resolvedOptions();
+    }
+    const { numberingSystem, calendar } = options;
+    return [smaller, numberingSystem, calendar];
+  }
+}
+function intlConfigString(localeStr, numberingSystem, outputCalendar) {
+  if (outputCalendar || numberingSystem) {
+    localeStr += "-u";
+    if (outputCalendar) {
+      localeStr += `-ca-${outputCalendar}`;
+    }
+    if (numberingSystem) {
+      localeStr += `-nu-${numberingSystem}`;
+    }
+    return localeStr;
+  } else {
+    return localeStr;
+  }
+}
+function mapMonths(f) {
+  const ms = [];
+  for (let i = 1; i <= 12; i++) {
+    const dt = DateTime.utc(2016, i, 1);
+    ms.push(f(dt));
+  }
+  return ms;
+}
+function mapWeekdays(f) {
+  const ms = [];
+  for (let i = 1; i <= 7; i++) {
+    const dt = DateTime.utc(2016, 11, 13 + i);
+    ms.push(f(dt));
+  }
+  return ms;
+}
+function listStuff(loc, length, defaultOK, englishFn, intlFn) {
+  const mode = loc.listingMode(defaultOK);
+  if (mode === "error") {
+    return null;
+  } else if (mode === "en") {
+    return englishFn(length);
+  } else {
+    return intlFn(length);
+  }
+}
+function supportsFastNumbers(loc) {
+  if (loc.numberingSystem && loc.numberingSystem !== "latn") {
+    return false;
+  } else {
+    return loc.numberingSystem === "latn" || !loc.locale || loc.locale.startsWith("en") || new Intl.DateTimeFormat(loc.intl).resolvedOptions().numberingSystem === "latn";
+  }
+}
+var PolyNumberFormatter = class {
+  constructor(intl, forceSimple, opts) {
+    this.padTo = opts.padTo || 0;
+    this.floor = opts.floor || false;
+    const _a = opts, { padTo, floor } = _a, otherOpts = __objRest(_a, ["padTo", "floor"]);
+    if (!forceSimple || Object.keys(otherOpts).length > 0) {
+      const intlOpts = __spreadValues({ useGrouping: false }, opts);
+      if (opts.padTo > 0)
+        intlOpts.minimumIntegerDigits = opts.padTo;
+      this.inf = getCachedINF(intl, intlOpts);
+    }
+  }
+  format(i) {
+    if (this.inf) {
+      const fixed = this.floor ? Math.floor(i) : i;
+      return this.inf.format(fixed);
+    } else {
+      const fixed = this.floor ? Math.floor(i) : roundTo(i, 3);
+      return padStart(fixed, this.padTo);
+    }
+  }
+};
+var PolyDateFormatter = class {
+  constructor(dt, intl, opts) {
+    this.opts = opts;
+    let z;
+    if (dt.zone.isUniversal) {
+      const gmtOffset = -1 * (dt.offset / 60);
+      const offsetZ = gmtOffset >= 0 ? `Etc/GMT+${gmtOffset}` : `Etc/GMT${gmtOffset}`;
+      if (dt.offset !== 0 && IANAZone.create(offsetZ).valid) {
+        z = offsetZ;
+        this.dt = dt;
+      } else {
+        z = "UTC";
+        if (opts.timeZoneName) {
+          this.dt = dt;
+        } else {
+          this.dt = dt.offset === 0 ? dt : DateTime.fromMillis(dt.ts + dt.offset * 60 * 1e3);
+        }
+      }
+    } else if (dt.zone.type === "system") {
+      this.dt = dt;
+    } else {
+      this.dt = dt;
+      z = dt.zone.name;
+    }
+    const intlOpts = __spreadValues({}, this.opts);
+    if (z) {
+      intlOpts.timeZone = z;
+    }
+    this.dtf = getCachedDTF(intl, intlOpts);
+  }
+  format() {
+    return this.dtf.format(this.dt.toJSDate());
+  }
+  formatToParts() {
+    return this.dtf.formatToParts(this.dt.toJSDate());
+  }
+  resolvedOptions() {
+    return this.dtf.resolvedOptions();
+  }
+};
+var PolyRelFormatter = class {
+  constructor(intl, isEnglish, opts) {
+    this.opts = __spreadValues({ style: "long" }, opts);
+    if (!isEnglish && hasRelative()) {
+      this.rtf = getCachedRTF(intl, opts);
+    }
+  }
+  format(count, unit) {
+    if (this.rtf) {
+      return this.rtf.format(count, unit);
+    } else {
+      return formatRelativeTime(unit, count, this.opts.numeric, this.opts.style !== "long");
+    }
+  }
+  formatToParts(count, unit) {
+    if (this.rtf) {
+      return this.rtf.formatToParts(count, unit);
+    } else {
+      return [];
+    }
+  }
+};
+var Locale = class {
+  static fromOpts(opts) {
+    return Locale.create(opts.locale, opts.numberingSystem, opts.outputCalendar, opts.defaultToEN);
+  }
+  static create(locale, numberingSystem, outputCalendar, defaultToEN = false) {
+    const specifiedLocale = locale || Settings.defaultLocale;
+    const localeR = specifiedLocale || (defaultToEN ? "en-US" : systemLocale());
+    const numberingSystemR = numberingSystem || Settings.defaultNumberingSystem;
+    const outputCalendarR = outputCalendar || Settings.defaultOutputCalendar;
+    return new Locale(localeR, numberingSystemR, outputCalendarR, specifiedLocale);
+  }
+  static resetCache() {
+    sysLocaleCache = null;
+    intlDTCache = {};
+    intlNumCache = {};
+    intlRelCache = {};
+  }
+  static fromObject({ locale, numberingSystem, outputCalendar } = {}) {
+    return Locale.create(locale, numberingSystem, outputCalendar);
+  }
+  constructor(locale, numbering, outputCalendar, specifiedLocale) {
+    const [parsedLocale, parsedNumberingSystem, parsedOutputCalendar] = parseLocaleString(locale);
+    this.locale = parsedLocale;
+    this.numberingSystem = numbering || parsedNumberingSystem || null;
+    this.outputCalendar = outputCalendar || parsedOutputCalendar || null;
+    this.intl = intlConfigString(this.locale, this.numberingSystem, this.outputCalendar);
+    this.weekdaysCache = { format: {}, standalone: {} };
+    this.monthsCache = { format: {}, standalone: {} };
+    this.meridiemCache = null;
+    this.eraCache = {};
+    this.specifiedLocale = specifiedLocale;
+    this.fastNumbersCached = null;
+  }
+  get fastNumbers() {
+    if (this.fastNumbersCached == null) {
+      this.fastNumbersCached = supportsFastNumbers(this);
+    }
+    return this.fastNumbersCached;
+  }
+  listingMode() {
+    const isActuallyEn = this.isEnglish();
+    const hasNoWeirdness = (this.numberingSystem === null || this.numberingSystem === "latn") && (this.outputCalendar === null || this.outputCalendar === "gregory");
+    return isActuallyEn && hasNoWeirdness ? "en" : "intl";
+  }
+  clone(alts) {
+    if (!alts || Object.getOwnPropertyNames(alts).length === 0) {
+      return this;
+    } else {
+      return Locale.create(alts.locale || this.specifiedLocale, alts.numberingSystem || this.numberingSystem, alts.outputCalendar || this.outputCalendar, alts.defaultToEN || false);
+    }
+  }
+  redefaultToEN(alts = {}) {
+    return this.clone(__spreadProps(__spreadValues({}, alts), { defaultToEN: true }));
+  }
+  redefaultToSystem(alts = {}) {
+    return this.clone(__spreadProps(__spreadValues({}, alts), { defaultToEN: false }));
+  }
+  months(length, format = false, defaultOK = true) {
+    return listStuff(this, length, defaultOK, months, () => {
+      const intl = format ? { month: length, day: "numeric" } : { month: length }, formatStr = format ? "format" : "standalone";
+      if (!this.monthsCache[formatStr][length]) {
+        this.monthsCache[formatStr][length] = mapMonths((dt) => this.extract(dt, intl, "month"));
+      }
+      return this.monthsCache[formatStr][length];
+    });
+  }
+  weekdays(length, format = false, defaultOK = true) {
+    return listStuff(this, length, defaultOK, weekdays, () => {
+      const intl = format ? { weekday: length, year: "numeric", month: "long", day: "numeric" } : { weekday: length }, formatStr = format ? "format" : "standalone";
+      if (!this.weekdaysCache[formatStr][length]) {
+        this.weekdaysCache[formatStr][length] = mapWeekdays((dt) => this.extract(dt, intl, "weekday"));
+      }
+      return this.weekdaysCache[formatStr][length];
+    });
+  }
+  meridiems(defaultOK = true) {
+    return listStuff(this, void 0, defaultOK, () => meridiems, () => {
+      if (!this.meridiemCache) {
+        const intl = { hour: "numeric", hourCycle: "h12" };
+        this.meridiemCache = [DateTime.utc(2016, 11, 13, 9), DateTime.utc(2016, 11, 13, 19)].map((dt) => this.extract(dt, intl, "dayperiod"));
+      }
+      return this.meridiemCache;
+    });
+  }
+  eras(length, defaultOK = true) {
+    return listStuff(this, length, defaultOK, eras, () => {
+      const intl = { era: length };
+      if (!this.eraCache[length]) {
+        this.eraCache[length] = [DateTime.utc(-40, 1, 1), DateTime.utc(2017, 1, 1)].map((dt) => this.extract(dt, intl, "era"));
+      }
+      return this.eraCache[length];
+    });
+  }
+  extract(dt, intlOpts, field) {
+    const df = this.dtFormatter(dt, intlOpts), results = df.formatToParts(), matching = results.find((m) => m.type.toLowerCase() === field);
+    return matching ? matching.value : null;
+  }
+  numberFormatter(opts = {}) {
+    return new PolyNumberFormatter(this.intl, opts.forceSimple || this.fastNumbers, opts);
+  }
+  dtFormatter(dt, intlOpts = {}) {
+    return new PolyDateFormatter(dt, this.intl, intlOpts);
+  }
+  relFormatter(opts = {}) {
+    return new PolyRelFormatter(this.intl, this.isEnglish(), opts);
+  }
+  listFormatter(opts = {}) {
+    return getCachedLF(this.intl, opts);
+  }
+  isEnglish() {
+    return this.locale === "en" || this.locale.toLowerCase() === "en-us" || new Intl.DateTimeFormat(this.intl).resolvedOptions().locale.startsWith("en-us");
+  }
+  equals(other) {
+    return this.locale === other.locale && this.numberingSystem === other.numberingSystem && this.outputCalendar === other.outputCalendar;
+  }
+};
+
+// node_modules/luxon/src/impl/regexParser.js
+function combineRegexes(...regexes) {
+  const full = regexes.reduce((f, r) => f + r.source, "");
+  return RegExp(`^${full}$`);
+}
+function combineExtractors(...extractors) {
+  return (m) => extractors.reduce(([mergedVals, mergedZone, cursor], ex) => {
+    const [val, zone, next] = ex(m, cursor);
+    return [__spreadValues(__spreadValues({}, mergedVals), val), zone || mergedZone, next];
+  }, [{}, null, 1]).slice(0, 2);
+}
+function parse(s2, ...patterns) {
+  if (s2 == null) {
+    return [null, null];
+  }
+  for (const [regex, extractor] of patterns) {
+    const m = regex.exec(s2);
+    if (m) {
+      return extractor(m);
+    }
+  }
+  return [null, null];
+}
+function simpleParse(...keys) {
+  return (match2, cursor) => {
+    const ret = {};
+    let i;
+    for (i = 0; i < keys.length; i++) {
+      ret[keys[i]] = parseInteger(match2[cursor + i]);
+    }
+    return [ret, null, cursor + i];
+  };
+}
+var offsetRegex = /(?:(Z)|([+-]\d\d)(?::?(\d\d))?)/;
+var isoExtendedZone = `(?:${offsetRegex.source}?(?:\\[(${ianaRegex.source})\\])?)?`;
+var isoTimeBaseRegex = /(\d\d)(?::?(\d\d)(?::?(\d\d)(?:[.,](\d{1,30}))?)?)?/;
+var isoTimeRegex = RegExp(`${isoTimeBaseRegex.source}${isoExtendedZone}`);
+var isoTimeExtensionRegex = RegExp(`(?:T${isoTimeRegex.source})?`);
+var isoYmdRegex = /([+-]\d{6}|\d{4})(?:-?(\d\d)(?:-?(\d\d))?)?/;
+var isoWeekRegex = /(\d{4})-?W(\d\d)(?:-?(\d))?/;
+var isoOrdinalRegex = /(\d{4})-?(\d{3})/;
+var extractISOWeekData = simpleParse("weekYear", "weekNumber", "weekDay");
+var extractISOOrdinalData = simpleParse("year", "ordinal");
+var sqlYmdRegex = /(\d{4})-(\d\d)-(\d\d)/;
+var sqlTimeRegex = RegExp(`${isoTimeBaseRegex.source} ?(?:${offsetRegex.source}|(${ianaRegex.source}))?`);
+var sqlTimeExtensionRegex = RegExp(`(?: ${sqlTimeRegex.source})?`);
+function int2(match2, pos, fallback) {
+  const m = match2[pos];
+  return isUndefined(m) ? fallback : parseInteger(m);
+}
+function extractISOYmd(match2, cursor) {
+  const item = {
+    year: int2(match2, cursor),
+    month: int2(match2, cursor + 1, 1),
+    day: int2(match2, cursor + 2, 1)
+  };
+  return [item, null, cursor + 3];
+}
+function extractISOTime(match2, cursor) {
+  const item = {
+    hours: int2(match2, cursor, 0),
+    minutes: int2(match2, cursor + 1, 0),
+    seconds: int2(match2, cursor + 2, 0),
+    milliseconds: parseMillis(match2[cursor + 3])
+  };
+  return [item, null, cursor + 4];
+}
+function extractISOOffset(match2, cursor) {
+  const local = !match2[cursor] && !match2[cursor + 1], fullOffset = signedOffset(match2[cursor + 1], match2[cursor + 2]), zone = local ? null : FixedOffsetZone.instance(fullOffset);
+  return [{}, zone, cursor + 3];
+}
+function extractIANAZone(match2, cursor) {
+  const zone = match2[cursor] ? IANAZone.create(match2[cursor]) : null;
+  return [{}, zone, cursor + 1];
+}
+var isoTimeOnly = RegExp(`^T?${isoTimeBaseRegex.source}$`);
+var isoDuration = /^-?P(?:(?:(-?\d{1,20}(?:\.\d{1,20})?)Y)?(?:(-?\d{1,20}(?:\.\d{1,20})?)M)?(?:(-?\d{1,20}(?:\.\d{1,20})?)W)?(?:(-?\d{1,20}(?:\.\d{1,20})?)D)?(?:T(?:(-?\d{1,20}(?:\.\d{1,20})?)H)?(?:(-?\d{1,20}(?:\.\d{1,20})?)M)?(?:(-?\d{1,20})(?:[.,](-?\d{1,20}))?S)?)?)$/;
+function extractISODuration(match2) {
+  const [s2, yearStr, monthStr, weekStr, dayStr, hourStr, minuteStr, secondStr, millisecondsStr] = match2;
+  const hasNegativePrefix = s2[0] === "-";
+  const negativeSeconds = secondStr && secondStr[0] === "-";
+  const maybeNegate = (num, force = false) => num !== void 0 && (force || num && hasNegativePrefix) ? -num : num;
+  return [
+    {
+      years: maybeNegate(parseFloating(yearStr)),
+      months: maybeNegate(parseFloating(monthStr)),
+      weeks: maybeNegate(parseFloating(weekStr)),
+      days: maybeNegate(parseFloating(dayStr)),
+      hours: maybeNegate(parseFloating(hourStr)),
+      minutes: maybeNegate(parseFloating(minuteStr)),
+      seconds: maybeNegate(parseFloating(secondStr), secondStr === "-0"),
+      milliseconds: maybeNegate(parseMillis(millisecondsStr), negativeSeconds)
+    }
+  ];
+}
+var obsOffsets = {
+  GMT: 0,
+  EDT: -4 * 60,
+  EST: -5 * 60,
+  CDT: -5 * 60,
+  CST: -6 * 60,
+  MDT: -6 * 60,
+  MST: -7 * 60,
+  PDT: -7 * 60,
+  PST: -8 * 60
+};
+function fromStrings(weekdayStr, yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr) {
+  const result = {
+    year: yearStr.length === 2 ? untruncateYear(parseInteger(yearStr)) : parseInteger(yearStr),
+    month: monthsShort.indexOf(monthStr) + 1,
+    day: parseInteger(dayStr),
+    hour: parseInteger(hourStr),
+    minute: parseInteger(minuteStr)
+  };
+  if (secondStr)
+    result.second = parseInteger(secondStr);
+  if (weekdayStr) {
+    result.weekday = weekdayStr.length > 3 ? weekdaysLong.indexOf(weekdayStr) + 1 : weekdaysShort.indexOf(weekdayStr) + 1;
+  }
+  return result;
+}
+var rfc2822 = /^(?:(Mon|Tue|Wed|Thu|Fri|Sat|Sun),\s)?(\d{1,2})\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s(\d{2,4})\s(\d\d):(\d\d)(?::(\d\d))?\s(?:(UT|GMT|[ECMP][SD]T)|([Zz])|(?:([+-]\d\d)(\d\d)))$/;
+function extractRFC2822(match2) {
+  const [
+    ,
+    weekdayStr,
+    dayStr,
+    monthStr,
+    yearStr,
+    hourStr,
+    minuteStr,
+    secondStr,
+    obsOffset,
+    milOffset,
+    offHourStr,
+    offMinuteStr
+  ] = match2, result = fromStrings(weekdayStr, yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr);
+  let offset2;
+  if (obsOffset) {
+    offset2 = obsOffsets[obsOffset];
+  } else if (milOffset) {
+    offset2 = 0;
+  } else {
+    offset2 = signedOffset(offHourStr, offMinuteStr);
+  }
+  return [result, new FixedOffsetZone(offset2)];
+}
+function preprocessRFC2822(s2) {
+  return s2.replace(/\([^)]*\)|[\n\t]/g, " ").replace(/(\s\s+)/g, " ").trim();
+}
+var rfc1123 = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun), (\d\d) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) (\d{4}) (\d\d):(\d\d):(\d\d) GMT$/;
+var rfc850 = /^(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday), (\d\d)-(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)-(\d\d) (\d\d):(\d\d):(\d\d) GMT$/;
+var ascii = /^(Mon|Tue|Wed|Thu|Fri|Sat|Sun) (Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec) ( \d|\d\d) (\d\d):(\d\d):(\d\d) (\d{4})$/;
+function extractRFC1123Or850(match2) {
+  const [, weekdayStr, dayStr, monthStr, yearStr, hourStr, minuteStr, secondStr] = match2, result = fromStrings(weekdayStr, yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr);
+  return [result, FixedOffsetZone.utcInstance];
+}
+function extractASCII(match2) {
+  const [, weekdayStr, monthStr, dayStr, hourStr, minuteStr, secondStr, yearStr] = match2, result = fromStrings(weekdayStr, yearStr, monthStr, dayStr, hourStr, minuteStr, secondStr);
+  return [result, FixedOffsetZone.utcInstance];
+}
+var isoYmdWithTimeExtensionRegex = combineRegexes(isoYmdRegex, isoTimeExtensionRegex);
+var isoWeekWithTimeExtensionRegex = combineRegexes(isoWeekRegex, isoTimeExtensionRegex);
+var isoOrdinalWithTimeExtensionRegex = combineRegexes(isoOrdinalRegex, isoTimeExtensionRegex);
+var isoTimeCombinedRegex = combineRegexes(isoTimeRegex);
+var extractISOYmdTimeAndOffset = combineExtractors(extractISOYmd, extractISOTime, extractISOOffset, extractIANAZone);
+var extractISOWeekTimeAndOffset = combineExtractors(extractISOWeekData, extractISOTime, extractISOOffset, extractIANAZone);
+var extractISOOrdinalDateAndTime = combineExtractors(extractISOOrdinalData, extractISOTime, extractISOOffset, extractIANAZone);
+var extractISOTimeAndOffset = combineExtractors(extractISOTime, extractISOOffset, extractIANAZone);
+function parseISODate(s2) {
+  return parse(s2, [isoYmdWithTimeExtensionRegex, extractISOYmdTimeAndOffset], [isoWeekWithTimeExtensionRegex, extractISOWeekTimeAndOffset], [isoOrdinalWithTimeExtensionRegex, extractISOOrdinalDateAndTime], [isoTimeCombinedRegex, extractISOTimeAndOffset]);
+}
+function parseRFC2822Date(s2) {
+  return parse(preprocessRFC2822(s2), [rfc2822, extractRFC2822]);
+}
+function parseHTTPDate(s2) {
+  return parse(s2, [rfc1123, extractRFC1123Or850], [rfc850, extractRFC1123Or850], [ascii, extractASCII]);
+}
+function parseISODuration(s2) {
+  return parse(s2, [isoDuration, extractISODuration]);
+}
+var extractISOTimeOnly = combineExtractors(extractISOTime);
+function parseISOTimeOnly(s2) {
+  return parse(s2, [isoTimeOnly, extractISOTimeOnly]);
+}
+var sqlYmdWithTimeExtensionRegex = combineRegexes(sqlYmdRegex, sqlTimeExtensionRegex);
+var sqlTimeCombinedRegex = combineRegexes(sqlTimeRegex);
+var extractISOTimeOffsetAndIANAZone = combineExtractors(extractISOTime, extractISOOffset, extractIANAZone);
+function parseSQL(s2) {
+  return parse(s2, [sqlYmdWithTimeExtensionRegex, extractISOYmdTimeAndOffset], [sqlTimeCombinedRegex, extractISOTimeOffsetAndIANAZone]);
+}
+
+// node_modules/luxon/src/duration.js
+var INVALID = "Invalid Duration";
+var lowOrderMatrix = {
+  weeks: {
+    days: 7,
+    hours: 7 * 24,
+    minutes: 7 * 24 * 60,
+    seconds: 7 * 24 * 60 * 60,
+    milliseconds: 7 * 24 * 60 * 60 * 1e3
+  },
+  days: {
+    hours: 24,
+    minutes: 24 * 60,
+    seconds: 24 * 60 * 60,
+    milliseconds: 24 * 60 * 60 * 1e3
+  },
+  hours: { minutes: 60, seconds: 60 * 60, milliseconds: 60 * 60 * 1e3 },
+  minutes: { seconds: 60, milliseconds: 60 * 1e3 },
+  seconds: { milliseconds: 1e3 }
+};
+var casualMatrix = __spreadValues({
+  years: {
+    quarters: 4,
+    months: 12,
+    weeks: 52,
+    days: 365,
+    hours: 365 * 24,
+    minutes: 365 * 24 * 60,
+    seconds: 365 * 24 * 60 * 60,
+    milliseconds: 365 * 24 * 60 * 60 * 1e3
+  },
+  quarters: {
+    months: 3,
+    weeks: 13,
+    days: 91,
+    hours: 91 * 24,
+    minutes: 91 * 24 * 60,
+    seconds: 91 * 24 * 60 * 60,
+    milliseconds: 91 * 24 * 60 * 60 * 1e3
+  },
+  months: {
+    weeks: 4,
+    days: 30,
+    hours: 30 * 24,
+    minutes: 30 * 24 * 60,
+    seconds: 30 * 24 * 60 * 60,
+    milliseconds: 30 * 24 * 60 * 60 * 1e3
+  }
+}, lowOrderMatrix);
+var daysInYearAccurate = 146097 / 400;
+var daysInMonthAccurate = 146097 / 4800;
+var accurateMatrix = __spreadValues({
+  years: {
+    quarters: 4,
+    months: 12,
+    weeks: daysInYearAccurate / 7,
+    days: daysInYearAccurate,
+    hours: daysInYearAccurate * 24,
+    minutes: daysInYearAccurate * 24 * 60,
+    seconds: daysInYearAccurate * 24 * 60 * 60,
+    milliseconds: daysInYearAccurate * 24 * 60 * 60 * 1e3
+  },
+  quarters: {
+    months: 3,
+    weeks: daysInYearAccurate / 28,
+    days: daysInYearAccurate / 4,
+    hours: daysInYearAccurate * 24 / 4,
+    minutes: daysInYearAccurate * 24 * 60 / 4,
+    seconds: daysInYearAccurate * 24 * 60 * 60 / 4,
+    milliseconds: daysInYearAccurate * 24 * 60 * 60 * 1e3 / 4
+  },
+  months: {
+    weeks: daysInMonthAccurate / 7,
+    days: daysInMonthAccurate,
+    hours: daysInMonthAccurate * 24,
+    minutes: daysInMonthAccurate * 24 * 60,
+    seconds: daysInMonthAccurate * 24 * 60 * 60,
+    milliseconds: daysInMonthAccurate * 24 * 60 * 60 * 1e3
+  }
+}, lowOrderMatrix);
+var orderedUnits = [
+  "years",
+  "quarters",
+  "months",
+  "weeks",
+  "days",
+  "hours",
+  "minutes",
+  "seconds",
+  "milliseconds"
+];
+var reverseUnits = orderedUnits.slice(0).reverse();
+function clone(dur, alts, clear = false) {
+  const conf = {
+    values: clear ? alts.values : __spreadValues(__spreadValues({}, dur.values), alts.values || {}),
+    loc: dur.loc.clone(alts.loc),
+    conversionAccuracy: alts.conversionAccuracy || dur.conversionAccuracy,
+    matrix: alts.matrix || dur.matrix
+  };
+  return new Duration(conf);
+}
+function antiTrunc(n2) {
+  return n2 < 0 ? Math.floor(n2) : Math.ceil(n2);
+}
+function convert(matrix, fromMap, fromUnit, toMap, toUnit) {
+  const conv = matrix[toUnit][fromUnit], raw = fromMap[fromUnit] / conv, sameSign = Math.sign(raw) === Math.sign(toMap[toUnit]), added = !sameSign && toMap[toUnit] !== 0 && Math.abs(raw) <= 1 ? antiTrunc(raw) : Math.trunc(raw);
+  toMap[toUnit] += added;
+  fromMap[fromUnit] -= added * conv;
+}
+function normalizeValues(matrix, vals) {
+  reverseUnits.reduce((previous, current) => {
+    if (!isUndefined(vals[current])) {
+      if (previous) {
+        convert(matrix, vals, previous, vals, current);
+      }
+      return current;
+    } else {
+      return previous;
+    }
+  }, null);
+}
+var Duration = class {
+  constructor(config) {
+    const accurate = config.conversionAccuracy === "longterm" || false;
+    let matrix = accurate ? accurateMatrix : casualMatrix;
+    if (config.matrix) {
+      matrix = config.matrix;
+    }
+    this.values = config.values;
+    this.loc = config.loc || Locale.create();
+    this.conversionAccuracy = accurate ? "longterm" : "casual";
+    this.invalid = config.invalid || null;
+    this.matrix = matrix;
+    this.isLuxonDuration = true;
+  }
+  static fromMillis(count, opts) {
+    return Duration.fromObject({ milliseconds: count }, opts);
+  }
+  static fromObject(obj, opts = {}) {
+    if (obj == null || typeof obj !== "object") {
+      throw new InvalidArgumentError(`Duration.fromObject: argument expected to be an object, got ${obj === null ? "null" : typeof obj}`);
+    }
+    return new Duration({
+      values: normalizeObject(obj, Duration.normalizeUnit),
+      loc: Locale.fromObject(opts),
+      conversionAccuracy: opts.conversionAccuracy,
+      matrix: opts.matrix
+    });
+  }
+  static fromDurationLike(durationLike) {
+    if (isNumber(durationLike)) {
+      return Duration.fromMillis(durationLike);
+    } else if (Duration.isDuration(durationLike)) {
+      return durationLike;
+    } else if (typeof durationLike === "object") {
+      return Duration.fromObject(durationLike);
+    } else {
+      throw new InvalidArgumentError(`Unknown duration argument ${durationLike} of type ${typeof durationLike}`);
+    }
+  }
+  static fromISO(text, opts) {
+    const [parsed] = parseISODuration(text);
+    if (parsed) {
+      return Duration.fromObject(parsed, opts);
+    } else {
+      return Duration.invalid("unparsable", `the input "${text}" can't be parsed as ISO 8601`);
+    }
+  }
+  static fromISOTime(text, opts) {
+    const [parsed] = parseISOTimeOnly(text);
+    if (parsed) {
+      return Duration.fromObject(parsed, opts);
+    } else {
+      return Duration.invalid("unparsable", `the input "${text}" can't be parsed as ISO 8601`);
+    }
+  }
+  static invalid(reason, explanation = null) {
+    if (!reason) {
+      throw new InvalidArgumentError("need to specify a reason the Duration is invalid");
+    }
+    const invalid = reason instanceof Invalid ? reason : new Invalid(reason, explanation);
+    if (Settings.throwOnInvalid) {
+      throw new InvalidDurationError(invalid);
+    } else {
+      return new Duration({ invalid });
+    }
+  }
+  static normalizeUnit(unit) {
+    const normalized = {
+      year: "years",
+      years: "years",
+      quarter: "quarters",
+      quarters: "quarters",
+      month: "months",
+      months: "months",
+      week: "weeks",
+      weeks: "weeks",
+      day: "days",
+      days: "days",
+      hour: "hours",
+      hours: "hours",
+      minute: "minutes",
+      minutes: "minutes",
+      second: "seconds",
+      seconds: "seconds",
+      millisecond: "milliseconds",
+      milliseconds: "milliseconds"
+    }[unit ? unit.toLowerCase() : unit];
+    if (!normalized)
+      throw new InvalidUnitError(unit);
+    return normalized;
+  }
+  static isDuration(o) {
+    return o && o.isLuxonDuration || false;
+  }
+  get locale() {
+    return this.isValid ? this.loc.locale : null;
+  }
+  get numberingSystem() {
+    return this.isValid ? this.loc.numberingSystem : null;
+  }
+  toFormat(fmt, opts = {}) {
+    const fmtOpts = __spreadProps(__spreadValues({}, opts), {
+      floor: opts.round !== false && opts.floor !== false
+    });
+    return this.isValid ? Formatter.create(this.loc, fmtOpts).formatDurationFromString(this, fmt) : INVALID;
+  }
+  toHuman(opts = {}) {
+    const l2 = orderedUnits.map((unit) => {
+      const val = this.values[unit];
+      if (isUndefined(val)) {
+        return null;
+      }
+      return this.loc.numberFormatter(__spreadProps(__spreadValues({ style: "unit", unitDisplay: "long" }, opts), { unit: unit.slice(0, -1) })).format(val);
+    }).filter((n2) => n2);
+    return this.loc.listFormatter(__spreadValues({ type: "conjunction", style: opts.listStyle || "narrow" }, opts)).format(l2);
+  }
+  toObject() {
+    if (!this.isValid)
+      return {};
+    return __spreadValues({}, this.values);
+  }
+  toISO() {
+    if (!this.isValid)
+      return null;
+    let s2 = "P";
+    if (this.years !== 0)
+      s2 += this.years + "Y";
+    if (this.months !== 0 || this.quarters !== 0)
+      s2 += this.months + this.quarters * 3 + "M";
+    if (this.weeks !== 0)
+      s2 += this.weeks + "W";
+    if (this.days !== 0)
+      s2 += this.days + "D";
+    if (this.hours !== 0 || this.minutes !== 0 || this.seconds !== 0 || this.milliseconds !== 0)
+      s2 += "T";
+    if (this.hours !== 0)
+      s2 += this.hours + "H";
+    if (this.minutes !== 0)
+      s2 += this.minutes + "M";
+    if (this.seconds !== 0 || this.milliseconds !== 0)
+      s2 += roundTo(this.seconds + this.milliseconds / 1e3, 3) + "S";
+    if (s2 === "P")
+      s2 += "T0S";
+    return s2;
+  }
+  toISOTime(opts = {}) {
+    if (!this.isValid)
+      return null;
+    const millis = this.toMillis();
+    if (millis < 0 || millis >= 864e5)
+      return null;
+    opts = __spreadValues({
+      suppressMilliseconds: false,
+      suppressSeconds: false,
+      includePrefix: false,
+      format: "extended"
+    }, opts);
+    const value = this.shiftTo("hours", "minutes", "seconds", "milliseconds");
+    let fmt = opts.format === "basic" ? "hhmm" : "hh:mm";
+    if (!opts.suppressSeconds || value.seconds !== 0 || value.milliseconds !== 0) {
+      fmt += opts.format === "basic" ? "ss" : ":ss";
+      if (!opts.suppressMilliseconds || value.milliseconds !== 0) {
+        fmt += ".SSS";
+      }
+    }
+    let str = value.toFormat(fmt);
+    if (opts.includePrefix) {
+      str = "T" + str;
+    }
+    return str;
+  }
+  toJSON() {
+    return this.toISO();
+  }
+  toString() {
+    return this.toISO();
+  }
+  toMillis() {
+    return this.as("milliseconds");
+  }
+  valueOf() {
+    return this.toMillis();
+  }
+  plus(duration2) {
+    if (!this.isValid)
+      return this;
+    const dur = Duration.fromDurationLike(duration2), result = {};
+    for (const k of orderedUnits) {
+      if (hasOwnProperty(dur.values, k) || hasOwnProperty(this.values, k)) {
+        result[k] = dur.get(k) + this.get(k);
+      }
+    }
+    return clone(this, { values: result }, true);
+  }
+  minus(duration2) {
+    if (!this.isValid)
+      return this;
+    const dur = Duration.fromDurationLike(duration2);
+    return this.plus(dur.negate());
+  }
+  mapUnits(fn) {
+    if (!this.isValid)
+      return this;
+    const result = {};
+    for (const k of Object.keys(this.values)) {
+      result[k] = asNumber(fn(this.values[k], k));
+    }
+    return clone(this, { values: result }, true);
+  }
+  get(unit) {
+    return this[Duration.normalizeUnit(unit)];
+  }
+  set(values) {
+    if (!this.isValid)
+      return this;
+    const mixed = __spreadValues(__spreadValues({}, this.values), normalizeObject(values, Duration.normalizeUnit));
+    return clone(this, { values: mixed });
+  }
+  reconfigure({ locale, numberingSystem, conversionAccuracy, matrix } = {}) {
+    const loc = this.loc.clone({ locale, numberingSystem });
+    const opts = { loc, matrix, conversionAccuracy };
+    return clone(this, opts);
+  }
+  as(unit) {
+    return this.isValid ? this.shiftTo(unit).get(unit) : NaN;
+  }
+  normalize() {
+    if (!this.isValid)
+      return this;
+    const vals = this.toObject();
+    normalizeValues(this.matrix, vals);
+    return clone(this, { values: vals }, true);
+  }
+  shiftTo(...units) {
+    if (!this.isValid)
+      return this;
+    if (units.length === 0) {
+      return this;
+    }
+    units = units.map((u) => Duration.normalizeUnit(u));
+    const built = {}, accumulated = {}, vals = this.toObject();
+    let lastUnit;
+    for (const k of orderedUnits) {
+      if (units.indexOf(k) >= 0) {
+        lastUnit = k;
+        let own = 0;
+        for (const ak in accumulated) {
+          own += this.matrix[ak][k] * accumulated[ak];
+          accumulated[ak] = 0;
+        }
+        if (isNumber(vals[k])) {
+          own += vals[k];
+        }
+        const i = Math.trunc(own);
+        built[k] = i;
+        accumulated[k] = (own * 1e3 - i * 1e3) / 1e3;
+        for (const down in vals) {
+          if (orderedUnits.indexOf(down) > orderedUnits.indexOf(k)) {
+            convert(this.matrix, vals, down, built, k);
+          }
+        }
+      } else if (isNumber(vals[k])) {
+        accumulated[k] = vals[k];
+      }
+    }
+    for (const key in accumulated) {
+      if (accumulated[key] !== 0) {
+        built[lastUnit] += key === lastUnit ? accumulated[key] : accumulated[key] / this.matrix[lastUnit][key];
+      }
+    }
+    return clone(this, { values: built }, true).normalize();
+  }
+  negate() {
+    if (!this.isValid)
+      return this;
+    const negated = {};
+    for (const k of Object.keys(this.values)) {
+      negated[k] = this.values[k] === 0 ? 0 : -this.values[k];
+    }
+    return clone(this, { values: negated }, true);
+  }
+  get years() {
+    return this.isValid ? this.values.years || 0 : NaN;
+  }
+  get quarters() {
+    return this.isValid ? this.values.quarters || 0 : NaN;
+  }
+  get months() {
+    return this.isValid ? this.values.months || 0 : NaN;
+  }
+  get weeks() {
+    return this.isValid ? this.values.weeks || 0 : NaN;
+  }
+  get days() {
+    return this.isValid ? this.values.days || 0 : NaN;
+  }
+  get hours() {
+    return this.isValid ? this.values.hours || 0 : NaN;
+  }
+  get minutes() {
+    return this.isValid ? this.values.minutes || 0 : NaN;
+  }
+  get seconds() {
+    return this.isValid ? this.values.seconds || 0 : NaN;
+  }
+  get milliseconds() {
+    return this.isValid ? this.values.milliseconds || 0 : NaN;
+  }
+  get isValid() {
+    return this.invalid === null;
+  }
+  get invalidReason() {
+    return this.invalid ? this.invalid.reason : null;
+  }
+  get invalidExplanation() {
+    return this.invalid ? this.invalid.explanation : null;
+  }
+  equals(other) {
+    if (!this.isValid || !other.isValid) {
+      return false;
+    }
+    if (!this.loc.equals(other.loc)) {
+      return false;
+    }
+    function eq(v1, v2) {
+      if (v1 === void 0 || v1 === 0)
+        return v2 === void 0 || v2 === 0;
+      return v1 === v2;
+    }
+    for (const u of orderedUnits) {
+      if (!eq(this.values[u], other.values[u])) {
+        return false;
+      }
+    }
+    return true;
+  }
+};
+
+// node_modules/luxon/src/interval.js
+var INVALID2 = "Invalid Interval";
+function validateStartEnd(start, end) {
+  if (!start || !start.isValid) {
+    return Interval.invalid("missing or invalid start");
+  } else if (!end || !end.isValid) {
+    return Interval.invalid("missing or invalid end");
+  } else if (end < start) {
+    return Interval.invalid("end before start", `The end of an interval must be after its start, but you had start=${start.toISO()} and end=${end.toISO()}`);
+  } else {
+    return null;
+  }
+}
+var Interval = class {
+  constructor(config) {
+    this.s = config.start;
+    this.e = config.end;
+    this.invalid = config.invalid || null;
+    this.isLuxonInterval = true;
+  }
+  static invalid(reason, explanation = null) {
+    if (!reason) {
+      throw new InvalidArgumentError("need to specify a reason the Interval is invalid");
+    }
+    const invalid = reason instanceof Invalid ? reason : new Invalid(reason, explanation);
+    if (Settings.throwOnInvalid) {
+      throw new InvalidIntervalError(invalid);
+    } else {
+      return new Interval({ invalid });
+    }
+  }
+  static fromDateTimes(start, end) {
+    const builtStart = friendlyDateTime(start), builtEnd = friendlyDateTime(end);
+    const validateError = validateStartEnd(builtStart, builtEnd);
+    if (validateError == null) {
+      return new Interval({
+        start: builtStart,
+        end: builtEnd
+      });
+    } else {
+      return validateError;
+    }
+  }
+  static after(start, duration2) {
+    const dur = Duration.fromDurationLike(duration2), dt = friendlyDateTime(start);
+    return Interval.fromDateTimes(dt, dt.plus(dur));
+  }
+  static before(end, duration2) {
+    const dur = Duration.fromDurationLike(duration2), dt = friendlyDateTime(end);
+    return Interval.fromDateTimes(dt.minus(dur), dt);
+  }
+  static fromISO(text, opts) {
+    const [s2, e] = (text || "").split("/", 2);
+    if (s2 && e) {
+      let start, startIsValid;
+      try {
+        start = DateTime.fromISO(s2, opts);
+        startIsValid = start.isValid;
+      } catch (e2) {
+        startIsValid = false;
+      }
+      let end, endIsValid;
+      try {
+        end = DateTime.fromISO(e, opts);
+        endIsValid = end.isValid;
+      } catch (e2) {
+        endIsValid = false;
+      }
+      if (startIsValid && endIsValid) {
+        return Interval.fromDateTimes(start, end);
+      }
+      if (startIsValid) {
+        const dur = Duration.fromISO(e, opts);
+        if (dur.isValid) {
+          return Interval.after(start, dur);
+        }
+      } else if (endIsValid) {
+        const dur = Duration.fromISO(s2, opts);
+        if (dur.isValid) {
+          return Interval.before(end, dur);
+        }
+      }
+    }
+    return Interval.invalid("unparsable", `the input "${text}" can't be parsed as ISO 8601`);
+  }
+  static isInterval(o) {
+    return o && o.isLuxonInterval || false;
+  }
+  get start() {
+    return this.isValid ? this.s : null;
+  }
+  get end() {
+    return this.isValid ? this.e : null;
+  }
+  get isValid() {
+    return this.invalidReason === null;
+  }
+  get invalidReason() {
+    return this.invalid ? this.invalid.reason : null;
+  }
+  get invalidExplanation() {
+    return this.invalid ? this.invalid.explanation : null;
+  }
+  length(unit = "milliseconds") {
+    return this.isValid ? this.toDuration(...[unit]).get(unit) : NaN;
+  }
+  count(unit = "milliseconds") {
+    if (!this.isValid)
+      return NaN;
+    const start = this.start.startOf(unit), end = this.end.startOf(unit);
+    return Math.floor(end.diff(start, unit).get(unit)) + 1;
+  }
+  hasSame(unit) {
+    return this.isValid ? this.isEmpty() || this.e.minus(1).hasSame(this.s, unit) : false;
+  }
+  isEmpty() {
+    return this.s.valueOf() === this.e.valueOf();
+  }
+  isAfter(dateTime) {
+    if (!this.isValid)
+      return false;
+    return this.s > dateTime;
+  }
+  isBefore(dateTime) {
+    if (!this.isValid)
+      return false;
+    return this.e <= dateTime;
+  }
+  contains(dateTime) {
+    if (!this.isValid)
+      return false;
+    return this.s <= dateTime && this.e > dateTime;
+  }
+  set({ start, end } = {}) {
+    if (!this.isValid)
+      return this;
+    return Interval.fromDateTimes(start || this.s, end || this.e);
+  }
+  splitAt(...dateTimes) {
+    if (!this.isValid)
+      return [];
+    const sorted = dateTimes.map(friendlyDateTime).filter((d) => this.contains(d)).sort(), results = [];
+    let { s: s2 } = this, i = 0;
+    while (s2 < this.e) {
+      const added = sorted[i] || this.e, next = +added > +this.e ? this.e : added;
+      results.push(Interval.fromDateTimes(s2, next));
+      s2 = next;
+      i += 1;
+    }
+    return results;
+  }
+  splitBy(duration2) {
+    const dur = Duration.fromDurationLike(duration2);
+    if (!this.isValid || !dur.isValid || dur.as("milliseconds") === 0) {
+      return [];
+    }
+    let { s: s2 } = this, idx = 1, next;
+    const results = [];
+    while (s2 < this.e) {
+      const added = this.start.plus(dur.mapUnits((x) => x * idx));
+      next = +added > +this.e ? this.e : added;
+      results.push(Interval.fromDateTimes(s2, next));
+      s2 = next;
+      idx += 1;
+    }
+    return results;
+  }
+  divideEqually(numberOfParts) {
+    if (!this.isValid)
+      return [];
+    return this.splitBy(this.length() / numberOfParts).slice(0, numberOfParts);
+  }
+  overlaps(other) {
+    return this.e > other.s && this.s < other.e;
+  }
+  abutsStart(other) {
+    if (!this.isValid)
+      return false;
+    return +this.e === +other.s;
+  }
+  abutsEnd(other) {
+    if (!this.isValid)
+      return false;
+    return +other.e === +this.s;
+  }
+  engulfs(other) {
+    if (!this.isValid)
+      return false;
+    return this.s <= other.s && this.e >= other.e;
+  }
+  equals(other) {
+    if (!this.isValid || !other.isValid) {
+      return false;
+    }
+    return this.s.equals(other.s) && this.e.equals(other.e);
+  }
+  intersection(other) {
+    if (!this.isValid)
+      return this;
+    const s2 = this.s > other.s ? this.s : other.s, e = this.e < other.e ? this.e : other.e;
+    if (s2 >= e) {
+      return null;
+    } else {
+      return Interval.fromDateTimes(s2, e);
+    }
+  }
+  union(other) {
+    if (!this.isValid)
+      return this;
+    const s2 = this.s < other.s ? this.s : other.s, e = this.e > other.e ? this.e : other.e;
+    return Interval.fromDateTimes(s2, e);
+  }
+  static merge(intervals) {
+    const [found, final] = intervals.sort((a, b) => a.s - b.s).reduce(([sofar, current], item) => {
+      if (!current) {
+        return [sofar, item];
+      } else if (current.overlaps(item) || current.abutsStart(item)) {
+        return [sofar, current.union(item)];
+      } else {
+        return [sofar.concat([current]), item];
+      }
+    }, [[], null]);
+    if (final) {
+      found.push(final);
+    }
+    return found;
+  }
+  static xor(intervals) {
+    let start = null, currentCount = 0;
+    const results = [], ends = intervals.map((i) => [
+      { time: i.s, type: "s" },
+      { time: i.e, type: "e" }
+    ]), flattened = Array.prototype.concat(...ends), arr = flattened.sort((a, b) => a.time - b.time);
+    for (const i of arr) {
+      currentCount += i.type === "s" ? 1 : -1;
+      if (currentCount === 1) {
+        start = i.time;
+      } else {
+        if (start && +start !== +i.time) {
+          results.push(Interval.fromDateTimes(start, i.time));
+        }
+        start = null;
+      }
+    }
+    return Interval.merge(results);
+  }
+  difference(...intervals) {
+    return Interval.xor([this].concat(intervals)).map((i) => this.intersection(i)).filter((i) => i && !i.isEmpty());
+  }
+  toString() {
+    if (!this.isValid)
+      return INVALID2;
+    return `[${this.s.toISO()} \u2013 ${this.e.toISO()})`;
+  }
+  toISO(opts) {
+    if (!this.isValid)
+      return INVALID2;
+    return `${this.s.toISO(opts)}/${this.e.toISO(opts)}`;
+  }
+  toISODate() {
+    if (!this.isValid)
+      return INVALID2;
+    return `${this.s.toISODate()}/${this.e.toISODate()}`;
+  }
+  toISOTime(opts) {
+    if (!this.isValid)
+      return INVALID2;
+    return `${this.s.toISOTime(opts)}/${this.e.toISOTime(opts)}`;
+  }
+  toFormat(dateFormat, { separator = " \u2013 " } = {}) {
+    if (!this.isValid)
+      return INVALID2;
+    return `${this.s.toFormat(dateFormat)}${separator}${this.e.toFormat(dateFormat)}`;
+  }
+  toDuration(unit, opts) {
+    if (!this.isValid) {
+      return Duration.invalid(this.invalidReason);
+    }
+    return this.e.diff(this.s, unit, opts);
+  }
+  mapEndpoints(mapFn) {
+    return Interval.fromDateTimes(mapFn(this.s), mapFn(this.e));
+  }
+};
+
+// node_modules/luxon/src/info.js
+var Info = class {
+  static hasDST(zone = Settings.defaultZone) {
+    const proto = DateTime.now().setZone(zone).set({ month: 12 });
+    return !zone.isUniversal && proto.offset !== proto.set({ month: 6 }).offset;
+  }
+  static isValidIANAZone(zone) {
+    return IANAZone.isValidZone(zone);
+  }
+  static normalizeZone(input) {
+    return normalizeZone(input, Settings.defaultZone);
+  }
+  static months(length = "long", { locale = null, numberingSystem = null, locObj = null, outputCalendar = "gregory" } = {}) {
+    return (locObj || Locale.create(locale, numberingSystem, outputCalendar)).months(length);
+  }
+  static monthsFormat(length = "long", { locale = null, numberingSystem = null, locObj = null, outputCalendar = "gregory" } = {}) {
+    return (locObj || Locale.create(locale, numberingSystem, outputCalendar)).months(length, true);
+  }
+  static weekdays(length = "long", { locale = null, numberingSystem = null, locObj = null } = {}) {
+    return (locObj || Locale.create(locale, numberingSystem, null)).weekdays(length);
+  }
+  static weekdaysFormat(length = "long", { locale = null, numberingSystem = null, locObj = null } = {}) {
+    return (locObj || Locale.create(locale, numberingSystem, null)).weekdays(length, true);
+  }
+  static meridiems({ locale = null } = {}) {
+    return Locale.create(locale).meridiems();
+  }
+  static eras(length = "short", { locale = null } = {}) {
+    return Locale.create(locale, null, "gregory").eras(length);
+  }
+  static features() {
+    return { relative: hasRelative() };
+  }
+};
+
+// node_modules/luxon/src/impl/diff.js
+function dayDiff(earlier, later) {
+  const utcDayStart = (dt) => dt.toUTC(0, { keepLocalTime: true }).startOf("day").valueOf(), ms = utcDayStart(later) - utcDayStart(earlier);
+  return Math.floor(Duration.fromMillis(ms).as("days"));
+}
+function highOrderDiffs(cursor, later, units) {
+  const differs = [
+    ["years", (a, b) => b.year - a.year],
+    ["quarters", (a, b) => b.quarter - a.quarter + (b.year - a.year) * 4],
+    ["months", (a, b) => b.month - a.month + (b.year - a.year) * 12],
+    [
+      "weeks",
+      (a, b) => {
+        const days = dayDiff(a, b);
+        return (days - days % 7) / 7;
+      }
+    ],
+    ["days", dayDiff]
+  ];
+  const results = {};
+  let lowestOrder, highWater;
+  for (const [unit, differ] of differs) {
+    if (units.indexOf(unit) >= 0) {
+      lowestOrder = unit;
+      let delta = differ(cursor, later);
+      highWater = cursor.plus({ [unit]: delta });
+      if (highWater > later) {
+        cursor = cursor.plus({ [unit]: delta - 1 });
+        delta -= 1;
+      } else {
+        cursor = highWater;
+      }
+      results[unit] = delta;
+    }
+  }
+  return [cursor, results, highWater, lowestOrder];
+}
+function diff_default(earlier, later, units, opts) {
+  let [cursor, results, highWater, lowestOrder] = highOrderDiffs(earlier, later, units);
+  const remainingMillis = later - cursor;
+  const lowerOrderUnits = units.filter((u) => ["hours", "minutes", "seconds", "milliseconds"].indexOf(u) >= 0);
+  if (lowerOrderUnits.length === 0) {
+    if (highWater < later) {
+      highWater = cursor.plus({ [lowestOrder]: 1 });
+    }
+    if (highWater !== cursor) {
+      results[lowestOrder] = (results[lowestOrder] || 0) + remainingMillis / (highWater - cursor);
+    }
+  }
+  const duration2 = Duration.fromObject(results, opts);
+  if (lowerOrderUnits.length > 0) {
+    return Duration.fromMillis(remainingMillis, opts).shiftTo(...lowerOrderUnits).plus(duration2);
+  } else {
+    return duration2;
+  }
+}
+
+// node_modules/luxon/src/impl/digits.js
+var numberingSystems = {
+  arab: "[\u0660-\u0669]",
+  arabext: "[\u06F0-\u06F9]",
+  bali: "[\u1B50-\u1B59]",
+  beng: "[\u09E6-\u09EF]",
+  deva: "[\u0966-\u096F]",
+  fullwide: "[\uFF10-\uFF19]",
+  gujr: "[\u0AE6-\u0AEF]",
+  hanidec: "[\u3007|\u4E00|\u4E8C|\u4E09|\u56DB|\u4E94|\u516D|\u4E03|\u516B|\u4E5D]",
+  khmr: "[\u17E0-\u17E9]",
+  knda: "[\u0CE6-\u0CEF]",
+  laoo: "[\u0ED0-\u0ED9]",
+  limb: "[\u1946-\u194F]",
+  mlym: "[\u0D66-\u0D6F]",
+  mong: "[\u1810-\u1819]",
+  mymr: "[\u1040-\u1049]",
+  orya: "[\u0B66-\u0B6F]",
+  tamldec: "[\u0BE6-\u0BEF]",
+  telu: "[\u0C66-\u0C6F]",
+  thai: "[\u0E50-\u0E59]",
+  tibt: "[\u0F20-\u0F29]",
+  latn: "\\d"
+};
+var numberingSystemsUTF16 = {
+  arab: [1632, 1641],
+  arabext: [1776, 1785],
+  bali: [6992, 7001],
+  beng: [2534, 2543],
+  deva: [2406, 2415],
+  fullwide: [65296, 65303],
+  gujr: [2790, 2799],
+  khmr: [6112, 6121],
+  knda: [3302, 3311],
+  laoo: [3792, 3801],
+  limb: [6470, 6479],
+  mlym: [3430, 3439],
+  mong: [6160, 6169],
+  mymr: [4160, 4169],
+  orya: [2918, 2927],
+  tamldec: [3046, 3055],
+  telu: [3174, 3183],
+  thai: [3664, 3673],
+  tibt: [3872, 3881]
+};
+var hanidecChars = numberingSystems.hanidec.replace(/[\[|\]]/g, "").split("");
+function parseDigits(str) {
+  let value = parseInt(str, 10);
+  if (isNaN(value)) {
+    value = "";
+    for (let i = 0; i < str.length; i++) {
+      const code = str.charCodeAt(i);
+      if (str[i].search(numberingSystems.hanidec) !== -1) {
+        value += hanidecChars.indexOf(str[i]);
+      } else {
+        for (const key in numberingSystemsUTF16) {
+          const [min, max] = numberingSystemsUTF16[key];
+          if (code >= min && code <= max) {
+            value += code - min;
+          }
+        }
+      }
+    }
+    return parseInt(value, 10);
+  } else {
+    return value;
+  }
+}
+function digitRegex({ numberingSystem }, append = "") {
+  return new RegExp(`${numberingSystems[numberingSystem || "latn"]}${append}`);
+}
+
+// node_modules/luxon/src/impl/tokenParser.js
+var MISSING_FTP = "missing Intl.DateTimeFormat.formatToParts support";
+function intUnit(regex, post = (i) => i) {
+  return { regex, deser: ([s2]) => post(parseDigits(s2)) };
+}
+var NBSP = String.fromCharCode(160);
+var spaceOrNBSP = `[ ${NBSP}]`;
+var spaceOrNBSPRegExp = new RegExp(spaceOrNBSP, "g");
+function fixListRegex(s2) {
+  return s2.replace(/\./g, "\\.?").replace(spaceOrNBSPRegExp, spaceOrNBSP);
+}
+function stripInsensitivities(s2) {
+  return s2.replace(/\./g, "").replace(spaceOrNBSPRegExp, " ").toLowerCase();
+}
+function oneOf(strings, startIndex) {
+  if (strings === null) {
+    return null;
+  } else {
+    return {
+      regex: RegExp(strings.map(fixListRegex).join("|")),
+      deser: ([s2]) => strings.findIndex((i) => stripInsensitivities(s2) === stripInsensitivities(i)) + startIndex
+    };
+  }
+}
+function offset(regex, groups) {
+  return { regex, deser: ([, h, m]) => signedOffset(h, m), groups };
+}
+function simple(regex) {
+  return { regex, deser: ([s2]) => s2 };
+}
+function escapeToken(value) {
+  return value.replace(/[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&");
+}
+function unitForToken(token, loc) {
+  const one = digitRegex(loc), two = digitRegex(loc, "{2}"), three = digitRegex(loc, "{3}"), four = digitRegex(loc, "{4}"), six = digitRegex(loc, "{6}"), oneOrTwo = digitRegex(loc, "{1,2}"), oneToThree = digitRegex(loc, "{1,3}"), oneToSix = digitRegex(loc, "{1,6}"), oneToNine = digitRegex(loc, "{1,9}"), twoToFour = digitRegex(loc, "{2,4}"), fourToSix = digitRegex(loc, "{4,6}"), literal = (t) => ({ regex: RegExp(escapeToken(t.val)), deser: ([s2]) => s2, literal: true }), unitate = (t) => {
+    if (token.literal) {
+      return literal(t);
+    }
+    switch (t.val) {
+      case "G":
+        return oneOf(loc.eras("short", false), 0);
+      case "GG":
+        return oneOf(loc.eras("long", false), 0);
+      case "y":
+        return intUnit(oneToSix);
+      case "yy":
+        return intUnit(twoToFour, untruncateYear);
+      case "yyyy":
+        return intUnit(four);
+      case "yyyyy":
+        return intUnit(fourToSix);
+      case "yyyyyy":
+        return intUnit(six);
+      case "M":
+        return intUnit(oneOrTwo);
+      case "MM":
+        return intUnit(two);
+      case "MMM":
+        return oneOf(loc.months("short", true, false), 1);
+      case "MMMM":
+        return oneOf(loc.months("long", true, false), 1);
+      case "L":
+        return intUnit(oneOrTwo);
+      case "LL":
+        return intUnit(two);
+      case "LLL":
+        return oneOf(loc.months("short", false, false), 1);
+      case "LLLL":
+        return oneOf(loc.months("long", false, false), 1);
+      case "d":
+        return intUnit(oneOrTwo);
+      case "dd":
+        return intUnit(two);
+      case "o":
+        return intUnit(oneToThree);
+      case "ooo":
+        return intUnit(three);
+      case "HH":
+        return intUnit(two);
+      case "H":
+        return intUnit(oneOrTwo);
+      case "hh":
+        return intUnit(two);
+      case "h":
+        return intUnit(oneOrTwo);
+      case "mm":
+        return intUnit(two);
+      case "m":
+        return intUnit(oneOrTwo);
+      case "q":
+        return intUnit(oneOrTwo);
+      case "qq":
+        return intUnit(two);
+      case "s":
+        return intUnit(oneOrTwo);
+      case "ss":
+        return intUnit(two);
+      case "S":
+        return intUnit(oneToThree);
+      case "SSS":
+        return intUnit(three);
+      case "u":
+        return simple(oneToNine);
+      case "uu":
+        return simple(oneOrTwo);
+      case "uuu":
+        return intUnit(one);
+      case "a":
+        return oneOf(loc.meridiems(), 0);
+      case "kkkk":
+        return intUnit(four);
+      case "kk":
+        return intUnit(twoToFour, untruncateYear);
+      case "W":
+        return intUnit(oneOrTwo);
+      case "WW":
+        return intUnit(two);
+      case "E":
+      case "c":
+        return intUnit(one);
+      case "EEE":
+        return oneOf(loc.weekdays("short", false, false), 1);
+      case "EEEE":
+        return oneOf(loc.weekdays("long", false, false), 1);
+      case "ccc":
+        return oneOf(loc.weekdays("short", true, false), 1);
+      case "cccc":
+        return oneOf(loc.weekdays("long", true, false), 1);
+      case "Z":
+      case "ZZ":
+        return offset(new RegExp(`([+-]${oneOrTwo.source})(?::(${two.source}))?`), 2);
+      case "ZZZ":
+        return offset(new RegExp(`([+-]${oneOrTwo.source})(${two.source})?`), 2);
+      case "z":
+        return simple(/[a-z_+-/]{1,256}?/i);
+      default:
+        return literal(t);
+    }
+  };
+  const unit = unitate(token) || {
+    invalidReason: MISSING_FTP
+  };
+  unit.token = token;
+  return unit;
+}
+var partTypeStyleToTokenVal = {
+  year: {
+    "2-digit": "yy",
+    numeric: "yyyyy"
+  },
+  month: {
+    numeric: "M",
+    "2-digit": "MM",
+    short: "MMM",
+    long: "MMMM"
+  },
+  day: {
+    numeric: "d",
+    "2-digit": "dd"
+  },
+  weekday: {
+    short: "EEE",
+    long: "EEEE"
+  },
+  dayperiod: "a",
+  dayPeriod: "a",
+  hour: {
+    numeric: "h",
+    "2-digit": "hh"
+  },
+  minute: {
+    numeric: "m",
+    "2-digit": "mm"
+  },
+  second: {
+    numeric: "s",
+    "2-digit": "ss"
+  },
+  timeZoneName: {
+    long: "ZZZZZ",
+    short: "ZZZ"
+  }
+};
+function tokenForPart(part, locale, formatOpts) {
+  const { type, value } = part;
+  if (type === "literal") {
+    return {
+      literal: true,
+      val: value
+    };
+  }
+  const style = formatOpts[type];
+  let val = partTypeStyleToTokenVal[type];
+  if (typeof val === "object") {
+    val = val[style];
+  }
+  if (val) {
+    return {
+      literal: false,
+      val
+    };
+  }
+  return void 0;
+}
+function buildRegex(units) {
+  const re = units.map((u) => u.regex).reduce((f, r) => `${f}(${r.source})`, "");
+  return [`^${re}$`, units];
+}
+function match(input, regex, handlers) {
+  const matches = input.match(regex);
+  if (matches) {
+    const all = {};
+    let matchIndex = 1;
+    for (const i in handlers) {
+      if (hasOwnProperty(handlers, i)) {
+        const h = handlers[i], groups = h.groups ? h.groups + 1 : 1;
+        if (!h.literal && h.token) {
+          all[h.token.val[0]] = h.deser(matches.slice(matchIndex, matchIndex + groups));
+        }
+        matchIndex += groups;
+      }
+    }
+    return [matches, all];
+  } else {
+    return [matches, {}];
+  }
+}
+function dateTimeFromMatches(matches) {
+  const toField = (token) => {
+    switch (token) {
+      case "S":
+        return "millisecond";
+      case "s":
+        return "second";
+      case "m":
+        return "minute";
+      case "h":
+      case "H":
+        return "hour";
+      case "d":
+        return "day";
+      case "o":
+        return "ordinal";
+      case "L":
+      case "M":
+        return "month";
+      case "y":
+        return "year";
+      case "E":
+      case "c":
+        return "weekday";
+      case "W":
+        return "weekNumber";
+      case "k":
+        return "weekYear";
+      case "q":
+        return "quarter";
+      default:
+        return null;
+    }
+  };
+  let zone = null;
+  let specificOffset;
+  if (!isUndefined(matches.z)) {
+    zone = IANAZone.create(matches.z);
+  }
+  if (!isUndefined(matches.Z)) {
+    if (!zone) {
+      zone = new FixedOffsetZone(matches.Z);
+    }
+    specificOffset = matches.Z;
+  }
+  if (!isUndefined(matches.q)) {
+    matches.M = (matches.q - 1) * 3 + 1;
+  }
+  if (!isUndefined(matches.h)) {
+    if (matches.h < 12 && matches.a === 1) {
+      matches.h += 12;
+    } else if (matches.h === 12 && matches.a === 0) {
+      matches.h = 0;
+    }
+  }
+  if (matches.G === 0 && matches.y) {
+    matches.y = -matches.y;
+  }
+  if (!isUndefined(matches.u)) {
+    matches.S = parseMillis(matches.u);
+  }
+  const vals = Object.keys(matches).reduce((r, k) => {
+    const f = toField(k);
+    if (f) {
+      r[f] = matches[k];
+    }
+    return r;
+  }, {});
+  return [vals, zone, specificOffset];
+}
+var dummyDateTimeCache = null;
+function getDummyDateTime() {
+  if (!dummyDateTimeCache) {
+    dummyDateTimeCache = DateTime.fromMillis(1555555555555);
+  }
+  return dummyDateTimeCache;
+}
+function maybeExpandMacroToken(token, locale) {
+  if (token.literal) {
+    return token;
+  }
+  const formatOpts = Formatter.macroTokenToFormatOpts(token.val);
+  const tokens = formatOptsToTokens(formatOpts, locale);
+  if (tokens == null || tokens.includes(void 0)) {
+    return token;
+  }
+  return tokens;
+}
+function expandMacroTokens(tokens, locale) {
+  return Array.prototype.concat(...tokens.map((t) => maybeExpandMacroToken(t, locale)));
+}
+function explainFromTokens(locale, input, format) {
+  const tokens = expandMacroTokens(Formatter.parseFormat(format), locale), units = tokens.map((t) => unitForToken(t, locale)), disqualifyingUnit = units.find((t) => t.invalidReason);
+  if (disqualifyingUnit) {
+    return { input, tokens, invalidReason: disqualifyingUnit.invalidReason };
+  } else {
+    const [regexString, handlers] = buildRegex(units), regex = RegExp(regexString, "i"), [rawMatches, matches] = match(input, regex, handlers), [result, zone, specificOffset] = matches ? dateTimeFromMatches(matches) : [null, null, void 0];
+    if (hasOwnProperty(matches, "a") && hasOwnProperty(matches, "H")) {
+      throw new ConflictingSpecificationError("Can't include meridiem when specifying 24-hour format");
+    }
+    return { input, tokens, regex, rawMatches, matches, result, zone, specificOffset };
+  }
+}
+function parseFromTokens(locale, input, format) {
+  const { result, zone, specificOffset, invalidReason } = explainFromTokens(locale, input, format);
+  return [result, zone, specificOffset, invalidReason];
+}
+function formatOptsToTokens(formatOpts, locale) {
+  if (!formatOpts) {
+    return null;
+  }
+  const formatter = Formatter.create(locale, formatOpts);
+  const parts = formatter.formatDateTimeParts(getDummyDateTime());
+  return parts.map((p) => tokenForPart(p, locale, formatOpts));
+}
+
+// node_modules/luxon/src/impl/conversions.js
+var nonLeapLadder = [0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334];
+var leapLadder = [0, 31, 60, 91, 121, 152, 182, 213, 244, 274, 305, 335];
+function unitOutOfRange(unit, value) {
+  return new Invalid("unit out of range", `you specified ${value} (of type ${typeof value}) as a ${unit}, which is invalid`);
+}
+function dayOfWeek(year, month, day) {
+  const d = new Date(Date.UTC(year, month - 1, day));
+  if (year < 100 && year >= 0) {
+    d.setUTCFullYear(d.getUTCFullYear() - 1900);
+  }
+  const js = d.getUTCDay();
+  return js === 0 ? 7 : js;
+}
+function computeOrdinal(year, month, day) {
+  return day + (isLeapYear(year) ? leapLadder : nonLeapLadder)[month - 1];
+}
+function uncomputeOrdinal(year, ordinal) {
+  const table = isLeapYear(year) ? leapLadder : nonLeapLadder, month0 = table.findIndex((i) => i < ordinal), day = ordinal - table[month0];
+  return { month: month0 + 1, day };
+}
+function gregorianToWeek(gregObj) {
+  const { year, month, day } = gregObj, ordinal = computeOrdinal(year, month, day), weekday = dayOfWeek(year, month, day);
+  let weekNumber = Math.floor((ordinal - weekday + 10) / 7), weekYear;
+  if (weekNumber < 1) {
+    weekYear = year - 1;
+    weekNumber = weeksInWeekYear(weekYear);
+  } else if (weekNumber > weeksInWeekYear(year)) {
+    weekYear = year + 1;
+    weekNumber = 1;
+  } else {
+    weekYear = year;
+  }
+  return __spreadValues({ weekYear, weekNumber, weekday }, timeObject(gregObj));
+}
+function weekToGregorian(weekData) {
+  const { weekYear, weekNumber, weekday } = weekData, weekdayOfJan4 = dayOfWeek(weekYear, 1, 4), yearInDays = daysInYear(weekYear);
+  let ordinal = weekNumber * 7 + weekday - weekdayOfJan4 - 3, year;
+  if (ordinal < 1) {
+    year = weekYear - 1;
+    ordinal += daysInYear(year);
+  } else if (ordinal > yearInDays) {
+    year = weekYear + 1;
+    ordinal -= daysInYear(weekYear);
+  } else {
+    year = weekYear;
+  }
+  const { month, day } = uncomputeOrdinal(year, ordinal);
+  return __spreadValues({ year, month, day }, timeObject(weekData));
+}
+function gregorianToOrdinal(gregData) {
+  const { year, month, day } = gregData;
+  const ordinal = computeOrdinal(year, month, day);
+  return __spreadValues({ year, ordinal }, timeObject(gregData));
+}
+function ordinalToGregorian(ordinalData) {
+  const { year, ordinal } = ordinalData;
+  const { month, day } = uncomputeOrdinal(year, ordinal);
+  return __spreadValues({ year, month, day }, timeObject(ordinalData));
+}
+function hasInvalidWeekData(obj) {
+  const validYear = isInteger(obj.weekYear), validWeek = integerBetween(obj.weekNumber, 1, weeksInWeekYear(obj.weekYear)), validWeekday = integerBetween(obj.weekday, 1, 7);
+  if (!validYear) {
+    return unitOutOfRange("weekYear", obj.weekYear);
+  } else if (!validWeek) {
+    return unitOutOfRange("week", obj.week);
+  } else if (!validWeekday) {
+    return unitOutOfRange("weekday", obj.weekday);
+  } else
+    return false;
+}
+function hasInvalidOrdinalData(obj) {
+  const validYear = isInteger(obj.year), validOrdinal = integerBetween(obj.ordinal, 1, daysInYear(obj.year));
+  if (!validYear) {
+    return unitOutOfRange("year", obj.year);
+  } else if (!validOrdinal) {
+    return unitOutOfRange("ordinal", obj.ordinal);
+  } else
+    return false;
+}
+function hasInvalidGregorianData(obj) {
+  const validYear = isInteger(obj.year), validMonth = integerBetween(obj.month, 1, 12), validDay = integerBetween(obj.day, 1, daysInMonth(obj.year, obj.month));
+  if (!validYear) {
+    return unitOutOfRange("year", obj.year);
+  } else if (!validMonth) {
+    return unitOutOfRange("month", obj.month);
+  } else if (!validDay) {
+    return unitOutOfRange("day", obj.day);
+  } else
+    return false;
+}
+function hasInvalidTimeData(obj) {
+  const { hour, minute, second, millisecond } = obj;
+  const validHour = integerBetween(hour, 0, 23) || hour === 24 && minute === 0 && second === 0 && millisecond === 0, validMinute = integerBetween(minute, 0, 59), validSecond = integerBetween(second, 0, 59), validMillisecond = integerBetween(millisecond, 0, 999);
+  if (!validHour) {
+    return unitOutOfRange("hour", hour);
+  } else if (!validMinute) {
+    return unitOutOfRange("minute", minute);
+  } else if (!validSecond) {
+    return unitOutOfRange("second", second);
+  } else if (!validMillisecond) {
+    return unitOutOfRange("millisecond", millisecond);
+  } else
+    return false;
+}
+
+// node_modules/luxon/src/datetime.js
+var INVALID3 = "Invalid DateTime";
+var MAX_DATE = 864e13;
+function unsupportedZone(zone) {
+  return new Invalid("unsupported zone", `the zone "${zone.name}" is not supported`);
+}
+function possiblyCachedWeekData(dt) {
+  if (dt.weekData === null) {
+    dt.weekData = gregorianToWeek(dt.c);
+  }
+  return dt.weekData;
+}
+function clone2(inst, alts) {
+  const current = {
+    ts: inst.ts,
+    zone: inst.zone,
+    c: inst.c,
+    o: inst.o,
+    loc: inst.loc,
+    invalid: inst.invalid
+  };
+  return new DateTime(__spreadProps(__spreadValues(__spreadValues({}, current), alts), { old: current }));
+}
+function fixOffset(localTS, o, tz) {
+  let utcGuess = localTS - o * 60 * 1e3;
+  const o2 = tz.offset(utcGuess);
+  if (o === o2) {
+    return [utcGuess, o];
+  }
+  utcGuess -= (o2 - o) * 60 * 1e3;
+  const o3 = tz.offset(utcGuess);
+  if (o2 === o3) {
+    return [utcGuess, o2];
+  }
+  return [localTS - Math.min(o2, o3) * 60 * 1e3, Math.max(o2, o3)];
+}
+function tsToObj(ts, offset2) {
+  ts += offset2 * 60 * 1e3;
+  const d = new Date(ts);
+  return {
+    year: d.getUTCFullYear(),
+    month: d.getUTCMonth() + 1,
+    day: d.getUTCDate(),
+    hour: d.getUTCHours(),
+    minute: d.getUTCMinutes(),
+    second: d.getUTCSeconds(),
+    millisecond: d.getUTCMilliseconds()
+  };
+}
+function objToTS(obj, offset2, zone) {
+  return fixOffset(objToLocalTS(obj), offset2, zone);
+}
+function adjustTime(inst, dur) {
+  const oPre = inst.o, year = inst.c.year + Math.trunc(dur.years), month = inst.c.month + Math.trunc(dur.months) + Math.trunc(dur.quarters) * 3, c = __spreadProps(__spreadValues({}, inst.c), {
+    year,
+    month,
+    day: Math.min(inst.c.day, daysInMonth(year, month)) + Math.trunc(dur.days) + Math.trunc(dur.weeks) * 7
+  }), millisToAdd = Duration.fromObject({
+    years: dur.years - Math.trunc(dur.years),
+    quarters: dur.quarters - Math.trunc(dur.quarters),
+    months: dur.months - Math.trunc(dur.months),
+    weeks: dur.weeks - Math.trunc(dur.weeks),
+    days: dur.days - Math.trunc(dur.days),
+    hours: dur.hours,
+    minutes: dur.minutes,
+    seconds: dur.seconds,
+    milliseconds: dur.milliseconds
+  }).as("milliseconds"), localTS = objToLocalTS(c);
+  let [ts, o] = fixOffset(localTS, oPre, inst.zone);
+  if (millisToAdd !== 0) {
+    ts += millisToAdd;
+    o = inst.zone.offset(ts);
+  }
+  return { ts, o };
+}
+function parseDataToDateTime(parsed, parsedZone, opts, format, text, specificOffset) {
+  const { setZone, zone } = opts;
+  if (parsed && Object.keys(parsed).length !== 0) {
+    const interpretationZone = parsedZone || zone, inst = DateTime.fromObject(parsed, __spreadProps(__spreadValues({}, opts), {
+      zone: interpretationZone,
+      specificOffset
+    }));
+    return setZone ? inst : inst.setZone(zone);
+  } else {
+    return DateTime.invalid(new Invalid("unparsable", `the input "${text}" can't be parsed as ${format}`));
+  }
+}
+function toTechFormat(dt, format, allowZ = true) {
+  return dt.isValid ? Formatter.create(Locale.create("en-US"), {
+    allowZ,
+    forceSimple: true
+  }).formatDateTimeFromString(dt, format) : null;
+}
+function toISODate(o, extended) {
+  const longFormat = o.c.year > 9999 || o.c.year < 0;
+  let c = "";
+  if (longFormat && o.c.year >= 0)
+    c += "+";
+  c += padStart(o.c.year, longFormat ? 6 : 4);
+  if (extended) {
+    c += "-";
+    c += padStart(o.c.month);
+    c += "-";
+    c += padStart(o.c.day);
+  } else {
+    c += padStart(o.c.month);
+    c += padStart(o.c.day);
+  }
+  return c;
+}
+function toISOTime(o, extended, suppressSeconds, suppressMilliseconds, includeOffset, extendedZone) {
+  let c = padStart(o.c.hour);
+  if (extended) {
+    c += ":";
+    c += padStart(o.c.minute);
+    if (o.c.second !== 0 || !suppressSeconds) {
+      c += ":";
+    }
+  } else {
+    c += padStart(o.c.minute);
+  }
+  if (o.c.second !== 0 || !suppressSeconds) {
+    c += padStart(o.c.second);
+    if (o.c.millisecond !== 0 || !suppressMilliseconds) {
+      c += ".";
+      c += padStart(o.c.millisecond, 3);
+    }
+  }
+  if (includeOffset) {
+    if (o.isOffsetFixed && o.offset === 0 && !extendedZone) {
+      c += "Z";
+    } else if (o.o < 0) {
+      c += "-";
+      c += padStart(Math.trunc(-o.o / 60));
+      c += ":";
+      c += padStart(Math.trunc(-o.o % 60));
+    } else {
+      c += "+";
+      c += padStart(Math.trunc(o.o / 60));
+      c += ":";
+      c += padStart(Math.trunc(o.o % 60));
+    }
+  }
+  if (extendedZone) {
+    c += "[" + o.zone.ianaName + "]";
+  }
+  return c;
+}
+var defaultUnitValues = {
+  month: 1,
+  day: 1,
+  hour: 0,
+  minute: 0,
+  second: 0,
+  millisecond: 0
+};
+var defaultWeekUnitValues = {
+  weekNumber: 1,
+  weekday: 1,
+  hour: 0,
+  minute: 0,
+  second: 0,
+  millisecond: 0
+};
+var defaultOrdinalUnitValues = {
+  ordinal: 1,
+  hour: 0,
+  minute: 0,
+  second: 0,
+  millisecond: 0
+};
+var orderedUnits2 = ["year", "month", "day", "hour", "minute", "second", "millisecond"];
+var orderedWeekUnits = [
+  "weekYear",
+  "weekNumber",
+  "weekday",
+  "hour",
+  "minute",
+  "second",
+  "millisecond"
+];
+var orderedOrdinalUnits = ["year", "ordinal", "hour", "minute", "second", "millisecond"];
+function normalizeUnit(unit) {
+  const normalized = {
+    year: "year",
+    years: "year",
+    month: "month",
+    months: "month",
+    day: "day",
+    days: "day",
+    hour: "hour",
+    hours: "hour",
+    minute: "minute",
+    minutes: "minute",
+    quarter: "quarter",
+    quarters: "quarter",
+    second: "second",
+    seconds: "second",
+    millisecond: "millisecond",
+    milliseconds: "millisecond",
+    weekday: "weekday",
+    weekdays: "weekday",
+    weeknumber: "weekNumber",
+    weeksnumber: "weekNumber",
+    weeknumbers: "weekNumber",
+    weekyear: "weekYear",
+    weekyears: "weekYear",
+    ordinal: "ordinal"
+  }[unit.toLowerCase()];
+  if (!normalized)
+    throw new InvalidUnitError(unit);
+  return normalized;
+}
+function quickDT(obj, opts) {
+  const zone = normalizeZone(opts.zone, Settings.defaultZone), loc = Locale.fromObject(opts), tsNow = Settings.now();
+  let ts, o;
+  if (!isUndefined(obj.year)) {
+    for (const u of orderedUnits2) {
+      if (isUndefined(obj[u])) {
+        obj[u] = defaultUnitValues[u];
+      }
+    }
+    const invalid = hasInvalidGregorianData(obj) || hasInvalidTimeData(obj);
+    if (invalid) {
+      return DateTime.invalid(invalid);
+    }
+    const offsetProvis = zone.offset(tsNow);
+    [ts, o] = objToTS(obj, offsetProvis, zone);
+  } else {
+    ts = tsNow;
+  }
+  return new DateTime({ ts, zone, loc, o });
+}
+function diffRelative(start, end, opts) {
+  const round = isUndefined(opts.round) ? true : opts.round, format = (c, unit) => {
+    c = roundTo(c, round || opts.calendary ? 0 : 2, true);
+    const formatter = end.loc.clone(opts).relFormatter(opts);
+    return formatter.format(c, unit);
+  }, differ = (unit) => {
+    if (opts.calendary) {
+      if (!end.hasSame(start, unit)) {
+        return end.startOf(unit).diff(start.startOf(unit), unit).get(unit);
+      } else
+        return 0;
+    } else {
+      return end.diff(start, unit).get(unit);
+    }
+  };
+  if (opts.unit) {
+    return format(differ(opts.unit), opts.unit);
+  }
+  for (const unit of opts.units) {
+    const count = differ(unit);
+    if (Math.abs(count) >= 1) {
+      return format(count, unit);
+    }
+  }
+  return format(start > end ? -0 : 0, opts.units[opts.units.length - 1]);
+}
+function lastOpts(argList) {
+  let opts = {}, args;
+  if (argList.length > 0 && typeof argList[argList.length - 1] === "object") {
+    opts = argList[argList.length - 1];
+    args = Array.from(argList).slice(0, argList.length - 1);
+  } else {
+    args = Array.from(argList);
+  }
+  return [opts, args];
+}
+var DateTime = class {
+  constructor(config) {
+    const zone = config.zone || Settings.defaultZone;
+    let invalid = config.invalid || (Number.isNaN(config.ts) ? new Invalid("invalid input") : null) || (!zone.isValid ? unsupportedZone(zone) : null);
+    this.ts = isUndefined(config.ts) ? Settings.now() : config.ts;
+    let c = null, o = null;
+    if (!invalid) {
+      const unchanged = config.old && config.old.ts === this.ts && config.old.zone.equals(zone);
+      if (unchanged) {
+        [c, o] = [config.old.c, config.old.o];
+      } else {
+        const ot = zone.offset(this.ts);
+        c = tsToObj(this.ts, ot);
+        invalid = Number.isNaN(c.year) ? new Invalid("invalid input") : null;
+        c = invalid ? null : c;
+        o = invalid ? null : ot;
+      }
+    }
+    this._zone = zone;
+    this.loc = config.loc || Locale.create();
+    this.invalid = invalid;
+    this.weekData = null;
+    this.c = c;
+    this.o = o;
+    this.isLuxonDateTime = true;
+  }
+  static now() {
+    return new DateTime({});
+  }
+  static local() {
+    const [opts, args] = lastOpts(arguments), [year, month, day, hour, minute, second, millisecond] = args;
+    return quickDT({ year, month, day, hour, minute, second, millisecond }, opts);
+  }
+  static utc() {
+    const [opts, args] = lastOpts(arguments), [year, month, day, hour, minute, second, millisecond] = args;
+    opts.zone = FixedOffsetZone.utcInstance;
+    return quickDT({ year, month, day, hour, minute, second, millisecond }, opts);
+  }
+  static fromJSDate(date, options = {}) {
+    const ts = isDate(date) ? date.valueOf() : NaN;
+    if (Number.isNaN(ts)) {
+      return DateTime.invalid("invalid input");
+    }
+    const zoneToUse = normalizeZone(options.zone, Settings.defaultZone);
+    if (!zoneToUse.isValid) {
+      return DateTime.invalid(unsupportedZone(zoneToUse));
+    }
+    return new DateTime({
+      ts,
+      zone: zoneToUse,
+      loc: Locale.fromObject(options)
+    });
+  }
+  static fromMillis(milliseconds, options = {}) {
+    if (!isNumber(milliseconds)) {
+      throw new InvalidArgumentError(`fromMillis requires a numerical input, but received a ${typeof milliseconds} with value ${milliseconds}`);
+    } else if (milliseconds < -MAX_DATE || milliseconds > MAX_DATE) {
+      return DateTime.invalid("Timestamp out of range");
+    } else {
+      return new DateTime({
+        ts: milliseconds,
+        zone: normalizeZone(options.zone, Settings.defaultZone),
+        loc: Locale.fromObject(options)
+      });
+    }
+  }
+  static fromSeconds(seconds, options = {}) {
+    if (!isNumber(seconds)) {
+      throw new InvalidArgumentError("fromSeconds requires a numerical input");
+    } else {
+      return new DateTime({
+        ts: seconds * 1e3,
+        zone: normalizeZone(options.zone, Settings.defaultZone),
+        loc: Locale.fromObject(options)
+      });
+    }
+  }
+  static fromObject(obj, opts = {}) {
+    obj = obj || {};
+    const zoneToUse = normalizeZone(opts.zone, Settings.defaultZone);
+    if (!zoneToUse.isValid) {
+      return DateTime.invalid(unsupportedZone(zoneToUse));
+    }
+    const tsNow = Settings.now(), offsetProvis = !isUndefined(opts.specificOffset) ? opts.specificOffset : zoneToUse.offset(tsNow), normalized = normalizeObject(obj, normalizeUnit), containsOrdinal = !isUndefined(normalized.ordinal), containsGregorYear = !isUndefined(normalized.year), containsGregorMD = !isUndefined(normalized.month) || !isUndefined(normalized.day), containsGregor = containsGregorYear || containsGregorMD, definiteWeekDef = normalized.weekYear || normalized.weekNumber, loc = Locale.fromObject(opts);
+    if ((containsGregor || containsOrdinal) && definiteWeekDef) {
+      throw new ConflictingSpecificationError("Can't mix weekYear/weekNumber units with year/month/day or ordinals");
+    }
+    if (containsGregorMD && containsOrdinal) {
+      throw new ConflictingSpecificationError("Can't mix ordinal dates with month/day");
+    }
+    const useWeekData = definiteWeekDef || normalized.weekday && !containsGregor;
+    let units, defaultValues, objNow = tsToObj(tsNow, offsetProvis);
+    if (useWeekData) {
+      units = orderedWeekUnits;
+      defaultValues = defaultWeekUnitValues;
+      objNow = gregorianToWeek(objNow);
+    } else if (containsOrdinal) {
+      units = orderedOrdinalUnits;
+      defaultValues = defaultOrdinalUnitValues;
+      objNow = gregorianToOrdinal(objNow);
+    } else {
+      units = orderedUnits2;
+      defaultValues = defaultUnitValues;
+    }
+    let foundFirst = false;
+    for (const u of units) {
+      const v = normalized[u];
+      if (!isUndefined(v)) {
+        foundFirst = true;
+      } else if (foundFirst) {
+        normalized[u] = defaultValues[u];
+      } else {
+        normalized[u] = objNow[u];
+      }
+    }
+    const higherOrderInvalid = useWeekData ? hasInvalidWeekData(normalized) : containsOrdinal ? hasInvalidOrdinalData(normalized) : hasInvalidGregorianData(normalized), invalid = higherOrderInvalid || hasInvalidTimeData(normalized);
+    if (invalid) {
+      return DateTime.invalid(invalid);
+    }
+    const gregorian = useWeekData ? weekToGregorian(normalized) : containsOrdinal ? ordinalToGregorian(normalized) : normalized, [tsFinal, offsetFinal] = objToTS(gregorian, offsetProvis, zoneToUse), inst = new DateTime({
+      ts: tsFinal,
+      zone: zoneToUse,
+      o: offsetFinal,
+      loc
+    });
+    if (normalized.weekday && containsGregor && obj.weekday !== inst.weekday) {
+      return DateTime.invalid("mismatched weekday", `you can't specify both a weekday of ${normalized.weekday} and a date of ${inst.toISO()}`);
+    }
+    return inst;
+  }
+  static fromISO(text, opts = {}) {
+    const [vals, parsedZone] = parseISODate(text);
+    return parseDataToDateTime(vals, parsedZone, opts, "ISO 8601", text);
+  }
+  static fromRFC2822(text, opts = {}) {
+    const [vals, parsedZone] = parseRFC2822Date(text);
+    return parseDataToDateTime(vals, parsedZone, opts, "RFC 2822", text);
+  }
+  static fromHTTP(text, opts = {}) {
+    const [vals, parsedZone] = parseHTTPDate(text);
+    return parseDataToDateTime(vals, parsedZone, opts, "HTTP", opts);
+  }
+  static fromFormat(text, fmt, opts = {}) {
+    if (isUndefined(text) || isUndefined(fmt)) {
+      throw new InvalidArgumentError("fromFormat requires an input string and a format");
+    }
+    const { locale = null, numberingSystem = null } = opts, localeToUse = Locale.fromOpts({
+      locale,
+      numberingSystem,
+      defaultToEN: true
+    }), [vals, parsedZone, specificOffset, invalid] = parseFromTokens(localeToUse, text, fmt);
+    if (invalid) {
+      return DateTime.invalid(invalid);
+    } else {
+      return parseDataToDateTime(vals, parsedZone, opts, `format ${fmt}`, text, specificOffset);
+    }
+  }
+  static fromString(text, fmt, opts = {}) {
+    return DateTime.fromFormat(text, fmt, opts);
+  }
+  static fromSQL(text, opts = {}) {
+    const [vals, parsedZone] = parseSQL(text);
+    return parseDataToDateTime(vals, parsedZone, opts, "SQL", text);
+  }
+  static invalid(reason, explanation = null) {
+    if (!reason) {
+      throw new InvalidArgumentError("need to specify a reason the DateTime is invalid");
+    }
+    const invalid = reason instanceof Invalid ? reason : new Invalid(reason, explanation);
+    if (Settings.throwOnInvalid) {
+      throw new InvalidDateTimeError(invalid);
+    } else {
+      return new DateTime({ invalid });
+    }
+  }
+  static isDateTime(o) {
+    return o && o.isLuxonDateTime || false;
+  }
+  static parseFormatForOpts(formatOpts, localeOpts = {}) {
+    const tokenList = formatOptsToTokens(formatOpts, Locale.fromObject(localeOpts));
+    return !tokenList ? null : tokenList.map((t) => t ? t.val : null).join("");
+  }
+  static expandFormat(fmt, localeOpts = {}) {
+    const expanded = expandMacroTokens(Formatter.parseFormat(fmt), Locale.fromObject(localeOpts));
+    return expanded.map((t) => t.val).join("");
+  }
+  get(unit) {
+    return this[unit];
+  }
+  get isValid() {
+    return this.invalid === null;
+  }
+  get invalidReason() {
+    return this.invalid ? this.invalid.reason : null;
+  }
+  get invalidExplanation() {
+    return this.invalid ? this.invalid.explanation : null;
+  }
+  get locale() {
+    return this.isValid ? this.loc.locale : null;
+  }
+  get numberingSystem() {
+    return this.isValid ? this.loc.numberingSystem : null;
+  }
+  get outputCalendar() {
+    return this.isValid ? this.loc.outputCalendar : null;
+  }
+  get zone() {
+    return this._zone;
+  }
+  get zoneName() {
+    return this.isValid ? this.zone.name : null;
+  }
+  get year() {
+    return this.isValid ? this.c.year : NaN;
+  }
+  get quarter() {
+    return this.isValid ? Math.ceil(this.c.month / 3) : NaN;
+  }
+  get month() {
+    return this.isValid ? this.c.month : NaN;
+  }
+  get day() {
+    return this.isValid ? this.c.day : NaN;
+  }
+  get hour() {
+    return this.isValid ? this.c.hour : NaN;
+  }
+  get minute() {
+    return this.isValid ? this.c.minute : NaN;
+  }
+  get second() {
+    return this.isValid ? this.c.second : NaN;
+  }
+  get millisecond() {
+    return this.isValid ? this.c.millisecond : NaN;
+  }
+  get weekYear() {
+    return this.isValid ? possiblyCachedWeekData(this).weekYear : NaN;
+  }
+  get weekNumber() {
+    return this.isValid ? possiblyCachedWeekData(this).weekNumber : NaN;
+  }
+  get weekday() {
+    return this.isValid ? possiblyCachedWeekData(this).weekday : NaN;
+  }
+  get ordinal() {
+    return this.isValid ? gregorianToOrdinal(this.c).ordinal : NaN;
+  }
+  get monthShort() {
+    return this.isValid ? Info.months("short", { locObj: this.loc })[this.month - 1] : null;
+  }
+  get monthLong() {
+    return this.isValid ? Info.months("long", { locObj: this.loc })[this.month - 1] : null;
+  }
+  get weekdayShort() {
+    return this.isValid ? Info.weekdays("short", { locObj: this.loc })[this.weekday - 1] : null;
+  }
+  get weekdayLong() {
+    return this.isValid ? Info.weekdays("long", { locObj: this.loc })[this.weekday - 1] : null;
+  }
+  get offset() {
+    return this.isValid ? +this.o : NaN;
+  }
+  get offsetNameShort() {
+    if (this.isValid) {
+      return this.zone.offsetName(this.ts, {
+        format: "short",
+        locale: this.locale
+      });
+    } else {
+      return null;
+    }
+  }
+  get offsetNameLong() {
+    if (this.isValid) {
+      return this.zone.offsetName(this.ts, {
+        format: "long",
+        locale: this.locale
+      });
+    } else {
+      return null;
+    }
+  }
+  get isOffsetFixed() {
+    return this.isValid ? this.zone.isUniversal : null;
+  }
+  get isInDST() {
+    if (this.isOffsetFixed) {
+      return false;
+    } else {
+      return this.offset > this.set({ month: 1, day: 1 }).offset || this.offset > this.set({ month: 5 }).offset;
+    }
+  }
+  get isInLeapYear() {
+    return isLeapYear(this.year);
+  }
+  get daysInMonth() {
+    return daysInMonth(this.year, this.month);
+  }
+  get daysInYear() {
+    return this.isValid ? daysInYear(this.year) : NaN;
+  }
+  get weeksInWeekYear() {
+    return this.isValid ? weeksInWeekYear(this.weekYear) : NaN;
+  }
+  resolvedLocaleOptions(opts = {}) {
+    const { locale, numberingSystem, calendar } = Formatter.create(this.loc.clone(opts), opts).resolvedOptions(this);
+    return { locale, numberingSystem, outputCalendar: calendar };
+  }
+  toUTC(offset2 = 0, opts = {}) {
+    return this.setZone(FixedOffsetZone.instance(offset2), opts);
+  }
+  toLocal() {
+    return this.setZone(Settings.defaultZone);
+  }
+  setZone(zone, { keepLocalTime = false, keepCalendarTime = false } = {}) {
+    zone = normalizeZone(zone, Settings.defaultZone);
+    if (zone.equals(this.zone)) {
+      return this;
+    } else if (!zone.isValid) {
+      return DateTime.invalid(unsupportedZone(zone));
+    } else {
+      let newTS = this.ts;
+      if (keepLocalTime || keepCalendarTime) {
+        const offsetGuess = zone.offset(this.ts);
+        const asObj = this.toObject();
+        [newTS] = objToTS(asObj, offsetGuess, zone);
+      }
+      return clone2(this, { ts: newTS, zone });
+    }
+  }
+  reconfigure({ locale, numberingSystem, outputCalendar } = {}) {
+    const loc = this.loc.clone({ locale, numberingSystem, outputCalendar });
+    return clone2(this, { loc });
+  }
+  setLocale(locale) {
+    return this.reconfigure({ locale });
+  }
+  set(values) {
+    if (!this.isValid)
+      return this;
+    const normalized = normalizeObject(values, normalizeUnit), settingWeekStuff = !isUndefined(normalized.weekYear) || !isUndefined(normalized.weekNumber) || !isUndefined(normalized.weekday), containsOrdinal = !isUndefined(normalized.ordinal), containsGregorYear = !isUndefined(normalized.year), containsGregorMD = !isUndefined(normalized.month) || !isUndefined(normalized.day), containsGregor = containsGregorYear || containsGregorMD, definiteWeekDef = normalized.weekYear || normalized.weekNumber;
+    if ((containsGregor || containsOrdinal) && definiteWeekDef) {
+      throw new ConflictingSpecificationError("Can't mix weekYear/weekNumber units with year/month/day or ordinals");
+    }
+    if (containsGregorMD && containsOrdinal) {
+      throw new ConflictingSpecificationError("Can't mix ordinal dates with month/day");
+    }
+    let mixed;
+    if (settingWeekStuff) {
+      mixed = weekToGregorian(__spreadValues(__spreadValues({}, gregorianToWeek(this.c)), normalized));
+    } else if (!isUndefined(normalized.ordinal)) {
+      mixed = ordinalToGregorian(__spreadValues(__spreadValues({}, gregorianToOrdinal(this.c)), normalized));
+    } else {
+      mixed = __spreadValues(__spreadValues({}, this.toObject()), normalized);
+      if (isUndefined(normalized.day)) {
+        mixed.day = Math.min(daysInMonth(mixed.year, mixed.month), mixed.day);
+      }
+    }
+    const [ts, o] = objToTS(mixed, this.o, this.zone);
+    return clone2(this, { ts, o });
+  }
+  plus(duration2) {
+    if (!this.isValid)
+      return this;
+    const dur = Duration.fromDurationLike(duration2);
+    return clone2(this, adjustTime(this, dur));
+  }
+  minus(duration2) {
+    if (!this.isValid)
+      return this;
+    const dur = Duration.fromDurationLike(duration2).negate();
+    return clone2(this, adjustTime(this, dur));
+  }
+  startOf(unit) {
+    if (!this.isValid)
+      return this;
+    const o = {}, normalizedUnit = Duration.normalizeUnit(unit);
+    switch (normalizedUnit) {
+      case "years":
+        o.month = 1;
+      case "quarters":
+      case "months":
+        o.day = 1;
+      case "weeks":
+      case "days":
+        o.hour = 0;
+      case "hours":
+        o.minute = 0;
+      case "minutes":
+        o.second = 0;
+      case "seconds":
+        o.millisecond = 0;
+        break;
+      case "milliseconds":
+        break;
+    }
+    if (normalizedUnit === "weeks") {
+      o.weekday = 1;
+    }
+    if (normalizedUnit === "quarters") {
+      const q = Math.ceil(this.month / 3);
+      o.month = (q - 1) * 3 + 1;
+    }
+    return this.set(o);
+  }
+  endOf(unit) {
+    return this.isValid ? this.plus({ [unit]: 1 }).startOf(unit).minus(1) : this;
+  }
+  toFormat(fmt, opts = {}) {
+    return this.isValid ? Formatter.create(this.loc.redefaultToEN(opts)).formatDateTimeFromString(this, fmt) : INVALID3;
+  }
+  toLocaleString(formatOpts = DATE_SHORT, opts = {}) {
+    return this.isValid ? Formatter.create(this.loc.clone(opts), formatOpts).formatDateTime(this) : INVALID3;
+  }
+  toLocaleParts(opts = {}) {
+    return this.isValid ? Formatter.create(this.loc.clone(opts), opts).formatDateTimeParts(this) : [];
+  }
+  toISO({
+    format = "extended",
+    suppressSeconds = false,
+    suppressMilliseconds = false,
+    includeOffset = true,
+    extendedZone = false
+  } = {}) {
+    if (!this.isValid) {
+      return null;
+    }
+    const ext = format === "extended";
+    let c = toISODate(this, ext);
+    c += "T";
+    c += toISOTime(this, ext, suppressSeconds, suppressMilliseconds, includeOffset, extendedZone);
+    return c;
+  }
+  toISODate({ format = "extended" } = {}) {
+    if (!this.isValid) {
+      return null;
+    }
+    return toISODate(this, format === "extended");
+  }
+  toISOWeekDate() {
+    return toTechFormat(this, "kkkk-'W'WW-c");
+  }
+  toISOTime({
+    suppressMilliseconds = false,
+    suppressSeconds = false,
+    includeOffset = true,
+    includePrefix = false,
+    extendedZone = false,
+    format = "extended"
+  } = {}) {
+    if (!this.isValid) {
+      return null;
+    }
+    let c = includePrefix ? "T" : "";
+    return c + toISOTime(this, format === "extended", suppressSeconds, suppressMilliseconds, includeOffset, extendedZone);
+  }
+  toRFC2822() {
+    return toTechFormat(this, "EEE, dd LLL yyyy HH:mm:ss ZZZ", false);
+  }
+  toHTTP() {
+    return toTechFormat(this.toUTC(), "EEE, dd LLL yyyy HH:mm:ss 'GMT'");
+  }
+  toSQLDate() {
+    if (!this.isValid) {
+      return null;
+    }
+    return toISODate(this, true);
+  }
+  toSQLTime({ includeOffset = true, includeZone = false, includeOffsetSpace = true } = {}) {
+    let fmt = "HH:mm:ss.SSS";
+    if (includeZone || includeOffset) {
+      if (includeOffsetSpace) {
+        fmt += " ";
+      }
+      if (includeZone) {
+        fmt += "z";
+      } else if (includeOffset) {
+        fmt += "ZZ";
+      }
+    }
+    return toTechFormat(this, fmt, true);
+  }
+  toSQL(opts = {}) {
+    if (!this.isValid) {
+      return null;
+    }
+    return `${this.toSQLDate()} ${this.toSQLTime(opts)}`;
+  }
+  toString() {
+    return this.isValid ? this.toISO() : INVALID3;
+  }
+  valueOf() {
+    return this.toMillis();
+  }
+  toMillis() {
+    return this.isValid ? this.ts : NaN;
+  }
+  toSeconds() {
+    return this.isValid ? this.ts / 1e3 : NaN;
+  }
+  toUnixInteger() {
+    return this.isValid ? Math.floor(this.ts / 1e3) : NaN;
+  }
+  toJSON() {
+    return this.toISO();
+  }
+  toBSON() {
+    return this.toJSDate();
+  }
+  toObject(opts = {}) {
+    if (!this.isValid)
+      return {};
+    const base2 = __spreadValues({}, this.c);
+    if (opts.includeConfig) {
+      base2.outputCalendar = this.outputCalendar;
+      base2.numberingSystem = this.loc.numberingSystem;
+      base2.locale = this.loc.locale;
+    }
+    return base2;
+  }
+  toJSDate() {
+    return new Date(this.isValid ? this.ts : NaN);
+  }
+  diff(otherDateTime, unit = "milliseconds", opts = {}) {
+    if (!this.isValid || !otherDateTime.isValid) {
+      return Duration.invalid("created by diffing an invalid DateTime");
+    }
+    const durOpts = __spreadValues({ locale: this.locale, numberingSystem: this.numberingSystem }, opts);
+    const units = maybeArray(unit).map(Duration.normalizeUnit), otherIsLater = otherDateTime.valueOf() > this.valueOf(), earlier = otherIsLater ? this : otherDateTime, later = otherIsLater ? otherDateTime : this, diffed = diff_default(earlier, later, units, durOpts);
+    return otherIsLater ? diffed.negate() : diffed;
+  }
+  diffNow(unit = "milliseconds", opts = {}) {
+    return this.diff(DateTime.now(), unit, opts);
+  }
+  until(otherDateTime) {
+    return this.isValid ? Interval.fromDateTimes(this, otherDateTime) : this;
+  }
+  hasSame(otherDateTime, unit) {
+    if (!this.isValid)
+      return false;
+    const inputMs = otherDateTime.valueOf();
+    const adjustedToZone = this.setZone(otherDateTime.zone, { keepLocalTime: true });
+    return adjustedToZone.startOf(unit) <= inputMs && inputMs <= adjustedToZone.endOf(unit);
+  }
+  equals(other) {
+    return this.isValid && other.isValid && this.valueOf() === other.valueOf() && this.zone.equals(other.zone) && this.loc.equals(other.loc);
+  }
+  toRelative(options = {}) {
+    if (!this.isValid)
+      return null;
+    const base2 = options.base || DateTime.fromObject({}, { zone: this.zone }), padding = options.padding ? this < base2 ? -options.padding : options.padding : 0;
+    let units = ["years", "months", "days", "hours", "minutes", "seconds"];
+    let unit = options.unit;
+    if (Array.isArray(options.unit)) {
+      units = options.unit;
+      unit = void 0;
+    }
+    return diffRelative(base2, this.plus(padding), __spreadProps(__spreadValues({}, options), {
+      numeric: "always",
+      units,
+      unit
+    }));
+  }
+  toRelativeCalendar(options = {}) {
+    if (!this.isValid)
+      return null;
+    return diffRelative(options.base || DateTime.fromObject({}, { zone: this.zone }), this, __spreadProps(__spreadValues({}, options), {
+      numeric: "auto",
+      units: ["years", "months", "days"],
+      calendary: true
+    }));
+  }
+  static min(...dateTimes) {
+    if (!dateTimes.every(DateTime.isDateTime)) {
+      throw new InvalidArgumentError("min requires all arguments be DateTimes");
+    }
+    return bestBy(dateTimes, (i) => i.valueOf(), Math.min);
+  }
+  static max(...dateTimes) {
+    if (!dateTimes.every(DateTime.isDateTime)) {
+      throw new InvalidArgumentError("max requires all arguments be DateTimes");
+    }
+    return bestBy(dateTimes, (i) => i.valueOf(), Math.max);
+  }
+  static fromFormatExplain(text, fmt, options = {}) {
+    const { locale = null, numberingSystem = null } = options, localeToUse = Locale.fromOpts({
+      locale,
+      numberingSystem,
+      defaultToEN: true
+    });
+    return explainFromTokens(localeToUse, text, fmt);
+  }
+  static fromStringExplain(text, fmt, options = {}) {
+    return DateTime.fromFormatExplain(text, fmt, options);
+  }
+  static get DATE_SHORT() {
+    return DATE_SHORT;
+  }
+  static get DATE_MED() {
+    return DATE_MED;
+  }
+  static get DATE_MED_WITH_WEEKDAY() {
+    return DATE_MED_WITH_WEEKDAY;
+  }
+  static get DATE_FULL() {
+    return DATE_FULL;
+  }
+  static get DATE_HUGE() {
+    return DATE_HUGE;
+  }
+  static get TIME_SIMPLE() {
+    return TIME_SIMPLE;
+  }
+  static get TIME_WITH_SECONDS() {
+    return TIME_WITH_SECONDS;
+  }
+  static get TIME_WITH_SHORT_OFFSET() {
+    return TIME_WITH_SHORT_OFFSET;
+  }
+  static get TIME_WITH_LONG_OFFSET() {
+    return TIME_WITH_LONG_OFFSET;
+  }
+  static get TIME_24_SIMPLE() {
+    return TIME_24_SIMPLE;
+  }
+  static get TIME_24_WITH_SECONDS() {
+    return TIME_24_WITH_SECONDS;
+  }
+  static get TIME_24_WITH_SHORT_OFFSET() {
+    return TIME_24_WITH_SHORT_OFFSET;
+  }
+  static get TIME_24_WITH_LONG_OFFSET() {
+    return TIME_24_WITH_LONG_OFFSET;
+  }
+  static get DATETIME_SHORT() {
+    return DATETIME_SHORT;
+  }
+  static get DATETIME_SHORT_WITH_SECONDS() {
+    return DATETIME_SHORT_WITH_SECONDS;
+  }
+  static get DATETIME_MED() {
+    return DATETIME_MED;
+  }
+  static get DATETIME_MED_WITH_SECONDS() {
+    return DATETIME_MED_WITH_SECONDS;
+  }
+  static get DATETIME_MED_WITH_WEEKDAY() {
+    return DATETIME_MED_WITH_WEEKDAY;
+  }
+  static get DATETIME_FULL() {
+    return DATETIME_FULL;
+  }
+  static get DATETIME_FULL_WITH_SECONDS() {
+    return DATETIME_FULL_WITH_SECONDS;
+  }
+  static get DATETIME_HUGE() {
+    return DATETIME_HUGE;
+  }
+  static get DATETIME_HUGE_WITH_SECONDS() {
+    return DATETIME_HUGE_WITH_SECONDS;
+  }
+};
+function friendlyDateTime(dateTimeish) {
+  if (DateTime.isDateTime(dateTimeish)) {
+    return dateTimeish;
+  } else if (dateTimeish && dateTimeish.valueOf && isNumber(dateTimeish.valueOf())) {
+    return DateTime.fromJSDate(dateTimeish);
+  } else if (dateTimeish && typeof dateTimeish === "object") {
+    return DateTime.fromObject(dateTimeish);
+  } else {
+    throw new InvalidArgumentError(`Unknown datetime argument: ${dateTimeish}, of type ${typeof dateTimeish}`);
+  }
+}
+
+// src/helpers/DateHelper.ts
+var DateHelper = class {
+  static create(date) {
+    return DateTime.fromISO(date).toJSDate();
+  }
+  static age(birth, deathOrNow) {
+    const end = DateTime.fromISO(deathOrNow.toISOString());
+    const start = DateTime.fromISO(birth.toISOString());
+    return Math.floor(end.diff(start, "years").years);
+  }
+};
+
 // src/components/components/campaign/abstracts/AbstractCampaignData.ts
 var AbstractCampaignData = class extends PlotsAbtOnly {
   get date() {
     var _a;
-    return ((_a = this.metadata.data) == null ? void 0 : _a.date) ? new Date(this.metadata.data.date) : void 0;
+    return ((_a = this.metadata.data) == null ? void 0 : _a.date) ? DateHelper.create(this.metadata.data.date) : void 0;
   }
   get currentAdventureId() {
     var _a;
@@ -10050,7 +13860,7 @@ var AbstractSceneData = class extends AbstractComponent {
   }
   get date() {
     var _a, _b;
-    return ((_a = this.metadata.data) == null ? void 0 : _a.date) ? new Date((_b = this.metadata.data) == null ? void 0 : _b.date) : void 0;
+    return ((_a = this.metadata.data) == null ? void 0 : _a.date) ? DateHelper.create((_b = this.metadata.data) == null ? void 0 : _b.date) : void 0;
   }
   get isExciting() {
     var _a;
@@ -10075,7 +13885,7 @@ var Scene = class extends AbstractSceneData {
   constructor() {
     super(...arguments);
     this.stage = 0 /* Plot */;
-    this.activeSceneTypes = /* @__PURE__ */ new Map([
+    this._activeSceneTypes = /* @__PURE__ */ new Map([
       [0 /* Action */, true],
       [1 /* Combat */, true],
       [2 /* Encounter */, true],
@@ -10147,7 +13957,7 @@ var Scene = class extends AbstractSceneData {
     var _a;
     if (this.sceneType == void 0)
       return false;
-    return (_a = this.activeSceneTypes.get(this.sceneType)) != null ? _a : false;
+    return (_a = this._activeSceneTypes.get(this.sceneType)) != null ? _a : false;
   }
   get isCurrentlyRunning() {
     var _a, _b, _c;
@@ -10201,7 +14011,7 @@ var Scene = class extends AbstractSceneData {
 var AbstractSessionData = class extends Plots {
   get irl() {
     var _a, _b;
-    return ((_a = this.metadata.data) == null ? void 0 : _a.irl) ? new Date((_b = this.metadata.data) == null ? void 0 : _b.irl) : void 0;
+    return ((_a = this.metadata.data) == null ? void 0 : _a.irl) ? DateHelper.create((_b = this.metadata.data) == null ? void 0 : _b.irl) : void 0;
   }
   get abtStage() {
     var _a;
@@ -10220,21 +14030,21 @@ var Session = class extends AbstractSessionData {
   constructor() {
     super(...arguments);
     this.stage = 2 /* Run */;
-    this.sceneNoteListPattern = void 0;
+    this._sceneNoteListPattern = void 0;
   }
   initialiseData() {
     return __async(this, null, function* () {
       const pattern = ["### Storyteller Diary", "-", "", "###"];
-      this.sceneNoteListPattern = yield this.fileManipulator.patternPosition(pattern);
+      this._sceneNoteListPattern = yield this.fileManipulator.patternPosition(pattern);
     });
   }
   get isSceneNoteListAvailable() {
-    return this.sceneNoteListPattern !== void 0;
+    return this._sceneNoteListPattern !== void 0;
   }
   replaceSceneNoteList(content) {
     return __async(this, null, function* () {
-      if (this.sceneNoteListPattern !== void 0)
-        this.fileManipulator.replacePattern(this.sceneNoteListPattern, content);
+      if (this._sceneNoteListPattern !== void 0)
+        this.fileManipulator.replacePattern(this._sceneNoteListPattern, content);
     });
   }
   get nextSession() {
@@ -10257,11 +14067,11 @@ var Session = class extends AbstractSessionData {
 var AbstractCharacterData = class extends AbstractComponent {
   get death() {
     var _a;
-    return ((_a = this.metadata.data) == null ? void 0 : _a.death) ? new Date(this.metadata.data.death) : void 0;
+    return ((_a = this.metadata.data) == null ? void 0 : _a.death) ? DateHelper.create(this.metadata.data.death) : void 0;
   }
   get dob() {
     var _a;
-    return ((_a = this.metadata.data) == null ? void 0 : _a.dob) ? new Date(this.metadata.data.dob) : void 0;
+    return ((_a = this.metadata.data) == null ? void 0 : _a.dob) ? DateHelper.create(this.metadata.data.dob) : void 0;
   }
   get goals() {
     var _a;
@@ -10285,9 +14095,7 @@ var Character = class extends AbstractCharacterData {
     const end = this.death ? this.death : this.campaign.date;
     if (end === void 0)
       return void 0;
-    const ageDifMs = end.valueOf() - this.dob.valueOf();
-    const ageDate = new Date(ageDifMs);
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
+    return DateHelper.age(this.dob, end);
   }
   get isDead() {
     return this.death !== void 0;
@@ -10309,7 +14117,7 @@ var AbstractClueData = class extends AbstractComponent {
     if (((_a = this.metadata.data) == null ? void 0 : _a.found) === void 0 || this.metadata.data.found === false || this.metadata.data.found === "")
       return void 0;
     if (typeof this.metadata.data.found === "string")
-      return new Date(this.metadata.data.found);
+      return DateHelper.create(this.metadata.data.found);
     return void 0;
   }
 };
@@ -10334,7 +14142,7 @@ var Location = class extends AbstractLocationData {
 var AbstractEventData = class extends AbstractComponent {
   get date() {
     var _a;
-    return ((_a = this.metadata.data) == null ? void 0 : _a.date) ? new Date(this.metadata.data.date) : void 0;
+    return ((_a = this.metadata.data) == null ? void 0 : _a.date) ? DateHelper.create(this.metadata.data.date) : void 0;
   }
 };
 
@@ -10407,26 +14215,26 @@ var AbstractMusicData = class extends AbstractComponent {
 // src/components/components/music/Music.ts
 var Music = class extends AbstractMusicData {
   get image() {
-    if (super.image !== void 0)
-      return super.image;
+    if (super.images.length > 0)
+      return super.images[0].src;
     if (this.url == void 0)
       return void 0;
-    if (this.dynamicImage === void 0) {
+    if (this._dynamicImage === void 0) {
       this._fetchImage().then((image) => {
-        this.dynamicImage = image;
+        this._dynamicImage = image;
       });
       return void 0;
     }
-    return this.dynamicImage != null ? this.dynamicImage : void 0;
+    return this._dynamicImage != null ? this._dynamicImage : void 0;
   }
   getThumbnail() {
     return __async(this, null, function* () {
-      if (this.dynamicImage != null)
-        return this.dynamicImage;
+      if (this._dynamicImage != null)
+        return this._dynamicImage;
       if (this.url === void 0)
         return void 0;
-      this.dynamicImage = yield this._fetchImage();
-      return this.dynamicImage != null ? this.dynamicImage : void 0;
+      this._dynamicImage = yield this._fetchImage();
+      return this._dynamicImage != null ? this._dynamicImage : void 0;
     });
   }
   _fetchImage() {
@@ -10460,28 +14268,28 @@ var Subplot = class extends AbstractSubplotData {
 var ComponentFactory = class extends AbstractFactory {
   constructor(app2) {
     super(app2);
-    this.componentTypeMap = /* @__PURE__ */ new Map();
-    this.componentTypeMap.set("AgnosticCampaign", Campaign);
-    this.componentTypeMap.set("AgnosticAdventure", Adventure);
-    this.componentTypeMap.set("AgnosticAct", Act);
-    this.componentTypeMap.set("AgnosticScene", Scene);
-    this.componentTypeMap.set("AgnosticSession", Session);
-    this.componentTypeMap.set("AgnosticCharacter", Character);
-    this.componentTypeMap.set("AgnosticNonPlayerCharacter", Character);
-    this.componentTypeMap.set("AgnosticFaction", Faction);
-    this.componentTypeMap.set("AgnosticClue", Clue);
-    this.componentTypeMap.set("AgnosticLocation", Location);
-    this.componentTypeMap.set("AgnosticEvent", Event);
-    this.componentTypeMap.set("AgnosticMusic", Music);
-    this.componentTypeMap.set("AgnosticSubplot", Subplot);
+    this._componentTypeMap = /* @__PURE__ */ new Map();
+    this._componentTypeMap.set("AgnosticCampaign", Campaign);
+    this._componentTypeMap.set("AgnosticAdventure", Adventure);
+    this._componentTypeMap.set("AgnosticAct", Act);
+    this._componentTypeMap.set("AgnosticScene", Scene);
+    this._componentTypeMap.set("AgnosticSession", Session);
+    this._componentTypeMap.set("AgnosticCharacter", Character);
+    this._componentTypeMap.set("AgnosticNonPlayerCharacter", Character);
+    this._componentTypeMap.set("AgnosticFaction", Faction);
+    this._componentTypeMap.set("AgnosticClue", Clue);
+    this._componentTypeMap.set("AgnosticLocation", Location);
+    this._componentTypeMap.set("AgnosticEvent", Event);
+    this._componentTypeMap.set("AgnosticMusic", Music);
+    this._componentTypeMap.set("AgnosticSubplot", Subplot);
   }
   create(settings, file, id) {
     let dataKey = CampaignSetting[settings] + ComponentType[id.type];
-    if (!this.componentTypeMap.has(dataKey))
+    if (!this._componentTypeMap.has(dataKey))
       dataKey = CampaignSetting[0 /* Agnostic */] + ComponentType[id.type];
-    if (!this.componentTypeMap.has(dataKey))
+    if (!this._componentTypeMap.has(dataKey))
       throw new Error("Type of interfaces " + CampaignSetting[settings] + ComponentType[id.type] + " cannot be found");
-    return new (this.componentTypeMap.get(dataKey))(this.app, settings, id, file);
+    return new (this._componentTypeMap.get(dataKey))(this.app, settings, id, file);
   }
 };
 
@@ -10489,7 +14297,7 @@ var ComponentFactory = class extends AbstractFactory {
 var ComponentTypeFactory = class extends AbstractFactory {
   constructor() {
     super(...arguments);
-    this.contentTypeMap = /* @__PURE__ */ new Map([
+    this._contentTypeMap = /* @__PURE__ */ new Map([
       [1 /* Campaign */, "campaign"],
       [2 /* Adventure */, "adventure"],
       [4 /* Act */, "act"],
@@ -10507,7 +14315,7 @@ var ComponentTypeFactory = class extends AbstractFactory {
   }
   createComponentType(readableContentType) {
     let response = void 0;
-    this.contentTypeMap.forEach((value, type) => {
+    this._contentTypeMap.forEach((value, type) => {
       if (value === readableContentType.toLowerCase())
         response = type;
     });
@@ -10518,7 +14326,7 @@ var ComponentTypeFactory = class extends AbstractFactory {
     return response;
   }
   createReadableComponentType(type) {
-    const response = this.contentTypeMap.get(type);
+    const response = this._contentTypeMap.get(type);
     if (response === void 0) {
       this.factories.logger.error(8 /* ComponentInitialisation */, "Non existing component type: " + type, this);
       throw new Error("Non existing component type: " + type);
@@ -10629,13 +14437,13 @@ var FileManipulator = class extends AbstractRpgManager {
     super(app2);
     this.file = file;
     if (fileContent !== void 0)
-      this.fileContent = fileContent;
+      this._fileContent = fileContent;
   }
   get arrayContent() {
-    return this.fileContent.split("\n");
+    return this._fileContent.split("\n");
   }
   get content() {
-    return this.fileContent;
+    return this._fileContent;
   }
   getCodeBlockMetadata(requestString = false) {
     var _a, _b;
@@ -10673,7 +14481,7 @@ var FileManipulator = class extends AbstractRpgManager {
           if (arrayContent[index] === "```") {
             correctBlockProcessed = true;
             inCorrectCodeBlock = false;
-            const newCodeBlock = (0, import_obsidian26.stringifyYaml)(newMetadata);
+            const newCodeBlock = YamlHelper.stringify(newMetadata);
             const newCodeBlockArray = newCodeBlock.split("\n");
             newArrayContent.push(...newCodeBlockArray);
             newArrayContent.push("```");
@@ -10686,7 +14494,7 @@ var FileManipulator = class extends AbstractRpgManager {
         }
       }
       const newContent = newArrayContent.join("\n");
-      if (newContent !== this.fileContent) {
+      if (newContent !== this._fileContent) {
         yield this.app.vault.modify(this.file, newContent);
         yield this.database.onSave(this.file).then(() => {
           var _a;
@@ -10700,11 +14508,12 @@ var FileManipulator = class extends AbstractRpgManager {
   }
   maybeWrite(newContent) {
     return __async(this, null, function* () {
-      if (newContent !== this.content) {
-        this.app.vault.modify(this.file, newContent).then(() => {
-          this.database.onSave(this.file);
-        });
-      }
+      if (newContent === this.content)
+        return false;
+      return this.app.vault.modify(this.file, newContent).then(() => {
+        this.database.onSave(this.file);
+        return true;
+      });
     });
   }
   read() {
@@ -10713,8 +14522,8 @@ var FileManipulator = class extends AbstractRpgManager {
       if (cache === null)
         return false;
       this.cachedFile = cache;
-      if (this.fileContent === void 0)
-        this.fileContent = yield this.app.vault.read(this.file);
+      if (this._fileContent === void 0)
+        this._fileContent = yield this.app.vault.read(this.file);
       return true;
     });
   }
@@ -10806,12 +14615,12 @@ var FileManipulatorFactory = class extends AbstractFactory {
 var ConsoleLogger = class extends AbstractRpgManager {
   constructor(app2) {
     super(app2);
-    this.debuggableTypes = 2 /* Warning */ | 4 /* Error */;
-    this.isDebug = this.pluginVersion.indexOf("-") !== -1;
+    this._debuggableTypes = 2 /* Warning */ | 4 /* Error */;
+    this._isDebug = this.pluginVersion.indexOf("-") !== -1;
   }
   maybeWriteLog(log, duration2 = void 0) {
     return __async(this, null, function* () {
-      if (this.isDebug || (log.type & this.debuggableTypes) === log.type) {
+      if (this._isDebug || (log.type & this._debuggableTypes) === log.type) {
         let messageContent = log.message;
         let messageHeader;
         if (messageContent.startsWith("\x1B")) {
@@ -10926,14 +14735,14 @@ var LogGroup = class {
 var LogFactory = class extends AbstractFactory {
   constructor(app2, type) {
     super(app2);
-    this.logWriter = new ConsoleLogger(this.app);
+    this._logWriter = new ConsoleLogger(this.app);
   }
   createInfo(messageType, message, object) {
     return new InfoMessage(messageType, message, object);
   }
   info(messageType, message, object) {
     return __async(this, null, function* () {
-      this.logWriter.maybeWriteLog(this.createInfo(messageType, message, object));
+      this._logWriter.maybeWriteLog(this.createInfo(messageType, message, object));
     });
   }
   createWarning(messageType, message, object) {
@@ -10941,7 +14750,7 @@ var LogFactory = class extends AbstractFactory {
   }
   warning(messageType, message, object) {
     return __async(this, null, function* () {
-      this.logWriter.maybeWriteLog(this.createWarning(messageType, message, object));
+      this._logWriter.maybeWriteLog(this.createWarning(messageType, message, object));
     });
   }
   createError(messageType, message, object) {
@@ -10949,7 +14758,7 @@ var LogFactory = class extends AbstractFactory {
   }
   error(messageType, message, object) {
     return __async(this, null, function* () {
-      this.logWriter.maybeWriteLog(this.createError(messageType, message, object));
+      this._logWriter.maybeWriteLog(this.createError(messageType, message, object));
     });
   }
   createGroup() {
@@ -10957,50 +14766,1200 @@ var LogFactory = class extends AbstractFactory {
   }
   group(group) {
     return __async(this, null, function* () {
-      this.logWriter.maybeWriteLogList(group);
+      this._logWriter.maybeWriteLogList(group);
     });
+  }
+};
+
+// src/analyser/AnalyserData.ts
+var AnalyserData = class {
+  constructor() {
+    this.abtStage = void 0;
+    this.dataLength = 0;
+    this.totalRunningTime = 0;
+    this.totalActiveScenes = 0;
+    this.totalRepetitiveScenes = 0;
+    this.totalExpectedRunningTime = 0;
+    this.totalExpectedExcitmentDuration = 0;
+    this.totalTargetDuration = 0;
+    this.dataTypeUsed = /* @__PURE__ */ new Map();
+    this._previousType = void 0;
+  }
+  get isValid() {
+    return this.dataLength !== 0;
+  }
+  set dataCount(count) {
+    this.dataLength = count;
+  }
+  addExpectedRunningTime(duration2) {
+    this.totalExpectedRunningTime += duration2;
+  }
+  addExpectedExcitmentDuration(duration2) {
+    this.totalExpectedExcitmentDuration += duration2;
+  }
+  addActiveScene() {
+    this.totalActiveScenes++;
+  }
+  addSceneType(type) {
+    var _a;
+    if (type !== void 0) {
+      this.dataTypeUsed.set(type, ((_a = this.dataTypeUsed.get(type)) != null ? _a : 0) + 1);
+      if (this._previousType === type) {
+        this.totalRepetitiveScenes++;
+      } else {
+        this._previousType = type;
+      }
+    }
+  }
+};
+
+// src/analyser/views/abstract/AbstractAnalyserView.ts
+var AbstractAnalyserView = class extends AbstractRpgManager {
+  constructor(app2, type) {
+    super(app2);
+    this.type = type;
+    this.subtitles = /* @__PURE__ */ new Map([
+      [0 /* Activity */, /* @__PURE__ */ new Map([
+        [1 /* CriticallyHigh */, "Too many active scenes"],
+        [2 /* High */, "Maybe too many active scenes"],
+        [3 /* Correct */, "The amount of active scenes is balanced"],
+        [4 /* Low */, "Maybe not enough active scenes"],
+        [5 /* CriticallyLow */, "Not enough active scenes"]
+      ])],
+      [1 /* Duration */, /* @__PURE__ */ new Map([
+        [1 /* CriticallyHigh */, "The session is going to be too long"],
+        [2 /* High */, "The session might be too long"],
+        [3 /* Correct */, "The expected duration is in line with your target session duration"],
+        [4 /* Low */, "The session might be short"],
+        [5 /* CriticallyLow */, "The session is too short"]
+      ])],
+      [2 /* Excitement */, /* @__PURE__ */ new Map([
+        [1 /* CriticallyHigh */, "Too much excitement"],
+        [2 /* High */, "Maybe too much excitement"],
+        [3 /* Correct */, "The amount of exciting time is balanced"],
+        [4 /* Low */, "Maybe not enough excitement"],
+        [5 /* CriticallyLow */, "Not enough excitement"]
+      ])],
+      [3 /* Interest */, /* @__PURE__ */ new Map([
+        [5 /* CriticallyLow */, "Repetitive"],
+        [4 /* Low */, "Maybe a bit repetitive"],
+        [3 /* Correct */, "The scenes are not repetitive"]
+      ])],
+      [5 /* Variety */, /* @__PURE__ */ new Map([
+        [3 /* Correct */, "There is a good variety of scenes"],
+        [4 /* Low */, "Maybe not enough variety"],
+        [5 /* CriticallyLow */, "Not enough variety"]
+      ])]
+    ]);
+  }
+  transformTime(duration2) {
+    if (duration2 === void 0)
+      return "00:00";
+    const hours = Math.floor(duration2 / (60 * 60));
+    const minutes = Math.floor((duration2 - hours * (60 * 60)) / 60);
+    return (hours < 10 ? "0" + hours.toString() : hours.toString()) + ":" + (minutes < 10 ? "0" + minutes.toString() : minutes.toString());
+  }
+  prepareDescription(percentage, score, maximumScore, descriptionTemplate, ideal, type = void 0) {
+    if (descriptionTemplate === void 0 || descriptionTemplate === "")
+      return "";
+    let response = descriptionTemplate;
+    if (percentage !== void 0)
+      response = response.replace("%percentage%", percentage.toString());
+    if (score !== void 0)
+      response = response.replace("%score%", score.toString());
+    if (maximumScore !== void 0)
+      response = response.replace("%maximumScore%", maximumScore.toString());
+    if (type !== void 0)
+      response = response.replace("%type%", ComponentType[type]);
+    if (ideal !== void 0)
+      response = response.replace("%ideal%", ideal.toString());
+    return response;
+  }
+  addThresholdClass(threshold, containerEl) {
+    switch (threshold) {
+      case 1 /* CriticallyHigh */:
+        containerEl.addClass("perfect");
+        break;
+      case 2 /* High */:
+        containerEl.addClass("balanced");
+        break;
+      case 4 /* Low */:
+        containerEl.addClass("warning");
+        break;
+      case 5 /* CriticallyLow */:
+        containerEl.addClass("error");
+        break;
+    }
+  }
+  addThresholdErrorClass(threshold, containerEl) {
+    switch (threshold) {
+      case 3 /* Correct */:
+        containerEl.addClass("perfect");
+        break;
+      case 1 /* CriticallyHigh */:
+        containerEl.addClass("error");
+        break;
+      case 2 /* High */:
+        containerEl.addClass("warning");
+        break;
+      case 4 /* Low */:
+        containerEl.addClass("warning");
+        break;
+      case 5 /* CriticallyLow */:
+        containerEl.addClass("error");
+        break;
+    }
+  }
+};
+
+// src/analyser/views/AnalyserMinimalView.ts
+var AnalyserMinimalView = class extends AbstractAnalyserView {
+  constructor() {
+    super(...arguments);
+    this._description = /* @__PURE__ */ new Map([
+      [void 0, "Score"],
+      [0 /* Activity */, "Activity"],
+      [1 /* Duration */, "Duration"],
+      [2 /* Excitement */, "Excitement"],
+      [3 /* Interest */, "Interest"],
+      [5 /* Variety */, "Variety"],
+      [4 /* Timing */, "Timing"]
+    ]);
+  }
+  render(report, containerEl) {
+    var _a;
+    if (!report.isValid)
+      return;
+    const analyserEl = containerEl.createDiv({ cls: "rpgm-new-analyser centred" });
+    const analyserContainerEl = analyserEl.createDiv({ cls: "analyser-container clearfix" });
+    this._addCircle(analyserContainerEl, report.percentage, report.thresholdType, true, "Score");
+    if (report.durationPercentage === 0 && isNaN(report.durationPercentage))
+      this._addCircle(analyserContainerEl, report.durationPercentage, report.durationThreshold, true, (_a = this._description.get(void 0)) != null ? _a : "");
+    report.details.forEach((reportDetail) => {
+      var _a2;
+      if (reportDetail.isRelevant === false)
+        return;
+      this._addCircle(analyserContainerEl, reportDetail.percentage, reportDetail.thresholdType, reportDetail.isHighBetter, (_a2 = this._description.get(reportDetail.detailType)) != null ? _a2 : "");
+    });
+  }
+  _addCircle(containerEl, percentage, threshold, isHigerBetter, description) {
+    const circleContainerEl = containerEl.createDiv({ cls: "circle-container" });
+    const circleEl = circleContainerEl.createDiv({ cls: " c100 p" + percentage.toString() + " small" });
+    circleEl.createSpan({ text: percentage.toString() + "%" });
+    const sliceEl = circleEl.createDiv({ cls: "slice" });
+    sliceEl.createDiv({ cls: "bar" });
+    sliceEl.createDiv({ cls: "fill" });
+    const circleDescriptionEl = circleContainerEl.createDiv({ cls: "description", text: description });
+    if (isHigerBetter) {
+      this.addThresholdClass(threshold, circleEl);
+      this.addThresholdClass(threshold, circleDescriptionEl);
+    } else {
+      this.addThresholdErrorClass(threshold, circleEl);
+      this.addThresholdErrorClass(threshold, circleDescriptionEl);
+    }
+  }
+};
+
+// src/analyser/views/AnalyserExtendedView.ts
+var AnalyserExtendedView = class extends AbstractAnalyserView {
+  constructor() {
+    super(...arguments);
+    this.titles = /* @__PURE__ */ new Map([
+      [void 0, "Analysis score %percentage%%"],
+      [0 /* Activity */, "Activity accuracy: %percentage%%"],
+      [1 /* Duration */, "Plotted duration accuracy: %percentage%%"],
+      [2 /* Excitement */, "Excitement accuracy: %percentage%%"],
+      [3 /* Interest */, "Interest accuracy: %percentage%%"],
+      [5 /* Variety */, "Variety accuracy: %percentage%%"],
+      [4 /* Timing */, "Timing accuracy: %percentage%%"]
+    ]);
+    this.descriptions = /* @__PURE__ */ new Map([
+      [0 /* Activity */, /* @__PURE__ */ new Map([
+        [1 /* CriticallyHigh */, "Really, %score% scenes out of %maximumScore% are active, you should aim for %ideal%"],
+        [2 /* High */, "%score% scenes out of %maximumScore% are active, you should aim for %ideal%"],
+        [3 /* Correct */, "%score% scenes out of %maximumScore% are active, you should aim for %ideal%"],
+        [4 /* Low */, "Only  %score% scenes out of %maximumScore% are active, you should aim for %ideal%"],
+        [5 /* CriticallyLow */, "Just %score% scenes out of %maximumScore% are active, you should aim for %ideal%"]
+      ])],
+      [1 /* Duration */, /* @__PURE__ */ new Map([
+        [1 /* CriticallyHigh */, "Really, %percentage%% longer than your target"],
+        [2 /* High */, "%percentage%% longer than your target"],
+        [3 /* Correct */, "%percentage%% longer or shorter than your target"],
+        [4 /* Low */, "%percentage%% shorter than your target"],
+        [5 /* CriticallyLow */, "%percentage%% shorter than your target"]
+      ])],
+      [2 /* Excitement */, /* @__PURE__ */ new Map([
+        [1 /* CriticallyHigh */, "%score% are exciting, you should aim for %ideal%"],
+        [2 /* High */, "%score% are exciting, you should aim for %ideal%"],
+        [3 /* Correct */, "%score% are exciting, you should aim for %ideal%"],
+        [4 /* Low */, "Only %score% are exciting, you should aim for %ideal%"],
+        [5 /* CriticallyLow */, "Just %score% are exciting, you should aim for %ideal%"]
+      ])],
+      [3 /* Interest */, /* @__PURE__ */ new Map([
+        [5 /* CriticallyLow */, "Really, %score% scenes type repeated in %maximumScore% scenes. Keep it below %ideal%."],
+        [4 /* Low */, "%score% scenes type repeated in %maximumScore% scenes. Try to keep it below %ideal%"],
+        [3 /* Correct */, "%score% scenes type repeated in %maximumScore% scenes. Try to keep it below %ideal%"]
+      ])],
+      [5 /* Variety */, /* @__PURE__ */ new Map([
+        [3 /* Correct */, "%score% different type of scenes are used, you should aim for %ideal%"],
+        [4 /* Low */, "Only %score% different type of scenes are used, you should aim for %ideal%"],
+        [5 /* CriticallyLow */, "Just %score% different type of scenes are used, you should aim for %ideal%"]
+      ])]
+    ]);
+  }
+  render(report, containerEl) {
+    if (!report.isValid)
+      return;
+    const analyserEl = containerEl.createDiv({ cls: "rpgm-new-analyser" });
+    this._addHeaderElement(report, analyserEl);
+    const analyserListEl = analyserEl.createEl("ul");
+    this._addTimingElements(report, analyserListEl);
+    report.details.forEach((reportDetail) => {
+      this._addDetailElement(reportDetail, analyserListEl);
+    });
+  }
+  _addDetailElement(reportDetail, containerEl) {
+    var _a, _b, _c;
+    if (reportDetail.isRelevant === false)
+      return;
+    const analyserListElementEl = containerEl.createEl("li");
+    const title = this.prepareDescription(reportDetail.percentage, reportDetail.score, reportDetail.maximumScore, this.titles.get(reportDetail.detailType), reportDetail.ideal);
+    if (title !== void 0) {
+      const subtitleEl = analyserListElementEl.createSpan({ cls: "subtitle", text: title });
+      if (reportDetail.isHighBetter) {
+        this.addThresholdClass(reportDetail.thresholdType, subtitleEl);
+      } else {
+        this.addThresholdErrorClass(reportDetail.thresholdType, subtitleEl);
+      }
+    }
+    const subtitle = this.prepareDescription(reportDetail.percentage, reportDetail.score, reportDetail.maximumScore, (_a = this.subtitles.get(reportDetail.detailType)) == null ? void 0 : _a.get(reportDetail.thresholdType), reportDetail.ideal);
+    const analyserListEl = analyserListElementEl.createEl("ul");
+    if (subtitle !== void 0 && subtitle !== "")
+      analyserListEl.createEl("li", { text: subtitle });
+    if (reportDetail.percentage !== 100) {
+      let detail = void 0;
+      if (reportDetail.scoreType === 1 /* Percentage */)
+        detail = this.prepareDescription(reportDetail.percentage, reportDetail.score, reportDetail.maximumScore, (_b = this.descriptions.get(reportDetail.detailType)) == null ? void 0 : _b.get(reportDetail.thresholdType), reportDetail.ideal);
+      else if (reportDetail.scoreType === 2 /* Time */)
+        detail = this.prepareDescription(reportDetail.percentage, this.transformTime(reportDetail.score), this.transformTime(reportDetail.maximumScore), (_c = this.descriptions.get(reportDetail.detailType)) == null ? void 0 : _c.get(reportDetail.thresholdType), this.transformTime(reportDetail.ideal));
+      if (detail !== void 0 && detail !== "")
+        analyserListEl.createEl("li", { text: detail });
+    }
+  }
+  _addTimingElements(report, containerEl) {
+    const analyserListTimingElementEl = containerEl.createEl("li");
+    if (report.durationPercentage !== 0 && !isNaN(report.durationPercentage)) {
+      const detail = this.prepareDescription(report.durationPercentage, 0, 0, this.titles.get(4 /* Timing */), 0);
+      const timingTitleEl = analyserListTimingElementEl.createSpan({ cls: "subtitle", text: detail });
+      this.addThresholdClass(report.durationThreshold, timingTitleEl);
+    } else {
+      analyserListTimingElementEl.createSpan({ cls: "subtitle", text: "Time Analysis" });
+    }
+    const timingEl = analyserListTimingElementEl.createDiv();
+    const timingListEl = timingEl.createEl("ul");
+    if (report.actualDuration !== void 0 && report.actualDuration !== 0) {
+      const actualDurationEl = timingListEl.createEl("li");
+      const actualDuration = this.transformTime(report.actualDuration);
+      const actualDurationDescription = "Actual " + ComponentType[this.type] + " duration: " + actualDuration;
+      actualDurationEl.createSpan({ cls: "description", text: actualDurationDescription });
+    }
+    if (report.expectedDuration !== void 0 && report.expectedDuration !== 0) {
+      const expectedDurationEl = timingListEl.createEl("li");
+      const expectedDuration = this.transformTime(report.expectedDuration);
+      const expectedDurationDescription = "Expected " + ComponentType[this.type] + " duration: " + expectedDuration;
+      expectedDurationEl.createSpan({ cls: "description", text: expectedDurationDescription });
+      if (report.targetDuration !== void 0 && report.targetDuration !== 0) {
+        const targetDurationEl = timingListEl.createEl("li");
+        const targetDuration = this.transformTime(report.targetDuration);
+        const targetDurationDescription = "Target duration: " + targetDuration;
+        targetDurationEl.createSpan({ cls: "description", text: targetDurationDescription });
+      }
+    }
+  }
+  _addHeaderElement(report, containerEl) {
+    const analyserHeadlineEl = containerEl.createSpan({ cls: "header" });
+    analyserHeadlineEl.textContent = this.prepareDescription(report.percentage, report.score, report.maximumScore, this.titles.get(void 0), report.ideal, this.type);
+    this.addThresholdClass(report.thresholdType, analyserHeadlineEl);
+  }
+};
+
+// src/analyser/abstracts/AbstractAnalyserReportDetail.ts
+var AbstractAnalyserReportDetail = class {
+  constructor(data) {
+    this.data = data;
+    this._isRelevant = true;
+  }
+  get ideal() {
+    return this._idealScore;
+  }
+  get detailType() {
+    return this._detailType;
+  }
+  get scoreType() {
+    return this._type;
+  }
+  get isRelevant() {
+    return this._isRelevant;
+  }
+  get maximumScore() {
+    return this._maximumScore;
+  }
+  get score() {
+    return this._score;
+  }
+  get isHighBetter() {
+    return false;
+  }
+  get percentage() {
+    if (this.maximumScore === 0)
+      return 0;
+    return Math.floor(this.score * 100 / this.maximumScore);
+  }
+  get thresholdType() {
+    if (this.percentage < 30)
+      return 5 /* CriticallyLow */;
+    if (this.percentage < 60)
+      return 4 /* Low */;
+    if (this.percentage < 75)
+      return 3 /* Correct */;
+    if (this.percentage < 90)
+      return 2 /* High */;
+    return 1 /* CriticallyHigh */;
+  }
+  get percentageThresholdScore() {
+    if (this._idealScore === void 0)
+      return 0 /* NotAnalysable */;
+    if (this._score > this._idealScore) {
+      if (this.percentage < 60)
+        return 1 /* CriticallyHigh */;
+      if (this.percentage < 80)
+        return 2 /* High */;
+    } else {
+      if (this.percentage < 60)
+        return 5 /* CriticallyLow */;
+      if (this.percentage < 80)
+        return 4 /* Low */;
+    }
+    return 3 /* Correct */;
+  }
+};
+
+// src/analyser/reports/details/AnalyserReportActivityDetail.ts
+var AnalyserReportActivityDetail = class extends AbstractAnalyserReportDetail {
+  constructor(data) {
+    var _a;
+    super(data);
+    this._type = 1 /* Percentage */;
+    this._detailType = 0 /* Activity */;
+    this._abtStageActivityThreshold = /* @__PURE__ */ new Map([
+      [0 /* Need */, 35],
+      [1 /* And */, 75],
+      [2 /* But */, 50],
+      [3 /* Therefore */, 75]
+    ]);
+    this._maximumScore = this.data.dataLength;
+    this._score = this.data.totalActiveScenes;
+    if (this.data.abtStage === void 0) {
+      this._idealScore = Math.floor(this.maximumScore * 50 / 100);
+    } else {
+      this._idealScore = Math.floor(this.maximumScore * ((_a = this._abtStageActivityThreshold.get(this.data.abtStage)) != null ? _a : 50) / 100);
+    }
+  }
+  get percentage() {
+    if (this._idealScore === void 0)
+      return 0;
+    if (this._score === this._idealScore)
+      return 100;
+    if (this._score > this._idealScore * 2)
+      return 0;
+    if (this._score > this._idealScore)
+      return Math.floor((this._idealScore - (this._score - this._idealScore)) * 100 / this._idealScore);
+    return Math.floor(this._score * 100 / this._idealScore);
+  }
+  get thresholdType() {
+    return this.percentageThresholdScore;
+  }
+};
+
+// src/analyser/reports/details/AnalyserReportDurationDetail.ts
+var AnalyserReportDurationDetail = class extends AbstractAnalyserReportDetail {
+  constructor(data) {
+    super(data);
+    this._type = 2 /* Time */;
+    this._detailType = 1 /* Duration */;
+    if (this.data.totalTargetDuration === 0 || this.data.totalExpectedRunningTime === 0) {
+      this._isRelevant = false;
+      return;
+    }
+    this._maximumScore = this.data.totalTargetDuration;
+    this._idealScore = this._maximumScore;
+    this._score = Math.floor(this.data.totalExpectedRunningTime / 60);
+  }
+  get percentage() {
+    if (this.data.totalTargetDuration === 0 || this.data.totalExpectedRunningTime === 0)
+      return 0;
+    if (this._score > this._maximumScore * 2)
+      return 0;
+    if (this._score > this._maximumScore)
+      return Math.floor((this._maximumScore - (this._score - this._maximumScore)) * 100 / this._maximumScore);
+    return Math.floor(this._score * 100 / this._maximumScore);
+  }
+  get thresholdType() {
+    return this.percentageThresholdScore;
+  }
+};
+
+// src/analyser/reports/details/AnalyserReportExcitementDetail.ts
+var AnalyserReportExcitementDetail = class extends AbstractAnalyserReportDetail {
+  constructor(data) {
+    var _a;
+    super(data);
+    this._type = 2 /* Time */;
+    this._detailType = 2 /* Excitement */;
+    this._abtStageExcitementThreshold = /* @__PURE__ */ new Map([
+      [0 /* Need */, 35],
+      [1 /* And */, 35],
+      [2 /* But */, 75],
+      [3 /* Therefore */, 50]
+    ]);
+    if (this.data.totalExpectedRunningTime === 0)
+      return;
+    this._maximumScore = this.data.totalExpectedRunningTime;
+    this._score = this.data.totalExpectedExcitmentDuration;
+    if (this.data.abtStage === void 0) {
+      this._idealScore = Math.floor(this.maximumScore * 50 / 100);
+    } else {
+      this._idealScore = Math.floor(this.maximumScore * ((_a = this._abtStageExcitementThreshold.get(this.data.abtStage)) != null ? _a : 50) / 100);
+    }
+  }
+  get percentage() {
+    if (this._idealScore === void 0)
+      return 0;
+    if (this._score === this._idealScore)
+      return 100;
+    if (this._score > this._idealScore * 2)
+      return 0;
+    if (this._score > this._idealScore)
+      return Math.floor((this._idealScore - (this._score - this._idealScore)) * 100 / this._idealScore);
+    return Math.floor(this._score * 100 / this._idealScore);
+  }
+  get thresholdType() {
+    return this.percentageThresholdScore;
+  }
+};
+
+// src/analyser/reports/details/AnalyserReportInterestDetail.ts
+var AnalyserReportInterestDetail = class extends AbstractAnalyserReportDetail {
+  constructor(data) {
+    super(data);
+    this._type = 1 /* Percentage */;
+    this._detailType = 3 /* Interest */;
+    this._score = this.data.dataLength - this.data.totalRepetitiveScenes;
+    this._maximumScore = this.data.dataLength;
+    this._idealScore = this.data.dataLength;
+  }
+  get isHighBetter() {
+    return true;
+  }
+};
+
+// src/analyser/reports/details/AnalyserReportVarietyDetail.ts
+var AnalyserReportVarietyDetail = class extends AbstractAnalyserReportDetail {
+  constructor(data) {
+    super(data);
+    this._type = 1 /* Percentage */;
+    this._detailType = 5 /* Variety */;
+    this._score = this.data.dataTypeUsed.size;
+    this._maximumScore = this.data.dataLength;
+    this._idealScore = 6;
+  }
+  get percentage() {
+    if (this._idealScore === void 0)
+      return 0;
+    if (this._score >= this._idealScore)
+      return 100;
+    return Math.floor(this._score * 100 / this._idealScore);
+  }
+  get isHighBetter() {
+    return true;
+  }
+};
+
+// src/analyser/reports/AnalyserReport.ts
+var AnalyserReport = class extends AbstractRpgManager {
+  constructor(app2, _data) {
+    super(app2);
+    this._data = _data;
+    this.activity = new AnalyserReportActivityDetail(_data);
+    this.duration = new AnalyserReportDurationDetail(_data);
+    this.excitement = new AnalyserReportExcitementDetail(_data);
+    this.interest = new AnalyserReportInterestDetail(_data);
+    this.variety = new AnalyserReportVarietyDetail(_data);
+    this._reportDetails = /* @__PURE__ */ new Map([
+      [0 /* Activity */, this.activity],
+      [1 /* Duration */, this.duration],
+      [2 /* Excitement */, this.excitement],
+      [3 /* Interest */, this.interest],
+      [5 /* Variety */, this.variety]
+    ]);
+  }
+  get ideal() {
+    return void 0;
+  }
+  get scoreType() {
+    return 1 /* Percentage */;
+  }
+  get isValid() {
+    return this._data.isValid;
+  }
+  get details() {
+    const response = [];
+    this._reportDetails.forEach((detail) => {
+      if (detail.isRelevant)
+        response.push(detail);
+    });
+    return response;
+  }
+  get actualDuration() {
+    return this._data.totalRunningTime;
+  }
+  get expectedDuration() {
+    return this._data.totalExpectedRunningTime;
+  }
+  get targetDuration() {
+    if (this._data.totalTargetDuration === void 0)
+      return void 0;
+    return this._data.totalTargetDuration * 60;
+  }
+  get durationThreshold() {
+    if (this.targetDuration === void 0 || this.actualDuration === void 0)
+      return 3 /* Correct */;
+    if (this.durationPercentage < 30)
+      return 5 /* CriticallyLow */;
+    if (this.durationPercentage < 60)
+      return 4 /* Low */;
+    if (this.durationPercentage < 75)
+      return 3 /* Correct */;
+    if (this.durationPercentage < 90)
+      return 2 /* High */;
+    return 1 /* CriticallyHigh */;
+  }
+  get score() {
+    return 0;
+  }
+  get maximumScore() {
+    return 0;
+  }
+  get percentage() {
+    let maximumPercentage = 0;
+    let percentage = 0;
+    this._reportDetails.forEach((analyser) => {
+      if (analyser.isRelevant) {
+        maximumPercentage += 100;
+        percentage += analyser.percentage;
+      }
+    });
+    return Math.floor(percentage * 100 / maximumPercentage);
+  }
+  get durationPercentage() {
+    if (this.targetDuration === void 0 || this.actualDuration === void 0)
+      return 0;
+    if (this.actualDuration > this.targetDuration * 2)
+      return 0;
+    if (this.actualDuration > this.targetDuration) {
+      const actualDuration = this.targetDuration - (this.actualDuration - this.targetDuration);
+      return Math.floor(actualDuration * 100 / this.targetDuration);
+    }
+    return Math.floor(this.actualDuration * 100 / this.targetDuration);
+  }
+  get thresholdType() {
+    if (this.percentage < 30)
+      return 5 /* CriticallyLow */;
+    if (this.percentage < 60)
+      return 4 /* Low */;
+    if (this.percentage < 75)
+      return 3 /* Correct */;
+    if (this.percentage < 90)
+      return 2 /* High */;
+    return 1 /* CriticallyHigh */;
+  }
+};
+
+// src/analyser/views/AnalyserSceneView.ts
+var AnalyserSceneView = class extends AbstractAnalyserView {
+  render(report, containerEl) {
+    if (!report.isValid)
+      return;
+    const analyserEl = containerEl.createDiv({ cls: "rpgm-new-analyser" });
+    const analyserListEl = analyserEl.createEl("ul");
+    const analyserListTimingElementEl = analyserListEl.createEl("li");
+    analyserListTimingElementEl.createSpan({ cls: "subtitle", text: "Expected session duration: " + this.transformTime(report.expectedDuration) });
+  }
+};
+
+// src/analyser/abstracts/AbstractAnalyser.ts
+var AbstractAnalyser = class extends AbstractRpgManager {
+  constructor(app2, abtStage) {
+    super(app2);
+    this.isSingleScene = false;
+    this.rawData = [];
+    this._analyserData = new AnalyserData();
+    this._analyserData.abtStage = abtStage;
+  }
+  get scenesCount() {
+    return this.rawData.length;
+  }
+  set targetDuration(duration2) {
+    this._analyserData.totalTargetDuration = duration2;
+  }
+  render(type, containerEl) {
+    const report = new AnalyserReport(this.app, this._analyserData);
+    let view = void 0;
+    switch (type) {
+      case 2 /* Scene */:
+        view = new AnalyserSceneView(this.app, this.type);
+        break;
+      case 1 /* Minimal */:
+        view = new AnalyserMinimalView(this.app, this.type);
+        break;
+      case 0 /* Extended */:
+        view = new AnalyserExtendedView(this.app, this.type);
+        break;
+      default:
+        return;
+    }
+    view.render(report, containerEl);
+  }
+  ingestData() {
+    if (this.rawData.length > 0) {
+      this._analyserData.dataLength = this.rawData.length;
+      this.rawData.forEach((data) => {
+        var _a;
+        this._analyserData.totalRunningTime += (_a = data.currentDuration) != null ? _a : 0;
+        this._analyserData.addExpectedRunningTime(data.expectedDuration);
+        if (data.isExciting)
+          this._analyserData.addExpectedExcitmentDuration(data.expectedDuration);
+        if (data.isActive)
+          this._analyserData.addActiveScene();
+        this._analyserData.addSceneType(data.type);
+      });
+    }
+  }
+  convertScene(scene) {
+    const response = {
+      isExciting: false,
+      isActive: false,
+      expectedDuration: 0
+    };
+    response.currentDuration = scene.currentDuration;
+    response.isExciting = scene.isExciting;
+    response.expectedDuration = scene.expectedDuration;
+    response.isActive = scene.isActive;
+    response.type = scene.sceneType;
+    return response;
+  }
+  addScene(scene) {
+    this.rawData.push(this.convertScene(scene));
+  }
+  addScenesList(scenes) {
+    scenes.forEach((scene) => {
+      this.addScene(scene);
+    });
+  }
+};
+
+// src/analyser/BuilderAnalyser.ts
+var BuilderAnalyser = class extends AbstractAnalyser {
+  constructor(app2, dataList, abtStage) {
+    super(app2, abtStage);
+    this.type = 4 /* Act */;
+    this.rawData = dataList;
+    super.ingestData();
+  }
+};
+
+// src/analyser/ActAnalyser.ts
+var ActAnalyser = class extends AbstractAnalyser {
+  constructor(app2, act, abtStage) {
+    super(app2, abtStage);
+    this.type = 4 /* Act */;
+    const sceneList = this.database.readList(8 /* Scene */, act.id).sort(this.factories.sorter.create([
+      new SorterComparisonElement((scene) => scene.id.campaignId),
+      new SorterComparisonElement((scene) => scene.id.adventureId),
+      new SorterComparisonElement((scene) => scene.id.actId),
+      new SorterComparisonElement((scene) => scene.id.sceneId)
+    ]));
+    super.addScenesList(sceneList);
+    super.ingestData();
+  }
+};
+
+// src/analyser/SessionAnalyser.ts
+var SessionAnalyser = class extends AbstractAnalyser {
+  constructor(app2, session, abtStage) {
+    super(app2, abtStage);
+    this.type = 16 /* Session */;
+    const singleSession = this.database.readSingle(16 /* Session */, session.id);
+    if (singleSession.targetDuration != void 0)
+      this.targetDuration = singleSession.targetDuration;
+    const sceneList = this.database.read((scene) => {
+      var _a;
+      return scene.id.type === 8 /* Scene */ && scene.id.campaignId === session.id.campaignId && ((_a = scene.session) == null ? void 0 : _a.id.sessionId) === session.id.sessionId;
+    }).sort(this.factories.sorter.create([
+      new SorterComparisonElement((scene) => scene.id.campaignId),
+      new SorterComparisonElement((scene) => scene.id.adventureId),
+      new SorterComparisonElement((scene) => scene.id.actId),
+      new SorterComparisonElement((scene) => scene.id.sceneId)
+    ]));
+    super.addScenesList(sceneList);
+    super.ingestData();
+  }
+};
+
+// src/analyser/SceneAnalyser.ts
+var SceneAnalyser = class extends AbstractAnalyser {
+  constructor(app2, scene, abtStage) {
+    super(app2, abtStage);
+    this.isSingleScene = true;
+    this.addScene(this.database.readSingle(8 /* Scene */, scene.id));
+    super.ingestData();
+  }
+};
+
+// src/analyser/factories/AnalyserFactory.ts
+var AnalyserFactory = class extends AbstractFactory {
+  constructor(app2) {
+    super(app2);
+  }
+  createBuilder(data, abtStage = void 0) {
+    return new BuilderAnalyser(this.app, data, abtStage);
+  }
+  createScene(scene, abtStage) {
+    return new SceneAnalyser(this.app, scene, abtStage);
+  }
+  createAct(act, abtStage) {
+    return new ActAnalyser(this.app, act, abtStage);
+  }
+  createSession(session, abtStage) {
+    return new SessionAnalyser(this.app, session, abtStage);
+  }
+};
+
+// src/galleries/data/Image.ts
+var Image2 = class {
+  constructor(path2, src) {
+    this._path = path2;
+    this._src = src;
+    this._caption = "";
+  }
+  get path() {
+    return this._path;
+  }
+  get caption() {
+    return this._caption;
+  }
+  set caption(caption) {
+    this._caption = caption;
+  }
+  get src() {
+    return this._src;
+  }
+};
+
+// src/galleries/factories/ImageFactory.ts
+var ImageFactory = class extends AbstractFactory {
+  create(path2, caption) {
+    const imageLocation = this._getImageLocation(path2);
+    if (imageLocation === void 0)
+      return void 0;
+    const response = new Image2(path2, imageLocation);
+    if (caption !== void 0)
+      response.caption = caption;
+    return response;
+  }
+  _getImageLocation(path2) {
+    if (path2.startsWith("http"))
+      return path2;
+    if (this.app.vault.getAbstractFileByPath(path2) === void 0)
+      return void 0;
+    if (AbstractComponentData.root === void 0)
+      AbstractComponentData.initialiseRoots(this.app);
+    return AbstractComponentData.root + path2;
+  }
+};
+
+// src/views/abstracts/AbstractView.ts
+var AbstractView = class extends AbstractRpgManager {
+  addSeparator(containerEl) {
+    containerEl.createSpan({ cls: "separator", text: " | " });
+  }
+  addLinkWithFunction(containerEl, text, fn, isLast = false) {
+    const containerSpanEl = containerEl.createSpan({ cls: "link" });
+    if (isLast)
+      containerSpanEl.addClass("clearfix");
+    const anchorEl = containerSpanEl.createEl("a", { href: "#", text });
+    anchorEl.addEventListener("click", fn.bind(this));
+  }
+};
+
+// src/galleries/abstracts/AbstractGalleryModalView.ts
+var AbstractGalleryModalView = class extends AbstractView {
+  get component() {
+    return this._component;
+  }
+  set component(component) {
+    this._component = component;
+  }
+};
+
+// src/galleries/views/modals/GalleryListModalView.ts
+var import_obsidian27 = require("obsidian");
+var GalleryListModalView = class extends AbstractGalleryModalView {
+  render(containerEl) {
+    containerEl.empty();
+    this._masonryEl = containerEl.createDiv({ cls: "gallery-operations-masonry" });
+    this.component.images.forEach((image) => {
+      const masonryItemEl = this._masonryEl.createDiv({ cls: "gallery-operations-masonry-item" });
+      const imageContainerEl = masonryItemEl.createDiv({ cls: "gallery-operations-masonry-item-container" });
+      const imageEl = new Image();
+      imageEl.addClass("image");
+      imageEl.src = image.src;
+      imageContainerEl.append(imageEl);
+      const imageCaptionEl = imageContainerEl.createDiv({ cls: "caption" });
+      if (image.caption !== "") {
+        import_obsidian27.MarkdownRenderer.renderMarkdown(image.caption, imageCaptionEl, "", null);
+      }
+      imageEl.addEventListener("click", () => {
+        const view = this.factories.imageView.create(4 /* ModalEdit */, this.component);
+        view.image = image;
+        view.render(containerEl);
+      });
+    });
+  }
+};
+
+// src/galleries/views/modals/GalleryNavigationModalView.ts
+var GalleryNavigationModalView = class extends AbstractGalleryModalView {
+  render(containerEl) {
+    const navigationEl = containerEl.createDiv({ cls: "gallery-navigation" });
+    this._operationsEl = containerEl.createDiv({ cls: "gallery-operations" });
+    this.addLinkWithFunction(navigationEl, "Current Images", () => {
+      this._loadView(2 /* ModalList */);
+    });
+    this.addSeparator(navigationEl);
+    this.addLinkWithFunction(navigationEl, "Add Local Image", () => {
+      this._loadView(3 /* ModalAddLocal */);
+    });
+    this.addSeparator(navigationEl);
+    this.addLinkWithFunction(navigationEl, "Upload Image", () => {
+      this._loadView(6 /* ModalUpload */);
+    });
+    this.addSeparator(navigationEl);
+    this.addLinkWithFunction(navigationEl, "Add Online Image", () => {
+      this._loadView(5 /* ModalAddRemote */);
+    }, true);
+    this._loadView(2 /* ModalList */);
+  }
+  _loadView(type) {
+    this._operationsEl.empty();
+    const view = this.factories.imageView.create(type, this.component);
+    view.render(this._operationsEl);
+  }
+};
+
+// src/galleries/views/modals/GalleryEditModalView.ts
+var GalleryEditModalView = class extends AbstractGalleryModalView {
+  set image(image) {
+    this._image = image;
+    this.component;
+  }
+  render(containerEl) {
+    containerEl.empty();
+    const editorDeletedContainerEl = containerEl.createDiv({ cls: "gallery-operations-edit-deleted" });
+    editorDeletedContainerEl.createDiv({ text: "The image has been removed from " + this.component.file.basename });
+    editorDeletedContainerEl.createDiv({ text: "Click to return to its gallery" });
+    editorDeletedContainerEl.addEventListener("click", () => {
+      const view = this.factories.imageView.create(2 /* ModalList */, this.component);
+      view.render(containerEl);
+    });
+    const editorContainerEl = containerEl.createDiv({ cls: "gallery-operations-edit" });
+    const editorImageContainerEl = editorContainerEl.createDiv({ cls: "gallery-operations-edit-image" });
+    const editorEditorContainerEl = editorContainerEl.createDiv({ cls: "gallery-operations-edit-editor clearfix" });
+    this._imageEl = new Image();
+    this._imageEl.addClass("image");
+    this._imageEl.src = this._image.src;
+    editorImageContainerEl.append(this._imageEl);
+    editorEditorContainerEl.createEl("h3", { text: "Edit Image" });
+    editorEditorContainerEl.createEl("label", { text: "Caption" });
+    this._captionEl = editorEditorContainerEl.createEl("textarea", { text: this._image.caption });
+    editorEditorContainerEl.createEl("button", { text: "Save Caption" }).addEventListener("click", () => {
+      this.manipulators.codeblock.addOrUpdateImage(this._image.path, this._captionEl.value);
+    });
+    editorEditorContainerEl.createEl("button", { cls: "danger", text: "Remove Image from " + this.component.file.basename }).addEventListener("click", () => {
+      this.manipulators.codeblock.removeImage(this._image.path).then(() => {
+        editorDeletedContainerEl.style.display = "block";
+      });
+    });
+  }
+};
+
+// src/galleries/views/modals/abstracts/AbstractConfirmationGalleryModalView.ts
+var AbstractConfirmationGalleryModalView = class extends AbstractGalleryModalView {
+  render(containerEl) {
+    this.containerEl = containerEl;
+    this.containerEl.empty();
+    this.confirmationOverlayEl = this.containerEl.createDiv({ cls: "gallery-operations-edit-deleted" });
+    this.confirmationOverlayEl.createDiv({ text: "The image has been added to " + this.component.file.basename });
+    this.confirmationOverlayEl.createDiv({ text: "Click to edit its caption" });
+    this.confirmationOverlayEl.addEventListener("click", () => {
+      if (this.selectedImage !== void 0) {
+        const view = this.factories.imageView.create(4 /* ModalEdit */, this.component);
+        view.image = this.selectedImage;
+        view.render(this.containerEl);
+      } else {
+        const view = this.factories.imageView.create(2 /* ModalList */, this.component);
+        view.render(containerEl);
+      }
+    });
+  }
+};
+
+// src/galleries/views/modals/GalleryAddLocalModalView.ts
+var GalleryAddLocalModalView = class extends AbstractConfirmationGalleryModalView {
+  render(containerEl) {
+    super.render(containerEl);
+    this.containerEl.createEl("label", { text: "Search your image" });
+    const searchEl = this.containerEl.createEl("input", { type: "text" });
+    searchEl.addEventListener("keyup", () => {
+      this._populateGrid(searchEl.value);
+    });
+    this._masonryEl = this.containerEl.createDiv({ cls: "gallery-operations-masonry-x" });
+    if (AbstractComponent.root == void 0)
+      AbstractComponent.initialiseRoots(this.app);
+    this._attachmentFolder = this.settings.imagesFolder !== void 0 && this.settings.imagesFolder !== "" ? this.settings.imagesFolder : this.app.vault.config.attachmentFolderPath;
+    if (this._attachmentFolder === void 0)
+      return;
+    this._attachmentFolder = this._attachmentFolder.toLowerCase();
+    const existingImages = [];
+    this.component.images.forEach((image) => {
+      existingImages.push(image.path);
+    });
+    this._allImages = this.app.vault.getFiles().filter((file) => file.path.toLowerCase().startsWith(this._attachmentFolder) && !existingImages.contains(file.path));
+    this._populateGrid();
+  }
+  _populateGrid(searchedText) {
+    this._masonryEl.empty();
+    let images = this._allImages;
+    if (searchedText !== void 0)
+      images = this._allImages.filter((image) => image.path.toLowerCase().indexOf(searchedText.toLowerCase()) !== -1);
+    images.forEach((image) => {
+      const imageEl = new Image();
+      imageEl.addClass("image");
+      imageEl.src = AbstractComponent.root + image.path;
+      imageEl.dataset.id = image.path;
+      imageEl.addEventListener("click", () => {
+        if (imageEl.dataset.id !== void 0) {
+          this.manipulators.codeblock.addOrUpdateImage(imageEl.dataset.id, "").then((image2) => {
+            if (image2 !== void 0) {
+              this.selectedImage = image2;
+              this.confirmationOverlayEl.style.display = "block";
+            }
+          });
+        }
+      });
+      this._masonryEl.append(imageEl);
+    });
+  }
+};
+
+// src/galleries/views/modals/GalleryAddRemoteModalView.ts
+var GalleryAddRemoteModalView = class extends AbstractConfirmationGalleryModalView {
+  render(containerEl) {
+    super.render(containerEl);
+    this.containerEl.createEl("label", { text: "Add the URL of the online image" });
+    this._urlEl = this.containerEl.createEl("input", { type: "text" });
+    this._addButtonEl = this.containerEl.createEl("button", { text: "Add image" });
+    this._addButtonEl.disabled = true;
+    this._errorEl = this.containerEl.createDiv({ cls: "error" });
+    this._imageContainerEl = this.containerEl.createDiv({ cls: "image-container" });
+    this._urlEl.addEventListener("paste", this._showPreview.bind(this));
+    this._urlEl.addEventListener("keyup", this._showPreview.bind(this));
+    this._addButtonEl.addEventListener("click", () => {
+      const imageEl = new Image();
+      for (let index = 0; index < this.component.images.length; index++) {
+        if (this._urlEl.value.toLowerCase() === this.component.images[index].src.toLowerCase()) {
+          this._errorEl.style.display = "";
+          this._errorEl.textContent = "The URL to the image is invalid.";
+          return;
+        }
+      }
+      imageEl.onerror = (evt) => {
+        this._errorEl.style.display = "";
+        this._errorEl.textContent = "The URL to the image is invalid.";
+        return;
+      };
+      imageEl.onload = (evt) => {
+        this.manipulators.codeblock.addOrUpdateImage(this._urlEl.value.toLowerCase(), "").then((image) => {
+          if (image !== void 0) {
+            this.selectedImage = image;
+            this.confirmationOverlayEl.style.display = "block";
+          }
+        });
+      };
+      imageEl.src = this._urlEl.value;
+    });
+  }
+  _showPreview() {
+    const imageEl = new Image();
+    imageEl.onerror = (evt) => {
+      this._errorEl.style.display = "";
+      this._addButtonEl.disabled = true;
+      return;
+    };
+    imageEl.onload = (evt) => {
+      this._imageContainerEl.empty();
+      this._imageContainerEl.append(imageEl);
+      this._addButtonEl.disabled = false;
+    };
+    imageEl.src = this._urlEl.value;
+  }
+};
+
+// src/galleries/views/modals/GalleryUploadModalView.ts
+var import_obsidian28 = require("obsidian");
+var fs = require("fs");
+var GalleryUploadModalView = class extends AbstractConfirmationGalleryModalView {
+  render(containerEl) {
+    super.render(containerEl);
+    this._dropZoneEl = this.containerEl.createDiv({ cls: "dropzone" });
+    this._dropZoneEl.createDiv();
+    (0, import_obsidian28.setIcon)(this._dropZoneEl, "download");
+    this._dropZoneEl.createDiv({ text: "Drag and drop your image here to add it to your Vault" });
+    if (this._isAdvancedUpload()) {
+      this._dropZoneEl.ondrag = (e) => {
+        this._onDrag(e);
+      };
+      this._dropZoneEl.ondragstart = (e) => {
+        this._onDrag(e);
+      };
+      this._dropZoneEl.ondragend = (e) => {
+        this._onDrag(e);
+      };
+      this._dropZoneEl.ondragover = (e) => {
+        this._onDrag(e);
+      };
+      this._dropZoneEl.ondragenter = (e) => {
+        this._onDrag(e);
+      };
+      this._dropZoneEl.ondragleave = (e) => {
+        this._onDrag(e);
+      };
+      this._dropZoneEl.ondrop = (e) => {
+        this._onDrag(e);
+        if (e.dataTransfer != null) {
+          for (let index = 0; index < e.dataTransfer.files.length; index++) {
+            const file = e.dataTransfer.files[index];
+            const folder = this.settings.imagesFolder !== void 0 && this.settings.imagesFolder !== "" ? this.settings.imagesFolder : this.app.vault.config.attachmentFolderPath;
+            let fileName = file.name;
+            let fileIndex = 0;
+            while (this.app.vault.getAbstractFileByPath(folder + "/" + fileName) != void 0) {
+              const indexOfExtension = fileName.lastIndexOf(".");
+              const name = fileName.substring(0, indexOfExtension);
+              const extension = fileName.substring(indexOfExtension);
+              fileIndex++;
+              fileName = name + "_" + fileIndex.toString() + extension;
+            }
+            const path2 = this.app.vault.adapter.basePath + "/" + folder + "/" + fileName;
+            const originalFilePath = file["path"];
+            fs.copyFile(originalFilePath, path2, (err) => {
+              if (err)
+                throw err;
+              this.manipulators.codeblock.addOrUpdateImage(folder + "/" + fileName, "").then((image) => {
+                if (image !== void 0) {
+                  this.selectedImage = image;
+                  this.confirmationOverlayEl.style.display = "block";
+                }
+              });
+            });
+          }
+        }
+      };
+    }
+  }
+  _onDrag(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+  _isAdvancedUpload() {
+    return ("draggable" in this._dropZoneEl || "ondragstart" in this._dropZoneEl && "ondrop" in this._dropZoneEl) && "FormData" in window && "FileReader" in window;
+  }
+};
+
+// src/galleries/factories/GalleryViewFactory.ts
+var GalleryViewFactory = class extends AbstractFactory {
+  constructor() {
+    super(...arguments);
+    this._views = /* @__PURE__ */ new Map([
+      [1 /* ModalNavigation */, GalleryNavigationModalView],
+      [2 /* ModalList */, GalleryListModalView],
+      [4 /* ModalEdit */, GalleryEditModalView],
+      [3 /* ModalAddLocal */, GalleryAddLocalModalView],
+      [5 /* ModalAddRemote */, GalleryAddRemoteModalView],
+      [6 /* ModalUpload */, GalleryUploadModalView]
+    ]);
+  }
+  create(type, component) {
+    const view = this._views.get(type);
+    if (view === void 0)
+      throw new Error("");
+    const response = new view(this.app);
+    response.component = component;
+    return response;
   }
 };
 
 // src/factories/Factories.ts
 var Factories = class {
-  constructor(app2) {
-    this.app = app2;
-    this.subModels = new SubModelFactory(this.app);
-    this.contents = new ContentFactory(this.app);
-    this.component = new ComponentFactory(this.app);
-    this.files = new FileFactory(this.app);
-    this.modals = new ModalFactory(this.app);
-    this.models = new ModelFactory(this.app);
-    this.pronouns = new PronounFactory(this.app);
-    this.templates = new TemplateFactory(this.app);
-    this.views = new ViewFactory(this.app);
-    this.fetchers = new FetcherFactory(this.app);
-    this.database = new DatabaseFactory(this.app);
-    this.id = new IdFactory(this.app);
-    this.breadcrumb = new BreadcrumbFactory(this.app);
-    this.sorter = new SorterFactory(this.app);
-    this.componentType = new ComponentTypeFactory(this.app);
-    this.relationshipType = new RelationshipTypeFactory(this.app);
-    this.sceneType = new SceneTypeFactory(this.app);
-    this.storyCircleStage = new StoryCircleStageFactory(this.app);
-    this.abtStage = new AbtStageFactory(this.app);
-    this.relationship = new RelationshipFactory(this.app);
-    this.logger = new LogFactory(this.app, 1 /* Console */);
-    this.fileManipulator = new FileManipulatorFactory(this.app);
-    this.runningTimeManager = new RunningTimeManager(this.app);
+  constructor(_app) {
+    this._app = _app;
+    this.subModels = new SubModelFactory(this._app);
+    this.contents = new ContentFactory(this._app);
+    this.component = new ComponentFactory(this._app);
+    this.files = new FileFactory(this._app);
+    this.modals = new ModalFactory(this._app);
+    this.models = new ModelFactory(this._app);
+    this.pronouns = new PronounFactory(this._app);
+    this.templates = new TemplateFactory(this._app);
+    this.views = new ViewFactory(this._app);
+    this.fetchers = new FetcherFactory(this._app);
+    this.database = new DatabaseFactory(this._app);
+    this.id = new IdFactory(this._app);
+    this.breadcrumb = new BreadcrumbFactory(this._app);
+    this.sorter = new SorterFactory(this._app);
+    this.componentType = new ComponentTypeFactory(this._app);
+    this.relationshipType = new RelationshipTypeFactory(this._app);
+    this.sceneType = new SceneTypeFactory(this._app);
+    this.storyCircleStage = new StoryCircleStageFactory(this._app);
+    this.abtStage = new AbtStageFactory(this._app);
+    this.relationship = new RelationshipFactory(this._app);
+    this.logger = new LogFactory(this._app, 1 /* Console */);
+    this.fileManipulator = new FileManipulatorFactory(this._app);
+    this.analyser = new AnalyserFactory(this._app);
+    this.image = new ImageFactory(this._app);
+    this.imageView = new GalleryViewFactory(this._app);
+    this.runningTimeManager = new RunningTimeManager(this._app);
   }
 };
 
 // src/modals/CreationModal.ts
-var import_obsidian27 = require("obsidian");
+var import_obsidian29 = require("obsidian");
 var CreationModal = class extends AbstractRpgManagerModal {
-  constructor(app2, type, create = true, name = null, campaignId = void 0, adventureId = void 0, actId = void 0) {
+  constructor(app2, type, _create = true, _name = null, campaignId = void 0, adventureId = void 0, actId = void 0) {
     super(app2);
     this.app = app2;
     this.type = type;
-    this.create = create;
-    this.name = name;
+    this._create = _create;
+    this._name = _name;
     this.campaignSetting = 0 /* Agnostic */;
     this.availableSpecificTemplates = [];
     this.availableGenericTemplates = [];
@@ -11038,7 +15997,7 @@ var CreationModal = class extends AbstractRpgManagerModal {
     const { contentEl } = this;
     contentEl.empty();
     contentEl.addClass("rpgm-modal");
-    if (!this.create && this.app.workspace.getActiveViewOfType(import_obsidian27.MarkdownView) == null) {
+    if (!this._create && this.app.workspace.getActiveViewOfType(import_obsidian29.MarkdownView) == null) {
       contentEl.createEl("h2", { cls: "rpgm-modal-title", text: "Error" });
       contentEl.createSpan({ cls: "", text: "To fill a note with a RPG Manager element you must have a valid file opened." });
       return;
@@ -11050,8 +16009,8 @@ var CreationModal = class extends AbstractRpgManagerModal {
     const titleEl = navigationEl.createDiv({ cls: "rpgm-input-title" });
     titleEl.createEl("label", { text: "Title of your new " + ComponentType[this.type] });
     this.title = titleEl.createEl("input", { type: "text" });
-    if (this.name !== null) {
-      this.title.value = this.name;
+    if (this._name !== null) {
+      this.title.value = this._name;
     }
     this.titleError = navigationEl.createEl("p", { cls: "error", text: "Please specify a valid title" });
     const selectionTitleEl = navigationEl.createDiv({ cls: "rpgm-input-title" });
@@ -11104,7 +16063,7 @@ var CreationModal = class extends AbstractRpgManagerModal {
       this.button.disabled = true;
     }
     this.button.addEventListener("click", (e) => {
-      this.save();
+      this._save();
     });
     this.campaignModal.addElement(childElement);
     titleEl.addEventListener("keypress", function(event) {
@@ -11117,7 +16076,7 @@ var CreationModal = class extends AbstractRpgManagerModal {
     contentEl.empty();
     super.onClose();
   }
-  save() {
+  _save() {
     return __async(this, null, function* () {
       if (this.title.value === "") {
         this.titleError.style.display = "block";
@@ -11135,7 +16094,7 @@ var CreationModal = class extends AbstractRpgManagerModal {
         return;
       if (this.elementModal != null && !this.elementModal.validate())
         return;
-      this.saver.save(this.campaignSetting, this.type, this.create, this.templateEl.value, this.title.value, this.campaignId, this.adventureId, this.actId, this.sceneId, this.sessionId, this.saver.prepareAdditionalInformation());
+      this.saver.save(this.campaignSetting, this.type, this._create, this.templateEl.value, this.title.value, this.campaignId, this.adventureId, this.actId, this.sceneId, this.sessionId, this.saver.prepareAdditionalInformation());
       this.close();
     });
   }
@@ -11149,7 +16108,7 @@ var CreationModal = class extends AbstractRpgManagerModal {
 };
 
 // src/settings/RpgManagerSettingsInterface.ts
-var RpgManagerDefaultSettings = {
+var rpgManagerDefaultSettings = {
   automaticMove: true,
   templateFolder: "",
   imagesFolder: "",
@@ -11282,7 +16241,7 @@ var RpgManagerDefaultSettings = {
 };
 
 // src/settings/RpgManagerSettings.ts
-var import_obsidian29 = require("obsidian");
+var import_obsidian31 = require("obsidian");
 
 // src/settings/SettingsUpdater.ts
 var SettingsUpdater = class extends AbstractRpgManager {
@@ -11315,15 +16274,15 @@ var SettingsUpdater = class extends AbstractRpgManager {
 };
 
 // src/settings/factories/SettingsFactory.ts
-var import_obsidian28 = require("obsidian");
+var import_obsidian30 = require("obsidian");
 var SettingsFactory = class {
-  constructor(app2, plugin, map, containerEl) {
-    this.app = app2;
-    this.plugin = plugin;
-    this.map = map;
-    this.containerEl = containerEl;
+  constructor(_app, _plugin, _map, _containerEl) {
+    this._app = _app;
+    this._plugin = _plugin;
+    this._map = _map;
+    this._containerEl = _containerEl;
   }
-  generateFragment(text) {
+  _generateFragment(text) {
     const lines = text.split("\n");
     return createFragment((fragment) => {
       lines.forEach((content) => {
@@ -11335,19 +16294,19 @@ var SettingsFactory = class {
   }
   createHeader(text, level = 2, additionalText = void 0) {
     const elementType = "h" + level.toString();
-    this.containerEl.createEl(elementType, { text });
+    this._containerEl.createEl(elementType, { text });
     if (additionalText !== void 0) {
-      this.containerEl.createEl("span", { text: this.generateFragment(additionalText) });
+      this._containerEl.createEl("span", { text: this._generateFragment(additionalText) });
     }
   }
   createWarning(text) {
-    this.containerEl.createEl("p", { text }).style.color = "var(--text-error)";
+    this._containerEl.createEl("p", { text }).style.color = "var(--text-error)";
   }
   createTextSetting(type, description = "") {
-    const settings = this.map.get(type);
+    const settings = this._map.get(type);
     if (settings === void 0)
       throw new Error("Setting type not found");
-    return new import_obsidian28.Setting(this.containerEl).setName(settings.title).setDesc(this.generateFragment(description)).addText((text) => {
+    return new import_obsidian30.Setting(this._containerEl).setName(settings.title).setDesc(this._generateFragment(description)).addText((text) => {
       var _a;
       return text.setPlaceholder((_a = settings.placeholder) != null ? _a : "").setValue(settings.value).onChange((value) => {
         settings.value = value;
@@ -11355,10 +16314,10 @@ var SettingsFactory = class {
     });
   }
   createDropdownSetting(type, description, options) {
-    const settings = this.map.get(type);
+    const settings = this._map.get(type);
     if (settings === void 0)
       throw new Error("Setting type not found");
-    return new import_obsidian28.Setting(this.containerEl).setName(settings.title).setDesc(this.generateFragment(description)).addDropdown((dropdown) => {
+    return new import_obsidian30.Setting(this._containerEl).setName(settings.title).setDesc(this._generateFragment(description)).addDropdown((dropdown) => {
       dropdown.addOption("", "");
       options.forEach((value, display) => {
         dropdown.addOption(value, display);
@@ -11367,11 +16326,11 @@ var SettingsFactory = class {
       dropdown.onChange((value) => __async(this, null, function* () {
         switch (type) {
           case 13 /* templateFolder */:
-            yield this.plugin.updateSettings({ templateFolder: value });
+            yield this._plugin.updateSettings({ templateFolder: value });
             settings.value = value;
             break;
           case 18 /* imagesFolder */:
-            yield this.plugin.updateSettings({ imagesFolder: value });
+            yield this._plugin.updateSettings({ imagesFolder: value });
             settings.value = value;
             break;
         }
@@ -11379,113 +16338,113 @@ var SettingsFactory = class {
     });
   }
   createToggleSetting(type, description) {
-    const settings = this.map.get(type);
+    const settings = this._map.get(type);
     if (settings === void 0)
       throw new Error("Setting type not found");
-    return new import_obsidian28.Setting(this.containerEl).setName(settings.title).setDesc(this.generateFragment(description)).addToggle((toggle) => toggle.setValue(settings.value).onChange((value) => __async(this, null, function* () {
+    return new import_obsidian30.Setting(this._containerEl).setName(settings.title).setDesc(this._generateFragment(description)).addToggle((toggle) => toggle.setValue(settings.value).onChange((value) => __async(this, null, function* () {
       switch (type) {
         case 11 /* automaticMove */:
-          yield this.plugin.updateSettings({ automaticMove: value });
+          yield this._plugin.updateSettings({ automaticMove: value });
           settings.value = value;
           break;
         case 16 /* usePlotStructures */:
-          yield this.plugin.updateSettings({ usePlotStructures: value });
+          yield this._plugin.updateSettings({ usePlotStructures: value });
           settings.value = value;
           break;
         case 17 /* useSceneAnalyser */:
-          yield this.plugin.updateSettings({ useSceneAnalyser: value });
+          yield this._plugin.updateSettings({ useSceneAnalyser: value });
           settings.value = value;
           break;
       }
-      this.app.workspace.trigger("rpgmanager:force-refresh-views");
+      this._app.workspace.trigger("rpgmanager:force-refresh-views");
     })));
   }
 };
 
 // src/settings/RpgManagerSettings.ts
-var RpgManagerSettings = class extends import_obsidian29.PluginSettingTab {
+var RpgManagerSettings = class extends import_obsidian31.PluginSettingTab {
   constructor(app2) {
     super(app2, app2.plugins.getPlugin("rpg-manager"));
-    this.advancedSettingsDescription = /* @__PURE__ */ new Map();
-    this.plugin = app2.plugins.getPlugin("rpg-manager");
+    this._advancedSettingsDescription = /* @__PURE__ */ new Map();
+    this._plugin = app2.plugins.getPlugin("rpg-manager");
     const { containerEl } = this;
     this.containerEl = containerEl;
-    this.map = /* @__PURE__ */ new Map();
-    this.map.set(12 /* YouTubeApiKey */, { title: "YouTube API Key", value: this.plugin.settings.YouTubeKey, placeholder: "Your YouTube API Key" });
-    this.map.set(11 /* automaticMove */, { title: "Automatically organise elements in folders", value: this.plugin.settings.automaticMove, placeholder: "Organise new elements" });
-    this.map.set(13 /* templateFolder */, { title: "Template folder", value: this.plugin.settings.templateFolder, placeholder: "Template Folder" });
-    this.map.set(18 /* imagesFolder */, { title: "Images folder", value: this.plugin.settings.imagesFolder, placeholder: "Images Folder" });
-    this.map.set(16 /* usePlotStructures */, { title: "Abt/Story Circle plot structure", value: this.plugin.settings.usePlotStructures, placeholder: "" });
-    this.map.set(17 /* useSceneAnalyser */, { title: "Scene Analyser", value: this.plugin.settings.useSceneAnalyser, placeholder: "" });
-    this.advancedSettingsDescription.set("ActList", { title: "Act List", description: "Select which fields you would like to see when displaying a list of Acts" });
-    this.advancedSettingsDescription.set("AdventureList", { title: "Adventure List", description: "Select which fields you would like to see when displaying a list of Adventures" });
-    this.advancedSettingsDescription.set("CharacterList", { title: "Player Character List", description: "Select which fields you would like to see when displaying a list of Player characters" });
-    this.advancedSettingsDescription.set("ClueList", { title: "Clue List", description: "Select which fields you would like to see when displaying a list of Clues" });
-    this.advancedSettingsDescription.set("EventList", { title: "Event List", description: "Select which fields you would like to see when displaying a list of Events" });
-    this.advancedSettingsDescription.set("FactionList", { title: "Faction List", description: "Select which fields you would like to see when displaying a list of Factions" });
-    this.advancedSettingsDescription.set("LocationList", { title: "Location List", description: "Select which fields you would like to see when displaying a list of Locations" });
-    this.advancedSettingsDescription.set("MusicList", { title: "Music List", description: "Select which fields you would like to see when displaying a list of Musics" });
-    this.advancedSettingsDescription.set("NonPlayerCharacterList", { title: "Non Player Character List", description: "Select which fields you would like to see when displaying a list of Non Player Characters" });
-    this.advancedSettingsDescription.set("SceneList", { title: "Scene List", description: "Select which fields you would like to see when displaying a list of Scenes" });
-    this.advancedSettingsDescription.set("SessionList", { title: "Session List", description: "Select which fields you would like to see when displaying a list of Sessions" });
-    this.advancedSettingsDescription.set("SubplotList", { title: "Subplot List", description: "Select which fields you would like to see when displaying a list of Subplots" });
-    this.settingsUpdater = new SettingsUpdater(this.app);
-    this.settingsFactory = new SettingsFactory(this.app, this.plugin, this.map, this.containerEl);
+    this._map = /* @__PURE__ */ new Map();
+    this._map.set(12 /* YouTubeApiKey */, { title: "YouTube API Key", value: this._plugin.settings.YouTubeKey, placeholder: "Your YouTube API Key" });
+    this._map.set(11 /* automaticMove */, { title: "Automatically organise elements in folders", value: this._plugin.settings.automaticMove, placeholder: "Organise new elements" });
+    this._map.set(13 /* templateFolder */, { title: "Template folder", value: this._plugin.settings.templateFolder, placeholder: "Template Folder" });
+    this._map.set(18 /* imagesFolder */, { title: "Images folder", value: this._plugin.settings.imagesFolder, placeholder: "Images Folder" });
+    this._map.set(16 /* usePlotStructures */, { title: "Abt/Story Circle plot structure", value: this._plugin.settings.usePlotStructures, placeholder: "" });
+    this._map.set(17 /* useSceneAnalyser */, { title: "Scene Analyser", value: this._plugin.settings.useSceneAnalyser, placeholder: "" });
+    this._advancedSettingsDescription.set("ActList", { title: "Act List", description: "Select which fields you would like to see when displaying a list of Acts" });
+    this._advancedSettingsDescription.set("AdventureList", { title: "Adventure List", description: "Select which fields you would like to see when displaying a list of Adventures" });
+    this._advancedSettingsDescription.set("CharacterList", { title: "Player Character List", description: "Select which fields you would like to see when displaying a list of Player characters" });
+    this._advancedSettingsDescription.set("ClueList", { title: "Clue List", description: "Select which fields you would like to see when displaying a list of Clues" });
+    this._advancedSettingsDescription.set("EventList", { title: "Event List", description: "Select which fields you would like to see when displaying a list of Events" });
+    this._advancedSettingsDescription.set("FactionList", { title: "Faction List", description: "Select which fields you would like to see when displaying a list of Factions" });
+    this._advancedSettingsDescription.set("LocationList", { title: "Location List", description: "Select which fields you would like to see when displaying a list of Locations" });
+    this._advancedSettingsDescription.set("MusicList", { title: "Music List", description: "Select which fields you would like to see when displaying a list of Musics" });
+    this._advancedSettingsDescription.set("NonPlayerCharacterList", { title: "Non Player Character List", description: "Select which fields you would like to see when displaying a list of Non Player Characters" });
+    this._advancedSettingsDescription.set("SceneList", { title: "Scene List", description: "Select which fields you would like to see when displaying a list of Scenes" });
+    this._advancedSettingsDescription.set("SessionList", { title: "Session List", description: "Select which fields you would like to see when displaying a list of Sessions" });
+    this._advancedSettingsDescription.set("SubplotList", { title: "Subplot List", description: "Select which fields you would like to see when displaying a list of Subplots" });
+    this._settingsUpdater = new SettingsUpdater(this.app);
+    this._settingsFactory = new SettingsFactory(this.app, this._plugin, this._map, this.containerEl);
   }
   display() {
     this.containerEl.empty();
-    this.createFolderMap();
-    this.settingsFactory.createHeader("CampaignSetting for Role Playing Game Manager");
-    this.loadTemplatesSettings();
-    this.loadImagesSettings();
-    this.loadExternalServicesSettings();
-    this.loadAdvancedSettings();
+    this._createFolderMap();
+    this._settingsFactory.createHeader("CampaignSetting for Role Playing Game Manager");
+    this._loadTemplatesSettings();
+    this._loadImagesSettings();
+    this._loadExternalServicesSettings();
+    this._loadAdvancedSettings();
   }
-  loadExternalServicesSettings() {
-    this.settingsFactory.createHeader("External Services", 3);
-    this.settingsFactory.createWarning(`Configurations are saved in a file in your vault. If you share your vault, you share your key!`);
-    this.settingsFactory.createTextSetting(12 /* YouTubeApiKey */, `Used to access YouTube-specific information`);
+  _loadExternalServicesSettings() {
+    this._settingsFactory.createHeader("External Services", 3);
+    this._settingsFactory.createWarning(`Configurations are saved in a file in your vault. If you share your vault, you share your key!`);
+    this._settingsFactory.createTextSetting(12 /* YouTubeApiKey */, `Used to access YouTube-specific information`);
   }
-  loadTemplatesSettings() {
-    this.settingsFactory.createHeader("Component creations", 3, "Manage how new subModels are created");
-    this.settingsFactory.createDropdownSetting(13 /* templateFolder */, `Select the folder in which you keep the templates for RPG Manager.`, this.folderMap);
-    this.settingsFactory.createToggleSetting(11 /* automaticMove */, `Keeps your structure organised by creating subfolders for your Outlines and Elements`);
-    this.settingsFactory.createToggleSetting(16 /* usePlotStructures */, `Use ABT/Story Circle plot structures`);
-    this.settingsFactory.createToggleSetting(17 /* useSceneAnalyser */, `Analyses the scenes inside acts or sessions to provide running time estimations and act or session balance`);
+  _loadTemplatesSettings() {
+    this._settingsFactory.createHeader("Component creations", 3, "Manage how new subModels are created");
+    this._settingsFactory.createDropdownSetting(13 /* templateFolder */, `Select the folder in which you keep the templates for RPG Manager.`, this._folderMap);
+    this._settingsFactory.createToggleSetting(11 /* automaticMove */, `Keeps your structure organised by creating subfolders for your Outlines and Elements`);
+    this._settingsFactory.createToggleSetting(16 /* usePlotStructures */, `Use ABT/Story Circle plot structures`);
+    this._settingsFactory.createToggleSetting(17 /* useSceneAnalyser */, `Analyses the scenes inside acts or sessions to provide running time estimations and act or session balance`);
   }
-  loadImagesSettings() {
-    this.settingsFactory.createHeader("Images Management", 3, "Manage where you store the images for all your campaigns");
-    this.settingsFactory.createDropdownSetting(18 /* imagesFolder */, `Select the folder in which you keep the images for RPG Manager. Leave it empty if you want to use the default Obsidian Attachment folder. RPG Manager scans every subfolder in the one you selected`, this.folderMap);
+  _loadImagesSettings() {
+    this._settingsFactory.createHeader("Images Management", 3, "Manage where you store the galleries for all your campaigns");
+    this._settingsFactory.createDropdownSetting(18 /* imagesFolder */, `Select the folder in which you keep the images for RPG Manager. Leave it empty if you want to use the default Obsidian Attachment folder. RPG Manager scans every subfolder in the one you selected`, this._folderMap);
   }
-  createFolderMap(parent = void 0, indent = 0) {
+  _createFolderMap(parent = void 0, indent = 0) {
     let folderList = [];
     if (parent != void 0) {
-      folderList = parent.children.filter((file) => file instanceof import_obsidian29.TFolder);
+      folderList = parent.children.filter((file) => file instanceof import_obsidian31.TFolder);
     } else {
-      this.folderMap = /* @__PURE__ */ new Map();
-      folderList = this.app.vault.getRoot().children.filter((file) => file instanceof import_obsidian29.TFolder);
+      this._folderMap = /* @__PURE__ */ new Map();
+      folderList = this.app.vault.getRoot().children.filter((file) => file instanceof import_obsidian31.TFolder);
     }
     folderList.forEach((folder) => {
-      this.folderMap.set(folder.path, folder.path);
-      this.createFolderMap(folder, indent + 1);
+      this._folderMap.set(folder.path, folder.path);
+      this._createFolderMap(folder, indent + 1);
     });
   }
-  loadAdvancedSettings() {
-    this.settingsFactory.createHeader("Lists", 3);
-    Object.keys(this.plugin.settings.advanced.Agnostic).forEach((name, index) => {
-      const advancedSetting = this.plugin.settings.advanced.Agnostic[name];
-      this.addSettingsItem(name, advancedSetting);
+  _loadAdvancedSettings() {
+    this._settingsFactory.createHeader("Lists", 3);
+    Object.keys(this._plugin.settings.advanced.Agnostic).forEach((name, index) => {
+      const advancedSetting = this._plugin.settings.advanced.Agnostic[name];
+      this._addSettingsItem(name, advancedSetting);
     });
   }
-  addSettingsItem(type, settings) {
+  _addSettingsItem(type, settings) {
     var _a, _b, _c, _d, _e;
     const settingItemEl = this.containerEl.createDiv({ cls: "setting-item" });
     const settingItemInfoEl = settingItemEl.createDiv({ cls: "setting-item-info" });
-    settingItemInfoEl.createDiv({ cls: "setting-item-name", text: (_b = (_a = this.advancedSettingsDescription.get(type)) == null ? void 0 : _a.title) != null ? _b : "" });
-    settingItemInfoEl.createDiv({ cls: "setting-item-description", text: (_d = (_c = this.advancedSettingsDescription.get(type)) == null ? void 0 : _c.description) != null ? _d : "" }).createEl("br");
+    settingItemInfoEl.createDiv({ cls: "setting-item-name", text: (_b = (_a = this._advancedSettingsDescription.get(type)) == null ? void 0 : _a.title) != null ? _b : "" });
+    settingItemInfoEl.createDiv({ cls: "setting-item-description", text: (_d = (_c = this._advancedSettingsDescription.get(type)) == null ? void 0 : _c.description) != null ? _d : "" }).createEl("br");
     const settingItemControlEl = settingItemEl.createDiv({ cls: "setting-item-control" });
     const listSettingTableEl = settingItemControlEl.createEl("table", { cls: "rpgm-advanced-settings-table" });
-    const defaultSettings = RpgManagerDefaultSettings.advanced.Agnostic[type];
+    const defaultSettings = rpgManagerDefaultSettings.advanced.Agnostic[type];
     for (let index = 0; index < defaultSettings.fields.length; index++) {
       const listSettingTableRowEl = listSettingTableEl.createEl("tr");
       listSettingTableRowEl.createEl("td", { text: (_e = tableFieldName.get(defaultSettings.fields[index].field)) != null ? _e : "" });
@@ -11505,26 +16464,26 @@ var RpgManagerSettings = class extends import_obsidian29.PluginSettingTab {
       if (defaultSettings.fields[index].required)
         listSettingFieldCheckboxEl.disabled = true;
       listSettingFieldCheckboxEl.addEventListener("change", () => {
-        this.updateAdvancedListSettings(index, type, listSettingFieldCheckboxEl.checked);
+        this._updateAdvancedListSettings(index, type, listSettingFieldCheckboxEl.checked);
       });
     }
   }
-  updateAdvancedListSettings(index, type, checked) {
+  _updateAdvancedListSettings(index, type, checked) {
     return __async(this, null, function* () {
       const name = type;
       const partialSettings = {
         advanced: {
-          Agnostic: this.plugin.settings.advanced.Agnostic
+          Agnostic: this._plugin.settings.advanced.Agnostic
         }
       };
       if (partialSettings.advanced !== void 0) {
-        for (let defaultIndex = 0; defaultIndex < RpgManagerDefaultSettings.advanced.Agnostic[name].fields.length; defaultIndex++) {
+        for (let defaultIndex = 0; defaultIndex < rpgManagerDefaultSettings.advanced.Agnostic[name].fields.length; defaultIndex++) {
           if (partialSettings.advanced.Agnostic[name].fields[defaultIndex] === void 0) {
-            partialSettings.advanced.Agnostic[name].fields.push(RpgManagerDefaultSettings.advanced.Agnostic[name].fields[defaultIndex]);
+            partialSettings.advanced.Agnostic[name].fields.push(rpgManagerDefaultSettings.advanced.Agnostic[name].fields[defaultIndex]);
           }
         }
         partialSettings.advanced.Agnostic[name].fields[index].checked = checked;
-        yield this.plugin.updateSettings(partialSettings);
+        yield this._plugin.updateSettings(partialSettings);
       }
       this.app.workspace.trigger("rpgmanager:refresh-views");
     });
@@ -11532,10 +16491,10 @@ var RpgManagerSettings = class extends import_obsidian29.PluginSettingTab {
 };
 
 // src/views/ErrorView.ts
-var import_obsidian31 = require("obsidian");
+var import_obsidian33 = require("obsidian");
 
 // src/abstracts/AbstractRpgManagerView.ts
-var import_obsidian30 = require("obsidian");
+var import_obsidian32 = require("obsidian");
 
 // node_modules/w3c-keyname/index.es.js
 var base = {
@@ -11640,7 +16599,7 @@ for (code in base)
 var code;
 
 // src/abstracts/AbstractRpgManagerView.ts
-var AbstractRpgManagerView = class extends import_obsidian30.ItemView {
+var AbstractRpgManagerView = class extends import_obsidian32.ItemView {
   constructor(app2, leaf) {
     super(leaf);
     this.app = app2;
@@ -11729,15 +16688,15 @@ var ErrorView = class extends AbstractRpgManagerView {
     this.viewType = "rpgm-error-view" /* Errors */.toString();
     this.displayText = "RPG Manager Errors";
     this.icon = "d20";
-    this.errors = /* @__PURE__ */ new Map();
+    this._errors = /* @__PURE__ */ new Map();
   }
   initialise(params) {
-    this.errors = params[0];
+    this._errors = params[0];
   }
   render() {
     return __async(this, null, function* () {
-      if (this.errors !== void 0 && this.errors.size > 0) {
-        this.errors.forEach((error, file) => {
+      if (this._errors !== void 0 && this._errors.size > 0) {
+        this._errors.forEach((error, file) => {
           const errorEl = this.rpgmContentEl.createEl("div");
           const errorTitle = error.getErrorTitle();
           let title;
@@ -11746,11 +16705,11 @@ var ErrorView = class extends AbstractRpgManagerView {
             title.textContent = errorTitle;
           } else {
             title = errorEl.createEl("a");
-            this.addLink(title, file.path);
+            this._addLink(title, file.path);
           }
           title.style.fontWeight = "bold";
           const errorDescriptionEl = errorEl.createEl("div");
-          import_obsidian31.MarkdownRenderer.renderMarkdown(error.showErrorActions(), errorDescriptionEl, file.path, null);
+          import_obsidian33.MarkdownRenderer.renderMarkdown(error.showErrorActions(), errorDescriptionEl, file.path, null);
           const errorLinksEl = errorDescriptionEl.createEl("ul");
           const errorLinkEl = errorLinksEl.createEl("li");
           const errorLinkAnchorEl = errorLinkEl.createEl("a", { href: "#", text: "Fix the issue" });
@@ -11765,9 +16724,9 @@ var ErrorView = class extends AbstractRpgManagerView {
       });
     });
   }
-  addLink(contentEl, linkOrFile) {
+  _addLink(contentEl, linkOrFile) {
     let file;
-    if (linkOrFile instanceof import_obsidian31.TFile) {
+    if (linkOrFile instanceof import_obsidian33.TFile) {
       file = linkOrFile;
       linkOrFile = file.basename;
     } else {
@@ -11797,12 +16756,12 @@ var V1_2_to_1_3_worker = class extends AbstractDatabaseWorker {
 };
 
 // src/updaters/workers/V1_3_to_2_0_worker.ts
-var import_obsidian32 = require("obsidian");
+var import_obsidian34 = require("obsidian");
 
 // src/databases/TagHelper.ts
 var _TagHelper = class {
-  constructor(settings) {
-    this.settings = settings;
+  constructor(_settings) {
+    this._settings = _settings;
     this.dataSettings = /* @__PURE__ */ new Map();
     this.dataSettings.set(1 /* Campaign */, _TagHelper.campaignTag);
     this.dataSettings.set(2 /* Adventure */, _TagHelper.adventureTag);
@@ -11817,20 +16776,20 @@ var _TagHelper = class {
     this.dataSettings.set(64 /* NonPlayerCharacter */, _TagHelper.npcTag);
     this.dataSettings.set(2048 /* Music */, _TagHelper.musicTag);
     this.dataSettings.set(4096 /* Subplot */, _TagHelper.subplotTag);
-    this.requiredIds = /* @__PURE__ */ new Map();
-    this.requiredIds.set(1 /* Campaign */, [1 /* Campaign */]);
-    this.requiredIds.set(2 /* Adventure */, [1 /* Campaign */]);
-    this.requiredIds.set(4 /* Act */, [1 /* Campaign */, 2 /* Adventure */]);
-    this.requiredIds.set(8 /* Scene */, [1 /* Campaign */, 2 /* Adventure */, 4 /* Act */, 8 /* Scene */]);
-    this.requiredIds.set(16 /* Session */, [1 /* Campaign */, 16 /* Session */]);
-    this.requiredIds.set(32 /* Character */, [1 /* Campaign */]);
-    this.requiredIds.set(512 /* Clue */, [1 /* Campaign */]);
-    this.requiredIds.set(256 /* Event */, [1 /* Campaign */]);
-    this.requiredIds.set(1024 /* Faction */, [1 /* Campaign */]);
-    this.requiredIds.set(128 /* Location */, [1 /* Campaign */]);
-    this.requiredIds.set(64 /* NonPlayerCharacter */, [1 /* Campaign */]);
-    this.requiredIds.set(2048 /* Music */, [2048 /* Music */]);
-    this.requiredIds.set(4096 /* Subplot */, [4096 /* Subplot */]);
+    this._requiredIds = /* @__PURE__ */ new Map();
+    this._requiredIds.set(1 /* Campaign */, [1 /* Campaign */]);
+    this._requiredIds.set(2 /* Adventure */, [1 /* Campaign */]);
+    this._requiredIds.set(4 /* Act */, [1 /* Campaign */, 2 /* Adventure */]);
+    this._requiredIds.set(8 /* Scene */, [1 /* Campaign */, 2 /* Adventure */, 4 /* Act */, 8 /* Scene */]);
+    this._requiredIds.set(16 /* Session */, [1 /* Campaign */, 16 /* Session */]);
+    this._requiredIds.set(32 /* Character */, [1 /* Campaign */]);
+    this._requiredIds.set(512 /* Clue */, [1 /* Campaign */]);
+    this._requiredIds.set(256 /* Event */, [1 /* Campaign */]);
+    this._requiredIds.set(1024 /* Faction */, [1 /* Campaign */]);
+    this._requiredIds.set(128 /* Location */, [1 /* Campaign */]);
+    this._requiredIds.set(64 /* NonPlayerCharacter */, [1 /* Campaign */]);
+    this._requiredIds.set(2048 /* Music */, [2048 /* Music */]);
+    this._requiredIds.set(4096 /* Subplot */, [4096 /* Subplot */]);
   }
   sanitiseTags(tags) {
     if (tags == null)
@@ -11988,7 +16947,7 @@ var _TagHelper = class {
   }
   fuzzyTagGuesser(tag) {
     const response = void 0;
-    const settings = this.settings;
+    const settings = this._settings;
     const oldCampaignTag = settings.campaignTag;
     const oldAdventureTag = settings.adventureTag;
     const oldActTag = settings.actTag;
@@ -12189,7 +17148,7 @@ var V1_3_to_2_0_worker = class extends AbstractDatabaseWorker {
         for (let index = 0; index < campaigns.length; index++) {
           const file = campaigns[index];
           yield file.parent.children.forEach((fileOrFolder) => {
-            if (fileOrFolder instanceof import_obsidian32.TFolder && fileOrFolder.name === "Sessions") {
+            if (fileOrFolder instanceof import_obsidian34.TFolder && fileOrFolder.name === "Sessions") {
               if (changedPaths.get(fileOrFolder.path) === void 0) {
                 changedPaths.set(fileOrFolder.path + "", true);
                 const newPath = fileOrFolder.path.replaceAll("Sessions", "Acts");
@@ -12205,13 +17164,13 @@ var V1_3_to_2_0_worker = class extends AbstractDatabaseWorker {
 };
 
 // src/updaters/workers/V2_0_to_3_0_worker.ts
-var import_obsidian33 = require("obsidian");
+var import_obsidian35 = require("obsidian");
 var V2_0_to_3_0_worker = class extends AbstractDatabaseWorker {
   run(reporter = void 0) {
     return __async(this, null, function* () {
       var _a, _b, _c, _d;
       this.factories.logger.warning(16 /* Updater */, "Updating RPG Manager from v2.0 to v3.0");
-      this.campaignSettings = /* @__PURE__ */ new Map();
+      this._campaignSettings = /* @__PURE__ */ new Map();
       this._loadCampaignSettings();
       const files = yield this.app.vault.getMarkdownFiles();
       if (reporter !== void 0)
@@ -12282,7 +17241,7 @@ var V2_0_to_3_0_worker = class extends AbstractDatabaseWorker {
                 firstCodeblockMetadataContentArray = fileContentArray.slice(firstCodeblockStartLine + 1, firstCodeblockEndLine);
                 firstCodeblockMetadataContentArray.slice(1);
                 firstCodeblockMetadataContent = firstCodeblockMetadataContentArray.join("\n");
-                firstCodeblockMetadata = (0, import_obsidian33.parseYaml)(firstCodeblockMetadataContent);
+                firstCodeblockMetadata = (0, import_obsidian35.parseYaml)(firstCodeblockMetadataContent);
               }
             } else {
               secondCodeblockMetadataStartLine = codeblock.position.start.line + 1;
@@ -12302,12 +17261,12 @@ var V2_0_to_3_0_worker = class extends AbstractDatabaseWorker {
         let dataCodeblockMetadataContent = "";
         if (firstCodeblockMetadataType !== void 0) {
           firstCodeblockNewMetadata = this._getComponentRpgManagerCodeBlockMetadata(firstCodeblockMetadataType.toLowerCase());
-          firstCodeblockNewMetadataContent = (0, import_obsidian33.stringifyYaml)(firstCodeblockNewMetadata);
+          firstCodeblockNewMetadataContent = YamlHelper.stringify(firstCodeblockNewMetadata);
           dataCodeblockMetadataContent = yield this._updateMetadata(tagAndType.type, dataCodeblockMetadata, frontmatterMetadata, firstCodeblockMetadata, relationships);
         }
         if (secondCodeblockMetadataType !== void 0) {
           secondCodeblockNewMetadata = this._getComponentRpgManagerCodeBlockMetadata(secondCodeblockMetadataType.toLowerCase());
-          secondCodeblockNewMetadataContent = (0, import_obsidian33.stringifyYaml)(secondCodeblockNewMetadata);
+          secondCodeblockNewMetadataContent = YamlHelper.stringify(secondCodeblockNewMetadata);
         }
         if (secondCodeblockNewMetadataContent !== void 0 && secondCodeblockMetadataStartLine !== void 0 && secondCodeblockMetadataEndLine !== void 0) {
           const listNewMetadataContentArray = secondCodeblockNewMetadataContent.split("\n");
@@ -12321,7 +17280,7 @@ var V2_0_to_3_0_worker = class extends AbstractDatabaseWorker {
         }
         if (frontmatterMetadataContentArray !== void 0 && frontmatterMetadataStartLine !== void 0 && frontmatterMetadataEndLine !== void 0) {
           const frontmatter = this._cleanFrontmatter(frontmatterMetadataContentArray);
-          const frontmatterContent = "---\n" + (0, import_obsidian33.stringifyYaml)(frontmatter) + "---\n```RpgManagerData\n" + dataCodeblockMetadataContent + "```";
+          const frontmatterContent = "---\n" + YamlHelper.stringify(frontmatter) + "---\n```RpgManagerData\n" + dataCodeblockMetadataContent + "```";
           fileContentArray.splice(frontmatterMetadataStartLine, frontmatterMetadataEndLine - frontmatterMetadataStartLine + 1, ...frontmatterContent.split("\n"));
         }
         let defaultTag = this.tagHelper.dataSettings.get(tagAndType.type);
@@ -12330,7 +17289,7 @@ var V2_0_to_3_0_worker = class extends AbstractDatabaseWorker {
             defaultTag += "/";
           const tagIds = tagAndType.tag.substring(defaultTag.length);
           const [campaignId] = tagIds.split("/");
-          let campaignSettings = this.campaignSettings.get(+campaignId);
+          let campaignSettings = this._campaignSettings.get(+campaignId);
           if (campaignSettings === void 0)
             campaignSettings = 0 /* Agnostic */;
           const validator = tagAndType.tag.substring(defaultTag.length).split("/");
@@ -12416,7 +17375,7 @@ var V2_0_to_3_0_worker = class extends AbstractDatabaseWorker {
         frontmatterContent += frontmatterMetadataContentArray[index] + "\n";
       }
     }
-    const frontmatter = (0, import_obsidian33.parseYaml)(frontmatterContent);
+    const frontmatter = (0, import_obsidian35.parseYaml)(frontmatterContent);
     if (frontmatter.tags !== void 0) {
       for (let index = frontmatter.tags.length - 1; index >= 0; index--) {
         if (this.tagHelper.isRpgManagerTag(frontmatter.tags[index])) {
@@ -12654,7 +17613,7 @@ var V2_0_to_3_0_worker = class extends AbstractDatabaseWorker {
       metadata.data.image = frontmatterMetadata.image;
     if (relationships.length > 0)
       metadata.relationships = relationships;
-    let response = (0, import_obsidian33.stringifyYaml)(metadata);
+    let response = YamlHelper.stringify(metadata);
     response = response.replaceAll("0,", ",").replaceAll("'',", ",").replaceAll("{},", ",").replaceAll('"",', ",");
     return response;
   }
@@ -12842,7 +17801,7 @@ var V2_0_to_3_0_worker = class extends AbstractDatabaseWorker {
             const id = this.factories.id.createFromTag(tagAndType.tag);
             try {
               const settings = ((_b = metadata == null ? void 0 : metadata.frontmatter) == null ? void 0 : _b.settings) != void 0 ? CampaignSetting[metadata.frontmatter.settings] : 0 /* Agnostic */;
-              this.campaignSettings.set(id.campaignId, settings);
+              this._campaignSettings.set(id.campaignId, settings);
             } catch (e) {
             }
           }
@@ -12852,81 +17811,164 @@ var V2_0_to_3_0_worker = class extends AbstractDatabaseWorker {
   }
 };
 
+// src/updaters/workers/V3_0_to_3_1_worker.ts
+var import_obsidian36 = require("obsidian");
+var V3_0_to_3_1_worker = class extends AbstractDatabaseWorker {
+  run(reporter = void 0) {
+    return __async(this, null, function* () {
+      var _a;
+      this.factories.logger.warning(16 /* Updater */, "Updating RPG Manager from v3.0 to v3.1");
+      const files = yield this.app.vault.getMarkdownFiles();
+      if (reporter !== void 0)
+        reporter.setFileCount(files.length);
+      for (let filesIndex = 0; filesIndex < files.length; filesIndex++) {
+        const file = files[filesIndex];
+        const cachedMetadata = this.app.metadataCache.getFileCache(file);
+        if (cachedMetadata == null) {
+          if (reporter !== void 0)
+            reporter.addFileUpdated();
+          continue;
+        }
+        let fileContent = yield this.app.vault.read(file);
+        const fileContentArray = fileContent.split("\n");
+        if (fileContent.indexOf("```RpgManagerData") === -1) {
+          if (reporter !== void 0)
+            reporter.addFileUpdated();
+          continue;
+        }
+        const codeblocks = (_a = cachedMetadata.sections) == null ? void 0 : _a.filter((section) => section.type === "code" && fileContentArray[section.position.start.line] === "```RpgManagerData");
+        if (codeblocks == void 0 || codeblocks.length !== 1) {
+          if (reporter !== void 0)
+            reporter.addFileUpdated();
+          continue;
+        }
+        const codeblock = codeblocks[0];
+        const data = fileContentArray.slice(codeblock.position.start.line + 1, codeblock.position.end.line);
+        const yaml = (0, import_obsidian36.parseYaml)(data.join("\n"));
+        if (yaml == void 0) {
+          if (reporter !== void 0)
+            reporter.addFileUpdated();
+          continue;
+        }
+        if (yaml.data === void 0)
+          yaml.data = {};
+        if (yaml.data.images === void 0)
+          yaml.data.images = [];
+        const imageSrc = yaml.data.image;
+        let imagePath = imageSrc;
+        if (imagePath == void 0 || imagePath === "") {
+          if (AbstractComponent.root == void 0)
+            AbstractComponent.initialiseRoots(this.app);
+          const attachmentFolder = this.settings.imagesFolder !== void 0 && this.settings.imagesFolder !== "" ? this.settings.imagesFolder : this.app.vault.config.attachmentFolderPath;
+          if (attachmentFolder === void 0) {
+            if (reporter !== void 0)
+              reporter.addFileUpdated();
+            continue;
+          }
+          const files2 = this.app.vault.getFiles().filter((image) => image.path.toLowerCase().startsWith(attachmentFolder.toLowerCase()) && image.basename.toLowerCase().startsWith(file.basename.toLowerCase()));
+          if (files2.length === 1)
+            imagePath = files2[0].path;
+        }
+        if (imagePath == void 0 || imagePath === "") {
+          if (reporter !== void 0)
+            reporter.addFileUpdated();
+          continue;
+        }
+        const metadataImage = {
+          path: imagePath
+        };
+        yaml.data.images.push(metadataImage);
+        delete yaml.data.image;
+        const newYamlArray = YamlHelper.stringify(yaml).split("\n");
+        fileContentArray.splice(codeblock.position.start.line + 1, codeblock.position.end.line - codeblock.position.start.line - 1, ...newYamlArray);
+        fileContent = fileContentArray.join("\n");
+        if (reporter !== void 0)
+          reporter.addFileUpdated();
+        this.app.vault.modify(file, fileContent).then(() => {
+          if (reporter !== void 0)
+            reporter.addFileUpdated();
+        });
+      }
+    });
+  }
+};
+
 // src/updaters/DatabaseUpdater.ts
-var VersionMap = {
+var versionMap = {
   "1.2": V1_2_to_1_3_worker,
   "1.3": V1_3_to_2_0_worker,
-  "2.0": V2_0_to_3_0_worker
+  "2.0": V2_0_to_3_0_worker,
+  "3.0": V3_0_to_3_1_worker
 };
 var DatabaseUpdater = class {
-  constructor(app2, rpgManager, previousVersion, currentVersion) {
-    this.app = app2;
-    this.rpgManager = rpgManager;
-    this.previousVersion = previousVersion;
-    this.currentVersion = currentVersion;
-    this.versionsHistory = /* @__PURE__ */ new Map();
-    this.versionsHistory.set("1.2", { previousVersion: "1.2", nextVersion: "1.3" });
-    this.versionsHistory.set("1.3", { previousVersion: "1.3", nextVersion: "2.0" });
-    this.versionsHistory.set("2.0", { previousVersion: "2.0", nextVersion: "3.0" });
+  constructor(_app, _rpgManager, _previousVersion, _currentVersion) {
+    this._app = _app;
+    this._rpgManager = _rpgManager;
+    this._previousVersion = _previousVersion;
+    this._currentVersion = _currentVersion;
+    this._versionsHistory = /* @__PURE__ */ new Map();
+    this._versionsHistory.set("1.2", { previousVersion: "1.2", nextVersion: "1.3" });
+    this._versionsHistory.set("1.3", { previousVersion: "1.3", nextVersion: "2.0" });
+    this._versionsHistory.set("2.0", { previousVersion: "2.0", nextVersion: "3.0" });
+    this._versionsHistory.set("3.0", { previousVersion: "3.0", nextVersion: "3.1" });
   }
   get newVersion() {
-    return this.currentVersion;
+    return this._currentVersion;
   }
   get oldVersion() {
-    return this.previousVersion;
+    return this._previousVersion;
   }
   requiresDatabaseUpdate() {
     return __async(this, null, function* () {
-      if (this.previousVersion === "")
-        this.previousVersion = "1.2";
-      const previousVersionMajorMinor = this.getMajorMinor(this.previousVersion);
-      const currentVersionMajorMinor = this.getMajorMinor(this.currentVersion);
+      if (this._previousVersion === "")
+        this._previousVersion = "1.2";
+      const previousVersionMajorMinor = this._getMajorMinor(this._previousVersion);
+      const currentVersionMajorMinor = this._getMajorMinor(this._currentVersion);
       if (previousVersionMajorMinor === void 0 || currentVersionMajorMinor === void 0 || previousVersionMajorMinor === currentVersionMajorMinor)
         return false;
       if (yield this._isVaultEmptyOfRpgManagerComponents()) {
-        const currentVersionMajorMinor2 = this.getMajorMinor(this.currentVersion);
-        yield this.rpgManager.updateSettings({ previousVersion: currentVersionMajorMinor2 });
+        const currentVersionMajorMinor2 = this._getMajorMinor(this._currentVersion);
+        yield this._rpgManager.updateSettings({ previousVersion: currentVersionMajorMinor2 });
         return false;
       }
-      return this.versionsHistory.get(previousVersionMajorMinor) !== void 0;
+      return this._versionsHistory.get(previousVersionMajorMinor) !== void 0;
     });
   }
   update(reporter = void 0) {
     return __async(this, null, function* () {
       let response = false;
-      if (this.previousVersion === "")
-        this.previousVersion = "1.2";
-      const previousVersionMajorMinor = this.getMajorMinor(this.previousVersion);
-      const currentVersionMajorMinor = this.getMajorMinor(this.currentVersion);
+      if (this._previousVersion === "")
+        this._previousVersion = "1.2";
+      const previousVersionMajorMinor = this._getMajorMinor(this._previousVersion);
+      const currentVersionMajorMinor = this._getMajorMinor(this._currentVersion);
       if (previousVersionMajorMinor === void 0 || currentVersionMajorMinor === void 0 || previousVersionMajorMinor === currentVersionMajorMinor)
         return false;
       const empty = yield this._isVaultEmptyOfRpgManagerComponents();
-      console.warn(empty);
-      let updater = yield this.versionsHistory.get(previousVersionMajorMinor);
+      let updater = yield this._versionsHistory.get(previousVersionMajorMinor);
       while (updater !== void 0) {
         response = true;
         if (!empty) {
-          const worker = yield new VersionMap[updater.previousVersion](this.app);
+          const worker = yield new versionMap[updater.previousVersion](this._app);
           if (reporter !== void 0)
-            reporter.setUpdater(this.previousVersion, this.currentVersion);
+            reporter.setUpdater(this._previousVersion, this._currentVersion);
           yield worker.run(reporter);
         }
-        updater = yield this.versionsHistory.get(updater.nextVersion);
+        updater = yield this._versionsHistory.get(updater.nextVersion);
       }
-      yield this.rpgManager.updateSettings({ previousVersion: currentVersionMajorMinor });
+      yield this._rpgManager.updateSettings({ previousVersion: currentVersionMajorMinor });
       return response;
     });
   }
   _isVaultEmptyOfRpgManagerComponents() {
     return __async(this, null, function* () {
-      const everyMarkdown = this.app.vault.getMarkdownFiles();
+      const everyMarkdown = this._app.vault.getMarkdownFiles();
       for (let index = 0; index < everyMarkdown.length; index++) {
-        const cache = this.app.metadataCache.getFileCache(everyMarkdown[index]);
+        const cache = this._app.metadataCache.getFileCache(everyMarkdown[index]);
         if (cache === void 0 || (cache == null ? void 0 : cache.sections) == void 0)
           continue;
         const validSections = cache.sections.filter((section) => section.type === "code");
         for (let sectionIndex = 0; sectionIndex < validSections.length; sectionIndex++) {
-          const fileContent = yield this.app.vault.read(everyMarkdown[index]);
+          const fileContent = yield this._app.vault.read(everyMarkdown[index]);
           const fileArray = fileContent.split("\n");
           if (fileArray[validSections[sectionIndex].position.start.line].startsWith("```RpgManager"))
             return false;
@@ -12935,7 +17977,7 @@ var DatabaseUpdater = class {
       return true;
     });
   }
-  getMajorMinor(version) {
+  _getMajorMinor(version) {
     const versionParts = version.split(".");
     if (versionParts.length < 2)
       return void 0;
@@ -12944,7 +17986,7 @@ var DatabaseUpdater = class {
 };
 
 // src/views/ReleaseNoteView.ts
-var import_obsidian34 = require("obsidian");
+var import_obsidian37 = require("obsidian");
 
 // src/fetchers/ReleaseNoteFetcher.ts
 var ReleaseNoteFetcher = class extends AbstractFetcher {
@@ -12979,7 +18021,7 @@ var ReleaseNoteView = class extends AbstractRpgManagerView {
       const fetcher = yield this.factories.fetchers.create(ReleaseNoteFetcher);
       const releaseNotes = yield fetcher.fetchMarkdown();
       if (releaseNotes != null) {
-        import_obsidian34.MarkdownRenderer.renderMarkdown(releaseNotes, this.rpgmContentEl, "", null);
+        import_obsidian37.MarkdownRenderer.renderMarkdown(releaseNotes, this.rpgmContentEl, "", null);
       }
       const closeButtonEl = this.contentEl.createEl("button", { text: "Close the release notes" });
       closeButtonEl.addEventListener("click", () => {
@@ -12990,7 +18032,7 @@ var ReleaseNoteView = class extends AbstractRpgManagerView {
 };
 
 // src/views/RPGManagerView.ts
-var import_obsidian35 = require("obsidian");
+var import_obsidian38 = require("obsidian");
 var RPGManagerView = class extends AbstractRpgManagerView {
   constructor() {
     super(...arguments);
@@ -13006,17 +18048,17 @@ var RPGManagerView = class extends AbstractRpgManagerView {
   initialise(params) {
     super.initialise([]);
     const campaigns = this.database.read((campaign) => campaign.id.type === 1 /* Campaign */);
-    this.hasCampaigns = campaigns.length > 0;
+    this._hasCampaigns = campaigns.length > 0;
     if (campaigns.length === 1) {
-      this.currentCampaign = campaigns[0];
+      this._currentCampaign = campaigns[0];
     } else {
-      this.currentCampaign = void 0;
+      this._currentCampaign = void 0;
     }
     const file = this.app.workspace.getActiveFile();
     if (file != null) {
-      this.currentComponent = this.database.readByPath(file.path);
+      this._currentComponent = this.database.readByPath(file.path);
     } else {
-      this.currentComponent = void 0;
+      this._currentComponent = void 0;
     }
   }
   render() {
@@ -13024,62 +18066,62 @@ var RPGManagerView = class extends AbstractRpgManagerView {
       this.rpgmContentEl.removeClass("rpgm-view");
       this.rpgmContentEl.addClass("rpgm-right-view");
       this.rpgmContentEl.empty();
-      this.verticalTabHeaderEl = this.rpgmContentEl.createDiv({ cls: "vertical-tab-header" });
-      this.verticalTabHeaderEl.createDiv({ cls: "vertical-tab-headers-group-title  title", text: "RPG Manager" });
-      this.addCreationLinks();
-      this.addIncompleteComponents();
-      this.addToDoList();
-      this.addReleaseNotes();
+      this._verticalTabHeaderEl = this.rpgmContentEl.createDiv({ cls: "vertical-tab-header" });
+      this._verticalTabHeaderEl.createDiv({ cls: "vertical-tab-headers-group-title  title", text: "RPG Manager" });
+      this._addCreationLinks();
+      this._addIncompleteComponents();
+      this._addToDoList();
+      this._addReleaseNotes();
       return Promise.resolve(void 0);
     });
   }
-  addIncompleteComponents() {
+  _addIncompleteComponents() {
     return __async(this, null, function* () {
-      const groupEl = this.verticalTabHeaderEl.createDiv({ cls: "vertical-tab-headers-group-title" });
+      const groupEl = this._verticalTabHeaderEl.createDiv({ cls: "vertical-tab-headers-group-title" });
       const arrowEl = groupEl.createSpan();
       arrowEl.style.marginRight = "10px";
-      (0, import_obsidian35.setIcon)(arrowEl, "openClose");
+      (0, import_obsidian38.setIcon)(arrowEl, "openClose");
       const titleEl = groupEl.createSpan({ text: "Incomplete Components" });
       const arrowIconEl = arrowEl.children[0];
-      this.incompleteListEl = groupEl.createDiv({ cls: "vertical-tab-headers-group-items" });
-      this.incompleteListEl.style.display = "none";
+      this._incompleteListEl = groupEl.createDiv({ cls: "vertical-tab-headers-group-items" });
+      this._incompleteListEl.style.display = "none";
       arrowEl.addEventListener("click", () => {
-        if (this.incompleteListEl.style.display === "none") {
-          this.incompleteListEl.style.display = "";
+        if (this._incompleteListEl.style.display === "none") {
+          this._incompleteListEl.style.display = "";
           arrowIconEl.style.transform = "rotate(90deg)";
         } else {
-          this.incompleteListEl.style.display = "none";
+          this._incompleteListEl.style.display = "none";
           arrowIconEl.style.transform = "rotate(0deg)";
         }
       });
       titleEl.addEventListener("click", () => {
-        if (this.incompleteListEl.style.display === "none") {
-          this.incompleteListEl.style.display = "";
+        if (this._incompleteListEl.style.display === "none") {
+          this._incompleteListEl.style.display = "";
           arrowIconEl.style.transform = "rotate(90deg)";
         } else {
-          this.incompleteListEl.style.display = "none";
+          this._incompleteListEl.style.display = "none";
           arrowIconEl.style.transform = "rotate(0deg)";
         }
       });
-      this.addIncompleteComponentList();
-      this.registerEvent(this.app.workspace.on("rpgmanager:refresh-views", this.addIncompleteComponentList.bind(this)));
+      this._addIncompleteComponentList();
+      this.registerEvent(this.app.workspace.on("rpgmanager:refresh-views", this._addIncompleteComponentList.bind(this)));
     });
   }
-  addIncompleteComponentList() {
+  _addIncompleteComponentList() {
     return __async(this, null, function* () {
-      this.incompleteListEl.empty();
+      this._incompleteListEl.empty();
       const components = this.database.read((component) => component.isComplete === false);
       components.forEach((component) => {
-        const itemEl = this.incompleteListEl.createDiv({ cls: "vertical-tab-nav-item", text: component.file.basename });
+        const itemEl = this._incompleteListEl.createDiv({ cls: "vertical-tab-nav-item", text: component.file.basename });
         itemEl.addEventListener("click", () => {
           this.app.workspace.getLeaf(false).openFile(component.file);
         });
       });
     });
   }
-  addReleaseNotes() {
+  _addReleaseNotes() {
     return __async(this, null, function* () {
-      const groupEl = this.verticalTabHeaderEl.createDiv({ cls: "vertical-tab-headers-group-title", text: "Release Notes" });
+      const groupEl = this._verticalTabHeaderEl.createDiv({ cls: "vertical-tab-headers-group-title", text: "Release Notes" });
       const groupItemEl = groupEl.createDiv({ cls: "vertical-tab-headers-group-items" });
       const itemEl = groupItemEl.createDiv({ cls: "vertical-tab-nav-item", text: "Read Release Notes" });
       itemEl.addEventListener("click", () => {
@@ -13087,49 +18129,49 @@ var RPGManagerView = class extends AbstractRpgManagerView {
       });
     });
   }
-  addToDoList() {
-    const groupEl = this.verticalTabHeaderEl.createDiv({ cls: "vertical-tab-headers-group-title" });
+  _addToDoList() {
+    const groupEl = this._verticalTabHeaderEl.createDiv({ cls: "vertical-tab-headers-group-title" });
     const arrowEl = groupEl.createSpan();
     arrowEl.style.marginRight = "10px";
-    (0, import_obsidian35.setIcon)(arrowEl, "openClose");
+    (0, import_obsidian38.setIcon)(arrowEl, "openClose");
     const titleEl = groupEl.createSpan({ text: "To Do List" });
     const arrowIconEl = arrowEl.children[0];
     arrowEl.addEventListener("click", () => {
-      if (this.incompleteListEl.style.display === "none") {
-        this.incompleteListEl.style.display = "";
+      if (this._incompleteListEl.style.display === "none") {
+        this._incompleteListEl.style.display = "";
         arrowIconEl.style.transform = "rotate(90deg)";
       } else {
-        this.incompleteListEl.style.display = "none";
+        this._incompleteListEl.style.display = "none";
         arrowIconEl.style.transform = "rotate(0deg)";
       }
     });
     titleEl.addEventListener("click", () => {
-      if (this.incompleteListEl.style.display === "none") {
-        this.incompleteListEl.style.display = "";
+      if (this._incompleteListEl.style.display === "none") {
+        this._incompleteListEl.style.display = "";
         arrowIconEl.style.transform = "rotate(90deg)";
       } else {
-        this.incompleteListEl.style.display = "none";
+        this._incompleteListEl.style.display = "none";
         arrowIconEl.style.transform = "rotate(0deg)";
       }
     });
     const groupItemEl = groupEl.createDiv({ cls: "vertical-tab-headers-group-items" });
     groupItemEl.style.display = "none";
-    this.loadToDo(groupItemEl);
+    this._loadToDo(groupItemEl);
   }
-  addCreationLinks() {
-    const groupEl = this.verticalTabHeaderEl.createDiv({ cls: "vertical-tab-headers-group-title", text: "Create New Components" });
+  _addCreationLinks() {
+    const groupEl = this._verticalTabHeaderEl.createDiv({ cls: "vertical-tab-headers-group-title", text: "Create New Components" });
     const groupItemEl = groupEl.createDiv({ cls: "vertical-tab-headers-group-items" });
-    this.createElementListItem(1 /* Campaign */, groupItemEl);
-    if (this.hasCampaigns) {
+    this._createElementListItem(1 /* Campaign */, groupItemEl);
+    if (this._hasCampaigns) {
       Object.keys(ComponentType).filter((v) => isNaN(Number(v))).forEach((typeString) => {
         const type = ComponentType[typeString];
         if (type !== 1 /* Campaign */) {
-          this.createElementListItem(type, groupItemEl);
+          this._createElementListItem(type, groupItemEl);
         }
       });
     }
   }
-  loadToDo(containerEl) {
+  _loadToDo(containerEl) {
     return __async(this, null, function* () {
       const components = this.database.read((component) => true);
       let firstToDoFound = false;
@@ -13167,21 +18209,21 @@ var RPGManagerView = class extends AbstractRpgManagerView {
       });
     });
   }
-  createElementListItem(type, containerEl) {
+  _createElementListItem(type, containerEl) {
     const itemEl = containerEl.createDiv({ cls: "vertical-tab-nav-item", text: "Create new " + ComponentType[type] });
     itemEl.addEventListener("click", () => {
-      this.openCreationModal(type);
+      this._openCreationModal(type);
     });
   }
-  openCreationModal(type) {
+  _openCreationModal(type) {
     var _a, _b, _c, _d;
     let modalOpened = false;
-    if (this.currentComponent !== void 0) {
+    if (this._currentComponent !== void 0) {
       modalOpened = true;
-      new CreationModal(this.app, type, true, null, (_a = this.currentComponent) == null ? void 0 : _a.id.campaignId, (_b = this.currentComponent) == null ? void 0 : _b.id.adventureId, (_c = this.currentComponent) == null ? void 0 : _c.id.actId).open();
-    } else if (this.currentCampaign !== void 0) {
+      new CreationModal(this.app, type, true, null, (_a = this._currentComponent) == null ? void 0 : _a.id.campaignId, (_b = this._currentComponent) == null ? void 0 : _b.id.adventureId, (_c = this._currentComponent) == null ? void 0 : _c.id.actId).open();
+    } else if (this._currentCampaign !== void 0) {
       modalOpened = true;
-      new CreationModal(this.app, type, true, null, (_d = this.currentCampaign) == null ? void 0 : _d.id.campaignId).open();
+      new CreationModal(this.app, type, true, null, (_d = this._currentCampaign) == null ? void 0 : _d.id.campaignId).open();
     }
     if (!modalOpened) {
       new CreationModal(this.app, type).open();
@@ -13190,7 +18232,7 @@ var RPGManagerView = class extends AbstractRpgManagerView {
 };
 
 // src/views/TimelineView.ts
-var import_obsidian36 = require("obsidian");
+var import_obsidian39 = require("obsidian");
 
 // src/responses/ResponseTimelineElement.ts
 var ResponseTimelineElement = class {
@@ -13213,74 +18255,74 @@ var TimelineView = class extends AbstractRpgManagerView {
     this.icon = "d20";
   }
   initialise(params) {
-    this.campaignId = params[0];
-    this.campaign = this.database.readSingle(1 /* Campaign */, this.campaignId);
+    this._campaignId = params[0];
+    this._campaign = this.database.readSingle(1 /* Campaign */, this._campaignId);
     super.initialise([]);
-    this.elements = [];
-    this.database.read((event) => event.id.type === 256 /* Event */ && event.id.campaignId === this.campaignId.id && event.date != null).forEach((event) => {
+    this._elements = [];
+    this.database.read((event) => event.id.type === 256 /* Event */ && event.id.campaignId === this._campaignId.id && event.date != null).forEach((event) => {
       var _a;
       if (event.date !== void 0) {
         let time = event.date.toLocaleTimeString();
         time = time.substring(0, time.length - 3);
-        this.elements.push(new ResponseTimelineElement(event.date, event.date.toDateString(), time, "event", (_a = event.synopsis) != null ? _a : "", event.file.path));
+        this._elements.push(new ResponseTimelineElement(event.date, event.date.toDateString(), time, "event", (_a = event.synopsis) != null ? _a : "", event.file.path));
       }
     });
-    this.database.read((clue) => clue.id.type === 512 /* Clue */ && clue.id.campaignId === this.campaignId.id && clue.found != null).forEach((clue) => {
+    this.database.read((clue) => clue.id.type === 512 /* Clue */ && clue.id.campaignId === this._campaignId.id && clue.found != null).forEach((clue) => {
       var _a;
       if (clue.found != null) {
-        this.elements.push(new ResponseTimelineElement(clue.found, clue.found.toDateString(), "00:00", "clue", (_a = clue.synopsis) != null ? _a : "", clue.file.path));
+        this._elements.push(new ResponseTimelineElement(clue.found, clue.found.toDateString(), "00:00", "clue", (_a = clue.synopsis) != null ? _a : "", clue.file.path));
       }
     });
-    this.database.read((character) => ((32 /* Character */ | 64 /* NonPlayerCharacter */) & character.id.type) === character.id.type && character.id.campaignId === this.campaignId.id && character.death != null).forEach((character) => {
+    this.database.read((character) => ((32 /* Character */ | 64 /* NonPlayerCharacter */) & character.id.type) === character.id.type && character.id.campaignId === this._campaignId.id && character.death != null).forEach((character) => {
       var _a;
       if (character.death !== void 0) {
-        this.elements.push(new ResponseTimelineElement(character.death, character.death.toDateString(), "00:00", "death", (_a = character.synopsis) != null ? _a : "", character.file.path));
+        this._elements.push(new ResponseTimelineElement(character.death, character.death.toDateString(), "00:00", "death", (_a = character.synopsis) != null ? _a : "", character.file.path));
       }
     });
-    const sessions = this.database.read((session) => 16 /* Session */ === session.id.type && session.id.campaignId === this.campaignId.id);
+    const sessions = this.database.read((session) => 16 /* Session */ === session.id.type && session.id.campaignId === this._campaignId.id);
     sessions.forEach((session) => {
       var _a, _b;
-      const scenes = this.database.read((scene) => scene.id.type === 8 /* Scene */ && scene.id.campaignId === this.campaignId.id && scene.id.sessionId === session.id.sessionId && scene.date != null).sort(this.factories.sorter.create([
+      const scenes = this.database.read((scene) => scene.id.type === 8 /* Scene */ && scene.id.campaignId === this._campaignId.id && scene.id.sessionId === session.id.sessionId && scene.date != null).sort(this.factories.sorter.create([
         new SorterComparisonElement((scene) => scene.date)
       ]));
       const sessionDate = (_a = scenes[0]) == null ? void 0 : _a.date;
       if (sessionDate != null) {
-        this.elements.push(new ResponseTimelineElement(sessionDate, sessionDate.toDateString(), "00:00", "session", (_b = session.synopsis) != null ? _b : "", session.file.path));
+        this._elements.push(new ResponseTimelineElement(sessionDate, sessionDate.toDateString(), "00:00", "session", (_b = session.synopsis) != null ? _b : "", session.file.path));
       }
     });
-    this.elements.sort(this.factories.sorter.create([
+    this._elements.sort(this.factories.sorter.create([
       new SorterComparisonElement((data) => data.fullDate)
     ]));
   }
   render() {
     return __async(this, null, function* () {
       this.rpgmContentEl.empty();
-      if (this.campaign.image !== null) {
+      if (this._campaign.images.length > 0) {
         const bannerContainer = this.rpgmContentEl.createDiv({ cls: "rpg-container" });
         const header = bannerContainer.createDiv({ cls: "rpgm-header" });
-        header.style.backgroundImage = "url('" + this.campaign.image + "')";
+        header.style.backgroundImage = "url('" + this._campaign.images[0].src + "')";
         const overlay = header.createDiv({ cls: "rpgm-header-overlay" });
         overlay.createDiv({ cls: "rpgm-header-title", text: "Timeline" });
-        overlay.createDiv({ cls: "rpgm-campaign-name", text: this.campaign.file.basename });
-        overlay.createDiv({ cls: "rpgm-current-date", text: this.campaign.date !== void 0 ? this.campaign.date.toDateString() : "" });
+        overlay.createDiv({ cls: "rpgm-campaign-name", text: this._campaign.file.basename });
+        overlay.createDiv({ cls: "rpgm-current-date", text: this._campaign.date !== void 0 ? this._campaign.date.toDateString() : "" });
       } else {
-        this.rpgmContentEl.createEl("h1", { text: this.campaign.file.basename });
+        this.rpgmContentEl.createEl("h1", { text: this._campaign.file.basename });
       }
       const timelineEl = this.rpgmContentEl.createDiv({ cls: "rpgm-new-timeline" });
       const listEl = timelineEl.createEl("ul");
-      this.elements.forEach((timeline) => {
+      this._elements.forEach((timeline) => {
         const itemEl = listEl.createEl("li", { cls: timeline.type });
         const contentEl = itemEl.createDiv({ cls: "content" });
         contentEl.createEl("span", { cls: timeline.type, text: timeline.type.toString() + ": " + timeline.date + (timeline.time !== "00:00" ? " @ " + timeline.time : "") });
         const titleEl = contentEl.createEl("h3");
         const file = this.app.vault.getAbstractFileByPath(timeline.link);
-        if (file !== null && file instanceof import_obsidian36.TFile) {
+        if (file !== null && file instanceof import_obsidian39.TFile) {
           titleEl.createEl("a", { text: file.basename, href: "#" }).addEventListener("click", () => {
             this.app.workspace.getLeaf(false).openFile(file);
           });
         }
         const descriptionEl = contentEl.createDiv();
-        import_obsidian36.MarkdownRenderer.renderMarkdown(timeline.synopsis, descriptionEl, "", null);
+        import_obsidian39.MarkdownRenderer.renderMarkdown(timeline.synopsis, descriptionEl, "", null);
         this.updateInternalLinks(descriptionEl);
       });
       return;
@@ -13289,22 +18331,22 @@ var TimelineView = class extends AbstractRpgManagerView {
 };
 
 // src/manipulators/CodeBlockManipulator.ts
-var import_obsidian37 = require("obsidian");
+var import_obsidian40 = require("obsidian");
 var CodeBlockManipulator = class extends AbstractFactory {
-  replaceID(file, ID) {
+  replaceID(file, id) {
     return __async(this, null, function* () {
       var _a;
       const fileEditor = new FileManipulator(this.app, file);
       if (!(yield fileEditor.read()))
         return;
       const metadata = {
-        id: ID,
-        checksum: Md5.hashStr(ID)
+        id,
+        checksum: Md5.hashStr(id)
       };
       const newIdCodeBlock = [];
       newIdCodeBlock.push("```RpgManagerID");
       newIdCodeBlock.push("### DO NOT EDIT MANUALLY IF NOT INSTRUCTED TO DO SO ###");
-      newIdCodeBlock.push((0, import_obsidian37.stringifyYaml)(metadata));
+      newIdCodeBlock.push(YamlHelper.stringify(metadata));
       newIdCodeBlock.push("```");
       (_a = fileEditor.cachedFile.sections) == null ? void 0 : _a.forEach((section) => {
         if (section.type === "code" && fileEditor.arrayContent[section.position.start.line] === "```RpgManagerID") {
@@ -13377,14 +18419,14 @@ var CodeBlockManipulator = class extends AbstractFactory {
       if (!(yield fileEditor.read()))
         return;
       const metadata = yield fileEditor.getCodeBlockMetadata();
-      this.updateYamlElement(metadata, identifier.split("."), value);
+      this._updateYamlElement(metadata, identifier.split("."), value);
       yield fileEditor.maybeReplaceCodeBlockMetadata(metadata);
     });
   }
   update(identifier, value) {
     return __async(this, null, function* () {
       var _a, _b, _c;
-      const activeView = app.workspace.getActiveViewOfType(import_obsidian37.MarkdownView);
+      const activeView = app.workspace.getActiveViewOfType(import_obsidian40.MarkdownView);
       if (activeView != null) {
         const editor = activeView.editor;
         const file = activeView.file;
@@ -13398,9 +18440,9 @@ var CodeBlockManipulator = class extends AbstractFactory {
             const start = { line: stringYaml.position.start.line + 1, ch: 0 };
             const end = { line: stringYaml.position.end.line, ch: 0 };
             const range = editor.getRange(start, end);
-            const yaml = (_c = (0, import_obsidian37.parseYaml)(range)) != null ? _c : {};
-            this.updateYamlElement(yaml, identifier.split("."), value);
-            editor.replaceRange((0, import_obsidian37.stringifyYaml)(yaml), start, end);
+            const yaml = (_c = (0, import_obsidian40.parseYaml)(range)) != null ? _c : {};
+            this._updateYamlElement(yaml, identifier.split("."), value);
+            editor.replaceRange(YamlHelper.stringify(yaml), start, end);
             this.app.vault.modify(file, editor.getValue()).then(() => {
               var _a2;
               (_a2 = this.database.readByPath(file.path)) == null ? void 0 : _a2.touch();
@@ -13412,35 +18454,68 @@ var CodeBlockManipulator = class extends AbstractFactory {
       }
     });
   }
-  updateYamlElement(yaml, key, value) {
-    if (key == null || key.length === 0)
-      return;
-    const initialKeyPart = key.shift();
-    if (initialKeyPart === void 0)
-      return;
-    if (yaml[initialKeyPart] === void 0) {
-      yaml[initialKeyPart] = {};
-    }
-    if (key.length > 0) {
-      return this.updateYamlElement(yaml[initialKeyPart], key, value);
-    } else {
-      yaml[initialKeyPart] = value;
-    }
-  }
   addOrUpdateRelationship(relationship) {
     return __async(this, null, function* () {
-      return this._executeRelationshipChange(this._addOrUpdateRelationship.bind(this), relationship);
+      return this._executeCodeBlockChange(this._addOrUpdateRelationship.bind(this), relationship);
     });
   }
   removeRelationship(path2) {
     return __async(this, null, function* () {
-      return this._executeRelationshipChange(this._removeRelationship.bind(this), path2);
+      return this._executeCodeBlockChange(this._removeRelationship.bind(this), path2);
     });
   }
-  _executeRelationshipChange(fn, variable) {
+  removeImage(path2) {
+    return __async(this, null, function* () {
+      return this._executeCodeBlockChange(this._removeImage.bind(this), path2);
+    });
+  }
+  addOrUpdateImage(path2, caption) {
+    return __async(this, null, function* () {
+      return this._executeCodeBlockChange(this._addOrUpdateImage.bind(this), { path: path2, caption }).then(() => {
+        return this.factories.image.create(path2, caption);
+      });
+    });
+  }
+  _removeImage(yaml, path2) {
+    if (yaml.relationships === void 0)
+      return;
+    let found;
+    for (let index = 0; index < yaml.data.images.length; index++) {
+      if (path2 === yaml.data.images[index].path) {
+        found = index;
+        break;
+      }
+    }
+    if (found !== void 0) {
+      yaml.data.images.splice(found, 1);
+    }
+  }
+  _addOrUpdateImage(yaml, image) {
+    if (yaml.data === void 0)
+      yaml.data = {};
+    if (yaml.data.images === void 0)
+      yaml.data.images = [];
+    let found;
+    for (let index = 0; index < yaml.data.images.length; index++) {
+      if (image.path === yaml.data.images[index].path) {
+        found = index;
+        break;
+      }
+    }
+    const metadataImage = {
+      path: image.path,
+      caption: image.caption
+    };
+    if (found !== void 0) {
+      yaml.data.images.splice(found, 1, metadataImage);
+    } else {
+      yaml.data.images.push(metadataImage);
+    }
+  }
+  _executeCodeBlockChange(fn, variable) {
     return __async(this, null, function* () {
       var _a, _b, _c;
-      const activeView = app.workspace.getActiveViewOfType(import_obsidian37.MarkdownView);
+      const activeView = app.workspace.getActiveViewOfType(import_obsidian40.MarkdownView);
       if (activeView != null) {
         const editor = activeView.editor;
         const file = activeView.file;
@@ -13454,9 +18529,9 @@ var CodeBlockManipulator = class extends AbstractFactory {
             const start = { line: stringYaml.position.start.line + 1, ch: 0 };
             const end = { line: stringYaml.position.end.line, ch: 0 };
             const range = editor.getRange(start, end);
-            const yaml = (_c = (0, import_obsidian37.parseYaml)(range)) != null ? _c : {};
+            const yaml = (_c = (0, import_obsidian40.parseYaml)(range)) != null ? _c : {};
             fn(yaml, variable);
-            editor.replaceRange((0, import_obsidian37.stringifyYaml)(yaml), start, end);
+            editor.replaceRange(YamlHelper.stringify(yaml), start, end);
             this.app.vault.modify(file, editor.getValue()).then(() => {
               this.database.onSave(file);
               this.app.workspace.trigger("rpgmanager:force-refresh-views");
@@ -13503,7 +18578,7 @@ var CodeBlockManipulator = class extends AbstractFactory {
   }
   selectData() {
     var _a;
-    const activeView = app.workspace.getActiveViewOfType(import_obsidian37.MarkdownView);
+    const activeView = app.workspace.getActiveViewOfType(import_obsidian40.MarkdownView);
     if (activeView == null)
       return;
     const editor = activeView.editor;
@@ -13604,7 +18679,7 @@ var CodeBlockManipulator = class extends AbstractFactory {
                   codeBlockContent += arrayContent[index2] + "\n";
               }
               try {
-                const newCodeBlockContent = (0, import_obsidian37.parseYaml)(codeBlockContent);
+                const newCodeBlockContent = (0, import_obsidian40.parseYaml)(codeBlockContent);
                 if (codeBlockContent !== "")
                   response = __spreadValues(__spreadValues({}, response), newCodeBlockContent);
               } catch (e) {
@@ -13617,6 +18692,67 @@ var CodeBlockManipulator = class extends AbstractFactory {
     }
     return response;
   }
+  _updateYamlElement(yaml, key, value) {
+    if (key == null || key.length === 0)
+      return;
+    const initialKeyPart = key.shift();
+    if (initialKeyPart === void 0)
+      return;
+    if (yaml[initialKeyPart] === void 0) {
+      yaml[initialKeyPart] = {};
+    }
+    if (key.length > 0) {
+      return this._updateYamlElement(yaml[initialKeyPart], key, value);
+    } else {
+      yaml[initialKeyPart] = value;
+    }
+  }
+};
+
+// src/manipulators/AllComponentManipulator.ts
+var AllComponentManipulator = class extends AbstractFactory {
+  updateImagePath(oldPath, newPath) {
+    return __async(this, null, function* () {
+      return this._updatePath(oldPath, newPath);
+    });
+  }
+  updateRelationshipPath(oldPath, newPath) {
+    return __async(this, null, function* () {
+      return this._updatePath(oldPath, newPath, this._updateRelationship.bind(this));
+    });
+  }
+  _updateRelationship(file) {
+    return __async(this, null, function* () {
+      const component = this.database.readByPath(file.path);
+      if (component === void 0)
+        return;
+      component.readMetadata().then(() => {
+        component.initialiseRelationships();
+      });
+    });
+  }
+  _updatePath(oldPath, newPath, callbackFunction) {
+    return __async(this, null, function* () {
+      const allFiles = this.app.vault.getMarkdownFiles();
+      allFiles.forEach((file) => {
+        this.factories.fileManipulator.create(file).then((fileManipulator) => {
+          fileManipulator.read().then((isReady) => {
+            if (!isReady)
+              return;
+            if (!fileManipulator.content.contains("path:"))
+              return;
+            if (!fileManipulator.content.contains(oldPath))
+              return;
+            const updatedFileContent = fileManipulator.content.replaceAll(oldPath, newPath);
+            fileManipulator.maybeWrite(updatedFileContent).then(() => {
+              if (callbackFunction !== void 0)
+                callbackFunction(file);
+            });
+          });
+        });
+      });
+    });
+  }
 };
 
 // src/manipulators/Manipulators.ts
@@ -13624,30 +18760,31 @@ var Manipulators = class extends AbstractRpgManager {
   constructor(app2) {
     super(app2);
     this.codeblock = new CodeBlockManipulator(this.app);
+    this.allComponents = new AllComponentManipulator(this.app);
   }
 };
 
 // src/modals/UpdaterModal.ts
-var import_obsidian38 = require("obsidian");
+var import_obsidian41 = require("obsidian");
 var UpdaterModal = class extends AbstractRpgManagerModal {
-  constructor(app2, updater) {
+  constructor(app2, _updater) {
     super(app2);
-    this.updater = updater;
-    this.currentCounter = 0;
+    this._updater = _updater;
+    this._currentCounter = 0;
   }
   onOpen() {
     super.onOpen();
     this.contentEl.createEl("h2", { text: "RPG Manager Needs to update the data structure" });
-    this.infoEl = this.contentEl.createDiv();
-    const infoMessage = "RPG Manager has been updated to version **" + this.updater.newVersion + "**, that requires some updates to the structure of your notes.\n\nThe process is automatic and has been tested, but there is always the possibility for some of your customisations to have escaped what is believed to be the normal structure of the data.\n\n**To avoid any data loss, the update is not automatic, therefore RPG Manager is currently disabled.**\n\nIt is highly recommended you **create a backup copy of your vault** before you run the updater. Once you have performed a backup of your vault, you can update your data with the button below.\n\nIn case of any trouble during the update process, you can [ask for support](https://github.com/carlonicora/obsidian-rpg-manager) directly on RPG Manager GitHubpage.\n\nIf you have backed up your data (*or if you feel like a curious Kender and prefer to live on the edge*) you can run the data update clicking the button below!";
+    this._infoEl = this.contentEl.createDiv();
+    const infoMessage = "RPG Manager has been updated to version **" + this._updater.newVersion + "**, that requires some updates to the structure of your notes.\n\nThe process is automatic and has been tested, but there is always the possibility for some of your customisations to have escaped what is believed to be the normal structure of the data.\n\n**To avoid any data loss, the update is not automatic, therefore RPG Manager is currently disabled.**\n\nIt is highly recommended you **create a backup copy of your vault** before you run the updater. Once you have performed a backup of your vault, you can update your data with the button below.\n\nIn case of any trouble during the update process, you can [ask for support](https://github.com/carlonicora/obsidian-rpg-manager) directly on RPG Manager GitHubpage.\n\nIf you have backed up your data (*or if you feel like a curious Kender and prefer to live on the edge*) you can run the data update clicking the button below!";
     const waitMessage = "**Updating your data in progress**.\n\nPlease be patient...";
     const successMessage = "The data structure of your notes has been updated to the latest version of RPG Manager\n\nYou can now use the plugin once more. Please don't forget to read the [release notes](https://github.com/carlonicora/obsidian-rpg-manager/blob/master/ChangeLog.md) to know what's new in RPG Manager.\n\n*...oh, and if you like to support or collaborate with us, your help wil be highly appreciated.*";
     this._updateModalDescription(infoMessage);
-    const updateButtonEl = this.contentEl.createEl("button", { text: "Update the data to v" + this.updater.newVersion + " or RPG Manager" });
+    const updateButtonEl = this.contentEl.createEl("button", { text: "Update the data to v" + this._updater.newVersion + " or RPG Manager" });
     updateButtonEl.addEventListener("click", () => {
       this._updateModalDescription(waitMessage, true);
       updateButtonEl.remove();
-      this.updater.update(this).then(() => {
+      this._updater.update(this).then(() => {
         this.app.plugins.getPlugin("rpg-manager").initialise();
         this._updateModalDescription(successMessage);
         updateButtonEl.remove();
@@ -13656,17 +18793,17 @@ var UpdaterModal = class extends AbstractRpgManagerModal {
   }
   _updateModalDescription(content, addCounters = void 0) {
     return __async(this, null, function* () {
-      this.infoEl.empty();
-      import_obsidian38.MarkdownRenderer.renderMarkdown(content, this.infoEl, "", null);
+      this._infoEl.empty();
+      import_obsidian41.MarkdownRenderer.renderMarkdown(content, this._infoEl, "", null);
       if (addCounters) {
-        const updaterInfoContainerEl = this.infoEl.createDiv();
-        this.versionEl = updaterInfoContainerEl.createDiv({ text: "Updating" });
+        const updaterInfoContainerEl = this._infoEl.createDiv();
+        this._versionEl = updaterInfoContainerEl.createDiv({ text: "Updating" });
         const countersContainerEl = updaterInfoContainerEl.createDiv();
-        this.currentEl = countersContainerEl.createSpan({ text: "0" });
+        this._currentEl = countersContainerEl.createSpan({ text: "0" });
         countersContainerEl.createSpan({ text: " out of " });
-        this.countEl = countersContainerEl.createSpan({ text: "0" });
+        this._countEl = countersContainerEl.createSpan({ text: "0" });
         countersContainerEl.createSpan({ text: " components updated" });
-        this.currentCounter = 0;
+        this._currentCounter = 0;
       }
     });
   }
@@ -13677,30 +18814,30 @@ var UpdaterModal = class extends AbstractRpgManagerModal {
   }
   setUpdater(startVersion, endVersion) {
     return __async(this, null, function* () {
-      if (this.versionEl !== void 0)
-        this.versionEl.textContent = "Updating from version " + startVersion + " to " + endVersion;
+      if (this._versionEl !== void 0)
+        this._versionEl.textContent = "Updating from version " + startVersion + " to " + endVersion;
     });
   }
   setFileCount(count) {
     return __async(this, null, function* () {
-      if (this.countEl !== void 0)
-        this.countEl.textContent = count.toString();
+      if (this._countEl !== void 0)
+        this._countEl.textContent = count.toString();
     });
   }
   addFileUpdated() {
     return __async(this, null, function* () {
-      this.currentCounter++;
-      if (this.currentEl !== void 0)
-        this.currentEl.textContent = this.currentCounter.toString();
+      this._currentCounter++;
+      if (this._currentEl !== void 0)
+        this._currentEl.textContent = this._currentCounter.toString();
     });
   }
 };
 
 // src/main.ts
-var RpgManager = class extends import_obsidian39.Plugin {
+var RpgManager = class extends import_obsidian42.Plugin {
   constructor() {
     super(...arguments);
-    this.isVersionUpdated = false;
+    this._isVersionUpdated = false;
     this.ready = false;
   }
   onload() {
@@ -13712,9 +18849,9 @@ var RpgManager = class extends import_obsidian39.Plugin {
       yield this.loadSettings();
       this.addSettingTab(new RpgManagerSettings(this.app));
       this.tagHelper = yield new TagHelper(this.settings);
-      yield (0, import_obsidian39.addIcon)("d20", '<g cx="50" cy="50" r="50" fill="currentColor" g transform="translate(0.000000,0.000000) scale(0.018)" stroke="none"><path d="M1940 4358 l-612 -753 616 -3 c339 -1 893 -1 1232 0 l616 3 -612 753 c-337 413 -616 752 -620 752 -4 0 -283 -339 -620 -752z"/><path d="M1180 4389 c-399 -231 -731 -424 -739 -428 -9 -6 3 -17 40 -38 30 -17 152 -87 271 -156 l217 -126 476 585 c261 321 471 584 467 583 -4 0 -333 -189 -732 -420z"/><path d="M3676 4225 c457 -562 477 -585 498 -572 11 8 133 78 269 157 l249 143 -29 17 c-62 39 -1453 840 -1458 840 -2 0 210 -263 471 -585z"/><path d="M281 2833 c0 -472 4 -849 8 -838 24 58 520 1362 523 1373 3 12 -168 116 -474 291 l-58 32 1 -858z"/><path d="M4571 3536 c-145 -84 -264 -156 -264 -160 -1 -4 118 -320 263 -701 l265 -694 3 430 c1 237 1 621 0 854 l-3 424 -264 -153z"/><path d="M1272 3290 c7 -20 1283 -2229 1288 -2229 5 0 1281 2209 1288 2229 2 7 -451 10 -1288 10 -837 0 -1290 -3 -1288 -10z"/><path d="M1025 3079 c-2 -8 -158 -416 -345 -906 -187 -491 -340 -897 -340 -903 0 -5 4 -10 8 -10 5 0 415 -65 913 -145 497 -80 928 -149 957 -154 l52 -8 -23 41 c-85 150 -1202 2083 -1208 2090 -5 6 -10 3 -14 -5z"/><path d="M3470 2028 c-337 -585 -614 -1066 -616 -1069 -2 -3 7 -4 19 -2 12 2 445 71 962 154 517 82 941 152 943 154 3 2 -1 19 -7 37 -33 93 -675 1774 -681 1781 -4 4 -283 -471 -620 -1055z"/><path d="M955 842 c17 -11 336 -196 710 -412 374 -216 695 -401 713 -412 l32 -20 0 314 0 314 -707 113 c-390 62 -724 115 -743 118 l-35 5 30 -20z"/><path d="M3428 741 l-718 -116 0 -313 0 -314 33 20 c17 11 347 201 732 422 385 222 704 407 710 412 16 14 -22 8 -757 -111z"/></g>');
-      yield (0, import_obsidian39.addIcon)("pieEighth", '<g transform="translate(3.000000,3.000000) scale(4.75)"><circle r="10" cx="10" cy="10" fill="transparent" stroke="black" stroke-width="0.5"/><circle r="5" cx="10" cy="10" fill="transparent" stroke="black" stroke-width="10" stroke-dasharray="calc(12.5 * 31.4 / 100) 31.4" transform="rotate(-90) translate(-20)" /></g>');
-      yield (0, import_obsidian39.addIcon)("openClose", '<g transform="translate(40.000000,40.000000) scale(0.06)"><path d="M207,990V10L793,500.8L207,990L207,990z"/></g>');
+      yield (0, import_obsidian42.addIcon)("d20", '<g cx="50" cy="50" r="50" fill="currentColor" g transform="translate(0.000000,0.000000) scale(0.018)" stroke="none"><path d="M1940 4358 l-612 -753 616 -3 c339 -1 893 -1 1232 0 l616 3 -612 753 c-337 413 -616 752 -620 752 -4 0 -283 -339 -620 -752z"/><path d="M1180 4389 c-399 -231 -731 -424 -739 -428 -9 -6 3 -17 40 -38 30 -17 152 -87 271 -156 l217 -126 476 585 c261 321 471 584 467 583 -4 0 -333 -189 -732 -420z"/><path d="M3676 4225 c457 -562 477 -585 498 -572 11 8 133 78 269 157 l249 143 -29 17 c-62 39 -1453 840 -1458 840 -2 0 210 -263 471 -585z"/><path d="M281 2833 c0 -472 4 -849 8 -838 24 58 520 1362 523 1373 3 12 -168 116 -474 291 l-58 32 1 -858z"/><path d="M4571 3536 c-145 -84 -264 -156 -264 -160 -1 -4 118 -320 263 -701 l265 -694 3 430 c1 237 1 621 0 854 l-3 424 -264 -153z"/><path d="M1272 3290 c7 -20 1283 -2229 1288 -2229 5 0 1281 2209 1288 2229 2 7 -451 10 -1288 10 -837 0 -1290 -3 -1288 -10z"/><path d="M1025 3079 c-2 -8 -158 -416 -345 -906 -187 -491 -340 -897 -340 -903 0 -5 4 -10 8 -10 5 0 415 -65 913 -145 497 -80 928 -149 957 -154 l52 -8 -23 41 c-85 150 -1202 2083 -1208 2090 -5 6 -10 3 -14 -5z"/><path d="M3470 2028 c-337 -585 -614 -1066 -616 -1069 -2 -3 7 -4 19 -2 12 2 445 71 962 154 517 82 941 152 943 154 3 2 -1 19 -7 37 -33 93 -675 1774 -681 1781 -4 4 -283 -471 -620 -1055z"/><path d="M955 842 c17 -11 336 -196 710 -412 374 -216 695 -401 713 -412 l32 -20 0 314 0 314 -707 113 c-390 62 -724 115 -743 118 l-35 5 30 -20z"/><path d="M3428 741 l-718 -116 0 -313 0 -314 33 20 c17 11 347 201 732 422 385 222 704 407 710 412 16 14 -22 8 -757 -111z"/></g>');
+      yield (0, import_obsidian42.addIcon)("pieEighth", '<g transform="translate(3.000000,3.000000) scale(4.75)"><circle r="10" cx="10" cy="10" fill="transparent" stroke="black" stroke-width="0.5"/><circle r="5" cx="10" cy="10" fill="transparent" stroke="black" stroke-width="10" stroke-dasharray="calc(12.5 * 31.4 / 100) 31.4" transform="rotate(-90) translate(-20)" /></g>');
+      yield (0, import_obsidian42.addIcon)("openClose", '<g transform="translate(40.000000,40.000000) scale(0.06)"><path d="M207,990V10L793,500.8L207,990L207,990z"/></g>');
       this.registerView("rpgm-error-view" /* Errors */.toString(), (leaf) => new ErrorView(this.app, leaf));
       this.registerView("rpgm-release-note-view" /* ReleaseNote */.toString(), (leaf) => new ReleaseNoteView(this.app, leaf));
       this.registerView("rpgm-creator-view" /* RPGManager */.toString(), (leaf) => new RPGManagerView(this.app, leaf));
@@ -13745,20 +18882,20 @@ var RpgManager = class extends import_obsidian39.Plugin {
   }
   initialise() {
     return __async(this, null, function* () {
-      this.registerCodeBlock();
-      this.registerCommands();
+      this._registerCodeBlock();
+      this._registerCommands();
       DatabaseInitialiser.initialise(this.app).then((database) => {
         this.database = database;
         this.factories.logger.info(2 /* Database */, "Database Initialised", this.database);
         this.factories.runningTimeManager.updateMedianTimes(true);
-        this.registerEvents();
+        this._registerEvents();
         this.app.workspace.trigger("rpgmanager:refresh-views");
         this.app.workspace.on("active-leaf-change", (leaf) => {
           if (this.factories.runningTimeManager.isTimerRunning) {
             let isCurrentlyRunningSceneOpen = false;
             this.app.workspace.iterateAllLeaves((leaf2) => {
               var _a;
-              if (leaf2.view instanceof import_obsidian39.MarkdownView) {
+              if (leaf2.view instanceof import_obsidian42.MarkdownView) {
                 const file = (_a = leaf2.view) == null ? void 0 : _a.file;
                 if (file !== void 0) {
                   const component = this.database.readByPath(file.path);
@@ -13773,7 +18910,7 @@ var RpgManager = class extends import_obsidian39.Plugin {
             }
           }
         });
-        if (this.isVersionUpdated) {
+        if (this._isVersionUpdated) {
           this.factories.views.showObsidianView("rpgm-release-note-view" /* ReleaseNote */);
         } else {
           this.app.workspace.detachLeavesOfType("rpgm-release-note-view" /* ReleaseNote */.toString());
@@ -13802,7 +18939,7 @@ var RpgManager = class extends import_obsidian39.Plugin {
   }
   createRpgDataView(rpgm, el) {
     return __async(this, null, function* () {
-      (0, import_obsidian39.setIcon)(el, "d20");
+      (0, import_obsidian42.setIcon)(el, "d20");
       el.style.cursor = "pointer";
       el.addEventListener("click", () => {
         rpgm.manipulators.codeblock.selectData();
@@ -13811,7 +18948,7 @@ var RpgManager = class extends import_obsidian39.Plugin {
   }
   loadSettings() {
     return __async(this, null, function* () {
-      this.settings = Object.assign({}, RpgManagerDefaultSettings, yield this.loadData());
+      this.settings = Object.assign({}, rpgManagerDefaultSettings, yield this.loadData());
     });
   }
   updateSettings(settings, partial = true) {
@@ -13824,11 +18961,11 @@ var RpgManager = class extends import_obsidian39.Plugin {
       yield this.saveData(this.settings);
     });
   }
-  registerEvents() {
+  _registerEvents() {
     this.registerEvent(this.app.metadataCache.on("resolved", this.refreshViews.bind(this)));
     this.registerEvent(this.app.workspace.on("file-open", this.refreshViews.bind(this)));
   }
-  registerCodeBlock() {
+  _registerCodeBlock() {
     this.registerMarkdownCodeBlockProcessor("RpgManager", (source, el, ctx) => __async(this, null, function* () {
       return this.createRpgView(source, el, ctx, ctx.sourcePath);
     }));
@@ -13838,7 +18975,7 @@ var RpgManager = class extends import_obsidian39.Plugin {
     this.registerMarkdownCodeBlockProcessor("RpgManagerID", (source, el, ctx) => __async(this, null, function* () {
     }));
   }
-  registerCommands() {
+  _registerCommands() {
     Object.keys(ComponentType).filter((v) => isNaN(Number(v))).forEach((type, index) => {
       this.addCommand({
         id: "rpg-manager-create-" + type.toLowerCase(),

@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "bcca0e74a4917536",
+        "id": "6d42301a025501a3",
         "type": "tabs",
         "children": [
           {
-            "id": "3930c12724295ad9",
+            "id": "daa58a5c40680bdf",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "999 Plugin Testing/markdown attributes/Markdown Attributes.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -69,7 +65,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 289.5
+    "width": 227.0032558441162,
+    "collapsed": true
   },
   "right": {
     "id": "5e7f37323b9cb36c",
@@ -85,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/markdown attributes/Markdown Attributes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -112,25 +108,22 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "999 Plugin Testing/markdown attributes/Markdown Attributes.md"
-              }
+              "state": {}
             }
           },
           {
-            "id": "08273f5b6effa0df",
+            "id": "94aff8e2e476a38f",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/markdown attributes/Markdown Attributes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
             }
           },
           {
-            "id": "1fdc0477758b340f",
+            "id": "04910c8efd54e965",
             "type": "leaf",
             "state": {
               "type": "FANTASY_CALENDAR",
@@ -138,40 +131,39 @@
             }
           },
           {
-            "id": "e4203eb2f726fd41",
-            "type": "leaf",
-            "state": {
-              "type": "DICE_ROLLER_VIEW",
-              "state": {}
-            }
-          },
-          {
-            "id": "8fd96c8489a679aa",
+            "id": "89579d1a5280d07d",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
               "state": {}
             }
+          },
+          {
+            "id": "3ee46239ba6f51dc",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 389.5,
-    "collapsed": true
+    "width": 350
   },
-  "active": "3930c12724295ad9",
+  "active": "daa58a5c40680bdf",
   "lastOpenFiles": [
-    "999 Plugin Testing/markdown attributes/Markdown Attributes.md",
-    "999 Plugin Testing/markdown attributes/Untitled.md",
+    "999 Plugin Testing/dice/Dice Roller.md",
+    "999 Plugin Testing/initiative/Encounter.md",
     "999 Plugin Testing/dataview/Rat.md",
-    "999 Plugin Testing/dataview/dataview.md",
-    "999 Plugin Testing/markdown attributes/Untitled 1.md",
-    "80 Players/Merigold.md",
-    "40 Items/Hunt-Mask.md",
-    "20 Sessions/2022-09-17 - Session 14.md",
-    "40 Items/1. Item Index.md",
-    "80 Players/Emily.md"
+    "999 Plugin Testing/dice/Untitled 2.md",
+    "999 Plugin Testing/dice/Dice Scratchpad.md",
+    "999 Plugin Testing/statblock/Statblock Testing.md",
+    "99 Plugin Testing/initiative/logs/1660177880402 - Combat.md",
+    "99 Plugin Testing/initiative/logs/1660177559676 - Combat.md",
+    "99 Plugin Testing/initiative/logs/1660177486294 - Combat.md",
+    "99 Plugin Testing/initiative/logs/1660177442360 - Combat.md"
   ]
 }

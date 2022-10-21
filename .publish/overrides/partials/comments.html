@@ -1,49 +1,21 @@
 {% if page.meta.comments %}
-<h2 id="__comments">{{ lang.t("meta.comments") }}</h2>
-<!-- Insert generated snippet here -->
-<script
-    src="https://giscus.app/client.js"
-    data-repo="valentine195/Obsidian-Vault"
-    data-repo-id="MDEwOlJlcG9zaXRvcnkzNTI3NjM2MjY="
-    data-category="Announcements"
-    data-category-id="DIC_kwDOFQa-6s4CSDqH"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang="en"
-    crossorigin="anonymous"
-    async
-></script>
-<!-- Synchronize Giscus theme with palette -->
+<div id="disqus_thread"></div>
 <script>
-    var giscus = document.querySelector("script[src*=giscus]");
-
-    /* Set palette on initial load */
-    var palette = __md_get("__palette");
-    if (palette && typeof palette.color === "object") {
-        var theme = palette.color.scheme === "slate" ? "dark" : "light";
-        giscus.setAttribute("data-theme", theme);
-    }
-
-    /* Register event handlers after documented loaded */
-    document.addEventListener("DOMContentLoaded", function () {
-        var ref = document.querySelector("[data-md-component=palette]");
-        ref.addEventListener("change", function () {
-            var palette = __md_get("__palette");
-            if (palette && typeof palette.color === "object") {
-                var theme = palette.color.scheme === "slate" ? "dark" : "light";
-
-                /* Instruct Giscus to change theme */
-                var frame = document.querySelector(".giscus-frame");
-                frame.contentWindow.postMessage(
-                    { giscus: { setConfig: { theme } } },
-                    "https://giscus.app"
-                );
-            }
-        });
-    });
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://javalent.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
 </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 {% endif %}
