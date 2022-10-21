@@ -1,1 +1,233 @@
-.fantasy-calendar-date-fields{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem;padding-bottom:.75rem}.fantasy-calendar-date-fields .fantasy-calendar-date-field{display:flex;flex-flow:column nowrap}.fantasy-calendar-picker{padding:5px 15px;display:flex;flex-flow:column nowrap;justify-content:flex-start}.fantasy-calendar-view .view-content{padding:.5rem}.fantasy-calendar-full.view-content{display:flex;flex-flow:column;width:100%}.fantasy-calendar-dropdown{display:flex;flex-flow:column;width:100%;padding-bottom:.75rem}.fantasy-calendar-view-event .modal-content{max-width:75vw}.fantasy-no-calendar{color:var(--text-muted);display:flex;justify-content:center;text-align:center;padding:.5rem}.fantasy-title{margin:0}.full-view .fantasy-title{grid-column:span 3}body:not(.is-mobile) .modal.mod-settings .vertical-tab-content-container .vertical-tab-content.fantasy-calendar-settings.fantasy-calendar-creator-open{overflow:hidden}.fantasy-calendar-settings,.fantasy-calendar-settings-content{background-color:inherit;position:relative}.fantasy-calendar-confirm-buttons-container{display:flex;justify-content:space-between;align-items:center}.fantasy-calendar-confirm-buttons-container .dont-ask{cursor:pointer}.fantasy-calendar-confirm-buttons{display:flex;justify-content:flex-end;align-items:center;gap:.5rem}.modal.mod-settings .vertical-tab-content-container .vertical-tab-content.fantasy-calendar-settings{position:relative}.modal.mod-settings .vertical-tab-content.fantasy-calendar-settings .fantasy-calendar-settings-content h2:first-child{margin-top:initial}details.fantasy-calendar-nested-settings>summary{outline:none;display:block!important;list-style:none!important;list-style-type:none!important;min-height:1rem;border-top-left-radius:.1rem;border-top-right-radius:.1rem;cursor:pointer;position:relative}details.fantasy-calendar-nested-settings>summary::-webkit-details-marker,details.fantasy-calendar-nested-settings>summary::marker{display:none!important}details.fantasy-calendar-nested-settings>summary>.collapser{position:absolute;top:50%;right:8px;transform:translateY(-50%);content:""}details.fantasy-calendar-nested-settings>summary>.collapser>.handle{transform:rotate(0);transition:transform .25s;background-color:currentColor;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-image:var(--admonition-details-icon);mask-image:var(--admonition-details-icon);width:20px;height:20px}details.fantasy-calendar-nested-settings[open]>summary>.collapser>.handle{transform:rotate(90deg)}.fantasy-calendar-settings .fantasy-calendars{border-bottom:1px solid var(--background-modifier-border);border-top:1px solid var(--background-modifier-border);padding:18px 0 0}.fantasy-calendar-create-calendar input[disabled]{cursor:not-allowed}.fantasy-calendar-settings .fantasy-calendar-warning.date-format{color:red}.fantasy-calendar-settings .fantasy-calendar-warning{display:flex;align-items:center;gap:.25rem}.fantasy-calendar-settings .existing-calendars{padding:18px}.fantasy-calendar-settings .existing-calendars>span{display:block;text-align:center;color:var(--text-muted)}.fantasy-calendar-nested-settings .setting-item{border:0px;padding-bottom:0}.fantasy-calendar-nested-settings{padding-bottom:18px}.fantasy-calendar-nested-settings:not([open]) .setting-item-heading{border-bottom:1px solid transparent}.fantasy-calendar-nested-settings[open] .setting-item-heading,.fantasy-calendar-nested-settings:not(details) .setting-item-heading{border-top:0px;border-bottom:1px solid var(--background-modifier-border)}.fantasy-calendar-nested-settings .warning-container{position:relative;display:flex;align-items:center;gap:.25rem}.fantasy-calendar-settings .fantasy-calendar-config .setting-item-name{display:flex;gap:.25rem;align-items:center}.fantasy-context-buttons{display:flex;justify-content:flex-end;align-items:center;gap:.25rem}.fantasy-calendar-create-event .event-info{display:flex;flex-flow:column nowrap;width:100%;justify-content:flex-start;align-items:flex-start;gap:.5rem}.fantasy-calendar-create-event .event-info>*,.fantasy-calendar-create-event .setting-item{width:100%;padding-top:0;padding-bottom:.75rem;border:0}.fantasy-calendar-create-event .event-info>.event-description{display:flex;flex-flow:column nowrap}.fantasy-calendar-create-event .event-info textarea{resize:vertical}.fantasy-calendar-choose-preset .fantasy-calendar-preset-container{display:grid;grid-template-columns:1fr 1fr 1fr;grid-auto-rows:1fr;gap:1rem;align-items:center;justify-content:flex-start;margin:5px}.fantasy-calendar-choose-preset .fantasy-calendar-preset-container button{height:100%;width:100%;white-space:pre-line;max-width:250px}.fantasy-calendar-choose-preset .fantasy-calendar-preset-container button.mod-cta{box-shadow:0 0 10px var(--background-modifier-success)}.fantasy-leap-day-interval-description{color:var(--text-muted);border:0}.fantasy-calendar-event-date{display:grid;grid-template-columns:1fr auto;align-items:center;gap:.5rem}.fantasy-calendar-event-formula .setting-item-control{gap:.25rem}.era-event{flex-grow:1}
+/* src/main.css */
+.fantasy-calendar-date-fields {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  padding-bottom: 0.75rem;
+}
+.fantasy-calendar-date-fields .fantasy-calendar-date-field {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+/* src/view/view.css */
+.fantasy-calendar-picker {
+  padding: 5px 15px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+}
+.fantasy-calendar-view .view-content {
+  padding: 0.5rem;
+}
+.fantasy-calendar-full.view-content {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+.fantasy-calendar-dropdown {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  padding-bottom: 0.75rem;
+}
+.fantasy-calendar-view-event .modal-content {
+  max-width: 75vw;
+}
+.fantasy-no-calendar {
+  color: var(--text-muted);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 0.5rem;
+}
+.fantasy-title {
+  margin: 0;
+}
+.full-view .fantasy-title {
+  grid-column: span 3;
+}
+
+/* src/settings/settings.css */
+body:not(.is-mobile) .modal.mod-settings .vertical-tab-content-container .vertical-tab-content.fantasy-calendar-settings.fantasy-calendar-creator-open {
+  overflow: hidden;
+}
+.fantasy-calendar-settings,
+.fantasy-calendar-settings-content {
+  background-color: inherit;
+  position: relative;
+}
+.fantasy-calendar-confirm-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fantasy-calendar-confirm-buttons-container .dont-ask {
+  cursor: pointer;
+}
+.fantasy-calendar-confirm-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+}
+.modal.mod-settings .vertical-tab-content-container .vertical-tab-content.fantasy-calendar-settings {
+  position: relative;
+}
+.modal.mod-settings .vertical-tab-content.fantasy-calendar-settings .fantasy-calendar-settings-content h2:first-child {
+  margin-top: initial;
+}
+details.fantasy-calendar-nested-settings > summary {
+  outline: none;
+  display: block !important;
+  list-style: none !important;
+  list-style-type: none !important;
+  min-height: 1rem;
+  border-top-left-radius: 0.1rem;
+  border-top-right-radius: 0.1rem;
+  cursor: pointer;
+  position: relative;
+}
+details.fantasy-calendar-nested-settings > summary::-webkit-details-marker,
+details.fantasy-calendar-nested-settings > summary::marker {
+  display: none !important;
+}
+details.fantasy-calendar-nested-settings > summary > .collapser {
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  transform: translateY(-50%);
+  content: "";
+}
+details.fantasy-calendar-nested-settings > summary > .collapser > .handle {
+  transform: rotate(0deg);
+  transition: transform 0.25s;
+  background-color: currentColor;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-image: var(--admonition-details-icon);
+  mask-image: var(--admonition-details-icon);
+  width: 20px;
+  height: 20px;
+}
+details.fantasy-calendar-nested-settings[open] > summary > .collapser > .handle {
+  transform: rotate(90deg);
+}
+.fantasy-calendar-settings .fantasy-calendars {
+  border-bottom: 1px solid var(--background-modifier-border);
+  border-top: 1px solid var(--background-modifier-border);
+  padding: 18px 0 0 0;
+}
+.fantasy-calendar-create-calendar input[disabled] {
+  cursor: not-allowed;
+}
+.fantasy-calendar-settings .fantasy-calendar-warning.date-format {
+  color: red;
+}
+.fantasy-calendar-settings .fantasy-calendar-warning {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.fantasy-calendar-settings .existing-calendars {
+  padding: 18px;
+}
+.fantasy-calendar-settings .existing-calendars > span {
+  display: block;
+  text-align: center;
+  color: var(--text-muted);
+}
+.fantasy-calendar-nested-settings .setting-item {
+  border: 0px;
+  padding-bottom: 0;
+}
+.fantasy-calendar-nested-settings {
+  padding-bottom: 18px;
+}
+.fantasy-calendar-nested-settings:not([open]) .setting-item-heading {
+  border-bottom: 1px solid transparent;
+}
+.fantasy-calendar-nested-settings[open] .setting-item-heading,
+.fantasy-calendar-nested-settings:not(details) .setting-item-heading {
+  border-top: 0px;
+  border-bottom: 1px solid var(--background-modifier-border);
+}
+.fantasy-calendar-nested-settings .warning-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+.fantasy-calendar-settings .fantasy-calendar-config .setting-item-name {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+.fantasy-context-buttons {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.25rem;
+}
+.fantasy-calendar-create-event .event-info {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.fantasy-calendar-create-event .event-info > *,
+.fantasy-calendar-create-event .setting-item {
+  width: 100%;
+  padding-top: 0;
+  padding-bottom: 0.75rem;
+  border: 0;
+}
+.fantasy-calendar-create-event .event-info > .event-description {
+  display: flex;
+  flex-flow: column nowrap;
+}
+.fantasy-calendar-create-event .event-info textarea {
+  resize: vertical;
+}
+.fantasy-calendar-choose-preset .fantasy-calendar-preset-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-auto-rows: 1fr;
+  gap: 1rem;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 5px;
+}
+.fantasy-calendar-choose-preset .fantasy-calendar-preset-container button {
+  height: 100%;
+  width: 100%;
+  white-space: pre-line;
+  max-width: 250px;
+}
+.fantasy-calendar-choose-preset .fantasy-calendar-preset-container button.mod-cta {
+  box-shadow: 0 0 10px var(--background-modifier-success);
+}
+.fantasy-leap-day-interval-description {
+  color: var(--text-muted);
+  border: 0;
+}
+.fantasy-calendar-event-date {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+.fantasy-calendar-event-formula .setting-item-control {
+  gap: 0.25rem;
+}
+.era-event {
+  flex-grow: 1;
+}
+
+/* src/styles.css */
+/*# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsiLi4vLi4vLi4vLi4vR2l0SHViL29ic2lkaWFuLWZhbnRhc3ktY2FsZW5kYXIvc3JjL21haW4uY3NzIiwgIi4uLy4uLy4uLy4uL0dpdEh1Yi9vYnNpZGlhbi1mYW50YXN5LWNhbGVuZGFyL3NyYy92aWV3L3ZpZXcuY3NzIiwgIi4uLy4uLy4uLy4uL0dpdEh1Yi9vYnNpZGlhbi1mYW50YXN5LWNhbGVuZGFyL3NyYy9zZXR0aW5ncy9zZXR0aW5ncy5jc3MiXSwKICAic291cmNlc0NvbnRlbnQiOiBbIlxuLmZhbnRhc3ktY2FsZW5kYXItZGF0ZS1maWVsZHMge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBzcGFjZS1iZXR3ZWVuO1xuICAgIGFsaWduLWl0ZW1zOiBmbGV4LXN0YXJ0O1xuICAgIGdhcDogMC41cmVtO1xuICAgIHBhZGRpbmctYm90dG9tOiAwLjc1cmVtO1xufVxuXG4uZmFudGFzeS1jYWxlbmRhci1kYXRlLWZpZWxkcyAuZmFudGFzeS1jYWxlbmRhci1kYXRlLWZpZWxkIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZmxvdzogY29sdW1uIG5vd3JhcDtcbn1cbiIsICIuZmFudGFzeS1jYWxlbmRhci1waWNrZXIge1xuICAgIHBhZGRpbmc6IDVweCAxNXB4O1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1mbG93OiBjb2x1bW4gbm93cmFwO1xuICAgIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcbn1cbi5mYW50YXN5LWNhbGVuZGFyLXZpZXcgLnZpZXctY29udGVudCB7XG4gICAgcGFkZGluZzogMC41cmVtO1xufVxuLmZhbnRhc3ktY2FsZW5kYXItZnVsbC52aWV3LWNvbnRlbnQge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgZmxleC1mbG93OiBjb2x1bW47XG4gICAgd2lkdGg6IDEwMCU7XG59XG5cbi5mYW50YXN5LWNhbGVuZGFyLWRyb3Bkb3duIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZmxvdzogY29sdW1uO1xuICAgIHdpZHRoOiAxMDAlO1xuICAgIHBhZGRpbmctYm90dG9tOiAwLjc1cmVtO1xufVxuXG4uZmFudGFzeS1jYWxlbmRhci12aWV3LWV2ZW50IC5tb2RhbC1jb250ZW50IHtcbiAgICBtYXgtd2lkdGg6IDc1dnc7XG59XG5cbi5mYW50YXN5LW5vLWNhbGVuZGFyIHtcbiAgICBjb2xvcjogdmFyKC0tdGV4dC1tdXRlZCk7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGNlbnRlcjtcbiAgICB0ZXh0LWFsaWduOiBjZW50ZXI7XG4gICAgcGFkZGluZzogMC41cmVtO1xufVxuXG4uZmFudGFzeS10aXRsZSB7XG4gICAgbWFyZ2luOiAwO1xufVxuXG4uZnVsbC12aWV3IC5mYW50YXN5LXRpdGxlIHtcbiAgICBncmlkLWNvbHVtbjogc3BhbiAzO1xufVxuIiwgImJvZHk6bm90KC5pcy1tb2JpbGUpXG4gICAgLm1vZGFsLm1vZC1zZXR0aW5nc1xuICAgIC52ZXJ0aWNhbC10YWItY29udGVudC1jb250YWluZXJcbiAgICAudmVydGljYWwtdGFiLWNvbnRlbnQuZmFudGFzeS1jYWxlbmRhci1zZXR0aW5ncy5mYW50YXN5LWNhbGVuZGFyLWNyZWF0b3Itb3BlbiB7XG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcbn1cblxuLmZhbnRhc3ktY2FsZW5kYXItc2V0dGluZ3MsXG4uZmFudGFzeS1jYWxlbmRhci1zZXR0aW5ncy1jb250ZW50IHtcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBpbmhlcml0O1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuLmZhbnRhc3ktY2FsZW5kYXItY29uZmlybS1idXR0b25zLWNvbnRhaW5lciB7XG4gICAgZGlzcGxheTogZmxleDtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IHNwYWNlLWJldHdlZW47XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbn1cblxuLmZhbnRhc3ktY2FsZW5kYXItY29uZmlybS1idXR0b25zLWNvbnRhaW5lciAuZG9udC1hc2sge1xuICAgIGN1cnNvcjogcG9pbnRlcjtcbn1cblxuLmZhbnRhc3ktY2FsZW5kYXItY29uZmlybS1idXR0b25zIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGp1c3RpZnktY29udGVudDogZmxleC1lbmQ7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBnYXA6IDAuNXJlbTtcbn1cblxuLyoqIERldGFpbHMgKi9cbi5tb2RhbC5tb2Qtc2V0dGluZ3NcbiAgICAudmVydGljYWwtdGFiLWNvbnRlbnQtY29udGFpbmVyXG4gICAgLnZlcnRpY2FsLXRhYi1jb250ZW50LmZhbnRhc3ktY2FsZW5kYXItc2V0dGluZ3Mge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICAvKiBwYWRkaW5nLXRvcDogMHB4OyAqL1xufVxuXG4ubW9kYWwubW9kLXNldHRpbmdzXG4gICAgLnZlcnRpY2FsLXRhYi1jb250ZW50LmZhbnRhc3ktY2FsZW5kYXItc2V0dGluZ3NcbiAgICAuZmFudGFzeS1jYWxlbmRhci1zZXR0aW5ncy1jb250ZW50XG4gICAgaDI6Zmlyc3QtY2hpbGQge1xuICAgIG1hcmdpbi10b3A6IGluaXRpYWw7XG59XG5cbmRldGFpbHMuZmFudGFzeS1jYWxlbmRhci1uZXN0ZWQtc2V0dGluZ3MgPiBzdW1tYXJ5IHtcbiAgICBvdXRsaW5lOiBub25lO1xuICAgIGRpc3BsYXk6IGJsb2NrICFpbXBvcnRhbnQ7XG4gICAgbGlzdC1zdHlsZTogbm9uZSAhaW1wb3J0YW50O1xuICAgIGxpc3Qtc3R5bGUtdHlwZTogbm9uZSAhaW1wb3J0YW50O1xuICAgIG1pbi1oZWlnaHQ6IDFyZW07XG4gICAgYm9yZGVyLXRvcC1sZWZ0LXJhZGl1czogMC4xcmVtO1xuICAgIGJvcmRlci10b3AtcmlnaHQtcmFkaXVzOiAwLjFyZW07XG4gICAgY3Vyc29yOiBwb2ludGVyO1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbn1cblxuZGV0YWlscy5mYW50YXN5LWNhbGVuZGFyLW5lc3RlZC1zZXR0aW5ncyA+IHN1bW1hcnk6Oi13ZWJraXQtZGV0YWlscy1tYXJrZXIsXG5kZXRhaWxzLmZhbnRhc3ktY2FsZW5kYXItbmVzdGVkLXNldHRpbmdzID4gc3VtbWFyeTo6bWFya2VyIHtcbiAgICBkaXNwbGF5OiBub25lICFpbXBvcnRhbnQ7XG59XG5cbmRldGFpbHMuZmFudGFzeS1jYWxlbmRhci1uZXN0ZWQtc2V0dGluZ3MgPiBzdW1tYXJ5ID4gLmNvbGxhcHNlciB7XG4gICAgcG9zaXRpb246IGFic29sdXRlO1xuICAgIHRvcDogNTAlO1xuICAgIHJpZ2h0OiA4cHg7XG4gICAgdHJhbnNmb3JtOiB0cmFuc2xhdGVZKC01MCUpO1xuICAgIGNvbnRlbnQ6IFwiXCI7XG59XG5cbmRldGFpbHMuZmFudGFzeS1jYWxlbmRhci1uZXN0ZWQtc2V0dGluZ3MgPiBzdW1tYXJ5ID4gLmNvbGxhcHNlciA+IC5oYW5kbGUge1xuICAgIHRyYW5zZm9ybTogcm90YXRlKDBkZWcpO1xuICAgIHRyYW5zaXRpb246IHRyYW5zZm9ybSAwLjI1cztcbiAgICBiYWNrZ3JvdW5kLWNvbG9yOiBjdXJyZW50Q29sb3I7XG4gICAgLXdlYmtpdC1tYXNrLXJlcGVhdDogbm8tcmVwZWF0O1xuICAgIG1hc2stcmVwZWF0OiBuby1yZXBlYXQ7XG4gICAgLXdlYmtpdC1tYXNrLXNpemU6IGNvbnRhaW47XG4gICAgbWFzay1zaXplOiBjb250YWluO1xuICAgIC13ZWJraXQtbWFzay1pbWFnZTogdmFyKC0tYWRtb25pdGlvbi1kZXRhaWxzLWljb24pO1xuICAgIG1hc2staW1hZ2U6IHZhcigtLWFkbW9uaXRpb24tZGV0YWlscy1pY29uKTtcbiAgICB3aWR0aDogMjBweDtcbiAgICBoZWlnaHQ6IDIwcHg7XG59XG5cbmRldGFpbHMuZmFudGFzeS1jYWxlbmRhci1uZXN0ZWQtc2V0dGluZ3Nbb3Blbl1cbiAgICA+IHN1bW1hcnlcbiAgICA+IC5jb2xsYXBzZXJcbiAgICA+IC5oYW5kbGUge1xuICAgIHRyYW5zZm9ybTogcm90YXRlKDkwZGVnKTtcbn1cblxuLmZhbnRhc3ktY2FsZW5kYXItc2V0dGluZ3MgLmZhbnRhc3ktY2FsZW5kYXJzIHtcbiAgICBib3JkZXItYm90dG9tOiAxcHggc29saWQgdmFyKC0tYmFja2dyb3VuZC1tb2RpZmllci1ib3JkZXIpO1xuICAgIGJvcmRlci10b3A6IDFweCBzb2xpZCB2YXIoLS1iYWNrZ3JvdW5kLW1vZGlmaWVyLWJvcmRlcik7XG4gICAgcGFkZGluZzogMThweCAwIDAgMDtcbn1cblxuLmZhbnRhc3ktY2FsZW5kYXItY3JlYXRlLWNhbGVuZGFyIGlucHV0W2Rpc2FibGVkXSB7XG4gICAgY3Vyc29yOiBub3QtYWxsb3dlZDtcbn1cblxuLmZhbnRhc3ktY2FsZW5kYXItc2V0dGluZ3MgLmZhbnRhc3ktY2FsZW5kYXItd2FybmluZy5kYXRlLWZvcm1hdCB7XG4gICAgY29sb3I6IHJlZDtcbn1cbi5mYW50YXN5LWNhbGVuZGFyLXNldHRpbmdzIC5mYW50YXN5LWNhbGVuZGFyLXdhcm5pbmcge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBnYXA6IDAuMjVyZW07XG59XG5cbi5mYW50YXN5LWNhbGVuZGFyLXNldHRpbmdzIC5leGlzdGluZy1jYWxlbmRhcnMge1xuICAgIHBhZGRpbmc6IDE4cHg7XG59XG4uZmFudGFzeS1jYWxlbmRhci1zZXR0aW5ncyAuZXhpc3RpbmctY2FsZW5kYXJzID4gc3BhbiB7XG4gICAgZGlzcGxheTogYmxvY2s7XG4gICAgdGV4dC1hbGlnbjogY2VudGVyO1xuICAgIGNvbG9yOiB2YXIoLS10ZXh0LW11dGVkKTtcbn1cblxuLmZhbnRhc3ktY2FsZW5kYXItbmVzdGVkLXNldHRpbmdzIC5zZXR0aW5nLWl0ZW0ge1xuICAgIGJvcmRlcjogMHB4O1xuICAgIHBhZGRpbmctYm90dG9tOiAwO1xufVxuLmZhbnRhc3ktY2FsZW5kYXItbmVzdGVkLXNldHRpbmdzIHtcbiAgICBwYWRkaW5nLWJvdHRvbTogMThweDtcbn1cbi5mYW50YXN5LWNhbGVuZGFyLW5lc3RlZC1zZXR0aW5nczpub3QoW29wZW5dKSAuc2V0dGluZy1pdGVtLWhlYWRpbmcge1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB0cmFuc3BhcmVudDtcbn1cbi5mYW50YXN5LWNhbGVuZGFyLW5lc3RlZC1zZXR0aW5nc1tvcGVuXSAuc2V0dGluZy1pdGVtLWhlYWRpbmcsXG4uZmFudGFzeS1jYWxlbmRhci1uZXN0ZWQtc2V0dGluZ3M6bm90KGRldGFpbHMpIC5zZXR0aW5nLWl0ZW0taGVhZGluZyB7XG4gICAgYm9yZGVyLXRvcDogMHB4O1xuICAgIGJvcmRlci1ib3R0b206IDFweCBzb2xpZCB2YXIoLS1iYWNrZ3JvdW5kLW1vZGlmaWVyLWJvcmRlcik7XG59XG5cbi5mYW50YXN5LWNhbGVuZGFyLW5lc3RlZC1zZXR0aW5ncyAud2FybmluZy1jb250YWluZXIge1xuICAgIHBvc2l0aW9uOiByZWxhdGl2ZTtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGFsaWduLWl0ZW1zOiBjZW50ZXI7XG4gICAgZ2FwOiAwLjI1cmVtO1xufVxuXG4uZmFudGFzeS1jYWxlbmRhci1zZXR0aW5ncyAuZmFudGFzeS1jYWxlbmRhci1jb25maWcgLnNldHRpbmctaXRlbS1uYW1lIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGdhcDogMC4yNXJlbTtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xufVxuXG4uZmFudGFzeS1jb250ZXh0LWJ1dHRvbnMge1xuICAgIGRpc3BsYXk6IGZsZXg7XG4gICAganVzdGlmeS1jb250ZW50OiBmbGV4LWVuZDtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGdhcDogMC4yNXJlbTtcbn1cblxuLmZhbnRhc3ktY2FsZW5kYXItY3JlYXRlLWV2ZW50IC5ldmVudC1pbmZvIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZmxvdzogY29sdW1uIG5vd3JhcDtcbiAgICB3aWR0aDogMTAwJTtcbiAgICBqdXN0aWZ5LWNvbnRlbnQ6IGZsZXgtc3RhcnQ7XG4gICAgYWxpZ24taXRlbXM6IGZsZXgtc3RhcnQ7XG4gICAgZ2FwOiAwLjVyZW07XG59XG5cbi5mYW50YXN5LWNhbGVuZGFyLWNyZWF0ZS1ldmVudCAuZXZlbnQtaW5mbyA+ICosXG4uZmFudGFzeS1jYWxlbmRhci1jcmVhdGUtZXZlbnQgLnNldHRpbmctaXRlbSB7XG4gICAgd2lkdGg6IDEwMCU7XG4gICAgcGFkZGluZy10b3A6IDA7XG4gICAgcGFkZGluZy1ib3R0b206IDAuNzVyZW07XG4gICAgYm9yZGVyOiAwO1xufVxuLmZhbnRhc3ktY2FsZW5kYXItY3JlYXRlLWV2ZW50IC5ldmVudC1pbmZvID4gLmV2ZW50LWRlc2NyaXB0aW9uIHtcbiAgICBkaXNwbGF5OiBmbGV4O1xuICAgIGZsZXgtZmxvdzogY29sdW1uIG5vd3JhcDtcbn1cblxuLmZhbnRhc3ktY2FsZW5kYXItY3JlYXRlLWV2ZW50IC5ldmVudC1pbmZvIHRleHRhcmVhIHtcbiAgICByZXNpemU6IHZlcnRpY2FsO1xufVxuXG4vKiogUHJlc2V0IENhbGVuZGFyIE1vZGFsICovXG4uZmFudGFzeS1jYWxlbmRhci1jaG9vc2UtcHJlc2V0IC5mYW50YXN5LWNhbGVuZGFyLXByZXNldC1jb250YWluZXIge1xuICAgIGRpc3BsYXk6IGdyaWQ7XG4gICAgZ3JpZC10ZW1wbGF0ZS1jb2x1bW5zOiAxZnIgMWZyIDFmcjtcbiAgICBncmlkLWF1dG8tcm93czogMWZyO1xuICAgIGdhcDogMXJlbTtcbiAgICBhbGlnbi1pdGVtczogY2VudGVyO1xuICAgIGp1c3RpZnktY29udGVudDogZmxleC1zdGFydDtcbiAgICBtYXJnaW46IDVweDtcbn1cbi5mYW50YXN5LWNhbGVuZGFyLWNob29zZS1wcmVzZXQgLmZhbnRhc3ktY2FsZW5kYXItcHJlc2V0LWNvbnRhaW5lciBidXR0b24ge1xuICAgIGhlaWdodDogMTAwJTtcbiAgICB3aWR0aDogMTAwJTtcbiAgICB3aGl0ZS1zcGFjZTogcHJlLWxpbmU7XG4gICAgbWF4LXdpZHRoOiAyNTBweDtcbn1cbi5mYW50YXN5LWNhbGVuZGFyLWNob29zZS1wcmVzZXRcbiAgICAuZmFudGFzeS1jYWxlbmRhci1wcmVzZXQtY29udGFpbmVyXG4gICAgYnV0dG9uLm1vZC1jdGEge1xuICAgIGJveC1zaGFkb3c6IDAgMCAxMHB4IHZhcigtLWJhY2tncm91bmQtbW9kaWZpZXItc3VjY2Vzcyk7XG59XG5cbi8qKiBMZWFwIERheSBFZGl0b3IgKi9cbi5mYW50YXN5LWxlYXAtZGF5LWludGVydmFsLWRlc2NyaXB0aW9uIHtcbiAgICBjb2xvcjogdmFyKC0tdGV4dC1tdXRlZCk7XG4gICAgYm9yZGVyOiAwO1xufVxuXG4uZmFudGFzeS1jYWxlbmRhci1ldmVudC1kYXRlIHtcbiAgICBkaXNwbGF5OiBncmlkO1xuICAgIGdyaWQtdGVtcGxhdGUtY29sdW1uczogMWZyIGF1dG87XG4gICAgYWxpZ24taXRlbXM6IGNlbnRlcjtcbiAgICBnYXA6IDAuNXJlbTtcbn1cblxuLyoqIEV2ZW50IE1vZGFsICovXG4uZmFudGFzeS1jYWxlbmRhci1ldmVudC1mb3JtdWxhIC5zZXR0aW5nLWl0ZW0tY29udHJvbCB7XG4gICAgZ2FwOiAwLjI1cmVtO1xufVxuXG4vKiogRXJhIE1vZGFsICovXG4uZXJhLWV2ZW50IHtcbiAgICBmbGV4LWdyb3c6IDE7XG59XG4iXSwKICAibWFwcGluZ3MiOiAiO0FBQ0E7QUFDSTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFHSjtBQUNJO0FBQ0E7QUFBQTs7O0FDWEo7QUFDSTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBRUo7QUFDSTtBQUFBO0FBRUo7QUFDSTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUFBO0FBR0o7QUFDSTtBQUFBOzs7QUN2Q0o7QUFJSTtBQUFBO0FBR0o7QUFBQTtBQUVJO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQUE7QUFHSjtBQUNJO0FBQUE7QUFHSjtBQUNJO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFJSjtBQUdJO0FBQUE7QUFJSjtBQUlJO0FBQUE7QUFHSjtBQUNJO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFBQTtBQUVJO0FBQUE7QUFHSjtBQUNJO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFJSTtBQUFBO0FBR0o7QUFDSTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFBQTtBQUdKO0FBQ0k7QUFBQTtBQUVKO0FBQ0k7QUFDQTtBQUNBO0FBQUE7QUFHSjtBQUNJO0FBQUE7QUFFSjtBQUNJO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUNBO0FBQUE7QUFFSjtBQUNJO0FBQUE7QUFFSjtBQUNJO0FBQUE7QUFFSjtBQUFBO0FBRUk7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUdKO0FBQ0k7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFHSjtBQUFBO0FBRUk7QUFDQTtBQUNBO0FBQ0E7QUFBQTtBQUVKO0FBQ0k7QUFDQTtBQUFBO0FBR0o7QUFDSTtBQUFBO0FBSUo7QUFDSTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBRUo7QUFDSTtBQUNBO0FBQ0E7QUFDQTtBQUFBO0FBRUo7QUFHSTtBQUFBO0FBSUo7QUFDSTtBQUNBO0FBQUE7QUFHSjtBQUNJO0FBQ0E7QUFDQTtBQUNBO0FBQUE7QUFJSjtBQUNJO0FBQUE7QUFJSjtBQUNJO0FBQUE7IiwKICAibmFtZXMiOiBbXQp9Cg== */

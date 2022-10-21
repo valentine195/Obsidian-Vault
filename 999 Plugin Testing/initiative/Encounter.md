@@ -13,7 +13,7 @@ creatures:
 ```encounter
 name: Example 1
 creatures:
- - 3: Goblin
+ - 3d6: Goblin
 
 ---
 
