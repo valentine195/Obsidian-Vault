@@ -6,7 +6,6 @@
   "fantasy-calendar",
   "hotkey-helper",
   "hotkeysplus-obsidian",
-  "markdown-attributes",
   "obsidian42-brat",
   "plugin-changelogs",
   "obsidian-prominent-starred-files",
@@ -30,5 +29,6 @@
   "obsidian-5e-statblocks",
   "obsidian-dice-roller",
   "rpg-manager",
-  "initiative-tracker"
+  "initiative-tracker",
+  "markdown-attributes"
 ]

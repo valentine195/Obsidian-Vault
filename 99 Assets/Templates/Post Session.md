@@ -25,7 +25,7 @@ tags:
 ---`;
 tR += YAML;
 
-const index = this.app.vault.getAbstractFileByPath("1. Sessions/Post Session Logs/_Index.md");
+const index = this.app.vault.getAbstractFileByPath("1. Sessions/Post Session Logs/1. Index.md");
 
 const content = await this.app.vault.cachedRead(index);
 

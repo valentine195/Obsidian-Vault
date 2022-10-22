@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "6d42301a025501a3",
+        "id": "f937f6e92ccc9a55",
         "type": "tabs",
         "children": [
           {
-            "id": "daa58a5c40680bdf",
+            "id": "b3d6157cbc18b399",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "20 Sessions/2022-11-17 Session 15.md",
+                "mode": "source",
+                "source": true
+              }
             }
           }
         ]
@@ -65,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 227.0032558441162,
-    "collapsed": true
+    "width": 227.0032558441162
   },
   "right": {
     "id": "5e7f37323b9cb36c",
@@ -82,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "20 Sessions/2022-11-17 Session 15.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +112,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "20 Sessions/2022-11-17 Session 15.md"
+              }
             }
           },
           {
@@ -117,6 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "20 Sessions/2022-11-17 Session 15.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -153,17 +160,17 @@
     "direction": "horizontal",
     "width": 350
   },
-  "active": "daa58a5c40680bdf",
+  "active": "b3d6157cbc18b399",
   "lastOpenFiles": [
+    "20 Sessions/20.01 Old Session Planning/2022-09-17 - Session 14.md",
+    "20 Sessions/2022-11-17 Session 15.md",
+    "99 Assets/Templates/Post Session.md",
+    "20 Sessions/20.02 Post Session Logs/1. Index.md",
+    "99 Assets/Templates/NPC.md",
+    "99 Assets/Templates/session.md",
     "999 Plugin Testing/dice/Dice Roller.md",
     "999 Plugin Testing/initiative/Encounter.md",
     "999 Plugin Testing/dataview/Rat.md",
-    "999 Plugin Testing/dice/Untitled 2.md",
-    "999 Plugin Testing/dice/Dice Scratchpad.md",
-    "999 Plugin Testing/statblock/Statblock Testing.md",
-    "99 Plugin Testing/initiative/logs/1660177880402 - Combat.md",
-    "99 Plugin Testing/initiative/logs/1660177559676 - Combat.md",
-    "99 Plugin Testing/initiative/logs/1660177486294 - Combat.md",
-    "99 Plugin Testing/initiative/logs/1660177442360 - Combat.md"
+    "999 Plugin Testing/dice/Untitled 2.md"
   ]
 }
