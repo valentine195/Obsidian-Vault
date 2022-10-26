@@ -9,6 +9,7 @@ tags:
 ## Astrid Longhorn
 
 ### Description
+^dice-435b
 Female Elf
 Tall, slender, golden hair
 Tharashk informant

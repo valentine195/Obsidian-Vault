@@ -1,12 +1,18 @@
 ---
 aliases: ["Mood Tables"]
 ---
+abc 12
+
 
 **Choose one…** 
-- `dice-mod: [](mood-tables.md#^mood-table)`
-- `dice-mod: [](mood-tables.md#^mood-table)`
-- `dice-mod: [](mood-tables.md#^mood-table)`
-- `dice-mod: [](mood-tables.md#^mood-table)`
+- []( -> 	mood-tables.md#^mood-table -> ) d100 --> [42] > ( -> 	[[mood-tables#^ambiguous-a-n]] 26 rows --> [row 20] -> ) ->  **inquisitive**
+- []( -> 	mood-tables.md#^mood-table -> ) d100 --> [43] > ( -> 	[[mood-tables#^ambiguous-a-n]] 26 rows --> [row 17] -> ) ->  **impassive**
+- []( -> 	mood-tables.md#^mood-table -> ) d100 --> [16] > ( -> 	[[mood-tables#^positive-h-l]] 30 rows --> [row 17] -> ) ->  **jocund**
+- []( -> 	mood-tables.md#^mood-table -> ) d100 --> [88] > ( -> 	[[mood-tables#^negative-i-n]] 32 rows --> [row 32] -> ) ->  **nightmarish**
+
+abc
+
+
 
 **Choose one…** 
 - `dice: [](mood-tables.md#^mood-table)`
@@ -34,6 +40,8 @@ aliases: ["Mood Tables"]
 | 93-96     | `dice: [[mood-tables#^negative-s-t]]` |
 | 97-100    | `dice: [[mood-tables#^negative-u-w]]` |
 ^mood-table
+
+
 
 
 ## Adjectives with Positive Connotations

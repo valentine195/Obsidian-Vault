@@ -4,18 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "c0eba7c3bb839c5e",
+        "id": "4a4c4b71fb2231ad",
         "type": "tabs",
         "children": [
           {
-            "id": "c7bdbae777c96be6",
+            "id": "6c5ed92d8dad0779",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plugin Testing/dice/Mod Testing.md",
+                "file": "999 Plugin Testing/dice/Multiple Dice.md",
                 "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/dice/Mod Testing.md",
+                "file": "999 Plugin Testing/dice/Multiple Dice.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "999 Plugin Testing/dice/Mod Testing.md"
+                "file": "999 Plugin Testing/dice/Multiple Dice.md"
               }
             }
           },
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/dice/Mod Testing.md",
+                "file": "999 Plugin Testing/dice/Multiple Dice.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,7 +146,7 @@
             }
           },
           {
-            "id": "9749a4821887f4cb",
+            "id": "20ce1fbf7596648b",
             "type": "leaf",
             "state": {
               "type": "DICE_ROLLER_VIEW",
@@ -158,19 +158,20 @@
       }
     ],
     "direction": "horizontal",
-    "width": 350
+    "width": 207.5,
+    "collapsed": true
   },
-  "active": "c7bdbae777c96be6",
+  "active": "6c5ed92d8dad0779",
   "lastOpenFiles": [
-    "999 Plugin Testing/dice/Mod Testing.md",
+    "999 Plugin Testing/dice/mood-tables.md",
+    "999 Plugin Testing/dice/Untitled.md",
     "999 Plugin Testing/dice/Dice Roller.md",
+    "999 Plugin Testing/dice/Multiple Dice.md",
+    "999 Plugin Testing/dice/Mod Testing.md",
+    "999 Plugin Testing/dice/Untitled 1.md",
+    "999 Plugin Testing/dice/Untitled 2.md",
     "20 Sessions/2022-11-17 Session 15.md",
     "20 Sessions/20.01 Old Session Planning/2022-09-17 - Session 14.md",
-    "99 Assets/Templates/Post Session.md",
-    "20 Sessions/20.02 Post Session Logs/1. Index.md",
-    "99 Assets/Templates/NPC.md",
-    "99 Assets/Templates/session.md",
-    "999 Plugin Testing/initiative/Encounter.md",
-    "999 Plugin Testing/dataview/Rat.md"
+    "99 Assets/Templates/Post Session.md"
   ]
 }

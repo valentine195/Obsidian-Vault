@@ -26,4 +26,4 @@ Untitled -file:Untitled
 ```dataview
 list FROM [[Untitled]] AND "Adventure Seeds"
 ```
-%%
+%%^dice-vlfh

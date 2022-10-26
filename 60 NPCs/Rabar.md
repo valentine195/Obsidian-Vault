@@ -8,7 +8,7 @@ tags:
 
 ## Rabar
 
-### Description
+### Description^dice-1nyy
 
 Minor member of the [[Lords of Dust]], active near [[Haka'Torvhak]]
 

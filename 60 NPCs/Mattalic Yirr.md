@@ -31,7 +31,7 @@ He has a very small scar on his left footand a scar on his right hand.
 #### Relations
 - Distant cousin of [[Merigold]]
 
-### Adventures
+### Adventures^dice-zsch
 ```query
 Mattalic Yirr -file:Mattalic Yirr
 ```

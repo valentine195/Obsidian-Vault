@@ -11,7 +11,7 @@ tags:
 
 ### Description
 - changeling that takes the appearance of a Middle Aged human male, 
-- runs [[Newthrone]] Gray Tide hideout
+- runs [[Newthrone]] Gray Tide hideout^dice-6bpd
 
 #### Details
 
