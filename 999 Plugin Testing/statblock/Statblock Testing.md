@@ -1,7 +1,9 @@
 
 
 ```statblock
-monster: ABC123
+#layout: ADND
+#monster: ABC123
+name: test
 image: [[kintargo.png]]
 type: dragon
 subtype:

@@ -3,6 +3,7 @@ statblock: true
 layout: Basic Fate Core Layout
 image: [[kintargo.png]]
 name: yaml-test
+statblock-link: "[[YAML Statblock#^test-table]]"
 description: an awkward sunbear
 aspects: "
   - Smuggler Queen of the Sindral Reach\n
@@ -51,3 +52,9 @@ items:
 ```statblock
 monster: yaml-test
 ```
+
+
+| test | test |
+| ---- | ---- |
+| abc  | 1233 | 
+^test-table
