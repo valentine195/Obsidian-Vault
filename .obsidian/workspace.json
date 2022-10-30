@@ -4,11 +4,30 @@
     "type": "split",
     "children": [
       {
-        "id": "310128628e0400e5",
+        "id": "4c7fb96140ffa993",
         "type": "tabs",
         "children": [
           {
-            "id": "ba4756f7175f36ae",
+            "id": "498f9e025baebd28",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "999 Plugin Testing/dice/Multiple Dice.md",
+                "mode": "source",
+                "source": true
+              }
+            },
+            "group": "80a8951fb6460a66"
+          }
+        ]
+      },
+      {
+        "id": "ad44c9a5f038c18a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2d0f7ef949543b6c",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -17,7 +36,8 @@
                 "mode": "preview",
                 "source": true
               }
-            }
+            },
+            "group": "80a8951fb6460a66"
           }
         ]
       }
@@ -146,7 +166,7 @@
             }
           },
           {
-            "id": "aed9433b1b8f29f1",
+            "id": "915dea9233269f19",
             "type": "leaf",
             "state": {
               "type": "DICE_ROLLER_VIEW",
@@ -161,7 +181,7 @@
     "width": 252.5,
     "collapsed": true
   },
-  "active": "ba4756f7175f36ae",
+  "active": "498f9e025baebd28",
   "lastOpenFiles": [
     "999 Plugin Testing/dice/Multiple Dice.md",
     "30 Compendium/33 Monsters/Royal Incinerator.md",
