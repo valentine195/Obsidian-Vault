@@ -4,40 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "4c7fb96140ffa993",
+        "id": "3bd558527773a140",
         "type": "tabs",
         "children": [
           {
-            "id": "498f9e025baebd28",
+            "id": "b733f72c6677cfc4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plugin Testing/dice/Multiple Dice.md",
-                "mode": "source",
-                "source": true
-              }
-            },
-            "group": "80a8951fb6460a66"
-          }
-        ]
-      },
-      {
-        "id": "ad44c9a5f038c18a",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "2d0f7ef949543b6c",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "999 Plugin Testing/dice/Multiple Dice.md",
+                "file": "999 Plugin Testing/initiative/Encounter.md",
                 "mode": "preview",
                 "source": true
               }
-            },
-            "group": "80a8951fb6460a66"
+            }
           }
         ]
       }
@@ -105,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/dice/Multiple Dice.md",
+                "file": "999 Plugin Testing/initiative/Encounter.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "999 Plugin Testing/dice/Multiple Dice.md"
+                "file": "999 Plugin Testing/initiative/Encounter.md"
               }
             }
           },
@@ -143,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/dice/Multiple Dice.md",
+                "file": "999 Plugin Testing/initiative/Encounter.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,18 +138,18 @@
             }
           },
           {
-            "id": "f8a8ee4531bbf961",
+            "id": "65ffb31f019a7262",
             "type": "leaf",
             "state": {
-              "type": "initiative-tracker-view",
+              "type": "DICE_ROLLER_VIEW",
               "state": {}
             }
           },
           {
-            "id": "915dea9233269f19",
+            "id": "ee86aabff5c49023",
             "type": "leaf",
             "state": {
-              "type": "DICE_ROLLER_VIEW",
+              "type": "initiative-tracker-view",
               "state": {}
             }
           }
@@ -178,20 +158,19 @@
       }
     ],
     "direction": "horizontal",
-    "width": 252.5,
-    "collapsed": true
+    "width": 355.5
   },
-  "active": "498f9e025baebd28",
+  "active": "b733f72c6677cfc4",
   "lastOpenFiles": [
+    "999 Plugin Testing/initiative/Encounter.md",
     "999 Plugin Testing/dice/Multiple Dice.md",
+    "999 Plugin Testing/statblock/Moghorn.md",
     "30 Compendium/33 Monsters/Royal Incinerator.md",
     "30 Compendium/33 Monsters/Bel Shalor.md",
     "999 Plugin Testing/statblock/YAML Statblock.md",
     "999 Plugin Testing/statblock/Statblock Testing.md",
     "999 Plugin Testing/dice/mood-tables.md",
     "999 Plugin Testing/dice/Untitled.md",
-    "999 Plugin Testing/dice/Dice Roller.md",
-    "999 Plugin Testing/dice/Mod Testing.md",
-    "999 Plugin Testing/dice/Untitled 1.md"
+    "999 Plugin Testing/dice/Dice Roller.md"
   ]
 }

@@ -52,7 +52,7 @@ creatures:
       ac: 13
 ```
 
-%%
+
 ## **Table:**
 ```encounter-table
 name: Example 1
