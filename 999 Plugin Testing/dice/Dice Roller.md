@@ -113,7 +113,7 @@ this.container.appendChild(roller.containerEl)
 ### Lookup Tables
 
 
-`dice: [[Race Generator#^main]]`
+`dice: 2[[Race Generator#^main]]`
 
 ## Section Dice
 

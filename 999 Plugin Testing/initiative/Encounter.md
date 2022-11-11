@@ -2,7 +2,7 @@
 ```encounter
 name: Korgstrod's Response Team
 creatures:
-  - 1: [Bandit, Krentz]
+  - 5: [Bandit, Krentz]
   - 1: [Bandit]
   - 3: Duergar
   - 1: Half-Ogre (Ogrillon)
@@ -91,7 +91,7 @@ creatures:
 | 2   | `encounter: 2 Hobgoblin`                       |
 | 3   | `encounter: 2d5: Hobglin, 5d5: Goblin`                                               |
 ^test-encounter
-%%
+
 
 
 
