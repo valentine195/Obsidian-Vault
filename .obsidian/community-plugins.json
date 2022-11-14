@@ -25,10 +25,10 @@
   "folder-note-plugin",
   "obsidian-notifier",
   "obsidian-prettier",
-  "obsidian-leaflet-plugin",
   "obsidian-5e-statblocks",
   "obsidian-dice-roller",
   "rpg-manager",
   "initiative-tracker",
-  "markdown-attributes"
+  "markdown-attributes",
+  "obsidian-leaflet-plugin"
 ]
