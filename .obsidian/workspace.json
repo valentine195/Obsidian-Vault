@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "6b6220f878c0a17f",
+        "id": "3c59f0e61d633b8c",
         "type": "tabs",
         "children": [
           {
-            "id": "043f037ee3d26169",
+            "id": "357d385f2ca73ceb",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "999 Plugin Testing/statblock/YAML Statblock.md",
+                "mode": "source",
+                "source": true
+              }
             }
           }
         ]
@@ -82,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "999 Plugin Testing/statblock/YAML Statblock.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +113,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "999 Plugin Testing/statblock/YAML Statblock.md"
+              }
             }
           },
           {
@@ -117,6 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "999 Plugin Testing/statblock/YAML Statblock.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,39 +139,53 @@
             }
           },
           {
-            "id": "ac84dbd5c9025981",
-            "type": "leaf",
-            "state": {
-              "type": "DICE_ROLLER_VIEW",
-              "state": {}
-            }
-          },
-          {
-            "id": "bb77ad70d20d9734",
+            "id": "25886c924212ae9d",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
               "state": {}
             }
+          },
+          {
+            "id": "e27df878ff0be692",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
+      },
+      {
+        "id": "e20d04e09c8b172b",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f1b4b6f662fd77e3",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-creature-view",
+              "state": {}
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 355.5
+    "width": 391.5
   },
-  "active": "043f037ee3d26169",
+  "active": "357d385f2ca73ceb",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/YAML Statblock.md",
+    "999 Plugin Testing/statblock/My Ship, The Death Dealer.md",
     "999 Plugin Testing/statblock/Statblock Testing.md",
+    "Untitled.md",
+    "999 Plugin Testing/map/Map.md",
+    "30 Compendium/33 Monsters/Bel Shalor.md",
+    "99 Assets/Maps/kintargo.png",
     "999 Plugin Testing/dice/Dice Roller.md",
     "999 Plugin Testing/initiative/Encounter.md",
-    "999 Plugin Testing/dice/Multiple Dice.md",
-    "999 Plugin Testing/statblock/Moghorn.md",
-    "30 Compendium/33 Monsters/Royal Incinerator.md",
-    "30 Compendium/33 Monsters/Bel Shalor.md",
-    "999 Plugin Testing/dice/mood-tables.md",
-    "999 Plugin Testing/dice/Untitled.md"
+    "999 Plugin Testing/dice/Multiple Dice.md"
   ]
 }

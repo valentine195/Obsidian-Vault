@@ -171,6 +171,109 @@
       ]
     },
     {
+      "id": "az",
+      "lastAccessed": 1649084086941,
+      "markers": [
+        {
+          "id": "ID_8bb8a959899b",
+          "type": "location",
+          "loc": [
+            40.282668644462895,
+            -82.88085937500001
+          ],
+          "link": "The Price of Revenge",
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "99 Plugin Testing/map/Map.md"
+      ]
+    },
+    {
+      "id": "testing",
+      "lastAccessed": 1663382902249,
+      "markers": [
+        {
+          "id": "ID_1999c80bf92b",
+          "type": "location",
+          "loc": [
+            37.418708616699824,
+            -89.9560546875
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_38b8fa4ae8a8",
+          "type": "location",
+          "loc": [
+            41.02601739368269,
+            -73.74023437500001
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_bb88293bbaba",
+          "type": "test",
+          "loc": [
+            37.791337175930714,
+            -90.615234375
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_9a08baa89958",
+          "type": "test",
+          "loc": [
+            41.11221012233372,
+            -86.8239212036133
+          ],
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        }
+      ],
+      "overlays": [],
+      "shapes": [],
+      "files": [
+        "999 Plugin Testing/map/Map.md"
+      ]
+    },
+    {
       "id": "newthrone",
       "lastAccessed": 1665883049640,
       "markers": [
@@ -299,109 +402,6 @@
       "files": [
         "50 Locations/Q'Barra/Newthrone.md"
       ]
-    },
-    {
-      "id": "az",
-      "lastAccessed": 1668555975176,
-      "markers": [
-        {
-          "id": "ID_8bb8a959899b",
-          "type": "location",
-          "loc": [
-            40.282668644462895,
-            -82.88085937500001
-          ],
-          "link": "The Price of Revenge",
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        }
-      ],
-      "overlays": [],
-      "shapes": [],
-      "files": [
-        "999 Plugin Testing/map/Map.md"
-      ]
-    },
-    {
-      "id": "testing",
-      "lastAccessed": 1668555975176,
-      "markers": [
-        {
-          "id": "ID_1999c80bf92b",
-          "type": "location",
-          "loc": [
-            37.418708616699824,
-            -89.9560546875
-          ],
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_38b8fa4ae8a8",
-          "type": "location",
-          "loc": [
-            41.02601739368269,
-            -73.74023437500001
-          ],
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_bb88293bbaba",
-          "type": "test",
-          "loc": [
-            37.791337175930714,
-            -90.615234375
-          ],
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        },
-        {
-          "id": "ID_9a08baa89958",
-          "type": "test",
-          "loc": [
-            41.11221012233372,
-            -86.8239212036133
-          ],
-          "layer": "real",
-          "mutable": true,
-          "command": false,
-          "percent": null,
-          "description": null,
-          "minZoom": null,
-          "maxZoom": null,
-          "tooltip": "hover"
-        }
-      ],
-      "overlays": [],
-      "shapes": [],
-      "files": [
-        "999 Plugin Testing/map/Map.md"
-      ]
     }
   ],
   "defaultMarker": {
@@ -483,11 +483,11 @@
   "long": -82.98333,
   "notePreview": true,
   "layerMarkers": true,
-  "previousVersion": "5.1.0",
+  "previousVersion": "5.1.1",
   "version": {
     "major": 5,
     "minor": 1,
-    "patch": 0
+    "patch": 1
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": true,
