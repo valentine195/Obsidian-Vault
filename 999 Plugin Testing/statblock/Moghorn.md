@@ -11,7 +11,7 @@ skillsaves:
   - Expertise: +5
 cr: 1/4
 actions:
-  - name: Moogle Horn
+  - name: {{Moogle Horn|gm}}
     desc: +3 to hit. Hit, 3 (1d4)
   - name: Invisibility
     desc: Mogbook magically turns invisible until it attacks, casts a spell, or until its concentration is broken, up to 1 hour (as if concentrating on a spell). Any equipment the moogle wears or carries is invisible with it.
@@ -22,3 +22,7 @@ reactions:
   - name: Inspire Heroism
     desc: When an ally would make a saving throw, the bard gives them advantage.
 ---
+
+```statblock
+creature: Moghorn
+```
