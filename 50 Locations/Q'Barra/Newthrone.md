@@ -43,6 +43,7 @@ marker: location,-0.26158905029296875,0.9798603108507866,,"Bleakbridge"
 marker: location,-0.1182861328125,0.52734375,,"Silver Gate"
 marker: location,-0.6573486328125,0.265625,,"Night Gate"
 verbose: true
+marker: location,-0.7504043579101562,0.7527994500190276,,"Tharashk Armory"
 ```
 
 
