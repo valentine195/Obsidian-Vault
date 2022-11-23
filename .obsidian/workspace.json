@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "aef115e9ef68b60b",
+        "id": "008b55cd76b265eb",
         "type": "tabs",
         "children": [
           {
-            "id": "60b6fac388f031b6",
+            "id": "48b6bc0b79c6fd8f",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -131,15 +131,7 @@
             }
           },
           {
-            "id": "e27df878ff0be692",
-            "type": "leaf",
-            "state": {
-              "type": "DICE_ROLLER_VIEW",
-              "state": {}
-            }
-          },
-          {
-            "id": "a037af8dd0c2e071",
+            "id": "034641ab75353f22",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
@@ -147,14 +139,16 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 582.5
+    "width": 417.5
   },
-  "active": "a037af8dd0c2e071",
+  "active": "034641ab75353f22",
   "lastOpenFiles": [
+    "999 Plugin Testing/statblock/Statblock Testing.md",
+    "99 Assets/Templates/statblock.md",
     "20 Sessions/20.02 Post Session Logs/2022-11-19.md",
     "99 Assets/Templates/Post Session.md",
     "20 Sessions/2022-11-17 Session 15.md",
@@ -162,8 +156,6 @@
     "20 Sessions/Untitled.md",
     "20 Sessions/20.02 Post Session Logs/2021-03-13.md",
     "20 Sessions/20.02 Post Session Logs/2022-10-17.md",
-    "20 Sessions/20.01 Old Session Planning/2022-09-17 - Session 14.md",
-    "999 Plugin Testing/statblock/YAML Statblock.md",
-    "999 Plugin Testing/statblock/My Ship, The Death Dealer.md"
+    "20 Sessions/20.01 Old Session Planning/2022-09-17 - Session 14.md"
   ]
 }
