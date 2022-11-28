@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "008b55cd76b265eb",
+        "id": "f17f658840fd706d",
         "type": "tabs",
         "children": [
           {
-            "id": "48b6bc0b79c6fd8f",
+            "id": "dfb5889527918d9d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
+                "mode": "source",
+                "source": true
+              }
             }
           }
         ]
@@ -82,6 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -108,7 +113,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "999 Plugin Testing/statblock/Statblock Testing.md"
+              }
             }
           },
           {
@@ -117,6 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -131,7 +139,15 @@
             }
           },
           {
-            "id": "034641ab75353f22",
+            "id": "54b8e7b423915a61",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {}
+            }
+          },
+          {
+            "id": "24a6bbdfe75ee546",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
@@ -139,13 +155,13 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
     "width": 417.5
   },
-  "active": "034641ab75353f22",
+  "active": "24a6bbdfe75ee546",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/Statblock Testing.md",
     "99 Assets/Templates/statblock.md",
