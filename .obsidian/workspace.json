@@ -147,7 +147,7 @@
             }
           },
           {
-            "id": "9aa147216740272f",
+            "id": "7fd2dcd46204fcb1",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
@@ -161,7 +161,7 @@
     "direction": "horizontal",
     "width": 417.5
   },
-  "active": "9aa147216740272f",
+  "active": "dfb5889527918d9d",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/Statblock Testing.md",
     "99 Assets/Templates/statblock.md",
