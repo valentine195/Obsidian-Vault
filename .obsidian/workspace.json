@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "f17f658840fd706d",
+        "id": "a36db7a96472e8c8",
         "type": "tabs",
         "children": [
           {
-            "id": "dfb5889527918d9d",
+            "id": "56ea466357bc38dc",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
+                "file": "20 Sessions/2022-11-17 Session 15.md",
                 "mode": "source",
                 "source": true
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 227.0032558441162,
-    "collapsed": true
+    "width": 227.0032558441162
   },
   "right": {
     "id": "5e7f37323b9cb36c",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
+                "file": "20 Sessions/2022-11-17 Session 15.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "999 Plugin Testing/statblock/Statblock Testing.md"
+                "file": "20 Sessions/2022-11-17 Session 15.md"
               }
             }
           },
@@ -124,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
+                "file": "20 Sessions/2022-11-17 Session 15.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -147,7 +146,7 @@
             }
           },
           {
-            "id": "7fd2dcd46204fcb1",
+            "id": "cfb7b64d716cc6f4",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
@@ -161,7 +160,7 @@
     "direction": "horizontal",
     "width": 417.5
   },
-  "active": "dfb5889527918d9d",
+  "active": "cfb7b64d716cc6f4",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/Statblock Testing.md",
     "99 Assets/Templates/statblock.md",

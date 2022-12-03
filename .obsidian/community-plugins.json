@@ -30,5 +30,6 @@
   "rpg-manager",
   "initiative-tracker",
   "markdown-attributes",
-  "obsidian-leaflet-plugin"
+  "obsidian-leaflet-plugin",
+  "obsidian-textgenerator-plugin"
 ]
