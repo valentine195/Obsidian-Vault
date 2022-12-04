@@ -146,7 +146,7 @@
             }
           },
           {
-            "id": "cfb7b64d716cc6f4",
+            "id": "10f9bf0e59ad37f0",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
@@ -154,13 +154,13 @@
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
     "width": 417.5
   },
-  "active": "cfb7b64d716cc6f4",
+  "active": "54b8e7b423915a61",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/Statblock Testing.md",
     "99 Assets/Templates/statblock.md",
