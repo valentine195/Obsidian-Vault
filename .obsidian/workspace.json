@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "a36db7a96472e8c8",
+        "id": "9e6311e5ddbb7a16",
         "type": "tabs",
         "children": [
           {
-            "id": "56ea466357bc38dc",
+            "id": "453a36dc31fcffbf",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "20 Sessions/2022-11-17 Session 15.md",
-                "mode": "source",
+                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "20 Sessions/2022-11-17 Session 15.md",
+                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "20 Sessions/2022-11-17 Session 15.md"
+                "file": "999 Plugin Testing/statblock/Statblock Testing.md"
               }
             }
           },
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "20 Sessions/2022-11-17 Session 15.md",
+                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -158,15 +158,32 @@
       }
     ],
     "direction": "horizontal",
-    "width": 417.5
+    "width": 417.5,
+    "collapsed": true
   },
-  "active": "54b8e7b423915a61",
+  "left-ribbon": {
+    "hiddenItems": {
+      "fantasy-calendar:Open Large Fantasy Calendar": false,
+      "obsidian42-brat:BRAT": false,
+      "templater-obsidian:Templater": false,
+      "table-editor-obsidian:Advanced Tables Toolbar": false,
+      "rpg-manager:RPG Manager": false,
+      "obsidian-leaflet-plugin:Open Leaflet Map": false,
+      "obsidian-textgenerator-plugin:Generate Text!": false,
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "command-palette:Open command palette": false,
+      "markdown-importer:Open format converter": false
+    }
+  },
+  "active": "453a36dc31fcffbf",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/Statblock Testing.md",
+    "20 Sessions/2022-11-17 Session 15.md",
     "99 Assets/Templates/statblock.md",
     "20 Sessions/20.02 Post Session Logs/2022-11-19.md",
     "99 Assets/Templates/Post Session.md",
-    "20 Sessions/2022-11-17 Session 15.md",
     "50 Locations/Q'Barra/Newthrone.md",
     "20 Sessions/Untitled.md",
     "20 Sessions/20.02 Post Session Logs/2021-03-13.md",
