@@ -146,7 +146,7 @@
             }
           },
           {
-            "id": "10f9bf0e59ad37f0",
+            "id": "7a798881773048f4",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
@@ -154,12 +154,11 @@
             }
           }
         ],
-        "currentTab": 5
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 417.5,
-    "collapsed": true
+    "width": 417.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -177,7 +176,7 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "57f5d4dcca601175",
+  "active": "7a798881773048f4",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/Statblock Testing.md",
     "20 Sessions/2022-11-17 Session 15.md",
