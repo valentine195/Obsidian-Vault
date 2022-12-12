@@ -158,7 +158,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 417.5
+    "width": 417.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -176,7 +177,7 @@
       "markdown-importer:Open format converter": false
     }
   },
-  "active": "7a798881773048f4",
+  "active": "57f5d4dcca601175",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/Statblock Testing.md",
     "20 Sessions/2022-11-17 Session 15.md",
