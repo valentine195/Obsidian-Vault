@@ -1,0 +1,11 @@
+{
+	"id": "fantasy-bestiary",
+	"name": "Fantasy Bestiary",
+	"version": "1.0.0",
+	"minAppVersion": "1.0.0",
+	"description": "",
+	"author": "Jeremy Valentine",
+	"authorUrl": "https://javalent.com",
+	"fundingUrl": "https://www.buymeacoffee.com/valentine195",
+	"isDesktopOnly": false
+}

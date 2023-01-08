@@ -21,9 +21,9 @@
   },
   "showIntercalary": false,
   "version": {
-    "major": null,
-    "minor": null,
-    "patch": null
+    "major": 2,
+    "minor": 3,
+    "patch": 10
   },
   "debug": false
 }
