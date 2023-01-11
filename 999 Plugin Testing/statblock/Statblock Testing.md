@@ -7,6 +7,7 @@ statblock: inline
 
 ```statblock
 name: testtesttest
+layout: Test
 extends:
 - Paarthurnax
 - Goblin
