@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "e01b3e74e711f572",
+        "id": "928f4d1a656bc91b",
         "type": "tabs",
         "children": [
           {
-            "id": "d934293765702638",
+            "id": "25078aedf7bcea86",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "999 Plugin Testing/statblock/Statblock Testing.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": true
               }
             }
@@ -70,7 +70,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 227.0032558441162
+    "width": 227.0032558441162,
+    "collapsed": true
   },
   "right": {
     "id": "5e7f37323b9cb36c",
@@ -79,6 +80,7 @@
       {
         "id": "8d75668f8d12f8f3",
         "type": "tabs",
+        "dimension": 50.10593220338983,
         "children": [
           {
             "id": "d03abc6c241cbc69",
@@ -131,15 +133,15 @@
             }
           },
           {
-            "id": "54b8e7b423915a61",
+            "id": "9e4991b39eb3de43",
             "type": "leaf",
             "state": {
-              "type": "DICE_ROLLER_VIEW",
+              "type": "FANTASY_CALENDAR",
               "state": {}
             }
           },
           {
-            "id": "90724e507ef5ac48",
+            "id": "1e02273b34a144aa",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
@@ -147,22 +149,23 @@
             }
           },
           {
-            "id": "9e4991b39eb3de43",
+            "id": "0350d15bf450df2d",
             "type": "leaf",
             "state": {
-              "type": "FANTASY_CALENDAR",
+              "type": "DICE_ROLLER_VIEW",
               "state": {}
             }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       },
       {
-        "id": "86532abb47ee724e",
+        "id": "20b71f476c1fc2eb",
         "type": "tabs",
+        "dimension": 49.89406779661017,
         "children": [
           {
-            "id": "c90e70b576e9120e",
+            "id": "f8dae30088d45129",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-creature-view",
@@ -173,8 +176,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 377.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -193,7 +195,7 @@
       "fantasy-calendar:Open Large Fantasy Calendar": false
     }
   },
-  "active": "d934293765702638",
+  "active": "1e02273b34a144aa",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/Statblock Testing.md",
     "999 Plugin Testing/statblock/YAML Statblock.md",
