@@ -6,16 +6,5 @@ statblock: inline
 ---
 
 ```statblock
-name: testtesttest
-layout: Test
-test: "This is a test. Test test test. `dice: 1d6`
-
-  abc
-  def
-  
-  `dice: 1d6+3` 
-  "
-extends:
-- Paarthurnax
-- Goblin
+monster: Glass Pegasus
 ```

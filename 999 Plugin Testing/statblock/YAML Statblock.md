@@ -1,6 +1,5 @@
 ---
 statblock: true
-layout: Basic Fate Core Layout
 image: [[kintargo.png]]
 name: yaml-test
 statblock-link: "[[YAML Statblock#^test-table]]"
