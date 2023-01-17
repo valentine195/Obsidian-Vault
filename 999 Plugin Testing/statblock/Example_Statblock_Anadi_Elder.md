@@ -20,10 +20,13 @@ health: 95
 speed: 25 feet, climb 25 feet
 offense:
   - name: Melee
-    desc: "Dexterity +4, Wisdom +4, Charisma +3"
+    desc: "  jaws +40 ([[evil]], [[magical]], [[poison]], [[reach 10 feet]]), **Damage** 44 (4d10+17) piercing plus 10 (2d6) evil and pit fiend venom."
   - name: Melee
-    desc: "**Damage** 12 (2d6+5) piercing plus anadi venom
-      12 (2d6+5)  12 (2d6+5)"
+    desc: "  claw +38 ([[agile]], [[evil]], [[magical]], [[reach 10 feet]]), **Damage** 32 (4d6+17) slashing plus 8 (2d6) evil."
+  - name: Melee
+    desc: "  tail +36 ([[evil]], [[magical]], [[reach 10 feet]]), **Damage** 45 (4d10+17) bludgeoning plus 7 (2d6) evil and [[Improved Grab]]."
+  - name: Melee
+    desc: "  wing +36 ([[evil]], [[magical]], [[reach 15 feet]]), **Damage** 32 (4d6+17) slashing plus 8 (2d6) evil."
   
 ---
 
