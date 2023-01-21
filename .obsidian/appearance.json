@@ -25,7 +25,8 @@
     "ebullient.colors.folders.overrides",
     "float.ribbon",
     "fonts",
-    "fonts.faces"
+    "fonts.faces",
+    "pf2e-statblock"
   ],
   "theme": "obsidian",
   "interfaceFontFamily": "Quicksand",

@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "9561d5efd9b69fd1",
+        "id": "e0f54b5880842ee5",
         "type": "tabs",
         "children": [
           {
-            "id": "94ead3808497370b",
+            "id": "6d3ba756e85a1689",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plugin Testing/initiative/Encounter.md",
+                "file": "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md",
                 "mode": "preview",
                 "source": true
               }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 227.0032558441162,
-    "collapsed": true
+    "width": 227.0032558441162
   },
   "right": {
     "id": "5e7f37323b9cb36c",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/initiative/Encounter.md",
+                "file": "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "999 Plugin Testing/initiative/Encounter.md"
+                "file": "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md"
               }
             }
           },
@@ -124,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/initiative/Encounter.md",
+                "file": "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -139,27 +138,27 @@
             }
           },
           {
-            "id": "0350d15bf450df2d",
-            "type": "leaf",
-            "state": {
-              "type": "DICE_ROLLER_VIEW",
-              "state": {}
-            }
-          },
-          {
             "id": "53cdf99ee4c463e5",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
               "state": {}
             }
+          },
+          {
+            "id": "ae609e075237c40f",
+            "type": "leaf",
+            "state": {
+              "type": "DICE_ROLLER_VIEW",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 6
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
-    "width": 377.5
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -178,8 +177,9 @@
       "fantasy-calendar:Open Large Fantasy Calendar": false
     }
   },
-  "active": "94ead3808497370b",
+  "active": "6d3ba756e85a1689",
   "lastOpenFiles": [
+    "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md",
     "999 Plugin Testing/initiative/Encounter.md",
     "999 Plugin Testing/statblock/Example_Statblock_Anadi_Elder.md",
     "999 Plugin Testing/statblock/YAML Statblock.md",
@@ -188,7 +188,6 @@
     "99 Assets/Templates/statblock.md",
     "20 Sessions/20.02 Post Session Logs/2022-11-19.md",
     "99 Assets/Templates/Post Session.md",
-    "50 Locations/Q'Barra/Newthrone.md",
-    "20 Sessions/Untitled.md"
+    "50 Locations/Q'Barra/Newthrone.md"
   ]
 }
