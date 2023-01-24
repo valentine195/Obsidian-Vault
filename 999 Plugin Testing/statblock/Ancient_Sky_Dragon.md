@@ -10,7 +10,6 @@ name: [Ancient Sky Dragon]
 ---
 
 ```statblock
-layout: Test2e
 statblock: true
 source: Pathfinder
 name: Ancient Sky Dragon
