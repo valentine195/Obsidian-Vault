@@ -120,10 +120,10 @@
   "dropShadow": true,
   "hideEmpty": false,
   "open": {
-    "admonitions": true,
+    "admonitions": false,
     "icons": false,
-    "other": true,
-    "advanced": true
+    "other": false,
+    "advanced": false
   },
   "icons": [
     "octicons",
