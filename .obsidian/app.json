@@ -45,5 +45,6 @@
     "editor:redo",
     "editor:toggle-keyboard",
     "editor:configure-toolbar"
-  ]
+  ],
+  "defaultViewMode": "preview"
 }

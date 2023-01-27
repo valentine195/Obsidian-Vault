@@ -1,0 +1,143 @@
+{
+  "userAdmonitions": {
+    "calendar": {
+      "type": "calendar",
+      "color": "161, 161, 161",
+      "icon": {
+        "name": "calendar-alt",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
+    },
+    "recite": {
+      "type": "recite",
+      "color": "15, 163, 65",
+      "icon": {
+        "name": "book-reader",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": true,
+      "copy": false
+    },
+    "flame": {
+      "type": "flame",
+      "color": "158, 158, 158",
+      "icon": {
+        "name": "flame-symbol",
+        "type": "rpg"
+      },
+      "command": false,
+      "title": "Church of the Silver Flame",
+      "injectColor": true,
+      "noTitle": false,
+      "copy": false
+    },
+    "dnd": {
+      "type": "dnd",
+      "color": "168, 45, 180",
+      "icon": {
+        "name": "dice-d20",
+        "type": "font-awesome"
+      },
+      "command": true,
+      "title": "Definition:",
+      "injectColor": true,
+      "noTitle": true,
+      "copy": false
+    },
+    "map": {
+      "type": "map",
+      "color": "0, 0, 0",
+      "icon": {
+        "name": "map",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": "Map",
+      "injectColor": false,
+      "noTitle": false,
+      "copy": false
+    },
+    "idea": {
+      "type": "idea",
+      "color": "145, 182, 43",
+      "icon": {
+        "name": "lightbulb",
+        "type": "font-awesome"
+      },
+      "command": true,
+      "injectColor": true,
+      "noTitle": false,
+      "copy": false
+    },
+    "chat": {
+      "type": "chat",
+      "color": "196, 33, 33",
+      "icon": {
+        "name": "comment",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "title": null,
+      "injectColor": true,
+      "noTitle": false,
+      "copy": false
+    },
+    "encounter": {
+      "type": "encounter",
+      "color": "252, 146, 146",
+      "icon": {
+        "type": "rpg",
+        "name": "crossed-swords"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
+    },
+    "creature": {
+      "type": "creature",
+      "color": "87, 244, 142",
+      "icon": {
+        "name": "dragon",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
+    }
+  },
+  "syntaxHighlight": true,
+  "copyButton": true,
+  "version": "9.0.5",
+  "autoCollapse": false,
+  "defaultCollapseType": "open",
+  "injectColor": true,
+  "parseTitles": true,
+  "dropShadow": true,
+  "hideEmpty": false,
+  "open": {
+    "admonitions": false,
+    "icons": false,
+    "other": false,
+    "advanced": false
+  },
+  "icons": [
+    "octicons",
+    "rpg"
+  ],
+  "useFontAwesome": true,
+  "rpgDownloadedOnce": true,
+  "msDocConverted": true,
+  "useSnippet": false,
+  "snippetPath": "custom-admonitions.133203",
+  "allowMSSyntax": true,
+  "msSyntaxIndented": true,
+  "livePreviewMS": true,
+  "syncLinks": false,
+  "warnedAboutNC": true,
+  "enableMarkdownProcessor": false
+}

@@ -1,5 +1,52 @@
 {
   "userAdmonitions": {
+    "embed-feat": {
+      "type": "embed-feat",
+      "icon": "frog",
+      "color": "112, 224, 203"
+    },
+    "embed-affliction": {
+      "type": "embed-affliction",
+      "icon": {
+        "name": "pencil-alt",
+        "type": "font-awesome"
+      },
+      "color": "164, 45, 72"
+    },
+    "inline-affliction": {
+      "type": "inline-affliction",
+      "color": "83, 220, 80",
+      "icon": {
+        "name": "head-side-cough",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
+    },
+    "embed-spell": {
+      "type": "embed-spell",
+      "color": "253, 155, 250",
+      "icon": {
+        "name": "magic",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false,
+      "copy": false
+    },
+    "statblock": {
+      "type": "statblock",
+      "color": "247, 69, 69",
+      "icon": {
+        "name": "dragon",
+        "type": "font-awesome"
+      },
+      "command": false,
+      "injectColor": true,
+      "noTitle": false
+    },
     "calendar": {
       "type": "calendar",
       "color": "161, 161, 161",
