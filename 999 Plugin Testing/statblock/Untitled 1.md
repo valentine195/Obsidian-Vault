@@ -1,8 +1,3 @@
-```dataviewjs
-const bestiary = [...window.bestiary.values()];
-console.log(bestiary)
-
-
-
+```statblock
+creature: Ancient Amethyst Dragon
 ```
-

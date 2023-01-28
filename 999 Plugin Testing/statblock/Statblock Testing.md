@@ -6,7 +6,7 @@ statblock: inline
 ---
 
 ```statblock
-layout: Basic Fate Core Layout
+layout: Test2e
 image: "[[bear.png]]"
 name: Barathar
 description: an awkward sunbear

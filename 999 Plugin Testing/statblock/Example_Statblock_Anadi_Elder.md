@@ -33,7 +33,7 @@ offense:
 [Archive Link](https://2e.aonprd.com/Monsters.aspx?ID=432)
 
 ```statblock
-layout: Pathfinder Second Edition
+layout: Test2e
 monster: test pfe
 ```
 

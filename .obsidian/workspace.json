@@ -4,52 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "c36ba26eac8ab806",
+        "id": "6e9408937cd07291",
         "type": "tabs",
         "children": [
           {
-            "id": "e3d9d68ab0ee2523",
+            "id": "5cb2b8892f102053",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "f3996c6bac840d7d",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "12580a47343823ef",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "999 Plugin Testing/map/Map.md",
-                "mode": "preview",
-                "source": true
-              }
-            }
-          }
-        ]
-      },
-      {
-        "id": "050f953021da065b",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "099d142b1200cd8a",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "999 Plugin Testing/map/Map.md",
+                "file": "999 Plugin Testing/statblock/Untitled 1.md",
                 "mode": "preview",
                 "source": true
               }
@@ -121,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md",
+                "file": "999 Plugin Testing/statblock/Untitled 1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -149,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md"
+                "file": "999 Plugin Testing/statblock/Untitled 1.md"
               }
             }
           },
@@ -159,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md",
+                "file": "999 Plugin Testing/statblock/Untitled 1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -182,19 +146,19 @@
             }
           },
           {
-            "id": "ae609e075237c40f",
+            "id": "9c6f1a63f12de03f",
             "type": "leaf",
             "state": {
               "type": "DICE_ROLLER_VIEW",
               "state": {}
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 443.5,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -213,17 +177,17 @@
       "fantasy-calendar:Open Large Fantasy Calendar": false
     }
   },
-  "active": "12580a47343823ef",
+  "active": "5cb2b8892f102053",
   "lastOpenFiles": [
-    "999 Plugin Testing/map/Map.md",
-    "999 Plugin Testing/statblock/Statblock Testing.md",
-    "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md",
-    "999 Plugin Testing/initiative/Encounter.md",
-    "999 Plugin Testing/statblock/Example_Statblock_Anadi_Elder.md",
+    "999 Plugin Testing/statblock/Untitled 1.md",
     "999 Plugin Testing/statblock/YAML Statblock.md",
-    "20 Sessions/2022-11-17 Session 15.md",
-    "99 Assets/Templates/statblock.md",
-    "20 Sessions/20.02 Post Session Logs/2022-11-19.md",
-    "99 Assets/Templates/Post Session.md"
+    "999 Plugin Testing/statblock/Statblock Testing.md",
+    "999 Plugin Testing/statblock/Example_Statblock_Anadi_Elder.md",
+    "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md",
+    "999 Plugin Testing/statblock/A16_-_Somky_Hallway.md",
+    "999 Plugin Testing/statblock/Moghorn.md",
+    "999 Plugin Testing/statblock/My Ship, The Death Dealer.md",
+    "999 Plugin Testing/map/Map.md",
+    "999 Plugin Testing/initiative/Encounter.md"
   ]
 }
