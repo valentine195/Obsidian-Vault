@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "6e9408937cd07291",
+        "id": "7308a6265cd9cba5",
         "type": "tabs",
         "children": [
           {
-            "id": "5cb2b8892f102053",
+            "id": "84d440eacdbfea6b",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plugin Testing/statblock/Untitled 1.md",
+                "file": "999 Plugin Testing/map/Map.md",
                 "mode": "preview",
                 "source": true
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/statblock/Untitled 1.md",
+                "file": "999 Plugin Testing/map/Map.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "999 Plugin Testing/statblock/Untitled 1.md"
+                "file": "999 Plugin Testing/map/Map.md"
               }
             }
           },
@@ -123,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/statblock/Untitled 1.md",
+                "file": "999 Plugin Testing/map/Map.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -165,7 +165,6 @@
       "obsidian42-brat:BRAT": false,
       "templater-obsidian:Templater": false,
       "table-editor-obsidian:Advanced Tables Toolbar": false,
-      "obsidian-leaflet-plugin:Open Leaflet Map": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
@@ -174,11 +173,13 @@
       "obsidian-textgenerator-plugin:Generate Text!": false,
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
       "rpg-manager:RPG Manager": false,
-      "fantasy-calendar:Open Large Fantasy Calendar": false
+      "fantasy-calendar:Open Large Fantasy Calendar": false,
+      "obsidian-leaflet-plugin:Open Leaflet Map": false
     }
   },
-  "active": "5cb2b8892f102053",
+  "active": "84d440eacdbfea6b",
   "lastOpenFiles": [
+    "999 Plugin Testing/map/Map.md",
     "999 Plugin Testing/statblock/Untitled 1.md",
     "999 Plugin Testing/statblock/YAML Statblock.md",
     "999 Plugin Testing/statblock/Statblock Testing.md",
@@ -187,7 +188,6 @@
     "999 Plugin Testing/statblock/A16_-_Somky_Hallway.md",
     "999 Plugin Testing/statblock/Moghorn.md",
     "999 Plugin Testing/statblock/My Ship, The Death Dealer.md",
-    "999 Plugin Testing/map/Map.md",
     "999 Plugin Testing/initiative/Encounter.md"
   ]
 }
