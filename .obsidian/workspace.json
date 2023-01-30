@@ -4,20 +4,40 @@
     "type": "split",
     "children": [
       {
-        "id": "7308a6265cd9cba5",
+        "id": "db7a45183ffad4a3",
         "type": "tabs",
         "children": [
           {
-            "id": "84d440eacdbfea6b",
+            "id": "9cb53069fc5b367d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md",
+                "file": "999 Plugin Testing/statblock/Untitled 1.md",
                 "mode": "preview",
                 "source": true
               }
-            }
+            },
+            "group": "91718ac12e87fd26"
+          }
+        ]
+      },
+      {
+        "id": "4bc3fe1dc75a2d0e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "70a03718f80a2897",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "999 Plugin Testing/statblock/Untitled 1.md",
+                "mode": "source",
+                "source": true
+              }
+            },
+            "group": "91718ac12e87fd26"
           }
         ]
       }
@@ -85,7 +105,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md",
+                "file": "999 Plugin Testing/statblock/Untitled 1.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md"
+                "file": "999 Plugin Testing/statblock/Untitled 1.md"
               }
             }
           },
@@ -123,7 +143,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md",
+                "file": "999 Plugin Testing/statblock/Untitled 1.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,18 +158,18 @@
             }
           },
           {
-            "id": "53cdf99ee4c463e5",
+            "id": "560c98eb090c69fb",
             "type": "leaf",
             "state": {
-              "type": "initiative-tracker-view",
+              "type": "DICE_ROLLER_VIEW",
               "state": {}
             }
           },
           {
-            "id": "9c6f1a63f12de03f",
+            "id": "6491865f4bb82c11",
             "type": "leaf",
             "state": {
-              "type": "DICE_ROLLER_VIEW",
+              "type": "initiative-tracker-view",
               "state": {}
             }
           }
@@ -177,17 +197,17 @@
       "obsidian-leaflet-plugin:Open Leaflet Map": false
     }
   },
-  "active": "84d440eacdbfea6b",
+  "active": "70a03718f80a2897",
   "lastOpenFiles": [
     "999 Plugin Testing/map/Map.md",
     "999 Plugin Testing/statblock/Untitled 1.md",
+    "99 Assets/Templates/statblock.md",
     "999 Plugin Testing/statblock/YAML Statblock.md",
     "999 Plugin Testing/statblock/Statblock Testing.md",
     "999 Plugin Testing/statblock/Example_Statblock_Anadi_Elder.md",
     "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md",
     "999 Plugin Testing/statblock/A16_-_Somky_Hallway.md",
     "999 Plugin Testing/statblock/Moghorn.md",
-    "999 Plugin Testing/statblock/My Ship, The Death Dealer.md",
-    "999 Plugin Testing/initiative/Encounter.md"
+    "999 Plugin Testing/statblock/My Ship, The Death Dealer.md"
   ]
 }

@@ -1,6 +1,7 @@
 ```leaflet
 id: az
-image: map_v3_2_grid.png
+gpx: [[route_2020-04-18_11.38am.gpx]]
+maxZoom: 15
 ```
 
 
