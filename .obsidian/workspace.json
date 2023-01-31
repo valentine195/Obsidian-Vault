@@ -4,40 +4,20 @@
     "type": "split",
     "children": [
       {
-        "id": "db7a45183ffad4a3",
+        "id": "35db2b18b3b4fad1",
         "type": "tabs",
         "children": [
           {
-            "id": "9cb53069fc5b367d",
+            "id": "c92c0ed4d87fbfa3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plugin Testing/statblock/Untitled 1.md",
+                "file": "999 Plugin Testing/map/Map.md",
                 "mode": "preview",
                 "source": true
               }
-            },
-            "group": "91718ac12e87fd26"
-          }
-        ]
-      },
-      {
-        "id": "4bc3fe1dc75a2d0e",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "70a03718f80a2897",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "999 Plugin Testing/statblock/Untitled 1.md",
-                "mode": "source",
-                "source": true
-              }
-            },
-            "group": "91718ac12e87fd26"
+            }
           }
         ]
       }
@@ -105,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/statblock/Untitled 1.md",
+                "file": "999 Plugin Testing/map/Map.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -133,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "999 Plugin Testing/statblock/Untitled 1.md"
+                "file": "999 Plugin Testing/map/Map.md"
               }
             }
           },
@@ -143,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/statblock/Untitled 1.md",
+                "file": "999 Plugin Testing/map/Map.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -197,7 +177,7 @@
       "obsidian-leaflet-plugin:Open Leaflet Map": false
     }
   },
-  "active": "70a03718f80a2897",
+  "active": "c92c0ed4d87fbfa3",
   "lastOpenFiles": [
     "999 Plugin Testing/map/Map.md",
     "999 Plugin Testing/statblock/Untitled 1.md",
