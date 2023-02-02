@@ -11,6 +11,7 @@ name: [Ancient Sky Dragon]
 
 ```statblock
 statblock: true
+layout: Path2eBlock
 source: Pathfinder
 name: Ancient Sky Dragon
 level: 18

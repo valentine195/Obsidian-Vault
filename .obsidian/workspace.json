@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "465aa18862d20b60",
+        "id": "58922ef774b33a7b",
         "type": "tabs",
         "children": [
           {
-            "id": "64a4efb98e49c9b8",
+            "id": "ddbc6c8b7b70169c",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plugin Testing/statblock/jarlaxle-wdh.md",
-                "mode": "source",
+                "file": "999 Plugin Testing/map/Map.md",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 227.0032558441162
+    "width": 227.0032558441162,
+    "collapsed": true
   },
   "right": {
     "id": "5e7f37323b9cb36c",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/statblock/jarlaxle-wdh.md",
+                "file": "999 Plugin Testing/map/Map.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,7 +114,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "999 Plugin Testing/statblock/jarlaxle-wdh.md"
+                "file": "999 Plugin Testing/map/Map.md"
               }
             }
           },
@@ -123,7 +124,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/statblock/jarlaxle-wdh.md",
+                "file": "999 Plugin Testing/map/Map.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -146,10 +147,25 @@
             }
           },
           {
-            "id": "6491865f4bb82c11",
+            "id": "a17a301a5a5265ed",
             "type": "leaf",
             "state": {
               "type": "initiative-tracker-view",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 6
+      },
+      {
+        "id": "148b48edfe01191f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e85d870e514f12ff",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-creature-view",
               "state": {}
             }
           }
@@ -177,17 +193,17 @@
       "obsidian-leaflet-plugin:Open Leaflet Map": false
     }
   },
-  "active": "64a4efb98e49c9b8",
+  "active": "ddbc6c8b7b70169c",
   "lastOpenFiles": [
-    "999 Plugin Testing/statblock/jarlaxle-wdh.md",
     "999 Plugin Testing/map/Map.md",
-    "999 Plugin Testing/statblock/Untitled 1.md",
-    "99 Assets/Templates/statblock.md",
     "999 Plugin Testing/statblock/YAML Statblock.md",
+    "999 Plugin Testing/statblock/Untitled 1.md",
+    "999 Plugin Testing/statblock/Untitled.md",
     "999 Plugin Testing/statblock/Statblock Testing.md",
+    "999 Plugin Testing/statblock/Moghorn.md",
+    "999 Plugin Testing/statblock/jarlaxle-wdh.md",
+    "999 Plugin Testing/statblock/Giant_rat-5e.jpg",
     "999 Plugin Testing/statblock/Example_Statblock_Anadi_Elder.md",
-    "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md",
-    "999 Plugin Testing/statblock/A16_-_Somky_Hallway.md",
-    "999 Plugin Testing/statblock/Moghorn.md"
+    "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md"
   ]
 }

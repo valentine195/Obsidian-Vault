@@ -117,3 +117,32 @@ modified: Tuesday, January 31st 2023, 7:39:02 pm
 ```statblock
 creature: Jarlaxle
 ```
+
+```statblock
+name: Jarlaxle
+"size": "Medium"
+"type": "humanoid"
+"subtype": "elf"
+"alignment": "Chaotic Neutral"
+"ac": !!int "24"
+"hp": !!int "123"
+"hit_dice": "19d8 + 38"
+"stats":
+- !!int "12"
+- !!int "22"
+- !!int "14"
+- !!int "20"
+- !!int "16"
+- !!int "19"
+"speed": "walk 30 ft."
+"saves":
+  "Dexterity": !!int "11"
+  "Wisdom": !!int "8"
+"skillsaves":
+  "Athletics": !!int "6"
+  "Sleight of Hand": !!int "11"
+  "Deception": !!int "14"
+  "Stealth": !!int "16"
+  "Perception": !!int "8"
+  "Acrobatics": !!int "11"
+```
