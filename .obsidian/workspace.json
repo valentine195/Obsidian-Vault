@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "58922ef774b33a7b",
+        "id": "8fe32d1bb685e2ac",
         "type": "tabs",
         "children": [
           {
-            "id": "ddbc6c8b7b70169c",
+            "id": "db00fab6558b9e57",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md",
-                "mode": "preview",
+                "file": "999 Plugin Testing/statblock/Untitled.md",
+                "mode": "source",
                 "source": true
               }
             }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 227.0032558441162,
-    "collapsed": true
+    "width": 227.0032558441162
   },
   "right": {
     "id": "5e7f37323b9cb36c",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md",
+                "file": "999 Plugin Testing/statblock/Untitled.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +113,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md"
+                "file": "999 Plugin Testing/statblock/Untitled.md"
               }
             }
           },
@@ -124,7 +123,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/map/Map.md",
+                "file": "999 Plugin Testing/statblock/Untitled.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -173,8 +172,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 443.5,
-    "collapsed": true
+    "width": 443.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -193,17 +191,17 @@
       "obsidian-leaflet-plugin:Open Leaflet Map": false
     }
   },
-  "active": "ddbc6c8b7b70169c",
+  "active": "db00fab6558b9e57",
   "lastOpenFiles": [
-    "999 Plugin Testing/map/Map.md",
-    "999 Plugin Testing/statblock/YAML Statblock.md",
+    "999 Plugin Testing/admonition/Untitled.canvas",
+    "999 Plugin Testing/admonition/Admonition Testing.md",
     "999 Plugin Testing/statblock/Untitled 1.md",
     "999 Plugin Testing/statblock/Untitled.md",
+    "Untitled 1.md",
+    "999 Plugin Testing/statblock/YAML Statblock.md",
+    "999 Plugin Testing/map/Map.md",
     "999 Plugin Testing/statblock/Statblock Testing.md",
     "999 Plugin Testing/statblock/Moghorn.md",
-    "999 Plugin Testing/statblock/jarlaxle-wdh.md",
-    "999 Plugin Testing/statblock/Giant_rat-5e.jpg",
-    "999 Plugin Testing/statblock/Example_Statblock_Anadi_Elder.md",
-    "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md"
+    "999 Plugin Testing/statblock/jarlaxle-wdh.md"
   ]
 }

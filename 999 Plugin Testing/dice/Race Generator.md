@@ -5,6 +5,8 @@ date created: Tuesday, September 28th 2021, 4:39:15 pm
 date modified: Tuesday, November 16th 2021, 3:48:06 pm
 ---
 
+> [!note]
+> `dice: [[Race Generator^main]]`
 
 | dice:1d% |              Races              |
 |:--------:|:-------------------------------:|
