@@ -7,7 +7,7 @@ abc
 
 ```statblock
 
-name: Ancient Black Dragon
+name: Zombi Delle Ceneri
 size: Gargantuan
 type: dragon
 subtype:
