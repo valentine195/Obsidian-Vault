@@ -4,17 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "a78f4139e9b1e128",
+        "id": "e2990c2c645da5f5",
         "type": "tabs",
         "children": [
           {
-            "id": "b03552c5e094114a",
+            "id": "c4d9c1904c118da0",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "999 Plugin Testing/statblock/Goblin Warrior.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -146,7 +146,7 @@
             }
           },
           {
-            "id": "cf3c2fead6c464bc",
+            "id": "f9ba23444c86f259",
             "type": "leaf",
             "state": {
               "type": "FANTASY_CALENDAR",
@@ -177,7 +177,7 @@
       "fantasy-calendar:Open Large Fantasy Calendar": false
     }
   },
-  "active": "b03552c5e094114a",
+  "active": "c4d9c1904c118da0",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/Goblin Warrior.md",
     "999 Plugin Testing/statblock/Lich Lord.md",
