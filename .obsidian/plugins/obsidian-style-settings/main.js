@@ -9573,6 +9573,7 @@ class CSSSettingsPlugin extends obsidian.Plugin {
         super(...arguments);
         this.settingsList = [];
         this.errorList = [];
+        this.commandList = [];
         this.debounceTimer = 0;
     }
     onload() {
@@ -9611,6 +9612,12 @@ class CSSSettingsPlugin extends obsidian.Plugin {
         clearTimeout(this.debounceTimer);
         this.settingsList = [];
         this.errorList = [];
+        // remove registered theme commands (sadly undocumented API)
+        for (const command of this.commandList) {
+            // @ts-ignore
+            this.app.commands.removeCommand(command.id);
+        }
+        this.commandList = [];
         this.debounceTimer = window.setTimeout(() => {
             const styleSheets = document.styleSheets;
             for (let i = 0, len = styleSheets.length; i < len; i++) {
@@ -9737,8 +9744,8 @@ class CSSSettingsPlugin extends obsidian.Plugin {
         }
     }
     addClassToggleCommand(section, setting) {
-        this.addCommand({
-            id: `settings-search-toggle-${section.id}-${setting.id}`,
+        this.commandList.push(this.addCommand({
+            id: `style-settings-class-toggle-${section.id}-${setting.id}`,
             name: `Toggle ${setting.title}`,
             callback: () => {
                 const value = !this.settingsManager.getSetting(section.id, setting.id);
@@ -9754,7 +9761,7 @@ class CSSSettingsPlugin extends obsidian.Plugin {
                     leaf.view.settingsMarkup.rerender();
                 }
             },
-        });
+        }));
     }
     onunload() {
         this.lightEl.remove();

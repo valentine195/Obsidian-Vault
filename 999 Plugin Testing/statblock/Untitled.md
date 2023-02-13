@@ -8,6 +8,9 @@ abc
 ```statblock
 
 name: Zombi Delle Ceneri
+extends:
+  - Archmage
+  - Ancient Black Dragon
 size: Gargantuan
 type: dragon
 subtype:
