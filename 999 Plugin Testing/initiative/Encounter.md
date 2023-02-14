@@ -3,11 +3,6 @@
 name: Korgstrod's Response Team
 creatures:
   - 5: [Bandit, Krentz]
-  - 1: [Bandit]
-  - 3: Duergar
-  - 1: Half-Ogre (Ogrillon)
-  - 2: Goblin
-  - 1: Gazer
 ```
 
 ```encounter

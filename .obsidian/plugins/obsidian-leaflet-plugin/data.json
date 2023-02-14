@@ -378,14 +378,14 @@
     {
       "id": "az",
       "locked": true,
-      "lastAccessed": 1675558451999,
+      "lastAccessed": 1676340198744,
       "markers": [
         {
           "id": "ID_8bb8a959899b",
           "type": "location",
           "loc": [
-            43.594493782742944,
-            -79.56915259940541
+            43.67581809328341,
+            -79.0576171875
           ],
           "link": "The Price of Revenge",
           "layer": "real",
@@ -484,11 +484,11 @@
   "long": -82.98333,
   "notePreview": true,
   "layerMarkers": true,
-  "previousVersion": "5.1.2",
+  "previousVersion": "5.2.0",
   "version": {
     "major": 5,
-    "minor": 1,
-    "patch": 2
+    "minor": 2,
+    "patch": 0
   },
   "warnedAboutMapMarker": false,
   "copyOnClick": true,

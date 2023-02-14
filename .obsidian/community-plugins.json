@@ -24,12 +24,12 @@
   "folder-note-plugin",
   "obsidian-notifier",
   "obsidian-prettier",
-  "obsidian-5e-statblocks",
   "obsidian-dice-roller",
   "rpg-manager",
   "initiative-tracker",
   "markdown-attributes",
   "obsidian-leaflet-plugin",
   "obsidian-textgenerator-plugin",
-  "fantasy-bestiary"
+  "fantasy-bestiary",
+  "obsidian-5e-statblocks"
 ]
