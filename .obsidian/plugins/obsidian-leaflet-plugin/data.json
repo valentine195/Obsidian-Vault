@@ -378,7 +378,7 @@
     {
       "id": "az",
       "locked": true,
-      "lastAccessed": 1676340198744,
+      "lastAccessed": 1676390242389,
       "markers": [
         {
           "id": "ID_8bb8a959899b",
@@ -388,6 +388,23 @@
             -79.0576171875
           ],
           "link": "The Price of Revenge",
+          "layer": "real",
+          "mutable": true,
+          "command": false,
+          "percent": null,
+          "description": null,
+          "minZoom": null,
+          "maxZoom": null,
+          "tooltip": "hover"
+        },
+        {
+          "id": "ID_cbc80819c81b",
+          "type": "location",
+          "loc": [
+            38.8077955129871,
+            -91.27921049155157
+          ],
+          "link": "Untitled 1",
           "layer": "real",
           "mutable": true,
           "command": false,
