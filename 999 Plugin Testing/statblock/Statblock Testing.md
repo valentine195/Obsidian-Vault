@@ -1,55 +1,70 @@
----
-created: Wednesday, November 24th 2021, 8:49:58 am
-modified: Tuesday, November 22nd 2022, 8:50:07 pm
-statblock: inline
-
----
-
 ```statblock
-layout: Test2e
-image: "[[bear.png]]"
-name: Barathar
-description: an awkward sunbear
-aspects: "
-  - Smuggler Queen of the Sindral Reach\n
-  - A Mostly Loyal Crew\n
-  - Remorse is For the Weak\n
-  - [[My Ship, The Death Dealer]]\n
-  - I've Got the Law in My Pocket"
-temporaryAspects: "
-  - Owes [[the PCs]] a favor\n
-  - Current owner of [[the MacGuffin]]"
-stress: [4, 5]
-consequences:
-  - name: Mild (2)
-    desc: "Formerly fractured bone is still healing"
-  - name: Moderate (4)
-    desc: ""
-  - name: Severe (6)
-    desc: ""
-skills:
-  - name: Fantastic (+6)
-    desc: "Deceive, Fight"
-  - name: Superb (+5)
-    desc: "Shoot, Burglary"
-  - name: Great (+4)
-    desc: "Resources, Will"
-  - name: Good (+3)
-    desc: "Contacts, Notice"
-  - name: Fair (+2)
-    desc: "Crafts, Stealth"
-  - name: Average (+1)
-    desc: "Lore, Physique"
-stunts:
-  - name: Takes One to Know One (Deceive)
-    desc: "Use Deceive instead of Empathy to create an advantage in social situations."
-  - name: Feint Master (Deceive)
-    desc: "+2 to use Deceive to create an advantage in a physical conflict."
-  - name: Riposte (Fight)
-    desc: "If you succeed with style on a Fight defense, you can choose to inflict a 2-shift hit rather than take a boost."
-items:
-  - name: sword +1
-    desc: ""
-  - name: leather armor +1
-    desc: "a scuffed [[leather armor]] with red linen undershirt"
+image: [[Ancient Black Dragon.jpg]]
+name: Ancient Black Dragon
+size: Gargantuan
+type: dragon
+subtype:
+alignment: chaotic evil
+ac: 22
+hp: 367
+hit_dice: 21d20
+speed: 40 ft., fly 80 ft., swim 40 ft.
+stats: [27, 14, 25, 16, 15, 19]
+saves:
+  - dexterity: 9
+  - constitution: 14
+  - wisdom: 9
+  - charisma: 11
+skillsaves:
+  - perception: 16
+  - stealth: 9
+senses: blindsight 60 ft., darkvision 120 ft., passive Perception 26
+languages: Common, Draconic
+damage_resistances: bludgeoning, piercing, and slashing from nonmagical attacks
+damage_immunities: fire, poison
+condition_immunities: charmed, frightened, grappled, paralyzed, petrified, poisoned, prone, restrained
+cr: 21
+traits:
+  - name: Amphibious
+    desc: The dragon can breathe air and water
+  - name: Legendary Resistance (3/Day)
+    desc: If the dragon fails a saving throw, it can choose to succeed instead.
+actions:
+  - name: Multiattack
+    desc: "The dragon can use its Frightful Presence. It then makes three attacks: one with its bite and two with its claws."
+  - name: Bite
+    desc: "Melee Weapon Attack: +15 to hit, reach 15 ft., one target. Hit: 19 (2d10 + 8) piercing damage plus 9 (2d8) acid damage."
+  - name: Claw
+    desc: "Melee Weapon Attack: +15 to hit, reach 10 ft., one target. Hit: 15 (2d6 + 8) slashing damage."
+  - name: Tail
+    desc: "Melee Weapon Attack: +15 to hit, reach 20 ft ., one target. Hit: 17 (2d8 + 8) bludgeoning damage."
+  - name: Frightful Presence
+    desc: "Each creature of the dragon's choice that is within 120 feet of the dragon and aware of it must succeed on a DC 19 Wisdom saving throw or become frightened for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the dragon's Frightful Presence for the next 24 hours."
+  - name: Acid Breath (Recharge 5-6)
+    desc: The dragon exhales acid in a 90-foot line that is 10 feet wide. Each creature in that line must make a DC 22 Dexterity saving throw, taking 67 (15d8) acid damage on a failed save, or half as much damage on a successful one.
+reactions:
+  - name: Amphibious
+    desc: The dragon can breathe air and water.
+  - name: Legendary Resistance (3/Day)
+    desc: If the dragon fails a saving throw, it can choose to succeed instead.
+legendary_actions:
+  - name: Detect
+    desc: The dragon makes a Wisdom (Perception) check.
+  - name: Tail Attack
+    desc: The dragon makes a tail attack.
+  - name: Wing Attack (Costs 2 Actions),
+    desc: The dragon beats its wings. Each creature within 15 ft. of the dragon must succeed on a DC 23 Dexterity saving throw or take 15 (2d6 + 8) bludgeoning damage and be knocked prone. The dragon can then fly up to half its flying speed.
+spells:
+  - The archmage is an 18th-level spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The archmage can cast disguise self and invisibility at will and has the following wizard spells prepared
+  - Cantrips (at will): fire bolt, light, mage hand, prestidigitation, shocking grasp
+  - 1st level (4 slots): detect magic, identify, mage armor*, magic missile
+  - 2nd level (3 slots): detect thoughts, mirror image, misty step
+  - 3rd level (3 slots): counterspell, fly, lightning bolt
+  - 4th level (3 slots): banishment, fire shield, stoneskin*
+  - 5th level (3 slots): cone of cold, scrying, wall of force
+  - 6th level (1 slot): globe of invulnerability
+  - 7th level (1 slot): teleport
+  - 8th level (1 slot): mind blank*
+  - 9th level (1 slot): time stop
+  - "* The archmage casts these spells on itself before combat."
 ```
