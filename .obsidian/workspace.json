@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "31e9cde5de1ad91d",
+        "id": "2451b29592555e98",
         "type": "tabs",
         "children": [
           {
-            "id": "1c472904bfdd646a",
+            "id": "9022cb82e68ed135",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
-                "mode": "preview",
-                "source": true
-              }
+              "type": "FANTASY_CALENDAR",
+              "state": {}
             }
           }
         ]
@@ -86,7 +82,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,9 +108,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "999 Plugin Testing/statblock/Statblock Testing.md"
-              }
+              "state": {}
             }
           },
           {
@@ -124,26 +117,9 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "999 Plugin Testing/statblock/Statblock Testing.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
-            }
-          },
-          {
-            "id": "71d669b9d9630756",
-            "type": "leaf",
-            "state": {
-              "type": "FANTASY_CALENDAR",
-              "state": {}
-            }
-          },
-          {
-            "id": "05f889969759c144",
-            "type": "leaf",
-            "state": {
-              "type": "initiative-tracker-view",
-              "state": {}
             }
           },
           {
@@ -153,14 +129,29 @@
               "type": "DICE_ROLLER_VIEW",
               "state": {}
             }
+          },
+          {
+            "id": "0edc0979636fc696",
+            "type": "leaf",
+            "state": {
+              "type": "initiative-tracker-view",
+              "state": {}
+            }
+          },
+          {
+            "id": "685f898f69fbe228",
+            "type": "leaf",
+            "state": {
+              "type": "FANTASY_CALENDAR",
+              "state": {}
+            }
           }
         ],
-        "currentTab": 4
+        "currentTab": 6
       }
     ],
     "direction": "horizontal",
-    "width": 501.5,
-    "collapsed": true
+    "width": 299.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -175,23 +166,23 @@
       "obsidian-textgenerator-plugin:Generate Text!": false,
       "obsidian-textgenerator-plugin:Text Generator: Templates Packages Manager": false,
       "rpg-manager:RPG Manager": false,
-      "fantasy-calendar:Open Large Fantasy Calendar": false,
-      "obsidian-leaflet-plugin:Open Leaflet Map": false
+      "obsidian-leaflet-plugin:Open Leaflet Map": false,
+      "fantasy-calendar:Open Large Fantasy Calendar": false
     }
   },
-  "active": "1c472904bfdd646a",
+  "active": "9022cb82e68ed135",
   "lastOpenFiles": [
+    "999 Plugin Testing/initiative/Encounter.md",
+    "999 Plugin Testing/statblock/Statblock Testing.md",
     "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md",
     "999 Plugin Testing/statblock/Goblin Warrior.md",
     "999 Plugin Testing/statblock/Moghorn.md",
-    "999 Plugin Testing/statblock/Statblock Testing.md",
     "99 Assets/Templates/statblock.md",
     "999 Plugin Testing/dice/Dice Roller.md",
     "999 Plugin Testing/map/Map.md",
     "Pasted image 20230214105130.png",
     "Pasted image 20230214105048.png",
     "Pasted image 20230214105038.png",
-    "999 Plugin Testing/initiative/Encounter.md",
     "1676337181211 - Combat.md",
     "Untitled 1.md",
     "999 Plugin Testing/statblock/Untitled.md",

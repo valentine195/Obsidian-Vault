@@ -1,6 +1,7 @@
 
 ```encounter
 name: Korgstrod's Response Team
+party: Test
 creatures:
   - 5: [Bandit, Krentz]
 ```
@@ -72,7 +73,7 @@ creatures:
 ---
 
 name: Example 4
-party: Other
+party: Test
 creatures:
  - 1d5: Hobgoblin
  - 5d5: Goblin
