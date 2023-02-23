@@ -1,4 +1,19 @@
 ```statblock
+name: Ancient Black Dragon
+race: Dragon
+layout: IfElseTest
+ac: 6
+```
+
+```statblock
+name: Ancient Black Dragon
+race: Dragon
+layout: IfElseTest
+ac: 4
+```
+
+%%
+```statblock
 image: [[Ancient Black Dragon.jpg]]
 name: Ancient Black Dragon
 size: Gargantuan
