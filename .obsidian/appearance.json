@@ -26,7 +26,8 @@
     "float.ribbon",
     "fonts",
     "fonts.faces",
-    "pf2e-statblock"
+    "pf2e-statblock",
+    "its-callouts"
   ],
   "theme": "obsidian",
   "interfaceFontFamily": "Quicksand",

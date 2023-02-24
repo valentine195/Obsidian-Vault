@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "727f162901c75552",
+        "id": "3c30b9a8cc8fcfb1",
         "type": "tabs",
         "children": [
           {
-            "id": "189768c31884ed09",
+            "id": "1e06a9a924caf3d1",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -159,7 +159,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -178,9 +179,10 @@
       "fantasy-calendar:Open Large Fantasy Calendar": false
     }
   },
-  "active": "189768c31884ed09",
+  "active": "1e06a9a924caf3d1",
   "lastOpenFiles": [
     "999 Plugin Testing/statblock/Statblock Testing.md",
+    "999 Plugin Testing/statblock/Lich_Lord.md",
     "Untitled.canvas",
     "999 Plugin Testing/initiative/Encounter.md",
     "999 Plugin Testing/statblock/Ancient_Sky_Dragon.md",

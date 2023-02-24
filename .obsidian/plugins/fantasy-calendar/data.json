@@ -2,421 +2,453 @@
   "addToDefaultIfMissing": true,
   "calendars": [
     {
-      "name": "Gregorian Calendar",
-      "description": "A calendar for the real world.",
-      "autoParse": false,
+      "name": "Calendar of Harptos",
+      "description": "Calendar of Faerûn of the Forgotten Realms.",
+      "autoParse": true,
       "path": "/",
       "supportTimelines": false,
       "syncTimelines": false,
       "timelineTag": "#timeline",
       "static": {
-        "displayDayNumber": false,
-        "incrementDay": true,
+        "displayDayNumber": true,
+        "firstWeekDay": 0,
+        "incrementDay": false,
         "displayMoons": true,
-        "firstWeekDay": 1,
-        "overflow": true,
+        "overflow": false,
         "weekdays": [
           {
             "type": "day",
-            "name": "Sunday",
-            "id": "ID_19ea684b4a08"
+            "name": "I",
+            "id": "ID_9999882bb94a"
           },
           {
             "type": "day",
-            "name": "Monday",
-            "id": "ID_2928b90ab949"
+            "name": "II",
+            "id": "ID_8a0b4b79d888"
           },
           {
             "type": "day",
-            "name": "Tuesday",
-            "id": "ID_0ad9a8f9e95b"
+            "name": "III",
+            "id": "ID_da483aca8bf9"
           },
           {
             "type": "day",
-            "name": "Wednesday",
-            "id": "ID_195a4b290bc9"
+            "name": "IV",
+            "id": "ID_a8fbea39cac8"
           },
           {
             "type": "day",
-            "name": "Thursday",
-            "id": "ID_abe8c89b0999"
+            "name": "V",
+            "id": "ID_9b19d9787b0b"
           },
           {
             "type": "day",
-            "name": "Friday",
-            "id": "ID_2b5b8a79fa4a"
+            "name": "VI",
+            "id": "ID_382a590a8a28"
           },
           {
             "type": "day",
-            "name": "Saturday",
-            "id": "ID_1a78cb79c8cb"
+            "name": "VII",
+            "id": "ID_fbca0ab80afb"
+          },
+          {
+            "type": "day",
+            "name": "VIII",
+            "id": "ID_ca093bca5ad9"
+          },
+          {
+            "type": "day",
+            "name": "IX",
+            "id": "ID_d95b39098bf8"
+          },
+          {
+            "type": "day",
+            "name": "X",
+            "id": "ID_389bfb5858db"
           }
         ],
         "months": [
           {
-            "name": "January",
-            "type": "month",
-            "length": 31,
-            "id": "ID_e9997a780b3a"
-          },
-          {
-            "name": "February",
-            "type": "month",
-            "length": 28,
-            "id": "ID_b8c9ebeb0b89"
-          },
-          {
-            "name": "March",
-            "type": "month",
-            "length": 31,
-            "id": "ID_b83bda2b9be8"
-          },
-          {
-            "name": "April",
+            "name": "Hammer (Deepwinter)",
             "type": "month",
             "length": 30,
-            "id": "ID_29baea7b28ab"
+            "id": "ID_cbeb4b190b6a"
           },
           {
-            "name": "May",
-            "type": "month",
-            "length": 31,
-            "id": "ID_6a3899fad909"
+            "name": "Midwinter",
+            "type": "intercalary",
+            "length": 1,
+            "id": "ID_89bad9089b7b"
           },
           {
-            "name": "June",
-            "type": "month",
-            "length": 30,
-            "id": "ID_384aeb1afa8a"
-          },
-          {
-            "name": "July",
-            "type": "month",
-            "length": 31,
-            "id": "ID_48b8cba87b8a"
-          },
-          {
-            "name": "August",
-            "type": "month",
-            "length": 31,
-            "id": "ID_fa0b1a6bab8a"
-          },
-          {
-            "name": "September",
+            "name": "Alturiak (The Claw of Winter)",
             "type": "month",
             "length": 30,
-            "id": "ID_da880b8af849"
+            "id": "ID_6a08a8aacb7b"
           },
           {
-            "name": "October",
-            "type": "month",
-            "length": 31,
-            "id": "ID_babba8186968"
-          },
-          {
-            "name": "November",
+            "name": "Ches (The Claw of the Sunsets)",
             "type": "month",
             "length": 30,
-            "id": "ID_da582bfaf9b9"
+            "id": "ID_db2a7bf97afa"
           },
           {
-            "name": "December",
+            "name": "Tarsakh (The Claw of Storms)",
             "type": "month",
-            "length": 31,
-            "id": "ID_ba1bab4a3a28"
+            "length": 30,
+            "id": "ID_6b48982b0bda"
+          },
+          {
+            "name": "Greengrass",
+            "type": "intercalary",
+            "length": 1,
+            "id": "ID_08790af92809"
+          },
+          {
+            "name": "Mirtul (The Melting)",
+            "type": "month",
+            "length": 30,
+            "id": "ID_b91b39f95a28"
+          },
+          {
+            "name": "Kythorn (The Time of Flowers)",
+            "type": "month",
+            "length": 30,
+            "id": "ID_f8e9585a2bf8"
+          },
+          {
+            "name": "Flamerule (Summertide)",
+            "type": "month",
+            "length": 30,
+            "id": "ID_fa895bdb38e9"
+          },
+          {
+            "name": "Midsummer",
+            "type": "intercalary",
+            "length": 1,
+            "id": "ID_a9181b5a683a"
+          },
+          {
+            "name": "Eleasis (Highsun)",
+            "type": "month",
+            "length": 30,
+            "id": "ID_1b1b1b287b0a"
+          },
+          {
+            "name": "Eleint (The Fading)",
+            "type": "month",
+            "length": 30,
+            "id": "ID_1aca5918993a"
+          },
+          {
+            "name": "Highharvestide",
+            "type": "intercalary",
+            "length": 1,
+            "id": "ID_a94a183b4b88"
+          },
+          {
+            "name": "Marpenoth (Leaffall)",
+            "type": "month",
+            "length": 30,
+            "id": "ID_58d97969eb79"
+          },
+          {
+            "name": "Uktar (The Rotting)",
+            "type": "month",
+            "length": 30,
+            "id": "ID_4b090b787b18"
+          },
+          {
+            "name": "The Feast of the Moon",
+            "type": "intercalary",
+            "length": 1,
+            "id": "ID_1b0ae8dbdb4a"
+          },
+          {
+            "name": "Nightal (The Drawing Down)",
+            "type": "month",
+            "length": 30,
+            "id": "ID_abb82afab80a"
           }
         ],
         "moons": [
           {
-            "name": "Moon",
-            "cycle": 29.530588853,
-            "offset": 9.24953,
+            "name": "Selúne",
+            "cycle": 30.4375,
+            "offset": 13.9,
             "faceColor": "#ffffff",
             "shadowColor": "#000000",
-            "id": "ID_a9ab186b1819"
+            "id": "ID_48ea2a69a888"
+          },
+          {
+            "name": "Luna",
+            "cycle": 38,
+            "offset": null,
+            "faceColor": "#709bff",
+            "shadowColor": "#000",
+            "id": "ID_5b1a49fa0979"
           }
         ],
         "leapDays": [
           {
-            "name": "Leap Day",
+            "name": "Shieldsmeet",
             "type": "leapday",
             "interval": [
               {
                 "ignore": false,
                 "exclusive": false,
                 "interval": 4
-              },
-              {
-                "ignore": false,
-                "exclusive": true,
-                "interval": 100
-              },
-              {
-                "ignore": false,
-                "exclusive": false,
-                "interval": 400
               }
             ],
             "offset": 0,
-            "timespan": 1,
+            "timespan": 9,
             "intercalary": false,
-            "id": "ID_b91ad86a887a"
+            "id": "ID_5b08faa88ada"
           }
         ],
-        "eras": [
-          {
-            "name": "Before Christ",
-            "format": "Year {{abs_year}} - {{era_name}}",
-            "start": {
-              "year": -1,
-              "month": 0,
-              "day": 31
-            },
-            "id": "ID_9a2978c92baa",
-            "restart": false,
-            "endsYear": false,
-            "event": false
-          },
-          {
-            "name": "Anno Domini",
-            "format": "Year {{year}} - {{era_name}}",
-            "start": {
-              "year": 1,
-              "month": 0,
-              "day": 1
-            },
-            "id": "ID_a8db38899a2b",
-            "restart": false,
-            "endsYear": false,
-            "event": false
-          }
-        ],
-        "offset": 0
+        "eras": []
       },
       "current": {
-        "year": 2023,
-        "month": 1,
-        "day": 22
+        "day": 3,
+        "month": 11,
+        "year": 1491
       },
       "events": [
         {
-          "name": "Summer Solstice",
-          "description": "At the summer solstice, the Sun travels the longest path through the sky, and that day therefore has the most daylight.",
-          "id": "824599",
-          "note": null,
-          "date": {
-            "day": null,
-            "year": null,
-            "month": null
-          },
-          "category": null
-        },
-        {
           "name": "Winter Solstice",
-          "description": "The winter solstice marks the shortest day and longest night of the year, when the sun is at its lowest arc in the sky.",
-          "id": "824600",
+          "description": null,
+          "id": "824588",
           "note": null,
           "date": {
             "day": null,
             "year": null,
             "month": null
           },
-          "category": null
+          "category": "natural-events"
         },
         {
-          "name": "Spring Equinox",
-          "description": "The equinox marks the day and the night is equally as long.",
-          "id": "824601",
+          "name": "Vernal Equinox",
+          "description": null,
+          "id": "824589",
           "note": null,
           "date": {
             "day": null,
             "year": null,
             "month": null
           },
-          "category": null
+          "category": "natural-events"
         },
         {
-          "name": "Autumn Equinox",
-          "description": "The equinox marks the day and the night is equally as long.",
-          "id": "824602",
+          "name": "Summer Solstice",
+          "description": null,
+          "id": "824590",
           "note": null,
           "date": {
             "day": null,
             "year": null,
             "month": null
           },
-          "category": null
+          "category": "natural-events"
         },
         {
-          "name": "Paschal Full Moon",
-          "description": "The first full moon after march 21st, which is considered the fixed date for the spring equinox.",
-          "id": "824604",
+          "name": "Autumnal Equinox",
+          "description": null,
+          "id": "824591",
           "note": null,
           "date": {
             "day": null,
             "year": null,
             "month": null
           },
-          "category": "christian-holidays"
+          "category": "natural-events"
         },
         {
-          "name": "Easter",
-          "description": "Easter is considered the most important feast for Christians, celebrating the resurrection of Christ. It is classed as a moveable feast occurring on the first full moon after the spring equinox, which is considered to be fixed at March 21st for the sake of computing the date.",
-          "id": "824605",
-          "note": null,
-          "date": {
-            "day": null,
-            "year": null,
-            "month": null
-          },
-          "category": "christian-holidays"
-        },
-        {
-          "name": "Easter Monday",
-          "description": "The Monday following the Easter Sunday is often considered part of the Easter Celebration and is a day off in many countries with a strong Christian tradition.",
-          "id": "824606",
-          "note": null,
-          "date": {
-            "day": null,
-            "year": null,
-            "month": null
-          },
-          "category": "christian-holidays"
-        },
-        {
-          "name": "Good Friday",
-          "description": "Good Friday is the Friday preceding Easter. It comemmorates the crucifixion of Christ according to the Bible.",
-          "id": "824607",
-          "note": null,
-          "date": {
-            "day": null,
-            "year": null,
-            "month": null
-          },
-          "category": "christian-holidays"
-        },
-        {
-          "name": "Pentecost",
-          "description": "Celebrated exactly 50 days after Easter, Pentecost is the celebration of the Holy Spirit appearing before the Apostles as described in the Bible.",
-          "id": "824608",
-          "note": null,
-          "date": {
-            "day": null,
-            "year": null,
-            "month": null
-          },
-          "category": "christian-holidays"
-        },
-        {
-          "name": "New Year's Day",
-          "description": "New Year's Day marks the start of a new year on the Gregorian Calendar. It starts when the clock strikes midnight and is often celebrated with fireworks, champagne and kissing.",
-          "id": "824609",
+          "name": "Midwinter",
+          "description": "Midwinter (also known as Deadwinter Day) was a festival to mark the midpoint of winter in the Calendar of Harptos. It occured on a special day between Hammer 30 and Alturiak 1. Amongst nobles and monarchs it was known as Midwinter and was traditionally used to make or renew alliances, although the common people called it Deadwinter Day, a reference to the cold and hard times that remained before the spring.\n\nOn Midwinter Day the Red Fellowship of the Deity known as the Red Knight observes the Retreat. This solemn ceremony consists of an assembly wherein the clergy discuss the previous year's campaigns. Strategies are discussed, battles analyzed, and the accumulated lore integrated into the church's teachings.\n\nThe holiest day of the year for the Church of Shevarash is Midwinter Night, during which the Dark Court Slaughter is remembered. Inductions into the ranks of the clergy occur at this time. Each new cleric screams vows of vengeance into the night air and swears neither to laugh nor smile until the Spider Queen and her followers are no more.",
+          "id": "824596",
           "note": null,
           "date": {
             "day": 1,
             "year": null,
-            "month": 0
-          },
-          "category": "secular-holidays"
-        },
-        {
-          "name": "Valentine's Day",
-          "description": "Valentine's day is a celebration of love and romance that is popular across the world. Many more cynically minded people mostly consider it an attempt to monetize the expectation of romantic gestures on the holiday through gift cards, flowers, chocolate and dates.",
-          "id": "824610",
-          "note": null,
-          "date": {
-            "day": 14,
-            "year": null,
             "month": 1
           },
-          "category": "secular-holidays"
+          "category": "festivals"
         },
         {
-          "name": "Halloween",
-          "description": "Halloween is holiday popular in the US, Canada and Ireland that has gradually been adopted by more and more countries. It is often celebrated by people dressing up, usually as something scary. Children will often go from door to door shouting \"trick or treat\" in the hopes of receiving candy, while adults tend to go to parties.",
-          "id": "824611",
+          "name": "Greengrass",
+          "description": "Greengrass was a festival to welcome in the first day of spring in the Calendar of Harptos. It occured annually on a special day between Tarsakh 30 and Mirtul 1. Traditionally, the wealthier people brought out flowers to give to the less wealthy, who either wore them or spread them on the ground to encourage the deities to usher in the summer.",
+          "id": "824595",
           "note": null,
           "date": {
-            "day": 31,
+            "day": 1,
             "year": null,
-            "month": 9
-          },
-          "category": "secular-holidays"
-        },
-        {
-          "name": "Christmas",
-          "description": "Christmas is a Christian holiday celebrating the birth of Christ. Due to a combination of marketability and long lasting traditions it is popular even among many non-Christians, especially in countries that have a strong Christian tradition.",
-          "id": "824603",
-          "note": null,
-          "date": {
-            "day": 25,
-            "year": null,
-            "month": 11
-          },
-          "category": "christian-holidays"
-        },
-        {
-          "name": "Introduction of the Gregorian Calendar",
-          "description": "On this day in 1582 the Gregorian calendar was officially introduced, following Thursday October 4th on the Julian Calendar",
-          "id": "824614",
-          "note": null,
-          "date": {
-            "day": 15,
-            "year": 1582,
-            "month": 9
-          },
-          "category": "historical-events"
-        },
-        {
-          "name": "Work on the first version of this calendar started.",
-          "description": "Aecius started work on the first version Gregorian Calendar for Fantasy Calendar on this day.",
-          "id": "824612",
-          "note": null,
-          "date": {
-            "day": 23,
-            "year": 2019,
             "month": 5
           },
-          "category": "miscellaneous-events"
+          "category": "festivals"
         },
         {
-          "name": "Work on this version of the Gregorian Calendar started.",
-          "description": "On this day, Aecius started to rework the Gregorian Calendar from scratch to make it work with the updates Wasp and Alex implemented since the summer of 2019.",
-          "id": "824613",
+          "name": "Midsummer",
+          "description": "Midsummer was a festival that celebrated love and music through feast. It occurred between Flamerule 30 and Eleasis 1 on the Calendar of Harptos. It was a time when love advanced, and it was said the deities themselves took a hand to ensure good weather. If bad weather was experienced on this night it was considered an extremely bad omen. Shieldmeet occurred the day after Midsummer on leap years.",
+          "id": "824597",
           "note": null,
           "date": {
-            "day": 21,
-            "year": 2020,
-            "month": 0
+            "day": 1,
+            "year": null,
+            "month": 9
           },
-          "category": "miscellaneous-events"
+          "category": "festivals"
         },
         {
-          "name": "Untitled 1",
-          "description": null,
+          "name": "Shieldmeet",
+          "description": "Shieldmeet was the equivalent of a leap year day in the Calendar of Harptos, occurring once every four years, adding a day after the festival of Midsummer and before Eleasis 1. Traditionally the day was used for fairs, bazaars, musical and theatrical performances, and tournaments of skill and magical ability. Nobles usually held court to hear the petitions of their people and to make or renew trade pacts, alliances, and agreements. Shieldmeet was known as Cinnaelos'Cor (also seen as Cinnaeloscor), \"the Day of Corellon's Peace\" in elvish and marked the end of an aeloulaev and the beginning of a new one in the elven Aryselmalyn calendar.",
+          "id": "824592",
+          "note": null,
           "date": {
-            "day": 17,
-            "month": 1,
-            "year": 2023
+            "day": 2,
+            "year": null,
+            "month": 9
           },
-          "id": "ID_5bda68399968",
-          "note": "Untitled 1",
+          "category": "festivals"
+        },
+        {
+          "name": "Highharvesttide",
+          "description": "Highharvestide was an annual festival in the Calendar of Harptos, taking place between 30 Eleint and 1 Marpenoth. It was traditionally a feast to celebrate the harvest and the abundance of food, but also the time when those wishing to travel left on their journeys before winter set in.\n\nPreparations for the feast started as early as a tenday before, while preparing, cooking, and preserving the harvest for the cold winter months. Traditions varied from community to community, but examples of festive activity included food-related contests; races and challenges of skill and strength; receiving homemade sweets from the local clergy; and priests blessing larders, wine cellars, grain bins, and food preserves.\n\nThis day was often an important anniversary to various governments. Often, taxes and tithes came due, rulers held \"open courts\" to hear the concerns of their citizens, oaths were publicly renewed, troops received marching orders to new duty stations, and guilds met to confer on prices and rate changes for goods and services.\n\nAccording to tradition, dwarves only drank water and elves drank only dew on this day. However, these traditions began to fade in the 14th and 15th century DR.\n\nIt was said that children born on this day were favored by Tymora to have lifelong good luck but be smitten with wanderlust. Another legend was that human females born on this day had control over their reproductive system (i.e., got pregnant only when they wanted to) by force of will alone, and that they could instantly sense when they had been poisoned, either by ingestion or being bitten by a venomous creature for example.",
+          "id": "824594",
+          "note": null,
+          "date": {
+            "day": 1,
+            "year": null,
+            "month": 12
+          },
+          "category": "festivals"
+        },
+        {
+          "name": "Feast of the Moon",
+          "description": "The Feast of the Moon, or Moonfest, was an annual festival in the Calendar of Harptos, occurring between the final night of Uktar and the first day of Nightal. It was the last great festival of the calendar year.\n\nThe day traditionally marked the onset of winter. It was also a time to celebrate and honor the ancestors and the respected dead. On this day, folk blessed their ancestors' graves and performed the Ritual of Remembrance. People also gathered to tell stories of the deeds of their ancestors and of the gods until deep into the night, until they merged and became legend. This was a time to hear of past heroes, great treasures, and lost cities.\n\nIn FaerÃƒÂ»n, battles were typically fought between harvest-time and the coming of winter. This meant that most of the fighting usually occurred in the month of Uktar. The timing of the Feast of the MoonÃ¢â‚¬â€after recently slain soldiers had joined the ranks of the deadÃ¢â‚¬â€was thus practical, if sadly ironic.\n\nThe Heralds of FaerÃƒÂ»n had a number of special duties on the Feast of the Moon. Prime among these was to perform the Bloodsong ceremony, at which a Herald publicly recited the genealogies of each noble family in the area. In this way, the Heralds reaffirmed a noble family's traditional authority and status, as well as the respect accorded to them.\n\nPriests of a number of deities of various pantheons held rites, ceremonies, and festivals on the Feast of the Moon. Many, though not all, focused on remembering the dead in one way or another.",
+          "id": "824593",
+          "note": null,
+          "date": {
+            "day": 1,
+            "year": null,
+            "month": 15
+          },
+          "category": "festivals"
+        },
+        {
+          "name": "Sickday",
+          "description": "Furnie and Sol get sick",
+          "date": {
+            "day": 6,
+            "month": 10,
+            "year": 1491
+          },
+          "id": "ID_5979b9a8a848",
+          "note": null,
           "category": null
         },
         {
-          "name": "Pasted image 20230214105130",
+          "name": "Finish up in Hommlet",
+          "description": "",
+          "date": {
+            "day": 14,
+            "month": 10,
+            "year": 1491
+          },
+          "id": "ID_d889287ab96a",
+          "note": null,
+          "category": null
+        },
+        {
+          "name": "Walls completed",
           "description": null,
           "date": {
-            "day": 7,
-            "month": 1,
-            "year": 2023
+            "day": 30,
+            "month": 10,
+            "year": 1491
           },
-          "id": "ID_aacb98f83a5a",
-          "note": "Pasted image 20230214105130",
+          "id": "ID_c93908798b6a",
+          "note": null,
           "category": null
+        },
+        {
+          "name": "Keep Completed",
+          "description": null,
+          "date": {
+            "day": 5,
+            "month": 13,
+            "year": 1491
+          },
+          "id": "ID_4b090b8969b9",
+          "note": null,
+          "category": null
+        },
+        {
+          "id": "ID_f848a8aa8938",
+          "name": "abc",
+          "note": "999 Plugin Testing/calendar/abc.md",
+          "date": {
+            "year": 2022,
+            "month": 0,
+            "day": 3
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_8ab98acba8c8",
+          "name": "abcd",
+          "note": "999 Plugin Testing/calendar/abcd.md",
+          "date": {
+            "year": 2022,
+            "month": 0,
+            "day": 4
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_d8687a9b3938",
+          "name": "abcde",
+          "note": "999 Plugin Testing/calendar/abcde.md",
+          "date": {
+            "year": 2022,
+            "month": 0,
+            "day": 8
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_184bb8c81b49",
+          "name": "npc-events",
+          "note": "999 Plugin Testing/calendar/npc-events.md",
+          "date": {
+            "year": 837,
+            "month": 1,
+            "day": 27
+          },
+          "end": null,
+          "description": "",
+          "auto": true
+        },
+        {
+          "id": "ID_99b8e98a4bcb",
+          "name": "2021-1-1",
+          "note": "999 Plugin Testing/calendar/event notes/2021-1-1.md",
+          "date": {
+            "year": 2021,
+            "month": 0,
+            "day": 1
+          },
+          "end": null,
+          "description": "",
+          "auto": true
         }
       ],
-      "id": "ID_4a399bebc8b9",
+      "id": "ID_fa0a9a5b4a48",
       "categories": [
         {
           "name": "Natural Events",
@@ -424,34 +456,18 @@
           "color": "#2E7D32"
         },
         {
-          "name": "Christian Holidays",
-          "id": "christian-holidays",
+          "name": "Festivals",
+          "id": "festivals",
           "color": "#9b2c2c"
-        },
-        {
-          "name": "Secular Holidays",
-          "id": "secular-holidays",
-          "color": "#0D47A1"
-        },
-        {
-          "name": "Historical Events",
-          "id": "historical-events",
-          "color": "#455A64"
-        },
-        {
-          "name": "Miscellaneous Events",
-          "id": "miscellaneous-events",
-          "color": "#0288D1"
         }
-      ],
-      "date": 1677090254987
+      ]
     }
   ],
   "configDirectory": null,
   "currentCalendar": null,
   "dailyNotes": false,
   "dateFormat": "YYYY-MM-DD",
-  "defaultCalendar": "ID_4a399bebc8b9",
+  "defaultCalendar": "ID_fa0a9a5b4a48",
   "eventPreview": false,
   "exit": {
     "saving": false,
@@ -462,14 +478,14 @@
   "parseDates": false,
   "settingsToggleState": {
     "calendars": true,
-    "events": false,
+    "events": true,
     "advanced": true
   },
   "showIntercalary": false,
   "version": {
-    "major": 2,
-    "minor": 3,
-    "patch": 10
+    "major": null,
+    "minor": null,
+    "patch": null
   },
   "debug": false
 }
