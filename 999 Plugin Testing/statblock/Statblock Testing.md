@@ -5,6 +5,7 @@ name: Ancient Black Dragon
 race: Dragon
 layout: IfElseTest
 ac: 6
+hp: 12
 ```
 
 ```statblock
